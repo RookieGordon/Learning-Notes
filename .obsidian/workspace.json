@@ -69,7 +69,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 200
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -146,7 +146,7 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "3980a1c1a27a1a1d",
+  "active": "12a5b8956affcfe9",
   "lastOpenFiles": [
     "Welcome.md",
     "TA养成之路/测试.md",
