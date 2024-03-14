@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Notion/C++/C++.md",
+                "file": "Notion/C++/章节笔记/数据结构/数据结构.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Notion/C++/C++.md",
+                "file": "Notion/C++/章节笔记/数据结构/数据结构.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Notion/C++/C++.md",
+                "file": "Notion/C++/章节笔记/数据结构/数据结构.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Notion/C++/C++.md"
+                "file": "Notion/C++/章节笔记/数据结构/数据结构.md"
               }
             }
           }
@@ -133,8 +133,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -150,9 +149,9 @@
   "active": "12a5b8956affcfe9",
   "lastOpenFiles": [
     "Notion/C++/章节笔记/输入输出流小结.md",
+    "Notion/C++/章节笔记/数据结构/数据结构.md",
     "Notion/C++/C++.md",
     "Untitled.png",
-    "Notion/C++/章节笔记/数据结构/数据结构.md",
     "TA养成之路/测试.md",
     "screenshot-1709966542264.png",
     "screenshot-20240311-100346.png",
