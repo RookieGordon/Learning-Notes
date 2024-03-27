@@ -10,6 +10,7 @@
           {
             "id": "49c5ff0d99d2ff14",
             "type": "tabs",
+            "dimension": 67.47430249632893,
             "children": [
               {
                 "id": "286e2fc1be61bd5f",
@@ -28,6 +29,7 @@
           {
             "id": "ebfff7ff98c350fb",
             "type": "tabs",
+            "dimension": 32.52569750367107,
             "children": [
               {
                 "id": "1dcae0997fa54ead",
@@ -94,7 +96,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 298.5
+    "width": 200
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -159,7 +161,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 203.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -172,12 +174,12 @@
       "obsidian-importer:Open Importer": false
     }
   },
-  "active": "1dcae0997fa54ead",
+  "active": "286e2fc1be61bd5f",
   "lastOpenFiles": [
-    "Resource/screenshot-1711522320247.png",
-    "Resource",
-    "screenshot-1711522320247.png",
+    "C++/Resource/screenshot-1711522320247.png",
     "C++/内存管理.md",
+    "C++/resources",
+    "screenshot-1711522320247.png",
     "C++/数据结构.md",
     "。Resource",
     "新建文件夹",
