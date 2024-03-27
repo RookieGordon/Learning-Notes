@@ -4,49 +4,22 @@
     "type": "split",
     "children": [
       {
-        "id": "48e43fb1ce984ea7",
-        "type": "split",
+        "id": "49c5ff0d99d2ff14",
+        "type": "tabs",
         "children": [
           {
-            "id": "49c5ff0d99d2ff14",
-            "type": "tabs",
-            "dimension": 55.13950073421439,
-            "children": [
-              {
-                "id": "286e2fc1be61bd5f",
-                "type": "leaf",
-                "state": {
-                  "type": "markdown",
-                  "state": {
-                    "file": "C++/数据结构.md",
-                    "mode": "source",
-                    "source": false
-                  }
-                }
+            "id": "286e2fc1be61bd5f",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "C++/数据结构.md",
+                "mode": "preview",
+                "source": false
               }
-            ]
-          },
-          {
-            "id": "ebfff7ff98c350fb",
-            "type": "tabs",
-            "dimension": 44.860499265785606,
-            "children": [
-              {
-                "id": "1dcae0997fa54ead",
-                "type": "leaf",
-                "state": {
-                  "type": "markdown",
-                  "state": {
-                    "file": "C++/数据结构.md",
-                    "mode": "preview",
-                    "source": false
-                  }
-                }
-              }
-            ]
+            }
           }
-        ],
-        "direction": "horizontal"
+        ]
       }
     ],
     "direction": "vertical"
@@ -96,7 +69,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 265.5
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -174,7 +147,7 @@
       "obsidian-importer:Open Importer": false
     }
   },
-  "active": "1dcae0997fa54ead",
+  "active": "3980a1c1a27a1a1d",
   "lastOpenFiles": [
     "C++/内存管理.md",
     "C++/数据结构.md",
