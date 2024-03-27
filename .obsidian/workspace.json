@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "C++/数据结构.md",
+                "file": "C++/内存管理.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "C++/数据结构.md",
+                "file": "C++/内存管理.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "C++/数据结构.md",
+                "file": "C++/内存管理.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "C++/数据结构.md"
+                "file": "C++/内存管理.md"
               }
             }
           }
@@ -149,12 +149,15 @@
   },
   "active": "286e2fc1be61bd5f",
   "lastOpenFiles": [
+    "screenshot-1711522320247.png",
+    "C++/数据结构.md",
+    "。Resource",
+    "Resource",
+    "新建文件夹",
     "C++/类和对象.md",
     "C++/内存管理.md",
     "C++/images",
     "C++/输入输出流小结.md",
-    "C++/数据结构.md",
-    "screenshot-1711522320247.png",
     "C++/C++.canvas",
     "C++/C++.md",
     "技术美术入门/技术美术入门.md",
@@ -190,9 +193,6 @@
     "Notion/Reading List & Notes/笔记本/C++/数据结构",
     "Notion/Reading List & Notes/笔记本/C++/章节笔记",
     "计算机图形学—从0开始构建一个OpenGL软光栅/章节笔记",
-    "Notion/Reading List & Notes/笔记本/C++软件光栅器",
-    "Building Quality Shaders for Unity",
-    "C++",
-    "【Unity技术美术】URP Shader训练营"
+    "Notion/Reading List & Notes/笔记本/C++软件光栅器"
   ]
 }
