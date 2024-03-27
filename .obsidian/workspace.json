@@ -11,14 +11,11 @@
             "id": "286e2fc1be61bd5f",
             "type": "leaf",
             "state": {
-              "type": "canvas",
+              "type": "markdown",
               "state": {
-                "file": "C++/C++.canvas",
-                "viewState": {
-                  "x": -175.5,
-                  "y": 732,
-                  "zoom": -0.18805246591337071
-                }
+                "file": "C++/类和对象.md",
+                "mode": "source",
+                "source": false
               }
             }
           }
@@ -72,7 +69,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 265.5
+    "width": 356.5
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -88,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "C++/C++.canvas",
+                "file": "C++/类和对象.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -105,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "C++/C++.canvas",
+                "file": "C++/类和对象.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -128,16 +125,16 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "C++/C++.canvas"
+                "file": "C++/类和对象.md"
               }
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 609.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -152,19 +149,22 @@
   },
   "active": "286e2fc1be61bd5f",
   "lastOpenFiles": [
-    "C++/resources/v2-c588407790ea147c72cb5af9e8eeae4c_b.jpg",
+    "clas.md",
+    "C++/类和对象.md",
+    "C++/输入输出流小结.md",
     "C++/数据结构.md",
-    "C++/resources/2024-03-27-17-21-56.png",
     "C++/内存管理.md",
+    "Untitled 2.png.md",
+    "C++/resources/2024-03-27-17-27-43.png",
     "C++/C++.canvas",
+    "C++/resources/v2-c588407790ea147c72cb5af9e8eeae4c_b.jpg",
+    "C++/resources/2024-03-27-17-21-56.png",
     "C++/Resource/screenshot-1711522320247.png",
     "C++/resources",
     "screenshot-1711522320247.png",
     "。Resource",
     "新建文件夹",
-    "C++/类和对象.md",
     "C++/images",
-    "C++/输入输出流小结.md",
     "C++/C++.md",
     "技术美术入门/技术美术入门.md",
     "【Unity技术美术】URP Shader训练营/【Unity技术美术】URP Shader训练营.md",
@@ -179,8 +179,6 @@
     "Untitled 2.png",
     "Untitled.png",
     "screenshot-1709966542264.png",
-    "screenshot-1709966816818.png",
-    "screenshot-1709966733787.png",
     "Notion/Reading List & Notes/笔记本/C++软件光栅器/渲染（5-7）.md",
     "Notion/Reading List & Notes/笔记本/C++软件光栅器/画线段（1-4）.md",
     "Notion/Reading List & Notes/笔记本/C++软件光栅器/深度缓冲（11）.md",
@@ -192,7 +190,6 @@
     "计算机图形学—从0开始构建一个OpenGL软光栅/空间变换.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/应用案例.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/图片与纹理.md",
-    "Building Quality Shaders for Unity/Building Quality Shaders for Unity.md",
     "Notion/Reading List & Notes/笔记本/C++软件光栅器/章节笔记",
     "Notion/Reading List & Notes/笔记本/C++/类和对象",
     "Notion/Reading List & Notes/笔记本/C++/数据结构",
