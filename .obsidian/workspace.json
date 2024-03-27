@@ -37,7 +37,7 @@
                 "state": {
                   "type": "markdown",
                   "state": {
-                    "file": "C++/内存管理.md",
+                    "file": "C++/数据结构.md",
                     "mode": "preview",
                     "source": false
                   }
@@ -174,11 +174,11 @@
       "obsidian-importer:Open Importer": false
     }
   },
-  "active": "286e2fc1be61bd5f",
+  "active": "1dcae0997fa54ead",
   "lastOpenFiles": [
     "C++/内存管理.md",
-    "C++/C++.canvas",
     "C++/数据结构.md",
+    "C++/C++.canvas",
     "C++/Resource/screenshot-1711522320247.png",
     "C++/resources",
     "screenshot-1711522320247.png",
