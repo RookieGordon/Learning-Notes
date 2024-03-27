@@ -10,7 +10,7 @@
           {
             "id": "49c5ff0d99d2ff14",
             "type": "tabs",
-            "dimension": 59.1042584434655,
+            "dimension": 55.13950073421439,
             "children": [
               {
                 "id": "286e2fc1be61bd5f",
@@ -29,7 +29,7 @@
           {
             "id": "ebfff7ff98c350fb",
             "type": "tabs",
-            "dimension": 40.89574155653451,
+            "dimension": 44.860499265785606,
             "children": [
               {
                 "id": "1dcae0997fa54ead",
@@ -161,7 +161,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 341.5
+    "width": 200
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -174,19 +174,19 @@
       "obsidian-importer:Open Importer": false
     }
   },
-  "active": "6490a2fd7323267e",
+  "active": "286e2fc1be61bd5f",
   "lastOpenFiles": [
-    "C++/Resource/screenshot-1711522320247.png",
+    "C++/C++.canvas",
+    "C++/数据结构.md",
     "C++/内存管理.md",
+    "C++/Resource/screenshot-1711522320247.png",
     "C++/resources",
     "screenshot-1711522320247.png",
-    "C++/数据结构.md",
     "。Resource",
     "新建文件夹",
     "C++/类和对象.md",
     "C++/images",
     "C++/输入输出流小结.md",
-    "C++/C++.canvas",
     "C++/C++.md",
     "技术美术入门/技术美术入门.md",
     "【Unity技术美术】URP Shader训练营/【Unity技术美术】URP Shader训练营.md",
