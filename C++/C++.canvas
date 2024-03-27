@@ -3,7 +3,7 @@
 		{"id":"8761b8ec4d676397","type":"file","file":"C++/类和对象.md","x":-11,"y":64,"width":400,"height":400,"color":"1"},
 		{"id":"0a52957070e6f024","type":"file","file":"C++/数据结构.md","x":-11,"y":520,"width":400,"height":400,"color":"2"},
 		{"id":"7dca654991557e18","type":"file","file":"C++/数据结构.md","x":-11,"y":1000,"width":400,"height":400,"color":"4"},
-		{"id":"2204f63c1ebbd840","type":"text","text":"**C++快速入门**([C++语言与OO思想介绍_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1Ps411w73m?p=1&vd_source=b6adab4df1ba9fd0ec4afd2bda0940e9))","x":-740,"y":620,"width":250,"height":60,"color":"4"}
+		{"id":"2204f63c1ebbd840","type":"text","text":"**C++快速入门**([C++语言与OO思想介绍_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1Ps411w73m?p=1&vd_source=b6adab4df1ba9fd0ec4afd2bda0940e9))![[v2-c588407790ea147c72cb5af9e8eeae4c_b.jpg]]","x":-740,"y":440,"width":280,"height":240,"color":"4"}
 	],
 	"edges":[
 		{"id":"dfcb1ebe43059b85","fromNode":"2204f63c1ebbd840","fromSide":"right","toNode":"8761b8ec4d676397","toSide":"left"},
