@@ -11,8 +11,12 @@
             "id": "286e2fc1be61bd5f",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "C++/数据结构.md",
+                "mode": "preview",
+                "source": false
+              }
             }
           }
         ]
@@ -81,6 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "C++/数据结构.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -97,6 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "C++/数据结构.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -118,7 +124,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "C++/数据结构.md"
+              }
             }
           }
         ],
@@ -126,8 +134,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -142,46 +149,48 @@
   },
   "active": "286e2fc1be61bd5f",
   "lastOpenFiles": [
-    "Notion/C++/章节笔记/数据结构/数据结构.md",
-    "Notion/C++/C++.md",
-    "Notion/C++/章节笔记/输入输出流小结.md",
-    "Untitled.png",
-    "TA养成之路/测试.md",
-    "screenshot-1709966542264.png",
+    "C++/输入输出流小结.md",
+    "C++/类和对象.md",
+    "C++/数据结构.md",
+    "技术美术入门/技术美术入门.md",
+    "【Unity技术美术】URP Shader训练营/【Unity技术美术】URP Shader训练营.md",
+    "C++/C++.md",
+    "计算机图形学—从0开始构建一个OpenGL软光栅/高级渲染管线功能.md",
+    "Welcome.md",
+    "Notion/Reading List & Notes/笔记本/Note Template.md",
+    "Notion/Reading List & Notes.md",
+    "v2-c588407790ea147c72cb5af9e8eeae4c_b.jpg",
+    "Notion/Reading List & Notes/笔记本/C++软件光栅器/C++软件光栅器.md",
+    "Notion/Reading List & Notes/笔记本/C++软件光栅器/光照着色和背面剔除（9-10）.md",
     "screenshot-20240311-100346.png",
+    "Untitled 2.png",
+    "Untitled.png",
+    "screenshot-1709966542264.png",
     "screenshot-1709966816818.png",
     "screenshot-1709966733787.png",
     "screenshot-1709965948862.png",
-    "v2-c588407790ea147c72cb5af9e8eeae4c_b.jpg",
-    "Notion/Reading List & Notes/笔记本/C++软件光栅器/章节笔记/渲染（5-7）.md",
-    "Notion/Reading List & Notes/笔记本/C++软件光栅器/章节笔记/画线段（1-4）.md",
-    "Notion/Reading List & Notes/笔记本/C++软件光栅器/章节笔记/深度缓冲（11）.md",
-    "Notion/Reading List & Notes/笔记本/C++软件光栅器/章节笔记/贴图（12-13）.md",
-    "Notion/Reading List & Notes/笔记本/C++软件光栅器/章节笔记/三角形光栅化（8）.md",
-    "Notion/Reading List & Notes/笔记本/C++软件光栅器/章节笔记/光照着色和背面剔除（9-10）.md",
-    "Notion/Reading List & Notes/笔记本/计算机图形学—从0开始构建一个OpenGL软光栅/章节笔记/三角形绘制.md",
-    "Notion/Reading List & Notes/笔记本/计算机图形学—从0开始构建一个OpenGL软光栅/章节笔记/渲染管线.md",
-    "Notion/Reading List & Notes/笔记本/计算机图形学—从0开始构建一个OpenGL软光栅/章节笔记/矩阵理论基础.md",
-    "Notion/Reading List & Notes/笔记本/计算机图形学—从0开始构建一个OpenGL软光栅/章节笔记/高级渲染管线功能.md",
-    "Notion/Reading List & Notes/笔记本/计算机图形学—从0开始构建一个OpenGL软光栅/章节笔记/空间变换.md",
-    "Notion/Reading List & Notes/笔记本/计算机图形学—从0开始构建一个OpenGL软光栅/章节笔记/应用案例.md",
-    "Notion/Reading List & Notes/笔记本/计算机图形学—从0开始构建一个OpenGL软光栅/章节笔记/图片与纹理.md",
-    "Notion/Reading List & Notes/笔记本/C++软件光栅器/C++软件光栅器.md",
-    "Notion/Reading List & Notes/笔记本/Building Quality Shaders for Unity/Building Quality Shaders for Unity.md",
-    "Notion/Reading List & Notes/笔记本/Note Template.md",
-    "Notion/Reading List & Notes/笔记本/【Unity技术美术】URP Shader训练营/【Unity技术美术】URP Shader训练营.md",
-    "Notion/Reading List & Notes/笔记本/技术美术入门/技术美术入门.md",
-    "Notion/Reading List & Notes/笔记本/计算机图形学—从0开始构建一个OpenGL软光栅/计算机图形学—从0开始构建一个OpenGL软光栅.md",
+    "Notion/Reading List & Notes/笔记本/C++软件光栅器/渲染（5-7）.md",
+    "Notion/Reading List & Notes/笔记本/C++软件光栅器/画线段（1-4）.md",
+    "Notion/Reading List & Notes/笔记本/C++软件光栅器/深度缓冲（11）.md",
+    "Notion/Reading List & Notes/笔记本/C++软件光栅器/贴图（12-13）.md",
+    "Notion/Reading List & Notes/笔记本/C++软件光栅器/三角形光栅化（8）.md",
+    "计算机图形学—从0开始构建一个OpenGL软光栅/三角形绘制.md",
+    "计算机图形学—从0开始构建一个OpenGL软光栅/渲染管线.md",
+    "计算机图形学—从0开始构建一个OpenGL软光栅/矩阵理论基础.md",
+    "计算机图形学—从0开始构建一个OpenGL软光栅/空间变换.md",
+    "计算机图形学—从0开始构建一个OpenGL软光栅/应用案例.md",
+    "计算机图形学—从0开始构建一个OpenGL软光栅/图片与纹理.md",
+    "Building Quality Shaders for Unity/Building Quality Shaders for Unity.md",
+    "计算机图形学—从0开始构建一个OpenGL软光栅/计算机图形学—从0开始构建一个OpenGL软光栅.md",
     "Notion/Reading List & Notes/笔记本/C++软件光栅器/章节笔记",
-    "Notion/Reading List & Notes/笔记本/计算机图形学—从0开始构建一个OpenGL软光栅/章节笔记",
+    "Notion/Reading List & Notes/笔记本/C++/类和对象",
+    "Notion/Reading List & Notes/笔记本/C++/数据结构",
+    "Notion/Reading List & Notes/笔记本/C++/章节笔记",
+    "计算机图形学—从0开始构建一个OpenGL软光栅/章节笔记",
     "Notion/Reading List & Notes/笔记本/C++软件光栅器",
-    "Notion/Reading List & Notes/笔记本/Building Quality Shaders for Unity",
-    "Notion/Reading List & Notes/笔记本/【Unity技术美术】URP Shader训练营",
-    "Notion/Reading List & Notes/笔记本/技术美术入门",
-    "Notion/Reading List & Notes/笔记本/计算机图形学—从0开始构建一个OpenGL软光栅",
-    "Notion/Reading List & Notes/笔记本",
-    "Notion/Reading List & Notes",
-    "Notion/C++/章节笔记/数据结构",
-    "Welcome.md"
+    "Building Quality Shaders for Unity",
+    "C++",
+    "【Unity技术美术】URP Shader训练营",
+    "技术美术入门"
   ]
 }
