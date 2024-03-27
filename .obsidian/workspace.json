@@ -11,14 +11,11 @@
             "id": "286e2fc1be61bd5f",
             "type": "leaf",
             "state": {
-              "type": "canvas",
+              "type": "markdown",
               "state": {
-                "file": "C++/C++.canvas",
-                "viewState": {
-                  "x": -278,
-                  "y": 752,
-                  "zoom": -0.24184018356467063
-                }
+                "file": "C++/内存管理.md",
+                "mode": "source",
+                "source": false
               }
             }
           }
@@ -88,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "C++/C++.canvas",
+                "file": "C++/内存管理.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -105,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "C++/C++.canvas",
+                "file": "C++/内存管理.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -128,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "C++/C++.canvas"
+                "file": "C++/内存管理.md"
               }
             }
           }
@@ -152,11 +149,12 @@
   },
   "active": "286e2fc1be61bd5f",
   "lastOpenFiles": [
-    "C++/C++.md",
+    "C++/类和对象.md",
+    "C++/内存管理.md",
     "C++/C++.canvas",
+    "C++/C++.md",
     "C++/数据结构.md",
     "C++/输入输出流小结.md",
-    "C++/类和对象.md",
     "技术美术入门/技术美术入门.md",
     "【Unity技术美术】URP Shader训练营/【Unity技术美术】URP Shader训练营.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/高级渲染管线功能.md",
