@@ -11,15 +11,8 @@
             "id": "b8cc00cf4e22e262",
             "type": "leaf",
             "state": {
-              "type": "canvas",
-              "state": {
-                "file": "C++/C++.canvas",
-                "viewState": {
-                  "x": 208.42103496350748,
-                  "y": 930.9474037571958,
-                  "zoom": -0.7964666059148681
-                }
-              }
+              "type": "graph",
+              "state": {}
             }
           }
         ]
@@ -88,7 +81,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "C++/C++.canvas",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -105,7 +97,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "C++/C++.canvas",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -127,9 +118,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "C++/C++.canvas"
-              }
+              "state": {}
             }
           }
         ],
@@ -137,7 +126,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 601.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -152,11 +141,12 @@
   },
   "active": "b8cc00cf4e22e262",
   "lastOpenFiles": [
+    "计算机图形学—从0开始构建一个OpenGL软光栅/应用案例.md",
+    "C++/类和对象.md",
+    "C++/C++.canvas",
     "C++/作用域、链接和存储类.md",
     "C++/数据结构.md",
     "C++/内存管理.md",
-    "C++/类和对象.md",
-    "C++/C++.canvas",
     "C++/类型猪羊和.md",
     "未命名.canvas",
     "C++/resources/Pasted image 20240328142457.jpg",

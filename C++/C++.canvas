@@ -1,13 +1,18 @@
 {
 	"nodes":[
-		{"id":"8761b8ec4d676397","type":"file","file":"C++/类和对象.md","x":20,"y":-96,"width":400,"height":400,"color":"1"},
-		{"id":"0a52957070e6f024","type":"file","file":"C++/数据结构.md","x":20,"y":360,"width":400,"height":400,"color":"2"},
-		{"id":"7dca654991557e18","type":"file","file":"C++/数据结构.md","x":20,"y":840,"width":400,"height":400,"color":"4"},
-		{"id":"2204f63c1ebbd840","type":"text","text":"**C++快速入门**([C++语言与OO思想介绍_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1Ps411w73m?p=1&vd_source=b6adab4df1ba9fd0ec4afd2bda0940e9))![[v2-c588407790ea147c72cb5af9e8eeae4c_b.jpg]]","x":-880,"y":440,"width":420,"height":240,"color":"4"}
+		{"id":"e6a2bd4f6a755235","x":0,"y":-620,"width":440,"height":2200,"type":"group","label":"aaa"},
+		{"id":"8761b8ec4d676397","type":"file","file":"C++/类和对象.md","x":20,"y":-160,"width":400,"height":400,"color":"1"},
+		{"id":"0a52957070e6f024","type":"file","file":"C++/数据结构.md","x":20,"y":-600,"width":400,"height":400,"color":"2"},
+		{"id":"09ce4138c79f6978","type":"file","file":"C++/内存管理.md","x":20,"y":280,"width":400,"height":400},
+		{"id":"bcb80348050136a6","type":"file","file":"C++/作用域、链接和存储类.md","x":20,"y":720,"width":400,"height":400},
+		{"id":"8afb9b749a7623ce","type":"file","file":"C++/输入输出流小结.md","x":20,"y":1160,"width":400,"height":400},
+		{"id":"2204f63c1ebbd840","type":"text","text":"**C++快速入门**([C++语言与OO思想介绍_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1Ps411w73m?p=1&vd_source=b6adab4df1ba9fd0ec4afd2bda0940e9))![[v2-c588407790ea147c72cb5af9e8eeae4c_b.jpg]]","x":-960,"y":160,"width":420,"height":240,"color":"4"}
 	],
 	"edges":[
 		{"id":"dfcb1ebe43059b85","fromNode":"2204f63c1ebbd840","fromSide":"right","toNode":"8761b8ec4d676397","toSide":"left"},
 		{"id":"76b1cff89f3b8acf","fromNode":"2204f63c1ebbd840","fromSide":"right","toNode":"0a52957070e6f024","toSide":"left"},
-		{"id":"2c882151fe766245","fromNode":"2204f63c1ebbd840","fromSide":"right","toNode":"7dca654991557e18","toSide":"left"}
+		{"id":"c2cae29d76f95358","fromNode":"2204f63c1ebbd840","fromSide":"right","toNode":"09ce4138c79f6978","toSide":"left"},
+		{"id":"688d4d024b6c5471","fromNode":"2204f63c1ebbd840","fromSide":"right","toNode":"bcb80348050136a6","toSide":"left"},
+		{"id":"6d29b5cad11bcee3","fromNode":"2204f63c1ebbd840","fromSide":"right","toNode":"8afb9b749a7623ce","toSide":"left"}
 	]
 }
