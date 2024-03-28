@@ -134,7 +134,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 255.5
+    "width": 200
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -149,8 +149,8 @@
   },
   "active": "286e2fc1be61bd5f",
   "lastOpenFiles": [
-    "C++/数据结构.md",
     "C++/类和对象.md",
+    "C++/数据结构.md",
     "clas.md",
     "C++/输入输出流小结.md",
     "C++/内存管理.md",
