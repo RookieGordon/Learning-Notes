@@ -11,11 +11,14 @@
             "id": "286e2fc1be61bd5f",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "canvas",
               "state": {
-                "file": "C++/类和对象.md",
-                "mode": "source",
-                "source": false
+                "file": "C++/C++.canvas",
+                "viewState": {
+                  "x": -220,
+                  "y": 572,
+                  "zoom": -0.7964666059148681
+                }
               }
             }
           }
@@ -85,7 +88,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "C++/类和对象.md",
+                "file": "C++/C++.canvas",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +105,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "C++/类和对象.md",
+                "file": "C++/C++.canvas",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +128,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "C++/类和对象.md"
+                "file": "C++/C++.canvas"
               }
             }
           }
@@ -149,6 +152,7 @@
   },
   "active": "286e2fc1be61bd5f",
   "lastOpenFiles": [
+    "C++/resources/Pasted image 20240328142457.jpg",
     "C++/类和对象.md",
     "C++/数据结构.md",
     "clas.md",
@@ -189,7 +193,6 @@
     "计算机图形学—从0开始构建一个OpenGL软光栅/矩阵理论基础.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/空间变换.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/应用案例.md",
-    "计算机图形学—从0开始构建一个OpenGL软光栅/图片与纹理.md",
     "Notion/Reading List & Notes/笔记本/C++软件光栅器/章节笔记",
     "Notion/Reading List & Notes/笔记本/C++/类和对象",
     "Notion/Reading List & Notes/笔记本/C++/数据结构",
