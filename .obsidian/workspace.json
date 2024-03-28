@@ -4,15 +4,19 @@
     "type": "split",
     "children": [
       {
-        "id": "61ef8964f744e487",
+        "id": "e190fd7bfd2173f8",
         "type": "tabs",
         "children": [
           {
-            "id": "b8cc00cf4e22e262",
+            "id": "2eb89fbc6b272989",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "C++/作用域、链接和存储类.md",
+                "mode": "preview",
+                "source": false
+              }
             }
           }
         ]
@@ -81,6 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "C++/作用域、链接和存储类.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -97,6 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "C++/作用域、链接和存储类.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -118,7 +124,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "C++/作用域、链接和存储类.md"
+              }
             }
           }
         ],
@@ -126,7 +134,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 601.5
+    "width": 200
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -139,7 +147,7 @@
       "obsidian-importer:Open Importer": false
     }
   },
-  "active": "b8cc00cf4e22e262",
+  "active": "2eb89fbc6b272989",
   "lastOpenFiles": [
     "计算机图形学—从0开始构建一个OpenGL软光栅/应用案例.md",
     "C++/类和对象.md",
