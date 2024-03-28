@@ -4,21 +4,18 @@
     "type": "split",
     "children": [
       {
-        "id": "49c5ff0d99d2ff14",
+        "id": "61ef8964f744e487",
         "type": "tabs",
         "children": [
           {
-            "id": "286e2fc1be61bd5f",
+            "id": "b8cc00cf4e22e262",
             "type": "leaf",
             "state": {
-              "type": "canvas",
+              "type": "markdown",
               "state": {
-                "file": "C++/C++.canvas",
-                "viewState": {
-                  "x": -220,
-                  "y": 572,
-                  "zoom": -0.7964666059148681
-                }
+                "file": "C++/类和对象.md",
+                "mode": "source",
+                "source": false
               }
             }
           }
@@ -88,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "C++/C++.canvas",
+                "file": "C++/类和对象.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -105,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "C++/C++.canvas",
+                "file": "C++/类和对象.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -128,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "C++/C++.canvas"
+                "file": "C++/类和对象.md"
               }
             }
           }
@@ -150,8 +147,10 @@
       "obsidian-importer:Open Importer": false
     }
   },
-  "active": "286e2fc1be61bd5f",
+  "active": "b8cc00cf4e22e262",
   "lastOpenFiles": [
+    "C++/C++.canvas",
+    "未命名.canvas",
     "C++/resources/Pasted image 20240328142457.jpg",
     "C++/类和对象.md",
     "C++/数据结构.md",
@@ -160,7 +159,6 @@
     "C++/内存管理.md",
     "Untitled 2.png.md",
     "C++/resources/2024-03-27-17-27-43.png",
-    "C++/C++.canvas",
     "C++/resources/v2-c588407790ea147c72cb5af9e8eeae4c_b.jpg",
     "C++/resources/2024-03-27-17-21-56.png",
     "C++/Resource/screenshot-1711522320247.png",
@@ -182,7 +180,6 @@
     "screenshot-20240311-100346.png",
     "Untitled 2.png",
     "Untitled.png",
-    "screenshot-1709966542264.png",
     "Notion/Reading List & Notes/笔记本/C++软件光栅器/渲染（5-7）.md",
     "Notion/Reading List & Notes/笔记本/C++软件光栅器/画线段（1-4）.md",
     "Notion/Reading List & Notes/笔记本/C++软件光栅器/深度缓冲（11）.md",
