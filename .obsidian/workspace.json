@@ -4,22 +4,47 @@
     "type": "split",
     "children": [
       {
-        "id": "e190fd7bfd2173f8",
-        "type": "tabs",
+        "id": "8fac787fce8a56d2",
+        "type": "split",
         "children": [
           {
-            "id": "2eb89fbc6b272989",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "C++/作用域、链接和存储类.md",
-                "mode": "source",
-                "source": false
+            "id": "e190fd7bfd2173f8",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "2eb89fbc6b272989",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "C++/作用域、链接和存储类.md",
+                    "mode": "source",
+                    "source": false
+                  }
+                }
               }
-            }
+            ]
+          },
+          {
+            "id": "5cd423f117c6f16a",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "fca5a1b6fb3ba9b6",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "C++/作用域、链接和存储类.md",
+                    "mode": "preview",
+                    "source": false
+                  }
+                }
+              }
+            ]
           }
-        ]
+        ],
+        "direction": "horizontal"
       }
     ],
     "direction": "vertical"
@@ -147,7 +172,7 @@
       "obsidian-importer:Open Importer": false
     }
   },
-  "active": "2eb89fbc6b272989",
+  "active": "fca5a1b6fb3ba9b6",
   "lastOpenFiles": [
     "C++/数据结构.md",
     "C++/attachments/2024-03-27-17-21-56.png",
