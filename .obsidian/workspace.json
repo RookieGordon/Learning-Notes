@@ -11,14 +11,11 @@
             "id": "2eb89fbc6b272989",
             "type": "leaf",
             "state": {
-              "type": "canvas",
+              "type": "markdown",
               "state": {
-                "file": "C++/C++.canvas",
-                "viewState": {
-                  "x": 284.9627477534416,
-                  "y": -154.43229754210134,
-                  "zoom": -2.11487102988071
-                }
+                "file": "C++/类和对象.md",
+                "mode": "source",
+                "source": false
               }
             }
           }
@@ -88,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "C++/C++.canvas",
+                "file": "C++/类和对象.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -105,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "C++/C++.canvas",
+                "file": "C++/类和对象.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -128,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "C++/C++.canvas"
+                "file": "C++/类和对象.md"
               }
             }
           }
@@ -152,13 +149,13 @@
   },
   "active": "2eb89fbc6b272989",
   "lastOpenFiles": [
+    "C++/C++.canvas",
     "C++/容器、算法和迭代器.md",
     "C++/模板.md",
     "C++/作用域、链接和存储类.md",
     "C++/类和对象.md",
     "C++/数据结构.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/应用案例.md",
-    "C++/C++.canvas",
     "C++/内存管理.md",
     "C++/类型猪羊和.md",
     "未命名.canvas",
@@ -193,7 +190,6 @@
     "Notion/Reading List & Notes/笔记本/C++软件光栅器/深度缓冲（11）.md",
     "Notion/Reading List & Notes/笔记本/C++软件光栅器/贴图（12-13）.md",
     "Notion/Reading List & Notes/笔记本/C++软件光栅器/三角形光栅化（8）.md",
-    "计算机图形学—从0开始构建一个OpenGL软光栅/三角形绘制.md",
     "Notion/Reading List & Notes/笔记本/C++软件光栅器/章节笔记",
     "Notion/Reading List & Notes/笔记本/C++/类和对象",
     "Notion/Reading List & Notes/笔记本/C++/数据结构",
