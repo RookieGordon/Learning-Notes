@@ -10,6 +10,7 @@
           {
             "id": "e190fd7bfd2173f8",
             "type": "tabs",
+            "dimension": 58.81057268722467,
             "children": [
               {
                 "id": "2eb89fbc6b272989",
@@ -28,6 +29,7 @@
           {
             "id": "5cd423f117c6f16a",
             "type": "tabs",
+            "dimension": 41.18942731277533,
             "children": [
               {
                 "id": "fca5a1b6fb3ba9b6",
@@ -172,7 +174,7 @@
       "obsidian-importer:Open Importer": false
     }
   },
-  "active": "fca5a1b6fb3ba9b6",
+  "active": "2eb89fbc6b272989",
   "lastOpenFiles": [
     "C++/数据结构.md",
     "C++/attachments/2024-03-27-17-21-56.png",
