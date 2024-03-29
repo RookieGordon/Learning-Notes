@@ -1,10 +1,9 @@
 {
 	"nodes":[
-		{"id":"fbbdf529eb9e12e2","x":0,"y":-620,"width":440,"height":3240,"type":"group","label":"未命名组"},
-		{"id":"8761b8ec4d676397","type":"file","file":"C++/类和对象.md","x":20,"y":-133,"width":400,"height":400,"color":"1"},
-		{"id":"0a52957070e6f024","type":"file","file":"C++/数据结构.md","x":20,"y":-600,"width":400,"height":400,"color":"2"},
-		{"id":"09ce4138c79f6978","type":"file","file":"C++/内存管理.md","x":20,"y":334,"width":400,"height":400,"color":"3"},
-		{"id":"bcb80348050136a6","type":"file","file":"C++/作用域、链接和存储类.md","x":20,"y":801,"width":400,"height":400,"color":"5"},
+		{"id":"8761b8ec4d676397","type":"file","file":"C++/类和对象.md","collapsed":true,"x":20,"y":-133,"width":400,"height":400,"color":"1"},
+		{"id":"0a52957070e6f024","type":"file","file":"C++/数据结构.md","collapsed":true,"x":20,"y":-600,"width":400,"height":400,"color":"2"},
+		{"id":"09ce4138c79f6978","type":"file","file":"C++/内存管理.md","collapsed":true,"x":20,"y":334,"width":400,"height":400,"color":"3"},
+		{"id":"bcb80348050136a6","type":"file","file":"C++/作用域、链接和存储类.md","collapsed":true,"x":20,"y":801,"width":400,"height":400,"color":"5"},
 		{"id":"8afb9b749a7623ce","type":"file","file":"C++/输入输出流小结.md","x":20,"y":1268,"width":400,"height":400,"color":"1"},
 		{"id":"2b8194c6d1d61105","type":"file","file":"C++/作用域、链接和存储类.md","x":20,"y":1735,"width":400,"height":400,"color":"4"},
 		{"id":"b3e70f7b8f0b46a9","type":"file","file":"C++/容器、算法和迭代器.md","x":20,"y":2200,"width":400,"height":400,"color":"2"},
