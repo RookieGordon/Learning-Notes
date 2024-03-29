@@ -69,8 +69,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 238.5,
-    "collapsed": true
+    "width": 238.5
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -150,14 +149,16 @@
   },
   "active": "2eb89fbc6b272989",
   "lastOpenFiles": [
+    "C++/attachments/微信截图_20240329184453.png",
+    "C++/attachments/Pasted image 20240328142457.jpg",
+    "C++/attachments/2024-03-27-17-27-43.png",
+    "C++/attachments/2024-03-27-17-21-56.png",
+    "C++/attachments/v2-c588407790ea147c72cb5af9e8eeae4c_b.jpg",
+    "C++/作用域、链接和存储类.md",
     "Welcome.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/直线绘制.md",
     "C++/类和对象.md",
     "C++/模板.md",
-    "C++/attachments/Pasted image 20240328142457.jpg",
-    "C++/attachments/v2-c588407790ea147c72cb5af9e8eeae4c_b.jpg",
-    "C++/attachments/2024-03-27-17-27-43.png",
-    "C++/attachments/2024-03-27-17-21-56.png",
     "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/微信截图_20240329172054.png",
     "计算机图形学—从0开始构建一个OpenGL软光栅/应用案例.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/渲染管线.md",
@@ -171,7 +172,6 @@
     "计算机图形学—从0开始构建一个OpenGL软光栅/attachments",
     "C++/C++.canvas",
     "C++/容器、算法和迭代器.md",
-    "C++/作用域、链接和存储类.md",
     "C++/数据结构.md",
     "C++/内存管理.md",
     "C++/类型猪羊和.md",
@@ -192,7 +192,6 @@
     "Notion/Reading List & Notes.md",
     "v2-c588407790ea147c72cb5af9e8eeae4c_b.jpg",
     "screenshot-20240311-100346.png",
-    "Untitled 2.png",
     "Notion/Reading List & Notes/笔记本/C++软件光栅器/章节笔记",
     "Notion/Reading List & Notes/笔记本/C++/类和对象",
     "Notion/Reading List & Notes/笔记本/C++/数据结构",
