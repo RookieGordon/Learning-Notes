@@ -11,11 +11,14 @@
             "id": "2eb89fbc6b272989",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "canvas",
               "state": {
-                "file": "C++/类和对象.md",
-                "mode": "source",
-                "source": false
+                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/从0开始构建OpenGL软光栅.canvas",
+                "viewState": {
+                  "x": -295.1994601609655,
+                  "y": -61.58565445503341,
+                  "zoom": 0.6666666666666666
+                }
               }
             }
           }
@@ -69,7 +72,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 399.5
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -85,7 +88,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "C++/类和对象.md",
+                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/从0开始构建OpenGL软光栅.canvas",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +105,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "C++/类和对象.md",
+                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/从0开始构建OpenGL软光栅.canvas",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +128,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "C++/类和对象.md"
+                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/从0开始构建OpenGL软光栅.canvas"
               }
             }
           }
@@ -150,10 +153,13 @@
   "active": "2eb89fbc6b272989",
   "lastOpenFiles": [
     "C++/C++.canvas",
+    "计算机图形学—从0开始构建一个OpenGL软光栅/从0开始构建OpenGL软光栅.canvas",
+    "计算机图形学—从0开始构建一个OpenGL软光栅/计算机图形学—从0开始构建一个OpenGL软光栅.md",
+    "计算机图形学—从0开始构建一个OpenGL软光栅/高级渲染管线功能.md",
+    "C++/类和对象.md",
     "C++/容器、算法和迭代器.md",
     "C++/模板.md",
     "C++/作用域、链接和存储类.md",
-    "C++/类和对象.md",
     "C++/数据结构.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/应用案例.md",
     "C++/内存管理.md",
@@ -175,7 +181,6 @@
     "C++/C++.md",
     "技术美术入门/技术美术入门.md",
     "【Unity技术美术】URP Shader训练营/【Unity技术美术】URP Shader训练营.md",
-    "计算机图形学—从0开始构建一个OpenGL软光栅/高级渲染管线功能.md",
     "Welcome.md",
     "Notion/Reading List & Notes/笔记本/Note Template.md",
     "Notion/Reading List & Notes.md",
@@ -189,7 +194,6 @@
     "Notion/Reading List & Notes/笔记本/C++软件光栅器/画线段（1-4）.md",
     "Notion/Reading List & Notes/笔记本/C++软件光栅器/深度缓冲（11）.md",
     "Notion/Reading List & Notes/笔记本/C++软件光栅器/贴图（12-13）.md",
-    "Notion/Reading List & Notes/笔记本/C++软件光栅器/三角形光栅化（8）.md",
     "Notion/Reading List & Notes/笔记本/C++软件光栅器/章节笔记",
     "Notion/Reading List & Notes/笔记本/C++/类和对象",
     "Notion/Reading List & Notes/笔记本/C++/数据结构",
