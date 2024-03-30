@@ -10,7 +10,7 @@
           {
             "id": "e190fd7bfd2173f8",
             "type": "tabs",
-            "dimension": 49.55947136563877,
+            "dimension": 49.926578560939795,
             "children": [
               {
                 "id": "2eb89fbc6b272989",
@@ -29,7 +29,7 @@
           {
             "id": "0186f002389873f9",
             "type": "tabs",
-            "dimension": 50.440528634361236,
+            "dimension": 50.073421439060205,
             "children": [
               {
                 "id": "6636f94f33143ddc",
@@ -175,23 +175,26 @@
       "obsidian42-brat:BRAT": false
     }
   },
-  "active": "6636f94f33143ddc",
+  "active": "2eb89fbc6b272989",
   "lastOpenFiles": [
+    "C++/attachments/(图解4) CMake资源拷贝.png",
+    "C++/数据结构.md",
+    "C++/作用域、链接和存储类.md",
+    "C++/输入输出流小结.md",
+    "计算机图形学—从0开始构建一个OpenGL软光栅/直线绘制.md",
+    "计算机图形学—从0开始构建一个OpenGL软光栅/应用案例.md",
+    "计算机图形学—从0开始构建一个OpenGL软光栅/矩阵理论基础.md",
+    "计算机图形学—从0开始构建一个OpenGL软光栅/高级渲染管线功能.md",
+    "C++/attachments/微信截图_20240330164224.png",
     "计算机图形学—从0开始构建一个OpenGL软光栅/从0开始构建OpenGL软光栅.canvas",
     "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/课程背景.png",
-    "C++/作用域、链接和存储类.md",
-    "C++/数据结构.md",
     "C++/模板.md",
     "C++/类和对象.md",
-    "计算机图形学—从0开始构建一个OpenGL软光栅/直线绘制.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/课程背景 1.png",
-    "计算机图形学—从0开始构建一个OpenGL软光栅/应用案例.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/渲染管线.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/图片与纹理.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/三角形绘制.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/空间变换.md",
-    "计算机图形学—从0开始构建一个OpenGL软光栅/矩阵理论基础.md",
-    "计算机图形学—从0开始构建一个OpenGL软光栅/高级渲染管线功能.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/微信截图_20240329172054.png",
     "C++/容器、算法和迭代器.md",
     "C++/内存管理.md",
@@ -200,10 +203,8 @@
     "C++/attachments/微信截图_20240330160250.png",
     "C++/attachments/Pasted image 20240328142457.jpg",
     "C++/attachments/v2-c588407790ea147c72cb5af9e8eeae4c_b.jpg",
-    "C++/输入输出流小结.md",
     "C++/attachments/（图解1）类定义.png",
     "C++/attachments/（图解3）编译过程.png",
-    "C++/attachments/（图解2）float和double占用字节.png",
     "Welcome.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/计算机图形学—从0开始构建一个OpenGL软光栅.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/attachments",
