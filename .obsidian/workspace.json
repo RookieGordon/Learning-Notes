@@ -69,7 +69,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 238.5
+    "width": 229.5
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -150,9 +150,9 @@
   },
   "active": "2eb89fbc6b272989",
   "lastOpenFiles": [
-    "C++/作用域、链接和存储类.md",
-    "计算机图形学—从0开始构建一个OpenGL软光栅/直线绘制.md",
     "C++/数据结构.md",
+    "计算机图形学—从0开始构建一个OpenGL软光栅/直线绘制.md",
+    "C++/作用域、链接和存储类.md",
     "C++/输入输出流小结.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/从0开始构建OpenGL软光栅.canvas",
     "C++/attachments/（图解4） CMake资源拷贝.png",
