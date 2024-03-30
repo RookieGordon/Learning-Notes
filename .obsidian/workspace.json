@@ -4,22 +4,49 @@
     "type": "split",
     "children": [
       {
-        "id": "e190fd7bfd2173f8",
-        "type": "tabs",
+        "id": "78b7609dcceacd81",
+        "type": "split",
         "children": [
           {
-            "id": "2eb89fbc6b272989",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "C++/作用域、链接和存储类.md",
-                "mode": "source",
-                "source": false
+            "id": "e190fd7bfd2173f8",
+            "type": "tabs",
+            "dimension": 49.55947136563877,
+            "children": [
+              {
+                "id": "2eb89fbc6b272989",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "C++/作用域、链接和存储类.md",
+                    "mode": "source",
+                    "source": false
+                  }
+                }
               }
-            }
+            ]
+          },
+          {
+            "id": "0186f002389873f9",
+            "type": "tabs",
+            "dimension": 50.440528634361236,
+            "children": [
+              {
+                "id": "6636f94f33143ddc",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "C++/作用域、链接和存储类.md",
+                    "mode": "preview",
+                    "source": false
+                  }
+                }
+              }
+            ]
           }
-        ]
+        ],
+        "direction": "horizontal"
       }
     ],
     "direction": "vertical"
@@ -148,7 +175,7 @@
       "obsidian42-brat:BRAT": false
     }
   },
-  "active": "2eb89fbc6b272989",
+  "active": "6636f94f33143ddc",
   "lastOpenFiles": [
     "计算机图形学—从0开始构建一个OpenGL软光栅/从0开始构建OpenGL软光栅.canvas",
     "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/课程背景.png",
