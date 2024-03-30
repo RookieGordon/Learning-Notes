@@ -7,7 +7,7 @@
 		{"id":"8afb9b749a7623ce","type":"file","file":"C++/输入输出流小结.md","collapsed":true,"x":20,"y":1028,"width":400,"height":400,"color":"1"},
 		{"id":"2b8194c6d1d61105","type":"file","file":"C++/作用域、链接和存储类.md","collapsed":true,"x":20,"y":1435,"width":400,"height":400,"color":"4"},
 		{"id":"b3e70f7b8f0b46a9","type":"file","file":"C++/容器、算法和迭代器.md","collapsed":true,"x":20,"y":2200,"width":400,"height":400,"color":"2"},
-		{"id":"2204f63c1ebbd840","type":"text","text":"**C++快速入门**([C++语言与OO思想介绍_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1Ps411w73m?p=1&vd_source=b6adab4df1ba9fd0ec4afd2bda0940e9))![[v2-c588407790ea147c72cb5af9e8eeae4c_b.jpg]]","collapsed":false,"x":-1160,"y":801,"width":420,"height":240,"color":"4"}
+		{"id":"2204f63c1ebbd840","type":"text","text":"**C++快速入门**([C++语言与OO思想介绍_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1Ps411w73m?p=1&vd_source=b6adab4df1ba9fd0ec4afd2bda0940e9))![[v2-c588407790ea147c72cb5af9e8eeae4c_b.jpg]]","collapsed":false,"x":-1160,"y":620,"width":420,"height":280,"color":"4"}
 	],
 	"edges":[
 		{"id":"dfcb1ebe43059b85","fromNode":"2204f63c1ebbd840","fromSide":"right","toNode":"8761b8ec4d676397","toSide":"left"},
