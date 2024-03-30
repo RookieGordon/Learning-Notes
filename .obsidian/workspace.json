@@ -4,49 +4,22 @@
     "type": "split",
     "children": [
       {
-        "id": "78b7609dcceacd81",
-        "type": "split",
+        "id": "e190fd7bfd2173f8",
+        "type": "tabs",
         "children": [
           {
-            "id": "e190fd7bfd2173f8",
-            "type": "tabs",
-            "dimension": 49.926578560939795,
-            "children": [
-              {
-                "id": "2eb89fbc6b272989",
-                "type": "leaf",
-                "state": {
-                  "type": "markdown",
-                  "state": {
-                    "file": "C++/作用域、链接和存储类.md",
-                    "mode": "source",
-                    "source": false
-                  }
-                }
+            "id": "2eb89fbc6b272989",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/直线绘制.md",
+                "mode": "source",
+                "source": false
               }
-            ]
-          },
-          {
-            "id": "0186f002389873f9",
-            "type": "tabs",
-            "dimension": 50.073421439060205,
-            "children": [
-              {
-                "id": "6636f94f33143ddc",
-                "type": "leaf",
-                "state": {
-                  "type": "markdown",
-                  "state": {
-                    "file": "C++/作用域、链接和存储类.md",
-                    "mode": "preview",
-                    "source": false
-                  }
-                }
-              }
-            ]
+            }
           }
-        ],
-        "direction": "horizontal"
+        ]
       }
     ],
     "direction": "vertical"
@@ -112,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "C++/作用域、链接和存储类.md",
+                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/直线绘制.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -129,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "C++/作用域、链接和存储类.md",
+                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/直线绘制.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -152,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "C++/作用域、链接和存储类.md"
+                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/直线绘制.md"
               }
             }
           }
@@ -177,16 +150,17 @@
   },
   "active": "2eb89fbc6b272989",
   "lastOpenFiles": [
-    "C++/attachments/(图解4) CMake资源拷贝.png",
-    "C++/数据结构.md",
     "C++/作用域、链接和存储类.md",
-    "C++/输入输出流小结.md",
+    "C++/数据结构.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/直线绘制.md",
+    "计算机图形学—从0开始构建一个OpenGL软光栅/从0开始构建OpenGL软光栅.canvas",
+    "C++/attachments/（图解4） CMake资源拷贝.png",
+    "C++/attachments/(图解4) CMake资源拷贝.png",
+    "C++/输入输出流小结.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/应用案例.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/矩阵理论基础.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/高级渲染管线功能.md",
     "C++/attachments/微信截图_20240330164224.png",
-    "计算机图形学—从0开始构建一个OpenGL软光栅/从0开始构建OpenGL软光栅.canvas",
     "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/课程背景.png",
     "C++/模板.md",
     "C++/类和对象.md",
@@ -203,8 +177,6 @@
     "C++/attachments/微信截图_20240330160250.png",
     "C++/attachments/Pasted image 20240328142457.jpg",
     "C++/attachments/v2-c588407790ea147c72cb5af9e8eeae4c_b.jpg",
-    "C++/attachments/（图解1）类定义.png",
-    "C++/attachments/（图解3）编译过程.png",
     "Welcome.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/计算机图形学—从0开始构建一个OpenGL软光栅.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/attachments",
