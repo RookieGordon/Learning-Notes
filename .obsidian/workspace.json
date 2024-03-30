@@ -4,49 +4,22 @@
     "type": "split",
     "children": [
       {
-        "id": "8fac787fce8a56d2",
-        "type": "split",
+        "id": "e190fd7bfd2173f8",
+        "type": "tabs",
         "children": [
           {
-            "id": "e190fd7bfd2173f8",
-            "type": "tabs",
-            "dimension": 63.36270190895741,
-            "children": [
-              {
-                "id": "2eb89fbc6b272989",
-                "type": "leaf",
-                "state": {
-                  "type": "markdown",
-                  "state": {
-                    "file": "C++/作用域、链接和存储类.md",
-                    "mode": "source",
-                    "source": false
-                  }
-                }
+            "id": "2eb89fbc6b272989",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "C++/类和对象.md",
+                "mode": "preview",
+                "source": false
               }
-            ]
-          },
-          {
-            "id": "5cd423f117c6f16a",
-            "type": "tabs",
-            "dimension": 36.63729809104259,
-            "children": [
-              {
-                "id": "fca5a1b6fb3ba9b6",
-                "type": "leaf",
-                "state": {
-                  "type": "markdown",
-                  "state": {
-                    "file": "C++/作用域、链接和存储类.md",
-                    "mode": "preview",
-                    "source": false
-                  }
-                }
-              }
-            ]
+            }
           }
-        ],
-        "direction": "horizontal"
+        ]
       }
     ],
     "direction": "vertical"
@@ -112,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "C++/作用域、链接和存储类.md",
+                "file": "C++/类和对象.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -129,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "C++/作用域、链接和存储类.md",
+                "file": "C++/类和对象.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -152,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "C++/作用域、链接和存储类.md"
+                "file": "C++/类和对象.md"
               }
             }
           }
@@ -171,22 +144,23 @@
       "daily-notes:打开/创建今天的日记": false,
       "templates:插入模板": false,
       "command-palette:打开命令面板": false,
-      "obsidian-importer:Open Importer": false
+      "obsidian-importer:Open Importer": false,
+      "obsidian42-brat:BRAT": false
     }
   },
   "active": "2eb89fbc6b272989",
   "lastOpenFiles": [
+    "C++/作用域、链接和存储类.md",
+    "C++/类和对象.md",
     "C++/数据结构.md",
     "C++/attachments/2024-03-27-17-21-56.png",
     "C++/attachments/2024-03-27-17-27-43.png",
     "C++/attachments/Pasted image 20240328142457.jpg",
     "C++/attachments/v2-c588407790ea147c72cb5af9e8eeae4c_b.jpg",
     "C++/attachments/Pasted image 20240329213256.png",
-    "C++/作用域、链接和存储类.md",
     "C++/attachments/微信截图_20240329184453.png",
     "Welcome.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/直线绘制.md",
-    "C++/类和对象.md",
     "C++/模板.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/微信截图_20240329172054.png",
     "计算机图形学—从0开始构建一个OpenGL软光栅/应用案例.md",

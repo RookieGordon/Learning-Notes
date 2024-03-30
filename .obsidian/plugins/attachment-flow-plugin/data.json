@@ -1,0 +1,6 @@
+{
+  "deleteOption": ".trash",
+  "logsModal": true,
+  "dragResize": true,
+  "debug": false
+}
