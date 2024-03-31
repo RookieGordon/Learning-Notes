@@ -8,19 +8,7 @@
         "type": "tabs",
         "children": [
           {
-            "id": "2eb89fbc6b272989",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/直线绘制.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "6c7aa53804f6b4b6",
+            "id": "4251b4f7cbef7e02",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -31,8 +19,7 @@
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -161,7 +148,7 @@
       "obsidian42-brat:BRAT": false
     }
   },
-  "active": "6c7aa53804f6b4b6",
+  "active": "4251b4f7cbef7e02",
   "lastOpenFiles": [
     "C++/数据结构.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/直线绘制.md",
