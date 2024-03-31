@@ -13,13 +13,26 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "C++/作用域、链接和存储类.md",
-                "mode": "preview",
+                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/直线绘制.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "6c7aa53804f6b4b6",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/直线绘制.md",
+                "mode": "source",
                 "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -85,7 +98,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "C++/作用域、链接和存储类.md",
+                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/直线绘制.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +115,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "C++/作用域、链接和存储类.md",
+                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/直线绘制.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +138,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "C++/作用域、链接和存储类.md"
+                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/直线绘制.md"
               }
             }
           }
@@ -148,19 +161,20 @@
       "obsidian42-brat:BRAT": false
     }
   },
-  "active": "2eb89fbc6b272989",
+  "active": "6c7aa53804f6b4b6",
   "lastOpenFiles": [
     "C++/数据结构.md",
+    "计算机图形学—从0开始构建一个OpenGL软光栅/直线绘制.md",
+    "[[数据结构.md",
+    "[[.md",
+    "C++/作用域、链接和存储类.md",
     "C++/输入输出流小结.md",
     "C++/容器、算法和迭代器.md",
     "C++/模板.md",
     "C++/类和对象.md",
-    "计算机图形学—从0开始构建一个OpenGL软光栅/直线绘制.md",
-    "[[数据结构.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/（图解2）创建位图.png",
     "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/（图解1）HDC中的位图对象.png",
     "计算机图形学—从0开始构建一个OpenGL软光栅/从0开始构建OpenGL软光栅.canvas",
-    "C++/作用域、链接和存储类.md",
     "C++/attachments/（图解4） CMake资源拷贝.png",
     "C++/attachments/(图解4) CMake资源拷贝.png",
     "计算机图形学—从0开始构建一个OpenGL软光栅/应用案例.md",
@@ -193,7 +207,6 @@
     "技术美术入门/技术美术入门.md",
     "【Unity技术美术】URP Shader训练营/【Unity技术美术】URP Shader训练营.md",
     "Notion/Reading List & Notes/笔记本/Note Template.md",
-    "Notion/Reading List & Notes.md",
     "Notion/Reading List & Notes/笔记本/C++软件光栅器/章节笔记",
     "Notion/Reading List & Notes/笔记本/C++/类和对象",
     "Notion/Reading List & Notes/笔记本/C++/数据结构",
