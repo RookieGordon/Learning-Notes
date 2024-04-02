@@ -69,8 +69,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 343.49999618530273,
-    "collapsed": true
+    "width": 343.49999618530273
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -152,11 +151,11 @@
   },
   "active": "4251b4f7cbef7e02",
   "lastOpenFiles": [
+    "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/（图解4）直线和像素的位置关系.png",
+    "计算机图形学—从0开始构建一个OpenGL软光栅/直线绘制.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/课程背景.png",
     "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/screenshot-1712067784887.png",
-    "计算机图形学—从0开始构建一个OpenGL软光栅/直线绘制.md",
-    "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/（图解6）相邻像素点距离直线的距离.png",
-    "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/（图解5）直线和像素的位置关系.png",
+    "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/（图解5）相邻像素点距离直线的距离.png",
     "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/（图解3）两点求直线.png",
     "C++/数据结构.md",
     "[[数据结构.md",
