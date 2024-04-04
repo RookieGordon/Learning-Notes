@@ -134,8 +134,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 369.5,
-    "collapsed": true
+    "width": 369.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -151,11 +150,11 @@
   },
   "active": "4251b4f7cbef7e02",
   "lastOpenFiles": [
+    "C++/数据结构.md",
+    "计算机图形学—从0开始构建一个OpenGL软光栅/直线绘制.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/（图解8）delta x小于0的情况.png",
     "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/（图解7）斜率小于-1的情况.png",
     "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/（图解6）斜率大于1.png",
-    "C++/数据结构.md",
-    "计算机图形学—从0开始构建一个OpenGL软光栅/直线绘制.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/（图解1）HDC中的位图对象.png",
     "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/（图解4）直线和像素的位置关系.png",
     "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/课程背景.png",
@@ -171,7 +170,6 @@
     "C++/类和对象.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/（图解2）创建位图.png",
     "计算机图形学—从0开始构建一个OpenGL软光栅/从0开始构建OpenGL软光栅.canvas",
-    "C++/attachments/（图解4） CMake资源拷贝.png",
     "计算机图形学—从0开始构建一个OpenGL软光栅/应用案例.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/矩阵理论基础.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/高级渲染管线功能.md",
