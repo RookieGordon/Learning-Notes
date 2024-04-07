@@ -18,19 +18,8 @@
                 "source": false
               }
             }
-          },
-          {
-            "id": "40bc9c68939bea1a",
-            "type": "leaf",
-            "state": {
-              "type": "release-notes",
-              "state": {
-                "currentVersion": "1.5.12"
-              }
-            }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -161,7 +150,7 @@
       "obsidian42-brat:BRAT": false
     }
   },
-  "active": "40bc9c68939bea1a",
+  "active": "4251b4f7cbef7e02",
   "lastOpenFiles": [
     "C++/数据结构.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/直线绘制.md",
