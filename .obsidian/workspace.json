@@ -69,7 +69,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 343.49999618530273
+    "width": 343.49999618530273,
+    "collapsed": true
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -149,7 +150,7 @@
       "obsidian42-brat:BRAT": false
     }
   },
-  "active": "4251b4f7cbef7e02",
+  "active": "3980a1c1a27a1a1d",
   "lastOpenFiles": [
     "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/（图解4）Bresenham画线法.jpg",
     "C++/数据结构.md",
