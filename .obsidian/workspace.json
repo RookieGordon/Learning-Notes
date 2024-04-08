@@ -69,7 +69,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 343.49999618530273
+    "width": 343.49999618530273,
+    "collapsed": true
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -134,7 +135,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 369.5
+    "width": 369.5,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -148,7 +150,7 @@
       "obsidian42-brat:BRAT": false
     }
   },
-  "active": "4251b4f7cbef7e02",
+  "active": "3980a1c1a27a1a1d",
   "lastOpenFiles": [
     "计算机图形学—从0开始构建一个OpenGL软光栅/矩阵理论基础.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/直线绘制.md",
