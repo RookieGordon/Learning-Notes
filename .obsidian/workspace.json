@@ -14,7 +14,7 @@
               "type": "markdown",
               "state": {
                 "file": "计算机图形学—从0开始构建一个OpenGL软光栅/直线绘制.md",
-                "mode": "preview",
+                "mode": "source",
                 "source": false
               }
             }
@@ -135,7 +135,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 369.5
+    "width": 369.5,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
