@@ -65,7 +65,8 @@
               "state": {}
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -131,11 +132,12 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
-    "width": 369.5
+    "width": 369.5,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -149,7 +151,7 @@
       "obsidian42-brat:BRAT": false
     }
   },
-  "active": "4251b4f7cbef7e02",
+  "active": "6490a2fd7323267e",
   "lastOpenFiles": [
     "计算机图形学—从0开始构建一个OpenGL软光栅/矩阵理论基础.md",
     "C++/类和对象.md",
