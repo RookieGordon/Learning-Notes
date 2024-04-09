@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/矩阵理论基础.md",
+                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/三角形绘制.md",
                 "mode": "source",
                 "source": false
               }
@@ -86,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/矩阵理论基础.md",
+                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/三角形绘制.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/矩阵理论基础.md",
+                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/三角形绘制.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/矩阵理论基础.md"
+                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/三角形绘制.md"
               }
             }
           }
@@ -152,11 +152,12 @@
   },
   "active": "4251b4f7cbef7e02",
   "lastOpenFiles": [
-    "C++/引用和地址.md",
+    "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/（图解5）向量叉乘判断点是否属于三角形.png",
+    "计算机图形学—从0开始构建一个OpenGL软光栅/直线绘制.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/矩阵理论基础.md",
+    "C++/引用和地址.md",
     "C++/类和对象.md",
     "C++/模板.md",
-    "计算机图形学—从0开始构建一个OpenGL软光栅/直线绘制.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/（图解4）Bresenham画线法.jpg",
     "C++/数据结构.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/（图解8）delta x小于0的情况.png",
@@ -195,7 +196,6 @@
     "C++/images",
     "C++/C++.md",
     "技术美术入门/技术美术入门.md",
-    "【Unity技术美术】URP Shader训练营/【Unity技术美术】URP Shader训练营.md",
     "Notion/Reading List & Notes/笔记本/C++软件光栅器/章节笔记",
     "Notion/Reading List & Notes/笔记本/C++/类和对象",
     "Notion/Reading List & Notes/笔记本/C++/数据结构",
