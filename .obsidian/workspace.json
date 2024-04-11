@@ -69,7 +69,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 343.49999618530273
+    "width": 270.49999618530273
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -134,8 +134,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 369.5,
-    "collapsed": true
+    "width": 282.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -151,6 +150,7 @@
   },
   "active": "4251b4f7cbef7e02",
   "lastOpenFiles": [
+    "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/（图解15）方阵行列式的几何意义.png",
     "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/（图解14）矩阵行列式的另一种定义.png",
     "计算机图形学—从0开始构建一个OpenGL软光栅/三角形绘制.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/空间变换.md",
@@ -166,7 +166,6 @@
     "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/（图解9）三角形的UV坐标.png",
     "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/（图解8）按比例采样像素.png",
     "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/（图解7）三角形内任一点的线性组合系数.png",
-    "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/（图解6）三角形内任意点.png",
     "C++/引用和地址.md",
     "C++/类和对象.md",
     "C++/模板.md",
