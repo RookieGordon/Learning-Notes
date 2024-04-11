@@ -69,8 +69,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 343.49999618530273,
-    "collapsed": true
+    "width": 343.49999618530273
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -152,6 +151,7 @@
   },
   "active": "4251b4f7cbef7e02",
   "lastOpenFiles": [
+    "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/（图解14）矩阵行列式的另一种定义.png",
     "计算机图形学—从0开始构建一个OpenGL软光栅/三角形绘制.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/空间变换.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/向量和矩阵.md",
