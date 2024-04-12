@@ -69,7 +69,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 332.49999618530273
+    "width": 332.49999618530273,
+    "collapsed": true
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -149,8 +150,9 @@
       "obsidian42-brat:BRAT": false
     }
   },
-  "active": "4251b4f7cbef7e02",
+  "active": "6490a2fd7323267e",
   "lastOpenFiles": [
+    "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/（图解23）任意轴的旋转矩阵.png",
     "计算机图形学—从0开始构建一个OpenGL软光栅/向量和矩阵.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/空间变换.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/（图解21）求旋转矩阵的一组基向量.png",
