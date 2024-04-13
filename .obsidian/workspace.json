@@ -135,8 +135,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 466.5,
-    "collapsed": true
+    "width": 466.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -152,19 +151,18 @@
   },
   "active": "4251b4f7cbef7e02",
   "lastOpenFiles": [
+    "计算机图形学—从0开始构建一个OpenGL软光栅/向量和矩阵.md",
+    "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/（图解30）矩阵乘法的列视图理解.png",
+    "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/（图解29）矩阵乘法的理解.png",
+    "计算机图形学—从0开始构建一个OpenGL软光栅/空间变换.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/（图解28）摄像机的视图变换矩阵.png",
     "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/（图解27）摄像机空间变换矩阵.png",
     "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/（图解26）摄像机的平移矩阵和逆矩阵.png",
     "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/（图解25）摄像机的旋转矩阵和逆矩阵.png",
     "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/（图解24）摄像机逆变换矩阵.png",
     "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/（图解23）任意轴的旋转矩阵.png",
-    "计算机图形学—从0开始构建一个OpenGL软光栅/向量和矩阵.md",
-    "计算机图形学—从0开始构建一个OpenGL软光栅/空间变换.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/（图解21）求旋转矩阵的一组基向量.png",
     "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/（图解22）任意轴旋转推导过程2.png",
-    "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/（图解20）任意轴旋转推导过程1.png",
-    "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/（图解19）左手和右手坐标系.png",
-    "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/（图解19）左手和右手坐标系.png",
     "C++/类和对象.md",
     "C++/模板.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/三角形绘制.md",
