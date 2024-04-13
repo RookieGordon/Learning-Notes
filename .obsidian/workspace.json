@@ -134,7 +134,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 466.5
+    "width": 466.5,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -150,18 +151,17 @@
   },
   "active": "4251b4f7cbef7e02",
   "lastOpenFiles": [
-    "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/Pasted image 20240413180440.png",
-    "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/（图解27）摄像机空间变换矩阵.png",
+    "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/Pasted image 20240413174416.png",
+    "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/Pasted image 20240413175850.png",
+    "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/Pasted image 20240413174146.png",
     "计算机图形学—从0开始构建一个OpenGL软光栅/空间变换.md",
+    "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/（图解28）摄像机的视图变换矩阵.png",
+    "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/（图解28）摄像机的视图变换矩阵.png",
+    "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/（图解27）摄像机空间变换矩阵.png",
+    "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/（图解27）摄像机空间变换矩阵.png",
     "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/（图解39）屏幕空间变换矩阵.png",
     "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/（图解38）NDC变换到屏幕坐标的过程.png",
-    "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/Pasted image 20240413175850.png",
     "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/（图解37）改造后的NDC与屏幕对应关系.png",
-    "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/Pasted image 20240413174416.png",
-    "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/Pasted image 20240413174146.png",
-    "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/（图解34）正交投影盒的逆缩放矩阵.png",
-    "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/（图解36）正交投影矩阵.png",
-    "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/Pasted image 20240413171654.png",
     "计算机图形学—从0开始构建一个OpenGL软光栅/向量和矩阵.md",
     "C++/类和对象.md",
     "C++/模板.md",
