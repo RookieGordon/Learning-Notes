@@ -69,7 +69,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 387.5
+    "width": 387.5,
+    "collapsed": true
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -151,6 +152,8 @@
   },
   "active": "4251b4f7cbef7e02",
   "lastOpenFiles": [
+    "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/Pasted image 20240413214105.png",
+    "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/（图解47）透视投影变换矩阵方程.png",
     "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/（图解46）视锥体中点的y值对应的NDC值.png",
     "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/（图解45）视锥体中点的x值对应的NDC值.png",
     "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/（图解4）视锥体的近平面与NDC线性对应.png",
@@ -160,8 +163,6 @@
     "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/（图解41）视锥体参数定义.png",
     "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/（图解40）透视投影图示.png",
     "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/Pasted image 20240413174416.png",
-    "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/Pasted image 20240413175850.png",
-    "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/Pasted image 20240413174146.png",
     "计算机图形学—从0开始构建一个OpenGL软光栅/空间变换.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/向量和矩阵.md",
     "C++/类和对象.md",
