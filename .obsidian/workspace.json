@@ -135,8 +135,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 466.5,
-    "collapsed": true
+    "width": 466.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -152,6 +151,7 @@
   },
   "active": "4251b4f7cbef7e02",
   "lastOpenFiles": [
+    "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/（图解40）透视投影图示.png",
     "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/Pasted image 20240413174416.png",
     "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/Pasted image 20240413175850.png",
     "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/Pasted image 20240413174146.png",
