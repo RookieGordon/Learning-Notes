@@ -65,12 +65,12 @@
               "state": {}
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
-    "width": 387.5,
-    "collapsed": true
+    "width": 387.5
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -150,7 +150,7 @@
       "obsidian42-brat:BRAT": false
     }
   },
-  "active": "3980a1c1a27a1a1d",
+  "active": "936b4cf76949286f",
   "lastOpenFiles": [
     "计算机图形学—从0开始构建一个OpenGL软光栅/渲染管线.md",
     "C++/数据结构.md",
