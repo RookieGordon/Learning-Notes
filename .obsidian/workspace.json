@@ -151,6 +151,7 @@
   },
   "active": "4251b4f7cbef7e02",
   "lastOpenFiles": [
+    "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/（图解72）四边形拆分成三角形.png",
     "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/（图解71）考察右边界裁剪四边形.png",
     "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/（图解70）考察上边界，裁剪三角形.png",
     "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/（图解69）逐边裁剪算法两个顶点的不同测试情况.png",
@@ -166,7 +167,6 @@
     "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/（图解65）渲染指令发出后的执行流程.png",
     "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/（图解64）图形状态机的执行路径.png",
     "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/（图解63）Mesh数据描述.png",
-    "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/（图解62）顶点数据读取过程.png",
     "计算机图形学—从0开始构建一个OpenGL软光栅/向量和矩阵.md",
     "C++/类和对象.md",
     "C++/模板.md",
