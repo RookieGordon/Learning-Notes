@@ -1,4 +1,5 @@
 {
   "attachmentFolderPath": "./attachments",
-  "alwaysUpdateLinks": true
+  "alwaysUpdateLinks": true,
+  "defaultViewMode": "preview"
 }
