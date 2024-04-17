@@ -4,17 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "e190fd7bfd2173f8",
+        "id": "211165d4320d1ec9",
         "type": "tabs",
         "children": [
           {
-            "id": "4251b4f7cbef7e02",
+            "id": "7af202dd996dc298",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/高级渲染管线功能.md",
-                "mode": "source",
+                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/直线绘制.md",
+                "mode": "preview",
                 "source": false
               }
             }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/高级渲染管线功能.md",
+                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/直线绘制.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/高级渲染管线功能.md",
+                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/直线绘制.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/高级渲染管线功能.md"
+                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/直线绘制.md"
               }
             }
           }
@@ -134,7 +134,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 273.5
+    "width": 273.5,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -148,8 +149,20 @@
       "obsidian42-brat:BRAT": false
     }
   },
-  "active": "4251b4f7cbef7e02",
+  "active": "7af202dd996dc298",
   "lastOpenFiles": [
+    "计算机图形学—从0开始构建一个OpenGL软光栅/应用案例.md",
+    "计算机图形学—从0开始构建一个OpenGL软光栅/渲染管线.md",
+    "计算机图形学—从0开始构建一个OpenGL软光栅/向量和矩阵.md",
+    "计算机图形学—从0开始构建一个OpenGL软光栅/三角形绘制.md",
+    "计算机图形学—从0开始构建一个OpenGL软光栅/空间变换.md",
+    "计算机图形学—从0开始构建一个OpenGL软光栅/高级渲染管线功能.md",
+    "计算机图形学—从0开始构建一个OpenGL软光栅/从0开始构建OpenGL软光栅.canvas",
+    "计算机图形学—从0开始构建一个OpenGL软光栅/图片与纹理.md",
+    "计算机图形学—从0开始构建一个OpenGL软光栅/直线绘制.md",
+    "Welcome.md",
+    "2024-04-17.md",
+    "C++/类和对象.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/（图解75）NDC空间判定条件.png",
     "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/Pasted image 20240417165256.png",
     "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/（图解74）边界插值公式.png",
@@ -160,28 +173,16 @@
     "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/（图解69）逐边裁剪算法两个顶点的不同测试情况.png",
     "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/（图解68）空间中平面的向量理解.png",
     "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/（图解67）点与直线的距离关系.png",
-    "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/（图解66）直线的向量理解.png",
-    "计算机图形学—从0开始构建一个OpenGL软光栅/空间变换.md",
-    "计算机图形学—从0开始构建一个OpenGL软光栅/渲染管线.md",
     "C++/数据结构.md",
     "C++/C++.canvas",
-    "计算机图形学—从0开始构建一个OpenGL软光栅/从0开始构建OpenGL软光栅.canvas",
-    "计算机图形学—从0开始构建一个OpenGL软光栅/向量和矩阵.md",
-    "C++/类和对象.md",
     "C++/模板.md",
-    "计算机图形学—从0开始构建一个OpenGL软光栅/三角形绘制.md",
-    "计算机图形学—从0开始构建一个OpenGL软光栅/直线绘制.md",
-    "计算机图形学—从0开始构建一个OpenGL软光栅/图片与纹理.md",
     "C++/引用和地址.md",
     "[[数据结构.md",
     "[[.md",
     "C++/作用域、链接和存储类.md",
     "C++/输入输出流小结.md",
     "C++/容器、算法和迭代器.md",
-    "计算机图形学—从0开始构建一个OpenGL软光栅/应用案例.md",
-    "计算机图形学—从0开始构建一个OpenGL软光栅/高级渲染管线功能.md",
     "C++/内存管理.md",
-    "Welcome.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/计算机图形学—从0开始构建一个OpenGL软光栅.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/attachments",
     "C++/类型猪羊和.md",
@@ -193,7 +194,6 @@
     "新建文件夹",
     "C++/images",
     "C++/C++.md",
-    "技术美术入门/技术美术入门.md",
     "Notion/Reading List & Notes/笔记本/C++软件光栅器/章节笔记",
     "Notion/Reading List & Notes/笔记本/C++/类和对象",
     "Notion/Reading List & Notes/笔记本/C++/数据结构",
