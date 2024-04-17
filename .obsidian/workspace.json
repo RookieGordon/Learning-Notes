@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/空间变换.md",
+                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/高级渲染管线功能.md",
                 "mode": "source",
                 "source": false
               }
@@ -69,8 +69,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 387.5,
-    "collapsed": true
+    "width": 387.5
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -86,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/空间变换.md",
+                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/高级渲染管线功能.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/空间变换.md",
+                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/高级渲染管线功能.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/空间变换.md"
+                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/高级渲染管线功能.md"
               }
             }
           }
@@ -152,8 +151,9 @@
   },
   "active": "4251b4f7cbef7e02",
   "lastOpenFiles": [
-    "计算机图形学—从0开始构建一个OpenGL软光栅/渲染管线.md",
+    "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/（图解66）直线的向量理解.png",
     "计算机图形学—从0开始构建一个OpenGL软光栅/空间变换.md",
+    "计算机图形学—从0开始构建一个OpenGL软光栅/渲染管线.md",
     "C++/数据结构.md",
     "C++/C++.canvas",
     "计算机图形学—从0开始构建一个OpenGL软光栅/从0开始构建OpenGL软光栅.canvas",
