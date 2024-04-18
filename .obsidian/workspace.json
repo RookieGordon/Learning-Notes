@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/高级渲染管线功能.md",
+                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/空间变换.md",
                 "mode": "source",
                 "source": false
               }
@@ -86,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/高级渲染管线功能.md",
+                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/空间变换.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/高级渲染管线功能.md",
+                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/空间变换.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/高级渲染管线功能.md"
+                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/空间变换.md"
               }
             }
           }
@@ -150,13 +150,13 @@
       "obsidian42-brat:BRAT": false
     }
   },
-  "active": "6490a2fd7323267e",
+  "active": "7af202dd996dc298",
   "lastOpenFiles": [
+    "计算机图形学—从0开始构建一个OpenGL软光栅/高级渲染管线功能.md",
+    "计算机图形学—从0开始构建一个OpenGL软光栅/空间变换.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/（图解78）投影过程中，重心比值的变化.png",
     "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/Pasted image 20240418153825.png",
     "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/（图解77）NDC空间坐标归一化.png",
-    "计算机图形学—从0开始构建一个OpenGL软光栅/空间变换.md",
-    "计算机图形学—从0开始构建一个OpenGL软光栅/高级渲染管线功能.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/（图解75）投影过程中的畸变.png",
     "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/（图解66）直线的向量理解.png",
     "计算机图形学—从0开始构建一个OpenGL软光栅/应用案例.md",
@@ -174,7 +174,6 @@
     "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/（图解74）边界插值公式.png",
     "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/（图解73）边界交点属性插值.png",
     "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/（图解72）四边形拆分成三角形.png",
-    "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/（图解71）考察右边界裁剪四边形.png",
     "C++/数据结构.md",
     "C++/C++.canvas",
     "C++/模板.md",
