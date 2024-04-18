@@ -131,7 +131,7 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
@@ -150,9 +150,9 @@
       "obsidian42-brat:BRAT": false
     }
   },
-  "active": "7af202dd996dc298",
+  "active": "6490a2fd7323267e",
   "lastOpenFiles": [
-    "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/Pasted image 20240418154812.png",
+    "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/（图解78）投影过程中，重心比值的变化.png",
     "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/Pasted image 20240418153825.png",
     "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/（图解77）NDC空间坐标归一化.png",
     "计算机图形学—从0开始构建一个OpenGL软光栅/空间变换.md",
