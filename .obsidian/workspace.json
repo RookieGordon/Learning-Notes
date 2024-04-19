@@ -20,18 +20,6 @@
             }
           },
           {
-            "id": "c4cab3c0da0c4fbe",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/高级渲染管线功能.md",
-                "mode": "preview",
-                "source": false
-              }
-            }
-          },
-          {
             "id": "6936267259dd8e28",
             "type": "leaf",
             "state": {
@@ -42,9 +30,21 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "c4cab3c0da0c4fbe",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/高级渲染管线功能.md",
+                "mode": "source",
+                "source": false
+              }
+            }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
