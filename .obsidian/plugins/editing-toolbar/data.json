@@ -204,6 +204,11 @@
       "id": "editing-toolbar:workplace-fullscreen-focus",
       "name": "workplace-Fullscreen ",
       "icon": "exit-fullscreen"
+    },
+    {
+      "id": "workspace:toggle-pin",
+      "name": "解锁/锁定",
+      "icon": "lucide-pin"
     }
   ],
   "appendMethod": "workspace",
