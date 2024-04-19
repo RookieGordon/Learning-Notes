@@ -32,13 +32,13 @@
             }
           },
           {
-            "id": "c4cab3c0da0c4fbe",
+            "id": "257894246f325b44",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
                 "file": "计算机图形学—从0开始构建一个OpenGL软光栅/高级渲染管线功能.md",
-                "mode": "source",
+                "mode": "preview",
                 "source": false
               }
             }
@@ -90,7 +90,8 @@
               "state": {}
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -175,11 +176,11 @@
       "obsidian42-brat:BRAT": false
     }
   },
-  "active": "c4cab3c0da0c4fbe",
+  "active": "257894246f325b44",
   "lastOpenFiles": [
+    "计算机图形学—从0开始构建一个OpenGL软光栅/渲染管线.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/空间变换.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/高级渲染管线功能.md",
-    "计算机图形学—从0开始构建一个OpenGL软光栅/渲染管线.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/（图解80）投影变换和透视除法中Z坐标的变化.png",
     "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/Pasted image 20240418165629.png",
     "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/Pasted image 20240418165623.png",
