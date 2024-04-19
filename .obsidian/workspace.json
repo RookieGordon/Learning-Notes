@@ -37,7 +37,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/高级渲染管线功能.md",
+                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/图片与纹理.md",
                 "mode": "source",
                 "source": false
               }
@@ -90,8 +90,7 @@
               "state": {}
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -112,7 +111,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/高级渲染管线功能.md",
+                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/图片与纹理.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -129,7 +128,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/高级渲染管线功能.md",
+                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/图片与纹理.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -152,7 +151,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/高级渲染管线功能.md"
+                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/图片与纹理.md"
               }
             }
           }
@@ -176,10 +175,10 @@
       "obsidian42-brat:BRAT": false
     }
   },
-  "active": "257894246f325b44",
+  "active": "3980a1c1a27a1a1d",
   "lastOpenFiles": [
-    "计算机图形学—从0开始构建一个OpenGL软光栅/渲染管线.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/高级渲染管线功能.md",
+    "计算机图形学—从0开始构建一个OpenGL软光栅/渲染管线.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/（图解81）剔除算法举例.png",
     "计算机图形学—从0开始构建一个OpenGL软光栅/空间变换.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/（图解80）投影变换和透视除法中Z坐标的变化.png",
