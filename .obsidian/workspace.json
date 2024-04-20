@@ -93,7 +93,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 387.5
+    "width": 387.5,
+    "collapsed": true
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -175,6 +176,7 @@
   },
   "active": "9037ac974d3e6787",
   "lastOpenFiles": [
+    "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/（图解82）摄像机旋转.png",
     "计算机图形学—从0开始构建一个OpenGL软光栅/面片与模型.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/光照模型.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/摄像机系统.md",
@@ -214,7 +216,6 @@
     "计算机图形学—从0开始构建一个OpenGL软光栅/attachments",
     "C++/类型猪羊和.md",
     "未命名.canvas",
-    "clas.md",
     "C++/attachments",
     "。Resource",
     "新建文件夹",
