@@ -13,37 +13,26 @@
             "state": {
               "type": "markdown",
               "state": {
+                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/空间变换.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "24b5e9ef326ad092",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
                 "file": "计算机图形学—从0开始构建一个OpenGL软光栅/摄像机系统.md",
                 "mode": "source",
                 "source": false
               }
             }
-          },
-          {
-            "id": "6936267259dd8e28",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/渲染管线.md",
-                "mode": "preview",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "257894246f325b44",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/应用案例.md",
-                "mode": "source",
-                "source": false
-              }
-            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -174,16 +163,16 @@
       "obsidian42-brat:BRAT": false
     }
   },
-  "active": "9037ac974d3e6787",
+  "active": "24b5e9ef326ad092",
   "lastOpenFiles": [
+    "计算机图形学—从0开始构建一个OpenGL软光栅/空间变换.md",
+    "计算机图形学—从0开始构建一个OpenGL软光栅/摄像机系统.md",
+    "计算机图形学—从0开始构建一个OpenGL软光栅/应用案例.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/（图解82）摄像机旋转.png",
     "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/（图解82）摄像机旋转.png",
     "计算机图形学—从0开始构建一个OpenGL软光栅/面片与模型.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/光照模型.md",
-    "计算机图形学—从0开始构建一个OpenGL软光栅/摄像机系统.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/渲染管线.md",
-    "计算机图形学—从0开始构建一个OpenGL软光栅/空间变换.md",
-    "计算机图形学—从0开始构建一个OpenGL软光栅/应用案例.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/图片与纹理.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/高级渲染管线功能.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/（图解81）剔除算法举例.png",
@@ -195,7 +184,6 @@
     "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/（图解78）投影过程中，重心比值的变化.png",
     "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/Pasted image 20240418153825.png",
     "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/（图解77）NDC空间坐标归一化.png",
-    "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/（图解75）投影过程中的畸变.png",
     "计算机图形学—从0开始构建一个OpenGL软光栅/从0开始构建OpenGL软光栅.canvas",
     "计算机图形学—从0开始构建一个OpenGL软光栅/向量和矩阵.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/直线绘制.md",
