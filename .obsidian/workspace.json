@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/空间变换.md",
+                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/摄像机系统.md",
                 "mode": "source",
                 "source": false
               }
@@ -37,14 +37,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/图片与纹理.md",
+                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/应用案例.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -94,8 +93,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 387.5,
-    "collapsed": true
+    "width": 387.5
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -111,7 +109,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/空间变换.md",
+                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/摄像机系统.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -128,7 +126,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/空间变换.md",
+                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/摄像机系统.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -151,7 +149,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/空间变换.md"
+                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/摄像机系统.md"
               }
             }
           }
@@ -175,12 +173,17 @@
       "obsidian42-brat:BRAT": false
     }
   },
-  "active": "3980a1c1a27a1a1d",
+  "active": "9037ac974d3e6787",
   "lastOpenFiles": [
-    "计算机图形学—从0开始构建一个OpenGL软光栅/高级渲染管线功能.md",
+    "计算机图形学—从0开始构建一个OpenGL软光栅/面片与模型.md",
+    "计算机图形学—从0开始构建一个OpenGL软光栅/光照模型.md",
+    "计算机图形学—从0开始构建一个OpenGL软光栅/摄像机系统.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/渲染管线.md",
-    "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/（图解81）剔除算法举例.png",
     "计算机图形学—从0开始构建一个OpenGL软光栅/空间变换.md",
+    "计算机图形学—从0开始构建一个OpenGL软光栅/应用案例.md",
+    "计算机图形学—从0开始构建一个OpenGL软光栅/图片与纹理.md",
+    "计算机图形学—从0开始构建一个OpenGL软光栅/高级渲染管线功能.md",
+    "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/（图解81）剔除算法举例.png",
     "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/（图解80）投影变换和透视除法中Z坐标的变化.png",
     "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/Pasted image 20240418165629.png",
     "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/Pasted image 20240418165623.png",
@@ -191,10 +194,8 @@
     "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/（图解77）NDC空间坐标归一化.png",
     "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/（图解75）投影过程中的畸变.png",
     "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/（图解66）直线的向量理解.png",
-    "计算机图形学—从0开始构建一个OpenGL软光栅/应用案例.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/从0开始构建OpenGL软光栅.canvas",
     "计算机图形学—从0开始构建一个OpenGL软光栅/向量和矩阵.md",
-    "计算机图形学—从0开始构建一个OpenGL软光栅/图片与纹理.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/直线绘制.md",
     "Welcome.md",
     "2024-04-17.md",
@@ -214,12 +215,10 @@
     "C++/类型猪羊和.md",
     "未命名.canvas",
     "clas.md",
-    "Untitled 2.png.md",
     "C++/attachments",
     "。Resource",
     "新建文件夹",
     "C++/images",
-    "C++/C++.md",
     "Notion/Reading List & Notes/笔记本/C++软件光栅器/章节笔记",
     "Notion/Reading List & Notes/笔记本/C++/类和对象",
     "Notion/Reading List & Notes/笔记本/C++/数据结构",
