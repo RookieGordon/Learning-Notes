@@ -8,16 +8,6 @@
         "type": "tabs",
         "children": [
           {
-            "id": "b21105f8961b4c31",
-            "type": "leaf",
-            "state": {
-              "type": "excalidraw",
-              "state": {
-                "file": "Excalidraw/Drawing 2024-04-22 16.16.21.excalidraw.md"
-              }
-            }
-          },
-          {
             "id": "374febb167e18f29",
             "type": "leaf",
             "state": {
@@ -79,7 +69,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 387.5
+    "width": 387.5,
+    "collapsed": true
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -95,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Excalidraw/Drawing 2024-04-22 16.16.21.excalidraw.md",
+                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/高级渲染管线功能.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -112,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Excalidraw/Drawing 2024-04-22 16.16.21.excalidraw.md",
+                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/高级渲染管线功能.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -135,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Excalidraw/Drawing 2024-04-22 16.16.21.excalidraw.md"
+                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/高级渲染管线功能.md"
               }
             }
           }
@@ -144,7 +135,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 475.5
+    "width": 475.5,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -159,10 +151,10 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "3980a1c1a27a1a1d",
+  "active": "6490a2fd7323267e",
   "lastOpenFiles": [
+    "Excalidraw/Map.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/渲染管线.md",
-    "Excalidraw/Drawing 2024-04-22 16.16.21.excalidraw.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/高级渲染管线功能.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/空间变换.md",
     "Excalidraw/Drawing 2024-04-22 15.53.40.excalidraw.md",
