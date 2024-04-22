@@ -129,3 +129,5 @@ file(COPY ${ASSETS} DESTINATION ${CMAKE_BINARY_DIR})
 
 工程构建完成后，点击Open Project按钮，会调用Visual Studio打开项目，选择"INSTAULL"解决方案，进行”生成“操作，完成后，会在install目录生成动态库，静态库和头文件三个文件夹
 ![[（图解6）库文件目录.png|500]]
+
+## 库的链接
