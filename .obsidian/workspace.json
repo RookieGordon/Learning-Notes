@@ -11,8 +11,12 @@
             "id": "374febb167e18f29",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/面片与模型.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
         ]
@@ -65,7 +69,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 387.5
+    "width": 387.5,
+    "collapsed": true
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -81,6 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/面片与模型.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -97,6 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/面片与模型.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -119,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Excalidraw/Drawing 2024-04-22 21.52.10.excalidraw.md"
+                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/面片与模型.md"
               }
             }
           }
@@ -144,10 +151,11 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "3980a1c1a27a1a1d",
+  "active": "374febb167e18f29",
   "lastOpenFiles": [
-    "Excalidraw/Map.md",
+    "C++/数据结构.md",
     "Excalidraw/Drawing 2024-04-22 21.52.10.excalidraw.md",
+    "Excalidraw/Map.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/渲染管线.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/高级渲染管线功能.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/空间变换.md",
@@ -179,7 +187,6 @@
     "Welcome.md",
     "2024-04-17.md",
     "C++/类和对象.md",
-    "C++/数据结构.md",
     "C++/C++.canvas",
     "C++/模板.md",
     "C++/引用和地址.md",
