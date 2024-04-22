@@ -11,12 +11,8 @@
             "id": "24b5e9ef326ad092",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/面片与模型.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           },
           {
@@ -98,7 +94,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/面片与模型.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,7 +110,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/面片与模型.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -138,7 +132,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/面片与模型.md"
+                "file": "Excalidraw/Drawing 2024-04-22 15.32.47.excalidraw.md"
               }
             }
           }
@@ -159,13 +153,17 @@
       "templates:插入模板": false,
       "command-palette:打开命令面板": false,
       "obsidian-importer:Open Importer": false,
-      "obsidian42-brat:BRAT": false
+      "obsidian42-brat:BRAT": false,
+      "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "24b5e9ef326ad092",
+  "active": "3980a1c1a27a1a1d",
   "lastOpenFiles": [
-    "计算机图形学—从0开始构建一个OpenGL软光栅/渲染管线.md",
+    "Excalidraw/Drawing 2024-04-22 15.32.47.excalidraw.md",
+    "Excalidraw",
     "计算机图形学—从0开始构建一个OpenGL软光栅/面片与模型.md",
+    "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/（图解89）叶子Mesh的modelMatrix.png",
+    "计算机图形学—从0开始构建一个OpenGL软光栅/渲染管线.md",
     "未命名.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/（图解87）Assmip的数据结构.png",
     "计算机图形学—从0开始构建一个OpenGL软光栅/图片与纹理.md",
@@ -184,7 +182,6 @@
     "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/Pasted image 20240421155531.png",
     "计算机图形学—从0开始构建一个OpenGL软光栅/空间变换.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/（图解84）摄像机的viewMatrix.png",
-    "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/（图解83）摄像机旋转后的右方与头顶方向.png",
     "计算机图形学—从0开始构建一个OpenGL软光栅/应用案例.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/高级渲染管线功能.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/三角形绘制.md",
@@ -201,7 +198,6 @@
     "C++/输入输出流小结.md",
     "C++/容器、算法和迭代器.md",
     "C++/内存管理.md",
-    "计算机图形学—从0开始构建一个OpenGL软光栅/计算机图形学—从0开始构建一个OpenGL软光栅.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/attachments",
     "未命名.canvas",
     "C++/attachments",
@@ -211,7 +207,6 @@
     "Notion/Reading List & Notes/笔记本/C++软件光栅器/章节笔记",
     "Notion/Reading List & Notes/笔记本/C++/类和对象",
     "Notion/Reading List & Notes/笔记本/C++/数据结构",
-    "Notion/Reading List & Notes/笔记本/C++/章节笔记",
-    "计算机图形学—从0开始构建一个OpenGL软光栅/章节笔记"
+    "Notion/Reading List & Notes/笔记本/C++/章节笔记"
   ]
 }
