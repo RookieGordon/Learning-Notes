@@ -3,17 +3,10 @@ tags:
   - Cpp
   - 静态库编译
   - 动态库编译
+  - CMake
 ---
 
-
-
-# 静态库和动态库的编译过程
-使用CMake可以方便的将源代码生成动态链接库，头文件，静态链接库。
-
-![[（图解5）CMake配置.png|540]]
-选择完成源代码文件夹，输出文件夹后，会自动进行配置。配置完成后，选择"CMAKE_INSTALL_PREFIX"
-
-## 使用CMake编译项目
+# 使用CMake编译项目
 
 ```cardlink
 url: https://cmake-doc.readthedocs.io/zh-cn/latest/guide/tutorial/index.html
@@ -33,7 +26,7 @@ image: https://picx.zhimg.com/v2-c57d9b99383ac9158cf640022918ef4b_720w.jpg?sourc
 >[!INFO]
 >[CMake命令](https://cmake.org/cmake/help/latest/manual/cmake-commands.7.html)
 
-###基本项目
+## 基本项目
 
 CMakeLists.txt是整个CMake工程的描述文件。
 
@@ -55,7 +48,7 @@ add_executable(softRenderer "main.cpp")
 - `set(<variable> <value>... [PARENT_SCOPE])`此命令的签名指定一个 `<value>...` 占位符期望零个或多个参数。多个参数将作为分号分隔的列表 \<CMake Language Lists\>连接起来，以形成要设置的实际变量值。零参数将导致普通变量被取消设置。请参阅 [unset()](https://cmake-doc.readthedocs.io/zh-cn/latest/command/unset.html#command:unset "unset")命令显式取消设置变量。
 - [CMAKE_CXX_STANDARD](https://cmake-doc.readthedocs.io/zh-cn/latest/variable/CMAKE_CXX_STANDARD.html#variable:CMAKE_CXX_STANDARD "CMAKE_CXX_STANDARD") 和 [`CMAKE_CXX_STANDARD_REQUIRED`](https://cmake-doc.readthedocs.io/zh-cn/latest/variable/CMAKE_CXX_STANDARD_REQUIRED.html#variable:CMAKE_CXX_STANDARD_REQUIRED "CMAKE_CXX_STANDARD_REQUIRED")这两个特殊的变量，可以一起使用来指定构建项目所需的 C++ 标准。
 
-### 多文件项目
+## 多文件项目
 
 ```CMake
 #需求最低的cmake程序版本
@@ -76,7 +69,7 @@ add_executable(softRenderer ${SRCS})
 
 `aux_source_directory(. SRCS)`用于遍历CMakeLists所在的当前文件夹下的所有*.cpp文件，将其放入变量**`SRCS`**中，最后，再用这些文件来编译构建softRenderer.exe文件。
 
-### 多文件夹编译
+## 多文件夹编译
 
 如何将不同文件夹的cpp源文件，打包成lib库，进而纳入到链接范围？
 ``` CMake
@@ -110,7 +103,7 @@ file(GLOB_RECURSE FUNCS ./ *.cpp)
 add_library(funcs ${FUNCS})
 ```
 
-### 工程中的资源文件拷贝
+## 工程中的资源文件拷贝
 工程中的资源文件（图片，模型，音视频，动态链接库等），都需要拷贝到编译链接完成的exe所在的目录才能被正确读取，所以需要有拷贝功能
 
 ![[（图解4） CMake资源拷贝.png]]
@@ -124,3 +117,15 @@ file(GLOB_RECURSE ASSETS "./assets" "thirdParty/assimp-vc143-mtd.dll")
 file(COPY ${ASSETS} DESTINATION ${CMAKE_BINARY_DIR})
 ```
 [`CMAKE_BINARY_DIR`](https://zhuanlan.zhihu.com/p/587553254)可以简单理解成可执行目录
+
+# 静态库和动态库的编译过程
+
+使用CMake可以方便的将源代码生成动态链接库，头文件，静态链接库。
+
+![[（图解5）CMake配置.png|510]]
+选择完成源代码文件夹，输出文件夹后，会自动进行工程创建。
+
+工程创建完成后，选择[CMAKE_INSTALL_PREFIX]([CMAKE_INSTALL_PREFIX — CMake 3.26.4 Documentation (cmake-doc.readthedocs.io)](https://cmake-doc.readthedocs.io/zh-cn/latest/variable/CMAKE_INSTALL_PREFIX.html))来指定库文件的安装路径。配置完成后，依次点击Configure按钮，Generate按钮重新生成工程。
+
+工程构建完成后，点击Open Project按钮，会调用Visual Studio打开项目，选择"INSTAULL"解决方案，进行”生成“操作，完成后，会在install目录生成动态库，静态库和头文件三个文件夹
+![[（图解6）库文件目录.png|500]]
