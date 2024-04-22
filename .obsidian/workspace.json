@@ -11,8 +11,10 @@
             "id": "24b5e9ef326ad092",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "excalidraw",
+              "state": {
+                "file": "Excalidraw/Drawing 2024-04-22 15.53.40.excalidraw.md"
+              }
             }
           },
           {
@@ -94,6 +96,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "Excalidraw/Drawing 2024-04-22 15.53.40.excalidraw.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -110,6 +113,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "Excalidraw/Drawing 2024-04-22 15.53.40.excalidraw.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -132,7 +136,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Excalidraw/Drawing 2024-04-22 15.32.47.excalidraw.md"
+                "file": "Excalidraw/Drawing 2024-04-22 15.53.40.excalidraw.md"
               }
             }
           }
@@ -157,9 +161,10 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "3980a1c1a27a1a1d",
+  "active": "24b5e9ef326ad092",
   "lastOpenFiles": [
     "Excalidraw/Drawing 2024-04-22 15.32.47.excalidraw.md",
+    "Excalidraw/Drawing 2024-04-22 15.53.40.excalidraw.md",
     "Excalidraw",
     "计算机图形学—从0开始构建一个OpenGL软光栅/面片与模型.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/（图解89）叶子Mesh的modelMatrix.png",
@@ -197,7 +202,6 @@
     "[[.md",
     "C++/输入输出流小结.md",
     "C++/容器、算法和迭代器.md",
-    "C++/内存管理.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/attachments",
     "未命名.canvas",
     "C++/attachments",
