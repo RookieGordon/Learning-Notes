@@ -18,6 +18,16 @@
             }
           },
           {
+            "id": "717552152f05b7dd",
+            "type": "leaf",
+            "state": {
+              "type": "excalidraw",
+              "state": {
+                "file": "Excalidraw/Drawing 2024-04-22 16.16.21.excalidraw.md"
+              }
+            }
+          },
+          {
             "id": "b21105f8961b4c31",
             "type": "leaf",
             "state": {
@@ -29,7 +39,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -160,10 +171,11 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "24b5e9ef326ad092",
+  "active": "717552152f05b7dd",
   "lastOpenFiles": [
-    "计算机图形学—从0开始构建一个OpenGL软光栅/高级渲染管线功能.md",
+    "计算机图形学—从0开始构建一个OpenGL软光栅/空间变换.md",
     "Excalidraw/Drawing 2024-04-22 16.16.21.excalidraw.md",
+    "计算机图形学—从0开始构建一个OpenGL软光栅/高级渲染管线功能.md",
     "Excalidraw/Drawing 2024-04-22 15.53.40.excalidraw.md",
     "Excalidraw/Drawing 2024-04-22 15.32.47.excalidraw.md",
     "Excalidraw",
@@ -186,7 +198,6 @@
     "计算机图形学—从0开始构建一个OpenGL软光栅/摄像机系统.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/（图解85）像素微元与光线有夹角.png",
     "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/Pasted image 20240421155531.png",
-    "计算机图形学—从0开始构建一个OpenGL软光栅/空间变换.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/（图解84）摄像机的viewMatrix.png",
     "计算机图形学—从0开始构建一个OpenGL软光栅/应用案例.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/三角形绘制.md",
