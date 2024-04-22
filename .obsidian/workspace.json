@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/图片与纹理.md",
+                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/面片与模型.md",
                 "mode": "source",
                 "source": false
               }
@@ -48,7 +48,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "翻转",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -65,12 +65,12 @@
               "state": {}
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
-    "width": 387.5
+    "width": 387.5,
+    "collapsed": true
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -86,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/图片与纹理.md",
+                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/面片与模型.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/图片与纹理.md",
+                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/面片与模型.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/图片与纹理.md"
+                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/面片与模型.md"
               }
             }
           }
@@ -152,8 +152,9 @@
   },
   "active": "24b5e9ef326ad092",
   "lastOpenFiles": [
-    "计算机图形学—从0开始构建一个OpenGL软光栅/面片与模型.md",
+    "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/（图解87）Assmip的数据结构.png",
     "计算机图形学—从0开始构建一个OpenGL软光栅/图片与纹理.md",
+    "计算机图形学—从0开始构建一个OpenGL软光栅/面片与模型.md",
     "C++/使用CMake编译项目.md",
     "C++/attachments/（图解6）库文件目录.png",
     "C++/attachments/Pasted image 20240422120954.png",
