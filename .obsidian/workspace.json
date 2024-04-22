@@ -13,8 +13,8 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/直线绘制.md",
-                "mode": "preview",
+                "file": "C++/使用CMake编译项目.md",
+                "mode": "source",
                 "source": false
               }
             }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/直线绘制.md",
+                "file": "C++/使用CMake编译项目.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/直线绘制.md",
+                "file": "C++/使用CMake编译项目.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/直线绘制.md"
+                "file": "C++/使用CMake编译项目.md"
               }
             }
           }
@@ -134,8 +134,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 475.5,
-    "collapsed": true
+    "width": 475.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -151,8 +150,10 @@
   },
   "active": "24b5e9ef326ad092",
   "lastOpenFiles": [
+    "C++/作用域、链接和存储类.md",
+    "C++/使用CMake编译项目.md",
+    "计算机图形学—从0开始构建一个OpenGL软光栅/直线绘制.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/从0开始构建OpenGL软光栅.canvas",
-    "C++/静态库和动态库的编译过程.md",
     "C++/attachments/（图解5）CMake配置.png",
     "计算机图形学—从0开始构建一个OpenGL软光栅/面片与模型.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/光照模型.md",
@@ -173,7 +174,6 @@
     "计算机图形学—从0开始构建一个OpenGL软光栅/高级渲染管线功能.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/三角形绘制.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/向量和矩阵.md",
-    "计算机图形学—从0开始构建一个OpenGL软光栅/直线绘制.md",
     "Welcome.md",
     "2024-04-17.md",
     "C++/类和对象.md",
@@ -183,7 +183,6 @@
     "C++/引用和地址.md",
     "[[数据结构.md",
     "[[.md",
-    "C++/作用域、链接和存储类.md",
     "C++/输入输出流小结.md",
     "C++/容器、算法和迭代器.md",
     "C++/内存管理.md",
