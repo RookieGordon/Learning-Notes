@@ -13,7 +13,7 @@
             "state": {
               "type": "excalidraw",
               "state": {
-                "file": "Excalidraw/Drawing 2024-04-22 15.53.40.excalidraw.md"
+                "file": "Excalidraw/Drawing 2024-04-22 16.16.21.excalidraw.md"
               }
             }
           },
@@ -79,8 +79,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 387.5,
-    "collapsed": true
+    "width": 387.5
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -96,7 +95,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Excalidraw/Drawing 2024-04-22 15.53.40.excalidraw.md",
+                "file": "Excalidraw/Drawing 2024-04-22 16.16.21.excalidraw.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -113,7 +112,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Excalidraw/Drawing 2024-04-22 15.53.40.excalidraw.md",
+                "file": "Excalidraw/Drawing 2024-04-22 16.16.21.excalidraw.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -136,7 +135,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Excalidraw/Drawing 2024-04-22 15.53.40.excalidraw.md"
+                "file": "Excalidraw/Drawing 2024-04-22 16.16.21.excalidraw.md"
               }
             }
           }
@@ -163,8 +162,10 @@
   },
   "active": "24b5e9ef326ad092",
   "lastOpenFiles": [
-    "Excalidraw/Drawing 2024-04-22 15.32.47.excalidraw.md",
+    "计算机图形学—从0开始构建一个OpenGL软光栅/高级渲染管线功能.md",
+    "Excalidraw/Drawing 2024-04-22 16.16.21.excalidraw.md",
     "Excalidraw/Drawing 2024-04-22 15.53.40.excalidraw.md",
+    "Excalidraw/Drawing 2024-04-22 15.32.47.excalidraw.md",
     "Excalidraw",
     "计算机图形学—从0开始构建一个OpenGL软光栅/面片与模型.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/（图解89）叶子Mesh的modelMatrix.png",
@@ -188,7 +189,6 @@
     "计算机图形学—从0开始构建一个OpenGL软光栅/空间变换.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/（图解84）摄像机的viewMatrix.png",
     "计算机图形学—从0开始构建一个OpenGL软光栅/应用案例.md",
-    "计算机图形学—从0开始构建一个OpenGL软光栅/高级渲染管线功能.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/三角形绘制.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/向量和矩阵.md",
     "Welcome.md",
@@ -201,7 +201,6 @@
     "[[数据结构.md",
     "[[.md",
     "C++/输入输出流小结.md",
-    "C++/容器、算法和迭代器.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/attachments",
     "未命名.canvas",
     "C++/attachments",
