@@ -82,7 +82,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 387.5
+    "width": 387.5,
+    "collapsed": true
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -163,7 +164,7 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "1be345fe015a752e",
+  "active": "3980a1c1a27a1a1d",
   "lastOpenFiles": [
     "C++/使用CMake编译项目.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/面片与模型.md",
