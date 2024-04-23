@@ -137,7 +137,7 @@ file(COPY ${ASSETS} DESTINATION ${CMAKE_BINARY_DIR})
 include_directories(SYSTEM ${CMAKE_CURRENT_SOURCE_DIR}/thirdParty/include)
 
 #从下述文件夹寻找静态链接库
-include_directories(SYSTEM ${CMAKE_CURRENT_SOURCE_DIR}/thirdParty/lib/assimp)
+link_directories(SYSTEM ${CMAKE_CURRENT_SOURCE_DIR}/thirdParty/lib/assimp)
 
 # 定义一个变量包含所有需要链接的库
 set(LINK_LIBS apps gpu assimp-vc143-mtd.lib)
