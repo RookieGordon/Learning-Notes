@@ -31,7 +31,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -81,8 +82,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 387.5,
-    "collapsed": true
+    "width": 387.5
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -98,7 +98,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "C++/使用CMake编译项目.md",
+                "file": "C++/数据结构.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,7 +115,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "C++/使用CMake编译项目.md",
+                "file": "C++/数据结构.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -138,7 +138,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "C++/使用CMake编译项目.md"
+                "file": "C++/数据结构.md"
               }
             }
           }
@@ -163,8 +163,9 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "374febb167e18f29",
+  "active": "1be345fe015a752e",
   "lastOpenFiles": [
+    "C++/使用CMake编译项目.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/面片与模型.md",
     "C++/数据结构.md",
     "Excalidraw/Drawing 2024-04-22 21.52.10.excalidraw.md",
@@ -179,7 +180,6 @@
     "未命名.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/（图解87）Assmip的数据结构.png",
     "计算机图形学—从0开始构建一个OpenGL软光栅/图片与纹理.md",
-    "C++/使用CMake编译项目.md",
     "C++/attachments/（图解6）库文件目录.png",
     "C++/attachments/Pasted image 20240422120954.png",
     "C++/作用域、链接和存储类.md",
