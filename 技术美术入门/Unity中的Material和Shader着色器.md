@@ -64,3 +64,15 @@ Specular 工作流程是两者中更科学的。Metallic 工作流程更简单�
 
 ![[（图解3）平滑度都为1的高光（左）和金属（右）对比.png|580]]
 通过对比，可以看出来，左边更像镜子，右边更像金属。
+
+### Unity 中物体表面设置效果比对图
+
+金属设置参考图表
+
+![|440](https://gitee.com/chutianshu1981/AwesomeUnityTutorial/raw/main/imgs/StandardShaderCalibrationChartMetallic.png)
+
+高光设置的参考图表
+
+![|420](https://gitee.com/chutianshu1981/AwesomeUnityTutorial/raw/main/imgs/StandardShaderCalibrationChartSpecular.png)
+
+### URP Shader/lit Material surface Options

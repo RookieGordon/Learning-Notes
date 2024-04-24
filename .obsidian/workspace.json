@@ -131,7 +131,7 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
@@ -151,7 +151,7 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "3980a1c1a27a1a1d",
+  "active": "1be345fe015a752e",
   "lastOpenFiles": [
     "技术美术入门/技术美术入门.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/向量和矩阵.md",
