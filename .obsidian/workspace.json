@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/计算机图形学—从0开始构建一个OpenGL软光栅.md",
+                "file": "技术美术入门/技术美术入门.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/计算机图形学—从0开始构建一个OpenGL软光栅.md",
+                "file": "技术美术入门/技术美术入门.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/计算机图形学—从0开始构建一个OpenGL软光栅.md",
+                "file": "技术美术入门/技术美术入门.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/计算机图形学—从0开始构建一个OpenGL软光栅.md"
+                "file": "技术美术入门/技术美术入门.md"
               }
             }
           }
@@ -152,10 +152,12 @@
   },
   "active": "1be345fe015a752e",
   "lastOpenFiles": [
-    "计算机图形学—从0开始构建一个OpenGL软光栅/从0开始构建OpenGL软光栅.canvas",
+    "计算机图形学—从0开始构建一个OpenGL软光栅/向量和矩阵.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/计算机图形学—从0开始构建一个OpenGL软光栅.md",
     "技术美术入门/技术美术入门.md",
     "技术美术入门/Unity中的Material和Shader着色器.md",
+    "计算机图形学—从0开始构建一个OpenGL软光栅/应用案例.md",
+    "计算机图形学—从0开始构建一个OpenGL软光栅/从0开始构建OpenGL软光栅.canvas",
     "技术美术入门/attachments/（图解5）高光工作流参数.png",
     "技术美术入门/attachments/（图解3）平滑度都为1的高光（左）和金属（右）对比.png",
     "技术美术入门/attachments/（图解2）金属工作流的参数.png",
@@ -184,9 +186,7 @@
     "C++/attachments/（图解5）CMake配置.png",
     "计算机图形学—从0开始构建一个OpenGL软光栅/光照模型.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/摄像机系统.md",
-    "计算机图形学—从0开始构建一个OpenGL软光栅/应用案例.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/三角形绘制.md",
-    "计算机图形学—从0开始构建一个OpenGL软光栅/向量和矩阵.md",
     "Welcome.md",
     "2024-04-17.md",
     "C++/类和对象.md",
