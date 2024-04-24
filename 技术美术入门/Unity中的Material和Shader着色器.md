@@ -12,3 +12,24 @@ tags:
 - Baked Lit 烘焙光照：此着色器会自动应用于光照贴图
 - 复杂光照 Complex Lit、光照 Lit 和简单光照 Simple Lit：这些都是通用的、基于物理的光照着色器的变体。
 - Unlit：如上所述，不使用灯光的着色器。
+
+# URP Material surface 材质表面设置
+
+## 镜面反射（Specular reflection）和漫反射（diffuse reflection）
+
+镜面反射和漫反射构成了表面的总反射率。所有反射光要么是镜面的，要么是漫反射的。
+
+### Unity 中实体表面光处理设置原则
+
+Unity 中，影响一个物体表面反射光线的属性设置主要有两个：
+
+1. `Smoothness 光滑度`： 很容易理解，就是描述物体表面光滑程度的计量属性。在 Unity 中通过数值来设定。
+2. `specularity 镜面反射度`： 高光不同于平滑度。我们可以把一个红苹果打磨到非常光滑，但它永远不会变成金属。然而，为了有任何镜面反射，一个光滑的物体必须有一些镜面反射。  
+    下图中的苹果具有相同的平滑度，但增加了高光度 ![](https://gitee.com/chutianshu1981/AwesomeUnityTutorial/raw/main/imgs/CC_Shad_Light3.png.2000x0x1.png) specularity 在 Unity 中并不直接用数值设定，而是使用纹理贴图来设定
+
+所以，必须有 specularity > 0，才能使物体表面产生镜面反射，否则，即使光滑度最高，也只有漫反射
+
+Unity 中，设置物体表面质感，有两种不同的工作流流程：
+
+- 金属模式 Metallic：反射光和入射光颜色相同
+- 高光模式 Specular: 可以随意设置反射光的颜色，可以跟入射光色彩不同
