@@ -25,13 +25,14 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "技术美术入门/Shader着色器.md",
+                "file": "技术美术入门/Unity中的Material和Shader着色器.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -98,7 +99,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "C++/使用CMake编译项目.md",
+                "file": "技术美术入门/Unity中的Material和Shader着色器.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,7 +116,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "C++/使用CMake编译项目.md",
+                "file": "技术美术入门/Unity中的Material和Shader着色器.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -138,7 +139,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "C++/使用CMake编译项目.md"
+                "file": "技术美术入门/Unity中的Material和Shader着色器.md"
               }
             }
           }
@@ -163,9 +164,10 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "374febb167e18f29",
+  "active": "1be345fe015a752e",
   "lastOpenFiles": [
-    "技术美术入门/Shader着色器.md",
+    "技术美术入门/技术美术入门.md",
+    "技术美术入门/Unity中的Material和Shader着色器.md",
     "C++/使用CMake编译项目.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/面片与模型.md",
     "C++/数据结构.md",
@@ -203,7 +205,6 @@
     "C++/C++.canvas",
     "C++/模板.md",
     "C++/引用和地址.md",
-    "[[数据结构.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/attachments",
     "未命名.canvas",
     "C++/attachments",
