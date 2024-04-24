@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "技术美术入门/Unity中的Material和Shader着色器.md",
+                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/计算机图形学—从0开始构建一个OpenGL软光栅.md",
                 "mode": "source",
                 "source": false
               }
@@ -69,8 +69,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 387.5,
-    "collapsed": true
+    "width": 387.5
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -86,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "技术美术入门/Unity中的Material和Shader着色器.md",
+                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/计算机图形学—从0开始构建一个OpenGL软光栅.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "技术美术入门/Unity中的Material和Shader着色器.md",
+                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/计算机图形学—从0开始构建一个OpenGL软光栅.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "技术美术入门/Unity中的Material和Shader着色器.md"
+                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/计算机图形学—从0开始构建一个OpenGL软光栅.md"
               }
             }
           }
@@ -153,14 +152,16 @@
   },
   "active": "1be345fe015a752e",
   "lastOpenFiles": [
+    "计算机图形学—从0开始构建一个OpenGL软光栅/从0开始构建OpenGL软光栅.canvas",
+    "计算机图形学—从0开始构建一个OpenGL软光栅/计算机图形学—从0开始构建一个OpenGL软光栅.md",
+    "技术美术入门/技术美术入门.md",
+    "技术美术入门/Unity中的Material和Shader着色器.md",
     "技术美术入门/attachments/（图解5）高光工作流参数.png",
     "技术美术入门/attachments/（图解3）平滑度都为1的高光（左）和金属（右）对比.png",
     "技术美术入门/attachments/（图解2）金属工作流的参数.png",
     "技术美术入门/attachments/Pasted image 20240424170337.png",
     "技术美术入门/attachments/（图解1）Unity的URP中的金属和高光工作流.jpg",
     "技术美术入门/attachments",
-    "技术美术入门/技术美术入门.md",
-    "技术美术入门/Unity中的Material和Shader着色器.md",
     "C++/使用CMake编译项目.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/面片与模型.md",
     "C++/数据结构.md",
@@ -180,10 +181,8 @@
     "C++/attachments/Pasted image 20240422120954.png",
     "C++/作用域、链接和存储类.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/直线绘制.md",
-    "计算机图形学—从0开始构建一个OpenGL软光栅/从0开始构建OpenGL软光栅.canvas",
     "C++/attachments/（图解5）CMake配置.png",
     "计算机图形学—从0开始构建一个OpenGL软光栅/光照模型.md",
-    "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/（图解86）Lambert模型中，光从像素背面照射的情况.png",
     "计算机图形学—从0开始构建一个OpenGL软光栅/摄像机系统.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/应用案例.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/三角形绘制.md",
@@ -192,7 +191,6 @@
     "2024-04-17.md",
     "C++/类和对象.md",
     "C++/C++.canvas",
-    "C++/模板.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/attachments",
     "未命名.canvas",
     "C++/attachments",
