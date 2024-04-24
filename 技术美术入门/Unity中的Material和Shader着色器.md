@@ -76,3 +76,23 @@ Specular 工作流程是两者中更科学的。Metallic 工作流程更简单�
 ![|420](https://gitee.com/chutianshu1981/AwesomeUnityTutorial/raw/main/imgs/StandardShaderCalibrationChartSpecular.png)
 
 ### URP Shader/lit Material surface Options
+
+#### Surface Type 表面类型
+
+使用此下拉菜单将不透明或透明表面类型应用于材质。这决定了 URP 在哪个渲染过程中渲染材质。
+
+1. Opaque 不透明：不透明表面类型始终是完全可见的，无论它们背后是什么。URP 首先渲染不透明材质。
+2. Transparent 透明：透明表面类型受其背景影响，它们会根据您选择的透明表面类型而有所不同。URP 在不透明对象之后在单独的通道中渲染透明材质
+
+![](https://gitee.com/chutianshu1981/AwesomeUnityTutorial/raw/main/imgs/BlendingMode.png)
+
+#### Blending Mode 混合模式
+
+只有 Surface Type 选择 Transparent 后，才会出现此属性选项
+
+使用此下拉菜单来确定 URP 如何通过将材质与背景像素混合来计算透明材质的每个像素的颜色。
+
+1. Alpha：使用材质的 alpha 值来更改对象的透明度。0 是完全透明的。1 看起来完全不透明，但在透明渲染过程中仍会渲染材质。用于可见但也会随着时间的推移而消失的视觉效果非常有用，例如云。
+2. Premultiply 自左乘：将与 Alpha 类似的效果应用于材质，但`保留反射和高光`，即使您的表面是透明的。这意味着只有反射光是可见的。例如，透明玻璃。
+3. additive 叠加：在另一个表面的顶部为材质添加一个额外的层。这对全息图有好处。
+4. Multiply 乘法：将材质的颜色与表面后面的颜色相乘。这会产生更暗的效果，就像你透过彩色玻璃看一样。
