@@ -99,7 +99,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "C++/数据结构.md",
+                "file": "C++/使用CMake编译项目.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -116,7 +116,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "C++/数据结构.md",
+                "file": "C++/使用CMake编译项目.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -139,7 +139,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "C++/数据结构.md"
+                "file": "C++/使用CMake编译项目.md"
               }
             }
           }
