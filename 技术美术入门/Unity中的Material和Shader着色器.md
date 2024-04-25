@@ -108,3 +108,104 @@ Specular 工作流程是两者中更科学的。Metallic 工作流程更简单�
 反射光 = 镜面反射光 + 漫反射光
 
 所以，一般来说，除了在一些特殊的理想表面（完全漫反射，没有镜面反射），albedo 大于且包含 Diffuse reflectivity
+
+## URP Shader/lit Material surface Inputs
+
+### Base Map（基础贴图、基础映射、漫反射贴图）
+
+前面说过，漫反射光决定了物体的颜色。所以，在 Unity 的 URP/Lit Shader 中，使用 Base Map 来设定 漫反射率，即物体表面的颜色或贴图用纹理。
+
+### Metallic / Specular Map 金属/高光 贴图
+
+- Metallic Map（Metallic 工作流模式选项）
+    使用滑块控制表面的金属感。1 是全金属的，如银或铜，0 是全电介质，如塑料或木材。对于脏污或腐蚀的金属，您通常可以使用介于 0 和 1 之间的值。  
+    左侧也可以分配金属感使用的贴图纹理
+    
+- Specular Map（Specular 工作流模式选项）
+    
+- Smoothness 平滑度：  
+    对于这两种工作流程，您都可以使用“平滑度”滑块来控制表面上高光的分布。0 给出一个宽阔、粗糙的高光。1 提供像玻璃一样的小而锐利的高光。介于两者之间的值会产生半光泽外观。例如，0.5 会产生类似塑料的光泽度。
+    
+- Source ： 使用 Source 下拉菜单选择着色器从何处`采样平滑度贴图`。
+    - Metallic Alpha（来自金属贴图的 Alpha 通道）
+    - Albedo Alpha（来自基本贴图的 Alpha 通道）。
+    默认值为金属 Alpha。如果所选源具有 Alpha 通道，则着色器对通道进行采样并将每个采样乘以平滑度。
+
+### Normal Map 法线贴图
+
+设置旁边的浮点值是 法线贴图效果的乘数。低值会降低法线贴图的效果。高值会产生更强的效果。 好处是，使用 2D 资源模拟出 3D 表面细节效果，大幅度节省机器性能
+
+### Height Map 高度贴图
+
+URP 实现了视差映射技术，该技术使用高度贴图通过移动可见表面纹理的区域来实现表面级遮挡效果。
+
+它类似于法线映射的概念，但是这种技术更复杂，因此性能也更昂贵。
+
+高度贴图通常与法线贴图一起使用，通常它们用于想给表面定义一个很大的凹凸效果使用。
+
+![](https://gitee.com/chutianshu1981/AwesomeUnityTutorial/raw/main/imgs/heightMap.png)
+
+设置旁边的浮点值是高度图效果的乘数。低值会降低高度贴图的效果。高值会产生更强的效果。
+
+这种效果，它可以产生一个非常令人信服的 3D 几何效果，表面的凹凸效果有些会相互遮挡住，看起来真的像是 3D 几何体，但真实的几何体没有任何修改，因为这仅仅是绘制一个表面的效果。
+
+高度贴图正常应该是张灰度图，白色代表凸起的部分，黑色代表凹下的部分。下面就是 Albedo 贴图和高度贴图的匹配使用。
+
+![](https://gitee.com/chutianshu1981/AwesomeUnityTutorial/raw/main/imgs/albedo_wall.JPEG)
+
+下图从左向右说明：
+
+1. 岩石墙材质只设置了 Albedo 贴图，没有设置法线贴图和高度贴图。
+2. 设置了法线贴图。修改了表面的光照，但岩石间没有相互遮挡效果。
+3. 这个精致的效果是使用了法线贴图和高度贴图。岩石看起来就像是从表面凸起来似的，靠近相机的岩石看起来可以遮挡着后面的岩石。
+
+![](https://gitee.com/chutianshu1981/AwesomeUnityTutorial/raw/main/imgs/heightmapWall.JPEG)
+
+### Occlusion Map 遮挡贴图
+
+遮挡贴图用于模拟来自环境光和反射的阴影，这使得照明看起来更逼真，因为更少的光到达物体的角落和缝隙
+
+![](https://gitee.com/chutianshu1981/AwesomeUnityTutorial/raw/main/imgs/OcclusionMap.png)
+
+用于提升模型间接光影效果。间接光源可能来自 Ambient Lighting（环境光），因此模型中凹凸很明显的凹下去那部分，如裂缝或褶皱，实际上不会接收到太多的间接光。
+
+一张遮挡贴图应该就是张灰度图，白色代表应该接收到的间接光效果会多一些，黑色代表少一些（全黑说明一点间接光都不接收）。
+
+生成遮挡纹理稍微更复杂一些。例如，在场景中有个角色戴了一帽子，在帽子和角色的头之间会有些边缘是几乎接收不到间接光的。在这种情况，这种遮挡贴图通常是由美术同学使用 3D 软件根据模型自动生成的。
+
+![](https://gitee.com/chutianshu1981/AwesomeUnityTutorial/raw/main/imgs/ao.JPEG)
+
+遮挡贴图定义了角色的头戴的披肩附近的部分，哪些相对 Ambient lighting（环境光）是曝光，哪些是挡光的。如下图显示。
+
+![](https://gitee.com/chutianshu1981/AwesomeUnityTutorial/raw/main/imgs/occlusionMap.JPEG)
+
+在应用遮挡贴图前后的效果图（左边没使用，右边使用了）。部分模型的区域被遮挡了，特别是在脖子周围的头戴饰品遮挡的那部分，左边的图片显示太亮了，右边的图片设置了环境光遮挡贴图后的效果，脖子那些绿色的、来自环境草木的环境光就没那么亮了。
+
+### [](https://gitee.com/chutianshu1981/AwesomeUnityTutorial/blob/main/%E5%9B%BE%E5%BD%A2-%E6%8A%80%E6%9C%AF%E7%BE%8E%E5%B7%A5%E7%9B%B8%E5%85%B3/05-URP%20Material%20surface%20%E6%9D%90%E8%B4%A8%E8%A1%A8%E9%9D%A2%E8%AE%BE%E7%BD%AE.md#56-emssion-%E6%95%A3%E5%8F%91%E5%85%89)5.6 Emssion 散发（光）
+
+使表面看起来像是在发光。启用后， 会出现 Emission Map 和 Emission Color 设置。
+
+- Emission Map 发光贴图
+- Emission Color 发光颜色
+
+属性设置：
+
+1. Color : 指定发光的颜色和强度。单击 Color 框可打开 HDR Color 拾色器。在此处可以更改光照的颜色和发光的强度 (Intensity)。要指定材质的哪些区域发光，可以向该属性分配一个发光贴图。如果您执行此操作，Unity 会使用贴图的全色值来控制发光颜色和亮度。还可以使用 HDR 拾色器对贴图着色和改变发光强度。
+2. Global Illumination : 指定此材质发出的光如何影响附近其他游戏对象的环境光照。有三个选项：
+    - Realtime：Unity 将此材质的自发光添加到场景的 Realtime Global Illumination（实时全局光照）计算中。这意味着此自发光会影响附近游戏对象（包括正在移动的游戏对象）的光照。
+    - Baked：Unity 将此材质的自发光烘焙到场景的静态全局光照中。此材质会影响附近静态游戏对象的光照，但不会影响动态游戏对象的光照。但是，光照探针仍然会影响动态游戏对象的光照。
+    - None：此材质的自发光不会影响场景中的实时光照贴图、烘焙光照贴图或光照探针。此自发光不会照亮或影响其他游戏对象。材质本身具有发光颜色。
+
+发光贴图示例：
+
+![](https://gitee.com/chutianshu1981/AwesomeUnityTutorial/raw/main/imgs/StandardShaderEmissiveMaterialInspector.png)
+
+上图，左：计算机终端的发光贴图。此处有两个发光屏幕以及键盘上的发光按键。右：使用发光贴图的发光材质。该材质同时具有发光和非发光区域。
+
+![](https://gitee.com/chutianshu1981/AwesomeUnityTutorial/raw/main/imgs/StandardShaderEmissiveInLightAndShadow.jpg)
+
+在上图中，存在高亮度和低亮度的区域，并有阴影投射在发光区域上，这充分表现了发光材质在不同光照条件下的显示效果。
+
+![](https://gitee.com/chutianshu1981/AwesomeUnityTutorial/raw/main/imgs/StandardShaderEmissiveBakedEffect.jpg)
+
+上图中可以看出，计算机终端发光贴图中的烘焙发光值会照亮此黑暗场景中的周围区域
