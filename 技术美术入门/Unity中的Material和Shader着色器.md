@@ -107,4 +107,4 @@ Specular 工作流程是两者中更科学的。Metallic 工作流程更简单�
 
 反射光 = 镜面反射光 + 漫反射光
 
-所以，一般来说，除了在一些特殊的理想表面（完全漫反射，没有镜面反射），albedo 大于且包含 Diffuse reflectivity albedo 从表面反射回的入射光的比例。
+所以，一般来说，除了在一些特殊的理想表面（完全漫反射，没有镜面反射），albedo 大于且包含 Diffuse reflectivity
