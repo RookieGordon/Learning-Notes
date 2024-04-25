@@ -13,8 +13,8 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "技术美术入门/Unity中的Material和Shader着色器.md",
-                "mode": "source",
+                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/向量和矩阵.md",
+                "mode": "preview",
                 "source": false
               }
             }
@@ -69,8 +69,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 387.5,
-    "collapsed": true
+    "width": 387.5
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -86,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "技术美术入门/Unity中的Material和Shader着色器.md",
+                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/向量和矩阵.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "技术美术入门/Unity中的Material和Shader着色器.md",
+                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/向量和矩阵.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "技术美术入门/Unity中的Material和Shader着色器.md"
+                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/向量和矩阵.md"
               }
             }
           }
@@ -135,7 +134,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 475.5
+    "width": 475.5,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -152,10 +152,11 @@
   },
   "active": "1be345fe015a752e",
   "lastOpenFiles": [
-    "技术美术入门/技术美术入门.md",
-    "计算机图形学—从0开始构建一个OpenGL软光栅/向量和矩阵.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/计算机图形学—从0开始构建一个OpenGL软光栅.md",
+    "技术美术入门/技术美术入门.md",
     "技术美术入门/Unity中的Material和Shader着色器.md",
+    "技术美术入门/Map&Texture贴图和纹理.md",
+    "计算机图形学—从0开始构建一个OpenGL软光栅/向量和矩阵.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/应用案例.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/从0开始构建OpenGL软光栅.canvas",
     "技术美术入门/attachments/（图解5）高光工作流参数.png",
