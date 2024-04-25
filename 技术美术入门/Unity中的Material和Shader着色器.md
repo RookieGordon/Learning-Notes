@@ -75,9 +75,9 @@ Specular 工作流程是两者中更科学的。Metallic 工作流程更简单�
 
 ![|420](https://gitee.com/chutianshu1981/AwesomeUnityTutorial/raw/main/imgs/StandardShaderCalibrationChartSpecular.png)
 
-### URP Shader/lit Material surface Options
+## URP Shader/lit Material surface Options
 
-#### Surface Type 表面类型
+### Surface Type 表面类型
 
 使用此下拉菜单将不透明或透明表面类型应用于材质。这决定了 URP 在哪个渲染过程中渲染材质。
 
@@ -86,7 +86,7 @@ Specular 工作流程是两者中更科学的。Metallic 工作流程更简单�
 
 ![](https://gitee.com/chutianshu1981/AwesomeUnityTutorial/raw/main/imgs/BlendingMode.png)
 
-#### Blending Mode 混合模式
+### Blending Mode 混合模式
 
 只有 Surface Type 选择 Transparent 后，才会出现此属性选项
 
