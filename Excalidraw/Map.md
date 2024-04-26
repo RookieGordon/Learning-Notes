@@ -58,7 +58,7 @@ tBvdFrLL: [[Unity中的Material和Shader着色器]]
 {
 	"type": "excalidraw",
 	"version": 2,
-	"source": "https://github.com/zsviczian/obsidian-excalidraw-plugin/releases/tag/2.1.4",
+	"source": "https://github.com/zsviczian/obsidian-excalidraw-plugin/releases/tag/2.1.6",
 	"elements": [
 		{
 			"type": "ellipse",
@@ -812,8 +812,8 @@ tBvdFrLL: [[Unity中的Material和Shader着色器]]
 		},
 		{
 			"type": "arrow",
-			"version": 224,
-			"versionNonce": 1378545903,
+			"version": 228,
+			"versionNonce": 1201445249,
 			"isDeleted": false,
 			"id": "J2d2Mrl3hZO-CmajO3VgV",
 			"fillStyle": "cross-hatch",
@@ -822,12 +822,12 @@ tBvdFrLL: [[Unity中的Material和Shader着色器]]
 			"roughness": 1,
 			"opacity": 100,
 			"angle": 0,
-			"x": -1071.8617662303093,
-			"y": -3.315337266377476,
+			"x": -1071.841288150602,
+			"y": -3.315337266377469,
 			"strokeColor": "#1e1e1e",
 			"backgroundColor": "#ffec99",
-			"width": 141.36603176490803,
-			"height": 96.59452361935809,
+			"width": 141.38650984461538,
+			"height": 96.59502901359245,
 			"seed": 1963009816,
 			"groupIds": [],
 			"frameId": null,
@@ -835,7 +835,7 @@ tBvdFrLL: [[Unity中的Material和Shader着色器]]
 				"type": 2
 			},
 			"boundElements": [],
-			"updated": 1714039974749,
+			"updated": 1714040508602,
 			"link": null,
 			"locked": false,
 			"startBinding": {
@@ -857,8 +857,8 @@ tBvdFrLL: [[Unity中的Material和Shader着色器]]
 					0
 				],
 				[
-					-141.36603176490803,
-					-96.59452361935809
+					-141.38650984461538,
+					-96.59502901359245
 				]
 			]
 		},
@@ -1170,8 +1170,8 @@ tBvdFrLL: [[Unity中的Material和Shader着色器]]
 		},
 		{
 			"type": "arrow",
-			"version": 1949,
-			"versionNonce": 828342639,
+			"version": 1957,
+			"versionNonce": 1943490817,
 			"isDeleted": false,
 			"id": "w0z3WP3l_R2os9WYyWkIW",
 			"fillStyle": "solid",
@@ -1180,12 +1180,12 @@ tBvdFrLL: [[Unity中的Material和Shader着色器]]
 			"roughness": 1,
 			"opacity": 100,
 			"angle": 0,
-			"x": -1421.9762658087243,
+			"x": -1422.4500694788837,
 			"y": -46.52335198738973,
 			"strokeColor": "#1e1e1e",
 			"backgroundColor": "transparent",
-			"width": 31.01280595259368,
-			"height": 22.591056430221272,
+			"width": 31.22786091640978,
+			"height": 22.591056430221276,
 			"seed": 417703192,
 			"groupIds": [],
 			"frameId": null,
@@ -1193,7 +1193,7 @@ tBvdFrLL: [[Unity中的Material和Shader着色器]]
 				"type": 2
 			},
 			"boundElements": [],
-			"updated": 1714039974759,
+			"updated": 1714040508603,
 			"link": null,
 			"locked": false,
 			"startBinding": {
@@ -1215,8 +1215,8 @@ tBvdFrLL: [[Unity中的Material和Shader着色器]]
 					0
 				],
 				[
-					31.01280595259368,
-					22.591056430221272
+					31.22786091640978,
+					22.591056430221276
 				]
 			]
 		},
@@ -1296,8 +1296,8 @@ tBvdFrLL: [[Unity中的Material和Shader着色器]]
 		},
 		{
 			"type": "text",
-			"version": 159,
-			"versionNonce": 1530840399,
+			"version": 160,
+			"versionNonce": 1942612705,
 			"isDeleted": false,
 			"id": "5sI1Ji3o",
 			"fillStyle": "hachure",
@@ -1310,14 +1310,14 @@ tBvdFrLL: [[Unity中的Material和Shader着色器]]
 			"y": -1217.6760227475424,
 			"strokeColor": "#1e1e1e",
 			"backgroundColor": "transparent",
-			"width": 898.9513019819145,
-			"height": 82.33331298828124,
+			"width": 898.9888916015625,
+			"height": 82.33331298828122,
 			"seed": 19289,
 			"groupIds": [],
 			"frameId": null,
 			"roundness": null,
 			"boundElements": [],
-			"updated": 1714039991120,
+			"updated": 1714040127816,
 			"link": "[[Map&Texture贴图和纹理]]",
 			"locked": false,
 			"fontSize": 65.86665039062498,
@@ -1332,8 +1332,8 @@ tBvdFrLL: [[Unity中的Material和Shader着色器]]
 		},
 		{
 			"type": "text",
-			"version": 188,
-			"versionNonce": 1246353071,
+			"version": 189,
+			"versionNonce": 1984393135,
 			"isDeleted": false,
 			"id": "tBvdFrLL",
 			"fillStyle": "hachure",
@@ -1353,7 +1353,7 @@ tBvdFrLL: [[Unity中的Material和Shader着色器]]
 			"frameId": null,
 			"roundness": null,
 			"boundElements": [],
-			"updated": 1714039998260,
+			"updated": 1714040127816,
 			"link": "[[Unity中的Material和Shader着色器]]",
 			"locked": false,
 			"fontSize": 65.55288947610298,
@@ -1382,10 +1382,10 @@ tBvdFrLL: [[Unity中的Material和Shader着色器]]
 		"currentItemTextAlign": "left",
 		"currentItemStartArrowhead": null,
 		"currentItemEndArrowhead": "arrow",
-		"scrollX": -3133.2643716897464,
-		"scrollY": 2259.235998911079,
+		"scrollX": 938.458020074574,
+		"scrollY": 4662.615581634059,
 		"zoom": {
-			"value": 0.49999999999999994
+			"value": 0.15000000000000002
 		},
 		"currentItemRoundness": "round",
 		"gridSize": null,
@@ -1400,7 +1400,8 @@ tBvdFrLL: [[Unity中的Material和Shader着色器]]
 			"clip": true,
 			"name": true,
 			"outline": true
-		}
+		},
+		"objectsSnapModeEnabled": false
 	},
 	"files": {}
 }
