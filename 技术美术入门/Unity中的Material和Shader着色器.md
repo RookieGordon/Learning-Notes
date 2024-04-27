@@ -65,7 +65,7 @@ Specular 工作流程是两者中更科学的。Metallic 工作流程更简单�
 
 金属设置参考图表
 
-![|330](https://gitee.com/chutianshu1981/AwesomeUnityTutorial/raw/main/imgs/StandardShaderCalibrationChartMetallic.png)
+![|300](https://gitee.com/chutianshu1981/AwesomeUnityTutorial/raw/main/imgs/StandardShaderCalibrationChartMetallic.png)
 
 高光设置的参考图表
 
