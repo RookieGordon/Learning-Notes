@@ -72,3 +72,66 @@ Shader Graph 中和新元素是 Node 节点，每种节点功能各不相同。
 ![|410](https://gitee.com/chutianshu1981/AwesomeUnityTutorial/raw/main/imgs/noise3.jpg)
 
 > 扩展阅读：[图形噪声](https://gitee.com/link?target=https%3A%2F%2Fhuailiang.github.io%2Fblog%2F2021%2Fnoise%2F)
+
+## 算术节点 Math Node
+
+顾名思义，是用作算术运算的节点，比如最基础的加减乘除
+### Basic
+
+
+![|400](https://gitee.com/chutianshu1981/AwesomeUnityTutorial/raw/main/imgs/mathnode.png)
+
+#### 时间节点 Time Node
+
+该节点属于 Input - Basic 分类，所以是一种基础的数据输入类节点，用来提供随时间变化的动态值，作为其他节点的输入
+
+该节点是 Shader Graph 中，实现动态效果的不二之选。
+![|140](https://gitee.com/chutianshu1981/AwesomeUnityTutorial/raw/main/imgs/sg_time_node.png)
+```c#
+float Time_Time = _Time.y; // 随时间增大的浮点值
+float Time_SineTime = _SinTime.w;//正弦时间，随时间在（-1，1）之间变化
+float Time_CosineTime = _CosTime.w;//余弦时间
+float Time_DeltaTime = unity_DeltaTime.x;//当前帧时间，从前一帧，到后一帧所用的时间
+float Time_SmoothDelta = unity_DeltaTime.z;//**平滑后的当前帧时间**
+```
+
+### Range
+
+#### 重映射节点 Remap Node
+
+将输入的值映射到另一个范围之中，如下图是将 -1~~1 映射到 0~~1
+![|410](https://gitee.com/chutianshu1981/AwesomeUnityTutorial/raw/main/imgs/sg_remap_node.png)
+左侧输入：
+- In ：输入的值
+- In Min Max ：输入值的范围
+- Out Min Max : 输出值的范围
+
+右侧输出：
+- out ：输入值根据输入输出值范围，重新映射后，得到的值
+
+### Round
+
+#### Step Node
+
+如果输入 In 的值大于或等于输入 Edge 的值，则返回 1 ，否则返回 0。
+![](https://gitee.com/chutianshu1981/AwesomeUnityTutorial/raw/main/imgs/sg_step_node.png)
+
+## UV
+
+### Tilling and Offset Node
+
+为 UV 输入，提供平铺和偏移设置，输出新的处理过的 UV。
+- 平铺 Tilling ：一个 float2 （x,y）类型的值，默认 x=1,y=1 表示保持原始大小。X=0.5，y=0.5，表示在原先一个单位区域，现在只能放下 1/4，纹理会被拉伸；x=2,y=2，表示原先一个单位空间，将放入 4 个，纹理会被缩小
+- 偏移 Offset ：一个 float2 值（x,y），设置通道的偏移量，默认 x= 0,y=0。设置后，会在指定坐标轴产生偏移。
+
+这通常用于细节贴图和随时间滚动的纹理。
+![](https://gitee.com/chutianshu1981/AwesomeUnityTutorial/raw/main/imgs/sg_T&O_node.png)
+
+## Utility
+
+### Logic
+
+### 分支节点 Branch Node
+
+类似于 if 判断语句，当 Predicate 为真时，输出的值是 True 输入端口的值；当 Predicate 为假时，输出值等于 False 输入端口对应的值
+![](https://gitee.com/chutianshu1981/AwesomeUnityTutorial/raw/main/imgs/sg_Branch_Node.png)
