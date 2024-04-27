@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "技术美术入门/Unity中的Material和Shader着色器.md",
+                "file": "技术美术入门/ShaderGraph入门.md",
                 "mode": "source",
                 "source": false
               }
@@ -86,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "技术美术入门/Unity中的Material和Shader着色器.md",
+                "file": "技术美术入门/ShaderGraph入门.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "技术美术入门/Unity中的Material和Shader着色器.md",
+                "file": "技术美术入门/ShaderGraph入门.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "技术美术入门/Unity中的Material和Shader着色器.md"
+                "file": "技术美术入门/ShaderGraph入门.md"
               }
             }
           }
@@ -153,8 +153,8 @@
   },
   "active": "a45203a1b3438138",
   "lastOpenFiles": [
-    "技术美术入门/Map&Texture贴图和纹理.md",
     "技术美术入门/Unity中的Material和Shader着色器.md",
+    "技术美术入门/Map&Texture贴图和纹理.md",
     "技术美术入门/ShaderGraph入门.md",
     "Excalidraw/Map.md",
     "Excalidraw/Scripts/Downloaded/Relative Font Size Cycle.svg",
