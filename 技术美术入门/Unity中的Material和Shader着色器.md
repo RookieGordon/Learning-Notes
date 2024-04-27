@@ -76,8 +76,8 @@ Specular 工作流程是两者中更科学的。Metallic 工作流程更简单�
 ### Surface Type 表面类型
 
 使用此下拉菜单将不透明或透明表面类型应用于材质。这决定了 URP 在哪个渲染过程中渲染材质。
-1. Opaque 不透明：不透明表面类型始终是完全可见的，无论它们背后是什么。URP 首先渲染不透明材质。
-2. Transparent 透明：透明表面类型受其背景影响，它们会根据您选择的透明表面类型而有所不同。URP 在不透明对象之后在单独的通道中渲染透明材质
+1. Opaque 不透明：不透明表面类型始终是完全可见的，无论它们背后是什么。`URP首先渲染不透明材质`。
+2. Transparent 透明：透明表面类型受其背景影响，它们会根据您选择的透明表面类型而有所不同。`URP在不透明对象之后在单独的通道中渲染透明材质`
 
 ![|480](https://gitee.com/chutianshu1981/AwesomeUnityTutorial/raw/main/imgs/BlendingMode.png)
 
