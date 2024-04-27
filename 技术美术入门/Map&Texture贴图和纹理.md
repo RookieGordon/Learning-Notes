@@ -22,15 +22,19 @@ Unity 支持的纹理格式有： BMP、EXR、GIF、HDR、IFF、PICT、TGA、PSD
 
 # 使用纹理
 
-## 3.1 在 Base Map 上使用纹理改变物体表面颜色
+## 在 Base Map 上使用纹理改变物体表面颜色
 
-Base Map Texture （也称为漫反射或反照率）是一个常规 RGB 或 RGBA 彩色图像文件，用于定义对象表面的漫反射（即颜色）。
-可以使用到 Base Map 上的纹理资源文件，通常命名时，名称中会包含诸如 albedo、diffuse 或 base 之类的词，作为前缀或后缀
+Base Map Texture （也称为漫反射或反照率）是一个常规RGB或RGBA彩色图像文件，用于定义对象表面的漫反射（即颜色）。
+可以使用到Base Map上的纹理资源文件，通常命名时，名称中会包含诸如albedo、diffuse或base之类的词，作为前缀或后缀
 
-### UV 贴图
+## UV 贴图
 
 由 Autodesk® 3ds Max® 和 Maya® 或 Blender® 等建模应用程序制作的网格会生成它们自己的称为 UV 坐标的 2D 坐标集。UV 坐标类似于常规 2D 空间中的 XY 坐标，但它们被称为 UV 以将它们与环境坐标系 (XYZ) 区分开来。UV 坐标相对于网格，而不是场景中的 3D 空间。
 
 UV 映射是展开 3D 模型的表面以创建平面，然后对其应用 2D 纹理贴图的过程。在此过程中，建模应用程序生成 UV 坐标，允许将纹理回绕到模型上。
 
-![](https://gitee.com/chutianshu1981/AwesomeUnityTutorial/raw/main/imgs/a6gds-st4qm.gif)
+![|310](https://gitee.com/chutianshu1981/AwesomeUnityTutorial/raw/main/imgs/a6gds-st4qm.gif)
+
+## 用纹理改变反射特性
+
+可以将贴图用于镜面反射/金属反射率和平滑度，以在网格上创建比其他区域更亮或更平滑的特定区域。
