@@ -113,7 +113,7 @@ Properties可以定义通过材质面板传入的属性（比如颜色、贴图�
 - 对于 2D 纹理，默认值为空字符串或内置默认纹理之一：“white”（RGBA：1,1,1,1）
 - 对于非 2D 纹理（立方体、3D 或 2D 数组），默认值为空字符串。如果材质未指定立方体贴图/3D/数组纹理，则使用灰色（RGBA：0.5,0.5,0.5,0.5）。
 
-在着色器的固定函数部分中，[[可使用括在方括号中的属性名称来访问属性值：**[name]**]]。例如，可通过声明两个整数属性（例如_SrcBlend和_DstBlend）来使混合模式由材质属性驱动，然后让 [Blend 命令](https://docs.unity3d.com/cn/2019.4/Manual/SL-Blend.html)使用它们：`Blend [_SrcBlend] [_DstBlend]`。
+在着色器的固定函数部分中，[可使用括在方括号中的属性名称来访问属性值：**[name]**](https://docs.unity3d.com/cn/2019.4/Manual/SL-PropertiesInPrograms.html)。例如，可通过声明两个整数属性（例如_SrcBlend和_DstBlend）来使混合模式由材质属性驱动，然后让 [Blend 命令](https://docs.unity3d.com/cn/2019.4/Manual/SL-Blend.html)使用它们：`Blend [_SrcBlend] [_DstBlend]`。
 
 其他详见：[ShaderLab：Properties - Unity 手册 (unity3d.com)](https://docs.unity3d.com/cn/2019.4/Manual/SL-Properties.html)
 
