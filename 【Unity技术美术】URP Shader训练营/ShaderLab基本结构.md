@@ -40,9 +40,17 @@ SubShader
 
 可以在C#中，使用 [Shader.maximumLOD](https://docs.unity3d.com/cn/2023.2/ScriptReference/Shader-maximumLOD.html)和[Shader.globalMaximumLOD](https://docs.unity3d.com/cn/2023.2/ScriptReference/Shader-globalMaximumLOD.html)来设置Shader的渲染级别。
 
+子着色器用于将 Shader 对象分成多个部分，分别兼容不同的硬件、渲染管线和运行时设置。一个子着色器包含：
+- 有关此子着色器与哪些硬件、渲染管线和运行时设置兼容的信息
+- 子着色器标签，这是提供有关子着色器的信息的键值对
+- 一个或多个通道
 # Shader中的Pass
 
-SubShader中的每个pass都代表进行一次渲染。
+SubShader中的每个pass都代表进行一次渲染。在 `Pass` 代码块中，您可以：
+- 使用 Name 代码块为通道指定一个名称。请参阅 [ShaderLab：为通道指定名称](https://docs.unity3d.com/cn/2023.2/Manual/SL-Name.html)。
+- 使用 Tags 代码块将数据的键值对分配给通道。请参阅 [ShaderLab：为通道分配标签](https://docs.unity3d.com/cn/2023.2/Manual/SL-PassTags.html)。
+- 使用 ShaderLab 命令执行操作。请参阅 [ShaderLab：使用命令](https://docs.unity3d.com/cn/2023.2/Manual/shader-shaderlab-commands.html)。
+- 使用着色器代码块将着色器代码添加到通道。请参阅 [ShaderLab：着色器代码块](https://docs.unity3d.com/cn/2023.2/Manual/shader-shaderlab-code-blocks.html)。
 
 ```Cpp
 // 子着色器（根据硬件不同，启用不同的SubShader）  
@@ -99,7 +107,15 @@ Properties可以定义通过材质面板传入的属性（比如颜色、贴图�
 
 >Name(display name, property Type) = DefaultValue
 
+着色器中的每个属性均通过 **name** 引用（在 Unity 中，着色器属性名称通常以下划线开头）。属性在材质检视面板中将显示为 **display name**。每个属性都在等号后给出默认值：
+- 对于 _Range_ 和 _Float_ 属性，默认值仅仅是单个数字
+- 对于 _Color_ 和 _Vector_ 属性，默认值是括在圆括号中的四个数字，例如“(1,0.5,0.2,1)”
+- 对于 2D 纹理，默认值为空字符串或内置默认纹理之一：“white”（RGBA：1,1,1,1）
+- 对于非 2D 纹理（立方体、3D 或 2D 数组），默认值为空字符串。如果材质未指定立方体贴图/3D/数组纹理，则使用灰色（RGBA：0.5,0.5,0.5,0.5）。
 
+在着色器的固定函数部分中，[[可使用括在方括号中的属性名称来访问属性值：**[name]**]]。例如，可通过声明两个整数属性（例如_SrcBlend和_DstBlend）来使混合模式由材质属性驱动，然后让 [Blend 命令](https://docs.unity3d.com/cn/2019.4/Manual/SL-Blend.html)使用它们：`Blend [_SrcBlend] [_DstBlend]`。
+
+其他详见：[ShaderLab：Properties - Unity 手册 (unity3d.com)](https://docs.unity3d.com/cn/2019.4/Manual/SL-Properties.html)
 
 ShaderLab 中的属性类型以如下方式映射到 Cg/HLSL 变量类型：
 - Color 和 Vector 属性映射到 **float4**、**half4** 或 **fixed4** 变量。
