@@ -91,7 +91,7 @@ SubShader
     }
 ```
 
-使用HLSLPROGRAM和ENDHLSL包裹代码，代表一个着色器代码块
+使用HLSLPROGRAM和ENDHLSL包裹代码，代表一个着色器代码块，提交到GPU进行执行。
 
 Core.hlsl定义了Unity中常用的功能和变量，UNITY_MATRIX_MVP宏就定义在其中。
 
@@ -113,9 +113,25 @@ Properties可以定义通过材质面板传入的属性（比如颜色、贴图�
 - 对于 2D 纹理，默认值为空字符串或内置默认纹理之一：“white”（RGBA：1,1,1,1）
 - 对于非 2D 纹理（立方体、3D 或 2D 数组），默认值为空字符串。如果材质未指定立方体贴图/3D/数组纹理，则使用灰色（RGBA：0.5,0.5,0.5,0.5）。
 
-在着色器的固定函数部分中，[可使用括在方括号中的属性名称来访问属性值：**[name]**](https://docs.unity3d.com/cn/2019.4/Manual/SL-PropertiesInPrograms.html)。例如，可通过声明两个整数属性（例如_SrcBlend和_DstBlend）来使混合模式由材质属性驱动，然后让 [Blend 命令](https://docs.unity3d.com/cn/2019.4/Manual/SL-Blend.html)使用它们：`Blend [_SrcBlend] [_DstBlend]`。
+![[（图解1）Perperties属性与面板显示.png|350]]
 
 其他详见：[ShaderLab：Properties - Unity 手册 (unity3d.com)](https://docs.unity3d.com/cn/2019.4/Manual/SL-Properties.html)
+
+## 属性的使用
+
+在着色器的固定函数部分中，[可使用括在方括号中的属性名称来访问属性值：**[name]**](https://docs.unity3d.com/cn/2019.4/Manual/SL-PropertiesInPrograms.html)。例如，可通过声明两个整数属性（例如_SrcBlend和_DstBlend）来使混合模式由材质属性驱动，然后让 [Blend 命令](https://docs.unity3d.com/cn/2019.4/Manual/SL-Blend.html)使用它们：`Blend [_SrcBlend] [_DstBlend]`。
+
+例如，以下着色器属性：
+```
+_MyVector ("Some Vector", Vector) = (0,0,0,0) 
+_MyFloat ("My float", Float) = 0.5 
+```
+可通过如下 Cg/HLSL 代码进行声明以供访问：
+```
+float4 _MyVector;
+float _MyFloat; 
+```
+Cg/HLSL 还可以接受 **uniform** 关键字，但该关键字并不是必需的：`uniform float4 _MyColor`
 
 ShaderLab 中的属性类型以如下方式映射到 Cg/HLSL 变量类型：
 - Color 和 Vector 属性映射到 **float4**、**half4** 或 **fixed4** 变量。

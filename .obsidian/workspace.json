@@ -163,12 +163,14 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "a45203a1b3438138",
+  "active": "3980a1c1a27a1a1d",
   "lastOpenFiles": [
+    "【Unity技术美术】URP Shader训练营/【Unity技术美术】URP Shader训练营.md",
+    "【Unity技术美术】URP Shader训练营/ShaderLab基本结构.md",
+    "【Unity技术美术】URP Shader训练营/attachments/（图解1）Perperties属性与面板显示.png",
+    "【Unity技术美术】URP Shader训练营/attachments",
     "可使用括在方括号中的属性名称来访问属性值：",
     "计算机图形学—从0开始构建一个OpenGL软光栅/渲染管线.md",
-    "【Unity技术美术】URP Shader训练营/ShaderLab基本结构.md",
-    "【Unity技术美术】URP Shader训练营/【Unity技术美术】URP Shader训练营.md",
     "技术美术入门/ShaderGraph入门.md",
     "技术美术入门/Unity中的Material和Shader着色器.md",
     "技术美术入门/Map&Texture贴图和纹理.md",
@@ -203,7 +205,6 @@
     "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/（图解87）Assmip的数据结构.png",
     "计算机图形学—从0开始构建一个OpenGL软光栅/图片与纹理.md",
     "C++/attachments/（图解6）库文件目录.png",
-    "C++/attachments/Pasted image 20240422120954.png",
     "计算机图形学—从0开始构建一个OpenGL软光栅/直线绘制.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/光照模型.md",
     "C++/C++.canvas",
@@ -211,8 +212,6 @@
     "未命名.canvas",
     "C++/attachments",
     "。Resource",
-    "新建文件夹",
-    "C++/images",
-    "Notion/Reading List & Notes/笔记本/C++软件光栅器/章节笔记"
+    "新建文件夹"
   ]
 }
