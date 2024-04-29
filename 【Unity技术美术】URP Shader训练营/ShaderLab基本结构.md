@@ -4,6 +4,8 @@ tags:
   - Shader
   - ShaderLab
 ---
+# ShaderLab的基本框架
+
 Unity Shader的基本模板如下：
 ```Cpp
 Shader "Custom/BasicShader"  
@@ -36,7 +38,9 @@ SubShader
 }
 ```
 
-可以在C#中，使用
+可以在C#中，使用 [Shader.maximumLOD](https://docs.unity3d.com/cn/2023.2/ScriptReference/Shader-maximumLOD.html)和[Shader.globalMaximumLOD](https://docs.unity3d.com/cn/2023.2/ScriptReference/Shader-globalMaximumLOD.html)来设置Shader的渲染级别。
+
+# Shader中的Pass
 
 SubShader中的每个pass都代表进行一次渲染。
 
@@ -86,3 +90,18 @@ Core.hlsl定义了Unity中常用的功能和变量，UNITY_MATRIX_MVP宏就定�
 用#pragma定义[[渲染管线#架构梳理|顶点着色器和片元着色器]]。
 
 ShaderLab中，字段的定义格式为：`字段类型 字段名: 字段语义` ，[着色器语义](https://docs.unity3d.com/cn/2023.2/Manual/SL-ShaderSemantics.html)用于表明变量的“意图”，告诉计算机，如何填充或者解释字段值。 
+
+# Properties属性
+
+Properties可以定义通过材质面板传入的属性（比如颜色、贴图，数值等等） 
+
+## 属性语法
+
+>Properties { Property [Property ...]}
+
+
+
+ShaderLab 中的属性类型以如下方式映射到 Cg/HLSL 变量类型：
+- Color 和 Vector 属性映射到 **float4**、**half4** 或 **fixed4** 变量。
+- Range 和 Float 属性映射到 **float**、**half** 或 **fixed** 变量。
+- 对于普通 (2D) 纹理，Texture 属性映射到 **sampler2D** 变量；立方体贴图 (Cubemap) 映射到 **samplerCUBE__；3D 纹理映射到** sampler3D__
