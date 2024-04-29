@@ -97,7 +97,7 @@ Properties可以定义通过材质面板传入的属性（比如颜色、贴图�
 
 ## 属性语法
 
->Properties { Property [Property ...]}
+>Name(display name, property Type) = DefaultValue
 
 
 
