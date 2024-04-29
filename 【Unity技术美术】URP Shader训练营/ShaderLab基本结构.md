@@ -136,4 +136,9 @@ Cg/HLSL 还可以接受 **uniform** 关键字，但该关键字并不是必需
 ShaderLab 中的属性类型以如下方式映射到 Cg/HLSL 变量类型：
 - Color 和 Vector 属性映射到 **float4**、**half4** 或 **fixed4** 变量。
 - Range 和 Float 属性映射到 **float**、**half** 或 **fixed** 变量。
-- 对于普通 (2D) 纹理，Texture 属性映射到 **sampler2D** 变量；立方体贴图 (Cubemap) 映射到 **samplerCUBE__；3D 纹理映射到** sampler3D__
+- 对于纹理来说，一般映射到两个变量：纹理变量和纹理采样变量
+	- 对于普通 (2D) 纹理，纹理映射到**TEXTURE2D(变量名)**，Texture 属性映射到 **sampler2D** 变量
+	- 立方体贴图 (Cubemap) ，纹理映射到**TEXTURECUBE(变量名)**，采样映射到 **samplerCUBE**
+	- 3D 纹理，纹理映射到**TEXTURE3D(变量名)**，采样映射到**sampler3D**
+
+详见：[使用 Cg/HLSL 访问着色器属性 - Unity 手册 (unity3d.com)](https://docs.unity3d.com/cn/2019.4/Manual/SL-PropertiesInPrograms.html)
