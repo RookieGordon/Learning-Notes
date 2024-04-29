@@ -20,7 +20,24 @@ Shader "Custom/BasicShader"
 }
 ```
 
-不同的SubShader，用于
+不同的SubShader，用来代表不同的渲染级别，和硬件相关联。通过设置LOD，来微调不同硬件上的着色器性能。Shader代码块中，必须将子着色器按 LOD 降序排列。
+
+```Cpp
+SubShader  
+{  
+	LOD 200  
+    Pass  {...}  
+}  
+
+SubShader  
+{  
+    LOD 100  
+    Pass{...}  
+}
+```
+
+可以在C#中，使用
+
 SubShader中的每个pass都代表进行一次渲染。
 
 ```Cpp
