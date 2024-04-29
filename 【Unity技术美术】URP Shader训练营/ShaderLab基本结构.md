@@ -41,17 +41,23 @@ SubShader
         {  
             float4 pos: SV_POSITION;   
         };  
+        
         v2f vert(appdata IN)  
-        {            v2f OUT = (v2f)0;  
+	    { 
+		    v2f OUT = (v2f)0;  
             // UNITY_MATRIX_MVP是Unity预定义的MVP矩阵，在Core.hlsl文件中  
             OUT.pos = mul(UNITY_MATRIX_MVP, float4(IN.pos, 1));  
-  
             return OUT;  
-        }        float4 frag(v2f IN): SV_TARGET  
+        }
+        
+        float4 frag(v2f IN): SV_TARGET  
         {  
             return float4(1,0,0,1);  
         }        ENDHLSL  
     }
 ```
 
-ShaderLab中，字段的定义格式为：`字段类型 字段名: 字段语义` ， 
+ShaderLab中，字段的定义格式为：`字段类型 字段名: 字段语义` ，[着色器语义](https://docs.unity3d.com/cn/2023.2/Manual/SL-ShaderSemantics.html)用于表明变量的“意图”，告诉计算机，如何填充或者解释字段值。 
+
+Core.hlsl定义了Unity中常用的功能和变量，UNITY_MATRIX_MVP就在其中
+用#pragma定于[[渲染管线#架构梳理|顶点着色器和片元着色器]]。
