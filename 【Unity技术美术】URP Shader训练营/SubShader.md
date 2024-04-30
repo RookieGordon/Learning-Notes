@@ -15,6 +15,15 @@ Tag的定义方式如下：
 
 `RenderPipeline` 标签向 Unity 告知子着色器是否与通用渲染管线 (URP) 或高清渲染管线 (HDRP) 兼容。
 
+|**参数**|**值**|**功能**|
+|---|---|---|
+|[name]|UniversalRenderPipeline|此子着色器仅与 URP 兼容。|
+||HighDefinitionRenderPipeline|此子着色器仅与 HDRP 兼容。|
+||（任何其他值，或未声明）|此子着色器与 URP 和 HDRP 不兼容。|
+
+### 示例
+
+此示例代码声明子着色器与 URP 兼容：
 ## Queue 标签
 
 `Queue` 标签向 Unity 告知要用于它渲染的几何体的渲染队列。渲染队列是确定 Unity 渲染几何体的顺序的因素之一。
@@ -33,4 +42,18 @@ Tag的定义方式如下：
 |              | Overlay     | 指定覆盖渲染队列。                      |
 | [offset]     | 整数          | 指定 Unity 渲染未命名队列处的索引（相对于命名队列）。 |  
 
-### 将此标签与 C# 代码一起使用
+## RenderType 标签
+
+使用 `RenderType` 标签可覆盖 Shader 对象的行为。
+
+在内置渲染管线中，可以使用一种称为[着色器替换](https://docs.unity3d.com/cn/2023.2/Manual/SL-ShaderReplacement.html)的技术在运行时交换子着色器。此技术的工作方式是标识具有匹配 `RenderType` 标签值的子着色器。这在某些情况下用于生成[摄像机的深度纹理](https://docs.unity3d.com/cn/2023.2/Manual/SL-CameraDepthTexture.html)
+
+## ForceNoShadowCasting 标签
+
+`ForceNoShadowCasting` 标签阻止子着色器中的几何体投射（有时是接收）阴影。确切行为取决于渲染管线和渲染路径。
+
+## DisableBatching 标签
+
+`DisableBatching` 子着色器标签阻止 Unity 将[动态批处理](https://docs.unity3d.com/cn/2023.2/Manual/DrawCallBatching.html)应用于使用此子着色器的几何体。
+
+这对于执行对象空间操作的着色器程序十分有用。动态批处理会将所有几何体都变换为世界空间，这意味着着色器程序无法再访问对象空间。因此，依赖于对象空间的着色器程序不会正确渲染。为避免此问题，请使用此子着色器标签阻止 Unity 应用动态批处理。
