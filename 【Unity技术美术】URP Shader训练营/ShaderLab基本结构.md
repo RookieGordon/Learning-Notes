@@ -141,6 +141,9 @@ ShaderLab 中的属性类型以如下方式映射到 Cg/HLSL 变量类型：
 	- 立方体贴图 (Cubemap) ，纹理映射到**TEXTURECUBE**变量，采样映射到**samplerCUBE**
 	- 3D 纹理，纹理映射到**TEXTURE3D**变量，采样映射到**sampler3D**
 
+详见：[使用 Cg/HLSL 访问着色器属性 - Unity 手册 (unity3d.com)](https://docs.unity3d.com/cn/2019.4/Manual/SL-PropertiesInPrograms.html)
+### 采样器
+
 对于纹理采样器，在DX9中，使用耦合的纹理和采样器，一般写作：
 ```Cpp
 sampler2D _MainTex; // ... 
@@ -148,6 +151,7 @@ half4 color = tex2D(_MainTex, uv);
 ```
 
 在DX11中，使用单独的纹理和采样器，但需要通过一个特殊的命名约定来让它们匹配：名称为`“sampler”+TextureName`格式的采样器将从该纹理中获取采样状态。
+
 以上部分中的着色器代码片段可以用 DX11 风格的 HLSL 语法重写，并且也会执行相同的操作：
 ```
 Texture2D _MainTex;
@@ -155,7 +159,8 @@ SamplerState sampler_MainTex; //"sampler"+"_MainTex"
 // ...
 half4 color = _MainTex.Sample(sampler_MainTex, uv);
 ```
-使用单独的纹理和采样器，可以
+
+使用单独的纹理和采样器，可以 "重复使用 "其他纹理的采样器，同时对多个纹理进行采样
 ```Cpp
 Texture2D _MainTex; 
 Texture2D _SecondTex; 
@@ -164,8 +169,7 @@ SamplerState sampler_MainTex; //"sampler"+"_MainTex"
 // ... 
 half4 color = _MainTex.Sample(sampler_MainTex, uv); color += _SecondTex.Sample(sampler_MainTex, uv); color += _ThirdTex.Sample(sampler_MainTex, uv);
 ```
-
-Unity提供了几个宏定义来帮助我们定义贴图和采样器，并且能够兼容所有平台:
+同时，Unity提供了几个宏定义来帮助我们定义贴图和采样器，并且能够兼容所有平台:
 ```Cpp
 UNITY_DECLARE_TEX2D(_MainTex); 
 UNITY_DECLARE_TEX2D_NOSAMPLER(_SecondTex); UNITY_DECLARE_TEX2D_NOSAMPLER(_ThirdTex); 
@@ -173,4 +177,5 @@ UNITY_DECLARE_TEX2D_NOSAMPLER(_SecondTex); UNITY_DECLARE_TEX2D_NOSAMPLER(_ThirdT
 half4 color = UNITY_SAMPLE_TEX2D(_MainTex, uv); color += UNITY_SAMPLE_TEX2D_SAMPLER(_SecondTex, _MainTex, uv); color += UNITY_SAMPLE_TEX2D_SAMPLER(_ThirdTex, _MainTex, uv);
 ```
 
-详见：[使用 Cg/HLSL 访问着色器属性 - Unity 手册 (unity3d.com)](https://docs.unity3d.com/cn/2019.4/Manual/SL-PropertiesInPrograms.html)
+详见：[使用采样器状态 - Unity 手册 (unity3d.com)](https://docs.unity3d.com/cn/2023.2/Manual/SL-SamplerStates.html)
+

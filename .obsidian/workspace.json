@@ -14,7 +14,7 @@
               "type": "markdown",
               "state": {
                 "file": "【Unity技术美术】URP Shader训练营/ShaderLab基本结构.md",
-                "mode": "source",
+                "mode": "preview",
                 "source": false
               }
             }
@@ -165,8 +165,11 @@
   },
   "active": "a45203a1b3438138",
   "lastOpenFiles": [
-    "【Unity技术美术】URP Shader训练营/【Unity技术美术】URP Shader训练营.md",
+    "Excalidraw/Map.md",
+    "Excalidraw/Scripts/Downloaded/Relative Font Size Cycle.md",
+    "Excalidraw/Scripts/Downloaded/Relative Font Size Cycle.svg",
     "【Unity技术美术】URP Shader训练营/ShaderLab基本结构.md",
+    "【Unity技术美术】URP Shader训练营/【Unity技术美术】URP Shader训练营.md",
     "【Unity技术美术】URP Shader训练营/attachments/（图解1）Perperties属性与面板显示.png",
     "【Unity技术美术】URP Shader训练营/attachments",
     "可使用括在方括号中的属性名称来访问属性值：",
@@ -174,9 +177,6 @@
     "技术美术入门/ShaderGraph入门.md",
     "技术美术入门/Unity中的Material和Shader着色器.md",
     "技术美术入门/Map&Texture贴图和纹理.md",
-    "Excalidraw/Map.md",
-    "Excalidraw/Scripts/Downloaded/Relative Font Size Cycle.svg",
-    "Excalidraw/Scripts/Downloaded/Relative Font Size Cycle.md",
     "Excalidraw/Scripts/Downloaded",
     "Excalidraw/Scripts",
     "C++/作用域、链接和存储类.md",
