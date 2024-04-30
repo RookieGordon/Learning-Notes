@@ -29,6 +29,7 @@ tags:
 | `VertexLMRGBM`  | 用于旧版顶点光照渲染（当对象不进行光照贴图时），以及光照贴图为 RGBM 编码的平台（PC 和游戏主机）。 |
 | `VertexLM`      | 用于旧版顶点光照渲染（当对象不进行光照贴图时），以及光照贴图为双 LDR 编码的平台上（移动平台）。    |
 | `Meta`          | 不用于常规渲染，仅用于光贴图烘焙或 Enlighten 实时全局光照                    |
+关于前向渲染，延迟渲染等，详见：
 
 ### URP渲染管线
 
@@ -56,8 +57,8 @@ tags:
 
 ## RequireOptions 标签
 
-在内置渲染管线中，`RequireOptions` 通道标签根据项目设置启用或禁用一个通道。
+在内置渲染管线中，`RequireOptions` 通道标签根据项目设置启用或禁用一个通道
 
-| **值**            | **功能**                                                                                                                                |
-| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
-| `SoftVegetation` |  [QualitySettings-softVegetation](https://docs.unity3d.com/cn/2023.2/ScriptReference/QualitySettings-softVegetation.html) is enabled. |
+| **值**            | **功能**                                                                                                                                    |
+| ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| `SoftVegetation` | 只有 [QualitySettings-softVegetation](https://docs.unity3d.com/cn/2023.2/ScriptReference/QualitySettings-softVegetation.html) 开启时，才会渲染该pass |
