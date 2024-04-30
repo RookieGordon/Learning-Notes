@@ -32,6 +32,20 @@
             }
           }
         ]
+      },
+      {
+        "id": "bc344151b89adc32",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "a36859045c35e1fc",
+            "type": "leaf",
+            "state": {
+              "type": "markdown-table-editor-view",
+              "state": {}
+            }
+          }
+        ]
       }
     ],
     "direction": "vertical"
@@ -165,7 +179,7 @@
       "markdown-table-editor:Open Markdown Table Editor": false
     }
   },
-  "active": "a45203a1b3438138",
+  "active": "a36859045c35e1fc",
   "lastOpenFiles": [
     "【Unity技术美术】URP Shader训练营/URP中的SubShader.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/高级渲染管线功能.md",
