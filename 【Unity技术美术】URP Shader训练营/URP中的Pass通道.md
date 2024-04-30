@@ -31,6 +31,7 @@ tags:
 | `Meta`          | 不用于常规渲染，仅用于光贴图烘焙或 Enlighten 实时全局光照                    |
 |                 |                                                       |
 关于前向渲染，延迟渲染等，详见：
+
 ```cardlink
 url: https://gamedevelopment.tutsplus.com/forward-rendering-vs-deferred-rendering--gamedev-12342a
 title: "Forward Rendering vs. Deferred Rendering | Envato Tuts+"
