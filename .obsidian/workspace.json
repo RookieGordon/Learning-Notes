@@ -81,7 +81,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 387.5
+    "width": 387.5,
+    "collapsed": true
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -146,7 +147,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 475.5
+    "width": 475.5,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -163,7 +165,7 @@
       "markdown-table-editor:Open Markdown Table Editor": false
     }
   },
-  "active": "a45203a1b3438138",
+  "active": "3980a1c1a27a1a1d",
   "lastOpenFiles": [
     "计算机图形学—从0开始构建一个OpenGL软光栅/计算机图形学—从0开始构建一个OpenGL软光栅.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/高级渲染管线功能.md",
