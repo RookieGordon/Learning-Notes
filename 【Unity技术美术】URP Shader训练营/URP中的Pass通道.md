@@ -29,7 +29,22 @@ tags:
 | `VertexLMRGBM`  | 用于旧版顶点光照渲染（当对象不进行光照贴图时），以及光照贴图为 RGBM 编码的平台（PC 和游戏主机）。 |
 | `VertexLM`      | 用于旧版顶点光照渲染（当对象不进行光照贴图时），以及光照贴图为双 LDR 编码的平台上（移动平台）。    |
 | `Meta`          | 不用于常规渲染，仅用于光贴图烘焙或 Enlighten 实时全局光照                    |
+|                 |                                                       |
 关于前向渲染，延迟渲染等，详见：
+```cardlink
+url: https://gamedevelopment.tutsplus.com/forward-rendering-vs-deferred-rendering--gamedev-12342a
+title: "Forward Rendering vs. Deferred Rendering | Envato Tuts+"
+description: "If you're a developer of 3D games, then you've probably come across the terms forward rendering and deferred rendering in your research of modern graphics engines. And, often, you'll have to..."
+host: gamedevelopment.tutsplus.com
+image: https://cdn.tutsplus.com/gamedev/uploads/2013/10/deferred_x400.png
+```
+
+```cardlink
+url: https://learnopengl-cn.readthedocs.io/zh/latest/05%20Advanced%20Lighting/08%20Deferred%20Shading/
+title: "延迟着色法 - LearnOpenGL-CN"
+host: learnopengl-cn.readthedocs.io
+```
+
 
 ### URP渲染管线
 

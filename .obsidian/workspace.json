@@ -81,8 +81,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 387.5,
-    "collapsed": true
+    "width": 387.5
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -165,8 +164,9 @@
       "markdown-table-editor:Open Markdown Table Editor": false
     }
   },
-  "active": "a45203a1b3438138",
+  "active": "3980a1c1a27a1a1d",
   "lastOpenFiles": [
+    "【Unity技术美术】URP Shader训练营/attachments/Forward Rendering vs Deferred Rendering.pdf",
     "【Unity技术美术】URP Shader训练营/URP中的SubShader.md",
     "【Unity技术美术】URP Shader训练营/【Unity技术美术】URP Shader训练营.md",
     "【Unity技术美术】URP Shader训练营/URP中的Pass通道.md",
@@ -210,7 +210,6 @@
     "未命名.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/attachments/（图解87）Assmip的数据结构.png",
     "C++/attachments/（图解6）库文件目录.png",
-    "计算机图形学—从0开始构建一个OpenGL软光栅/直线绘制.md",
     "C++/C++.canvas",
     "计算机图形学—从0开始构建一个OpenGL软光栅/attachments",
     "未命名.canvas",
