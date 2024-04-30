@@ -185,5 +185,7 @@ color += UNITY_SAMPLE_TEX2D_SAMPLER(_ThirdTex, _MainTex, uv);
 
 ### 使用脚本从外部控制属性
 
-Ma
+Material中的`SetColor`，`SetFloat`，`SetInteger`，`SetTexture`等方法，可以在运行时修改该材质上的着色器的属性。
+
+如果是对sharedMaterial进行操作，则会修改场景中所有使用该着色器的对象，并且该修改时永久性的，所以一般用于编辑器操作
 
