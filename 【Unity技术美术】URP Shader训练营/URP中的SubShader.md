@@ -3,6 +3,7 @@ tags:
   - Unity
   - ShaderLab
   - Shader
+  - URP
 ---
 # Tag
 

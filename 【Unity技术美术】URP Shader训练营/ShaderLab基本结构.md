@@ -3,6 +3,7 @@ tags:
   - Unity
   - Shader
   - ShaderLab
+  - URP
 ---
 # ShaderLab的基本框架
 

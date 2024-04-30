@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "【Unity技术美术】URP Shader训练营/SubShader.md",
+                "file": "【Unity技术美术】URP Shader训练营/URP中的Pass通道.md",
                 "mode": "source",
                 "source": false
               }
@@ -98,7 +98,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "【Unity技术美术】URP Shader训练营/SubShader.md",
+                "file": "【Unity技术美术】URP Shader训练营/URP中的Pass通道.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,7 +115,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "【Unity技术美术】URP Shader训练营/SubShader.md",
+                "file": "【Unity技术美术】URP Shader训练营/URP中的Pass通道.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -138,7 +138,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "【Unity技术美术】URP Shader训练营/SubShader.md"
+                "file": "【Unity技术美术】URP Shader训练营/URP中的Pass通道.md"
               }
             }
           }
@@ -165,15 +165,16 @@
       "markdown-table-editor:Open Markdown Table Editor": false
     }
   },
-  "active": "3980a1c1a27a1a1d",
+  "active": "a45203a1b3438138",
   "lastOpenFiles": [
-    "计算机图形学—从0开始构建一个OpenGL软光栅/计算机图形学—从0开始构建一个OpenGL软光栅.md",
+    "【Unity技术美术】URP Shader训练营/URP中的SubShader.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/高级渲染管线功能.md",
-    "【Unity技术美术】URP Shader训练营/SubShader.md",
+    "【Unity技术美术】URP Shader训练营/ShaderLab基本结构.md",
+    "【Unity技术美术】URP Shader训练营/URP中的Pass通道.md",
+    "【Unity技术美术】URP Shader训练营/【Unity技术美术】URP Shader训练营.md",
+    "计算机图形学—从0开始构建一个OpenGL软光栅/计算机图形学—从0开始构建一个OpenGL软光栅.md",
     "Untitled.sheet",
     "计算机图形学—从0开始构建一个OpenGL软光栅/渲染管线.md",
-    "【Unity技术美术】URP Shader训练营/ShaderLab基本结构.md",
-    "【Unity技术美术】URP Shader训练营/【Unity技术美术】URP Shader训练营.md",
     "Excalidraw/Map.md",
     "Excalidraw/Scripts/Downloaded/Relative Font Size Cycle.md",
     "Excalidraw/Scripts/Downloaded/Relative Font Size Cycle.svg",
