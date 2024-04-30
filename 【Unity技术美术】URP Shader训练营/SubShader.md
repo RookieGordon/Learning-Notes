@@ -33,14 +33,15 @@ Tag的定义方式如下：
 | “Queue” = “[queue name]”            | 使用命名渲染队列。                                                        |
 | “Queue” = “[queue name] + [offset]” | 在相对于命名队列的给定偏移处使用未命名队列（这种用法十分有用的一种示例情况是透明的水，它应该在不透明物体之后、透明物体之前绘制） |
 
-| **签名**       | **值**       | **功能**                         |     |
-| :----------- | :---------- | :----------------------------- | --- |
-| [queue name] | Background  | 此渲染队列在任何其他渲染队列之前渲染             |     |
-|              | Geometry    | 不透明几何体使用此队列                    |     |
-|              | AlphaTest   | 经过 Alpha 测试的几何体将使用此队列          |     |
-|              | Transparent | 指定透明渲染队列。                      |     |
-|              | Overlay     | 指定覆盖渲染队列。                      |     |
-| [offset]     | 整数          | 指定 Unity 渲染未命名队列处的索引（相对于命名队列）。 |     |
+| **签名**       | **值**                                                                                                            | **功能**                                     |     |
+| :----------- | :--------------------------------------------------------------------------------------------------------------- | :----------------------------------------- | --- |
+| [queue name] | Background（1000）                                                                                                 | 此渲染队列在任何其他渲染队列之前渲染                         |     |
+|              | Geometry（2000）                                                                                                   | 不透明几何体使用此队列                                |     |
+|              | [AlphaTest](https://docs.unity3d.com/cn/2023.2/ScriptReference/Rendering.RenderQueue.AlphaTest.html)（2450）       | 经过 Alpha 测试的几何体将使用此队列                      |     |
+|              | [GeometryLast](https://docs.unity3d.com/cn/2023.2/ScriptReference/Rendering.RenderQueue.GeometryLast.html)（2500） | 视为“不透明”的最后的渲染队列                            |     |
+|              | [Transparent](https://docs.unity3d.com/cn/2023.2/ScriptReference/Rendering.RenderQueue.Transparent.html)（3000）   | 此渲染队列在 Geometry 和 AlphaTest 之后渲染，按照从后到前的顺序 |     |
+|              | [Overlay](https://docs.unity3d.com/cn/2023.2/ScriptReference/Rendering.RenderQueue.Overlay.html)（4000）           | 此渲染队列旨在获得覆盖效果                              |     |
+| [offset]     | 整数                                                                                                               | 指定 Unity 渲染未命名队列处的索引（相对于命名队列）。             |     |
 
 ## RenderType 标签
 

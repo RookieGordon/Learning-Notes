@@ -33,20 +33,6 @@
           }
         ],
         "currentTab": 1
-      },
-      {
-        "id": "51753687e62874b2",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "19a0910ee0271269",
-            "type": "leaf",
-            "state": {
-              "type": "markdown-table-editor-view",
-              "state": {}
-            }
-          }
-        ]
       }
     ],
     "direction": "vertical"
@@ -180,7 +166,7 @@
       "markdown-table-editor:Open Markdown Table Editor": false
     }
   },
-  "active": "19a0910ee0271269",
+  "active": "07a4702c25d6a4f7",
   "lastOpenFiles": [
     "Untitled.sheet",
     "【Unity技术美术】URP Shader训练营/SubShader.md",
