@@ -6,7 +6,7 @@
     "sepia": 0
   },
   "debugLogging": false,
-  "customDefaultPath": "./attachments",
+  "customDefaultPath": "attachments",
   "epubSettings": {
     "readingMode": "pagination",
     "fontSize": 100

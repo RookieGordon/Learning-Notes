@@ -4,6 +4,7 @@ tags:
   - URP
   - ShaderLab
   - Shader
+annotation-target: Forward Rendering vs Deferred Rendering.pdf
 ---
 # Tag
 
@@ -31,7 +32,6 @@ tags:
 | `Meta`          | 不用于常规渲染，仅用于光贴图烘焙或 Enlighten 实时全局光照                    |
 |                 |                                                       |
 关于前向渲染，延迟渲染等，详见：
-
 ```cardlink
 url: https://gamedevelopment.tutsplus.com/forward-rendering-vs-deferred-rendering--gamedev-12342a
 title: "Forward Rendering vs. Deferred Rendering | Envato Tuts+"
@@ -46,19 +46,17 @@ title: "延迟着色法 - LearnOpenGL-CN"
 host: learnopengl-cn.readthedocs.io
 ```
 
-
 ### URP渲染管线
 
-
-| **值**                    | **功能**                                                                                                                                                                                                     |     |
-| :----------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --- |
-| **UniversalForward**     | 考虑光线。URP 在前向渲染路径中使用此标签值                                                                                                                                                                                    |     |
-| **UniversalGBuffer**     | 不考虑任何光线。URP 在 "延迟渲染路径 "中使用此标签值。                                                                                                                                                                            |     |
-| **UniversalForwardOnly** | 考虑光线，但是与`UniversalForward`不同的是，可以在正向和延迟渲染路径中同时使用。<br>如果 URP 使用延迟渲染路径时，某个 Pass 必须使用前向渲染路径渲染对象，则使用此值。<br>如果着色器必须使用 "前向渲染路径 "进行渲染，而不管 URP 渲染器使用哪种渲染路径，则只需声明一个将 LightMode 标签设置为 UniversalForwardOnly 的通道即可<br> |     |
-| **Universal2D**          | 考虑2D光线。URP 在 2D 渲染器中使用此标签值。                                                                                                                                                                                |     |
-| **ShadowCaster**         | 该通道从灯光的角度将物体的深度渲染到阴影贴图或深度纹理中。                                                                                                                                                                              |     |
-| **DepthOnly**            | 该通道只将相机视角下的深度信息渲染成深度纹理。                                                                                                                                                                                    |     |
-| **SRPDefaultUnlit**      | 在渲染对象时，使用此 LightMode 标签值绘制额外的 Pass。应用示例：绘制对象轮廓。此标签值对 "正向 "和 "延迟 "渲染路径都有效。<br>当通道没有 LightMode 标签时，URP 将此标签值作为默认值。                                                                                           |     |
+|  **值**                     |  **功能**                                                                                                                                                                                                      |
+|:---------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|  **UniversalForward**      |  考虑光线。URP 在前向渲染路径中使用此标签值                                                                                                                                                                                     |
+|  **UniversalGBuffer**      |  不考虑任何光线。URP 在 "延迟渲染路径 "中使用此标签值。                                                                                                                                                                             |
+|  **UniversalForwardOnly**  |  考虑光线，但是与`UniversalForward`不同的是，可以在正向和延迟渲染路径中同时使用。<br>如果 URP 使用延迟渲染路径时，某个 Pass 必须使用前向渲染路径渲染对象，则使用此值。<br>如果着色器必须使用 "前向渲染路径 "进行渲染，而不管 URP 渲染器使用哪种渲染路径，则只需声明一个将 LightMode 标签设置为 UniversalForwardOnly 的通道即可<br>  |
+|  **Universal2D**           |  考虑2D光线。URP 在 2D 渲染器中使用此标签值。                                                                                                                                                                                 |
+|  **ShadowCaster**          |  该通道从灯光的角度将物体的深度渲染到阴影贴图或深度纹理中。                                                                                                                                                                               |
+|  **DepthOnly**             |  该通道只将相机视角下的深度信息渲染成深度纹理。                                                                                                                                                                                     |
+|  **SRPDefaultUnlit**       |  在渲染对象时，使用此 LightMode 标签值绘制额外的 Pass。应用示例：绘制对象轮廓。此标签值对 "正向 "和 "延迟 "渲染路径都有效。<br>当通道没有 LightMode 标签时，URP 将此标签值作为默认值。                                                                                            |  
 
 > [!ATTENTION]
 > URP不支持以下的Tag值： `Always`, `ForwardAdd`, `PrepassBase`, `PrepassFinal`, `Vertex`, `VertexLMRGBM`, `VertexLM`.

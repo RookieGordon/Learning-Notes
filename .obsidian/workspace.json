@@ -14,7 +14,7 @@
               "type": "markdown",
               "state": {
                 "file": "【Unity技术美术】URP Shader训练营/URP中的Pass通道.md",
-                "mode": "source",
+                "mode": "preview",
                 "source": false
               }
             }
@@ -165,16 +165,16 @@
       "obsidian-importer:Open Importer": false
     }
   },
-  "active": "a45203a1b3438138",
+  "active": "3980a1c1a27a1a1d",
   "lastOpenFiles": [
+    "计算机图形学—从0开始构建一个OpenGL软光栅/高级渲染管线功能.md",
+    "【Unity技术美术】URP Shader训练营/URP中的Pass通道.md",
     "【Unity技术美术】URP Shader训练营/attachments/Forward Rendering vs Deferred Rendering.pdf",
     "【Unity技术美术】URP Shader训练营/URP中的SubShader.md",
     "【Unity技术美术】URP Shader训练营/【Unity技术美术】URP Shader训练营.md",
-    "【Unity技术美术】URP Shader训练营/URP中的Pass通道.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/空间变换.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/图片与纹理.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/面片与模型.md",
-    "计算机图形学—从0开始构建一个OpenGL软光栅/高级渲染管线功能.md",
     "【Unity技术美术】URP Shader训练营/ShaderLab基本结构.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/计算机图形学—从0开始构建一个OpenGL软光栅.md",
     "Untitled.sheet",
@@ -214,7 +214,6 @@
     "C++/C++.canvas",
     "计算机图形学—从0开始构建一个OpenGL软光栅/attachments",
     "未命名.canvas",
-    "C++/attachments",
-    "。Resource"
+    "C++/attachments"
   ]
 }
