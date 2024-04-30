@@ -183,3 +183,7 @@ color += UNITY_SAMPLE_TEX2D_SAMPLER(_ThirdTex, _MainTex, uv);
 
 详见：[使用采样器状态 - Unity 手册 (unity3d.com)](https://docs.unity3d.com/cn/2023.2/Manual/SL-SamplerStates.html)
 
+### 使用脚本从外部控制属性
+
+Ma
+
