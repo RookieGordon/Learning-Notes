@@ -45,3 +45,19 @@ tags:
 
 > [!ATTENTION]
 > URP不支持以下的Tag值： `Always`, `ForwardAdd`, `PrepassBase`, `PrepassFinal`, `Vertex`, `VertexLMRGBM`, `VertexLM`.
+
+## PassFlags 标签
+
+在内置渲染管线中，使用 `PassFlags` 通道标签来指定 Unity 提供给通道的数据。
+
+| **值**           | **功能**                                                                                                                                                                                                                                    |
+| --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| OnlyDirectional | 仅在内置渲染管线中且渲染路径设置为 Forward，`LightMode` 标签值为 `ForwardBase` 的通道中有效。  <br>  <br>Unity 只为该通道提供主方向光和环境光/光照探针数据。这意味着非重要光源的数据将不会传递到顶点光源或球谐函数着色器变量。请参阅[前向渲染路径](https://docs.unity3d.com/cn/2023.2/Manual/RenderTech-ForwardRendering.html)以了解详细信息。 |
+
+## RequireOptions 标签
+
+在内置渲染管线中，`RequireOptions` 通道标签根据项目设置启用或禁用一个通道。
+
+| **值**            | **功能**                                                                                                                                |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| `SoftVegetation` |  [QualitySettings-softVegetation](https://docs.unity3d.com/cn/2023.2/ScriptReference/QualitySettings-softVegetation.html) is enabled. |
