@@ -155,5 +155,22 @@ SamplerState sampler_MainTex; //"sampler"+"_MainTex"
 // ...
 half4 color = _MainTex.Sample(sampler_MainTex, uv);
 ```
+使用单独的纹理和采样器，可以
+```Cpp
+Texture2D _MainTex; 
+Texture2D _SecondTex; 
+Texture2D _ThirdTex; 
+SamplerState sampler_MainTex; //"sampler"+"_MainTex" 
+// ... 
+half4 color = _MainTex.Sample(sampler_MainTex, uv); color += _SecondTex.Sample(sampler_MainTex, uv); color += _ThirdTex.Sample(sampler_MainTex, uv);
+```
+
+Unity提供了几个宏定义来帮助我们定义贴图和采样器，并且能够兼容所有平台:
+```Cpp
+UNITY_DECLARE_TEX2D(_MainTex); 
+UNITY_DECLARE_TEX2D_NOSAMPLER(_SecondTex); UNITY_DECLARE_TEX2D_NOSAMPLER(_ThirdTex); 
+// ... 
+half4 color = UNITY_SAMPLE_TEX2D(_MainTex, uv); color += UNITY_SAMPLE_TEX2D_SAMPLER(_SecondTex, _MainTex, uv); color += UNITY_SAMPLE_TEX2D_SAMPLER(_ThirdTex, _MainTex, uv);
+```
 
 详见：[使用 Cg/HLSL 访问着色器属性 - Unity 手册 (unity3d.com)](https://docs.unity3d.com/cn/2019.4/Manual/SL-PropertiesInPrograms.html)
