@@ -189,11 +189,11 @@ color += UNITY_SAMPLE_TEX2D_SAMPLER(_ThirdTex, _MainTex, uv);
 
 Material中的`SetColor`，`SetFloat`，`SetInteger`，`SetTexture`等方法，可以在运行时修改具体某个材质上的着色器的属性。
 
-如果是对sharedMaterial进行操作，则会修改场景中所有使用该着色器的对象，并且该修改时永久性的，所以一般用于编辑器操作
+如果是对sharedMaterial进行操作，则会修改所有使用该材质的对象，并且该修改时永久性的，所以一般用于编辑器操作
 
 ### 通过Shader控制属性
 
-通过Shader的静态方法，可以全局修改属性。注意，通过这种方式修改的属性，不能被定义在 `Properties`代码块中。但是，这种修改也是会永久生效的。
+通过Shader的静态方法，可以全局修改指定属性（可以存在于不同Shader中）。注意，通过这种方式修改的属性，不能被定义在 `Properties`代码块中。但是，这种修改也是会永久生效的。
 
 因为CPU与GPU通信存在比较大的开销，一般需要频繁传值的时候，倾向于将数据打包一起传过去，详见：[[Unity3D]降低向Shader中传值的开销 - oayx - 博客园 (cnblogs.com)](https://www.cnblogs.com/lancidie/p/7832933.html)
 

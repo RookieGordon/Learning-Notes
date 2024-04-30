@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "【Unity技术美术】URP Shader训练营/ShaderLab基本结构.md",
+                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/计算机图形学—从0开始构建一个OpenGL软光栅.md",
                 "mode": "source",
                 "source": false
               }
@@ -81,8 +81,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 387.5,
-    "collapsed": true
+    "width": 387.5
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -98,7 +97,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "【Unity技术美术】URP Shader训练营/ShaderLab基本结构.md",
+                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/计算机图形学—从0开始构建一个OpenGL软光栅.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,7 +114,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "【Unity技术美术】URP Shader训练营/ShaderLab基本结构.md",
+                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/计算机图形学—从0开始构建一个OpenGL软光栅.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -138,7 +137,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "【Unity技术美术】URP Shader训练营/ShaderLab基本结构.md"
+                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/计算机图形学—从0开始构建一个OpenGL软光栅.md"
               }
             }
           }
@@ -165,15 +164,17 @@
   },
   "active": "a45203a1b3438138",
   "lastOpenFiles": [
+    "【Unity技术美术】URP Shader训练营/SubShader.md",
+    "【Unity技术美术】URP Shader训练营/ShaderLab基本结构.md",
+    "【Unity技术美术】URP Shader训练营/【Unity技术美术】URP Shader训练营.md",
+    "计算机图形学—从0开始构建一个OpenGL软光栅/计算机图形学—从0开始构建一个OpenGL软光栅.md",
+    "计算机图形学—从0开始构建一个OpenGL软光栅/渲染管线.md",
     "Excalidraw/Map.md",
     "Excalidraw/Scripts/Downloaded/Relative Font Size Cycle.md",
     "Excalidraw/Scripts/Downloaded/Relative Font Size Cycle.svg",
-    "【Unity技术美术】URP Shader训练营/ShaderLab基本结构.md",
-    "【Unity技术美术】URP Shader训练营/【Unity技术美术】URP Shader训练营.md",
     "【Unity技术美术】URP Shader训练营/attachments/（图解1）Perperties属性与面板显示.png",
     "【Unity技术美术】URP Shader训练营/attachments",
     "可使用括在方括号中的属性名称来访问属性值：",
-    "计算机图形学—从0开始构建一个OpenGL软光栅/渲染管线.md",
     "技术美术入门/ShaderGraph入门.md",
     "技术美术入门/Unity中的Material和Shader着色器.md",
     "技术美术入门/Map&Texture贴图和纹理.md",
@@ -181,7 +182,6 @@
     "Excalidraw/Scripts",
     "C++/作用域、链接和存储类.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/向量和矩阵.md",
-    "计算机图形学—从0开始构建一个OpenGL软光栅/计算机图形学—从0开始构建一个OpenGL软光栅.md",
     "技术美术入门/技术美术入门.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/应用案例.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/从0开始构建OpenGL软光栅.canvas",
