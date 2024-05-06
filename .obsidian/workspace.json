@@ -14,7 +14,7 @@
               "type": "markdown",
               "state": {
                 "file": "【Unity技术美术】URP Shader训练营/URP中的Pass通道.md",
-                "mode": "source",
+                "mode": "preview",
                 "source": false
               }
             }
@@ -26,12 +26,13 @@
               "type": "markdown",
               "state": {
                 "file": "计算机图形学—从0开始构建一个OpenGL软光栅/高级渲染管线功能.md",
-                "mode": "source",
+                "mode": "preview",
                 "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -98,7 +99,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "【Unity技术美术】URP Shader训练营/URP中的Pass通道.md",
+                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/高级渲染管线功能.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,7 +116,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "【Unity技术美术】URP Shader训练营/URP中的Pass通道.md",
+                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/高级渲染管线功能.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -138,7 +139,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "【Unity技术美术】URP Shader训练营/URP中的Pass通道.md"
+                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/高级渲染管线功能.md"
               }
             }
           }
@@ -165,10 +166,10 @@
       "obsidian-importer:Open Importer": false
     }
   },
-  "active": "3980a1c1a27a1a1d",
+  "active": "07a4702c25d6a4f7",
   "lastOpenFiles": [
-    "计算机图形学—从0开始构建一个OpenGL软光栅/高级渲染管线功能.md",
     "【Unity技术美术】URP Shader训练营/URP中的Pass通道.md",
+    "计算机图形学—从0开始构建一个OpenGL软光栅/高级渲染管线功能.md",
     "【Unity技术美术】URP Shader训练营/attachments/Forward Rendering vs Deferred Rendering.pdf",
     "【Unity技术美术】URP Shader训练营/URP中的SubShader.md",
     "【Unity技术美术】URP Shader训练营/【Unity技术美术】URP Shader训练营.md",
