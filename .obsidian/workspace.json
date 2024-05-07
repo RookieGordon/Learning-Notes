@@ -13,26 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "【Unity技术美术】URP Shader训练营/URP中的Pass通道.md",
-                "mode": "preview",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "07a4702c25d6a4f7",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/高级渲染管线功能.md",
+                "file": "【Unity技术美术】URP Shader训练营/ShaderLab基本结构.md",
                 "mode": "preview",
                 "source": false
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -99,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/高级渲染管线功能.md",
+                "file": "【Unity技术美术】URP Shader训练营/ShaderLab基本结构.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -116,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/高级渲染管线功能.md",
+                "file": "【Unity技术美术】URP Shader训练营/ShaderLab基本结构.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -139,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/高级渲染管线功能.md"
+                "file": "【Unity技术美术】URP Shader训练营/ShaderLab基本结构.md"
               }
             }
           }
@@ -166,12 +153,12 @@
       "obsidian-importer:Open Importer": false
     }
   },
-  "active": "07a4702c25d6a4f7",
+  "active": "a45203a1b3438138",
   "lastOpenFiles": [
+    "【Unity技术美术】URP Shader训练营/URP中的SubShader.md",
     "【Unity技术美术】URP Shader训练营/URP中的Pass通道.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/高级渲染管线功能.md",
     "【Unity技术美术】URP Shader训练营/attachments/Forward Rendering vs Deferred Rendering.pdf",
-    "【Unity技术美术】URP Shader训练营/URP中的SubShader.md",
     "【Unity技术美术】URP Shader训练营/【Unity技术美术】URP Shader训练营.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/空间变换.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/图片与纹理.md",
