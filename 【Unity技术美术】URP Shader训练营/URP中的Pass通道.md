@@ -65,6 +65,9 @@ host: learnopengl-cn.readthedocs.io
 > [!Attention]
 > 对于DepthOnly，会生成一张名为_CameraDepthTexture的深度图。使用DepthNormals，会生成_CameraDepthTexture和_CameraNormalsTexture两张纹理贴图
 
+>[!INFO]
+>SRPDefaultUnlit除了用于URP的LightMode标签的默认值外，还可以用于兼容早期的内置渲染管线
+
 ## PassFlags 标签
 
 在内置渲染管线中，使用 `PassFlags` 通道标签来指定 Unity 提供给通道的数据。
