@@ -272,3 +272,6 @@ Blend DstColor Zero
 // 2x乘法 (srcColor * dstColor) * 2
 Blend DstColor SrcColor 
 ```
+
+>[!Attention]
+>从[[URP中的SubShader#^f1d77c|Unity的渲染顺序]]来说，设置混合后，都要关闭深度写入

@@ -43,11 +43,11 @@ Tag的定义方式如下：
 |              | [Transparent](https://docs.unity3d.com/cn/2023.2/ScriptReference/Rendering.RenderQueue.Transparent.html)（3000）   | 此渲染队列在 Geometry 和 AlphaTest 之后渲染，按照从后到前的顺序 |     |
 |              | [Overlay](https://docs.unity3d.com/cn/2023.2/ScriptReference/Rendering.RenderQueue.Overlay.html)（4000）           | 此渲染队列旨在获得覆盖效果                              |     |
 | [offset]     | 整数                                                                                                               | 指定 Unity 渲染未命名队列处的索引（相对于命名队列）。             |     |
-Unity中的渲染顺序如下：
+Unity中的渲染顺序如下： ^f1d77c
 1. 渲染不透明物体
 	- 不透明物体从前到后渲染（较靠近摄像机的首先渲染） 
 2. 渲染透明（或半透明）物体
-	- 透明半透明物体，从后往前渲染（首先渲染较远的对象）
+	- 透明半透明物体，从后往前渲染（首先渲染较远的对象，用前面的颜色，混合后面的颜色）
 	- 由于透明着色器往往不使用深度测试/写入，因此更改队列将更改着色器与其他透明对象的排序方式
 
 另见：[[高级渲染管线功能#混合绘制的顺序问题]]
