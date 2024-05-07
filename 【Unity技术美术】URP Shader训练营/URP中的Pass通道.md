@@ -62,6 +62,9 @@ host: learnopengl-cn.readthedocs.io
 > [!ATTENTION]
 > URP不支持以下的Tag值： `Always`, `ForwardAdd`, `PrepassBase`, `PrepassFinal`, `Vertex`, `VertexLMRGBM`, `VertexLM`.
 
+> [!Attention]
+> 对于DepthOnly，会生成一张名为_CameraDepthTexture的深度图。使用DepthNormals，会生成_CameraDepthTexture和_CameraNormalsTexture两张纹理贴图
+
 ## PassFlags 标签
 
 在内置渲染管线中，使用 `PassFlags` 通道标签来指定 Unity 提供给通道的数据。
