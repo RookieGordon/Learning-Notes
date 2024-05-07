@@ -16,11 +16,11 @@ Tag的定义方式如下：
 
 `RenderPipeline` 标签向 Unity 告知子着色器是否与通用渲染管线 (URP) 或高清渲染管线 (HDRP) 兼容。
 
-|**参数**|**值**|**功能**|
-|---|---|---|
-|[name]|UniversalRenderPipeline|此子着色器仅与 URP 兼容。|
-||HighDefinitionRenderPipeline|此子着色器仅与 HDRP 兼容。|
-||（任何其他值，或未声明）|此子着色器与 URP 和 HDRP 不兼容。|
+| **参数** | **值**                        | **功能**                 |
+| ------ | ---------------------------- | ---------------------- |
+| [name] | UniversalPipeline            | 此子着色器仅与 URP 兼容。        |
+|        | HighDefinitionRenderPipeline | 此子着色器仅与 HDRP 兼容。       |
+|        | （任何其他值，或未声明）                 | 此子着色器与 URP 和 HDRP 不兼容。 |
 
 ### 示例
 
