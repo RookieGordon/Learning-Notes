@@ -192,6 +192,50 @@ finalValue = sourceFactor * sourceValue operation destinationFactor * destinatio
 1. 任何指定渲染目标的签名都需要 OpenGL 4.0+、`GL_ARB_draw_buffers_blend` 或 OpenGL ES 3.2。
 2. 单独的 RGB 和 Alpha 混合与[高级 OpenGL 混合操作](https://docs.unity3d.com/cn/2023.2/Manual/SL-BlendOp.html)不兼容。
 
+## BlendOp有效参数值
+
+| **参数**        | **值**                 | **功能**                                                  |
+| ------------- | --------------------- | ------------------------------------------------------- |
+| **operation** | `Add`                 | 将源和目标相加。                                                |
+|               | `Sub`                 | 从源减去目标。                                                 |
+|               | `RevSub`              | 从目标减去源。                                                 |
+|               | `Min`                 | Use the smaller of source and destination. (1)          |
+|               | `Max`                 | Use the larger of source and destination. (1)           |
+|               | `LogicalClear`        | Logical operation: `Clear (0)` (1)                      |
+|               | `LogicalSet`          | Logical operation: `Set (1)` (1)                        |
+|               | `LogicalCopy`         | Logical operation: `Copy (s)` (1)                       |
+|               | `LogicalCopyInverted` | 逻辑操作：`Copy inverted (!s)` 2                             |
+|               | `LogicalNoop`         | Logical operation: `Noop (d)` (1)                       |
+|               | `LogicalInvert`       | Logical operation: `Invert (!d)` (1)                    |
+|               | `LogicalAnd`          | Logical operation: `And (s & d)` (1)                    |
+|               | `LogicalNand`         | Logical operation: `Nand !(s & d)` (1)                  |
+|               | `LogicalOr`           | Logical operation: `Or (s \| d)` (1)                    |
+|               | `LogicalNor`          | Logical operation: `Nor !(s \| d)` (1)                  |
+|               | `LogicalXor`          | Logical operation: `Xor (s ^ d)` (1)                    |
+|               | `LogicalEquiv`        | Logical operation: `Equivalence !(s ^ d)` (1)           |
+|               | `LogicalAndReverse`   | Logical operation: `Reverse And (s & !d)` (1)           |
+|               | `LogicalAndInverted`  | Logical operation: `Inverted And (!s & d)` (1)          |
+|               | `LogicalOrReverse`    | Logical operation: `Reverse Or (s \| !d)` (1)           |
+|               | `LogicalOrInverted`   | Logical operation: `Inverted Or (!s \| d)` (1)          |
+|               | `Multiply`            | Advanced OpenGL blending operation: `Multiply` (2)      |
+|               | `Screen`              | Advanced OpenGL blending operation: `Screen` (2)        |
+|               | `Overlay`             | Advanced OpenGL blending operation: `Overlay` (2)       |
+|               | `Darken`              | Advanced OpenGL blending operation: `Darken` (2)        |
+|               | `Lighten`             | Advanced OpenGL blending operation: `Lighten` (2)       |
+|               | `ColorDodge`          | Advanced OpenGL blending operation: `ColorDodge` (2)    |
+|               | `ColorBurn`           | Advanced OpenGL blending operation: `ColorBurn` (2)     |
+|               | `HardLight`           | Advanced OpenGL blending operation: `HardLight` (2)     |
+|               | `SoftLight`           | Advanced OpenGL blending operation: `SoftLight` (2)     |
+|               | `Difference`          | Advanced OpenGL blending operation: `Difference` (2)    |
+|               | `Exclusion`           | Advanced OpenGL blending operation: `Exclusion` (2)     |
+|               | `HSLHue`              | Advanced OpenGL blending operation: `HSLHue` (2)        |
+|               | `HSLSaturation`       | Advanced OpenGL blending operation: `HSLSaturation` (2) |
+|               | `HSLColor`            | Advanced OpenGL blending operation: `HSLColor` (2)      |
+|               | `HSLLuminosity`       | Advanced OpenGL blending operation: `HSLLuminosity` (2) |
+注意：
+1. 逻辑操作需要支持DX 11.1+或Vulkan
+2. 高级混合操作需要支持`GLES3.1 AEP+`，`GL_KHR_blend_equation_advanced`或 `GL_NV_blend_equation_advanced`。它们只能用于标准 RGBA 混合；与单独的 RGB 和 alpha 混合不兼容。
+
 ## 有效参数值
 
 | **参数**            | **值**              | **功能**                                                                                                          |
