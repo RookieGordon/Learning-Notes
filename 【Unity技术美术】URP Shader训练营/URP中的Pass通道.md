@@ -214,11 +214,17 @@ finalValue = sourceFactor * sourceValue operation destinationFactor * destinatio
 
 以下是最常见的混合类型的语法：
 
-```
-Blend SrcAlpha OneMinusSrcAlpha // 传统透明度
-Blend One OneMinusSrcAlpha // 预乘透明度
-Blend One One // 加法
-Blend OneMinusDstColor One // 软加法
-Blend DstColor Zero // 乘法
-Blend DstColor SrcColor // 2x 乘法
+``` Cpp
+// 传统透明度 srcColor.A * scrColor + dstColor * (1 - srcColor.A)
+Blend SrcAlpha OneMinusSrcAlpha
+// 预乘透明度 srcColor + dstColor * (1 - srcColor.A)
+Blend One OneMinusSrcAlpha 
+// 加法 scrColor + dstColor
+Blend One One 
+// 软加法 scrColor * (1 - dstColor) + dstColor
+Blend OneMinusDstColor One 
+// 乘法 srcColor * dstColor
+Blend DstColor Zero 
+// 2x乘法 (srcColor * dstColor) * 2
+Blend DstColor SrcColor 
 ```
