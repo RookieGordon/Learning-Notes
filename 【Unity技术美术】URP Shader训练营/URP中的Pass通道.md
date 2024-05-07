@@ -194,21 +194,21 @@ finalValue = sourceFactor * sourceValue operation destinationFactor * destinatio
 
 ## 有效参数值
 
-|**参数**|**值**|**功能**|
-|---|---|---|
-|**render target**|整数，范围 0 到 7|渲染目标索引。|
-|**state**|`Off`|禁用混合。|
-|**factor**|`One`|此输入的值是 one。该值用于使用源或目标的颜色的值。|
-||`Zero`|此输入的值是 zero。该值用于删除源或目标值。|
-||`SrcColor`|GPU 将此输入的值乘以源颜色值。|
-||`SrcAlpha`|GPU 将此输入的值乘以源 Alpha 值。|
-||`SrcAlphaSaturate`|The GPU multiplies the value of this input by the minimum value of `source alpha` and `(1 - destination alpha)`|
-||`DstColor`|GPU 将此输入的值乘以帧缓冲区的源颜色值。|
-||`DstAlpha`|GPU 将此输入的值乘以帧缓冲区的源 Alpha 值。|
-||`OneMinusSrcColor`|GPU 将此输入的值乘以（1 - 源颜色）。|
-||`OneMinusSrcAlpha`|GPU 将此输入的值乘以（1 - 源 Alpha）。|
-||`OneMinusDstColor`|GPU 将此输入的值乘以（1 - 目标颜色）。|
-||`OneMinusDstAlpha`|GPU 将此输入的值乘以（1 - 目标 Alpha）。|
+| **参数**            | **值**              | **功能**                                                                                                          |
+| ----------------- | ------------------ | --------------------------------------------------------------------------------------------------------------- |
+| **render target** | 整数，范围 0 到 7        | 渲染目标索引。                                                                                                         |
+| **state**         | `Off`              | 禁用混合。                                                                                                           |
+| **factor**        | `One`              | 此输入的值是 one。该值用于使用源或目标的颜色的值。                                                                                     |
+|                   | `Zero`             | 此输入的值是 zero。该值用于删除源或目标值。                                                                                        |
+|                   | `SrcColor`         | GPU 将此输入的值乘以源颜色值。                                                                                               |
+|                   | `SrcAlpha`         | GPU 将此输入的值乘以源 Alpha 值。                                                                                          |
+|                   | `SrcAlphaSaturate` | The GPU multiplies the value of this input by the minimum value of `source alpha` and `(1 - destination alpha)` |
+|                   | `DstColor`         | GPU 将此输入的值乘以帧缓冲区的源颜色值。                                                                                          |
+|                   | `DstAlpha`         | GPU 将此输入的值乘以帧缓冲区的源 Alpha 值。                                                                                     |
+|                   | `OneMinusSrcColor` | GPU 将此输入的值乘以（1 - 源颜色）。                                                                                          |
+|                   | `OneMinusSrcAlpha` | GPU 将此输入的值乘以（1 - 源 Alpha）。                                                                                      |
+|                   | `OneMinusDstColor` | GPU 将此输入的值乘以（1 - 目标颜色）。                                                                                         |
+|                   | `OneMinusDstAlpha` | GPU 将此输入的值乘以（1 - 目标 Alpha）。                                                                                     |
 
 ## 常见混合类型 (Blend Type)
 
