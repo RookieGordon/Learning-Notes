@@ -124,3 +124,101 @@ URP渲染管线中，Unity 在延迟渲染路径中使用此标签。
 | GEqual   | 绘制位于现有几何体后面或相同距离的几何体。不绘制位于现有几何体前面的几何体。       |
 | Always   | 不进行深度测试。绘制所有几何体，无论距离如何。                      |
 关于深度测试，详见：[[高级渲染管线功能#深度测试]]
+
+# ZWrite
+
+设置在渲染过程中是否更新深度缓冲区内容。通常，`ZWrite 对不透明对象启用，对半透明对象禁用。禁用 ZWrite 会导致不正确的深度排序。这种情况下，您需要在 CPU 上对几何体进行排序。`
+
+此命令会更改渲染状态。在 `Pass` 代码块中使用它可为该通道设置渲染状态，或者在 `SubShader` 代码块中使用它可为该子着色器中的所有通道设置渲染状态。
+
+## 有效参数值
+
+| **参数** | **值** | **功能**     |
+| ------ | ----- | ---------- |
+| 状态     | On    | 启用写入深度缓冲区。 |
+|        | Off   | 禁用写入深度缓冲区。 |
+
+# ZClip
+
+设置 GPU 的深度剪辑模式，从而确定 GPU 如何处理近平面和远平面之外的片元。
+
+将 GPU 的深度剪辑模式设置为钳位对于模板阴影渲染很有用；这意味着当几何体超出远平面时不需要特殊处理，从而减少渲染操作。但是，它可能会导致不正确的 Z 排序。
+
+此命令会更改渲染状态。在 `Pass` 代码块中使用它可为该通道设置渲染状态，或者在 `SubShader` 代码块中使用它可为该子着色器中的所有通道设置渲染状态。
+
+## 有效参数值
+
+| **参数**  | **值** | **功能**                                                     |
+| ------- | ----- | ---------------------------------------------------------- |
+| enabled | True  | 将深度剪辑模式设置为剪辑。  <br>  <br>这是默认设置。                           |
+|         | False | 将深度剪辑模式设置为钳位。  <br>  <br>比近平面更近的片元正好在近平面，而比远平面更远的片元正好在远平面。 |
+
+# Blend
+
+确定 GPU 如何将片元着色器的输出与渲染目标进行合并。此命令的功能取决于混合操作，您可以使用 BlendOp 命令进行设置。
+
+此命令会更改渲染状态。在 `Pass` 代码块中使用它可为该通道设置渲染状态，或者在 `SubShader` 代码块中使用它可为该子着色器中的所有通道设置渲染状态。
+
+如果启用了混合，则会发生以下情况：
+- 如果使用 BlendOp 命令，则混合操作将设置为该值。否则，混合操作默认为 `Add`。
+- 如果混合操作是 `Add`、`Sub`、`RevSub`、`Min` 或 `Max`，GPU 会将片元着色器的输出值乘以源系数。
+- 如果混合操作是 `Add`、`Sub`、`RevSub`、`Min` 或 `Max`，GPU 会将渲染目标中现有的值乘以目标系数。
+- GPU 对结果值执行混合操作。
+
+混合等式为：
+
+```Cpp
+finalValue = sourceFactor * sourceValue operation destinationFactor * destinationValue
+```
+
+在这个等式中：
+- `finalValue` 是 GPU 写入目标缓冲区的值。
+- `sourceFactor` 在 Blend 命令中定义。
+- `sourceValue` 是片元着色器输出的值。
+- `operation` 是混合操作。
+- `destinationFactor` 在 Blend 命令中定义。
+- `destinationValue` 是目标缓冲区中现有的值。
+
+|**签名**|**示例语法**|**功能**|
+|---|---|---|
+|`Blend <state>`|`Blend Off`|禁用默认渲染目标的混合。这是默认值。|
+|`Blend <render target> <state>`|`Blend 1 Off`|如上，但针对给定的渲染目标。(1)|
+|`Blend <source factor> <destination factor>`|`Blend One Zero`|启用默认渲染目标的混合。设置 RGBA 值的混合系数。|
+|`Blend <render target> <source factor> <destination factor>`|`Blend 1 One Zero`|如上，但针对给定的渲染目标。(1)|
+|`Blend <source factor RGB> <destination factor RGB>, <source factor alpha> <destination factor alpha>`|`Blend One Zero, Zero One`|启用默认渲染目标的混合。为 RGB 和 Alpha 值设置单独的混合系数。(2)|
+|`Blend <render target> <source factor RGB> <destination factor RGB>, <source factor alpha> <destination factor alpha>`|`Blend 1 One Zero, Zero One`|如上，但针对给定的渲染目标。(1) (2)|
+
+**注意：**
+1. 任何指定渲染目标的签名都需要 OpenGL 4.0+、`GL_ARB_draw_buffers_blend` 或 OpenGL ES 3.2。
+2. 单独的 RGB 和 Alpha 混合与[高级 OpenGL 混合操作](https://docs.unity3d.com/cn/2023.2/Manual/SL-BlendOp.html)不兼容。
+
+## 有效参数值
+
+|**参数**|**值**|**功能**|
+|---|---|---|
+|**render target**|整数，范围 0 到 7|渲染目标索引。|
+|**state**|`Off`|禁用混合。|
+|**factor**|`One`|此输入的值是 one。该值用于使用源或目标的颜色的值。|
+||`Zero`|此输入的值是 zero。该值用于删除源或目标值。|
+||`SrcColor`|GPU 将此输入的值乘以源颜色值。|
+||`SrcAlpha`|GPU 将此输入的值乘以源 Alpha 值。|
+||`SrcAlphaSaturate`|The GPU multiplies the value of this input by the minimum value of `source alpha` and `(1 - destination alpha)`|
+||`DstColor`|GPU 将此输入的值乘以帧缓冲区的源颜色值。|
+||`DstAlpha`|GPU 将此输入的值乘以帧缓冲区的源 Alpha 值。|
+||`OneMinusSrcColor`|GPU 将此输入的值乘以（1 - 源颜色）。|
+||`OneMinusSrcAlpha`|GPU 将此输入的值乘以（1 - 源 Alpha）。|
+||`OneMinusDstColor`|GPU 将此输入的值乘以（1 - 目标颜色）。|
+||`OneMinusDstAlpha`|GPU 将此输入的值乘以（1 - 目标 Alpha）。|
+
+## 常见混合类型 (Blend Type)
+
+以下是最常见的混合类型的语法：
+
+```
+Blend SrcAlpha OneMinusSrcAlpha // 传统透明度
+Blend One OneMinusSrcAlpha // 预乘透明度
+Blend One One // 加法
+Blend OneMinusDstColor One // 软加法
+Blend DstColor Zero // 乘法
+Blend DstColor SrcColor // 2x 乘法
+```
