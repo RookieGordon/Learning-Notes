@@ -13,20 +13,8 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "【Unity技术美术】URP Shader训练营/URP中的Pass通道.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "c0ed046dcd6935ab",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "【Unity技术美术】URP Shader训练营/URP中的Pass通道.md",
-                "mode": "source",
+                "file": "【Unity技术美术】URP Shader训练营/【Unity技术美术】URP Shader训练营.md",
+                "mode": "preview",
                 "source": false
               }
             }
@@ -81,7 +69,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 387.5
+    "width": 387.5,
+    "collapsed": true
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -97,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "【Unity技术美术】URP Shader训练营/URP中的Pass通道.md",
+                "file": "【Unity技术美术】URP Shader训练营/【Unity技术美术】URP Shader训练营.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -114,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "【Unity技术美术】URP Shader训练营/URP中的Pass通道.md",
+                "file": "【Unity技术美术】URP Shader训练营/【Unity技术美术】URP Shader训练营.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -137,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "【Unity技术美术】URP Shader训练营/URP中的Pass通道.md"
+                "file": "【Unity技术美术】URP Shader训练营/【Unity技术美术】URP Shader训练营.md"
               }
             }
           }
@@ -157,18 +146,19 @@
       "daily-notes:打开/创建今天的日记": false,
       "templates:插入模板": false,
       "command-palette:打开命令面板": false,
-      "obsidian-excalidraw-plugin:新建绘图文件": false,
       "spreadsheets:New Spreadsheet": false,
       "markdown-table-editor:Open Markdown Table Editor": false,
       "obsidian42-brat:BRAT": false,
-      "obsidian-importer:Open Importer": false
+      "obsidian-importer:Open Importer": false,
+      "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
   "active": "a45203a1b3438138",
   "lastOpenFiles": [
+    "【Unity技术美术】URP Shader训练营/URP中的Pass通道.md",
+    "Excalidraw/Map.md",
     "【Unity技术美术】URP Shader训练营/URP中的SubShader.md",
     "【Unity技术美术】URP Shader训练营/【Unity技术美术】URP Shader训练营.md",
-    "【Unity技术美术】URP Shader训练营/URP中的Pass通道.md",
     "【Unity技术美术】URP Shader训练营/ShaderLab基本结构.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/高级渲染管线功能.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/渲染管线.md",
@@ -178,7 +168,6 @@
     "计算机图形学—从0开始构建一个OpenGL软光栅/面片与模型.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/计算机图形学—从0开始构建一个OpenGL软光栅.md",
     "Untitled.sheet",
-    "Excalidraw/Map.md",
     "Excalidraw/Scripts/Downloaded/Relative Font Size Cycle.md",
     "Excalidraw/Scripts/Downloaded/Relative Font Size Cycle.svg",
     "【Unity技术美术】URP Shader训练营/attachments/（图解1）Perperties属性与面板显示.png",

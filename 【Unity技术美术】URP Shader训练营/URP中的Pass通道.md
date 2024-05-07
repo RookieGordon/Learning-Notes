@@ -179,14 +179,14 @@ finalValue = sourceFactor * sourceValue operation destinationFactor * destinatio
 - `destinationFactor` 在 Blend 命令中定义。
 - `destinationValue` 是目标缓冲区中现有的值。
 
-|**签名**|**示例语法**|**功能**|
-|---|---|---|
-|`Blend <state>`|`Blend Off`|禁用默认渲染目标的混合。这是默认值。|
-|`Blend <render target> <state>`|`Blend 1 Off`|如上，但针对给定的渲染目标。(1)|
-|`Blend <source factor> <destination factor>`|`Blend One Zero`|启用默认渲染目标的混合。设置 RGBA 值的混合系数。|
-|`Blend <render target> <source factor> <destination factor>`|`Blend 1 One Zero`|如上，但针对给定的渲染目标。(1)|
-|`Blend <source factor RGB> <destination factor RGB>, <source factor alpha> <destination factor alpha>`|`Blend One Zero, Zero One`|启用默认渲染目标的混合。为 RGB 和 Alpha 值设置单独的混合系数。(2)|
-|`Blend <render target> <source factor RGB> <destination factor RGB>, <source factor alpha> <destination factor alpha>`|`Blend 1 One Zero, Zero One`|如上，但针对给定的渲染目标。(1) (2)|
+| **签名**                                                                                                                 | **示例语法**                     | **功能**                                   |
+| ---------------------------------------------------------------------------------------------------------------------- | ---------------------------- | ---------------------------------------- |
+| `Blend <state>`                                                                                                        | `Blend Off`                  | 禁用默认渲染目标的混合。这是默认值。                       |
+| `Blend <render target> <state>`                                                                                        | `Blend 1 Off`                | 如上，但针对给定的渲染目标。(1)                        |
+| `Blend <source factor> <destination factor>`                                                                           | `Blend One Zero`             | 启用默认渲染目标的混合。设置 RGBA 值的混合系数。              |
+| `Blend <render target> <source factor> <destination factor>`                                                           | `Blend 1 One Zero`           | 如上，但针对给定的渲染目标。(1)                        |
+| `Blend <source factor RGB> <destination factor RGB>, <source factor alpha> <destination factor alpha>`                 | `Blend One Zero, Zero One`   | 启用默认渲染目标的混合。为 RGB 和 Alpha 值设置单独的混合系数。(2) |
+| `Blend <render target> <source factor RGB> <destination factor RGB>, <source factor alpha> <destination factor alpha>` | `Blend 1 One Zero, Zero One` | 如上，但针对给定的渲染目标。(1) (2)                    |
 
 **注意：**
 1. 任何指定渲染目标的签名都需要 OpenGL 4.0+、`GL_ARB_draw_buffers_blend` 或 OpenGL ES 3.2。
