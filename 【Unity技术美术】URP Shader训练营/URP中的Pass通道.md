@@ -282,6 +282,11 @@ Blend DstColor SrcColor
 - 使用RenderObject（可视化方法）
 - 使用RenderFeature
 
-## RenderObject
+## URP Renderer Feature
 
-
+渲染器特性是一种资产，可让您为URP渲染器添加额外的渲染传递并配置其行为。URP 提供以下渲染器功能：
+- [Render Objects](https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@15.0/manual/renderer-features/renderer-feature-render-objects.html)
+- [Screen Space Ambient Occlusion](https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@15.0/manual/post-processing-ssao.html)
+- [Decal](https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@15.0/manual/renderer-feature-decal.html)
+- [Screen Space Shadows](https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@15.0/manual/renderer-feature-screen-space-shadows.html)
+- [Full Screen Pass](https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@15.0/manual/renderer-features/renderer-feature-full-screen-pass.html)
