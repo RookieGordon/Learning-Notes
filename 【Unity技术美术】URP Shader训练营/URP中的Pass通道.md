@@ -301,4 +301,9 @@ URP 通过 DrawOpaqueObjects（绘制不透明对象）和 DrawTransparentObject
 
 在当前生效的管线中，添加一个新的Render Objects
 ![[（图解2）Add Renderer Feature.png|460]]
-该Render Object是通过Filters属性来确定
+该Render Object是通过Filters属性来确定那个物体使用该Render Feature的。将额外pass的LightMode和这里的LightMode Tags设置成一样即可。
+![[（图解3）使用LightMode筛选Pass.png|490]]
+
+官方示例：[示例：如何使用渲染对象渲染器功能创建自定义渲染效果 |通用 RP |15.0.7 (unity3d.com)](https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@15.0/manual/renderer-features/how-to-custom-effect-render-objects.html)
+
+## 使用C#控制RenderFeature实现多Pass效果
