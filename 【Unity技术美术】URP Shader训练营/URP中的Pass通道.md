@@ -276,7 +276,7 @@ Blend DstColor SrcColor
 >[!Attention]
 >从[[URP中的SubShader#^f1d77c|Unity的渲染顺序]]来说，设置混合后，都要关闭深度写入
 
-# URP中的多Pass编写
+# URP中的自定义渲染效果
 
 在URP中，编写多pass的两个方法：
 - 使用RenderObject（可视化方法）
@@ -284,7 +284,11 @@ Blend DstColor SrcColor
 
 ## URP Renderer Feature
 
-渲染器特性是一种资产，可让您为URP渲染器添加额外的渲染传递并配置其行为。URP 提供以下渲染器功能：
+Unity中的RendererFeature是一个允许开发者在渲染管线中添加自定义渲染效果的功能。是一种自定义和扩展Unity的URP（通用渲染管线）或者HDRP（高清渲染管线）的方式。开发者可以通过编写自定义的RendererFeature来实现特殊的图像效果，如后处理效果、特殊光照效果等。
+
+RendererFeature主要通过在渲染队列中插入额外的渲染命令来工作。你可以控制这些命令的执行时机，比如在场景渲染之前或之后，从而在不改变现有渲染管线的情况下，增加或改变渲染效果。
+
+RendererFeature是一种资产，可让您为URP渲染器添加额外的渲染传递并配置其行为。URP 提供以下渲染器功能：
 - [Render Objects](https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@15.0/manual/renderer-features/renderer-feature-render-objects.html)
 - [Screen Space Ambient Occlusion](https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@15.0/manual/post-processing-ssao.html)
 - [Decal](https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@15.0/manual/renderer-feature-decal.html)
@@ -307,3 +311,12 @@ URP 通过 DrawOpaqueObjects（绘制不透明对象）和 DrawTransparentObject
 官方示例：[示例：如何使用渲染对象渲染器功能创建自定义渲染效果 |通用 RP |15.0.7 (unity3d.com)](https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@15.0/manual/renderer-features/how-to-custom-effect-render-objects.html)
 
 ## 使用C#控制RenderFeature实现多Pass效果
+
+关于SRP的执行流程，详见：
+```cardlink
+url: https://zhuanlan.zhihu.com/p/666354466
+title: "【学习笔记】Unity 渲染——关于SRP以及SRP的执行过程"
+description: "本文参考： [Unity 活动]-Unity X 鬼泣-巅峰之战「Unity 大咖作客」线上分享会 — 动作手游鬼泣专场【回放】（QA精彩，不要错过哦）_哔哩哔哩_bilibili（25分钟左右开始） zd304：URP主要源码解析【Unity Renderin…"
+host: zhuanlan.zhihu.com
+image: https://pica.zhimg.com/v2-60c048e447cd0345212141c21759a1ef_720w.jpg?source=172ae18b
+```
