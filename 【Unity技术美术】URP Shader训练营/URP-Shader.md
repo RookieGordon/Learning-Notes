@@ -16,9 +16,7 @@ SRP Batcher并没有实际减少Draw Calls，而是优化提升了调用Draw Cal
 适用前提：
 - 需要是同一个shader变体，可以是不同的材质球，项目需要使用自定义渲染管线，Shader代码必须兼容SRP Batcher。
 	要使自定义着色器与 SRP Batcher 兼容，它必须满足以下要求：
-
-- 着色器必须在一个名为 的常量缓冲区中声明所有内置引擎属性。例如，或 。`UnityPerDraw``unity_ObjectToWorld``unity_SHAr`
-- 着色器必须在名为 的单个常量缓冲区中声明所有材质属性。`UnityPerMaterial`
-
+		1.着色器必须在名为`UnityPerDraw`的单个常量缓冲区中声明所有内置引擎属性。例如，或 `unity_ObjectToWorld`、`unity_SHAr`
+		2.着色器必须在名为`UnityPerMaterial`的单个常量缓冲区中声明所有材质属性
 - 不能使用材质球属性块（MaterialPropertyBlock）
 - 渲染的物体必须是一个mesh或者skinned mesh，不能是粒子。
