@@ -329,6 +329,21 @@ host: juejin.cn
 favicon: https://lf3-cdn-tos.bytescm.com/obj/static/xitu_juejin_web/static/favicons/favicon-32x32.png
 ```
 
+```cardlink
+url: http://146.56.209.11:90/2023/10/04/%E3%80%90urp%E3%80%91-%E4%BB%A5%E6%AF%9B%E7%8E%BB%E7%92%83%E5%90%8E%E5%A4%84%E7%90%86%E4%B8%BA%E4%BE%8B%E5%AD%A6%E4%B8%80%E4%B8%8Brenderfeature%E6%98%AF%E4%BB%80%E4%B9%88/
+title: "【URP】 以毛玻璃后处理为例学一下RenderFeature是什么 – 地平线上的一匹狼 – Solvarg"
+description: "[toc]综述常常听说URP里最多只能执行一个Pass，但这其实是不对的，为啥呢？就是因为RenderFeature，URP把实际上Pass执行的顺序抽象到了CommandList中了，即可以手动的在C#端控制Pass的执行顺序，而不需要硬写在代码里了。并且一个RenderFeature里可以…"
+host: 146.56.209.11
+favicon: http://146.56.209.11:90/wp-content/uploads/2021/05/cropped-cropped-wp_editor_md_8b3ce7c090cd72eed4346b3d97fe71d6-1-32x32.jpg
+```
+
+```cardlink
+url: https://zhuanlan.zhihu.com/p/675758658
+title: "Unity URP 自定义RendererFeature笔记"
+description: "什么是RenderFeatureUnity中的RendererFeature是一个允许开发者在渲染管线中添加自定义渲染效果的功能。是一种自定义和扩展Unity的URP（通用渲染管线）或者HDRP（高清渲染管线）的方式。开发者可以通过编写自定义…"
+host: zhuanlan.zhihu.com
+```
+
 要使用 Renderer Feature，我们需要编写两个类：继承自 **ScriptableRendererFeature** 的 Feature 类和继承自 **ScriptableRenderPass** 的 Pass 类。
 
 ### Renderer Feature 生命周期
