@@ -344,6 +344,12 @@ description: "什么是RenderFeatureUnity中的RendererFeature是一个允许开
 host: zhuanlan.zhihu.com
 ```
 
+```cardlink
+url: https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@15.0/api/UnityEngine.Rendering.Universal.ScriptableRenderer.html
+title: "Class ScriptableRenderer | Universal RP | 15.0.7"
+host: docs.unity3d.com
+```
+
 要使用 Renderer Feature，我们需要编写两个类：继承自 **ScriptableRendererFeature** 的 Feature 类和继承自 **ScriptableRenderPass** 的 Pass 类。
 
 ### Renderer Feature 生命周期

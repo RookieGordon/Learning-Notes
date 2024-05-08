@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "【Unity技术美术】URP Shader训练营/ShaderLab基本结构.md",
+                "file": "【Unity技术美术】URP Shader训练营/URP中的Pass通道.md",
                 "mode": "source",
                 "source": false
               }
@@ -86,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "【Unity技术美术】URP Shader训练营/ShaderLab基本结构.md",
+                "file": "【Unity技术美术】URP Shader训练营/URP中的Pass通道.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "【Unity技术美术】URP Shader训练营/ShaderLab基本结构.md",
+                "file": "【Unity技术美术】URP Shader训练营/URP中的Pass通道.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "【Unity技术美术】URP Shader训练营/ShaderLab基本结构.md"
+                "file": "【Unity技术美术】URP Shader训练营/URP中的Pass通道.md"
               }
             }
           }
@@ -155,19 +155,19 @@
   },
   "active": "a45203a1b3438138",
   "lastOpenFiles": [
-    "【Unity技术美术】URP Shader训练营/URP中的SubShader.md",
+    "【Unity技术美术】URP Shader训练营/ShaderLab基本结构.md",
+    "【Unity技术美术】URP Shader训练营/URP中的Pass通道.md",
     "【Unity技术美术】URP Shader训练营/URP-Shader.md",
+    "【Unity技术美术】URP Shader训练营/URP中的SubShader.md",
     "【Unity技术美术】URP Shader训练营/attachments/（图解7）SRP合批流程.png",
     "【Unity技术美术】URP Shader训练营/attachments/（图解6）标准流程和SRPBatcher流程的区别.png",
     "【Unity技术美术】URP Shader训练营/attachments/（图解5）SRP Batcher 渲染工作流程.png",
     "【Unity技术美术】URP Shader训练营/attachments/（图解4）绑定和绘制命令的批处理减少了绘制调用之间的 GPU 设置.png",
-    "【Unity技术美术】URP Shader训练营/URP中的Pass通道.md",
     "【Unity技术美术】URP Shader训练营/【Unity技术美术】URP Shader训练营.md",
     "【Unity技术美术】URP Shader训练营/attachments/（图解3）使用LightMode筛选Pass.png",
     "【Unity技术美术】URP Shader训练营/attachments/1715151456512.png",
     "【Unity技术美术】URP Shader训练营/attachments/（图解2）Add Renderer Feature.png",
     "Excalidraw/Map.md",
-    "【Unity技术美术】URP Shader训练营/ShaderLab基本结构.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/高级渲染管线功能.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/渲染管线.md",
     "【Unity技术美术】URP Shader训练营/attachments/Forward Rendering vs Deferred Rendering.pdf",
