@@ -69,8 +69,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 387.5,
-    "collapsed": true
+    "width": 387.5
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -155,6 +154,7 @@
   },
   "active": "a45203a1b3438138",
   "lastOpenFiles": [
+    "【Unity技术美术】URP Shader训练营/attachments/（图解2）Add Renderer Feature.png",
     "【Unity技术美术】URP Shader训练营/URP中的SubShader.md",
     "【Unity技术美术】URP Shader训练营/【Unity技术美术】URP Shader训练营.md",
     "【Unity技术美术】URP Shader训练营/URP中的Pass通道.md",
