@@ -143,6 +143,7 @@ ShaderLab 中的属性类型以如下方式映射到 Cg/HLSL 变量类型：
 	- 3D 纹理，纹理映射到**TEXTURE3D**变量，采样映射到**sampler3D**
 
 详见：[使用 Cg/HLSL 访问着色器属性 - Unity 手册 (unity3d.com)](https://docs.unity3d.com/cn/2019.4/Manual/SL-PropertiesInPrograms.html)
+
 ### 采样器
 
 对于纹理采样器，在DX9中，使用耦合的纹理和采样器，一般写作：
