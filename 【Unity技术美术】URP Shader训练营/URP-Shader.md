@@ -11,6 +11,8 @@ Attribute和Varying中的position变量一般加上后缀表示顶点数据位�
 
 # URP中的SRPBatcher合批
 
+![[（图解7）SRP合批流程.png]]
+
 SRP Batcher并没有实际减少Draw Calls，而是优化提升了调用Draw Calls前的大量的工作效率。所以后面SRP Batching的优化drawcalls，改成优化了batches。也就是将它们调用drawcalls的设置工作量合并批处理了。
 
 适用前提：
@@ -21,3 +23,12 @@ SRP Batcher并没有实际减少Draw Calls，而是优化提升了调用Draw Cal
 - 不能使用材质球属性块（MaterialPropertyBlock）
 - 渲染的物体必须是一个mesh或者skinned mesh，不能是粒子
 ![[（图解4）绑定和绘制命令的批处理减少了绘制调用之间的 GPU 设置.png|460]]
+
+## SRPBatcher合批原理
+
+采用动静分离策略，将低频和高频更新的数据放到不同的地方进行更新。
+![[（图解5）SRP Batcher 渲染工作流程.png|560]]
+
+标准流程和SRPBatcher流程的区别：
+![[（图解6）标准流程和SRPBatcher流程的区别.png|460]]
+

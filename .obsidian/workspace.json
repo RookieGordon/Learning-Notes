@@ -69,7 +69,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 387.5
+    "width": 387.5,
+    "collapsed": true
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -154,6 +155,9 @@
   },
   "active": "a45203a1b3438138",
   "lastOpenFiles": [
+    "【Unity技术美术】URP Shader训练营/attachments/（图解7）SRP合批流程.png",
+    "【Unity技术美术】URP Shader训练营/attachments/（图解6）标准流程和SRPBatcher流程的区别.png",
+    "【Unity技术美术】URP Shader训练营/attachments/（图解5）SRP Batcher 渲染工作流程.png",
     "【Unity技术美术】URP Shader训练营/attachments/（图解4）绑定和绘制命令的批处理减少了绘制调用之间的 GPU 设置.png",
     "【Unity技术美术】URP Shader训练营/URP中的Pass通道.md",
     "【Unity技术美术】URP Shader训练营/URP-Shader.md",
@@ -189,9 +193,6 @@
     "计算机图形学—从0开始构建一个OpenGL软光栅/从0开始构建OpenGL软光栅.canvas",
     "技术美术入门/attachments/（图解5）高光工作流参数.png",
     "技术美术入门/attachments/（图解3）平滑度都为1的高光（左）和金属（右）对比.png",
-    "技术美术入门/attachments/（图解2）金属工作流的参数.png",
-    "技术美术入门/attachments/Pasted image 20240424170337.png",
-    "技术美术入门/attachments/（图解1）Unity的URP中的金属和高光工作流.jpg",
     "技术美术入门/attachments",
     "C++/使用CMake编译项目.md",
     "C++/数据结构.md",
