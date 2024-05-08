@@ -320,3 +320,23 @@ description: "本文参考： [Unity 活动]-Unity X 鬼泣-巅峰之战「Unity
 host: zhuanlan.zhihu.com
 image: https://pica.zhimg.com/v2-60c048e447cd0345212141c21759a1ef_720w.jpg?source=172ae18b
 ```
+
+```cardlink
+url: https://juejin.cn/post/7290417906840076346
+title: "【Unity3D】Renderer Feature简介 - 掘金"
+description: "1 3D 项目迁移到 URP 项目后出现的问题 ​ 3D 项目迁移至 URP 项目后，会出现很多渲染问题，如：材质显示异常、GL 渲染不显示、多 Pass 渲染异常、屏幕后处理异常等问题。下面将针对这"
+host: juejin.cn
+favicon: https://lf3-cdn-tos.bytescm.com/obj/static/xitu_juejin_web/static/favicons/favicon-32x32.png
+```
+
+要使用 Renderer Feature，我们需要编写两个类：继承自 **ScriptableRendererFeature** 的 Feature 类和继承自 **ScriptableRenderPass** 的 Pass 类。
+
+### Renderer Feature 生命周期
+
+​ 运行程序后，打印日志如下。
+![img|300](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7c44618d40ee48e18d4636938df40941~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp)
+​ 由日志可以得出以下结论：
+- Render Feature 的执行时序是
+	- `Create→AddRenderPasses→OnCameraSetup→Execute→OnCameraCleanup`
+- Create 方法只在程序启动时执行几次，后面就不执行了
+- AddRenderPasses、OnCameraSetup、Execute、OnCameraCleanup 方法每帧都会执行一次
