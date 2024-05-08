@@ -42,7 +42,8 @@ CBUFFER_START(UnityPerDraw)
 	real4 unity_WorldTransformParams;		
 CBUFFER_END
 ```
-1. 着色器必须在名为`UnityPerMaterial`的单个常量缓冲区中声明所有材质属性
+
+2. 着色器必须在名为`UnityPerMaterial`的单个常量缓冲区中声明所有材质属性
 ```Cpp
 // 使用核心RP库中的CBUFFER_START宏定义，因为有些平台是不支持常量缓冲区的。这里不能直接用cbuffer UnityPerMaterial{ float4 _BaseColor };
 // Properties大括号里声明的所有变量如果需要支持合批，都需要在UnityPerMaterial的CBUFFER中声明所有材质属性
@@ -68,8 +69,10 @@ UNITY_INSTANCING_BUFFER_END(UnityPerMaterial)
 标准流程和SRPBatcher流程的区别：
 ![[（图解6）标准流程和SRPBatcher流程的区别.png|460]]
 
-
 参考文章：
 [Unity ConstantBuffer的一些解析和注意 - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/137455866)
 [对艺术家的SRP Batcher的简单理解。 - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/156858564)
 [SRP Batcher: Speed up your rendering | Unity Blog](https://blog.unity.com/engine-platform/srp-batcher-speed-up-your-rendering)
+
+>[!Attention]
+> GPUInstance与SRP Batcher是不兼容的
