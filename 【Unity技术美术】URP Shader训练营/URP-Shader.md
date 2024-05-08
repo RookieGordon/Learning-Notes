@@ -19,4 +19,4 @@ SRP Batcher并没有实际减少Draw Calls，而是优化提升了调用Draw Cal
 		1.着色器必须在名为`UnityPerDraw`的单个常量缓冲区中声明所有内置引擎属性。例如，或 `unity_ObjectToWorld`、`unity_SHAr`
 		2.着色器必须在名为`UnityPerMaterial`的单个常量缓冲区中声明所有材质属性
 - 不能使用材质球属性块（MaterialPropertyBlock）
-- 渲染的物体必须是一个mesh或者skinned mesh，不能是粒子。
+- 渲染的物体必须是一个mesh或者skinned mesh，不能是粒子
