@@ -290,3 +290,9 @@ Blend DstColor SrcColor
 - [Decal](https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@15.0/manual/renderer-feature-decal.html)
 - [Screen Space Shadows](https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@15.0/manual/renderer-feature-screen-space-shadows.html)
 - [Full Screen Pass](https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@15.0/manual/renderer-features/renderer-feature-full-screen-pass.html)
+
+### Renderer Objects
+
+URP 通过 DrawOpaqueObjects（绘制不透明对象）和 DrawTransparentObjects（绘制透明对象）来绘制对象。您可能需要在帧渲染的不同点绘制对象，或以其他方式解释和写入渲染数据（如深度和模版）。通过渲染对象渲染器功能，您可以在特定的时间、特定的图层上绘制对象，并使用特定的重载功能进行此类自定义操作。
+
+详见：[Render Objects Renderer Feature | Universal RP | 15.0.7 (unity3d.com)](https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@15.0/manual/renderer-features/renderer-feature-render-objects.html)
