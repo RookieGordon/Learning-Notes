@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "【Unity技术美术】URP Shader训练营/URP中的Pass通道.md",
+                "file": "【Unity技术美术】URP Shader训练营/URP-Shader.md",
                 "mode": "source",
                 "source": false
               }
@@ -69,8 +69,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 387.5,
-    "collapsed": true
+    "width": 387.5
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -86,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "【Unity技术美术】URP Shader训练营/URP中的Pass通道.md",
+                "file": "【Unity技术美术】URP Shader训练营/URP-Shader.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "【Unity技术美术】URP Shader训练营/URP中的Pass通道.md",
+                "file": "【Unity技术美术】URP Shader训练营/URP-Shader.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "【Unity技术美术】URP Shader训练营/URP中的Pass通道.md"
+                "file": "【Unity技术美术】URP Shader训练营/URP-Shader.md"
               }
             }
           }
@@ -155,8 +154,9 @@
   },
   "active": "a45203a1b3438138",
   "lastOpenFiles": [
-    "【Unity技术美术】URP Shader训练营/【Unity技术美术】URP Shader训练营.md",
     "【Unity技术美术】URP Shader训练营/URP中的Pass通道.md",
+    "【Unity技术美术】URP Shader训练营/URP-Shader.md",
+    "【Unity技术美术】URP Shader训练营/【Unity技术美术】URP Shader训练营.md",
     "【Unity技术美术】URP Shader训练营/attachments/（图解3）使用LightMode筛选Pass.png",
     "【Unity技术美术】URP Shader训练营/attachments/1715151456512.png",
     "【Unity技术美术】URP Shader训练营/attachments/（图解2）Add Renderer Feature.png",
