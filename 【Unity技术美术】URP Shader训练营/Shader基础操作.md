@@ -84,4 +84,18 @@ Compute Buffer主要用于计算着色器。计算着色器程序经常需要将
 详见：[Unity - Scripting API: ComputeBuffer (unity3d.com)](https://docs.unity3d.com/2023.2/Documentation/ScriptReference/ComputeBuffer.html)
        [Unity - 手册：计算着色器 (unity3d.com)](https://docs.unity3d.com/2023.2/Documentation/Manual/class-ComputeShader.html)
 
+## 通过Computer Buffer进行传参
+
+在Shader中定义一个结构体和一个以该结构体为元素的StructBuffer，例如：
+```C#
+struct BufferElement{
+	float3 dir;
+	float scale;
+}
+
+StructuredBuffer<BufferElement> _ComputerBuffer;
+```
+这样就定义了一个Computer Buffer。可以像访问List一样，访问StructuredBuffer。
+
+在C#端，同样需要定义一个和`BufferElement`一样的结构体和一个`ComputeBuffer`对象，然后通过`Shader.SetGlobalBuffer`进行传参。
 
