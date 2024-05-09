@@ -14,3 +14,7 @@ tags:
 
 Shader中的数组，只能从C#端进行传入，不能在Shader的Properties中进行声明与设置。
 
+Unity中，可以传递float、向量和矩阵三种类型的数组。分别使用`Shader.SetGlobalFloatArray`，`Shader.SetGlobalVectorArray`和`Shader.SetGlobalMatrixArray`三个静态方法。
+
+
+
