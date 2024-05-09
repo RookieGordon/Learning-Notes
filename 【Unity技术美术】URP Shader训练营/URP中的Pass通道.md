@@ -2,7 +2,6 @@
 tags:
   - Unity
   - URP
-  - ShaderLab
   - Shader
 annotation-target: Forward Rendering vs Deferred Rendering.pdf
 ---

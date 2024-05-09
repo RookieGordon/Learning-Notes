@@ -21,7 +21,7 @@ image: https://picx.zhimg.com/4b70deef7_720w.jpg?source=d16d100b
 
 # 目录
 
-## [[ShaderLab基本结构]]
+## [[URP Shader基本结构]]
 
 ## [[URP中的SubShader]]
 

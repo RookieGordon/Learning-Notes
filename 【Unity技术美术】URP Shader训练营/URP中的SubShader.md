@@ -1,7 +1,6 @@
 ---
 tags:
   - Unity
-  - ShaderLab
   - Shader
   - URP
 ---
