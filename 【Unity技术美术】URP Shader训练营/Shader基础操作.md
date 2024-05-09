@@ -22,6 +22,6 @@ Unity中，可以传递float、向量和矩阵三种类型的数组。分别使�
 
 # 纹理数组
 
-
+纹理数组类型是`2DArray`，例如：`_TexArray ("Texture Array", 2DArray) = "white" {}`。纹理变量的类型是`Texture2DArray`，或者使用宏定义`TEXTURE2D_ARRAY`，采样器和普通纹理采样器一样即可。
 
 
