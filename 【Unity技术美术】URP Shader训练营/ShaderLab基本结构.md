@@ -154,7 +154,7 @@ sampler2D _MainTex; // ...
 half4 color = tex2D(_MainTex, uv);
 ```
 
-在DX11中，也使用耦合的纹理和采样器，但需要通过一个特殊的命名约定来让它们匹配：名称为`“sampler”+TextureName`格式的采样器将从该纹理中获取采样状态。
+在DX11中，也使用耦合的纹理和采样器，但需要通过一个特殊的命名约定来让它们匹配：名称为`sampler+纹理名`格式的采样器将从该纹理中获取采样状态。
 
 以上部分中的着色器代码片段可以用 DX11 风格的 HLSL 语法重写，并且也会执行相同的操作：
 ```
@@ -164,9 +164,11 @@ SAMPLER(sampler_MainTex); //"sampler"+"_MainTex"
 half4 color = _MainTex.Sample(sampler_MainTex, uv);
 ```
 
-#### 单独的纹理采样器
+#### 单独的纹理采样器与内联采样器
 
-使用单独的纹理和采样器，可以 "重复使用 "其他纹理的采样器，同时对多个纹理进行采样，使用`SamplerState`关键字，变量名可以
+使用单独的纹理和采样器，可以 "重复使用 "其他纹理的采样器，同时对多个纹理进行采样，使用`SamplerState`关键字。
+如果为单独的采样器，则变量命名规范为：`“sampler”+纹理名`
+如果为内联采样器，则命名规范为：`纹理Filter类型+Wrap类型+纹理名`，如PointClampSampler
 ```Cpp
 Texture2D _MainTex; 
 Texture2D _SecondTex; 
