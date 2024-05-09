@@ -60,7 +60,28 @@ private void CreateTextureArray()
 
 # Compute Buffer
 
+```cardlink
+url: https://developer.unity.cn/projects/6116875dedbc2a00204564c9
+title: "Unity中ComputeShader入门 - 技术专栏 - Unity官方开发者社区"
+description: "ComputeShader的简单介绍，转自个人知乎：https://zhuanlan.zhihu.com/p/368307575 - Unity技术专栏是中国Unity官方为开发者准备的中文技术分享社区，极简高效的markdown文本编辑器体验更适合Unity开发者日常记录开发经验和灵感，通过输出倒逼输入，加快自身学习成长速度；每一位开发者都可以通过技术分享与社区中的伙伴们交流学习，一起成为更优秀的创作者。"
+host: developer.unity.cn
+favicon: https://developer-prd.cdn.unity.cn/images/favicons/favicon_cn.ico?v=3
+image: https://u3d-connect-cdn-public-prd.cdn.unity.cn/h1/20210813/p/images/02ea88af-ed88-4160-8e28-08ae7b5aeb17_src_http___pic.vjshi.com_2017_05_15_3ad4dcb96bceaae51889ccf130cc4a3f_00002.jpg_x_oss_process_style_watermark_refer_http___pic.vjshi.jpg
+```
+
+```cardlink
+url: https://zhuanlan.zhihu.com/p/368307575
+title: "【Unity】Compute Shader的基础介绍与使用"
+description: "Compute Shader概念当代GPU被设计成可以执行大规模的并行操作，这有益于图形应用，因为在渲染管线中，不论是顶点着色器还是像素着色器，它们都可以独立进行。然而对于一些非图形应用也可以受益于GPU并行架构所提供…"
+host: zhuanlan.zhihu.com
+image: https://picx.zhimg.com/v2-2c5673d67b8cda781d8f0b787470bce3_720w.jpg?source=172ae18b
+```
+
 使用Compute Buffer的要求：DirectX 11 或 DirectX 12 图形 API 和着色器模型 5.0 GPU
 
+Compute Buffer主要用于计算着色器。计算着色器程序经常需要将任意数据读写到内存缓冲区中。ComputeBuffer 类正是为此而生。你可以从脚本代码中创建和填充它们，并在计算着色器或普通着色器中使用它们。
+
+详见：[Unity - Scripting API: ComputeBuffer (unity3d.com)](https://docs.unity3d.com/2023.2/Documentation/ScriptReference/ComputeBuffer.html)
+       [Unity - 手册：计算着色器 (unity3d.com)](https://docs.unity3d.com/2023.2/Documentation/Manual/class-ComputeShader.html)
 
 
