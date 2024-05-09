@@ -193,6 +193,7 @@ half4 color = UNITY_SAMPLE_TEX2D(_MainTex, uv);
 color += UNITY_SAMPLE_TEX2D_SAMPLER(_SecondTex, _MainTex, uv); 
 color += UNITY_SAMPLE_TEX2D_SAMPLER(_ThirdTex, _MainTex, uv);
 ```
+使用内置宏，需要包含”HLSLSupport.cginc“文件，详见：[内置着色器 include 文件 - Unity 手册 (unity3d.com)](https://docs.unity3d.com/cn/2023.2/Manual/SL-BuiltinIncludes.html)。不过内置宏，只是定义的单独的采样器，而非内联采样器。
 
 详见：[使用采样器状态 - Unity 手册 (unity3d.com)](https://docs.unity3d.com/cn/2023.2/Manual/SL-SamplerStates.html)
 

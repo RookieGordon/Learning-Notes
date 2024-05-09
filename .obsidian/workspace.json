@@ -30,9 +30,21 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "6582d3515693c08a",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "【Unity技术美术】URP Shader训练营/URP-Shader.md",
+                "mode": "preview",
+                "source": false
+              }
+            }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -99,7 +111,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "【Unity技术美术】URP Shader训练营/ShaderLab基本结构.md",
+                "file": "【Unity技术美术】URP Shader训练营/URP-Shader.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -116,7 +128,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "【Unity技术美术】URP Shader训练营/ShaderLab基本结构.md",
+                "file": "【Unity技术美术】URP Shader训练营/URP-Shader.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -139,7 +151,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "【Unity技术美术】URP Shader训练营/ShaderLab基本结构.md"
+                "file": "【Unity技术美术】URP Shader训练营/URP-Shader.md"
               }
             }
           }
@@ -166,11 +178,11 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "cd18c858e1627ff5",
+  "active": "6582d3515693c08a",
   "lastOpenFiles": [
-    "【Unity技术美术】URP Shader训练营/URP中的Pass通道.md",
     "【Unity技术美术】URP Shader训练营/ShaderLab基本结构.md",
     "【Unity技术美术】URP Shader训练营/URP-Shader.md",
+    "【Unity技术美术】URP Shader训练营/URP中的Pass通道.md",
     "【Unity技术美术】URP Shader训练营/URP中的SubShader.md",
     "【Unity技术美术】URP Shader训练营/attachments/（图解7）SRP合批流程.png",
     "【Unity技术美术】URP Shader训练营/attachments/（图解6）标准流程和SRPBatcher流程的区别.png",
