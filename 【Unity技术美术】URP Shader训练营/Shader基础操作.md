@@ -55,4 +55,12 @@ private void CreateTextureArray()
 ```
 该纹理数组，可以通过`Shader.SetGlobalTexture`方法，传递给shader。
 
+>[!Attention]
+>纹理数组是不兼容SRP Batcher的，一般不需要将数组变量放到代码块中去
+
+# Compute Buffer
+
+使用Compute Buffer的要求：DirectX 11 或 DirectX 12 图形 API 和着色器模型 5.0 GPU
+
+
 
