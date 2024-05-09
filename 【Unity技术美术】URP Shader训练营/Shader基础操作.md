@@ -27,7 +27,7 @@ Unity中，可以传递float、向量和矩阵三种类型的数组。分别使�
 ## C#中，创建纹理数据
 
 通过一组纹理，创建一个纹理数组：
-```C#
+```CSharp
 public Texture2D[] ordinaryTextures;  
 private Texture2DArray texture2DArray;  
   
@@ -87,7 +87,7 @@ Compute Buffer主要用于计算着色器。计算着色器程序经常需要将
 ## 通过Computer Buffer进行传参
 
 在Shader中定义一个结构体和一个以该结构体为元素的StructBuffer，例如：
-```C#
+```CSharp
 struct BufferElement{
 	float3 dir;
 	float scale;

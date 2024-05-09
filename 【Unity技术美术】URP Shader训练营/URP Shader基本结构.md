@@ -122,12 +122,12 @@ Properties可以定义通过材质面板传入的属性（比如颜色、贴图�
 在着色器的固定函数部分中，[可使用括在方括号中的属性名称来访问属性值：**[name]**](https://docs.unity3d.com/cn/2019.4/Manual/SL-PropertiesInPrograms.html)。例如，可通过声明两个整数属性（例如_SrcBlend和_DstBlend）来使混合模式由材质属性驱动，然后让 [Blend 命令](https://docs.unity3d.com/cn/2019.4/Manual/SL-Blend.html)使用它们：`Blend [_SrcBlend] [_DstBlend]`。
 
 例如，以下着色器属性：
-```
+```Cpp
 _MyVector ("Some Vector", Vector) = (0,0,0,0) 
 _MyFloat ("My float", Float) = 0.5 
 ```
 可通过如下 Cg/HLSL 代码进行声明以供访问：
-```
+```Cpp
 float4 _MyVector;
 float _MyFloat; 
 ```
@@ -156,7 +156,7 @@ half4 color = tex2D(_MainTex, uv);
 在DX11中，也使用耦合的纹理和采样器，但需要通过一个特殊的命名约定来让它们匹配：名称为`sampler+其他`格式的采样器将从该纹理中获取采样状态。
 
 以上部分中的着色器代码片段可以用 DX11 风格的 HLSL 语法重写，并且也会执行相同的操作：
-```
+```Cpp
 TEXTURE2D(_MainTex);
 SAMPLER(sampler_MainTex); //"sampler"+"_MainTex"
 // ...
