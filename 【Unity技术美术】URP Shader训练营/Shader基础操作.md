@@ -22,6 +22,37 @@ Unity中，可以传递float、向量和矩阵三种类型的数组。分别使�
 
 # 纹理数组
 
-纹理数组类型是`2DArray`，例如：`_TexArray ("Texture Array", 2DArray) = "white" {}`。纹理变量的类型是`Texture2DArray`，或者使用宏定义`TEXTURE2D_ARRAY`，采样器和普通纹理采样器一样即可。
+纹理数组类型是`2DArray`，例如：`_TexArray ("Texture Array", 2DArray) = "white" {}`。纹理变量的类型是`Texture2DArray`，或者使用宏定义`TEXTURE2D_ARRAY`，采样器和普通纹理采样器一样即可。采样使用宏定义`SAMPLE_TEXTURE2D_ARRAY`
+
+## C#中，创建纹理数据
+
+通过一组纹理，创建一个纹理数组：
+```C#
+public Texture2D[] ordinaryTextures;  
+private Texture2DArray texture2DArray;  
+  
+private void CreateTextureArray()  
+{  
+    //Create Texture2DArray  
+    texture2DArray = new Texture2DArray(ordinaryTextures[0].width, 
+										ordinaryTextures[0].height, 
+										ordinaryTextures.Length,  
+							            TextureFormat.RGBA32, true, false);  
+    
+    //Apply settings  
+    texture2DArray.filterMode = FilterMode.Bilinear;  
+    texture2DArray.wrapMode = TextureWrapMode.Repeat; 
+     
+    //Loop through ordinary textures and copy pixels to the  Texture2DArray    
+    for (int i = 0; i < ordinaryTextures.Length; i++)  
+    {        
+	    texture2DArray.SetPixels(ordinaryTextures[i].GetPixels(0), i, 0);  
+    }  
+    
+    //Apply our changes  
+    texture2DArray.Apply();  
+}
+```
+该纹理数组，可以通过`Shader.SetGlobalTexture`方法，传递给shader。
 
 
