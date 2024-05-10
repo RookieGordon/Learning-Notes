@@ -54,9 +54,21 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "12996b2453f8edff",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/空间变换.md",
+                "mode": "preview",
+                "source": false
+              }
+            }
           }
         ],
-        "currentTab": 3
+        "currentTab": 4
       }
     ],
     "direction": "vertical"
@@ -106,8 +118,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 387.5,
-    "collapsed": true
+    "width": 387.5
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -123,7 +134,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "【Unity技术美术】URP Shader训练营/URP Shader中的Pass通道.md",
+                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/空间变换.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -140,7 +151,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "【Unity技术美术】URP Shader训练营/URP Shader中的Pass通道.md",
+                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/空间变换.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -163,7 +174,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "【Unity技术美术】URP Shader训练营/URP Shader中的Pass通道.md"
+                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/空间变换.md"
               }
             }
           }
@@ -190,12 +201,16 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "7eb789843e7d85c6",
+  "active": "12996b2453f8edff",
   "lastOpenFiles": [
+    "计算机图形学—从0开始构建一个OpenGL软光栅/高级渲染管线功能.md",
+    "计算机图形学—从0开始构建一个OpenGL软光栅/光照模型.md",
+    "计算机图形学—从0开始构建一个OpenGL软光栅/渲染管线.md",
+    "计算机图形学—从0开始构建一个OpenGL软光栅/空间变换.md",
+    "【Unity技术美术】URP Shader训练营/URP Shader中的Pass通道.md",
     "【Unity技术美术】URP Shader训练营/URP Shader基本结构.md",
     "【Unity技术美术】URP Shader训练营/URP Shader中的SubShader.md",
     "【Unity技术美术】URP Shader训练营/编写自定义URP Shader.md",
-    "【Unity技术美术】URP Shader训练营/URP Shader中的Pass通道.md",
     "【Unity技术美术】URP Shader训练营/Shader基础操作.md",
     "【Unity技术美术】URP Shader训练营/【Unity技术美术】URP Shader训练营.md",
     "【Unity技术美术】URP Shader训练营/URP-Shader.md",
@@ -207,10 +222,7 @@
     "【Unity技术美术】URP Shader训练营/attachments/1715151456512.png",
     "【Unity技术美术】URP Shader训练营/attachments/（图解2）Add Renderer Feature.png",
     "Excalidraw/Map.md",
-    "计算机图形学—从0开始构建一个OpenGL软光栅/高级渲染管线功能.md",
-    "计算机图形学—从0开始构建一个OpenGL软光栅/渲染管线.md",
     "【Unity技术美术】URP Shader训练营/attachments/Forward Rendering vs Deferred Rendering.pdf",
-    "计算机图形学—从0开始构建一个OpenGL软光栅/空间变换.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/图片与纹理.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/面片与模型.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/计算机图形学—从0开始构建一个OpenGL软光栅.md",
@@ -235,7 +247,6 @@
     "C++/使用CMake编译项目.md",
     "C++/数据结构.md",
     "Excalidraw/Drawing 2024-04-22 21.52.10.excalidraw.md",
-    "Excalidraw/Drawing 2024-04-22 15.53.40.excalidraw.md",
     "Excalidraw",
     "C++/C++.canvas",
     "计算机图形学—从0开始构建一个OpenGL软光栅/attachments",
