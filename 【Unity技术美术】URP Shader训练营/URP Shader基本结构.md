@@ -143,6 +143,21 @@ ShaderLab 中的属性类型以如下方式映射到 Cg/HLSL 变量类型：
 
 详见：[使用 Cg/HLSL 访问着色器属性 - Unity 手册 (unity3d.com)](https://docs.unity3d.com/cn/2019.4/Manual/SL-PropertiesInPrograms.html)
 
+### 材质属性特性
+
+材质还拥有可选特性，用于告知 Unity 如何处理它们。
+
+| **属性**              | **功能**                                                                                                                                                                                                                                                                                                                                |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `[Gamma]`           | 指示浮点数或矢量属性使用 sRGB 值，这意味着如果项目中的颜色空间需要，则它必须与其他 sRGB 值一起转换。有关更多信息，请参阅[着色器程序中的属性](https://docs.unity3d.com/cn/2023.2/Manual/SL-PropertiesInPrograms.html)。                                                                                                                                                                                |
+| `[HDR]`             | 指示纹理或颜色属性使用[高动态范围 (HDR)](https://docs.unity3d.com/cn/2023.2/Manual/HDR.html) 值。  <br>  <br>对于纹理属性，如果分配了 LDR 纹理，则 Unity 编辑器会显示警告。对于颜色属性，Unity 编辑器会使用 HDR 拾色器编辑此值。                                                                                                                                                                      |
+| `[HideInInspector]` | 告知 Unity 编辑器在 Inspector 中隐藏此属性。                                                                                                                                                                                                                                                                                                       |
+| `[MainTexture]`     | 为材质设置主纹理，可以使用 [Material.mainTexture](https://docs.unity3d.com/cn/2023.2/ScriptReference/Material-mainTexture.html) 进行访问。  <br>  <br>默认情况下，Unity 将具有属性名称 `_MainTex` 的纹理视为主纹理。如果纹理具有不同的属性名称，但希望 Unity 将它视为主纹理，请使用此特性。  <br>  <br>如果多次使用此特性，则 Unity 会使用第一个属性并忽略后续属性。  <br>  <br>**注意：**使用此特性设置主纹理时，如果使用纹理串流调试视图模式或自定义调试工具，则该纹理在游戏视图中不可见。 |
+| `[MainColor]`       | 为材质设置主色，可以使用 [Material.color](https://docs.unity3d.com/cn/2023.2/ScriptReference/Material-color.html) 进行访问。  <br>  <br>默认情况下，Unity 将具有属性名称 `_Color` 的颜色视为主色。如果您的颜色具有其他属性 (property) 名称，但您希望 Unity 将这个颜色视为主色，请使用此属性 (attribute)。如果您多次使用此属性 (attribute)，则 Unity 会使用第一个属性 (property)，而忽略后续属性 (property)。                                 |
+| `[NoScaleOffset]`   | 告知 Unity 编辑器隐藏此纹理属性的平铺和偏移字段。                                                                                                                                                                                                                                                                                                          |
+| `[Normal]`          | 指示纹理属性需要法线贴图。  <br>  <br>如果分配了不兼容的纹理，则 Unity 编辑器会显示警告。                                                                                                                                                                                                                                                                                |
+| `[PerRendererData]` | 指示纹理属性将来自每渲染器数据，形式为 [MaterialPropertyBlock](https://docs.unity3d.com/cn/2023.2/ScriptReference/MaterialPropertyBlock.html)。  <br>  <br>材质 Inspector 会将这些属性显示为只读。                                                                                                                                                                      |
+
 ### 采样器
 
 #### 耦合的纹理采样器

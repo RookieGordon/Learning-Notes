@@ -13,13 +13,38 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "【Unity技术美术】URP Shader训练营/编写自定义URP Shader.md",
+                "file": "【Unity技术美术】URP Shader训练营/URP Shader基本结构.md",
                 "mode": "source",
                 "source": false
               }
             }
+          },
+          {
+            "id": "7670294d1c95ecca",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "【Unity技术美术】URP Shader训练营/URP Shader中的SubShader.md",
+                "mode": "preview",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "ba5d9a1ec6dd259b",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "【Unity技术美术】URP Shader训练营/URP Shader基本结构.md",
+                "mode": "preview",
+                "source": false
+              }
+            }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -86,7 +111,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "【Unity技术美术】URP Shader训练营/编写自定义URP Shader.md",
+                "file": "【Unity技术美术】URP Shader训练营/URP Shader基本结构.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +128,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "【Unity技术美术】URP Shader训练营/编写自定义URP Shader.md",
+                "file": "【Unity技术美术】URP Shader训练营/URP Shader基本结构.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +151,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "【Unity技术美术】URP Shader训练营/编写自定义URP Shader.md"
+                "file": "【Unity技术美术】URP Shader训练营/URP Shader基本结构.md"
               }
             }
           }
@@ -153,10 +178,10 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "6582d3515693c08a",
+  "active": "ba5d9a1ec6dd259b",
   "lastOpenFiles": [
-    "【Unity技术美术】URP Shader训练营/URP Shader基本结构.md",
     "【Unity技术美术】URP Shader训练营/URP Shader中的SubShader.md",
+    "【Unity技术美术】URP Shader训练营/URP Shader基本结构.md",
     "【Unity技术美术】URP Shader训练营/编写自定义URP Shader.md",
     "【Unity技术美术】URP Shader训练营/URP Shader中的Pass通道.md",
     "【Unity技术美术】URP Shader训练营/Shader基础操作.md",
