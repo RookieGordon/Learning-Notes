@@ -7,7 +7,7 @@ tags:
 
 # 无光照Shader
 
-```Cpp
+```hlsl
 Shader "Custom/Unlit/BasicUnlitShader"  
 {  
     Properties  
@@ -75,6 +75,8 @@ Shader "Custom/Unlit/BasicUnlitShader"
         }  
     }}
 ```
+
+这里使用了Unity内置的方法`GetVertexPositionInputs`来将顶点变换到裁剪空间。
 
 # 漫反射Shader
 
