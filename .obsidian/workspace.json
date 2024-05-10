@@ -61,8 +61,8 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "【Unity技术美术】URP Shader训练营/Shader基础操作.md",
-                "mode": "preview",
+                "file": "【Unity技术美术】URP Shader训练营/编写自定义URP Shader.md",
+                "mode": "source",
                 "source": false
               }
             }
@@ -118,7 +118,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 387.5
+    "width": 387.5,
+    "collapsed": true
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -134,7 +135,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "【Unity技术美术】URP Shader训练营/Shader基础操作.md",
+                "file": "【Unity技术美术】URP Shader训练营/编写自定义URP Shader.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -151,7 +152,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "【Unity技术美术】URP Shader训练营/Shader基础操作.md",
+                "file": "【Unity技术美术】URP Shader训练营/编写自定义URP Shader.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -174,7 +175,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "【Unity技术美术】URP Shader训练营/Shader基础操作.md"
+                "file": "【Unity技术美术】URP Shader训练营/编写自定义URP Shader.md"
               }
             }
           }
@@ -203,6 +204,7 @@
   },
   "active": "12996b2453f8edff",
   "lastOpenFiles": [
+    "【Unity技术美术】URP Shader训练营/Shader基础操作.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/空间变换.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/高级渲染管线功能.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/光照模型.md",
@@ -211,7 +213,6 @@
     "【Unity技术美术】URP Shader训练营/URP Shader基本结构.md",
     "【Unity技术美术】URP Shader训练营/URP Shader中的SubShader.md",
     "【Unity技术美术】URP Shader训练营/编写自定义URP Shader.md",
-    "【Unity技术美术】URP Shader训练营/Shader基础操作.md",
     "【Unity技术美术】URP Shader训练营/【Unity技术美术】URP Shader训练营.md",
     "【Unity技术美术】URP Shader训练营/URP-Shader.md",
     "【Unity技术美术】URP Shader训练营/attachments/（图解7）SRP合批流程.png",
