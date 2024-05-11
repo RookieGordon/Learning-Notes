@@ -178,13 +178,19 @@ Shader "Custom/Unlit/BasicUnlitShader"
 
 定义一个`Enum`特性，定义一个变量`_CullMode`用于控制剔除方向。
 
+## 无光照Pass
+
+第一个pass实现了简单的无光照条件下的渲染，使用主纹理和主颜色混合成物体的颜色。
+
 定义`Cull`标签，可以将变量`_CullMode`作为标签的值，进而可以在外部控制剔除的方向。
 
 使用`shader_feature`将`_ALPHATEST_ON`定义成一个变体。`shader_feature`指令，是Unity中的[[#着色器条件指令]]。
 
-没有将纹理的变量写到`CBUFFER_START`代码块中，是因为第二个阴影pass导入了内置的代码，
+没有将纹理的变量写到`CBUFFER_START`代码块中，是因为第二个阴影pass导入了内置的代码，其中也定义了主纹理变量，导致重复，所以将纹理变量定义在第一个pass中，表示该pass专用的变量。
 
 这里使用了Unity内置的方法`GetVertexPositionInputs`来将顶点变换到裁剪空间。
+
+使用`#ifdef`包裹宏定义`_ALPHATEST_ON`，用于开关是否进行Alpha剔除。使用内置`clip`函数，剔除
 
 ## 着色器条件指令
 # 漫反射Shader
