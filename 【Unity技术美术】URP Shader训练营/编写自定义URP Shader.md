@@ -219,6 +219,16 @@ Shader "Custom/Unlit/BasicUnlitShader"
 
 ## 着色器条件指令
 
+
+```cardlink
+url: https://zhuanlan.zhihu.com/p/623658954
+title: "图形引擎实战：Unity Shader变体管理流程"
+description: "一、什么是Shader变体管理 想要回答这个问题，要看看什么是Shader变体。 1. 变体 我们用ShaderLab编写Unity中的Shader，当我们需要让Shader同时满足多个需求，例如说，这个是否支持阴影，此时就需要加keyword（关…"
+host: zhuanlan.zhihu.com
+image: https://pica.zhimg.com/v2-99336070095cfc25f84a194507861c31_720w.jpg?source=172ae18b
+```
+
+
 您可以使用以下着色器指令之一：
 
 | **Shader 指令**    | **分支类型**                                                                                             | **Unity 创建的着色器变体** |
@@ -238,9 +248,7 @@ Shader "Custom/Unlit/BasicUnlitShader"
 ### 将指令局限到某些阶段
 
 声明关键字时，Unity 假定着色器的所有阶段都包含该关键字的条件代码。
-您可以添加后缀，表示只有某些阶段包含关键字的条件代码。这有助于 Unity 去除不需要的着色器变量。
-
-## 何时使用哪种类型的条件
+您可以添加后缀，表示只有某些阶段包含关键字的条件代码。这有助于 Unity 去除不需要的着色器变量。例如：`_vertex`、`_fragment`、`_hull`、`_geometry`等等
 
 
 # 漫反射Shader
