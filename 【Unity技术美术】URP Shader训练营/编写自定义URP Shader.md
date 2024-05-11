@@ -219,7 +219,13 @@ Shader "Custom/Unlit/BasicUnlitShader"
 
 ## 着色器条件指令
 
+您可以使用以下着色器指令之一：
 
+| **Shader 指令**    | **分支类型**                                                                                             | **Unity 创建的着色器变体** |
+| ---------------- | ---------------------------------------------------------------------------------------------------- | ------------------ |
+| `shader_feature` | [静态分支](https://docs.unity3d.com/2023.2/Documentation/Manual/shader-branching.html#static-branching)  | 在构建时启用的关键字组合的变体    |
+| `multi_compile`  | 静态分支                                                                                                 | 每种可能的关键字组合的变体      |
+| `dynamic_branch` | [动态分支](https://docs.unity3d.com/2023.2/Documentation/Manual/shader-branching.html#dynamic-branching) | 无变体                |
 # 漫反射Shader
 
 # BlinnPhong Shader
