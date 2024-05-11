@@ -7,7 +7,7 @@ tags:
 
 # 无光照Shader
 
-```hlsl
+````hlsl
 Shader "Custom/Unlit/BasicUnlitShader"  
 {  
     Properties  
@@ -37,6 +37,8 @@ Shader "Custom/Unlit/BasicUnlitShader"
             float _Cutoff;  
         CBUFFER_END  
         ENDHLSL  
+        
+		//`[`[#无光照Shader`]`]
         Pass        
         {  
             Name "Custom Basic Unlit"  
@@ -172,7 +174,7 @@ Shader "Custom/Unlit/BasicUnlitShader"
         }  
     }
 }
-```
+````
 
 使用`Toggle`属性特性，定义一个宏变量`_ALPHATEST_ON`（名称固定），用于控制是否启用Alpha剔除功能。定义一个`Float`类型`_Cutoff`变量（名称固定），用于控制Alpha剔除的阈值。
 
@@ -210,11 +212,15 @@ Shader "Custom/Unlit/BasicUnlitShader"
 
 ## 深度Pass
 
-和阴影pass一样，也是使用Unity提供好的pass。这里新增了一个`_NORMAL_MAP`变体。
+和阴影pass一样，也是使用Unity提供好的pass。`LightMode`声明为`DepthOnly`。
+
 ## 法线Pass
 
+和深度pass一样，也是使用Unity提供好的pass。`LightMode`声明为`DepthNormalsOnly`。这里新增了一个`_NORMAL_MAP`变体。
 
 ## 着色器条件指令
+
+
 # 漫反射Shader
 
 # BlinnPhong Shader
