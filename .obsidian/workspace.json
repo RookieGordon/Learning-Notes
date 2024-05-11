@@ -143,11 +143,12 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "horizontal",
-    "width": 487.5
+    "width": 487.5,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -164,7 +165,7 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "b927bd88216f5865",
+  "active": "12996b2453f8edff",
   "lastOpenFiles": [
     "【Unity技术美术】URP Shader训练营/URP Shader中的Pass通道.md",
     "【Unity技术美术】URP Shader训练营/编写自定义URP Shader.md",
