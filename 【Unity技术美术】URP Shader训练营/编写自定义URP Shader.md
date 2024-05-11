@@ -226,6 +226,23 @@ Shader "Custom/Unlit/BasicUnlitShader"
 | `shader_feature` | [静态分支](https://docs.unity3d.com/2023.2/Documentation/Manual/shader-branching.html#static-branching)  | 在构建时启用的关键字组合的变体    |
 | `multi_compile`  | 静态分支                                                                                                 | 每种可能的关键字组合的变体      |
 | `dynamic_branch` | [动态分支](https://docs.unity3d.com/2023.2/Documentation/Manual/shader-branching.html#dynamic-branching) | 无变体                |
+
+- [静态分支](https://docs.unity3d.com/2023.2/Documentation/Manual/shader-branching.html#static-branching)：着色器编译器在编译时计算条件代码。
+- [动态分支](https://docs.unity3d.com/2023.2/Documentation/Manual/shader-branching.html#dynamic-branching)：GPU 在运行时评估条件代码。
+- [着色器变体](https://docs.unity3d.com/2023.2/Documentation/Manual/shader-variants.html)：Unity 使用静态分支将着色器源代码编译为多个着色器程序。然后，Unity 使用与运行时条件匹配的着色器程序。
+
+### 本地条件指令
+
+默认情况下，关键字是全局的。在着色器指令中添加 \_local，可将关键字设置为本地关键字。如果启用或禁用全局关键字，不会影响同名的本地关键字的状态，例如：`shader_feature_local`
+
+### 将指令局限到某些阶段
+
+声明关键字时，Unity 假定着色器的所有阶段都包含该关键字的条件代码。
+您可以添加后缀，表示只有某些阶段包含关键字的条件代码。这有助于 Unity 去除不需要的着色器变量。
+
+## 何时使用哪种类型的条件
+
+
 # 漫反射Shader
 
 # BlinnPhong Shader
