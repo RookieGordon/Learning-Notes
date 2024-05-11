@@ -180,10 +180,11 @@ Shader "Custom/Unlit/BasicUnlitShader"
 
 定义`Cull`标签，可以将变量`_CullMode`作为标签的值，进而可以在外部控制剔除的方向。
 
-使用`shader_feature`将`_ALPHATEST_ON`定义成一个变体。
+使用`shader_feature`将`_ALPHATEST_ON`定义成一个变体。`shader_feature`指令，是Unity中的[[#着色器条件指令]]
 
 这里使用了Unity内置的方法`GetVertexPositionInputs`来将顶点变换到裁剪空间。
 
+## 着色器条件指令
 # 漫反射Shader
 
 # BlinnPhong Shader
