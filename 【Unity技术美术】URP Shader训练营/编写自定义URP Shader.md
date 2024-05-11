@@ -190,7 +190,13 @@ Shader "Custom/Unlit/BasicUnlitShader"
 
 这里使用了Unity内置的方法`GetVertexPositionInputs`来将顶点变换到裁剪空间。
 
-使用`#ifdef`包裹宏定义`_ALPHATEST_ON`，用于开关是否进行Alpha剔除。使用内置`clip`函数，剔除
+使用`#ifdef`包裹宏定义`_ALPHATEST_ON`，用于开关是否进行Alpha剔除。使用内置`clip`函数，剔除alpha小于给定阈值的片元。
+
+## 阴影Pass
+
+可以直接使用`UsePass`关键字，使用内置的`SHADOWCASTER`pass来实现阴影效果，但是这样会导致SRP Batcher失效。
+
+定义`LightMode`标签为`ShadowCaster[[URP Shader中的Pass通道#URP渲染管线]]`。
 
 ## 着色器条件指令
 # 漫反射Shader
