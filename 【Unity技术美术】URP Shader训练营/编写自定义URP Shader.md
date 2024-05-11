@@ -38,7 +38,6 @@ Shader "Custom/Unlit/BasicUnlitShader"
         CBUFFER_END  
         ENDHLSL  
         
-		//`[`[#无光照Shader`]`]
         Pass        
         {  
             Name "Custom Basic Unlit"  
