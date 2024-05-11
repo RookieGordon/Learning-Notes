@@ -174,6 +174,8 @@ Shader "Custom/Unlit/BasicUnlitShader"
 }
 ```
 
+使用`Toggle`属性特性，定义一个宏变量`_ALPHATEST_ON`（名称）
+
 这里使用了Unity内置的方法`GetVertexPositionInputs`来将顶点变换到裁剪空间。
 
 # 漫反射Shader
