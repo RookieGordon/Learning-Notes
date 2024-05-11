@@ -174,7 +174,13 @@ Shader "Custom/Unlit/BasicUnlitShader"
 }
 ```
 
-使用`Toggle`属性特性，定义一个宏变量`_ALPHATEST_ON`（名称）
+使用`Toggle`属性特性，定义一个宏变量`_ALPHATEST_ON`（名称固定），用于控制是否启用Alpha剔除功能。定义一个`Float`类型`_Cutoff`变量（名称固定），用于控制Alpha剔除的阈值。
+
+定义一个`Enum`特性，定义一个变量`_CullMode`用于控制剔除方向。
+
+定义`Cull`标签，可以将变量`_CullMode`作为标签的值，进而可以在外部控制剔除的方向。
+
+使用`shader_feature`将`_ALPHATEST_ON`定义成一个变体。
 
 这里使用了Unity内置的方法`GetVertexPositionInputs`来将顶点变换到裁剪空间。
 
