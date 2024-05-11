@@ -200,6 +200,20 @@ Shader "Custom/Unlit/BasicUnlitShader"
 
 由于产生阴影，不需要写入颜色缓冲，只需要写入深度值，因此，开启`ZWrite`和`ZTest`，同时使用[ColorMask 0](https://docs.unity3d.com/cn/2023.2/Manual/SL-ColorMask.html)禁止写入颜色通道。
 
+导入两个hlsl文件，将vertex和fragment着色器定义成和`ShadowCasterPass.hlsl`中着色器名字一致，才能正确使用内置pass。使用Alpha剔除的宏定义之所以定义成固定`_ALPHATEST_ON`，是因为`ShadowCasterPass.hlsl`使用了`AlphaDiscard`函数，该函数需要一个名为`_ALPHATEST_ON`的宏，才能在阴影中，正确生效alpha剔除。
+
+使用`_SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A`变体，开启使用abledo纹理的alpha作为平滑度使用
+
+使用`multi_compile_instancing`开启CPU instance。
+
+使用`_CASTING_PUNCTUAL_LIGHT_SHADOW`支持局部光照，注意，该变体只在顶点着色器阶段生效
+
+## 深度Pass
+
+和阴影pass一样，也是使用Unity提供好的pass。这里新增了一个`_NORMAL_MAP`变体。
+## 法线Pass
+
+
 ## 着色器条件指令
 # 漫反射Shader
 
