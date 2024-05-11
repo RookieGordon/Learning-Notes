@@ -20,7 +20,7 @@
             }
           },
           {
-            "id": "e0646caa4d8c62c5",
+            "id": "afac61375769f513",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -31,7 +31,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -98,7 +99,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "【Unity技术美术】URP Shader训练营/编写自定义URP Shader.md",
+                "file": "【Unity技术美术】URP Shader训练营/URP Shader中的Pass通道.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,7 +116,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "【Unity技术美术】URP Shader训练营/编写自定义URP Shader.md",
+                "file": "【Unity技术美术】URP Shader训练营/URP Shader中的Pass通道.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -138,7 +139,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "【Unity技术美术】URP Shader训练营/编写自定义URP Shader.md"
+                "file": "【Unity技术美术】URP Shader训练营/URP Shader中的Pass通道.md"
               }
             }
           }
@@ -165,10 +166,10 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "12996b2453f8edff",
+  "active": "afac61375769f513",
   "lastOpenFiles": [
-    "【Unity技术美术】URP Shader训练营/URP Shader中的Pass通道.md",
     "【Unity技术美术】URP Shader训练营/编写自定义URP Shader.md",
+    "【Unity技术美术】URP Shader训练营/URP Shader中的Pass通道.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/摄像机系统.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/空间变换.md",
     "【Unity技术美术】URP Shader训练营/Shader基础操作.md",
