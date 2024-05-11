@@ -241,6 +241,11 @@ image: https://pica.zhimg.com/v2-99336070095cfc25f84a194507861c31_720w.jpg?sourc
 - [动态分支](https://docs.unity3d.com/2023.2/Documentation/Manual/shader-branching.html#dynamic-branching)：GPU 在运行时评估条件代码。
 - [着色器变体](https://docs.unity3d.com/2023.2/Documentation/Manual/shader-variants.html)：Unity 使用静态分支将着色器源代码编译为多个着色器程序。然后，Unity 使用与运行时条件匹配的着色器程序。
 
+**multi_complie**可以定义多个shader变体，在程序运行时可以通过脚本自由切换，这些变体会占用keyword，keyword在unity shader中是有数量限制的，通常为256个，但是Unity自身已经占用了60多个，所以我们要在使用时特别注意变体的数量，将尽量同一调控的功能代码控制在一个变体中。
+可以在脚本中通过`Material.EnableKeyWord`和`Shader.EnableKeyword`来开启某功能，通过`Material.DisableKeyword`和`Shader.DisableKeyword`来关闭某功能。其中Material是针对这个材质进行设定，而shader则是对所用使用这个shader的材质进行设定。
+
+**shader_feature**可以认为是`multi_complie`的子集，其与`multi_complie`最大的不同就是此关键字的声明变体是材质球层级的（`multi_complie`是全局），只能通过美术在制作时调整相应材质，未被选择的变体会在打包的时候被舍弃（`multi_complie`不会），所以其声明的变体是不能通过代码控制的（打包后会出问题）。
+
 ### 本地条件指令
 
 默认情况下，关键字是全局的。在着色器指令中添加 \_local，可将关键字设置为本地关键字。如果启用或禁用全局关键字，不会影响同名的本地关键字的状态，例如：`shader_feature_local`
