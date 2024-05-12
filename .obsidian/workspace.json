@@ -25,8 +25,8 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "【Unity技术美术】URP Shader训练营/Shader基础操作.md",
-                "mode": "preview",
+                "file": "【Unity技术美术】URP Shader训练营/编写自定义URP Shader.md",
+                "mode": "source",
                 "source": false
               }
             }
@@ -82,7 +82,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 387.5
+    "width": 387.5,
+    "collapsed": true
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -98,7 +99,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "【Unity技术美术】URP Shader训练营/Shader基础操作.md",
+                "file": "【Unity技术美术】URP Shader训练营/编写自定义URP Shader.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,7 +116,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "【Unity技术美术】URP Shader训练营/Shader基础操作.md",
+                "file": "【Unity技术美术】URP Shader训练营/编写自定义URP Shader.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -138,7 +139,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "【Unity技术美术】URP Shader训练营/Shader基础操作.md"
+                "file": "【Unity技术美术】URP Shader训练营/编写自定义URP Shader.md"
               }
             }
           }
@@ -167,10 +168,10 @@
   },
   "active": "afac61375769f513",
   "lastOpenFiles": [
+    "【Unity技术美术】URP Shader训练营/Shader基础操作.md",
     "【Unity技术美术】URP Shader训练营/Unity通用渲染管线的Lit.shader.md",
     "【Unity技术美术】URP Shader训练营/URP Shader基本结构.md",
     "【Unity技术美术】URP Shader训练营/attachments/[Universal RP]Unity通用渲染管线的Lit.shader - 知乎.pdf",
-    "【Unity技术美术】URP Shader训练营/Shader基础操作.md",
     "【Unity技术美术】URP Shader训练营/URP Shader中的Pass通道.md",
     "【Unity技术美术】URP Shader训练营/编写自定义URP Shader.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/摄像机系统.md",
