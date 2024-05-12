@@ -356,7 +356,16 @@ Pass
 
 使用`LIGHTMAP_ON`宏，用于控制是否开启烘焙。
 
-定义
+在`Attribute`中增加`lightmapUV`字段，表示光照贴图的uv坐标。`Varyings`中，增加定义`DECLARE_LIGHTMAP_OR_SH(lightmapUV, vertexSH, 3)`用于根据是否有`LIGHTMAP_ON`定义，声明所需的变量，具体定义如下：
+```hlsl
+#if defined(LIGHTMAP_ON)  
+    #define DECLARE_LIGHTMAP_OR_SH(lmName, shName, index) float2 lmName : TEXCOORD##index  
+    #define OUTPUT_LIGHTMAP_UV(lightmapUV, lightmapScaleOffset, OUT) OUT.xy = lightmapUV.xy * lightmapScaleOffset.xy + lightmapScaleOffset.zw;  
+    #define OUTPUT_SH(normalWS, OUT)  
+#else  
+    #define DECLARE_LIGHTMAP_OR_SH(lmName, shName, index) half3 shName : TEXCOORD##index  
+    #define OUTPUT_LIGHTMAP_UV(lightmapUV, lightmapScaleOffset, OUT)    #define OUTPUT_SH(normalWS, OUT) OUT.xyz = SampleSHVertex(normalWS)#endif
+```
 # BlinnPhong Shader
 
 # URP光照
