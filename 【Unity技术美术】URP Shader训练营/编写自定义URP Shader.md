@@ -354,6 +354,7 @@ Pass
 }
 ```
 
+使用`LIGHTMAP_ON`宏，用于控制是否开启烘焙。
 # BlinnPhong Shader
 
 # URP光照
