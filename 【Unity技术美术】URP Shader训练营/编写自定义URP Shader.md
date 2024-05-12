@@ -271,7 +271,88 @@ image: https://pica.zhimg.com/v2-1aef0a99505ca22359d7f6d16ae67108_720w.jpg?sourc
 
 # 漫反射Shader
 
-
+```hlsl
+Pass  
+{  
+    Name "Custom Basic Forward Lit"  
+    Tags  { "LightMode" = "UniversalForward" }  
+    Cull [_CullMode]  
+  
+    HLSLPROGRAM  
+    #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Lighting.hlsl"  
+    
+    #pragma vertex LitPassVertex  
+    #pragma fragment LitPassFragment  
+  
+    #pragma shader_feature _ALPHATEST_ON  
+    #pragma multi_compile LIGHTMAP_ON  
+    #pragma multi_compile _MAIN_LIGHT_SHADOWS  
+  
+    TEXTURE2D(_BaseMap);  
+    SAMPLER(sampler_BaseMap);  
+  
+    struct Attribute  
+    {  
+        float3 posOS : POSITION;  
+        float3 normalOS : NORMAL;  
+        float2 uv : TEXCOORD0;  
+        // 光照贴图，离线烘焙出光照对物体的影响，转换成贴图，贴到物体表面  
+        float2 lightmapUV: TEXCOORD1;  
+        float4 vertexColor: COLOR;  
+    };  
+    struct Varyings  
+    {  
+        float4 posCS: SV_POSITION;  
+        float3 posWS: TEXCOORD0;  
+        float3 normalWS: TEXCOORD1;  
+        float2 uv: TEXCOORD2;  
+        DECLARE_LIGHTMAP_OR_SH(lightmapUV, vertexSH, 3);  
+        float4 vertexColor: COLOR;  
+    };  
+    
+    Varyings LitPassVertex(Attribute IN)  
+    {        
+	    Varyings OUT = (Varyings)0;  
+  
+        VertexPositionInputs posInputs = GetVertexPositionInputs(IN.posOS);  
+        OUT.posCS = posInputs.positionCS;  
+        OUT.posWS = posInputs.positionWS;  
+  
+        VertexNormalInputs normalInputs = GetVertexNormalInputs(IN.normalOS);  
+        OUT.normalWS = normalInputs.normalWS;  
+  
+        OUT.uv = TRANSFORM_TEX(IN.uv, _BaseMap);  
+  
+        OUTPUT_LIGHTMAP_UV(IN.lightmapUV, unity_LightmapST, OUT.lightmapUV);  
+        OUTPUT_SH(OUT.normalWS, OUT.vertexSH);  
+  
+        OUT.vertexColor = IN.vertexColor;  
+  
+        return OUT;  
+    }  
+    
+    float4 LitPassFragment(Varyings IN): SV_Target  
+    {  
+        float4 texColor = SAMPLE_TEXTURE2D(_BaseMap, sampler_BaseMap, IN.uv);  
+  
+        #ifdef _ALPHATEST_ON  
+            clip(texColor.a - _Cutoff);  
+        #endif  
+  
+        // 烘焙GI信息（1、球谐光照，2、光照贴图，3、光照探针）  
+        half3 bakedGI = SAMPLE_GI(IN.lightmapUV, IN.vertexSH, IN.normalWS);  
+        float4 PosShadowCoord = TransformWorldToShadowCoord(IN.posWS);  
+        Light light = GetMainLight(PosShadowCoord);  
+        half3 lightColor = light.color * light.distanceAttenuation * light.shadowAttenuation;  
+        half3 lambertLightColor = LightingLambert(lightColor, light.direction, IN.normalWS);  
+  
+        float4 shading = float4(bakedGI + lambertLightColor, 1);  
+        float4 albedo = texColor * _BaseColor * IN.vertexColor;  
+        return shading + albedo;  
+    }    
+    ENDHLSL  
+}
+```
 
 # BlinnPhong Shader
 
