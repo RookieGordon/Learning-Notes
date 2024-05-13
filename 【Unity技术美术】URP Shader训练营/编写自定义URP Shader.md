@@ -379,7 +379,9 @@ Pass
 
 在顶点着色器中，调用`OUTPUT_LIGHTMAP_UV`和`OUTPUT_SH`用于对计算光照贴图的uv坐标
 
-片元着色器中，调用`SAMPLE_GI`对光照贴图进行采样。
+片元着色器中，调用`SAMPLE_GI`对光照贴图进行采样，使得烘焙好的光照贴图生效。
+
+使用`GetMainLight`获取场景中的主光源数据，然后通过光源数据，使用`LightingLambert`计算兰伯特光照。
 
 ## Unity中的GI
 
