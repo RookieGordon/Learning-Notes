@@ -414,6 +414,14 @@ host: zhuanlan.zhihu.com
 image: https://picx.zhimg.com/v2-d64b539cbf04be1838a4f7c1e967f8b5_720w.jpg?source=172ae18b
 ```
 
+```cardlink
+url: https://zhuanlan.zhihu.com/p/337121368
+title: "Unity通用渲染管线（URP）系列（五）——烘焙光（Baked Light）"
+description: "200+篇教程总入口，欢迎收藏：放牛的星星：[教程汇总+持续更新]Unity从入门到入坟——收藏这一篇就够了本章主要内容： 1、烘焙静态的全局光照 2、采样光贴图、探针和LPPVs。 3、创建元通道（meta pass） 4、支持自…"
+host: zhuanlan.zhihu.com
+image: https://picx.zhimg.com/v2-daa0c77a118c750f54d79bd9c665be4e_720w.jpg?source=172ae18b
+```
+
 # BlinnPhong Shader
 
 # URP光照
