@@ -402,6 +402,14 @@ description: "文章浏览阅读1.1k次，点赞21次，收藏28次。细节内�
 host: blog.csdn.net
 ```
 
+```cardlink
+url: https://zhuanlan.zhihu.com/p/393639054
+title: "URP源码阅读之GI"
+description: "一、传递数据给GPU Unity在GPU渲染物体时如果想使用lightmap或lightprobe等信息，首先需要通知Unity把这些相关数据传递给GPU。这个是通过设置DrawingSettings里面的perObjectData实现的，具体的URP代码如下： 通过…"
+host: zhuanlan.zhihu.com
+image: https://picx.zhimg.com/v2-d64b539cbf04be1838a4f7c1e967f8b5_720w.jpg?source=172ae18b
+```
+
 # BlinnPhong Shader
 
 # URP光照
