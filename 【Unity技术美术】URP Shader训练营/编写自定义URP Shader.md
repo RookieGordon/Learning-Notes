@@ -5,6 +5,15 @@ tags:
   - Shader
 ---
 
+```cardlink
+url: https://catlikecoding.com/unity/tutorials/custom-srp/
+title: "Unity Scriptable Render Pipeline Tutorials"
+description: "A collection of tutorials that cover creating a custom scriptable render pipeline in Unity."
+host: catlikecoding.com
+favicon: https://catlikecoding.com/favicon.ico
+image: https://catlikecoding.com/unity/tutorials/custom-srp/color-grading/tutorial-image.jpg
+```
+
 # 无光照Shader
 
 ````hlsl
@@ -369,6 +378,30 @@ Pass
 可以看到，如果开启了`LIGHTMAP_ON`，就会在声明一个`lightmapUV`变量，否则就声明一个`vertexSH`变量。
 
 在顶点着色器中，增加
+
+## Unity中的GI
+
+```cardlink
+url: https://zhuanlan.zhihu.com/p/684579536
+title: "Unity URP 中的 GI"
+description: "记录一下 Unity 中的 GI 系统在 Unity URP Shader 中的使用 OverviewGI 包括静态 GI 和动态 GI，静态 GI 由 Baked GI System 贡献，动态 GI 由 Enlighten Lighting System 贡献 将场景的 Lighting Mode 设置为 Sha…"
+host: zhuanlan.zhihu.com
+```
+
+```cardlink
+url: https://blog.csdn.net/weixin_44518102/article/details/135383085
+title: "Unity SRP 管线【第五讲：URP烘培光照】_urpshader实现光照烘焙-CSDN博客"
+description: "文章浏览阅读1.4k次，点赞24次，收藏24次。本节，我们将跟随数据流向讲解UEP管线中的烘培光照。_urpshader实现光照烘焙"
+host: blog.csdn.net
+```
+
+```cardlink
+url: https://blog.csdn.net/weixin_44518102/article/details/135085765
+title: "Unity SRP 管线【第五讲：自定义烘培光照】_samplesinglelightmap-CSDN博客"
+description: "文章浏览阅读1.1k次，点赞21次，收藏28次。细节内容详见catlike 这里只做效果展示！！！！_samplesinglelightmap"
+host: blog.csdn.net
+```
+
 # BlinnPhong Shader
 
 # URP光照
