@@ -271,7 +271,7 @@ image: https://pica.zhimg.com/v2-1aef0a99505ca22359d7f6d16ae67108_720w.jpg?sourc
 
 # 漫反射Shader
 
-```hlsl
+```Cpp
 Pass  
 {  
     Name "Custom Basic Forward Lit"  
