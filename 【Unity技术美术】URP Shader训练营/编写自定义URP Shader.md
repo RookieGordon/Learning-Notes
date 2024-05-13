@@ -377,7 +377,9 @@ Pass
 ```
 可以看到，如果开启了`LIGHTMAP_ON`，就会在声明一个`lightmapUV`变量，否则就声明一个`vertexSH`变量。
 
-在顶点着色器中，增加
+在顶点着色器中，调用`OUTPUT_LIGHTMAP_UV`和`OUTPUT_SH`用于对计算光照贴图的uv坐标
+
+片元着色器中，调用`SAMPLE_GI`对光照贴图进行采样。
 
 ## Unity中的GI
 
