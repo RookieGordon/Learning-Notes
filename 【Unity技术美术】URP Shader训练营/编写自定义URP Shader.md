@@ -713,6 +713,8 @@ Shader "Custom/Lit/Basic/SimpleLitShader"
     }}
 ```
 
+在属性中，增加了法线，自发光，高光，光泽度等相关属性。
+
 使用`_GLOSSINESS_FROM_BASE_ALPHA`宏，控制平滑度的来源，从主纹理的alpha通道，还是高光贴图。
 
 `_MAIN_LIGHT_SHADOWS`决定了是否使用主光阴影，`_MAIN_LIGHT_SHADOWS_CASCADE`用于控制阴影坐标的计算方式：
@@ -731,5 +733,9 @@ float4 TransformWorldToShadowCoord(float3 positionWS)
 }
 ```
 
-`_ADDITIONAL_LIGHTS`表示，是否采用额外光照，`_ADDITIONAL_LIGHT_SHADOWS`表示，额外光照shi'fou
+`_ADDITIONAL_LIGHTS`表示，是否采用额外光照，`_ADDITIONAL_LIGHT_SHADOWS`表示，额外光照是否产生阴影。
+
+使用了法线贴图，则`Attribute`和`Varyings`中，增加法线，切线，副切线相关变量。
+
+`_ADDITIONAL_LIGHTS_VERTEX`宏表示是否启用顶点光照，
 # URP光照
