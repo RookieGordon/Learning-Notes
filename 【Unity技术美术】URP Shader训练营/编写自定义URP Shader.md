@@ -715,5 +715,21 @@ Shader "Custom/Lit/Basic/SimpleLitShader"
 
 使用`_GLOSSINESS_FROM_BASE_ALPHA`宏，控制平滑度的来源，从主纹理的alpha通道，还是高光贴图。
 
-`_MAIN_LIGHT_SHADOWS`决定了是否使用主光阴影，`_MAIN_LIGHT_SHADOWS_CASCADE`表示是否主光阴影使用级联阴影。
+`_MAIN_LIGHT_SHADOWS`决定了是否使用主光阴影，`_MAIN_LIGHT_SHADOWS_CASCADE`用于控制阴影坐标的计算方式：
+```HLSL
+float4 TransformWorldToShadowCoord(float3 positionWS)  
+{  
+#ifdef _MAIN_LIGHT_SHADOWS_CASCADE  
+    half cascadeIndex = ComputeCascadeIndex(positionWS);  
+#else  
+    half cascadeIndex = 0;  
+#endif  
+  
+    float4 shadowCoord = mul(_MainLightWorldToShadow[cascadeIndex], float4(positionWS, 1.0));  
+  
+    return float4(shadowCoord.xyz, 0);  
+}
+```
+
+`_ADDITIONAL_LIGHTS`表示，是否采用额外光照，`_ADDITIONAL_LIGHT_SHADOWS`表示，额外光照shi'fou
 # URP光照
