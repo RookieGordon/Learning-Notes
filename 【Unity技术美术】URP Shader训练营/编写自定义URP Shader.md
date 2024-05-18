@@ -541,22 +541,25 @@ Shader "Custom/Lit/Basic/SimpleLitShader"
             {                
 	            Varyings OUT = (Varyings)0;  
   
-                VertexPositionInputs posInputs = GetVertexPositionInputs(IN.posOS);  
+                VertexPositionInputs posInputs GetVertexPositionInputs(
+													                IN.posOS); 
                 OUT.posCS = posInputs.positionCS;  
                 OUT.posWS = posInputs.positionWS;  
   
                 VertexNormalInputs normalInputs;  
 #ifdef _NORMALMAP  
                 float3 viewDir = GetWorldSpaceViewDir(OUT.posWS);  
-                normalInputs = GetVertexNormalInputs(IN.normalOS, IN.tangentOS);                
+                normalInputs = GetVertexNormalInputs(IN.normalOS, 
+										             IN.tangentOS);
                 // 充分利用寄存器空间  
                 OUT.normalWS = half4(normalInputs.normalWS.xyz, viewDir.x);  
-                OUT.tangentWS = half4(normalInputs.tangentWS.xyz, viewDir.y);                  OUT.bitangentWS = half4(normalInputs.bitangentWS.xyz,  
-                viewDir.z);
+                OUT.tangentWS = half4(normalInputs.tangentWS.xyz, viewDir.y);  
+                OUT.bitangentWS = half4(normalInputs.bitangentWS.xyz,
+                                        viewDir.z);
 #else  
                 normalInputs = GetVertexNormalInputs(IN.normalOS);  
-                OUT.normalWS =
-	                NormalizeNormalPerVertex(normalInputs.normalWS);  
+                OUT.normalWS = NormalizeNormalPerVertex(
+										            normalInputs.normalWS);  
 #endif  
   
                 half fogFator = ComputeFogFactor(posInputs.positionCS.z);  
@@ -574,7 +577,9 @@ Shader "Custom/Lit/Basic/SimpleLitShader"
   
                 OUT.uv = TRANSFORM_TEX(IN.uv, _BaseMap);  
   
-                OUTPUT_LIGHTMAP_UV(IN.lightmapUV, unity_LightmapST, OUT.lightmapUV);  
+                OUTPUT_LIGHTMAP_UV(IN.lightmapUV, 
+					               unity_LightmapST, 
+					               OUT.lightmapUV);  
                 OUTPUT_SH(OUT.normalWS, OUT.vertexSH);  
   
                 OUT.vertexColor = IN.vertexColor;  
@@ -582,8 +587,10 @@ Shader "Custom/Lit/Basic/SimpleLitShader"
                 return OUT;  
             }  
             
-            half4 SampleSpecularSmoothness(float2 uv, half alpha, half4 specColor,  
-            TEXTURE2D_PARAM(specMap, sampler_specMap))  
+            half4 SampleSpecularSmoothness(float2 uv, 
+                                half alpha, 
+                                half4 specColor,  
+						        TEXTURE2D_PARAM(specMap, sampler_specMap))  
             {                
                 half4 specularSmoothness = half4(0, 0, 0, 1);  
 #ifdef _SPECGLOSSMAP  
@@ -625,30 +632,40 @@ Shader "Custom/Lit/Basic/SimpleLitShader"
                 surfaceData.occlusion = 1.0;  
   
                 half4 specular = SampleSpecularSmoothness(IN.uv, 
-											              baseMap.a, 
-											                _SpecColor, 
-											                _SpecGlossMap,  
-                    sampler_SpecGlossMap);                surfaceData.specular = specular.rgb;  
+											        baseMap.a, 
+											        _SpecColor, 
+											        _SpecGlossMap,  
+									                sampler_SpecGlossMap);                
+                surfaceData.specular = specular.rgb;  
                 surfaceData.smoothness = specular.a * _Smoothness;  
             }  
             
             void InitInputData(Varyings IN, half3 normalTS, out InputData inputData)  
-            {                inputData = (InputData)0;  
-                                inputData.positionWS = IN.posWS;  
+            {                
+	            inputData = (InputData)0; 
+	             
+                inputData.positionWS = IN.posWS;  
   
 #ifdef _NORMALMAP  
-                inputData.normalWS = TransformTangentToWorld(normalTS, half3x3(IN.tangentWS.xyz, IN.bitangentWS.xyz, IN.normalWS.xyz));  
+                inputData.normalWS = TransformTangentToWorld(normalTS, 
+									                half3x3(IN.tangentWS.xyz, 
+									                IN.bitangentWS.xyz, 
+									                IN.normalWS.xyz));  
 #else  
                 inputData.normalWS = IN.normalWS;  
 #endif  
-                inputData.normalWS = NormalizeNormalPerPixel(inputData.normalWS);  
+                inputData.normalWS NormalizeNormalPerPixel(
+										                inputData.normalWS);  
   
 #ifdef _NORMALMAP  
-                inputData.viewDirectionWS = half3(IN.normalWS.w, IN.tangentWS.w, IN.bitangentWS.w);  
+                inputData.viewDirectionWS = half3(IN.normalWS.w, 
+								                  IN.tangentWS.w, 
+								                  IN.bitangentWS.w);  
 #else  
                 inputData.viewDirectionWS = GetWorldSpaceViewDir(IN.posWS);  
 #endif  
-                inputData.viewDirectionWS = NormalizeNormalPerPixel(inputData.viewDirectionWS);  
+                inputData.viewDirectionWS = NormalizeNormalPerPixel(
+									            inputData.viewDirectionWS);  
   
 #ifdef REQUIRES_VERTEX_SHADOW_COORD_INTERPOLATOR  
                 inputData.shadowCoord = IN.shadowCoord;  
@@ -665,9 +682,12 @@ Shader "Custom/Lit/Basic/SimpleLitShader"
                 inputData.fogCoord = IN.fogFactor;  
 #endif  
   
-                inputData.bakedGI = SAMPLE_GI(IN.lightmapUV, IN.vertexSH, IN.normalWS);  
+                inputData.bakedGI = SAMPLE_GI(IN.lightmapUV, 
+								                IN.vertexSH, 
+								                IN.normalWS);  
   
-                inputData.normalizedScreenSpaceUV = GetNormalizedScreenSpaceUV(IN.posCS);  
+                inputData.normalizedScreenSpaceUV = GetNormalizedScreenSpaceUV(
+									                IN.posCS);  
   
                 inputData.shadowMask = SAMPLE_SHADOWMASK(IN.lightmapUV);  
             }  
