@@ -713,5 +713,7 @@ Shader "Custom/Lit/Basic/SimpleLitShader"
     }}
 ```
 
-使用`_GLOSSINESS_FROM_BASE_ALPHA`宏，控制
+使用`_GLOSSINESS_FROM_BASE_ALPHA`宏，控制平滑度的来源，从主纹理的alpha通道，还是高光贴图。
+
+`_MAIN_LIGHT_SHADOWS`决定了是否使用主光阴影，`_MAIN_LIGHT_SHADOWS_CASCADE`表示是否主光阴影使用级联阴影。
 # URP光照
