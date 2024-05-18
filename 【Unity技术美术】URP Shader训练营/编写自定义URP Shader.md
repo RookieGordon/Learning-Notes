@@ -713,4 +713,5 @@ Shader "Custom/Lit/Basic/SimpleLitShader"
     }}
 ```
 
+使用`_GLOSSINESS_FROM_BASE_ALPHA`宏，控制
 # URP光照
