@@ -741,6 +741,6 @@ float4 TransformWorldToShadowCoord(float3 positionWS)
 ![[（图解8）配置额外光照使用顶点光.png|510]]
 启用了顶点光照后，就将雾效和光照数据放到一起，节约内存。
 
-`REQUIRES_VERTEX_SHADOW_COORD_INTERPOLATOR`
+`REQUIRES_VERTEX_SHADOW_COORD_INTERPOLATOR`表示是否需要对阴影坐标进行插值。
 
 # URP光照
