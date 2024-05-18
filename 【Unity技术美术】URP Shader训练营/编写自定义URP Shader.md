@@ -743,6 +743,20 @@ float4 TransformWorldToShadowCoord(float3 positionWS)
 
 `REQUIRES_VERTEX_SHADOW_COORD_INTERPOLATOR`表示是否需要对阴影坐标进行插值
 
-如果启用了`_NORMALMAP`，那么就使用`GetVertexNormalInputs`计算法线空间的
+如果启用了`_NORMALMAP`，那么就使用`GetVertexNormalInputs`计算法线等数据：
+```HLSL
+VertexNormalInputs GetVertexNormalInputs(float3 normalOS, float4 tangentOS)  
+{  
+    VertexNormalInputs tbn;  
+  
+    // mikkts space compliant. only normalize when extracting normal at frag.  
+    real sign = real(tangentOS.w) * GetOddNegativeScale();  
+    tbn.normalWS = TransformObjectToWorldNormal(normalOS);  
+    tbn.tangentWS = real3(TransformObjectToWorldDir(tangentOS.xyz));  
+    tbn.bitangentWS = real3(cross(tbn.normalWS, float3(tbn.tangentWS))) * sign;  
+    return tbn;  
+}
+```
+通过法线和切线，叉乘得到副切线。
 
 # URP光照
