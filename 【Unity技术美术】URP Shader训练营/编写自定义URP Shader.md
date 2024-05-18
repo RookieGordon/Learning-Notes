@@ -743,6 +743,6 @@ float4 TransformWorldToShadowCoord(float3 positionWS)
 
 `REQUIRES_VERTEX_SHADOW_COORD_INTERPOLATOR`表示是否需要对阴影坐标进行插值
 
-如果启用了`_NORMALMAP`，那么就计算法线空间的三个极坐标
+如果启用了`_NORMALMAP`，那么就使用`GetVertexNormalInputs`计算法线空间的
 
 # URP光照
