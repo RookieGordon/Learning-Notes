@@ -25,7 +25,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "【Unity技术美术】URP Shader训练营/编写自定义URP Shader.md",
+                "file": "技术美术入门/技术美术入门.md",
                 "mode": "source",
                 "source": false
               }
@@ -82,8 +82,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 387.5,
-    "collapsed": true
+    "width": 387.5
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -99,7 +98,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "【Unity技术美术】URP Shader训练营/编写自定义URP Shader.md",
+                "file": "技术美术入门/技术美术入门.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -116,7 +115,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "【Unity技术美术】URP Shader训练营/编写自定义URP Shader.md",
+                "file": "技术美术入门/技术美术入门.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -139,7 +138,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "【Unity技术美术】URP Shader训练营/编写自定义URP Shader.md"
+                "file": "技术美术入门/技术美术入门.md"
               }
             }
           }
@@ -166,15 +165,18 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "afac61375769f513",
+  "active": "3980a1c1a27a1a1d",
   "lastOpenFiles": [
+    "技术美术入门/Map&Texture贴图和纹理.md",
+    "技术美术入门/ShaderGraph入门.md",
+    "技术美术入门/Unity中的Material和Shader着色器.md",
+    "【Unity技术美术】URP Shader训练营/编写自定义URP Shader.md",
     "【Unity技术美术】URP Shader训练营/attachments/（图解8）配置额外光照使用顶点光.png",
     "【Unity技术美术】URP Shader训练营/Shader基础操作.md",
     "【Unity技术美术】URP Shader训练营/Unity通用渲染管线的Lit.shader.md",
     "【Unity技术美术】URP Shader训练营/URP Shader基本结构.md",
     "【Unity技术美术】URP Shader训练营/attachments/[Universal RP]Unity通用渲染管线的Lit.shader - 知乎.pdf",
     "【Unity技术美术】URP Shader训练营/URP Shader中的Pass通道.md",
-    "【Unity技术美术】URP Shader训练营/编写自定义URP Shader.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/摄像机系统.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/空间变换.md",
     "【Unity技术美术】URP Shader训练营/URP Shader中的SubShader.md",
@@ -201,9 +203,6 @@
     "【Unity技术美术】URP Shader训练营/attachments/（图解1）Perperties属性与面板显示.png",
     "【Unity技术美术】URP Shader训练营/attachments",
     "可使用括在方括号中的属性名称来访问属性值：",
-    "技术美术入门/ShaderGraph入门.md",
-    "技术美术入门/Unity中的Material和Shader着色器.md",
-    "技术美术入门/Map&Texture贴图和纹理.md",
     "Excalidraw/Scripts/Downloaded",
     "Excalidraw/Scripts",
     "C++/作用域、链接和存储类.md",
@@ -211,7 +210,6 @@
     "技术美术入门/技术美术入门.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/应用案例.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/从0开始构建OpenGL软光栅.canvas",
-    "技术美术入门/attachments/（图解5）高光工作流参数.png",
     "技术美术入门/attachments",
     "Excalidraw",
     "C++/C++.canvas",
