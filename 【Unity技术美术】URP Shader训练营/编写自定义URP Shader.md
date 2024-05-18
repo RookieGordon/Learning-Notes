@@ -743,6 +743,8 @@ float4 TransformWorldToShadowCoord(float3 positionWS)
 
 `REQUIRES_VERTEX_SHADOW_COORD_INTERPOLATOR`表示是否需要对阴影坐标进行插值
 
+
+
 如果启用了`_NORMALMAP`，那么就使用`GetVertexNormalInputs`计算法线等数据：
 ```HLSL
 VertexNormalInputs GetVertexNormalInputs(float3 normalOS, float4 tangentOS)  
@@ -773,6 +775,27 @@ float3 GetWorldSpaceViewDir(float3 positionWS)
 ```
 为了节省空间，将视角方向的三个分量放到切线空间的三个基向量第四个分量上，因为这三个基向量，在使用的时候，只需要xyz三个分量。
 
-使用`ComputeFogFactor`计算出雾效的系数，
+使用`ComputeFogFactor`计算出雾效的系数，雾的效果只与z轴相关。如果使用了顶点光`_ADDITIONAL_LIGHTS_VERTEX`，那么就需要使用`VertexLighting`获取顶点光照：
+```HLSL
+half3 VertexLighting(float3 positionWS, half3 normalWS)  
+{  
+    half3 vertexLightColor = half3(0.0, 0.0, 0.0);  
+  
+#ifdef _ADDITIONAL_LIGHTS_VERTEX  
+    uint lightsCount = GetAdditionalLightsCount();  
+    for (uint lightIndex = 0u; lightIndex < lightCount; ++lightIndex) {      
+	    Light light = GetAdditionalLight(lightIndex, positionWS);        
+	    half3 lightColor = light.color * light.distanceAttenuation;  
+		vertexLightColor += LightingLambert(lightColor, 
+											light.direction, 
+											normalWS);    
+    }
+#endif  
+  
+    return vertexLightColor;  
+}
+```
+可以看到，顶点光照也是获取了光源数据，然后通过`LightingLambert`计算出`Lambert`光照。
+
 
 # URP光照
