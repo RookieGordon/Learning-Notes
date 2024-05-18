@@ -424,4 +424,273 @@ image: https://picx.zhimg.com/v2-daa0c77a118c750f54d79bd9c665be4e_720w.jpg?sourc
 
 # BlinnPhong Shader
 
+```HLSL
+Shader "Custom/Lit/Basic/SimpleLitShader"  
+{  
+    Properties  
+    {  
+        [MainTexture] _BaseMap ("Main Texture", 2D)= "white"{}  
+        [MainColor] _BaseColor ("Diffuse Colore", Color) = (1,1,1,1)  
+  
+        [Toggle(_NORMALMAP)]_NormalMapTog("Using Normal Map", int) = 0  
+        [Normal][NoScaleOffset] _BumpMap("Normal Map", 2D) = "bump"{}  
+  
+        [Toggle(_ALPHATEST_ON)] _AlphaTest("Aplpha Test", int) = 0  
+        _Cutoff("Aplha test value", Range(0,1)) = 0  
+  
+        [Enum(Off,0, Front,1, Back,2)] _CullMode("Cull Mode", int) = 2  
+  
+        [Toggle(_EMISSION)]_EmissionTog("Using Emission", int) = 0  
+        [HDR]_EmissionColor("Emission Color", Color) = (0,0,0,0)  
+        [NoScaleOffset] _EmissionMap("Emission Map", 2D) = "white"{}  
+  
+        [Toggle(_SPECGLOSSMAP)] _SpecularTog("Using Specular And Gloss", int) = 0  
+        [Toggle(_GLOSSINESS_FROM_BASE_ALPHA)] _GlossSource("Whether the source of the glossiness is the Albedo Alpha (if on) or the SpecularMap (if off)", int) = 0  
+        _SpecColor("Specular Color", Color) = (0.5, 0.5, 0.5, 0.5)  
+        [NoScaleOffset] _SpecGlossMap("Specular Map", 2D) = "white"{}  
+  
+        _Smoothness("Smoothness", Range(0,1)) = 0.5  
+    }  
+  
+    SubShader  
+    {  
+        Tags  
+        {  
+            "RenderPipeline" = "UniversalPipline"  
+            "RenderType" = "Opaque"  
+            "Queue" = "Geometry"  
+        }  
+  
+        HLSLINCLUDE  
+        #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"  
+        CBUFFER_START(UnityPerMaterial)  
+            float4 _BaseColor;  
+            float4 _BaseMap_ST;  
+            float _Cutoff;  
+            float4 _EmissionColor;  
+            float4 _SpecColor;  
+            float _Smoothness;  
+            TEXTURE2D(_SpecGlossMap);  
+            SAMPLER(sampler_SpecGlossMap);  
+        CBUFFER_END  
+        ENDHLSL  
+        Pass       
+        {  
+            Name "Custom Basic Forward Lit"  
+            Tags {  "LightMode" = "UniversalForward"  }  
+            Cull [_CullMode]  
+  
+            HLSLPROGRAM  
+            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Lighting.hlsl"  
+            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/SurfaceInput.hlsl"  
+            #pragma vertex LitPassVertex  
+            #pragma fragment LitPassFragment  
+  
+            #pragma shader_feature _ALPHATEST_ON  
+            #pragma shader_feature _NORMALMAP  
+            #pragma shader_feature _EMISSION  
+            #pragma shader_feature _SPECGLOSSMAP  
+            #define _SPECULAR_COLOR // 总是打开高光反射  
+            #pragma shader_feature _GLOSSINESS_FROM_BASE_ALPHA  
+            #pragma multi_compile LIGHTMAP_ON  
+            #pragma multi_compile _MAIN_LIGHT_SHADOWS  
+            #pragma multi_compile _MAIN_LIGHT_SHADOWS_CASCADE  
+            #pragma multi_compile _ADDITIONAL_LIGHTS  
+            #pragma multi_compile _ADDITIONAL_LIGHT_SHADOWS  
+  
+            struct Attribute  
+            {  
+                float3 posOS : POSITION;  
+                float3 normalOS : NORMAL;  
+#ifdef _NORMALMAP  
+                float4 tangentOS: TANGENT;  
+#endif  
+                float2 uv : TEXCOORD0;  
+                // 光照贴图，离线烘焙出光照对物体的影响，转换成贴图，贴到物体表面  
+                float2 lightmapUV: TEXCOORD1;  
+                float4 vertexColor: COLOR;  
+            };  
+            struct Varyings  
+            {  
+                float4 posCS: SV_POSITION;  
+                float3 posWS: TEXCOORD0;  
+                float2 uv: TEXCOORD1;  
+                DECLARE_LIGHTMAP_OR_SH(lightmapUV, vertexSH, 2);  
+#ifdef _NORMALMAP  
+                half4 normalWS: TEXCOORD3;  
+                half4 tangentWS: TEXCOORD4;                
+                half4 bitangentWS: TEXCOORD5;
+#else  
+                float3 normalWS: TEXCOORD3;  
+#endif  
+  
+#ifdef _ADDITIONAL_LIGHTS_VERTEX  
+				// x: 雾效信息； yzw：顶点光照信息  
+                half4 fogFactorAndVertexLight: TEXCOORD6;  
+#else  
+                half fogFactor: TEXCOORD6;  
+#endif  
+
+#ifdef REQUIRES_VERTEX_SHADOW_COORD_INTERPOLATOR  
+                float4 shadowCoord: TEXCOORD7;  
+#endif  
+                float4 vertexColor: COLOR;  
+            };  
+            
+            Varyings LitPassVertex(Attribute IN)  
+            {                
+	            Varyings OUT = (Varyings)0;  
+  
+                VertexPositionInputs posInputs = GetVertexPositionInputs(IN.posOS);  
+                OUT.posCS = posInputs.positionCS;  
+                OUT.posWS = posInputs.positionWS;  
+  
+                VertexNormalInputs normalInputs;  
+#ifdef _NORMALMAP  
+                float3 viewDir = GetWorldSpaceViewDir(OUT.posWS);  
+                normalInputs = GetVertexNormalInputs(IN.normalOS, IN.tangentOS);                
+                // 充分利用寄存器空间  
+                OUT.normalWS = half4(normalInputs.normalWS.xyz, viewDir.x);  
+                OUT.tangentWS = half4(normalInputs.tangentWS.xyz, viewDir.y);                  OUT.bitangentWS = half4(normalInputs.bitangentWS.xyz,  
+                viewDir.z);
+#else  
+                normalInputs = GetVertexNormalInputs(IN.normalOS);  
+                OUT.normalWS =
+	                NormalizeNormalPerVertex(normalInputs.normalWS);  
+#endif  
+  
+                half fogFator = ComputeFogFactor(posInputs.positionCS.z);  
+#ifdef _ADDITIONAL_LIGHTS_VERTEX  
+                half3 vertexLight = VertexLighting(posInputs.positionWS,
+									               normalInputs.normalWS);  
+                OUT.fogFactorAndVertexLight = half4(fogFator, vertexLight);
+#else  
+                OUT.fogFactor = fogFator;  
+#endif  
+  
+#ifdef REQUIRES_VERTEX_SHADOW_COORD_INTERPOLATOR  
+                OUT.shadowCoord = GetShadowCoord(posInputs);  
+#endif  
+  
+                OUT.uv = TRANSFORM_TEX(IN.uv, _BaseMap);  
+  
+                OUTPUT_LIGHTMAP_UV(IN.lightmapUV, unity_LightmapST, OUT.lightmapUV);  
+                OUTPUT_SH(OUT.normalWS, OUT.vertexSH);  
+  
+                OUT.vertexColor = IN.vertexColor;  
+  
+                return OUT;  
+            }  
+            
+            half4 SampleSpecularSmoothness(float2 uv, half alpha, half4 specColor,  
+            TEXTURE2D_PARAM(specMap, sampler_specMap))  
+            {                
+                half4 specularSmoothness = half4(0, 0, 0, 1);  
+#ifdef _SPECGLOSSMAP  
+                specularSmoothness = SAMPLE_TEXTURE2D(specMap,
+											          sampler_specMap, 
+										              uv) * specColor;  
+#elif defined(_SPECULAR_COLOR)  
+                specularSmoothness = specColor;
+#endif  
+  
+#ifdef _GLOSSINESS_FROM_BASE_ALPHA  
+                specularSmoothness.a = alpha;  
+#endif  
+  
+                return specularSmoothness;  
+            } 
+             
+            void InitSurfaceData(Varyings IN, out SurfaceData surfaceData)  
+            {                
+	            surfaceData = (SurfaceData)0;  
+                half4 baseMap = SAMPLE_TEXTURE2D(_BaseMap, 
+									            sampler_BaseMap, 
+									            IN.uv);  
+                half4 diffuse = baseMap * _BaseColor * IN.vertexColor;  
+#ifdef _ALPHATEST_ON  
+                clip(diffuse.a - _Cutoff);  
+#endif  
+                surfaceData.albedo = diffuse.rgb;  
+  
+                surfaceData.normalTS = SampleNormal(IN.uv,
+										             _BumpMap,  
+										             sampler_BumpMap);  
+  
+                surfaceData.emission = SampleEmission(IN.uv, 
+										              _EmissionColor, 
+										              _EmissionMap, 
+										              sampler_EmissionMap);  
+  
+                surfaceData.occlusion = 1.0;  
+  
+                half4 specular = SampleSpecularSmoothness(IN.uv, 
+											              baseMap.a, 
+											                _SpecColor, 
+											                _SpecGlossMap,  
+                    sampler_SpecGlossMap);                surfaceData.specular = specular.rgb;  
+                surfaceData.smoothness = specular.a * _Smoothness;  
+            }  
+            
+            void InitInputData(Varyings IN, half3 normalTS, out InputData inputData)  
+            {                inputData = (InputData)0;  
+                                inputData.positionWS = IN.posWS;  
+  
+#ifdef _NORMALMAP  
+                inputData.normalWS = TransformTangentToWorld(normalTS, half3x3(IN.tangentWS.xyz, IN.bitangentWS.xyz, IN.normalWS.xyz));  
+#else  
+                inputData.normalWS = IN.normalWS;  
+#endif  
+                inputData.normalWS = NormalizeNormalPerPixel(inputData.normalWS);  
+  
+#ifdef _NORMALMAP  
+                inputData.viewDirectionWS = half3(IN.normalWS.w, IN.tangentWS.w, IN.bitangentWS.w);  
+#else  
+                inputData.viewDirectionWS = GetWorldSpaceViewDir(IN.posWS);  
+#endif  
+                inputData.viewDirectionWS = NormalizeNormalPerPixel(inputData.viewDirectionWS);  
+  
+#ifdef REQUIRES_VERTEX_SHADOW_COORD_INTERPOLATOR  
+                inputData.shadowCoord = IN.shadowCoord;  
+#elif MAIN_LIGHT_CALCULATE_SHADOWS  
+                inputData.shadowCoord = TransformWorldToShadowCoord(IN.posWS);  
+#else  
+                inputData.shadowCoord = float4(0,0,0,0);  
+#endif  
+  
+#ifdef _ADDITIONAL_LIGHTS_VERTEX  
+                inputData.vertexLighting = IN.fogFactorAndVertexLight.yzw;  
+                inputData.fogCoord = IN.fogFactorAndVertexLight.x;#else  
+                inputData.vertexLighting = half3(0,0,0);  
+                inputData.fogCoord = IN.fogFactor;  
+#endif  
+  
+                inputData.bakedGI = SAMPLE_GI(IN.lightmapUV, IN.vertexSH, IN.normalWS);  
+  
+                inputData.normalizedScreenSpaceUV = GetNormalizedScreenSpaceUV(IN.posCS);  
+  
+                inputData.shadowMask = SAMPLE_SHADOWMASK(IN.lightmapUV);  
+            }  
+            
+            float4 LitPassFragment(Varyings IN): SV_TARGET  
+            {  
+                SurfaceData surfaceData;  
+                InitSurfaceData(IN, surfaceData);  
+                InputData inputData;  
+                InitInputData(IN, surfaceData.normalTS, inputData);  
+                half4 color = UniversalFragmentBlinnPhong(inputData, surfaceData);  
+  
+                return color;  
+            }            
+            ENDHLSL  
+        }  
+  
+        阴影Pass { ... }  
+  
+        深度Pass { ... }   
+  
+        深度法线Pass { ... }  
+    }}
+```
+
 # URP光照
