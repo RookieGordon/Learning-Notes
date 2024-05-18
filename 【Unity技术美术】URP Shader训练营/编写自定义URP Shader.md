@@ -737,5 +737,10 @@ float4 TransformWorldToShadowCoord(float3 positionWS)
 
 使用了法线贴图，则`Attribute`和`Varyings`中，增加法线，切线，副切线相关变量。
 
-`_ADDITIONAL_LIGHTS_VERTEX`宏表示是否启用顶点光照，
+`_ADDITIONAL_LIGHTS_VERTEX`宏表示是否启用顶点光照
+![[（图解8）配置额外光照使用顶点光.png|510]]
+启用了顶点光照后，就将雾效和光照数据放到一起，节约内存。
+
+`REQUIRES_VERTEX_SHADOW_COORD_INTERPOLATOR`
+
 # URP光照
