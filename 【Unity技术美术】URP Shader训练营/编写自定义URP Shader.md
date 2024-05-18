@@ -757,6 +757,21 @@ VertexNormalInputs GetVertexNormalInputs(float3 normalOS, float4 tangentOS)
     return tbn;  
 }
 ```
-通过法线和切线，叉乘得到副切线。
+通过法线和切线，叉乘得到副切线。再计算视角方向，如果在透视投影的模式下，视角方向就是摄像机的位置减去顶点的位置：
+```HLSL
+float3 GetWorldSpaceViewDir(float3 positionWS)  
+{  
+    if (IsPerspectiveProjection())  
+    {        // Perspective  
+        return GetCurrentViewPosition() - positionWS;  
+    }    else  
+    {  
+        // Orthographic  
+        return -GetViewForwardDir();  
+    }
+}
+```
+为了节省空间，将视角方向的三个分量放到切线空间的三个基向量第四个分量上，因为这三个基向量，在使用的时候，只需要xyz三个分量。
+
 
 # URP光照
