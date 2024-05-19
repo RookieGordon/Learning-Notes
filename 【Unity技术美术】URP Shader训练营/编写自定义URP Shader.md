@@ -807,5 +807,16 @@ float4 GetShadowCoord(VertexPositionInputs vertexInput)
 }
 ```
 
-在片元着色器中，使用内置的`UniversalFragmentBlinnPhong`计算`BlinnPhong`光照，这个函数需要两个结构体参数`SurfaceData`和`InputData`。`SurfaceData`中存放的sh
+在片元着色器中，使用内置的`UniversalFragmentBlinnPhong`计算`BlinnPhong`光照，这个函数需要两个结构体参数`SurfaceData`和`InputData`。`SurfaceData`中存放的主要是颜色数据，而`InputData`中，存放的主要是顶点相关的输入性数据。
+
+## SurfaceData结构体
+
+`normalTS`字段是法线贴图的采样结果，使用内置`SampleNormal`函数对法线贴图进行采样。
+
+使用内置`SampleSpecularSmoothness`函数，对高光贴图进行采样，将采样结果的rgb通道，放到`specular`字段，a通道放到`smoothness`字段，作为平滑度。
+
+## InputData结构体
+
+
+
 # URP光照
