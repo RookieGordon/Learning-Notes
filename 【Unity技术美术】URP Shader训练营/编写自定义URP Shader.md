@@ -817,6 +817,13 @@ float4 GetShadowCoord(VertexPositionInputs vertexInput)
 
 ## InputData结构体
 
-
-
+如果使用了`_NORMALMAP`就把法线贴图采样得到的法线，使用`TransformTangentToWorld`转换到世界坐标中，
+```HLSL
+real3 TransformTangentToWorld(float3 dirTS, real3x3 tangentToWorld)  
+{  
+    // Note matrix is in row major convention with left multiplication as it is build on the fly  
+    return mul(dirTS, tangentToWorld);  
+}
+```
+该函数需要一个变换矩阵，可以使用切线空间的基向量组成变换矩阵，按照切线-副切线-法线组合而成。
 # URP光照
