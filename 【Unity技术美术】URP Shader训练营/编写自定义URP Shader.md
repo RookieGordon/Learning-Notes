@@ -807,5 +807,5 @@ float4 GetShadowCoord(VertexPositionInputs vertexInput)
 }
 ```
 
-在片元着色器中，使用内置的`UniversalFragmentBlinnPhong`计算`BlinnPhong`光照，这个函数需要两个结构体参数`InitSurfaceData`和`InputData`
+在片元着色器中，使用内置的`UniversalFragmentBlinnPhong`计算`BlinnPhong`光照，这个函数需要两个结构体参数`SurfaceData`和`InputData`。`SurfaceData`中存放的sh
 # URP光照
