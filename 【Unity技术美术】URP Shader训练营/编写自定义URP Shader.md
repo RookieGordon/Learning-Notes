@@ -795,6 +795,17 @@ half3 VertexLighting(float3 positionWS, half3 normalWS)
 ```
 可以看到，顶点光照也是获取了光源数据，然后通过`LightingLambert`计算出`Lambert`光照。
 
-使用`GetShadowCoord`计算顶点的阴影坐标。
+使用`GetShadowCoord`计算顶点的阴影坐标：
+```hlsl
+float4 GetShadowCoord(VertexPositionInputs vertexInput)  
+{  
+#if defined(_MAIN_LIGHT_SHADOWS_SCREEN) && !defined(_SURFACE_TYPE_TRANSPARENT)  
+    return ComputeScreenPos(vertexInput.positionCS);  
+#else  
+    return TransformWorldToShadowCoord(vertexInput.positionWS);  
+#endif  
+}
+```
 
+在片元着色器中，使用内置的`UniversalFragmentBlinnPhong`计算`BlinnPhong`光照，这个函数需要两个结构体参数`InitSurfaceData`和`InputData`
 # URP光照
