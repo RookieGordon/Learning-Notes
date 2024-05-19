@@ -13,8 +13,8 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "【Unity技术美术】URP Shader训练营/编写自定义URP Shader.md",
-                "mode": "source",
+                "file": "【Unity技术美术】URP Shader训练营/自定义BlinnPhong光照URP-Shader.md",
+                "mode": "preview",
                 "source": false
               }
             }
@@ -69,7 +69,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 387.5
+    "width": 387.5,
+    "collapsed": true
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -85,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "【Unity技术美术】URP Shader训练营/编写自定义URP Shader.md",
+                "file": "【Unity技术美术】URP Shader训练营/自定义BlinnPhong光照URP-Shader.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "【Unity技术美术】URP Shader训练营/编写自定义URP Shader.md",
+                "file": "【Unity技术美术】URP Shader训练营/自定义BlinnPhong光照URP-Shader.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -125,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "【Unity技术美术】URP Shader训练营/编写自定义URP Shader.md"
+                "file": "【Unity技术美术】URP Shader训练营/自定义BlinnPhong光照URP-Shader.md"
               }
             }
           }
@@ -134,7 +135,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 487.5
+    "width": 487.5,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -151,19 +153,19 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "afac61375769f513",
+  "active": "3980a1c1a27a1a1d",
   "lastOpenFiles": [
-    "【Unity技术美术】URP Shader训练营/BlinnPhong Shader.md",
-    "【Unity技术美术】URP Shader训练营/编写自定义URP Shader.md",
-    "【Unity技术美术】URP Shader训练营/漫反射Shader.md",
-    "【Unity技术美术】URP Shader训练营/无光照Shader.md",
-    "【Unity技术美术】URP Shader训练营/attachments/8a54268f16e147da8bbd79f7cbf579cd.gif",
-    "【Unity技术美术】URP Shader训练营/URP Shader中的Pass通道.md",
-    "【Unity技术美术】URP Shader训练营/URP Shader中的SubShader.md",
-    "【Unity技术美术】URP Shader训练营/URP Shader基本结构.md",
     "【Unity技术美术】URP Shader训练营/Unity通用渲染管线的Lit.shader.md",
-    "【Unity技术美术】URP Shader训练营/Shader基础操作.md",
     "【Unity技术美术】URP Shader训练营/【Unity技术美术】URP Shader训练营.md",
+    "【Unity技术美术】URP Shader训练营/URP-Shader中的SubShader.md",
+    "【Unity技术美术】URP Shader训练营/编写自定义URP Shader.md",
+    "【Unity技术美术】URP Shader训练营/自定义漫反射URP-Shader.md",
+    "【Unity技术美术】URP Shader训练营/自定义无光照URP-Shader.md",
+    "【Unity技术美术】URP Shader训练营/自定义BlinnPhong光照URP-Shader.md",
+    "【Unity技术美术】URP Shader训练营/Shader基础操作.md",
+    "【Unity技术美术】URP Shader训练营/URP-Shader基本结构.md",
+    "【Unity技术美术】URP Shader训练营/URP-Shader中的Pass通道.md",
+    "【Unity技术美术】URP Shader训练营/attachments/8a54268f16e147da8bbd79f7cbf579cd.gif",
     "技术美术入门/技术美术入门.md",
     "技术美术入门/Map&Texture贴图和纹理.md",
     "技术美术入门/ShaderGraph入门.md",

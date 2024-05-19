@@ -273,7 +273,7 @@ Blend DstColor SrcColor
 ```
 
 >[!Attention]
->从[[URP Shader中的SubShader#^f1d77c|Unity的渲染顺序]]来说，设置混合后，都要关闭深度写入
+>从[[URP-Shader中的SubShader#^f1d77c|Unity的渲染顺序]]来说，设置混合后，都要关闭深度写入
 
 # URP中的自定义渲染效果
 

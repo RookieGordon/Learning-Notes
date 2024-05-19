@@ -196,7 +196,7 @@ Shader "Custom/Unlit/BasicUnlitShader"
 
 可以直接使用`UsePass`关键字，使用内置的`SHADOWCASTER`pass来实现阴影效果，但是这样会导致SRP Batcher失效。
 
-定义`LightMode`标签为[[URP Shader中的Pass通道#URP渲染管线|ShadowCaster]]。
+定义`LightMode`标签为[[URP-Shader中的Pass通道#URP渲染管线|ShadowCaster]]。
 
 由于产生阴影，不需要写入颜色缓冲，只需要写入深度值，因此，开启`ZWrite`和`ZTest`，同时使用[ColorMask 0](https://docs.unity3d.com/cn/2023.2/Manual/SL-ColorMask.html)禁止写入颜色通道。
 

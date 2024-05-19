@@ -14,10 +14,10 @@ favicon: https://catlikecoding.com/favicon.ico
 image: https://catlikecoding.com/unity/tutorials/custom-srp/color-grading/tutorial-image.jpg
 ```
 
-[[无光照Shader]]
+[[自定义无光照URP-Shader]]
 
-[[漫反射Shader]]
+[[自定义漫反射URP-Shader]]
 
-[[BlinnPhong Shader]]
+[[自定义BlinnPhong光照URP-Shader]]
 
 # URP光照
