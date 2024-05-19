@@ -826,4 +826,7 @@ real3 TransformTangentToWorld(float3 dirTS, real3x3 tangentToWorld)
 }
 ```
 该函数需要一个变换矩阵，可以使用切线空间的基向量组成变换矩阵，按照切线-副切线-法线组合而成。
+
+如果使用了法线贴图，直接从
+
 # URP光照
