@@ -34,7 +34,7 @@ annotation-target: Custom Render Pipeline.pdf
 >*%%PREFIX%%Unityuses for the Universal RP.%%HIGHLIGHT%% ==Create a Custom RP asset folder with a Runtime child folder. Put anew C# script in there for the CustomRenderPipelineAsset type== %%POSTFIX%%.Folder structure.The asset type*
 >%%LINK%%[[#^6abrrw6pya7|show annotation]]
 >%%COMMENT%%
->创建一个名为CustomRendererPiplineAsset的类，继承自UnityEngine.Rendering。
+>创建一个名为CustomRendererPiplineAsset的类，继承自UnityEngine.Rendering.RenderPipelineAsset。
 >RP 资产的主要目的是为 Unity 提供一种获取负责渲染的管道对象实例的方法。资产本身只是一个句柄和存储设置的地方。
 >%%TAGS%%
 >
