@@ -23,9 +23,16 @@ annotation-target: Custom Render Pipeline.pdf
 
 ## 配置渲染管道资产
 
-由于使用的是内置渲染管线模板，所以需要一个URP管线资产。
+```cardlink
+url: https://docs.unity.cn/cn/2019.4/Manual/srp-creating-render-pipeline-asset-and-render-pipeline-instance.html
+title: "创建渲染管线资源和渲染管线实例 - Unity 手册"
+description: "如果您要创建自己的可编程渲染管线 (SRP)，您的项目必须包含："
+host: docs.unity.cn
+favicon: ../StaticFiles/images/favicons/favicon.png
+image: https://unity3d.com/files/images/ogimg.jpg
+```
 
-
+由于使用的是内置渲染管线模板，所以需要一个URP管线资产。用了管理渲染管线，以及保存一些管线设置
 
 >%%
 >```annotation-json
@@ -36,10 +43,12 @@ annotation-target: Custom Render Pipeline.pdf
 >%%LINK%%[[#^6abrrw6pya7|show annotation]]
 >%%COMMENT%%
 >创建一个名为CustomRendererPiplineAsset的类，继承UnityEngine.Rendering.RenderPipelineAsset。
->RenderPipelineAsset的主要目的是为 Unity 提供一种获取负责渲染的管道对象实例的方法。资产本身只是一个句柄和存储设置的地方。
+>
+>`RenderPipelineAsset的主要目的是为 Unity 提供一种获取负责渲染的管道对象实例的方法。资产本身只是一个句柄和存储设置的地方。`
 >%%TAGS%%
 >
 ^6abrrw6pya7
+
 
 ## 渲染管线
 
