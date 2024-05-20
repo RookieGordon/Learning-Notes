@@ -49,6 +49,14 @@ image: https://unity3d.com/files/images/ogimg.jpg
 >
 ^6abrrw6pya7
 
+Project Setting中的Graphics和Quality Settings共同决定了活动渲染管线。在Graphics中，我们可以更改Unity默认设置的渲染管线资产；在Quality Settings中，我们可以覆盖指定画质等级所使用的渲染管线资产。
+
+当然，Unity也支持在运行时，切换渲染管线。我们可以在脚本中获取或设置活动渲染管线，并为他们编写改变设置时的回调函数。要执行此操作，请使用以下 API：
+
+- 若想要获取定义了活动渲染管线的渲染管线资产的引用，使用 `GraphicsSettings.currentRenderPipeline`
+- 若想要决定Unity是否使用默认渲染管线资产或重载渲染管线资产（指不同画质所对应的资产），使用`GraphicsSettings.defaultRenderPipeline和 QualitySettings.renderPipeline`
+- 若想要获取当前正在运行的活动渲染管线的实例，使用`RenderPipelineManager.currentPipeline`。注意：<font color="#ffc000">在该渲染管线渲染至少一帧之后才会更新它的属性</font>
+- 若要检测并执行某种活动渲染管线更改时的代码，使用`RenderPipelineManager.activeRenderPipelineTypeChanged`
 
 ## 渲染管线
 
