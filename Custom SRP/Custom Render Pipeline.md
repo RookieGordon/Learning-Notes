@@ -75,3 +75,20 @@ Project Setting中的Graphics和Quality Settings共同决定了活动渲染管�
 
 # 渲染
 
+
+
+>%%
+>```annotation-json
+>{"created":"2024-05-20T10:11:31.325Z","text":"每帧都会调用管线的Render方法。由于每个摄像机都会独立渲染，因此创建一个摄像机渲染对象CameraRenderer，独立控制相机的渲染。","updated":"2024-05-20T10:11:31.325Z","document":{"title":"Custom Render Pipeline","link":[{"href":"urn:x-pdf:43a511de2f13b3a0e3ec2f97c3aa0a76"},{"href":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf"}],"documentFingerprint":"43a511de2f13b3a0e3ec2f97c3aa0a76"},"uri":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf","target":[{"source":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf","selector":[{"type":"TextPositionSelector","start":8572,"end":8735},{"type":"TextQuoteSelector","exact":"Each frame Unity invokes Render on the RP instance. It passes along a context struct thatprovides a connection to the native engine, which we can use for rendering","prefix":"render-pipeline/ 7/402 Rendering","suffix":". It also passes anarray of came"}]}]}
+>```
+>%%
+>*%%PREFIX%%render-pipeline/ 7/402 Rendering%%HIGHLIGHT%% ==Each frame Unity invokes Render on the RP instance. It passes along a context struct thatprovides a connection to the native engine, which we can use for rendering== %%POSTFIX%%. It also passes anarray of came*
+>%%LINK%%[[#^vnnk7cifj5|show annotation]]
+>%%COMMENT%%
+>每帧都会调用管线的Render方法。由于每个摄像机都会独立渲染，因此创建一个摄像机渲染对象CameraRenderer，独立控制相机的渲染。
+>%%TAGS%%
+>
+^vnnk7cifj5
+
+## 绘制天空盒
+

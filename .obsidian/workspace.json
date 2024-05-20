@@ -11,9 +11,11 @@
             "id": "9568049592d017e5",
             "type": "leaf",
             "state": {
-              "type": "pdf-annotator",
+              "type": "markdown",
               "state": {
-                "file": "Custom SRP/Custom Render Pipeline.md"
+                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/计算机图形学—从0开始构建一个OpenGL软光栅.md",
+                "mode": "preview",
+                "source": false
               }
             }
           }
@@ -84,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Custom SRP/Custom Render Pipeline.md",
+                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/计算机图形学—从0开始构建一个OpenGL软光栅.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -101,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Custom SRP/Custom Render Pipeline.md",
+                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/计算机图形学—从0开始构建一个OpenGL软光栅.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -124,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Custom SRP/Custom Render Pipeline.md"
+                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/计算机图形学—从0开始构建一个OpenGL软光栅.md"
               }
             }
           }
@@ -151,14 +153,18 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "9568049592d017e5",
+  "active": "3980a1c1a27a1a1d",
   "lastOpenFiles": [
+    "C++/C++.canvas",
+    "Custom SRP/Drawing 2024-05-20 18.27.51.excalidraw.md",
+    "Custom SRP/Custom SRP.md",
     "Custom SRP/Custom Render Pipeline.md",
     "Custom SRP/attachments/Custom Render Pipeline.pdf",
+    "Excalidraw/Scripts/Downloaded/Relative Font Size Cycle.md",
+    "Excalidraw/Scripts/Downloaded/Relative Font Size Cycle.svg",
     "Custom SRP/attachments/Pasted image 20240520130000.png",
     "Custom SRP/attachments",
     "【Unity技术美术】URP Shader训练营/URP-Shader中的Pass通道.md",
-    "Custom SRP/Custom SRP.md",
     "【Unity技术美术】URP Shader训练营/编写自定义URP Shader.md",
     "Custom SRP",
     "【Unity技术美术】URP Shader训练营/URP-Shader中的SubShader.md",
@@ -188,18 +194,14 @@
     "【Unity技术美术】URP Shader训练营/attachments/（图解4）绑定和绘制命令的批处理减少了绘制调用之间的 GPU 设置.png",
     "【Unity技术美术】URP Shader训练营/attachments/（图解3）使用LightMode筛选Pass.png",
     "【Unity技术美术】URP Shader训练营/attachments/1715151456512.png",
-    "【Unity技术美术】URP Shader训练营/attachments/（图解2）Add Renderer Feature.png",
     "Excalidraw/Map.md",
     "【Unity技术美术】URP Shader训练营/attachments/Forward Rendering vs Deferred Rendering.pdf",
-    "计算机图形学—从0开始构建一个OpenGL软光栅/图片与纹理.md",
-    "计算机图形学—从0开始构建一个OpenGL软光栅/面片与模型.md",
     "Untitled.sheet",
     "【Unity技术美术】URP Shader训练营/attachments",
     "可使用括在方括号中的属性名称来访问属性值：",
     "Excalidraw/Scripts/Downloaded",
     "Excalidraw/Scripts",
     "计算机图形学—从0开始构建一个OpenGL软光栅/从0开始构建OpenGL软光栅.canvas",
-    "C++/C++.canvas",
     "未命名.canvas"
   ]
 }
