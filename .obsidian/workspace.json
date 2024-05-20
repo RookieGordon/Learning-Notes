@@ -8,14 +8,12 @@
         "type": "tabs",
         "children": [
           {
-            "id": "afac61375769f513",
+            "id": "9568049592d017e5",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "pdf-annotator",
               "state": {
-                "file": "Custom SRP/未命名.md",
-                "mode": "source",
-                "source": false
+                "file": "Custom SRP/Custom Render Pipeline.md"
               }
             }
           }
@@ -69,7 +67,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 387.5
+    "width": 387.5,
+    "collapsed": true
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -85,7 +84,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Custom SRP/未命名.md",
+                "file": "Custom SRP/Custom Render Pipeline.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +101,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Custom SRP/未命名.md",
+                "file": "Custom SRP/Custom Render Pipeline.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -125,7 +124,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Custom SRP/未命名.md"
+                "file": "Custom SRP/Custom Render Pipeline.md"
               }
             }
           }
@@ -152,13 +151,17 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "afac61375769f513",
+  "active": "9568049592d017e5",
   "lastOpenFiles": [
+    "Custom SRP/Custom Render Pipeline.md",
+    "Custom SRP/attachments/Custom Render Pipeline.pdf",
+    "Custom SRP/attachments/Pasted image 20240520130000.png",
+    "Custom SRP/attachments",
+    "【Unity技术美术】URP Shader训练营/URP-Shader中的Pass通道.md",
+    "Custom SRP/Custom SRP.md",
     "【Unity技术美术】URP Shader训练营/编写自定义URP Shader.md",
-    "Custom SRP/未命名.md",
     "Custom SRP",
     "【Unity技术美术】URP Shader训练营/URP-Shader中的SubShader.md",
-    "【Unity技术美术】URP Shader训练营/URP-Shader中的Pass通道.md",
     "【Unity技术美术】URP Shader训练营/URP-Shader基本结构.md",
     "【Unity技术美术】URP Shader训练营/Unity通用渲染管线的Lit.shader.md",
     "【Unity技术美术】URP Shader训练营/Shader基础操作.md",
@@ -190,17 +193,12 @@
     "【Unity技术美术】URP Shader训练营/attachments/Forward Rendering vs Deferred Rendering.pdf",
     "计算机图形学—从0开始构建一个OpenGL软光栅/图片与纹理.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/面片与模型.md",
-    "计算机图形学—从0开始构建一个OpenGL软光栅/计算机图形学—从0开始构建一个OpenGL软光栅.md",
     "Untitled.sheet",
-    "Excalidraw/Scripts/Downloaded/Relative Font Size Cycle.md",
-    "Excalidraw/Scripts/Downloaded/Relative Font Size Cycle.svg",
     "【Unity技术美术】URP Shader训练营/attachments",
     "可使用括在方括号中的属性名称来访问属性值：",
     "Excalidraw/Scripts/Downloaded",
     "Excalidraw/Scripts",
     "计算机图形学—从0开始构建一个OpenGL软光栅/从0开始构建OpenGL软光栅.canvas",
-    "技术美术入门/attachments",
-    "Excalidraw",
     "C++/C++.canvas",
     "未命名.canvas"
   ]
