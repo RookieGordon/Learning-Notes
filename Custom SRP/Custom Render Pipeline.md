@@ -92,3 +92,21 @@ Project Setting中的Graphics和Quality Settings共同决定了活动渲染管�
 
 ## 绘制天空盒
 
+
+
+>%%
+>```annotation-json
+>{"created":"2024-05-20T10:43:30.335Z","text":"在Render方法中，绘制所有可见的对象，将该功能独立成`DrawVisibleGeometry`方法，调用`DrawSkybox`方法，绘制天空盒","updated":"2024-05-20T10:43:30.335Z","document":{"title":"Custom Render Pipeline","link":[{"href":"urn:x-pdf:43a511de2f13b3a0e3ec2f97c3aa0a76"},{"href":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf"}],"documentFingerprint":"43a511de2f13b3a0e3ec2f97c3aa0a76"},"uri":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf","target":[{"source":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf","selector":[{"type":"TextPositionSelector","start":10423,"end":10504},{"type":"TextQuoteSelector","exact":"The job of CameraRenderer.Render is to draw all geometry that its camera can see.","prefix":"line/ 8/402.2 Drawing the Skybox","suffix":" Isolate thatspecific task in a "}]}]}
+>```
+>%%
+>*%%PREFIX%%line/ 8/402.2 Drawing the Skybox%%HIGHLIGHT%% ==The job of CameraRenderer.Render is to draw all geometry that its camera can see.== %%POSTFIX%%Isolate thatspecific task in a*
+>%%LINK%%[[#^azbzarogveh|show annotation]]
+>%%COMMENT%%
+>在Render方法中，绘制所有可见的对象，将该功能独立成`DrawVisibleGeometry`方法，调用`DrawSkybox`方法，绘制天空盒
+>%%TAGS%%
+>
+^azbzarogveh
+
+`ScriptableRenderContext`向 GPU 调度和提交状态更新和绘制命令。
+
+[RenderPipeline.Render](https://docs.unity.cn/cn/2019.4/ScriptReference/Rendering.RenderPipeline.Render.html) 方法实现通常会针对每个摄像机剔除渲染管线不需要渲染的对象（请参阅 [CullingResults](https://docs.unity.cn/cn/2019.4/ScriptReference/Rendering.CullingResults.html)），然后对 [ScriptableRenderContext.DrawRenderers](https://docs.unity.cn/cn/2019.4/ScriptReference/Rendering.ScriptableRenderContext.DrawRenderers.html) 发起一系列调用并混合 [ScriptableRenderContext.ExecuteCommandBuffer](https://docs.unity.cn/cn/2019.4/ScriptReference/Rendering.ScriptableRenderContext.ExecuteCommandBuffer.html) 调用。这些调用会设置全局着色器属性、更改渲染目标、分发计算着色器和其他渲染任务。若要实际执行渲染循环，请调用 [ScriptableRenderContext.Submit](https://docs.unity.cn/cn/2019.4/ScriptReference/Rendering.ScriptableRenderContext.Submit.html)。
