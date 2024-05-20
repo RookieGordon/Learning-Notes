@@ -5,7 +5,7 @@ tags:
   - Shader
 annotation-target: Custom Render Pipeline.pdf
 ---
-
+# 项目设置
 
 >%%
 >```annotation-json
@@ -15,7 +15,12 @@ annotation-target: Custom Render Pipeline.pdf
 >*%%PREFIX%%uses gamma space asthe default.%%HIGHLIGHT%% ==Go to the player settings via Edit / Project Settings and then Player, then switchColor Space under the Other Settings section to Linear.== %%POSTFIX%%Color space set to linear.Fill t*
 >%%LINK%%[[#^njrbdnqe1z|show annotation]]
 >%%COMMENT%%
->教程使用线性空间，而非gamma空间。
+> 将默认的gamma空间改成线性空间
 >%%TAGS%%
 >
 ^njrbdnqe1z
+
+# 配置渲染管道资产
+
+由于使用的是内置渲染管线模板，所以需要一个URP管线资产。
+
