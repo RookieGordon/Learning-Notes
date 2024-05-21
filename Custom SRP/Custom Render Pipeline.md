@@ -36,15 +36,14 @@ image: https://unity3d.com/files/images/ogimg.jpg
 
 >%%
 >```annotation-json
->{"created":"2024-05-20T08:34:57.628Z","text":"创建一个名为CustomRendererPiplineAsset的类，继承自UnityEngine.Rendering。\nRP 资产的主要目的是为 Unity 提供一种获取负责渲染的管道对象实例的方法。资产本身只是一个句柄和存储设置的地方。","updated":"2024-05-20T08:34:57.628Z","document":{"title":"Custom Render Pipeline","link":[{"href":"urn:x-pdf:43a511de2f13b3a0e3ec2f97c3aa0a76"},{"href":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf"}],"documentFingerprint":"43a511de2f13b3a0e3ec2f97c3aa0a76"},"uri":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf","target":[{"source":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf","selector":[{"type":"TextPositionSelector","start":4371,"end":4499},{"type":"TextQuoteSelector","exact":" Create a Custom RP asset folder with a Runtime child folder. Put anew C# script in there for the CustomRenderPipelineAsset type","prefix":" Unityuses for the Universal RP.","suffix":".Folder structure.The asset type"}]}]}
+>{"text":"1. 创建一个名为CustomRendererPiplineAsset的类，继承UnityEngine.Rendering.RenderPipelineAsset。\n2. `RenderPipelineAsset的主要目的是为 Unity 提供一种获取负责渲染的管道对象实例的方法。资产本身只是一个句柄和存储设置的地方。`","target":[{"source":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf","selector":[{"type":"TextPositionSelector","start":4371,"end":4499},{"type":"TextQuoteSelector","exact":" Create a Custom RP asset folder with a Runtime child folder. Put anew C# script in there for the CustomRenderPipelineAsset type","prefix":"Unityuses for the Universal RP.","suffix":".Folder structure.The asset type"}]}],"created":"2024-05-20T08:34:57.628Z","updated":"2024-05-20T08:34:57.628Z","document":{"title":"Custom Render Pipeline","link":[{"href":"urn:x-pdf:43a511de2f13b3a0e3ec2f97c3aa0a76"},{"href":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf"}],"documentFingerprint":"43a511de2f13b3a0e3ec2f97c3aa0a76"},"uri":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf"}
 >```
 >%%
 >*%%PREFIX%%Unityuses for the Universal RP.%%HIGHLIGHT%% ==Create a Custom RP asset folder with a Runtime child folder. Put anew C# script in there for the CustomRenderPipelineAsset type== %%POSTFIX%%.Folder structure.The asset type*
 >%%LINK%%[[#^6abrrw6pya7|show annotation]]
 >%%COMMENT%%
->创建一个名为CustomRendererPiplineAsset的类，继承UnityEngine.Rendering.RenderPipelineAsset。
->
->`RenderPipelineAsset的主要目的是为 Unity 提供一种获取负责渲染的管道对象实例的方法。资产本身只是一个句柄和存储设置的地方。`
+>1. 创建一个名为CustomRendererPiplineAsset的类，继承UnityEngine.Rendering.RenderPipelineAsset。
+>2. `RenderPipelineAsset的主要目的是为 Unity 提供一种获取负责渲染的管道对象实例的方法。资产本身只是一个句柄和存储设置的地方。`
 >%%TAGS%%
 >
 ^6abrrw6pya7
@@ -110,3 +109,20 @@ Project Setting中的Graphics和Quality Settings共同决定了活动渲染管�
 `ScriptableRenderContext`向 GPU 调度和提交状态更新和绘制命令。
 
 [RenderPipeline.Render](https://docs.unity.cn/cn/2019.4/ScriptReference/Rendering.RenderPipeline.Render.html) 方法实现通常会针对每个摄像机剔除渲染管线不需要渲染的对象（请参阅 [CullingResults](https://docs.unity.cn/cn/2019.4/ScriptReference/Rendering.CullingResults.html)），然后对 [ScriptableRenderContext.DrawRenderers](https://docs.unity.cn/cn/2019.4/ScriptReference/Rendering.ScriptableRenderContext.DrawRenderers.html) 发起一系列调用并混合 [ScriptableRenderContext.ExecuteCommandBuffer](https://docs.unity.cn/cn/2019.4/ScriptReference/Rendering.ScriptableRenderContext.ExecuteCommandBuffer.html) 调用。这些调用会设置全局着色器属性、更改渲染目标、分发计算着色器和其他渲染任务。若要实际执行渲染循环，请调用 [ScriptableRenderContext.Submit](https://docs.unity.cn/cn/2019.4/ScriptReference/Rendering.ScriptableRenderContext.Submit.html)。
+
+
+
+
+>%%
+>```annotation-json
+>{"created":"2024-05-21T04:22:05.541Z","text":"`DrawSkybox`方法只是用于控制是否显示天空盒。天空盒的绘制是由相机的`clar flags`控制的。","updated":"2024-05-21T04:22:05.541Z","document":{"title":"Custom Render Pipeline","link":[{"href":"urn:x-pdf:43a511de2f13b3a0e3ec2f97c3aa0a76"},{"href":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf"}],"documentFingerprint":"43a511de2f13b3a0e3ec2f97c3aa0a76"},"uri":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf","target":[{"source":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf","selector":[{"type":"TextPositionSelector","start":11965,"end":12123},{"type":"TextQuoteSelector","exact":"We pass the camera to DrawSkybox, but that's only used to determine whether the skybox shouldbe drawn at all, which is controlled via the camera's clear flags","prefix":"ct how the skybox gets rendered.","suffix":".To correctly render the skybox—"}]}]}
+>```
+>%%
+>*%%PREFIX%%ct how the skybox gets rendered.%%HIGHLIGHT%% ==We pass the camera to DrawSkybox, but that's only used to determine whether the skybox shouldbe drawn at all, which is controlled via the camera's clear flags== %%POSTFIX%%.To correctly render the skybox—*
+>%%LINK%%[[#^ipnz9b383g|show annotation]]
+>%%COMMENT%%
+>`DrawSkybox`方法只是用于控制是否显示天空盒。天空盒的绘制是由相机的`clar flags`控制的。
+>如果要正确渲染天空盒，就需要设置视图投影矩阵。
+>%%TAGS%%
+>
+^ipnz9b383g
