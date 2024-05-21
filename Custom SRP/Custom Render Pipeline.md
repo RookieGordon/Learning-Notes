@@ -6,6 +6,7 @@ tags:
 annotation-target: Custom Render Pipeline.pdf
 ---
 # 一个新的渲染管道
+
 ## 项目设置
 
 >%%
@@ -74,8 +75,6 @@ Project Setting中的Graphics和Quality Settings共同决定了活动渲染管�
 
 # 渲染
 
-
-
 >%%
 >```annotation-json
 >{"created":"2024-05-20T10:11:31.325Z","text":"每帧都会调用管线的Render方法。由于每个摄像机都会独立渲染，因此创建一个摄像机渲染对象CameraRenderer，独立控制相机的渲染。","updated":"2024-05-20T10:11:31.325Z","document":{"title":"Custom Render Pipeline","link":[{"href":"urn:x-pdf:43a511de2f13b3a0e3ec2f97c3aa0a76"},{"href":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf"}],"documentFingerprint":"43a511de2f13b3a0e3ec2f97c3aa0a76"},"uri":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf","target":[{"source":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf","selector":[{"type":"TextPositionSelector","start":8572,"end":8735},{"type":"TextQuoteSelector","exact":"Each frame Unity invokes Render on the RP instance. It passes along a context struct thatprovides a connection to the native engine, which we can use for rendering","prefix":"render-pipeline/ 7/402 Rendering","suffix":". It also passes anarray of came"}]}]}
@@ -90,8 +89,6 @@ Project Setting中的Graphics和Quality Settings共同决定了活动渲染管�
 ^vnnk7cifj5
 
 ## 绘制天空盒
-
-
 
 >%%
 >```annotation-json
@@ -109,9 +106,6 @@ Project Setting中的Graphics和Quality Settings共同决定了活动渲染管�
 `ScriptableRenderContext`向 GPU 调度和提交状态更新和绘制命令。
 
 [RenderPipeline.Render](https://docs.unity.cn/cn/2019.4/ScriptReference/Rendering.RenderPipeline.Render.html) 方法实现通常会针对每个摄像机剔除渲染管线不需要渲染的对象（请参阅 [CullingResults](https://docs.unity.cn/cn/2019.4/ScriptReference/Rendering.CullingResults.html)），然后对 [ScriptableRenderContext.DrawRenderers](https://docs.unity.cn/cn/2019.4/ScriptReference/Rendering.ScriptableRenderContext.DrawRenderers.html) 发起一系列调用并混合 [ScriptableRenderContext.ExecuteCommandBuffer](https://docs.unity.cn/cn/2019.4/ScriptReference/Rendering.ScriptableRenderContext.ExecuteCommandBuffer.html) 调用。这些调用会设置全局着色器属性、更改渲染目标、分发计算着色器和其他渲染任务。若要实际执行渲染循环，请调用 [ScriptableRenderContext.Submit](https://docs.unity.cn/cn/2019.4/ScriptReference/Rendering.ScriptableRenderContext.Submit.html)。
-
-
-
 
 >%%
 >```annotation-json
@@ -133,8 +127,6 @@ Project Setting中的Graphics和Quality Settings共同决定了活动渲染管�
 
 在`CameraRenderer`中，创建一个`CommandBuffer`对象，用于设置渲染命令。
 
-
-
 >%%
 >```annotation-json
 >{"created":"2024-05-21T04:48:06.339Z","text":"为了能够使得profiler和frame debugger正常工作，需要调用`BeginSample·和`EndSample`方法","updated":"2024-05-21T04:48:06.339Z","document":{"title":"Custom Render Pipeline","link":[{"href":"urn:x-pdf:43a511de2f13b3a0e3ec2f97c3aa0a76"},{"href":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf"}],"documentFingerprint":"43a511de2f13b3a0e3ec2f97c3aa0a76"},"uri":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf","target":[{"source":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf","selector":[{"type":"TextPositionSelector","start":14781,"end":15035},{"type":"TextQuoteSelector","exact":"We can use command buffers to inject profiler samples, which will show up both in the profilerand the frame debugger. This is done by invoking BeginSample and EndSample at the appropriatepoints, which is at the beginning of Setup and Submit in our case. ","prefix":"ject initializer syntax is used.","suffix":"Both methods must beprovided wit"}]}]}
@@ -147,7 +139,6 @@ Project Setting中的Graphics和Quality Settings共同决定了活动渲染管�
 >%%TAGS%%
 >
 ^r9kswjpuppc
-
 
 >%%
 >```annotation-json
@@ -163,12 +154,10 @@ Project Setting中的Graphics和Quality Settings共同决定了活动渲染管�
 ^62gifbftckh
 
 这样就可以在Frame Debugger中，看到自定义的渲染命令缓冲区了
-![[（图解1）渲染命令缓冲区名称.png]]
-另外可以看到，渲染天空盒用的Pass来自`Skybox/Procedural`这个
+![[（图解1）渲染命令缓冲区名称.png|580]]
+另外可以看到，渲染天空盒用的Pass来自`Skybox/Procedural`这个shader。
 
 ## 清除渲染目标
-
-
 
 >%%
 >```annotation-json
@@ -178,7 +167,9 @@ Project Setting中的Graphics和Quality Settings共同决定了活动渲染管�
 >*%%PREFIX%%.SetupCameraProperties(camera);}%%HIGHLIGHT%% ==Clearing, with nested sample== %%POSTFIX%%.The frame debugger now shows a*
 >%%LINK%%[[#^k20tttq4r7|show annotation]]
 >%%COMMENT%%
->在绘制时，先使用`ClearRenderTarget`清除上一次渲染上下文。这样会在Fream Debugger中产生一个新的条目`Draw GL`
+>在绘制时，先使用`ClearRenderTarget`清除上一次渲染上下文。这样会在Fream Debugger中产生一个新的条目`Draw GL`，该条目就代表着清除
 >%%TAGS%%
 >
 ^k20tttq4r7
+![[（图解2）ClearRenderTarget的Frame Debbugger显示.png|530]]
+从图中可以看出，`ClearRenderTarget`步骤，使用了`Hidden/InternalClear`这个Shader
