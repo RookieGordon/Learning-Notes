@@ -115,14 +115,18 @@ Project Setting中的Graphics和Quality Settings共同决定了活动渲染管�
 
 >%%
 >```annotation-json
->{"created":"2024-05-21T04:22:05.541Z","text":"`DrawSkybox`方法只是用于控制是否显示天空盒。天空盒的绘制是由相机的`clar flags`控制的。","updated":"2024-05-21T04:22:05.541Z","document":{"title":"Custom Render Pipeline","link":[{"href":"urn:x-pdf:43a511de2f13b3a0e3ec2f97c3aa0a76"},{"href":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf"}],"documentFingerprint":"43a511de2f13b3a0e3ec2f97c3aa0a76"},"uri":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf","target":[{"source":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf","selector":[{"type":"TextPositionSelector","start":11965,"end":12123},{"type":"TextQuoteSelector","exact":"We pass the camera to DrawSkybox, but that's only used to determine whether the skybox shouldbe drawn at all, which is controlled via the camera's clear flags","prefix":"ct how the skybox gets rendered.","suffix":".To correctly render the skybox—"}]}]}
+>{"text":"`DrawSkybox`方法只是用于控制是否显示天空盒（此时移动旋转相机，天空盒没有任何变化）。天空盒的绘制是由相机的`clar flags`控制的。\n如果要正确渲染天空盒，就需要设置视图投影矩阵——VP。通过使用``SetupCameraProperties`方法，应用相机的属性","target":[{"source":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf","selector":[{"type":"TextPositionSelector","start":11965,"end":12123},{"type":"TextQuoteSelector","exact":"We pass the camera to DrawSkybox, but that's only used to determine whether the skybox shouldbe drawn at all, which is controlled via the camera's clear flags","prefix":"ct how the skybox gets rendered.","suffix":".To correctly render the skybox—"}]}],"created":"2024-05-21T04:22:05.541Z","updated":"2024-05-21T04:22:05.541Z","document":{"title":"Custom Render Pipeline","link":[{"href":"urn:x-pdf:43a511de2f13b3a0e3ec2f97c3aa0a76"},{"href":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf"}],"documentFingerprint":"43a511de2f13b3a0e3ec2f97c3aa0a76"},"uri":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf"}
 >```
 >%%
 >*%%PREFIX%%ct how the skybox gets rendered.%%HIGHLIGHT%% ==We pass the camera to DrawSkybox, but that's only used to determine whether the skybox shouldbe drawn at all, which is controlled via the camera's clear flags== %%POSTFIX%%.To correctly render the skybox—*
 >%%LINK%%[[#^ipnz9b383g|show annotation]]
 >%%COMMENT%%
->`DrawSkybox`方法只是用于控制是否显示天空盒。天空盒的绘制是由相机的`clar flags`控制的。
->如果要正确渲染天空盒，就需要设置视图投影矩阵。
+>`DrawSkybox`方法只是用于控制是否显示天空盒（此时移动旋转相机，天空盒没有任何变化）。天空盒的绘制是由相机的`clar flags`控制的。
+>如果要正确渲染天空盒，就需要设置视图投影矩阵——VP。通过使用``SetupCameraProperties`方法，应用相机的属性
 >%%TAGS%%
 >
 ^ipnz9b383g
+
+## 命令缓冲区
+
+在我们提交之前，上下文会延迟实际渲染。在此之前，我们要对其进行配置，并添加命令供稍后执行。
