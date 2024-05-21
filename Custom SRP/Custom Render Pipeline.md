@@ -14,6 +14,15 @@ host: www.cnblogs.com
 ```
 
 [Fetching Data#jx84](https://max2d.com/archives/1031)
+
+```cardlink
+url: https://zhuanlan.zhihu.com/p/66156092
+title: "Unity SRP搞事（一）基本管线"
+description: "Leon：The Rendering and Art of &#39;11-11 Memories Retold&#39; 看了这篇文章，是真的骚，那个油画风格真的绝了。看了之后手真痒，然后定睛一看，要修改管线，点赞，收藏，关闭！ 之前我一直在看的是 @銀葉吉祥…"
+host: zhuanlan.zhihu.com
+image: https://picx.zhimg.com/v2-1bfae7760bf6276c412e3b9aeb728d63_720w.jpg?source=172ae18b
+```
+
 # 一个新的渲染管道
 
 ## 项目设置
