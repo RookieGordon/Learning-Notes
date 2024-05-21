@@ -136,26 +136,26 @@ Project Setting中的Graphics和Quality Settings共同决定了活动渲染管�
 
 >%%
 >```annotation-json
->{"created":"2024-05-21T04:48:06.339Z","text":"为了能够使得profiler和frame debugger正常工作，需要调用`BeginSample·和`EndSample`方法","updated":"2024-05-21T04:48:06.339Z","document":{"title":"Custom Render Pipeline","link":[{"href":"urn:x-pdf:43a511de2f13b3a0e3ec2f97c3aa0a76"},{"href":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf"}],"documentFingerprint":"43a511de2f13b3a0e3ec2f97c3aa0a76"},"uri":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf","target":[{"source":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf","selector":[{"type":"TextPositionSelector","start":14781,"end":15035},{"type":"TextQuoteSelector","exact":"We can use command buffers to inject profiler samples, which will show up both in the profilerand the frame debugger. This is done by invoking BeginSample and EndSample at the appropriatepoints, which is at the beginning of Setup and Submit in our case. ","prefix":"ject initializer syntax is used.","suffix":"Both methods must beprovided wit"}]}]}
+>{"text":"为了能够使得profiler和frame debugger正常工作，需要调用`BeginSample`和`EndSample`方法。在执行渲染命令前，开始采样，提交命令前，结束采样","target":[{"source":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf","selector":[{"type":"TextPositionSelector","start":14781,"end":15035},{"type":"TextQuoteSelector","exact":"We can use command buffers to inject profiler samples, which will show up both in the profilerand the frame debugger. This is done by invoking BeginSample and EndSample at the appropriatepoints, which is at the beginning of Setup and Submit in our case. ","prefix":"ject initializer syntax is used.","suffix":"Both methods must beprovided wit"}]}],"created":"2024-05-21T04:48:06.339Z","updated":"2024-05-21T04:48:06.339Z","document":{"title":"Custom Render Pipeline","link":[{"href":"urn:x-pdf:43a511de2f13b3a0e3ec2f97c3aa0a76"},{"href":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf"}],"documentFingerprint":"43a511de2f13b3a0e3ec2f97c3aa0a76"},"uri":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf"}
 >```
 >%%
 >*%%PREFIX%%ject initializer syntax is used.%%HIGHLIGHT%% ==We can use command buffers to inject profiler samples, which will show up both in the profilerand the frame debugger. This is done by invoking BeginSample and EndSample at the appropriatepoints, which is at the beginning of Setup and Submit in our case.== %%POSTFIX%%Both methods must beprovided wit*
 >%%LINK%%[[#^r9kswjpuppc|show annotation]]
 >%%COMMENT%%
->为了能够使得profiler和frame debugger正常工作，需要调用`BeginSample·和`EndSample`方法
+>为了能够使得profiler和frame debugger正常工作，需要调用`BeginSample`和`EndSample`方法。在执行渲染命令前，开始采样，提交命令前，结束采样
 >%%TAGS%%
 >
 ^r9kswjpuppc
 
 >%%
 >```annotation-json
->{"created":"2024-05-21T04:50:47.739Z","text":"使用`ExecuteCommandBuffer`方法，可以执行缓冲区中的命令。该操作是复制命令到渲染管线中执行渲染。","updated":"2024-05-21T04:50:47.739Z","document":{"title":"Custom Render Pipeline","link":[{"href":"urn:x-pdf:43a511de2f13b3a0e3ec2f97c3aa0a76"},{"href":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf"}],"documentFingerprint":"43a511de2f13b3a0e3ec2f97c3aa0a76"},"uri":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf","target":[{"source":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf","selector":[{"type":"TextPositionSelector","start":15397,"end":15619},{"type":"TextQuoteSelector","exact":"To execute the buffer, invoke ExecuteCommandBuffer on the context with the buffer as anargument. That copies the commands from the buffer but doesn't clear it, we have to do thatexplicitly afterwards if we want to reuse it","prefix":"rp/custom-render-pipeline/ 11/40","suffix":". Because execution and clearing"}]}]}
+>{"text":"使用`ExecuteCommandBuffer`方法，可以执行缓冲区中的命令。该操作是复制命令到渲染管线中执行渲染。在提交命令前，将缓冲区中的命令与设置复制到管线中。","target":[{"source":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf","selector":[{"type":"TextPositionSelector","start":15397,"end":15619},{"type":"TextQuoteSelector","exact":"To execute the buffer, invoke ExecuteCommandBuffer on the context with the buffer as anargument. That copies the commands from the buffer but doesn't clear it, we have to do thatexplicitly afterwards if we want to reuse it","prefix":"rp/custom-render-pipeline/ 11/40","suffix":". Because execution and clearing"}]}],"created":"2024-05-21T04:50:47.739Z","updated":"2024-05-21T04:50:47.739Z","document":{"title":"Custom Render Pipeline","link":[{"href":"urn:x-pdf:43a511de2f13b3a0e3ec2f97c3aa0a76"},{"href":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf"}],"documentFingerprint":"43a511de2f13b3a0e3ec2f97c3aa0a76"},"uri":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf"}
 >```
 >%%
 >*%%PREFIX%%rp/custom-render-pipeline/ 11/40%%HIGHLIGHT%% ==To execute the buffer, invoke ExecuteCommandBuffer on the context with the buffer as anargument. That copies the commands from the buffer but doesn't clear it, we have to do thatexplicitly afterwards if we want to reuse it== %%POSTFIX%%. Because execution and clearing*
 >%%LINK%%[[#^62gifbftckh|show annotation]]
 >%%COMMENT%%
->使用`ExecuteCommandBuffer`方法，可以执行缓冲区中的命令。该操作是复制命令到渲染管线中执行渲染。
+>使用`ExecuteCommandBuffer`方法，可以执行缓冲区中的命令。该操作是复制命令到渲染管线中执行渲染。在提交命令前，将缓冲区中的命令与设置复制到管线中。
 >%%TAGS%%
 >
 ^62gifbftckh
@@ -168,13 +168,13 @@ Project Setting中的Graphics和Quality Settings共同决定了活动渲染管�
 
 >%%
 >```annotation-json
->{"created":"2024-05-21T07:31:02.522Z","text":"在绘制时，先使用`ClearRenderTarget`清除上一次渲染上下文。这样会在Fream Debugger中产生一个新的条目`Draw GL`","updated":"2024-05-21T07:31:02.522Z","document":{"title":"Custom Render Pipeline","link":[{"href":"urn:x-pdf:43a511de2f13b3a0e3ec2f97c3aa0a76"},{"href":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf"}],"documentFingerprint":"43a511de2f13b3a0e3ec2f97c3aa0a76"},"uri":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf","target":[{"source":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf","selector":[{"type":"TextPositionSelector","start":17069,"end":17097},{"type":"TextQuoteSelector","exact":"Clearing, with nested sample","prefix":".SetupCameraProperties(camera);}","suffix":".The frame debugger now shows a "}]}]}
+>{"text":"每次绘制时，应使用`ClearRenderTarget`清除上一次渲染上下文。这样会在Fream Debugger中产生一个新的条目`Draw GL`，该条目就代表着清除","target":[{"source":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf","selector":[{"type":"TextPositionSelector","start":17069,"end":17097},{"type":"TextQuoteSelector","exact":"Clearing, with nested sample","prefix":".SetupCameraProperties(camera);}","suffix":".The frame debugger now shows a"}]}],"created":"2024-05-21T07:31:02.522Z","updated":"2024-05-21T07:31:02.522Z","document":{"title":"Custom Render Pipeline","link":[{"href":"urn:x-pdf:43a511de2f13b3a0e3ec2f97c3aa0a76"},{"href":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf"}],"documentFingerprint":"43a511de2f13b3a0e3ec2f97c3aa0a76"},"uri":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf"}
 >```
 >%%
 >*%%PREFIX%%.SetupCameraProperties(camera);}%%HIGHLIGHT%% ==Clearing, with nested sample== %%POSTFIX%%.The frame debugger now shows a*
 >%%LINK%%[[#^k20tttq4r7|show annotation]]
 >%%COMMENT%%
->在绘制时，先使用`ClearRenderTarget`清除上一次渲染上下文。这样会在Fream Debugger中产生一个新的条目`Draw GL`，该条目就代表着清除
+>每次绘制时，应使用`ClearRenderTarget`清除上一次渲染上下文。这样会在Fream Debugger中产生一个新的条目`Draw GL`，该条目就代表着清除
 >%%TAGS%%
 >
 ^k20tttq4r7
