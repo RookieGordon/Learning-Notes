@@ -5,6 +5,15 @@ tags:
   - Shader
 annotation-target: Custom Render Pipeline.pdf
 ---
+
+```cardlink
+url: https://www.cnblogs.com/unity2018/p/8492463.html
+title: "可编程脚本渲染管线SRP - Unity官方平台 - 博客园"
+description: "Unity 2018.1 beta中引入的Scriptable Render Pipeline可编程脚本渲染管线，简称SRP。是一种在Unity中通过C#脚本配置和执行渲染的方式。在编写自定义渲染管线之前，必须要先理解渲染管线的含义。本文将帮助你开始学习编写自定义SRP。 本文演示项目，请访问Git"
+host: www.cnblogs.com
+```
+
+[Fetching Data#jx84](https://max2d.com/archives/1031)
 # 一个新的渲染管道
 
 ## 项目设置
@@ -199,3 +208,5 @@ Project Setting中的Graphics和Quality Settings共同决定了活动渲染管�
 >%%TAGS%%
 >
 ^1vdf0to5kej
+可以通过修改`cullingOptions`字段来配置剔除，例如：`cullingParameters.cullingOptions &= ~CullingOptions.OcclusionCull`
+
