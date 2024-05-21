@@ -210,3 +210,17 @@ Project Setting中的Graphics和Quality Settings共同决定了活动渲染管�
 
 ## 绘制几何物体
 
+
+
+>%%
+>```annotation-json
+>{"created":"2024-05-21T14:40:07.827Z","text":"向`DrawRenderers `方法提供剔除（`CullingResults`），绘制（`DrawingSettings`）和筛选（`FilteringSettings`）设置后，才能正确绘制场景中的物体","updated":"2024-05-21T14:40:07.827Z","document":{"title":"Custom Render Pipeline","link":[{"href":"urn:x-pdf:43a511de2f13b3a0e3ec2f97c3aa0a76"},{"href":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf"}],"documentFingerprint":"43a511de2f13b3a0e3ec2f97c3aa0a76"},"uri":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf","target":[{"source":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf","selector":[{"type":"TextPositionSelector","start":21843,"end":22115},{"type":"TextQuoteSelector","exact":"Once we know what is visible we can move on to rendering those things. That is done byinvoking DrawRenderers on the context with the culling results as an argument, telling it whichrenderers to use. Besides that, we have to supply drawing settings and filtering settings. ","prefix":"eline/ 16/402.6 Drawing Geometry","suffix":"Both arestructs—DrawingSettings "}]}]}
+>```
+>%%
+>*%%PREFIX%%eline/ 16/402.6 Drawing Geometry%%HIGHLIGHT%% ==Once we know what is visible we can move on to rendering those things. That is done byinvoking DrawRenderers on the context with the culling results as an argument, telling it whichrenderers to use. Besides that, we have to supply drawing settings and filtering settings.== %%POSTFIX%%Both arestructs—DrawingSettings*
+>%%LINK%%[[#^xg6z1wfgpz|show annotation]]
+>%%COMMENT%%
+>向`DrawRenderers `方法提供剔除（`CullingResults`），绘制（`DrawingSettings`）和筛选（`FilteringSettings`）设置后，才能正确绘制场景中的物体
+>%%TAGS%%
+>
+^xg6z1wfgpz
