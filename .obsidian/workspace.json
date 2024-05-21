@@ -14,7 +14,7 @@
               "type": "markdown",
               "state": {
                 "file": "Slurped Pages/可编程脚本渲染管线SRP - Unity官方平台 - 博客园.md",
-                "mode": "preview",
+                "mode": "source",
                 "source": false
               }
             }
@@ -152,8 +152,11 @@
   },
   "active": "9568049592d017e5",
   "lastOpenFiles": [
-    "Custom SRP/Custom Render Pipeline.md",
+    "ReadItLater Inbox/可编程脚本渲染管线SRP - Unity官方平台 - 博客园.md",
+    "ReadItLater Inbox/assets",
+    "ReadItLater Inbox",
     "Slurped Pages/可编程脚本渲染管线SRP - Unity官方平台 - 博客园.md",
+    "Custom SRP/Custom Render Pipeline.md",
     "Slurped Pages",
     "Untitled.sheet",
     "Custom SRP/attachments/（图解3）设置摄像机属性后，再清理上下文.png",
@@ -191,14 +194,10 @@
     "计算机图形学—从0开始构建一个OpenGL软光栅/空间变换.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/高级渲染管线功能.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/光照模型.md",
-    "计算机图形学—从0开始构建一个OpenGL软光栅/渲染管线.md",
-    "【Unity技术美术】URP Shader训练营/URP-Shader.md",
     "【Unity技术美术】URP Shader训练营/attachments/（图解7）SRP合批流程.png",
     "【Unity技术美术】URP Shader训练营/attachments/（图解6）标准流程和SRPBatcher流程的区别.png",
     "【Unity技术美术】URP Shader训练营/attachments/Forward Rendering vs Deferred Rendering.pdf",
     "【Unity技术美术】URP Shader训练营/attachments",
-    "可使用括在方括号中的属性名称来访问属性值：",
-    "Excalidraw/Scripts/Downloaded",
     "计算机图形学—从0开始构建一个OpenGL软光栅/从0开始构建OpenGL软光栅.canvas",
     "未命名.canvas"
   ]
