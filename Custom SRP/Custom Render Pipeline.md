@@ -187,13 +187,6 @@ Project Setting中的Graphics和Quality Settings共同决定了活动渲染管�
 
 ## 剔除
 
-
-
-
-
-
-
-
 >%%
 >```annotation-json
 >{"created":"2024-05-21T08:34:16.175Z","text":"可以通过修改获取到的`ScriptableCullingParameters`来控制剔除","updated":"2024-05-21T08:34:16.175Z","document":{"title":"Custom Render Pipeline","link":[{"href":"urn:x-pdf:43a511de2f13b3a0e3ec2f97c3aa0a76"},{"href":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf"}],"documentFingerprint":"43a511de2f13b3a0e3ec2f97c3aa0a76"},"uri":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf","target":[{"source":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf","selector":[{"type":"TextPositionSelector","start":19015,"end":19260},{"type":"TextQuoteSelector","exact":"Figuring out what can be culled requires us to keep track of multiple camera settings andmatrices, for which we can use the ScriptableCullingParameters struct. Instead of filling itourselves, we can invoke TryGetCullingParameters on the camera. ","prefix":" the view frustum of the camera.","suffix":"It returns whether theparameters"}]}]}
@@ -210,8 +203,6 @@ Project Setting中的Graphics和Quality Settings共同决定了活动渲染管�
 
 ## 绘制几何物体
 
-
-
 >%%
 >```annotation-json
 >{"created":"2024-05-21T14:40:07.827Z","text":"向`DrawRenderers `方法提供剔除（`CullingResults`），绘制（`DrawingSettings`）和筛选（`FilteringSettings`）设置后，才能正确绘制场景中的物体","updated":"2024-05-21T14:40:07.827Z","document":{"title":"Custom Render Pipeline","link":[{"href":"urn:x-pdf:43a511de2f13b3a0e3ec2f97c3aa0a76"},{"href":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf"}],"documentFingerprint":"43a511de2f13b3a0e3ec2f97c3aa0a76"},"uri":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf","target":[{"source":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf","selector":[{"type":"TextPositionSelector","start":21843,"end":22115},{"type":"TextQuoteSelector","exact":"Once we know what is visible we can move on to rendering those things. That is done byinvoking DrawRenderers on the context with the culling results as an argument, telling it whichrenderers to use. Besides that, we have to supply drawing settings and filtering settings. ","prefix":"eline/ 16/402.6 Drawing Geometry","suffix":"Both arestructs—DrawingSettings "}]}]}
@@ -224,3 +215,7 @@ Project Setting中的Graphics和Quality Settings共同决定了活动渲染管�
 >%%TAGS%%
 >
 ^xg6z1wfgpz
+
+## 分别绘制不透明和透明几何图形
+
+到此，绘制了所有不透明的物体，这其中，天空盒是最后绘制的，其他物体或多或少的从前到后绘制。
