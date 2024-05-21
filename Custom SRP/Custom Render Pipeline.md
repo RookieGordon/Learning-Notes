@@ -171,5 +171,15 @@ Project Setting中的Graphics和Quality Settings共同决定了活动渲染管�
 >%%TAGS%%
 >
 ^k20tttq4r7
+
 ![[（图解2）ClearRenderTarget的Frame Debbugger显示.png|530]]
-从图中可以看出，`ClearRenderTarget`步骤，使用了`Hidden/InternalClear`这个Shader
+从图中可以看出，`ClearRenderTarget`步骤，使用了`Hidden/InternalClear`这个Shader，该Shader所做的事情，就是绘制一个全屏四边形，但是其实这并不是最有效的方法，在设置摄像机属性后，进行清理，才是最高效的方法：
+
+![[（图解3）设置摄像机属性后，再清理上下文.png|570]]
+可以发现，这时候就没有执行任何着色器，而是直接清理了颜色和深度缓冲区，以及模板数据。
+
+## 剔除
+
+
+
+
