@@ -13,8 +13,8 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Slurped Pages/可编程脚本渲染管线SRP - Unity官方平台 - 博客园.md",
-                "mode": "source",
+                "file": "Custom SRP/Custom Render Pipeline.md",
+                "mode": "preview",
                 "source": false
               }
             }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Slurped Pages/可编程脚本渲染管线SRP - Unity官方平台 - 博客园.md",
+                "file": "Custom SRP/Custom Render Pipeline.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Slurped Pages/可编程脚本渲染管线SRP - Unity官方平台 - 博客园.md",
+                "file": "Custom SRP/Custom Render Pipeline.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Slurped Pages/可编程脚本渲染管线SRP - Unity官方平台 - 博客园.md"
+                "file": "Custom SRP/Custom Render Pipeline.md"
               }
             }
           }
@@ -152,10 +152,11 @@
   },
   "active": "9568049592d017e5",
   "lastOpenFiles": [
+    "Building Quality Shaders for Unity/Building Quality Shaders for Unity.md",
+    "Slurped Pages/可编程脚本渲染管线SRP - Unity官方平台 - 博客园.md",
     "ReadItLater Inbox/可编程脚本渲染管线SRP - Unity官方平台 - 博客园.md",
     "ReadItLater Inbox/assets",
     "ReadItLater Inbox",
-    "Slurped Pages/可编程脚本渲染管线SRP - Unity官方平台 - 博客园.md",
     "Custom SRP/Custom Render Pipeline.md",
     "Slurped Pages",
     "Untitled.sheet",
