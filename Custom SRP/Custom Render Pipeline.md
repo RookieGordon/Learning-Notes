@@ -158,13 +158,13 @@ Project Setting中的Graphics和Quality Settings共同决定了活动渲染管�
 >%%LINK%%[[#^62gifbftckh|show annotation]]
 >%%COMMENT%%
 >使用`ExecuteCommandBuffer`方法，可以执行缓冲区中的命令。该操作是复制命令到渲染管线中执行渲染。
->这样就可以在Frame Debugger中，看到自定义的渲染命令缓冲区了
->![[（图解1）渲染命令缓冲区名称.png]]
 >%%TAGS%%
 >
 ^62gifbftckh
 
-
+这样就可以在Frame Debugger中，看到自定义的渲染命令缓冲区了
+![[（图解1）渲染命令缓冲区名称.png]]
+另外可以看到，渲染天空盒用的
 
 ## 清除渲染目标
 
