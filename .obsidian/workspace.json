@@ -8,18 +8,31 @@
         "type": "tabs",
         "children": [
           {
-            "id": "9568049592d017e5",
+            "id": "9caec846aaffcc27",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Slurped Pages/Unity SRP搞事（一）基本管线.md",
+                "file": "Slurped Pages/【Unity Shader】在URP里写Shader（三）：URP简单光照Shader.md",
                 "mode": "source",
                 "source": false
               }
             }
+          },
+          {
+            "id": "568646db4bbf2213",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "【Unity技术美术】URP Shader训练营/URP-Shader基本结构.md",
+                "mode": "preview",
+                "source": false
+              }
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -85,7 +98,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Slurped Pages/Unity SRP搞事（一）基本管线.md",
+                "file": "【Unity技术美术】URP Shader训练营/URP-Shader基本结构.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +115,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Slurped Pages/Unity SRP搞事（一）基本管线.md",
+                "file": "【Unity技术美术】URP Shader训练营/URP-Shader基本结构.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -125,7 +138,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Slurped Pages/Unity SRP搞事（一）基本管线.md"
+                "file": "【Unity技术美术】URP Shader训练营/URP-Shader基本结构.md"
               }
             }
           }
@@ -150,11 +163,29 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "9568049592d017e5",
+  "active": "568646db4bbf2213",
   "lastOpenFiles": [
-    "Slurped Pages/可编程脚本渲染管线SRP - Unity官方平台 - 博客园.md",
+    "【Unity技术美术】URP Shader训练营/URP-Shader中的Pass通道.md",
+    "【Unity技术美术】URP Shader训练营/Unity通用渲染管线的Lit.shader.md",
+    "【Unity技术美术】URP Shader训练营/Shader基础操作.md",
+    "【Unity技术美术】URP Shader训练营/自定义BlinnPhong光照URP-Shader.md",
+    "Slurped Pages/【Unity Shader】在URP里写Shader（三）：URP简单光照Shader.md",
+    "Slurped Pages/Shader：优化破解变体的“影分身”之术.md",
+    "【Unity技术美术】URP Shader训练营/自定义无光照URP-Shader.md",
+    "【Unity技术美术】URP Shader训练营/自定义漫反射URP-Shader.md",
+    "【Unity技术美术】URP Shader训练营/编写自定义URP Shader.md",
+    "Slurped Pages/图形引擎实战：Unity Shader变体管理流程.md",
+    "Slurped Pages/第9章 着色器编译、分支和变体.md",
+    "Slurped Pages/Unity通用渲染管线（URP）系列（五）——烘焙光（Baked Light）.md",
+    "Slurped Pages/URP源码阅读之GI.md",
+    "Slurped Pages/Unity SRP 管线【第五讲：自定义烘培光照】_samplesinglelightmap-CSDN博客.md",
+    "Slurped Pages/Unity SRP 管线【第五讲：URP烘培光照】_urpshader实现光照烘焙-CSDN博客.md",
+    "Slurped Pages/Unity URP 中的 GI.md",
+    "【Unity技术美术】URP Shader训练营/【Unity技术美术】URP Shader训练营.md",
+    "Custom SRP/Custom SRP.md",
     "Custom SRP/Custom Render Pipeline.md",
     "Slurped Pages/Unity SRP搞事（一）基本管线.md",
+    "Slurped Pages/可编程脚本渲染管线SRP - Unity官方平台 - 博客园.md",
     "Building Quality Shaders for Unity/Building Quality Shaders for Unity.md",
     "ReadItLater Inbox/可编程脚本渲染管线SRP - Unity官方平台 - 博客园.md",
     "ReadItLater Inbox/assets",
@@ -168,33 +199,15 @@
     "计算机图形学—从0开始构建一个OpenGL软光栅/计算机图形学—从0开始构建一个OpenGL软光栅.md",
     "C++/C++.canvas",
     "Custom SRP/Drawing 2024-05-20 18.27.51.excalidraw.md",
-    "Custom SRP/Custom SRP.md",
     "Custom SRP/attachments/Custom Render Pipeline.pdf",
     "Excalidraw/Scripts/Downloaded/Relative Font Size Cycle.md",
     "Excalidraw/Scripts/Downloaded/Relative Font Size Cycle.svg",
     "Custom SRP/attachments/Pasted image 20240520130000.png",
     "Custom SRP/attachments",
-    "【Unity技术美术】URP Shader训练营/URP-Shader中的Pass通道.md",
-    "【Unity技术美术】URP Shader训练营/编写自定义URP Shader.md",
     "Custom SRP",
-    "【Unity技术美术】URP Shader训练营/URP-Shader中的SubShader.md",
-    "【Unity技术美术】URP Shader训练营/URP-Shader基本结构.md",
-    "【Unity技术美术】URP Shader训练营/Unity通用渲染管线的Lit.shader.md",
-    "【Unity技术美术】URP Shader训练营/Shader基础操作.md",
-    "【Unity技术美术】URP Shader训练营/自定义BlinnPhong光照URP-Shader.md",
-    "【Unity技术美术】URP Shader训练营/自定义无光照URP-Shader.md",
-    "【Unity技术美术】URP Shader训练营/自定义漫反射URP-Shader.md",
-    "【Unity技术美术】URP Shader训练营/【Unity技术美术】URP Shader训练营.md",
     "【Unity技术美术】URP Shader训练营/attachments/8a54268f16e147da8bbd79f7cbf579cd.gif",
-    "技术美术入门/技术美术入门.md",
-    "技术美术入门/Map&Texture贴图和纹理.md",
-    "技术美术入门/ShaderGraph入门.md",
-    "技术美术入门/Unity中的Material和Shader着色器.md",
     "【Unity技术美术】URP Shader训练营/attachments/（图解8）配置额外光照使用顶点光.png",
     "【Unity技术美术】URP Shader训练营/attachments/[Universal RP]Unity通用渲染管线的Lit.shader - 知乎.pdf",
-    "计算机图形学—从0开始构建一个OpenGL软光栅/摄像机系统.md",
-    "计算机图形学—从0开始构建一个OpenGL软光栅/空间变换.md",
-    "计算机图形学—从0开始构建一个OpenGL软光栅/高级渲染管线功能.md",
     "【Unity技术美术】URP Shader训练营/attachments/（图解7）SRP合批流程.png",
     "【Unity技术美术】URP Shader训练营/attachments/（图解6）标准流程和SRPBatcher流程的区别.png",
     "【Unity技术美术】URP Shader训练营/attachments/Forward Rendering vs Deferred Rendering.pdf",

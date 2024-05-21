@@ -218,29 +218,11 @@ Shader "Custom/Unlit/BasicUnlitShader"
 
 ## 着色器条件指令
 
-```cardlink
-url: https://zhuanlan.zhihu.com/p/623658954
-title: "图形引擎实战：Unity Shader变体管理流程"
-description: "一、什么是Shader变体管理 想要回答这个问题，要看看什么是Shader变体。 1. 变体 我们用ShaderLab编写Unity中的Shader，当我们需要让Shader同时满足多个需求，例如说，这个是否支持阴影，此时就需要加keyword（关…"
-host: zhuanlan.zhihu.com
-image: https://pica.zhimg.com/v2-99336070095cfc25f84a194507861c31_720w.jpg?source=172ae18b
-```
+### [[图形引擎实战：Unity Shader变体管理流程]]
 
-```cardlink
-url: https://zhuanlan.zhihu.com/p/687237122
-title: "第9章 着色器编译、分支和变体"
-description: "本文为《Become a Unity Shader Guru》第9章粗略翻译及学习笔记，原书请见 Become a Unity Shaders Guru-Packt2023请支持正版书籍 章节列表在本书的前半部分，我们讨论了各种着色技术，这些技术可以帮助您在游戏项…"
-host: zhuanlan.zhihu.com
-```
+### [[第9章 着色器编译、分支和变体]]
 
-```cardlink
-url: https://zhuanlan.zhihu.com/p/337308829
-title: "Shader：优化破解变体的“影分身”之术"
-description: "本期我们将剖析刚上新的 Shader Analyzer中和Shader变体相关的规则：“Build后生成变体数过多的Shader”、“项目中可能生成变体数过多的Shader”和“项目中全局关键字过多的Shader”。我们将力图以浅显易懂的表达…"
-host: zhuanlan.zhihu.com
-image: https://pica.zhimg.com/v2-1aef0a99505ca22359d7f6d16ae67108_720w.jpg?source=172ae18b
-```
-
+### [[Shader：优化破解变体的“影分身”之术]]
 
 可以使用以下着色器指令之一：
 

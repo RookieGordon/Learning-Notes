@@ -4,15 +4,7 @@ tags:
   - URP
   - Shader
 ---
-
-
-```cardlink
-url: https://zhuanlan.zhihu.com/p/336670858
-title: "【Unity Shader】在URP里写Shader（三）：URP简单光照Shader"
-description: "Acshy：【Unity Shader】在URP里写Shader（一）：介绍-从Built-In到URP Acshy：【Unity Shader】在URP里写Shader（二）：从一个Unlit Shader开始 Acshy：【Unity Shader】在URP里写Shader（三）：URP简单光照Shade…"
-host: zhuanlan.zhihu.com
-image: https://picx.zhimg.com/v2-7e3387f72295cd8fa16f93a627024abc_720w.jpg?source=172ae18b
-```
+## [[【Unity Shader】在URP里写Shader（三）：URP简单光照Shader]]
 
 ```HLSL
 Shader "Custom/Lit/Basic/SimpleLitShader"  

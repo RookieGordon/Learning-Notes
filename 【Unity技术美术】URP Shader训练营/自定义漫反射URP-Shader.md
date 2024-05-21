@@ -111,39 +111,12 @@ Pass
 
 ## Unity中的GI
 
-```cardlink
-url: https://zhuanlan.zhihu.com/p/684579536
-title: "Unity URP 中的 GI"
-description: "记录一下 Unity 中的 GI 系统在 Unity URP Shader 中的使用 OverviewGI 包括静态 GI 和动态 GI，静态 GI 由 Baked GI System 贡献，动态 GI 由 Enlighten Lighting System 贡献 将场景的 Lighting Mode 设置为 Sha…"
-host: zhuanlan.zhihu.com
-```
+### [[Unity URP 中的 GI]]
 
-```cardlink
-url: https://blog.csdn.net/weixin_44518102/article/details/135383085
-title: "Unity SRP 管线【第五讲：URP烘培光照】_urpshader实现光照烘焙-CSDN博客"
-description: "文章浏览阅读1.4k次，点赞24次，收藏24次。本节，我们将跟随数据流向讲解UEP管线中的烘培光照。_urpshader实现光照烘焙"
-host: blog.csdn.net
-```
+### [[Unity SRP 管线【第五讲：URP烘培光照】_urpshader实现光照烘焙-CSDN博客]]
 
-```cardlink
-url: https://blog.csdn.net/weixin_44518102/article/details/135085765
-title: "Unity SRP 管线【第五讲：自定义烘培光照】_samplesinglelightmap-CSDN博客"
-description: "文章浏览阅读1.1k次，点赞21次，收藏28次。细节内容详见catlike 这里只做效果展示！！！！_samplesinglelightmap"
-host: blog.csdn.net
-```
+### [[Unity SRP 管线【第五讲：自定义烘培光照】_samplesinglelightmap-CSDN博客]]
 
-```cardlink
-url: https://zhuanlan.zhihu.com/p/393639054
-title: "URP源码阅读之GI"
-description: "一、传递数据给GPU Unity在GPU渲染物体时如果想使用lightmap或lightprobe等信息，首先需要通知Unity把这些相关数据传递给GPU。这个是通过设置DrawingSettings里面的perObjectData实现的，具体的URP代码如下： 通过…"
-host: zhuanlan.zhihu.com
-image: https://picx.zhimg.com/v2-d64b539cbf04be1838a4f7c1e967f8b5_720w.jpg?source=172ae18b
-```
+### [[URP源码阅读之GI]]
 
-```cardlink
-url: https://zhuanlan.zhihu.com/p/337121368
-title: "Unity通用渲染管线（URP）系列（五）——烘焙光（Baked Light）"
-description: "200+篇教程总入口，欢迎收藏：放牛的星星：[教程汇总+持续更新]Unity从入门到入坟——收藏这一篇就够了本章主要内容： 1、烘焙静态的全局光照 2、采样光贴图、探针和LPPVs。 3、创建元通道（meta pass） 4、支持自…"
-host: zhuanlan.zhihu.com
-image: https://picx.zhimg.com/v2-daa0c77a118c750f54d79bd9c665be4e_720w.jpg?source=172ae18b
-```
+### [[Unity通用渲染管线（URP）系列（五）——烘焙光（Baked Light）]]
