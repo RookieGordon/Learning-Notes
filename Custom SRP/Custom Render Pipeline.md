@@ -130,3 +130,6 @@ Project Setting中的Graphics和Quality Settings共同决定了活动渲染管�
 ## 命令缓冲区
 
 在我们提交之前，上下文会延迟实际渲染。在此之前，我们要对其进行配置，并添加命令供稍后执行。
+
+在`CameraRenderer`中，创建一个`CommandBuffer`对象，用于设置渲染命令。
+
