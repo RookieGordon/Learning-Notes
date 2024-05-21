@@ -147,3 +147,22 @@ Project Setting中的Graphics和Quality Settings共同决定了活动渲染管�
 >%%TAGS%%
 >
 ^r9kswjpuppc
+
+
+>%%
+>```annotation-json
+>{"created":"2024-05-21T04:50:47.739Z","text":"使用`ExecuteCommandBuffer`方法，可以执行缓冲区中的命令。该操作是复制命令到渲染管线中执行渲染。","updated":"2024-05-21T04:50:47.739Z","document":{"title":"Custom Render Pipeline","link":[{"href":"urn:x-pdf:43a511de2f13b3a0e3ec2f97c3aa0a76"},{"href":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf"}],"documentFingerprint":"43a511de2f13b3a0e3ec2f97c3aa0a76"},"uri":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf","target":[{"source":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf","selector":[{"type":"TextPositionSelector","start":15397,"end":15619},{"type":"TextQuoteSelector","exact":"To execute the buffer, invoke ExecuteCommandBuffer on the context with the buffer as anargument. That copies the commands from the buffer but doesn't clear it, we have to do thatexplicitly afterwards if we want to reuse it","prefix":"rp/custom-render-pipeline/ 11/40","suffix":". Because execution and clearing"}]}]}
+>```
+>%%
+>*%%PREFIX%%rp/custom-render-pipeline/ 11/40%%HIGHLIGHT%% ==To execute the buffer, invoke ExecuteCommandBuffer on the context with the buffer as anargument. That copies the commands from the buffer but doesn't clear it, we have to do thatexplicitly afterwards if we want to reuse it== %%POSTFIX%%. Because execution and clearing*
+>%%LINK%%[[#^62gifbftckh|show annotation]]
+>%%COMMENT%%
+>使用`ExecuteCommandBuffer`方法，可以执行缓冲区中的命令。该操作是复制命令到渲染管线中执行渲染。
+>这样就可以在Frame Debugger中，看到自定义的渲染命令缓冲区了
+>![[（图解1）渲染命令缓冲区名称.png]]
+>%%TAGS%%
+>
+^62gifbftckh
+
+## 清除渲染目标
+
