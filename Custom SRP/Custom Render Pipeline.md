@@ -164,5 +164,21 @@ Project Setting中的Graphics和Quality Settings共同决定了活动渲染管�
 >
 ^62gifbftckh
 
+
+
 ## 清除渲染目标
 
+
+
+>%%
+>```annotation-json
+>{"created":"2024-05-21T07:31:02.522Z","text":"在绘制时，先使用`ClearRenderTarget`清除上一次渲染上下文。这样会在Fream Debugger中产生一个新的条目`Draw GL`","updated":"2024-05-21T07:31:02.522Z","document":{"title":"Custom Render Pipeline","link":[{"href":"urn:x-pdf:43a511de2f13b3a0e3ec2f97c3aa0a76"},{"href":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf"}],"documentFingerprint":"43a511de2f13b3a0e3ec2f97c3aa0a76"},"uri":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf","target":[{"source":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf","selector":[{"type":"TextPositionSelector","start":17069,"end":17097},{"type":"TextQuoteSelector","exact":"Clearing, with nested sample","prefix":".SetupCameraProperties(camera);}","suffix":".The frame debugger now shows a "}]}]}
+>```
+>%%
+>*%%PREFIX%%.SetupCameraProperties(camera);}%%HIGHLIGHT%% ==Clearing, with nested sample== %%POSTFIX%%.The frame debugger now shows a*
+>%%LINK%%[[#^k20tttq4r7|show annotation]]
+>%%COMMENT%%
+>在绘制时，先使用`ClearRenderTarget`清除上一次渲染上下文。这样会在Fream Debugger中产生一个新的条目`Draw GL`
+>%%TAGS%%
+>
+^k20tttq4r7
