@@ -4,12 +4,12 @@
   "obsidian-style-settings",
   "editing-toolbar",
   "collapse-node",
-  "obsidian42-brat",
   "attachment-flow-plugin",
   "auto-card-link",
   "link-favicon",
   "obsidian-excalidraw-plugin",
-  "spreadsheets",
   "markdown-table-editor",
-  "obsidian-annotator"
+  "obsidian-annotator",
+  "slurp",
+  "obsidian-read-it-later"
 ]

@@ -13,8 +13,8 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Custom SRP/Custom Render Pipeline.md",
-                "mode": "source",
+                "file": "Slurped Pages/可编程脚本渲染管线SRP - Unity官方平台 - 博客园.md",
+                "mode": "preview",
                 "source": false
               }
             }
@@ -69,8 +69,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 387.5,
-    "collapsed": true
+    "width": 387.5
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -86,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Custom SRP/Custom Render Pipeline.md",
+                "file": "Slurped Pages/可编程脚本渲染管线SRP - Unity官方平台 - 博客园.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Custom SRP/Custom Render Pipeline.md",
+                "file": "Slurped Pages/可编程脚本渲染管线SRP - Unity官方平台 - 博客园.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -126,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Custom SRP/Custom Render Pipeline.md"
+                "file": "Slurped Pages/可编程脚本渲染管线SRP - Unity官方平台 - 博客园.md"
               }
             }
           }
@@ -146,15 +145,17 @@
       "daily-notes:打开/创建今天的日记": false,
       "templates:插入模板": false,
       "command-palette:打开命令面板": false,
-      "spreadsheets:New Spreadsheet": false,
       "markdown-table-editor:Open Markdown Table Editor": false,
-      "obsidian42-brat:BRAT": false,
       "obsidian-importer:Open Importer": false,
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
   "active": "9568049592d017e5",
   "lastOpenFiles": [
+    "Custom SRP/Custom Render Pipeline.md",
+    "Slurped Pages/可编程脚本渲染管线SRP - Unity官方平台 - 博客园.md",
+    "Slurped Pages",
+    "Untitled.sheet",
     "Custom SRP/attachments/（图解3）设置摄像机属性后，再清理上下文.png",
     "Custom SRP/attachments/（图解2）ClearRenderTarget的Frame Debbugger显示.png",
     "Custom SRP/attachments/（图解1）渲染命令缓冲区名称.png",
@@ -163,7 +164,6 @@
     "C++/C++.canvas",
     "Custom SRP/Drawing 2024-05-20 18.27.51.excalidraw.md",
     "Custom SRP/Custom SRP.md",
-    "Custom SRP/Custom Render Pipeline.md",
     "Custom SRP/attachments/Custom Render Pipeline.pdf",
     "Excalidraw/Scripts/Downloaded/Relative Font Size Cycle.md",
     "Excalidraw/Scripts/Downloaded/Relative Font Size Cycle.svg",
@@ -195,13 +195,10 @@
     "【Unity技术美术】URP Shader训练营/URP-Shader.md",
     "【Unity技术美术】URP Shader训练营/attachments/（图解7）SRP合批流程.png",
     "【Unity技术美术】URP Shader训练营/attachments/（图解6）标准流程和SRPBatcher流程的区别.png",
-    "【Unity技术美术】URP Shader训练营/attachments/（图解5）SRP Batcher 渲染工作流程.png",
     "【Unity技术美术】URP Shader训练营/attachments/Forward Rendering vs Deferred Rendering.pdf",
-    "Untitled.sheet",
     "【Unity技术美术】URP Shader训练营/attachments",
     "可使用括在方括号中的属性名称来访问属性值：",
     "Excalidraw/Scripts/Downloaded",
-    "Excalidraw/Scripts",
     "计算机图形学—从0开始构建一个OpenGL软光栅/从0开始构建OpenGL软光栅.canvas",
     "未命名.canvas"
   ]
