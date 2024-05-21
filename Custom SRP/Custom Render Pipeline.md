@@ -133,3 +133,17 @@ Project Setting中的Graphics和Quality Settings共同决定了活动渲染管�
 
 在`CameraRenderer`中，创建一个`CommandBuffer`对象，用于设置渲染命令。
 
+
+
+>%%
+>```annotation-json
+>{"created":"2024-05-21T04:48:06.339Z","text":"为了能够使得profiler和frame debugger正常工作，需要调用`BeginSample·和`EndSample`方法","updated":"2024-05-21T04:48:06.339Z","document":{"title":"Custom Render Pipeline","link":[{"href":"urn:x-pdf:43a511de2f13b3a0e3ec2f97c3aa0a76"},{"href":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf"}],"documentFingerprint":"43a511de2f13b3a0e3ec2f97c3aa0a76"},"uri":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf","target":[{"source":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf","selector":[{"type":"TextPositionSelector","start":14781,"end":15035},{"type":"TextQuoteSelector","exact":"We can use command buffers to inject profiler samples, which will show up both in the profilerand the frame debugger. This is done by invoking BeginSample and EndSample at the appropriatepoints, which is at the beginning of Setup and Submit in our case. ","prefix":"ject initializer syntax is used.","suffix":"Both methods must beprovided wit"}]}]}
+>```
+>%%
+>*%%PREFIX%%ject initializer syntax is used.%%HIGHLIGHT%% ==We can use command buffers to inject profiler samples, which will show up both in the profilerand the frame debugger. This is done by invoking BeginSample and EndSample at the appropriatepoints, which is at the beginning of Setup and Submit in our case.== %%POSTFIX%%Both methods must beprovided wit*
+>%%LINK%%[[#^r9kswjpuppc|show annotation]]
+>%%COMMENT%%
+>为了能够使得profiler和frame debugger正常工作，需要调用`BeginSample·和`EndSample`方法
+>%%TAGS%%
+>
+^r9kswjpuppc
