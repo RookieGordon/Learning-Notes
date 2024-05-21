@@ -13,8 +13,8 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Custom SRP/Custom Render Pipeline.md",
-                "mode": "preview",
+                "file": "Slurped Pages/Unity SRP搞事（一）基本管线.md",
+                "mode": "source",
                 "source": false
               }
             }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Custom SRP/Custom Render Pipeline.md",
+                "file": "Slurped Pages/Unity SRP搞事（一）基本管线.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Custom SRP/Custom Render Pipeline.md",
+                "file": "Slurped Pages/Unity SRP搞事（一）基本管线.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Custom SRP/Custom Render Pipeline.md"
+                "file": "Slurped Pages/Unity SRP搞事（一）基本管线.md"
               }
             }
           }
@@ -152,12 +152,13 @@
   },
   "active": "9568049592d017e5",
   "lastOpenFiles": [
-    "Building Quality Shaders for Unity/Building Quality Shaders for Unity.md",
     "Slurped Pages/可编程脚本渲染管线SRP - Unity官方平台 - 博客园.md",
+    "Custom SRP/Custom Render Pipeline.md",
+    "Slurped Pages/Unity SRP搞事（一）基本管线.md",
+    "Building Quality Shaders for Unity/Building Quality Shaders for Unity.md",
     "ReadItLater Inbox/可编程脚本渲染管线SRP - Unity官方平台 - 博客园.md",
     "ReadItLater Inbox/assets",
     "ReadItLater Inbox",
-    "Custom SRP/Custom Render Pipeline.md",
     "Slurped Pages",
     "Untitled.sheet",
     "Custom SRP/attachments/（图解3）设置摄像机属性后，再清理上下文.png",
@@ -194,7 +195,6 @@
     "计算机图形学—从0开始构建一个OpenGL软光栅/摄像机系统.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/空间变换.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/高级渲染管线功能.md",
-    "计算机图形学—从0开始构建一个OpenGL软光栅/光照模型.md",
     "【Unity技术美术】URP Shader训练营/attachments/（图解7）SRP合批流程.png",
     "【Unity技术美术】URP Shader训练营/attachments/（图解6）标准流程和SRPBatcher流程的区别.png",
     "【Unity技术美术】URP Shader训练营/attachments/Forward Rendering vs Deferred Rendering.pdf",

@@ -5,23 +5,12 @@ tags:
   - Shader
 annotation-target: Custom Render Pipeline.pdf
 ---
+# 参考
 
-```cardlink
-url: https://www.cnblogs.com/unity2018/p/8492463.html
-title: "可编程脚本渲染管线SRP - Unity官方平台 - 博客园"
-description: "Unity 2018.1 beta中引入的Scriptable Render Pipeline可编程脚本渲染管线，简称SRP。是一种在Unity中通过C#脚本配置和执行渲染的方式。在编写自定义渲染管线之前，必须要先理解渲染管线的含义。本文将帮助你开始学习编写自定义SRP。 本文演示项目，请访问Git"
-host: www.cnblogs.com
-```
+## [[可编程脚本渲染管线SRP - Unity官方平台 - 博客园]]
 
 [Fetching Data#jx84](https://max2d.com/archives/1031)
-
-```cardlink
-url: https://zhuanlan.zhihu.com/p/66156092
-title: "Unity SRP搞事（一）基本管线"
-description: "Leon：The Rendering and Art of &#39;11-11 Memories Retold&#39; 看了这篇文章，是真的骚，那个油画风格真的绝了。看了之后手真痒，然后定睛一看，要修改管线，点赞，收藏，关闭！ 之前我一直在看的是 @銀葉吉祥…"
-host: zhuanlan.zhihu.com
-image: https://picx.zhimg.com/v2-1bfae7760bf6276c412e3b9aeb728d63_720w.jpg?source=172ae18b
-```
+## [[Unity SRP搞事（一）基本管线]]
 
 # 一个新的渲染管道
 
