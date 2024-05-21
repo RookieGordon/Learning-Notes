@@ -11,9 +11,11 @@
             "id": "9568049592d017e5",
             "type": "leaf",
             "state": {
-              "type": "pdf-annotator",
+              "type": "markdown",
               "state": {
-                "file": "Custom SRP/Custom Render Pipeline.md"
+                "file": "Custom SRP/Custom Render Pipeline.md",
+                "mode": "preview",
+                "source": false
               }
             }
           }

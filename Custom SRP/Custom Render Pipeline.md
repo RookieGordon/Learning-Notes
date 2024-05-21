@@ -185,3 +185,17 @@ Project Setting中的Graphics和Quality Settings共同决定了活动渲染管�
 
 
 
+
+
+>%%
+>```annotation-json
+>{"created":"2024-05-21T08:34:16.175Z","text":"可以通过修改获取到的`ScriptableCullingParameters`来控制剔除","updated":"2024-05-21T08:34:16.175Z","document":{"title":"Custom Render Pipeline","link":[{"href":"urn:x-pdf:43a511de2f13b3a0e3ec2f97c3aa0a76"},{"href":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf"}],"documentFingerprint":"43a511de2f13b3a0e3ec2f97c3aa0a76"},"uri":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf","target":[{"source":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf","selector":[{"type":"TextPositionSelector","start":19015,"end":19260},{"type":"TextQuoteSelector","exact":"Figuring out what can be culled requires us to keep track of multiple camera settings andmatrices, for which we can use the ScriptableCullingParameters struct. Instead of filling itourselves, we can invoke TryGetCullingParameters on the camera. ","prefix":" the view frustum of the camera.","suffix":"It returns whether theparameters"}]}]}
+>```
+>%%
+>*%%PREFIX%%the view frustum of the camera.%%HIGHLIGHT%% ==Figuring out what can be culled requires us to keep track of multiple camera settings andmatrices, for which we can use the ScriptableCullingParameters struct. Instead of filling itourselves, we can invoke TryGetCullingParameters on the camera.== %%POSTFIX%%It returns whether theparameters*
+>%%LINK%%[[#^1vdf0to5kej|show annotation]]
+>%%COMMENT%%
+>可以通过修改获取到的`ScriptableCullingParameters`来控制剔除
+>%%TAGS%%
+>
+^1vdf0to5kej
