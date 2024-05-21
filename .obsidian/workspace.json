@@ -25,7 +25,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "【Unity技术美术】URP Shader训练营/URP-Shader基本结构.md",
+                "file": "Custom SRP/Custom Render Pipeline.md",
                 "mode": "preview",
                 "source": false
               }
@@ -82,7 +82,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 387.5
+    "width": 387.5,
+    "collapsed": true
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -98,7 +99,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "【Unity技术美术】URP Shader训练营/URP-Shader基本结构.md",
+                "file": "Custom SRP/Custom Render Pipeline.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,7 +116,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "【Unity技术美术】URP Shader训练营/URP-Shader基本结构.md",
+                "file": "Custom SRP/Custom Render Pipeline.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -138,7 +139,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "【Unity技术美术】URP Shader训练营/URP-Shader基本结构.md"
+                "file": "Custom SRP/Custom Render Pipeline.md"
               }
             }
           }
@@ -163,13 +164,15 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "568646db4bbf2213",
+  "active": "3980a1c1a27a1a1d",
   "lastOpenFiles": [
-    "【Unity技术美术】URP Shader训练营/URP-Shader中的Pass通道.md",
-    "【Unity技术美术】URP Shader训练营/Unity通用渲染管线的Lit.shader.md",
-    "【Unity技术美术】URP Shader训练营/Shader基础操作.md",
-    "【Unity技术美术】URP Shader训练营/自定义BlinnPhong光照URP-Shader.md",
     "Slurped Pages/【Unity Shader】在URP里写Shader（三）：URP简单光照Shader.md",
+    "【Unity技术美术】URP Shader训练营/Shader基础操作.md",
+    "【Unity技术美术】URP Shader训练营/Unity通用渲染管线的Lit.shader.md",
+    "【Unity技术美术】URP Shader训练营/URP-Shader基本结构.md",
+    "【Unity技术美术】URP Shader训练营/URP-Shader中的Pass通道.md",
+    "【Unity技术美术】URP Shader训练营/URP-Shader中的SubShader.md",
+    "【Unity技术美术】URP Shader训练营/自定义BlinnPhong光照URP-Shader.md",
     "Slurped Pages/Shader：优化破解变体的“影分身”之术.md",
     "【Unity技术美术】URP Shader训练营/自定义无光照URP-Shader.md",
     "【Unity技术美术】URP Shader训练营/自定义漫反射URP-Shader.md",
@@ -198,9 +201,7 @@
     "Custom SRP/attachments/（图解1）渲染命令缓冲区名称.png",
     "计算机图形学—从0开始构建一个OpenGL软光栅/计算机图形学—从0开始构建一个OpenGL软光栅.md",
     "C++/C++.canvas",
-    "Custom SRP/Drawing 2024-05-20 18.27.51.excalidraw.md",
     "Custom SRP/attachments/Custom Render Pipeline.pdf",
-    "Excalidraw/Scripts/Downloaded/Relative Font Size Cycle.md",
     "Excalidraw/Scripts/Downloaded/Relative Font Size Cycle.svg",
     "Custom SRP/attachments/Pasted image 20240520130000.png",
     "Custom SRP/attachments",
