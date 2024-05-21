@@ -26,7 +26,7 @@
               "type": "markdown",
               "state": {
                 "file": "Custom SRP/Custom Render Pipeline.md",
-                "mode": "preview",
+                "mode": "source",
                 "source": false
               }
             }
@@ -164,7 +164,7 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "3980a1c1a27a1a1d",
+  "active": "568646db4bbf2213",
   "lastOpenFiles": [
     "Slurped Pages/【Unity Shader】在URP里写Shader（三）：URP简单光照Shader.md",
     "【Unity技术美术】URP Shader训练营/Shader基础操作.md",

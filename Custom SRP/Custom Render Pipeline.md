@@ -208,3 +208,5 @@ Project Setting中的Graphics和Quality Settings共同决定了活动渲染管�
 ^1vdf0to5kej
 可以通过修改`cullingOptions`字段来配置剔除，例如：`cullingParameters.cullingOptions &= ~CullingOptions.OcclusionCull`
 
+## 绘制几何物体
+
