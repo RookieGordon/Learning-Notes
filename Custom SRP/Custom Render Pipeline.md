@@ -164,7 +164,7 @@ Project Setting中的Graphics和Quality Settings共同决定了活动渲染管�
 
 这样就可以在Frame Debugger中，看到自定义的渲染命令缓冲区了
 ![[（图解1）渲染命令缓冲区名称.png]]
-另外可以看到，渲染天空盒用的
+另外可以看到，渲染天空盒用的Pass来自`Skybox/Procedural`这个
 
 ## 清除渲染目标
 
