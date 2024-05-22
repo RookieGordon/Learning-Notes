@@ -414,3 +414,33 @@ Project Setting中的Graphics和Quality Settings共同决定了活动渲染管�
 
 目前，如果创建一个UGUI对象，是无法在Scene视图中显示的，通过Frame Debugger可以发现，UI是单独绘制的，不是由自定义的渲染管道绘制的。
 ![[（图解4）帧调试器中的UI.png]]
+
+
+>%%
+>```annotation-json
+>{"created":"2024-05-22T06:17:35.372Z","text":"在Cull之前调用`ScriptableRenderContext.EmitWorldGeometryForSceneView`方法，显式地将用户界面添加到世界几何体中进行渲染。","updated":"2024-05-22T06:17:35.372Z","document":{"title":"Custom Render Pipeline","link":[{"href":"urn:x-pdf:43a511de2f13b3a0e3ec2f97c3aa0a76"},{"href":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf"}],"documentFingerprint":"43a511de2f13b3a0e3ec2f97c3aa0a76"},"uri":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf","target":[{"source":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf","selector":[{"type":"TextPositionSelector","start":36570,"end":36721},{"type":"TextQuoteSelector","exact":"partial void PrepareForSceneWindow () {if (camera.cameraType == CameraType.SceneView) {ScriptableRenderContext.EmitWorldGeometryForSceneView(camera);}}","prefix":"eneWindow ();#if UNITY_EDITOR...","suffix":"As that might add geometry to th"}]}]}
+>```
+>%%
+>*%%PREFIX%%eneWindow ();#if UNITY_EDITOR...%%HIGHLIGHT%% 
+>==partial void PrepareForSceneWindow () {
+>	if (camera.cameraType == CameraType.SceneView) {
+>		ScriptableRenderContext.EmitWorldGeometryForSceneView(camera);
+>	}
+>}== 
+>%%POSTFIX%%As that might add geometry to th*
+>%%LINK%%[[#^b08743urlju|show annotation]]
+>%%COMMENT%%
+>在Cull之前调用`ScriptableRenderContext.EmitWorldGeometryForSceneView`方法，显式地将用户界面添加到世界几何体中进行渲染。
+>%%TAGS%%
+>
+^b08743urlju
+
+# 多摄像机
+
+## 两个摄像机
+
+每个摄像头都有一个深度值，默认主摄像头的深度值为-1。它们会按照深度递增的顺序进行渲染。
+
+## 处理更改缓冲区名称
+
+
