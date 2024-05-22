@@ -366,9 +366,44 @@ Project Setting中的Graphics和Quality Settings共同决定了活动渲染管�
 ## 绘制错误的材质
 
 
+>%%
+>```annotation-json
+>{"created":"2024-05-22T04:41:29.495Z","text":"创建一个错误材质，用于渲染不支持的Shader。另外，出于开发考虑，使用分部类，将这部分处理不支持shader的代码，仅仅放到在编辑器中处理。","updated":"2024-05-22T04:41:29.495Z","document":{"title":"Custom Render Pipeline","link":[{"href":"urn:x-pdf:43a511de2f13b3a0e3ec2f97c3aa0a76"},{"href":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf"}],"documentFingerprint":"43a511de2f13b3a0e3ec2f97c3aa0a76"},"uri":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf","target":[{"source":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf","selector":[{"type":"TextPositionSelector","start":30358,"end":30623},{"type":"TextQuoteSelector","exact":"void DrawUnsupportedShaders () {if (errorMaterial == null) {errorMaterial =new Material(Shader.Find(\"Hidden/InternalErrorShader\"));}var drawingSettings = new DrawingSettings(legacyShaderTagIds[0], new SortingSettings(camera)) {overrideMaterial = errorMaterial};...}","prefix":"tatic Material errorMaterial;...","suffix":"Rendered with magenta error shad"}]}]}
+>```
+>%%
+>*%%PREFIX%%tatic Material errorMaterial;...%%HIGHLIGHT%% 
+>==void DrawUnsupportedShaders () {
+>	if (errorMaterial == null) {
+>		errorMaterial =new Material(Shader.Find("Hidden/InternalErrorShader"));
+>	}
+>	var drawingSettings = new DrawingSettings(legacyShaderTagIds[0], new SortingSettings(camera)) {overrideMaterial = errorMaterial};
+>	...
+>}== 
+>%%POSTFIX%%Rendered with magenta error shad*
+>%%LINK%%[[#^b54iktqwxue|show annotation]]
+>%%COMMENT%%
+>创建一个错误材质，用于渲染不支持的Shader。另外，出于开发考虑，使用分部类，将这部分处理不支持shader的代码，仅仅放到在编辑器中处理。
+>%%TAGS%%
+>
+^b54iktqwxue
+
+## 绘制Gizmos
 
 
 
-
-
-
+>%%
+>```annotation-json
+>{"created":"2024-05-22T04:49:13.746Z","text":"调用`Handles.ShouldRenderGizmos`显示Gizmos，该方法须在所有物体绘制结束后，再调用","updated":"2024-05-22T04:49:13.746Z","document":{"title":"Custom Render Pipeline","link":[{"href":"urn:x-pdf:43a511de2f13b3a0e3ec2f97c3aa0a76"},{"href":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf"}],"documentFingerprint":"43a511de2f13b3a0e3ec2f97c3aa0a76"},"uri":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf","target":[{"source":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf","selector":[{"type":"TextPositionSelector","start":34392,"end":34570},{"type":"TextQuoteSelector","exact":"partial void DrawGizmos () {if (Handles.ShouldRenderGizmos()) {context.DrawGizmos(camera, GizmoSubset.PreImageEffects);context.DrawGizmos(camera, GizmoSubset.PostImageEffects);}}","prefix":"edShaders ();#if UNITY_EDITOR...","suffix":"partial void DrawUnsupportedShad"}]}]}
+>```
+>%%
+>*%%PREFIX%%edShaders ();#if UNITY_EDITOR...%%HIGHLIGHT%% 
+>==partial void DrawGizmos () {
+>if (Handles.ShouldRenderGizmos()) {
+>context.DrawGizmos(camera, GizmoSubset.PreImageEffects);
+>context.DrawGizmos(camera, GizmoSubset.PostImageEffects);}}== %%POSTFIX%%partial void DrawUnsupportedShad*
+>%%LINK%%[[#^e5c1wrqg38h|show annotation]]
+>%%COMMENT%%
+>调用`Handles.ShouldRenderGizmos`显示Gizmos，该方法须在所有物体绘制结束后，再调用
+>%%TAGS%%
+>
+^e5c1wrqg38h
