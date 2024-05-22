@@ -443,20 +443,16 @@ Project Setting中的Graphics和Quality Settings共同决定了活动渲染管�
 
 ## 清除标记
 
-
-
-
-
-
-
-
-
 >%%
 >```annotation-json
 >{"created":"2024-05-22T06:52:07.224Z","text":"`CameraClearFlags`枚举值并不是独立的标志值，而是代表递减的清除量。除了最后一种情况，在其他所有情况下都必须清除深度缓冲区。除了`CameraClearFlags.Color`的情况，其他都不需要清理颜色缓冲区","updated":"2024-05-22T06:52:07.224Z","document":{"title":"Custom Render Pipeline","link":[{"href":"urn:x-pdf:43a511de2f13b3a0e3ec2f97c3aa0a76"},{"href":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf"}],"documentFingerprint":"43a511de2f13b3a0e3ec2f97c3aa0a76"},"uri":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf","target":[{"source":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf","selector":[{"type":"TextPositionSelector","start":43967,"end":44134},{"type":"TextQuoteSelector","exact":"buffer.ClearRenderTarget(flags <= CameraClearFlags.Depth,flags == CameraClearFlags.Color,flags == CameraClearFlags.Color ?camera.backgroundColor.linear : Color.clear);","prefix":" we cansuffice with Color.clear.","suffix":"2024/5/19 23:46 Custom Render Pi"}]}]}
 >```
 >%%
->*%%PREFIX%%we cansuffice with Color.clear.%%HIGHLIGHT%% ==buffer.ClearRenderTarget(flags <= CameraClearFlags.Depth,flags == CameraClearFlags.Color,flags == CameraClearFlags.Color ?camera.backgroundColor.linear : Color.clear);== %%POSTFIX%%2024/5/19 23:46 Custom Render Pi*
+>*%%PREFIX%%we cansuffice with Color.clear.%%HIGHLIGHT%% 
+>==buffer.ClearRenderTarget(flags <= CameraClearFlags.Depth,
+>flags == CameraClearFlags.Color,
+>flags == CameraClearFlags.Color ?camera.backgroundColor.linear : Color.clear);==
+> %%POSTFIX%%2024/5/19 23:46 Custom Render Pi*
 >%%LINK%%[[#^14w6fckup4e|show annotation]]
 >%%COMMENT%%
 >`CameraClearFlags`枚举值并不是独立的标志值，而是代表递减的清除量。除了最后一种情况，在其他所有情况下都必须清除深度缓冲区。除了`CameraClearFlags.Color`的情况，其他都不需要清理颜色缓冲区

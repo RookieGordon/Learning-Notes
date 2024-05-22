@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "e2b23007d84ed14f",
+        "id": "c47bbd05d53c5dee",
         "type": "tabs",
         "children": [
           {
-            "id": "65da4275f3df179c",
+            "id": "2783c3dcba766a30",
             "type": "leaf",
             "state": {
               "type": "pdf-annotator",
               "state": {
-                "file": "Custom SRP/Custom Render Pipeline.md"
+                "file": "Custom SRP/Draw Calls.md"
               }
             }
           }
@@ -67,8 +67,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 387.5,
-    "collapsed": true
+    "width": 387.5
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -84,7 +83,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Custom SRP/Custom Render Pipeline.md",
+                "file": "Custom SRP/Draw Calls.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -101,7 +100,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Custom SRP/Custom Render Pipeline.md",
+                "file": "Custom SRP/Draw Calls.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -124,7 +123,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Custom SRP/Custom Render Pipeline.md"
+                "file": "Custom SRP/Draw Calls.md"
               }
             }
           }
@@ -149,10 +148,15 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "65da4275f3df179c",
+  "active": "2783c3dcba766a30",
   "lastOpenFiles": [
-    "Custom SRP/attachments/（图解4）帧调试器中的UI.png",
+    "【Unity技术美术】URP Shader训练营/自定义漫反射URP-Shader.md",
+    "【Unity技术美术】URP Shader训练营/【Unity技术美术】URP Shader训练营.md",
+    "Custom SRP/Draw Calls.md",
     "Custom SRP/Custom Render Pipeline.md",
+    "Custom SRP/Custom SRP.md",
+    "Custom SRP/attachments/Draw Calls.pdf",
+    "Custom SRP/attachments/（图解4）帧调试器中的UI.png",
     "Slurped Pages/【Unity Shader】在URP里写Shader（三）：URP简单光照Shader.md",
     "【Unity技术美术】URP Shader训练营/Shader基础操作.md",
     "【Unity技术美术】URP Shader训练营/Unity通用渲染管线的Lit.shader.md",
@@ -162,7 +166,6 @@
     "【Unity技术美术】URP Shader训练营/自定义BlinnPhong光照URP-Shader.md",
     "Slurped Pages/Shader：优化破解变体的“影分身”之术.md",
     "【Unity技术美术】URP Shader训练营/自定义无光照URP-Shader.md",
-    "【Unity技术美术】URP Shader训练营/自定义漫反射URP-Shader.md",
     "【Unity技术美术】URP Shader训练营/编写自定义URP Shader.md",
     "Slurped Pages/图形引擎实战：Unity Shader变体管理流程.md",
     "Slurped Pages/第9章 着色器编译、分支和变体.md",
@@ -171,12 +174,9 @@
     "Slurped Pages/Unity SRP 管线【第五讲：自定义烘培光照】_samplesinglelightmap-CSDN博客.md",
     "Slurped Pages/Unity SRP 管线【第五讲：URP烘培光照】_urpshader实现光照烘焙-CSDN博客.md",
     "Slurped Pages/Unity URP 中的 GI.md",
-    "【Unity技术美术】URP Shader训练营/【Unity技术美术】URP Shader训练营.md",
-    "Custom SRP/Custom SRP.md",
     "Slurped Pages/Unity SRP搞事（一）基本管线.md",
     "Slurped Pages/可编程脚本渲染管线SRP - Unity官方平台 - 博客园.md",
     "Building Quality Shaders for Unity/Building Quality Shaders for Unity.md",
-    "ReadItLater Inbox/可编程脚本渲染管线SRP - Unity官方平台 - 博客园.md",
     "ReadItLater Inbox/assets",
     "ReadItLater Inbox",
     "Slurped Pages",
@@ -195,9 +195,7 @@
     "【Unity技术美术】URP Shader训练营/attachments/（图解8）配置额外光照使用顶点光.png",
     "【Unity技术美术】URP Shader训练营/attachments/[Universal RP]Unity通用渲染管线的Lit.shader - 知乎.pdf",
     "【Unity技术美术】URP Shader训练营/attachments/（图解7）SRP合批流程.png",
-    "【Unity技术美术】URP Shader训练营/attachments/（图解6）标准流程和SRPBatcher流程的区别.png",
     "【Unity技术美术】URP Shader训练营/attachments/Forward Rendering vs Deferred Rendering.pdf",
-    "【Unity技术美术】URP Shader训练营/attachments",
     "计算机图形学—从0开始构建一个OpenGL软光栅/从0开始构建OpenGL软光栅.canvas",
     "未命名.canvas"
   ]
