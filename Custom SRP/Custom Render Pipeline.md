@@ -321,6 +321,8 @@ Project Setting中的Graphics和Quality Settings共同决定了活动渲染管�
 >
 ^n92jblaihli
 
+到目前为止，已经可以渲染出场景中的物体了。但是还是有问题：==不透明对象渲染有问题，有的消失了，有的只渲染了一部分==，通过使用Frame Debugger进行调试，发现是天空盒渲染带来的问题。
+
 ## 分别绘制不透明和透明几何图形
 
 到此，绘制了所有未使用光照着色器的物体，这其中，但是天空盒却遮住了那些不透明物体后面的透明物体。出现这种情况是因为透明着色器不会写入深度缓冲区。透明着色器不会隐藏它们后面的东西，因为我们可以透过它们看到东西。解决方法是首先绘制不透明对象，然后绘制天空盒，最后才绘制透明对象。
@@ -341,6 +343,29 @@ Project Setting中的Graphics和Quality Settings共同决定了活动渲染管�
 # 编辑渲染
 
 ## 绘制旧版着色器
+
+>%%
+>```annotation-json
+>{"created":"2024-05-22T04:14:18.002Z","text":"由于不支持的Shader没有渲染出来，这本质上来说，是不对的，因此增加一个方法用于处理这些不支持的Shader。","updated":"2024-05-22T04:14:18.002Z","document":{"title":"Custom Render Pipeline","link":[{"href":"urn:x-pdf:43a511de2f13b3a0e3ec2f97c3aa0a76"},{"href":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf"}],"documentFingerprint":"43a511de2f13b3a0e3ec2f97c3aa0a76"},"uri":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf","target":[{"source":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf","selector":[{"type":"TextPositionSelector","start":28753,"end":29017},{"type":"TextQuoteSelector","exact":"void DrawUnsupportedShaders () {var drawingSettings = new DrawingSettings(legacyShaderTagIds[0], new SortingSettings(camera));var filteringSettings = FilteringSettings.defaultValue;context.DrawRenderers(cullingResults, ref drawingSettings, ref filteringSettings);}","prefix":"supportedShaders();Submit();}...","suffix":"We can draw multiple passes by i"}]}]}
+>```
+>%%
+>*%%PREFIX%%supportedShaders();Submit();}...%%HIGHLIGHT%% 
+>==void DrawUnsupportedShaders () {
+>	var drawingSettings = new DrawingSettings(legacyShaderTagIds[0], new SortingSettings(camera));
+>	var filteringSettings = FilteringSettings.defaultValue;
+>	context.DrawRenderers(cullingResults, ref drawingSettings, ref filteringSettings);
+>}== 
+>%%POSTFIX%%We can draw multiple passes by i*
+>%%LINK%%[[#^zp01ywf38ol|show annotation]]
+>%%COMMENT%%
+>由于不支持的Shader没有渲染出来，这本质上来说，是不对的，因此增加一个方法用于处理这些不支持的Shader。
+>%%TAGS%%
+>
+^zp01ywf38ol
+
+## 绘制错误的材质
+
+
 
 
 

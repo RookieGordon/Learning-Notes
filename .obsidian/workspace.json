@@ -4,40 +4,8 @@
     "type": "split",
     "children": [
       {
-        "id": "72cb336f0d2b2dcc",
-        "type": "tabs",
-        "dimension": 32.273449920508746,
-        "children": [
-          {
-            "id": "568646db4bbf2213",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Custom SRP/Custom Render Pipeline.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "da83e25edb120d65",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Custom SRP/Custom Render Pipeline.md",
-                "mode": "preview",
-                "source": false
-              }
-            }
-          }
-        ]
-      },
-      {
         "id": "e2b23007d84ed14f",
         "type": "tabs",
-        "dimension": 67.72655007949126,
         "children": [
           {
             "id": "65da4275f3df179c",
@@ -181,7 +149,7 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "568646db4bbf2213",
+  "active": "65da4275f3df179c",
   "lastOpenFiles": [
     "Custom SRP/Custom Render Pipeline.md",
     "Slurped Pages/【Unity Shader】在URP里写Shader（三）：URP简单光照Shader.md",
