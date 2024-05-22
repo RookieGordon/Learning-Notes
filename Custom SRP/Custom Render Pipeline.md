@@ -265,12 +265,61 @@ Project Setting中的Graphics和Quality Settings共同决定了活动渲染管�
 >
 ^kmkkdh0bi7
 
-
 可以通过修改`cullingOptions`字段来配置剔除，例如：`cullingParameters.cullingOptions &= ~CullingOptions.OcclusionCull`
 
 ## 绘制几何物体
 
+>%%
+>```annotation-json
+>{"created":"2024-05-22T03:59:55.051Z","text":"向DrawRenderers 方法提供剔除结果（CullingResults），绘制（DrawingSettings）和筛选（FilteringSettings）设置后，才能正确绘制场景中的物体","updated":"2024-05-22T03:59:55.051Z","document":{"title":"Custom Render Pipeline","link":[{"href":"urn:x-pdf:43a511de2f13b3a0e3ec2f97c3aa0a76"},{"href":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf"}],"documentFingerprint":"43a511de2f13b3a0e3ec2f97c3aa0a76"},"uri":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf","target":[{"source":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf","selector":[{"type":"TextPositionSelector","start":22320,"end":22551},{"type":"TextQuoteSelector","exact":"void DrawVisibleGeometry () {var drawingSettings = new DrawingSettings();var filteringSettings = new FilteringSettings();context.DrawRenderers(cullingResults, ref drawingSettings, ref filteringSettings);context.DrawSkybox(camera);}","prefix":"metry, beforedrawing the skybox.","suffix":"We don't see anything yet becaus"}]}]}
+>```
+>%%
+>*%%PREFIX%%metry, beforedrawing the skybox.%%HIGHLIGHT%% 
+>==void DrawVisibleGeometry () {
+>var drawingSettings = new DrawingSettings();
+>var filteringSettings = new FilteringSettings();
+>context.DrawRenderers(cullingResults, ref drawingSettings, ref filteringSettings);
+>context.DrawSkybox(camera);
+>}== 
+>%%POSTFIX%%We don't see anything yet becaus*
+>%%LINK%%[[#^el65f3rxgc8|show annotation]]
+>%%COMMENT%%
+>向DrawRenderers 方法提供剔除结果（CullingResults），绘制（DrawingSettings）和筛选（FilteringSettings）设置后，才能正确绘制场景中的物体
+>%%TAGS%%
+>
+^el65f3rxgc8
 
+
+>%%
+>```annotation-json
+>{"created":"2024-05-22T04:04:09.168Z","text":"向`DrawingSettings`结构体提供一个用于渲染无光物体的shader，这样就可以渲染出场景中所有无光效物体了","updated":"2024-05-22T04:04:09.168Z","document":{"title":"Custom Render Pipeline","link":[{"href":"urn:x-pdf:43a511de2f13b3a0e3ec2f97c3aa0a76"},{"href":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf"}],"documentFingerprint":"43a511de2f13b3a0e3ec2f97c3aa0a76"},"uri":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf","target":[{"source":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf","selector":[{"type":"TextPositionSelector","start":22816,"end":22889},{"type":"TextQuoteSelector","exact":"static ShaderTagId unlitShaderTagId = new ShaderTagId(\"SRPDefaultUnlit\");","prefix":" and cache it in a static field.","suffix":"Provide it as the first argument"}]}]}
+>```
+>%%
+>*%%PREFIX%%and cache it in a static field.%%HIGHLIGHT%% 
+>==static ShaderTagId unlitShaderTagId = new ShaderTagId("SRPDefaultUnlit");== 
+>%%POSTFIX%%Provide it as the first argument*
+>%%LINK%%[[#^qcjswi9zb3i|show annotation]]
+>%%COMMENT%%
+>向`DrawingSettings`结构体提供一个用于渲染无光物体的shader，这样就可以渲染出场景中所有无光效物体了
+>%%TAGS%%
+>
+^qcjswi9zb3i
+
+
+>%%
+>```annotation-json
+>{"created":"2024-05-22T04:07:24.175Z","text":"`FilteringSettings`结构体，设置成筛选所有渲染队列的模式。","updated":"2024-05-22T04:07:24.175Z","document":{"title":"Custom Render Pipeline","link":[{"href":"urn:x-pdf:43a511de2f13b3a0e3ec2f97c3aa0a76"},{"href":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf"}],"documentFingerprint":"43a511de2f13b3a0e3ec2f97c3aa0a76"},"uri":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf","target":[{"source":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf","selector":[{"type":"TextPositionSelector","start":23462,"end":23530},{"type":"TextQuoteSelector","exact":"var filteringSettings = new FilteringSettings(RenderQueueRange.all);","prefix":"ructor so we include everything.","suffix":"2024/5/19 23:46 Custom Render Pi"}]}]}
+>```
+>%%
+>*%%PREFIX%%ructor so we include everything.%%HIGHLIGHT%% 
+>==var filteringSettings = new FilteringSettings(RenderQueueRange.all);== 
+>%%POSTFIX%%2024/5/19 23:46 Custom Render Pi*
+>%%LINK%%[[#^n92jblaihli|show annotation]]
+>%%COMMENT%%
+>`FilteringSettings`结构体，设置成筛选所有渲染队列的模式。
+>%%TAGS%%
+>
+^n92jblaihli
 
 ## 分别绘制不透明和透明几何图形
 
@@ -292,6 +341,8 @@ Project Setting中的Graphics和Quality Settings共同决定了活动渲染管�
 # 编辑渲染
 
 ## 绘制旧版着色器
+
+
 
 
 
