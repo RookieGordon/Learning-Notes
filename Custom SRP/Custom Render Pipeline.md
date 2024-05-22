@@ -87,7 +87,18 @@ Project Setting中的Graphics和Quality Settings共同决定了活动渲染管�
 >{"created":"2024-05-22T03:02:16.992Z","text":"每帧都会调用管线的Render方法。由于每个摄像机都会独立渲染，因此创建一个摄像机渲染对象CameraRenderer，独立控制相机的渲染。重写该相机的Render方法，用于控制该相机的渲染。","updated":"2024-05-22T03:02:16.992Z","document":{"title":"Custom Render Pipeline","link":[{"href":"urn:x-pdf:43a511de2f13b3a0e3ec2f97c3aa0a76"},{"href":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf"}],"documentFingerprint":"43a511de2f13b3a0e3ec2f97c3aa0a76"},"uri":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf","target":[{"source":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf","selector":[{"type":"TextPositionSelector","start":9273,"end":9509},{"type":"TextQuoteSelector","exact":"using UnityEngine;using UnityEngine.Rendering;public class CameraRenderer {ScriptableRenderContext context;Camera camera;public void Render (ScriptableRenderContext context, Camera camera) {this.context = context;this.camera = camera;}}","prefix":"eters in fields for convenience.","suffix":"Have CustomRenderPipeline create"}]}]}
 >```
 >%%
->*%%PREFIX%%eters in fields for convenience.%%HIGHLIGHT%% ==using UnityEngine;using UnityEngine.Rendering;public class CameraRenderer {ScriptableRenderContext context;Camera camera;public void Render (ScriptableRenderContext context, Camera camera) {this.context = context;this.camera = camera;}}== %%POSTFIX%%Have CustomRenderPipeline create*
+>*%%PREFIX%%eters in fields for convenience.%%HIGHLIGHT%% 
+>==using UnityEngine;
+>using UnityEngine.Rendering;
+>
+>public class CameraRenderer {
+>ScriptableRenderContext context;
+>Camera camera;
+>public void Render (ScriptableRenderContext context, Camera camera) {
+>this.context = context;
+>this.camera = camera;
+>}
+>}== %%POSTFIX%%Have CustomRenderPipeline create*
 >%%LINK%%[[#^89vtnze8gxt|show annotation]]
 >%%COMMENT%%
 >每帧都会调用管线的Render方法。由于每个摄像机都会独立渲染，因此创建一个摄像机渲染对象CameraRenderer，独立控制相机的渲染。重写该相机的Render方法，用于控制该相机的渲染。
@@ -102,7 +113,17 @@ Project Setting中的Graphics和Quality Settings共同决定了活动渲染管�
 >{"created":"2024-05-22T03:05:03.737Z","text":"在Render方法中，绘制所有可见的对象，将该功能独立成`DrawVisibleGeometry`方法，调用`DrawSkybox`方法，绘制天空盒","updated":"2024-05-22T03:05:03.737Z","document":{"title":"Custom Render Pipeline","link":[{"href":"urn:x-pdf:43a511de2f13b3a0e3ec2f97c3aa0a76"},{"href":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf"}],"documentFingerprint":"43a511de2f13b3a0e3ec2f97c3aa0a76"},"uri":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf","target":[{"source":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf","selector":[{"type":"TextPositionSelector","start":10724,"end":10917},{"type":"TextQuoteSelector","exact":"public void Render (ScriptableRenderContext context, Camera camera) {this.context = context;this.camera = camera;DrawVisibleGeometry();}void DrawVisibleGeometry () {context.DrawSkybox(camera);}","prefix":"t with thecamera as an argument.","suffix":"This does not yet make the skybo"}]}]}
 >```
 >%%
->*%%PREFIX%%t with thecamera as an argument.%%HIGHLIGHT%% ==public void Render (ScriptableRenderContext context, Camera camera) {this.context = context;this.camera = camera;DrawVisibleGeometry();}void DrawVisibleGeometry () {context.DrawSkybox(camera);}== %%POSTFIX%%This does not yet make the skybo*
+>*%%PREFIX%%t with thecamera as an argument.%%HIGHLIGHT%% 
+>==public void Render (ScriptableRenderContext context, Camera camera) 
+>{
+>     this.context = context;
+>	this.camera = camera;
+>	DrawVisibleGeometry();
+>}
+>void DrawVisibleGeometry () {
+>	context.DrawSkybox(camera);
+>}== 
+>%%POSTFIX%%This does not yet make the skybo*
 >%%LINK%%[[#^wm18j8qekeq|show annotation]]
 >%%COMMENT%%
 >在Render方法中，绘制所有可见的对象，将该功能独立成`DrawVisibleGeometry`方法，调用`DrawSkybox`方法，绘制天空盒
