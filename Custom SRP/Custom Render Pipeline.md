@@ -390,7 +390,6 @@ Project Setting中的Graphics和Quality Settings共同决定了活动渲染管�
 ## 绘制Gizmos
 
 
-
 >%%
 >```annotation-json
 >{"created":"2024-05-22T04:49:13.746Z","text":"调用`Handles.ShouldRenderGizmos`显示Gizmos，该方法须在所有物体绘制结束后，再调用","updated":"2024-05-22T04:49:13.746Z","document":{"title":"Custom Render Pipeline","link":[{"href":"urn:x-pdf:43a511de2f13b3a0e3ec2f97c3aa0a76"},{"href":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf"}],"documentFingerprint":"43a511de2f13b3a0e3ec2f97c3aa0a76"},"uri":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf","target":[{"source":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf","selector":[{"type":"TextPositionSelector","start":34392,"end":34570},{"type":"TextQuoteSelector","exact":"partial void DrawGizmos () {if (Handles.ShouldRenderGizmos()) {context.DrawGizmos(camera, GizmoSubset.PreImageEffects);context.DrawGizmos(camera, GizmoSubset.PostImageEffects);}}","prefix":"edShaders ();#if UNITY_EDITOR...","suffix":"partial void DrawUnsupportedShad"}]}]}
@@ -398,12 +397,20 @@ Project Setting中的Graphics和Quality Settings共同决定了活动渲染管�
 >%%
 >*%%PREFIX%%edShaders ();#if UNITY_EDITOR...%%HIGHLIGHT%% 
 >==partial void DrawGizmos () {
->if (Handles.ShouldRenderGizmos()) {
->context.DrawGizmos(camera, GizmoSubset.PreImageEffects);
->context.DrawGizmos(camera, GizmoSubset.PostImageEffects);}}== %%POSTFIX%%partial void DrawUnsupportedShad*
+>	if (Handles.ShouldRenderGizmos()) {
+>		context.DrawGizmos(camera, GizmoSubset.PreImageEffects);
+>		context.DrawGizmos(camera, GizmoSubset.PostImageEffects);
+>	}
+>}== 
+>%%POSTFIX%%partial void DrawUnsupportedShad*
 >%%LINK%%[[#^e5c1wrqg38h|show annotation]]
 >%%COMMENT%%
 >调用`Handles.ShouldRenderGizmos`显示Gizmos，该方法须在所有物体绘制结束后，再调用
 >%%TAGS%%
 >
 ^e5c1wrqg38h
+
+## 绘制UGUI
+
+目前，如果创建一个UGUI对象，是无法显示的，通过Frame Debugger可以发现，UI是单独绘制的，不是由自定义的渲染管道绘制的。
+![[（图解4）帧调试器中的UI.png]]
