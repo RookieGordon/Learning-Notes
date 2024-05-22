@@ -106,6 +106,9 @@ Project Setting中的Graphics和Quality Settings共同决定了活动渲染管�
 >
 ^89vtnze8gxt
 
+`ScriptableRenderContext`向 GPU 调度和提交状态更新和绘制命令。
+
+[RenderPipeline.Render](https://docs.unity.cn/cn/2019.4/ScriptReference/Rendering.RenderPipeline.Render.html) 方法实现通常会针对每个摄像机剔除渲染管线不需要渲染的对象（请参阅 [CullingResults](https://docs.unity.cn/cn/2019.4/ScriptReference/Rendering.CullingResults.html)），然后对 [ScriptableRenderContext.DrawRenderers](https://docs.unity.cn/cn/2019.4/ScriptReference/Rendering.ScriptableRenderContext.DrawRenderers.html) 发起一系列调用并混合 [ScriptableRenderContext.ExecuteCommandBuffer](https://docs.unity.cn/cn/2019.4/ScriptReference/Rendering.ScriptableRenderContext.ExecuteCommandBuffer.html) 调用。这些调用会设置全局着色器属性、更改渲染目标、分发计算着色器和其他渲染任务。若要实际执行渲染循环，请调用 [ScriptableRenderContext.Submit](https://docs.unity.cn/cn/2019.4/ScriptReference/Rendering.ScriptableRenderContext.Submit.html)。
 ## 绘制天空盒
 
 >%%
@@ -131,9 +134,31 @@ Project Setting中的Graphics和Quality Settings共同决定了活动渲染管�
 >
 ^wm18j8qekeq
 
-`ScriptableRenderContext`向 GPU 调度和提交状态更新和绘制命令。
 
-[RenderPipeline.Render](https://docs.unity.cn/cn/2019.4/ScriptReference/Rendering.RenderPipeline.Render.html) 方法实现通常会针对每个摄像机剔除渲染管线不需要渲染的对象（请参阅 [CullingResults](https://docs.unity.cn/cn/2019.4/ScriptReference/Rendering.CullingResults.html)），然后对 [ScriptableRenderContext.DrawRenderers](https://docs.unity.cn/cn/2019.4/ScriptReference/Rendering.ScriptableRenderContext.DrawRenderers.html) 发起一系列调用并混合 [ScriptableRenderContext.ExecuteCommandBuffer](https://docs.unity.cn/cn/2019.4/ScriptReference/Rendering.ScriptableRenderContext.ExecuteCommandBuffer.html) 调用。这些调用会设置全局着色器属性、更改渲染目标、分发计算着色器和其他渲染任务。若要实际执行渲染循环，请调用 [ScriptableRenderContext.Submit](https://docs.unity.cn/cn/2019.4/ScriptReference/Rendering.ScriptableRenderContext.Submit.html)。
+>%%
+>```annotation-json
+>{"created":"2024-05-22T03:49:57.903Z","text":"`DrawSkybox`方法只是用于控制是否显示天空盒（此时移动旋转相机，天空盒没有任何变化）。天空盒的绘制是由相机的`clar flags`控制的。\n如果要正确渲染天空盒，就需要设置视图投影矩阵——VP。通过使用`SetupCameraProperties`方法，应用相机的属性","updated":"2024-05-22T03:49:57.903Z","document":{"title":"Custom Render Pipeline","link":[{"href":"urn:x-pdf:43a511de2f13b3a0e3ec2f97c3aa0a76"},{"href":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf"}],"documentFingerprint":"43a511de2f13b3a0e3ec2f97c3aa0a76"},"uri":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf","target":[{"source":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf","selector":[{"type":"TextPositionSelector","start":12878,"end":13085},{"type":"TextQuoteSelector","exact":"public void Render (ScriptableRenderContext context, Camera camera) {this.context = context;this.camera = camera;Setup();DrawVisibleGeometry();Submit();}void Setup () {context.SetupCameraProperties(camera);}","prefix":"etry, in a separate Setupmethod.","suffix":"Skybox, correctly aligned.2024/5"}]}]}
+>```
+>%%
+>*%%PREFIX%%etry, in a separate Setupmethod.%%HIGHLIGHT%% 
+>==public void Render (ScriptableRenderContext context, Camera camera) {
+>	this.context = context;
+>	this.camera = camera;
+>	Setup();
+>	DrawVisibleGeometry();
+>	Submit();
+>}
+>void Setup () {
+>	context.SetupCameraProperties(camera);
+>}== 
+>%%POSTFIX%%Skybox, correctly aligned.2024/5*
+>%%LINK%%[[#^gt3htl9uy1v|show annotation]]
+>%%COMMENT%%
+>`DrawSkybox`方法只是用于控制是否显示天空盒（此时移动旋转相机，天空盒没有任何变化）。天空盒的绘制是由相机的`clar flags`控制的。
+>如果要正确渲染天空盒，就需要设置视图投影矩阵——VP。通过使用`SetupCameraProperties`方法，应用相机的属性
+>%%TAGS%%
+>
+^gt3htl9uy1v
 
 ## 命令缓冲区
 
@@ -154,18 +179,34 @@ Project Setting中的Graphics和Quality Settings共同决定了活动渲染管�
 >
 ^r9kswjpuppc
 
+
 >%%
 >```annotation-json
->{"text":"使用`ExecuteCommandBuffer`方法，可以执行缓冲区中的命令。该操作是复制命令到渲染管线中执行渲染。在提交命令前，将缓冲区中的命令与设置复制到管线中。","target":[{"source":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf","selector":[{"type":"TextPositionSelector","start":15397,"end":15619},{"type":"TextQuoteSelector","exact":"To execute the buffer, invoke ExecuteCommandBuffer on the context with the buffer as anargument. That copies the commands from the buffer but doesn't clear it, we have to do thatexplicitly afterwards if we want to reuse it","prefix":"rp/custom-render-pipeline/ 11/40","suffix":". Because execution and clearing"}]}],"created":"2024-05-21T04:50:47.739Z","updated":"2024-05-21T04:50:47.739Z","document":{"title":"Custom Render Pipeline","link":[{"href":"urn:x-pdf:43a511de2f13b3a0e3ec2f97c3aa0a76"},{"href":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf"}],"documentFingerprint":"43a511de2f13b3a0e3ec2f97c3aa0a76"},"uri":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf"}
+>{"created":"2024-05-22T03:54:16.768Z","text":"使用`ExecuteCommandBuffer`方法，可以执行缓冲区中的命令。该操作是复制命令到渲染管线中执行渲染。在提交命令前，将缓冲区中的命令与设置复制到管线中。","updated":"2024-05-22T03:54:16.768Z","document":{"title":"Custom Render Pipeline","link":[{"href":"urn:x-pdf:43a511de2f13b3a0e3ec2f97c3aa0a76"},{"href":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf"}],"documentFingerprint":"43a511de2f13b3a0e3ec2f97c3aa0a76"},"uri":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf","target":[{"source":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf","selector":[{"type":"TextPositionSelector","start":15717,"end":15973},{"type":"TextQuoteSelector","exact":"void Setup () {buffer.BeginSample(bufferName);ExecuteBuffer();context.SetupCameraProperties(camera);}void Submit () {buffer.EndSample(bufferName);ExecuteBuffer();context.Submit();}void ExecuteBuffer () {context.ExecuteCommandBuffer(buffer);buffer.Clear();}","prefix":" to add a method that does both.","suffix":"The Camera.RenderSkyBox sample n"}]}]}
 >```
 >%%
->*%%PREFIX%%rp/custom-render-pipeline/ 11/40%%HIGHLIGHT%% ==To execute the buffer, invoke ExecuteCommandBuffer on the context with the buffer as anargument. That copies the commands from the buffer but doesn't clear it, we have to do thatexplicitly afterwards if we want to reuse it== %%POSTFIX%%. Because execution and clearing*
->%%LINK%%[[#^62gifbftckh|show annotation]]
+>*%%PREFIX%%to add a method that does both.%%HIGHLIGHT%% 
+>==void Setup (){
+>buffer.BeginSample(bufferName);
+>ExecuteBuffer();
+>context.SetupCameraProperties(camera);
+>}
+>void Submit () {
+>buffer.EndSample(bufferName);
+>ExecuteBuffer();context.Submit();
+>}
+>void ExecuteBuffer () {
+>context.ExecuteCommandBuffer(buffer);
+>buffer.Clear();
+>}== 
+>%%POSTFIX%%The Camera.RenderSkyBox sample n*
+>%%LINK%%[[#^z06jwq33t6c|show annotation]]
 >%%COMMENT%%
 >使用`ExecuteCommandBuffer`方法，可以执行缓冲区中的命令。该操作是复制命令到渲染管线中执行渲染。在提交命令前，将缓冲区中的命令与设置复制到管线中。
 >%%TAGS%%
 >
-^62gifbftckh
+^z06jwq33t6c
+
 
 这样就可以在Frame Debugger中，看到自定义的渲染命令缓冲区了
 ![[（图解1）渲染命令缓冲区名称.png|580]]
@@ -173,18 +214,27 @@ Project Setting中的Graphics和Quality Settings共同决定了活动渲染管�
 
 ## 清除渲染目标
 
+
 >%%
 >```annotation-json
->{"text":"每次绘制时，应使用`ClearRenderTarget`清除上一次渲染上下文。这样会在Fream Debugger中产生一个新的条目`Draw GL`，该条目就代表着清除","target":[{"source":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf","selector":[{"type":"TextPositionSelector","start":17069,"end":17097},{"type":"TextQuoteSelector","exact":"Clearing, with nested sample","prefix":".SetupCameraProperties(camera);}","suffix":".The frame debugger now shows a"}]}],"created":"2024-05-21T07:31:02.522Z","updated":"2024-05-21T07:31:02.522Z","document":{"title":"Custom Render Pipeline","link":[{"href":"urn:x-pdf:43a511de2f13b3a0e3ec2f97c3aa0a76"},{"href":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf"}],"documentFingerprint":"43a511de2f13b3a0e3ec2f97c3aa0a76"},"uri":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf"}
+>{"created":"2024-05-22T03:56:16.554Z","text":"每次绘制时，应使用ClearRenderTarget清除上一次渲染上下文。这样会在Fream Debugger中产生一个新的条目Draw GL，该条目就代表着清除","updated":"2024-05-22T03:56:16.554Z","document":{"title":"Custom Render Pipeline","link":[{"href":"urn:x-pdf:43a511de2f13b3a0e3ec2f97c3aa0a76"},{"href":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf"}],"documentFingerprint":"43a511de2f13b3a0e3ec2f97c3aa0a76"},"uri":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf","target":[{"source":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf","selector":[{"type":"TextPositionSelector","start":16918,"end":17069},{"type":"TextQuoteSelector","exact":"void Setup () {buffer.BeginSample(bufferName);buffer.ClearRenderTarget(true, true, Color.clear);ExecuteBuffer();context.SetupCameraProperties(camera);}","prefix":"for which we'll use Color.clear.","suffix":"Clearing, with nested sample.The"}]}]}
 >```
 >%%
->*%%PREFIX%%.SetupCameraProperties(camera);}%%HIGHLIGHT%% ==Clearing, with nested sample== %%POSTFIX%%.The frame debugger now shows a*
->%%LINK%%[[#^k20tttq4r7|show annotation]]
+>*%%PREFIX%%for which we'll use Color.clear.%%HIGHLIGHT%% 
+>==void Setup () {
+>buffer.BeginSample(bufferName);
+>buffer.ClearRenderTarget(true, true, Color.clear);
+>ExecuteBuffer();
+>context.SetupCameraProperties(camera);
+>}== 
+>%%POSTFIX%%Clearing, with nested sample.The*
+>%%LINK%%[[#^yzoq9547jh|show annotation]]
 >%%COMMENT%%
->每次绘制时，应使用`ClearRenderTarget`清除上一次渲染上下文。这样会在Fream Debugger中产生一个新的条目`Draw GL`，该条目就代表着清除
+>每次绘制时，应使用ClearRenderTarget清除上一次渲染上下文。这样会在Fream Debugger中产生一个新的条目Draw GL，该条目就代表着清除
 >%%TAGS%%
 >
-^k20tttq4r7
+^yzoq9547jh
+
 
 ![[（图解2）ClearRenderTarget的Frame Debbugger显示.png|530]]
 从图中可以看出，`ClearRenderTarget`步骤，使用了`Hidden/InternalClear`这个Shader，该Shader所做的事情，就是绘制一个全屏四边形，但是其实这并不是最有效的方法，在设置摄像机属性后，进行清理，才是最高效的方法：
@@ -196,33 +246,31 @@ Project Setting中的Graphics和Quality Settings共同决定了活动渲染管�
 
 >%%
 >```annotation-json
->{"text":"可以通过修改获取到的`ScriptableCullingParameters`来控制剔除。通过使用剔除，可以只渲染摄像机能看到的物体，而非去渲染每个物体。通过剔除，将可以将对象收集到`CullingResults`对象中。","target":[{"source":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf","selector":[{"type":"TextPositionSelector","start":19015,"end":19260},{"type":"TextQuoteSelector","exact":"Figuring out what can be culled requires us to keep track of multiple camera settings andmatrices, for which we can use the ScriptableCullingParameters struct. Instead of filling itourselves, we can invoke TryGetCullingParameters on the camera. ","prefix":"the view frustum of the camera.","suffix":"It returns whether theparameters"}]}],"created":"2024-05-21T08:34:16.175Z","updated":"2024-05-21T08:34:16.175Z","document":{"title":"Custom Render Pipeline","link":[{"href":"urn:x-pdf:43a511de2f13b3a0e3ec2f97c3aa0a76"},{"href":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf"}],"documentFingerprint":"43a511de2f13b3a0e3ec2f97c3aa0a76"},"uri":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf"}
+>{"created":"2024-05-22T03:57:56.745Z","text":"可以通过修改获取到的ScriptableCullingParameters来控制剔除。通过使用剔除，可以只渲染摄像机能看到的物体，而非去渲染每个物体。通过剔除，将可以将对象收集到CullingResults对象中。","updated":"2024-05-22T03:57:56.745Z","document":{"title":"Custom Render Pipeline","link":[{"href":"urn:x-pdf:43a511de2f13b3a0e3ec2f97c3aa0a76"},{"href":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf"}],"documentFingerprint":"43a511de2f13b3a0e3ec2f97c3aa0a76"},"uri":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf","target":[{"source":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf","selector":[{"type":"TextPositionSelector","start":19555,"end":19669},{"type":"TextQuoteSelector","exact":"bool Cull () {ScriptableCullingParameters pif (camera.TryGetCullingParameters(out p)) {return true;}return false;}","prefix":"turns either success or failure.","suffix":"Why do we have to write out?When"}]}]}
 >```
 >%%
->*%%PREFIX%%the view frustum of the camera.%%HIGHLIGHT%% ==Figuring out what can be culled requires us to keep track of multiple camera settings andmatrices, for which we can use the ScriptableCullingParameters struct. Instead of filling itourselves, we can invoke TryGetCullingParameters on the camera.== %%POSTFIX%%It returns whether theparameters*
->%%LINK%%[[#^1vdf0to5kej|show annotation]]
+>*%%PREFIX%%turns either success or failure.%%HIGHLIGHT%% 
+>==bool Cull () {
+>	ScriptableCullingParameters p
+>	if (camera.TryGetCullingParameters(out p)) {
+>		return true;
+>	}
+>	return false;
+>}== 
+>%%POSTFIX%%Why do we have to write out?When*
+>%%LINK%%[[#^kmkkdh0bi7|show annotation]]
 >%%COMMENT%%
->可以通过修改获取到的`ScriptableCullingParameters`来控制剔除。通过使用剔除，可以只渲染摄像机能看到的物体，而非去渲染每个物体。通过剔除，将可以将对象收集到`CullingResults`对象中。
+>可以通过修改获取到的ScriptableCullingParameters来控制剔除。通过使用剔除，可以只渲染摄像机能看到的物体，而非去渲染每个物体。通过剔除，将可以将对象收集到CullingResults对象中。
 >%%TAGS%%
 >
-^1vdf0to5kej
+^kmkkdh0bi7
+
 
 可以通过修改`cullingOptions`字段来配置剔除，例如：`cullingParameters.cullingOptions &= ~CullingOptions.OcclusionCull`
 
 ## 绘制几何物体
 
->%%
->```annotation-json
->{"text":"向`DrawRenderers `方法提供剔除结果（`CullingResults`），绘制（`DrawingSettings`）和筛选（`FilteringSettings`）设置后，才能正确绘制场景中的物体","target":[{"source":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf","selector":[{"type":"TextPositionSelector","start":21843,"end":22115},{"type":"TextQuoteSelector","exact":"Once we know what is visible we can move on to rendering those things. That is done byinvoking DrawRenderers on the context with the culling results as an argument, telling it whichrenderers to use. Besides that, we have to supply drawing settings and filtering settings. ","prefix":"eline/ 16/402.6 Drawing Geometry","suffix":"Both arestructs—DrawingSettings"}]}],"created":"2024-05-21T14:40:07.827Z","updated":"2024-05-21T14:40:07.827Z","document":{"title":"Custom Render Pipeline","link":[{"href":"urn:x-pdf:43a511de2f13b3a0e3ec2f97c3aa0a76"},{"href":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf"}],"documentFingerprint":"43a511de2f13b3a0e3ec2f97c3aa0a76"},"uri":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf"}
->```
->%%
->*%%PREFIX%%eline/ 16/402.6 Drawing Geometry%%HIGHLIGHT%% ==Once we know what is visible we can move on to rendering those things. That is done byinvoking DrawRenderers on the context with the culling results as an argument, telling it whichrenderers to use. Besides that, we have to supply drawing settings and filtering settings.== %%POSTFIX%%Both arestructs—DrawingSettings*
->%%LINK%%[[#^xg6z1wfgpz|show annotation]]
->%%COMMENT%%
->向`DrawRenderers `方法提供剔除结果（`CullingResults`），绘制（`DrawingSettings`）和筛选（`FilteringSettings`）设置后，才能正确绘制场景中的物体
->%%TAGS%%
->
-^xg6z1wfgpz
+
 
 ## 分别绘制不透明和透明几何图形
 
@@ -246,24 +294,5 @@ Project Setting中的Graphics和Quality Settings共同决定了活动渲染管�
 ## 绘制旧版着色器
 
 
->11
-
-22
 
 
-
-
-
->%%
->```annotation-json
->{"created":"2024-05-22T03:49:57.903Z","text":"`DrawSkybox`方法只是用于控制是否显示天空盒（此时移动旋转相机，天空盒没有任何变化）。天空盒的绘制是由相机的`clar flags`控制的。\n如果要正确渲染天空盒，就需要设置视图投影矩阵——VP。通过使用`SetupCameraProperties`方法，应用相机的属性","updated":"2024-05-22T03:49:57.903Z","document":{"title":"Custom Render Pipeline","link":[{"href":"urn:x-pdf:43a511de2f13b3a0e3ec2f97c3aa0a76"},{"href":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf"}],"documentFingerprint":"43a511de2f13b3a0e3ec2f97c3aa0a76"},"uri":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf","target":[{"source":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf","selector":[{"type":"TextPositionSelector","start":12878,"end":13085},{"type":"TextQuoteSelector","exact":"public void Render (ScriptableRenderContext context, Camera camera) {this.context = context;this.camera = camera;Setup();DrawVisibleGeometry();Submit();}void Setup () {context.SetupCameraProperties(camera);}","prefix":"etry, in a separate Setupmethod.","suffix":"Skybox, correctly aligned.2024/5"}]}]}
->```
->%%
->*%%PREFIX%%etry, in a separate Setupmethod.%%HIGHLIGHT%% ==public void Render (ScriptableRenderContext context, Camera camera) {this.context = context;this.camera = camera;Setup();DrawVisibleGeometry();Submit();}void Setup () {context.SetupCameraProperties(camera);}== %%POSTFIX%%Skybox, correctly aligned.2024/5*
->%%LINK%%[[#^gt3htl9uy1v|show annotation]]
->%%COMMENT%%
->`DrawSkybox`方法只是用于控制是否显示天空盒（此时移动旋转相机，天空盒没有任何变化）。天空盒的绘制是由相机的`clar flags`控制的。
->如果要正确渲染天空盒，就需要设置视图投影矩阵——VP。通过使用`SetupCameraProperties`方法，应用相机的属性
->%%TAGS%%
->
-^gt3htl9uy1v
