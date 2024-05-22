@@ -441,6 +441,24 @@ Project Setting中的Graphics和Quality Settings共同决定了活动渲染管�
 
 每个摄像头都有一个深度值，默认主摄像头的深度值为-1。它们会按照深度递增的顺序进行渲染。
 
-## 处理更改缓冲区名称
+## 清除标记
 
 
+
+
+
+
+
+
+>%%
+>```annotation-json
+>{"created":"2024-05-22T06:48:57.530Z","text":"`CameraClearFlags`枚举值并不是独立的标志值，而是代表递减的清除量。除了最后一种情况，在其他所有情况下都必须清除深度缓冲区。","updated":"2024-05-22T06:48:57.530Z","document":{"title":"Custom Render Pipeline","link":[{"href":"urn:x-pdf:43a511de2f13b3a0e3ec2f97c3aa0a76"},{"href":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf"}],"documentFingerprint":"43a511de2f13b3a0e3ec2f97c3aa0a76"},"uri":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf","target":[{"source":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf","selector":[{"type":"TextPositionSelector","start":43000,"end":43077},{"type":"TextQuoteSelector","exact":"buffer.ClearRenderTarget(flags <= CameraClearFlags.Depth, true, Color.clear);","prefix":"the flagsvalue is at most Depth.","suffix":"We should only really need to cl"}]}]}
+>```
+>%%
+>*%%PREFIX%%the flagsvalue is at most Depth.%%HIGHLIGHT%% ==buffer.ClearRenderTarget(flags <= CameraClearFlags.Depth, true, Color.clear);== %%POSTFIX%%We should only really need to cl*
+>%%LINK%%[[#^bmw7zer28uj|show annotation]]
+>%%COMMENT%%
+>`CameraClearFlags`枚举值并不是独立的标志值，而是代表递减的清除量。除了最后一种情况，在其他所有情况下都必须清除深度缓冲区。
+>%%TAGS%%
+>
+^bmw7zer28uj
