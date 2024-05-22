@@ -412,5 +412,5 @@ Project Setting中的Graphics和Quality Settings共同决定了活动渲染管�
 
 ## 绘制UGUI
 
-目前，如果创建一个UGUI对象，是无法显示的，通过Frame Debugger可以发现，UI是单独绘制的，不是由自定义的渲染管道绘制的。
+目前，如果创建一个UGUI对象，是无法再显示的，通过Frame Debugger可以发现，UI是单独绘制的，不是由自定义的渲染管道绘制的。
 ![[（图解4）帧调试器中的UI.png]]
