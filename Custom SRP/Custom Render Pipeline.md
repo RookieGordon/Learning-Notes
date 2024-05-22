@@ -189,29 +189,30 @@ Project Setting中的Graphics和Quality Settings共同决定了活动渲染管�
 
 >%%
 >```annotation-json
->{"created":"2024-05-21T08:34:16.175Z","text":"可以通过修改获取到的`ScriptableCullingParameters`来控制剔除","updated":"2024-05-21T08:34:16.175Z","document":{"title":"Custom Render Pipeline","link":[{"href":"urn:x-pdf:43a511de2f13b3a0e3ec2f97c3aa0a76"},{"href":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf"}],"documentFingerprint":"43a511de2f13b3a0e3ec2f97c3aa0a76"},"uri":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf","target":[{"source":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf","selector":[{"type":"TextPositionSelector","start":19015,"end":19260},{"type":"TextQuoteSelector","exact":"Figuring out what can be culled requires us to keep track of multiple camera settings andmatrices, for which we can use the ScriptableCullingParameters struct. Instead of filling itourselves, we can invoke TryGetCullingParameters on the camera. ","prefix":" the view frustum of the camera.","suffix":"It returns whether theparameters"}]}]}
+>{"text":"可以通过修改获取到的`ScriptableCullingParameters`来控制剔除。通过使用剔除，可以只渲染摄像机能看到的物体，而非去渲染每个物体。通过剔除，将可以将对象收集到`CullingResults`对象中。","target":[{"source":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf","selector":[{"type":"TextPositionSelector","start":19015,"end":19260},{"type":"TextQuoteSelector","exact":"Figuring out what can be culled requires us to keep track of multiple camera settings andmatrices, for which we can use the ScriptableCullingParameters struct. Instead of filling itourselves, we can invoke TryGetCullingParameters on the camera. ","prefix":"the view frustum of the camera.","suffix":"It returns whether theparameters"}]}],"created":"2024-05-21T08:34:16.175Z","updated":"2024-05-21T08:34:16.175Z","document":{"title":"Custom Render Pipeline","link":[{"href":"urn:x-pdf:43a511de2f13b3a0e3ec2f97c3aa0a76"},{"href":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf"}],"documentFingerprint":"43a511de2f13b3a0e3ec2f97c3aa0a76"},"uri":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf"}
 >```
 >%%
 >*%%PREFIX%%the view frustum of the camera.%%HIGHLIGHT%% ==Figuring out what can be culled requires us to keep track of multiple camera settings andmatrices, for which we can use the ScriptableCullingParameters struct. Instead of filling itourselves, we can invoke TryGetCullingParameters on the camera.== %%POSTFIX%%It returns whether theparameters*
 >%%LINK%%[[#^1vdf0to5kej|show annotation]]
 >%%COMMENT%%
->可以通过修改获取到的`ScriptableCullingParameters`来控制剔除
+>可以通过修改获取到的`ScriptableCullingParameters`来控制剔除。通过使用剔除，可以只渲染摄像机能看到的物体，而非去渲染每个物体。通过剔除，将可以将对象收集到`CullingResults`对象中。
 >%%TAGS%%
 >
 ^1vdf0to5kej
+
 可以通过修改`cullingOptions`字段来配置剔除，例如：`cullingParameters.cullingOptions &= ~CullingOptions.OcclusionCull`
 
 ## 绘制几何物体
 
 >%%
 >```annotation-json
->{"created":"2024-05-21T14:40:07.827Z","text":"向`DrawRenderers `方法提供剔除（`CullingResults`），绘制（`DrawingSettings`）和筛选（`FilteringSettings`）设置后，才能正确绘制场景中的物体","updated":"2024-05-21T14:40:07.827Z","document":{"title":"Custom Render Pipeline","link":[{"href":"urn:x-pdf:43a511de2f13b3a0e3ec2f97c3aa0a76"},{"href":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf"}],"documentFingerprint":"43a511de2f13b3a0e3ec2f97c3aa0a76"},"uri":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf","target":[{"source":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf","selector":[{"type":"TextPositionSelector","start":21843,"end":22115},{"type":"TextQuoteSelector","exact":"Once we know what is visible we can move on to rendering those things. That is done byinvoking DrawRenderers on the context with the culling results as an argument, telling it whichrenderers to use. Besides that, we have to supply drawing settings and filtering settings. ","prefix":"eline/ 16/402.6 Drawing Geometry","suffix":"Both arestructs—DrawingSettings "}]}]}
+>{"text":"向`DrawRenderers `方法提供剔除结果（`CullingResults`），绘制（`DrawingSettings`）和筛选（`FilteringSettings`）设置后，才能正确绘制场景中的物体","target":[{"source":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf","selector":[{"type":"TextPositionSelector","start":21843,"end":22115},{"type":"TextQuoteSelector","exact":"Once we know what is visible we can move on to rendering those things. That is done byinvoking DrawRenderers on the context with the culling results as an argument, telling it whichrenderers to use. Besides that, we have to supply drawing settings and filtering settings. ","prefix":"eline/ 16/402.6 Drawing Geometry","suffix":"Both arestructs—DrawingSettings"}]}],"created":"2024-05-21T14:40:07.827Z","updated":"2024-05-21T14:40:07.827Z","document":{"title":"Custom Render Pipeline","link":[{"href":"urn:x-pdf:43a511de2f13b3a0e3ec2f97c3aa0a76"},{"href":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf"}],"documentFingerprint":"43a511de2f13b3a0e3ec2f97c3aa0a76"},"uri":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf"}
 >```
 >%%
 >*%%PREFIX%%eline/ 16/402.6 Drawing Geometry%%HIGHLIGHT%% ==Once we know what is visible we can move on to rendering those things. That is done byinvoking DrawRenderers on the context with the culling results as an argument, telling it whichrenderers to use. Besides that, we have to supply drawing settings and filtering settings.== %%POSTFIX%%Both arestructs—DrawingSettings*
 >%%LINK%%[[#^xg6z1wfgpz|show annotation]]
 >%%COMMENT%%
->向`DrawRenderers `方法提供剔除（`CullingResults`），绘制（`DrawingSettings`）和筛选（`FilteringSettings`）设置后，才能正确绘制场景中的物体
+>向`DrawRenderers `方法提供剔除结果（`CullingResults`），绘制（`DrawingSettings`）和筛选（`FilteringSettings`）设置后，才能正确绘制场景中的物体
 >%%TAGS%%
 >
 ^xg6z1wfgpz
@@ -220,9 +221,23 @@ Project Setting中的Graphics和Quality Settings共同决定了活动渲染管�
 
 到此，绘制了所有未使用光照着色器的物体，这其中，但是天空盒却遮住了那些不透明物体后面的透明物体。出现这种情况是因为透明着色器不会写入深度缓冲区。透明着色器不会隐藏它们后面的东西，因为我们可以透过它们看到东西。解决方法是首先绘制不透明对象，然后绘制天空盒，最后才绘制透明对象。
 
+>%%
+>```annotation-json
+>{"created":"2024-05-21T16:12:01.326Z","text":"由于透明物体与天空盒的存在，为了保证渲染结果的正确，需要先渲染不透明物体，再渲染天空盒，最后渲染透明物体。","updated":"2024-05-21T16:12:01.326Z","document":{"title":"Custom Render Pipeline","link":[{"href":"urn:x-pdf:43a511de2f13b3a0e3ec2f97c3aa0a76"},{"href":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf"}],"documentFingerprint":"43a511de2f13b3a0e3ec2f97c3aa0a76"},"uri":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf","target":[{"source":"vault:/Custom SRP/attachments/Custom Render Pipeline.pdf","selector":[{"type":"TextPositionSelector","start":25452,"end":25548},{"type":"TextQuoteSelector","exact":"The solution is to first drawnopaque objects, then the skybox, and only then transparent objects","prefix":"ecause we can see through them. ","suffix":".We can eliminate the transparen"}]}]}
+>```
+>%%
+>*%%PREFIX%%ecause we can see through them.%%HIGHLIGHT%% ==The solution is to first drawnopaque objects, then the skybox, and only then transparent objects== %%POSTFIX%%.We can eliminate the transparen*
+>%%LINK%%[[#^y0tcsesyk8|show annotation]]
+>%%COMMENT%%
+>由于透明物体与天空盒的存在，为了保证渲染结果的正确，需要先渲染不透明物体，再渲染天空盒，最后渲染透明物体。
+>%%TAGS%%
+>
+^y0tcsesyk8
+
 # 编辑渲染
 
 ## 绘制旧版着色器
+
 
 
 
