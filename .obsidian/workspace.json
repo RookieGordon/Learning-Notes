@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "【Unity技术美术】URP Shader训练营/自定义.md",
+                "file": "【Unity技术美术】URP Shader训练营/自定义PBR-Shader.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "【Unity技术美术】URP Shader训练营/自定义.md",
+                "file": "【Unity技术美术】URP Shader训练营/自定义PBR-Shader.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "【Unity技术美术】URP Shader训练营/自定义.md",
+                "file": "【Unity技术美术】URP Shader训练营/自定义PBR-Shader.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "【Unity技术美术】URP Shader训练营/自定义.md"
+                "file": "【Unity技术美术】URP Shader训练营/自定义PBR-Shader.md"
               }
             }
           }
@@ -153,11 +153,11 @@
   "active": "2783c3dcba766a30",
   "lastOpenFiles": [
     "【Unity技术美术】URP Shader训练营/自定义BlinnPhong光照URP-Shader.md",
-    "【Unity技术美术】URP Shader训练营/自定义.md",
-    "【Unity技术美术】URP Shader训练营/编写自定义URP Shader.md",
-    "【Unity技术美术】URP Shader训练营/自定义漫反射URP-Shader.md",
-    "【Unity技术美术】URP Shader训练营/【Unity技术美术】URP Shader训练营.md",
+    "【Unity技术美术】URP Shader训练营/自定义PBR-Shader.md",
     "【Unity技术美术】URP Shader训练营/自定义无光照URP-Shader.md",
+    "【Unity技术美术】URP Shader训练营/自定义漫反射URP-Shader.md",
+    "【Unity技术美术】URP Shader训练营/编写自定义URP Shader.md",
+    "【Unity技术美术】URP Shader训练营/【Unity技术美术】URP Shader训练营.md",
     "Slurped Pages/可编程脚本渲染管线SRP - Unity官方平台 - 博客园.md",
     "Slurped Pages/Unity SRP搞事（一）基本管线.md",
     "Slurped Pages/Unity URP 中的 GI.md",

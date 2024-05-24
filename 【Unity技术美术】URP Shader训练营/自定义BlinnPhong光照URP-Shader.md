@@ -292,7 +292,8 @@ Shader "Custom/Lit/Basic/SimpleLitShader"
         深度Pass { ... }   
   
         深度法线Pass { ... }  
-    }}
+    }
+}
 ```
 
 在属性中，增加了法线，自发光，高光，光泽度等相关属性。
