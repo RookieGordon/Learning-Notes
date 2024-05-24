@@ -13,8 +13,8 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "【Unity技术美术】URP Shader训练营/自定义BlinnPhong光照URP-Shader.md",
-                "mode": "preview",
+                "file": "【Unity技术美术】URP Shader训练营/自定义.md",
+                "mode": "source",
                 "source": false
               }
             }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "【Unity技术美术】URP Shader训练营/自定义BlinnPhong光照URP-Shader.md",
+                "file": "【Unity技术美术】URP Shader训练营/自定义.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "【Unity技术美术】URP Shader训练营/自定义BlinnPhong光照URP-Shader.md",
+                "file": "【Unity技术美术】URP Shader训练营/自定义.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "【Unity技术美术】URP Shader训练营/自定义BlinnPhong光照URP-Shader.md"
+                "file": "【Unity技术美术】URP Shader训练营/自定义.md"
               }
             }
           }
@@ -152,8 +152,11 @@
   },
   "active": "2783c3dcba766a30",
   "lastOpenFiles": [
-    "【Unity技术美术】URP Shader训练营/【Unity技术美术】URP Shader训练营.md",
+    "【Unity技术美术】URP Shader训练营/自定义BlinnPhong光照URP-Shader.md",
+    "【Unity技术美术】URP Shader训练营/自定义.md",
+    "【Unity技术美术】URP Shader训练营/编写自定义URP Shader.md",
     "【Unity技术美术】URP Shader训练营/自定义漫反射URP-Shader.md",
+    "【Unity技术美术】URP Shader训练营/【Unity技术美术】URP Shader训练营.md",
     "【Unity技术美术】URP Shader训练营/自定义无光照URP-Shader.md",
     "Slurped Pages/可编程脚本渲染管线SRP - Unity官方平台 - 博客园.md",
     "Slurped Pages/Unity SRP搞事（一）基本管线.md",
@@ -171,9 +174,7 @@
     "【Unity技术美术】URP Shader训练营/URP-Shader基本结构.md",
     "【Unity技术美术】URP Shader训练营/URP-Shader中的Pass通道.md",
     "【Unity技术美术】URP Shader训练营/URP-Shader中的SubShader.md",
-    "【Unity技术美术】URP Shader训练营/自定义BlinnPhong光照URP-Shader.md",
     "Slurped Pages/Shader：优化破解变体的“影分身”之术.md",
-    "【Unity技术美术】URP Shader训练营/编写自定义URP Shader.md",
     "Slurped Pages/图形引擎实战：Unity Shader变体管理流程.md",
     "Slurped Pages/第9章 着色器编译、分支和变体.md",
     "Slurped Pages/Unity SRP 管线【第五讲：自定义烘培光照】_samplesinglelightmap-CSDN博客.md",
