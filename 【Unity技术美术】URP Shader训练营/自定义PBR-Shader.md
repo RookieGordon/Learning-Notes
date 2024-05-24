@@ -238,73 +238,143 @@ void InitInputData(Varyings IN, half3 normalTS, out InputData inputData)
 {
     inputData = (InputData)0;
 
-    inputData.positionWS = IN.positionWS;
+    inputData.positionWS = IN.posWS;
 
-  
-
-    #ifdef _NORMALMAP
-
-        inputData.normalWS = TransformTangentToWorld(normalTS, half3x3(IN.tangentWS.xyz, IN.bitangentWS.xyz, IN.normalWS.xyz));
-
-        half3 viewDirWS = half3(IN.normalWS.w, IN.tangentWS.w, IN.bitangentWS.w);
-
-    #else
-
-        inputData.normalWS = IN.normalWS;
-
-        half3 viewDirWS = GetWorldSpaceViewDir(IN.positionWS);
-
-    #endif
-
-  
-
+#ifdef _NORMALMAP
+    inputData.normalWS = TransformTangentToWorld(normalTS, 
+											    half3x3(IN.tangentWS.xyz, 
+											    IN.bitangentWS.xyz, 
+											    IN.normalWS.xyz));
+#else
+    inputData.normalWS = IN.normalWS;
+#endif
     inputData.normalWS = NormalizeNormalPerPixel(inputData.normalWS);
 
-  
-
-    viewDirWS = SafeNormalize(viewDirWS);
-
-    inputData.viewDirectionWS = viewDirWS;
-
-  
-
-    #ifdef REQUIRES_VERTEX_SHADOW_COORD_INTERPOLATOR
-
-        inputData.shadowCoord = IN.shadowCoord;
-
-    #elif defined(MAIN_LIGHT_CALCULATE_SHADOWS)
-
-        inputData.shadowCoord = TransformWorldToShadowCoord(IN.positionWS);
-
-    #else
-
-        inputData.shadowCoord = float4(0, 0, 0, 0);
-
-    #endif
+#ifdef _NORMALMAP
+    inputData.viewDirectionWS = half3(IN.normalWS.w, 
+									    IN.tangentWS.w, 
+									    IN.bitangentWS.w);
+#else
+    inputData.viewDirectionWS = GetWorldSpaceViewDir(IN.posWS);
+#endif
+    inputData.viewDirectionWS = NormalizeNormalPerPixel(inputData.viewDirectionWS);
 
   
+#ifdef REQUIRES_VERTEX_SHADOW_COORD_INTERPOLATOR
+    inputData.shadowCoord = IN.shadowCoord;
+#elif defined(MAIN_LIGHT_CALCULATE_SHADOWS)
+    inputData.shadowCoord = TransformWorldToShadowCoord(IN.posWS);
+#else
+    inputData.shadowCoord = float4(0,0,0,0);
+#endif
 
-    #ifdef _ADDITIONAL_LIGHTS_VERTEX
-
-        inputData.vertexLighting = IN.fogFactorAndVertexLight.yzw;
-
-        inputData.fogCoord = IN.fogFactorAndVertexLight.x;
-
-    #else
-
-        inputData.vertexLighting = half3(0, 0, 0);
-
-        inputData.fogCoord = IN.fogFactor.x;
-
-    #endif
-
-  
+#ifdef _ADDITIONAL_LIGHTS_VERTEX
+    inputData.vertexLighting = IN.fogFactorAndVertexLight.yzw;
+    inputData.fogCoord = IN.fogFactorAndVertexLight.x;
+#else
+    inputData.vertexLighting = half3(0,0,0);
+    inputData.fogCoord = IN.fogFactor;
+#endif
 
     inputData.bakedGI = SAMPLE_GI(IN.lightmapUV, IN.vertexSH, IN.normalWS);
 
-    inputData.normalizedScreenSpaceUV = GetNormalizedScreenSpaceUV(IN.positionCS);
+    inputData.normalizedScreenSpaceUV = GetNormalizedScreenSpaceUV(IN.posCS);
 
     inputData.shadowMask = SAMPLE_SHADOWMASK(IN.lightmapUV);
 
+}
+```
+
+```HLSL
+#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/SurfaceInput.hlsl"
+
+  
+TEXTURE2D(_MetallicSpecGlossMap);
+SAMPLER(sampler_MetallicSpecGlossMap);
+TEXTURE2D(_OcclusionMap);
+SAMPLER(sampler_OcclusionMap);
+
+  
+half SampleOcclusion(float2 uv)
+{
+#ifdef _OCCLUSIONMAP
+       // TODO: Controls things like these by exposing SHADER_QUALITY levels (low, medium, high)
+    #if defined(SHADER_API_GLES)
+        return SAMPLE_TEXTURE2D(_OcclusionMap, sampler_OcclusionMap, uv).g;
+    #else
+        half occ = SAMPLE_TEXTURE2D(_OcclusionMap, sampler_OcclusionMap, uv).g;
+        return LerpWhiteTo(occ, _OcclusionStrength);
+    #endif
+#else
+    return half(1.0);
+#endif
+
+}
+
+  
+half4 SampleMetallicSpecGloss(float2 uv, half albedoAlpha)
+{
+
+    half4 specGloss;
+
+#ifdef _METALLICSPECGLOSSMAP
+    specGloss = SAMPLE_TEXTURE2D(_MetallicSpecGlossMap, sampler_MetallicSpecGlossMap, uv);
+    #ifdef _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
+        specGloss.a = albedoAlpha * _Smoothness;
+    #else
+        specGloss.a *= _Smoothness;
+    #endif
+#else // _METALLICSPECGLOSSMAP
+    #if _SPECULAR_SETUP
+        specGloss.rgb = _SpecColor.rgb;
+    #else
+        specGloss.rgb = _Metallic.rrr;
+    #endif
+
+  
+    #ifdef _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
+        specGloss.a = albedoAlpha * _Smoothness;
+    #else
+        specGloss.a = _Smoothness;
+    #endif
+
+#endif
+
+    return specGloss;
+}
+
+  
+
+void InitSurfaceData(Varyings IN, out SurfaceData surfaceData)
+{
+
+    surfaceData = (SurfaceData)0;
+
+    half4 albedoAplha = SampleAlbedoAlpha(IN.uv, _BaseMap, sampler_BaseMap);
+
+    surfaceData.alpha = Alpha(albedoAplha.a, _BaseColor, _Cutoff);
+
+    surfaceData.albedo = (albedoAplha * _BaseColor * IN.vertexColor).rgb;
+
+    surfaceData.normalTS = SampleNormal(IN.uv, _BumpMap, sampler_BumpMap);
+
+    surfaceData.emission = SampleEmission(IN.uv, 
+						    _EmissionColor, 
+						    _EmissionMap, 
+						    sampler_EmissionMap);
+
+    surfaceData.occlusion = SampleOcclusion(IN.uv);
+
+    half4 metalSpec = SampleMetallicSpecGloss(IN.uv, albedoAplha.a);
+
+#ifdef _SPECULAR_SETUP
+    surfaceData.metallic = 1;
+    surfaceData.specular = metalSpec.rgb;
+#else
+    surfaceData.specular = half3(0,0,0);
+    surfaceData.metallic = metalSpec.r;
+#endif
+
+    surfaceData.smoothness = metalSpec.a;
 }
 ```
