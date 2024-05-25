@@ -11,9 +11,11 @@
             "id": "2783c3dcba766a30",
             "type": "leaf",
             "state": {
-              "type": "pdf-annotator",
+              "type": "markdown",
               "state": {
-                "file": "Custom SRP/Draw Calls.md"
+                "file": "Custom SRP/Draw Calls.md",
+                "mode": "preview",
+                "source": false
               }
             }
           }

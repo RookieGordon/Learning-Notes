@@ -79,3 +79,22 @@ annotation-target: Draw Calls.pdf
 
 
 
+
+
+>%%
+>```annotation-json
+>{"created":"2024-05-25T13:26:43.846Z","text":"创建一个`PerObjectMaterialProperties`组件，用于控制物体材质的`_BaseColor`属性。使用`MaterialPropertyBlock`对象来修改物体Renderer组件使用的着色器的`Properties`属性。","updated":"2024-05-25T13:26:43.846Z","document":{"title":"Draw Calls","link":[{"href":"urn:x-pdf:23ef64e21d6e965e28063c4b0394ee19"},{"href":"vault:/Custom SRP/attachments/Draw Calls.pdf"}],"documentFingerprint":"23ef64e21d6e965e28063c4b0394ee19"},"uri":"vault:/Custom SRP/attachments/Draw Calls.pdf","target":[{"source":"vault:/Custom SRP/attachments/Draw Calls.pdf","selector":[{"type":"TextPositionSelector","start":27539,"end":27703},{"type":"TextQuoteSelector","exact":"public class PerObjectMaterialProperties : MonoBehaviour {static int baseColorId = Shader.PropertyToID(\"_BaseColor\");[SerializeField]Color baseColor = Color.white;}","prefix":"gine;[DisallowMultipleComponent]","suffix":"PerObjectMaterialProperties comp"}]}]}
+>```
+>%%
+>*%%PREFIX%%gine;[DisallowMultipleComponent]%%HIGHLIGHT%% 
+>==public class PerObjectMaterialProperties : MonoBehaviour {
+>static int baseColorId = Shader.PropertyToID("_BaseColor");
+>[SerializeField]Color baseColor = Color.white;
+>}== 
+>%%POSTFIX%%PerObjectMaterialProperties comp*
+>%%LINK%%[[#^afkh0yp1tjf|show annotation]]
+>%%COMMENT%%
+>创建一个`PerObjectMaterialProperties`组件，用于控制物体材质的`_BaseColor`属性。使用`MaterialPropertyBlock`对象来修改物体Renderer组件使用的着色器的`Properties`属性。
+>%%TAGS%%
+>
+^afkh0yp1tjf
