@@ -22,5 +22,7 @@ annotation-target: Draw Calls.pdf
 >
 ^2qgvqyy4vlr
 
-# 合批
+# 批处理
+
+## SPR的批处理
 
