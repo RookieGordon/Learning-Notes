@@ -8,14 +8,12 @@
         "type": "tabs",
         "children": [
           {
-            "id": "2783c3dcba766a30",
+            "id": "41f443d6b7ea613a",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "pdf-annotator",
               "state": {
-                "file": "Custom SRP/Draw Calls.md",
-                "mode": "preview",
-                "source": false
+                "file": "Custom SRP/Draw Calls.md"
               }
             }
           }
@@ -69,8 +67,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 387.5,
-    "collapsed": true
+    "width": 387.5
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -147,12 +144,16 @@
       "templates:插入模板": false,
       "command-palette:打开命令面板": false,
       "markdown-table-editor:Open Markdown Table Editor": false,
-      "obsidian-importer:Open Importer": false,
-      "obsidian-excalidraw-plugin:新建绘图文件": false
+      "obsidian-excalidraw-plugin:新建绘图文件": false,
+      "obsidian-importer:Open Importer": false
     }
   },
-  "active": "2783c3dcba766a30",
+  "active": "41f443d6b7ea613a",
   "lastOpenFiles": [
+    "Custom SRP/Custom Render Pipeline.md",
+    "Custom SRP/Draw Calls.md",
+    "【Unity技术美术】URP Shader训练营/自定义无光照URP-Shader.md",
+    "【Unity技术美术】URP Shader训练营/自定义PBR-Shader.md",
     "Slurped Pages/shaderVariant 的更新测试.md",
     "Slurped Pages/Unity SRP 管线【第五讲：URP烘培光照】_urpshader实现光照烘焙-CSDN博客.md",
     "Slurped Pages/Unity SRP 管线【第五讲：自定义烘培光照】_samplesinglelightmap-CSDN博客.md",
@@ -164,15 +165,11 @@
     "【Unity技术美术】URP Shader训练营/【Unity技术美术】URP Shader训练营.md",
     "【Unity技术美术】URP Shader训练营/自定义BlinnPhong光照URP-Shader.md",
     "【Unity技术美术】URP Shader训练营/编写自定义URP Shader.md",
-    "【Unity技术美术】URP Shader训练营/自定义PBR-Shader.md",
-    "【Unity技术美术】URP Shader训练营/自定义无光照URP-Shader.md",
     "【Unity技术美术】URP Shader训练营/自定义漫反射URP-Shader.md",
     "Slurped Pages/Unity SRP搞事（一）基本管线.md",
     "Slurped Pages/Unity URP 中的 GI.md",
     "Slurped Pages/Unity通用渲染管线（URP）系列（五）——烘焙光（Baked Light）.md",
     "Slurped Pages/URP源码阅读之GI.md",
-    "Custom SRP/Draw Calls.md",
-    "Custom SRP/Custom Render Pipeline.md",
     "Custom SRP/Custom SRP.md",
     "Custom SRP/attachments/Draw Calls.pdf",
     "Custom SRP/attachments/（图解4）帧调试器中的UI.png",
