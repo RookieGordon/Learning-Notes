@@ -115,7 +115,12 @@ annotation-target: Draw Calls.pdf
 >{"created":"2024-05-26T08:24:55.091Z","text":"在`Attributes`属性中加上`UNITY_VERTEX_INPUT_INSTANCE_ID`，同时在`UnlitPassVertex`函数中调用`UNITY_SETUP_INSTANCE_ID(input)`，这样就能正确将对象索引传递给GPU Instancing，并且可以提取出来使用。","updated":"2024-05-26T08:24:55.091Z","document":{"title":"Draw Calls","link":[{"href":"urn:x-pdf:23ef64e21d6e965e28063c4b0394ee19"},{"href":"vault:/Custom SRP/attachments/Draw Calls.pdf"}],"documentFingerprint":"23ef64e21d6e965e28063c4b0394ee19"},"uri":"vault:/Custom SRP/attachments/Draw Calls.pdf","target":[{"source":"vault:/Custom SRP/attachments/Draw Calls.pdf","selector":[{"type":"TextPositionSelector","start":32167,"end":32247},{"type":"TextQuoteSelector","exact":"struct Attributes {float3 positionOS : POSITION;UNITY_VERTEX_INPUT_INSTANCE_ID};","prefix":"T_INSTANCE_ID inside Attributes.","suffix":"Next, add UNITY_SETUP_INSTANCE_I"}]}]}
 >```
 >%%
->*%%PREFIX%%T_INSTANCE_ID inside Attributes.%%HIGHLIGHT%% ==struct Attributes {float3 positionOS : POSITION;UNITY_VERTEX_INPUT_INSTANCE_ID};== %%POSTFIX%%Next, add UNITY_SETUP_INSTANCE_I*
+>*%%PREFIX%%T_INSTANCE_ID inside Attributes.%%HIGHLIGHT%% 
+>==struct Attributes {
+>float3 positionOS : POSITION;
+>UNITY_VERTEX_INPUT_INSTANCE_ID
+>};== 
+>%%POSTFIX%%Next, add UNITY_SETUP_INSTANCE_I*
 >%%LINK%%[[#^ucn3tdi4jyc|show annotation]]
 >%%COMMENT%%
 >在`Attributes`属性中加上`UNITY_VERTEX_INPUT_INSTANCE_ID`，同时在`UnlitPassVertex`函数中调用`UNITY_SETUP_INSTANCE_ID(input)`，这样就能正确将对象索引传递给GPU Instancing，并且可以提取出来使用。
