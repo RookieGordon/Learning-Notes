@@ -97,8 +97,6 @@ annotation-target: Draw Calls.pdf
 
 ## GPU Instancing
 
-
-
 >%%
 >```annotation-json
 >{"created":"2024-05-26T08:14:18.795Z","text":"要使用GPU Instancing，需要导入UnityInstancing.hlsl，其所做的就是重新定义一些矩阵相关的宏，数组形式访问。但要实现这一点，它需要知道当前正在渲染的对象的索引。索引是通过顶点数据提供的，因此我们必须提供它。UnityInstancing.hlsl 定义了宏来简化这一过程，但它们假定我们的顶点函数有一个struct参数。","updated":"2024-05-26T08:14:18.795Z","document":{"title":"Draw Calls","link":[{"href":"urn:x-pdf:23ef64e21d6e965e28063c4b0394ee19"},{"href":"vault:/Custom SRP/attachments/Draw Calls.pdf"}],"documentFingerprint":"23ef64e21d6e965e28063c4b0394ee19"},"uri":"vault:/Custom SRP/attachments/Draw Calls.pdf","target":[{"source":"vault:/Custom SRP/attachments/Draw Calls.pdf","selector":[{"type":"TextPositionSelector","start":30945,"end":31332},{"type":"TextQuoteSelector","exact":"What UnityInstancing.hlsl does is redefine those macros to access the instanced data arraysinstead. But to make that work it needs to know the index of the object that's currently beingrendered. The index is provided via the vertex data, so we have to make it available.UnityInstancing.hlsl defines macros to make this easy, but they assume that our vertex functionhas a struct parameter","prefix":"derLibrary/SpaceTransforms.hlsl\"","suffix":".It is possible to declare a str"}]}]}
@@ -111,3 +109,16 @@ annotation-target: Draw Calls.pdf
 >%%TAGS%%
 >
 ^4b9zaqfhsnp
+
+>%%
+>```annotation-json
+>{"created":"2024-05-26T08:24:55.091Z","text":"在`Attributes`属性中加上`UNITY_VERTEX_INPUT_INSTANCE_ID`，同时在`UnlitPassVertex`函数中调用`UNITY_SETUP_INSTANCE_ID(input)`，这样就能正确将对象索引传递给GPU Instancing，并且可以提取出来使用。","updated":"2024-05-26T08:24:55.091Z","document":{"title":"Draw Calls","link":[{"href":"urn:x-pdf:23ef64e21d6e965e28063c4b0394ee19"},{"href":"vault:/Custom SRP/attachments/Draw Calls.pdf"}],"documentFingerprint":"23ef64e21d6e965e28063c4b0394ee19"},"uri":"vault:/Custom SRP/attachments/Draw Calls.pdf","target":[{"source":"vault:/Custom SRP/attachments/Draw Calls.pdf","selector":[{"type":"TextPositionSelector","start":32167,"end":32247},{"type":"TextQuoteSelector","exact":"struct Attributes {float3 positionOS : POSITION;UNITY_VERTEX_INPUT_INSTANCE_ID};","prefix":"T_INSTANCE_ID inside Attributes.","suffix":"Next, add UNITY_SETUP_INSTANCE_I"}]}]}
+>```
+>%%
+>*%%PREFIX%%T_INSTANCE_ID inside Attributes.%%HIGHLIGHT%% ==struct Attributes {float3 positionOS : POSITION;UNITY_VERTEX_INPUT_INSTANCE_ID};== %%POSTFIX%%Next, add UNITY_SETUP_INSTANCE_I*
+>%%LINK%%[[#^ucn3tdi4jyc|show annotation]]
+>%%COMMENT%%
+>在`Attributes`属性中加上`UNITY_VERTEX_INPUT_INSTANCE_ID`，同时在`UnlitPassVertex`函数中调用`UNITY_SETUP_INSTANCE_ID(input)`，这样就能正确将对象索引传递给GPU Instancing，并且可以提取出来使用。
+>%%TAGS%%
+>
+^ucn3tdi4jyc
