@@ -4,27 +4,29 @@
     "type": "split",
     "children": [
       {
-        "id": "831a0efe84efca5b",
+        "id": "a9f693b035ed4c50",
         "type": "tabs",
         "children": [
           {
-            "id": "fa5cee61475cb232",
+            "id": "07d71d05926f819d",
             "type": "leaf",
             "state": {
-              "type": "mindmapview",
+              "type": "markdown",
               "state": {
-                "file": "Custom SRP/Directional Lights.md"
+                "file": "Custom SRP/Directional Lights.md",
+                "mode": "preview",
+                "source": false
               }
             }
           }
         ]
       },
       {
-        "id": "2c1b47aaf7f46ece",
+        "id": "8970e3416dbe677a",
         "type": "tabs",
         "children": [
           {
-            "id": "5e6f5fb3dc704e8e",
+            "id": "7c089dd51a37405d",
             "type": "leaf",
             "state": {
               "type": "mindmapview",
@@ -83,8 +85,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 387.5,
-    "collapsed": true
+    "width": 387.5
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -165,11 +166,11 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "3980a1c1a27a1a1d",
+  "active": "07d71d05926f819d",
   "lastOpenFiles": [
     "Custom SRP/attachments/Directional Lights-annotate.md",
-    "Custom SRP/attachments/Directional Lights.annos",
     "Custom SRP/Directional Lights.md",
+    "Custom SRP/attachments/Directional Lights.annos",
     "Custom SRP/attachments/Directional Lights.pdf",
     "Custom SRP/Custom SRP.md",
     "Custom SRP/Custom Render Pipeline.md",

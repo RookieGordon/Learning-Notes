@@ -22,5 +22,6 @@
   "openCodeBlock": true,
   "onlyUseObsidianFolder": true,
   "autoCenter": true,
-  "autoCreateNodeWhenAnnotate": true
+  "autoCreateNodeWhenAnnotate": true,
+  "useMarkdownSaveAnnotation": "annos"
 }
