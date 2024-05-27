@@ -11,11 +11,9 @@
             "id": "a623e70ccc55e072",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "mindmapview",
               "state": {
-                "file": "技术美术入门/Map&Texture贴图和纹理.md",
-                "mode": "preview",
-                "source": false
+                "file": "未命名思维导图.md"
               }
             }
           }
@@ -85,7 +83,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "技术美术入门/Map&Texture贴图和纹理.md",
+                "file": "未命名思维导图.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +100,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "技术美术入门/Map&Texture贴图和纹理.md",
+                "file": "未命名思维导图.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -125,7 +123,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "技术美术入门/Map&Texture贴图和纹理.md"
+                "file": "未命名思维导图.md"
               }
             }
           }
@@ -152,15 +150,17 @@
   },
   "active": "a623e70ccc55e072",
   "lastOpenFiles": [
+    "Custom SRP/attachments/Draw Calls-annotate.md",
+    "未命名思维导图.md",
+    "Custom SRP/Draw Calls.md",
+    "Custom SRP/Custom SRP.md",
+    "Excalidraw/Map.md",
+    "技术美术入门/Map&Texture贴图和纹理.md",
     "技术美术入门/技术美术入门.md",
     "Custom SRP/attachments/Draw Calls.pdf",
-    "未命名思维导图.md",
-    "Custom SRP/attachments/Draw Calls-annotate.md",
-    "Custom SRP/Draw Calls.md",
     "Custom SRP/Custom Render Pipeline.md",
     "Custom SRP/未命名思维导图.md",
     "Custom SRP/attachments/Draw Calls.annos",
-    "Custom SRP/Custom SRP.md",
     "【Unity技术美术】URP Shader训练营/自定义无光照URP-Shader.md",
     "【Unity技术美术】URP Shader训练营/自定义PBR-Shader.md",
     "Slurped Pages/shaderVariant 的更新测试.md",
@@ -178,9 +178,7 @@
     "Slurped Pages/Unity SRP搞事（一）基本管线.md",
     "Slurped Pages/Unity URP 中的 GI.md",
     "Slurped Pages/Unity通用渲染管线（URP）系列（五）——烘焙光（Baked Light）.md",
-    "Slurped Pages/URP源码阅读之GI.md",
     "Custom SRP/attachments/（图解4）帧调试器中的UI.png",
-    "【Unity技术美术】URP Shader训练营/Shader基础操作.md",
     "ReadItLater Inbox/assets",
     "ReadItLater Inbox",
     "Slurped Pages",

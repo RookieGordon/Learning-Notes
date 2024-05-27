@@ -14,5 +14,6 @@
   "annotateBottom": 0,
   "useCustomShortcut": false,
   "highlightFormat": "\nPage:{{page}}\n<span style=\"color:rgb({{color}})\">■</span>:{{highlightText}}\nComment:{{comment}}\n[📌]({{link}})\n^{{id}}\n",
-  "uid": "00p01100p01001101200t00p00r01200o00p00r"
+  "uid": "00p01100p01001101200t00p00r01200o00p00r",
+  "pdfjsPath": "9efe2e3c1dd1eb5735455c0b6ab6ee8/C:/Workspace/ObsidianRepositories/LearningNotes/.obsidian/pdfjs"
 }
