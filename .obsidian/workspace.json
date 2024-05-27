@@ -13,25 +13,9 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Custom SRP/Directional Lights.md",
-                "mode": "source",
+                "file": "Custom SRP/attachments/Directional Lights-annotate.md",
+                "mode": "preview",
                 "source": false
-              }
-            }
-          }
-        ]
-      },
-      {
-        "id": "ec1e8b749507ec34",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "72ebced6df9dde56",
-            "type": "leaf",
-            "state": {
-              "type": "mindmapview",
-              "state": {
-                "file": "Custom SRP/attachments/Directional Lights-annotate.md"
               }
             }
           }
@@ -101,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Custom SRP/Directional Lights.md",
+                "file": "Custom SRP/attachments/Directional Lights-annotate.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -118,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Custom SRP/Directional Lights.md",
+                "file": "Custom SRP/attachments/Directional Lights-annotate.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -141,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Custom SRP/Directional Lights.md"
+                "file": "Custom SRP/attachments/Directional Lights-annotate.md"
               }
             }
           }
@@ -163,22 +147,25 @@
       "command-palette:打开命令面板": false,
       "obsidian-importer:Open Importer": false,
       "markdown-table-editor:Open Markdown Table Editor": false,
-      "obsidian-excalidraw-plugin:新建绘图文件": false
+      "obsidian-excalidraw-plugin:新建绘图文件": false,
+      "pdf-plus:PDF++: Toggle auto-copy": false,
+      "pdf-plus:PDF++: Toggle auto-focus": false,
+      "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
   "active": "07d71d05926f819d",
   "lastOpenFiles": [
-    "![[Directional Lights-1716816556920.png.md",
-    "Custom SRP/Directional Lights.md",
     "Custom SRP/attachments/Directional Lights-1716816556920.png",
-    "Custom SRP/attachments/Directional Lights-annotate.md",
-    "Custom SRP/Draw Calls.md",
     "Custom SRP/attachments/Directional Lights-1716806943038.png",
     "Custom SRP/attachments/Directional Lights-1716806826891.png",
-    "Custom SRP/Custom Render Pipeline.md",
-    "Custom SRP/attachments/Directional Lights.annos",
     "Custom SRP/attachments/Directional Lights.pdf",
+    "Custom SRP/Custom Render Pipeline.md",
+    "Custom SRP/Draw Calls.md",
     "Custom SRP/Custom SRP.md",
+    "Custom SRP/Directional Lights.md",
+    "![[Directional Lights-1716816556920.png.md",
+    "Custom SRP/attachments/Directional Lights-annotate.md",
+    "Custom SRP/attachments/Directional Lights.annos",
     "Custom SRP/attachments/Custom Render Pipeline.pdf",
     "Custom SRP/attachments/Draw Calls.pdf",
     "Custom SRP/attachments/Draw Calls-annotate.md",
@@ -203,7 +190,6 @@
     "【Unity技术美术】URP Shader训练营/【Unity技术美术】URP Shader训练营.md",
     "【Unity技术美术】URP Shader训练营/自定义BlinnPhong光照URP-Shader.md",
     "【Unity技术美术】URP Shader训练营/编写自定义URP Shader.md",
-    "【Unity技术美术】URP Shader训练营/自定义漫反射URP-Shader.md",
     "Custom SRP/attachments/（图解4）帧调试器中的UI.png",
     "ReadItLater Inbox/assets",
     "ReadItLater Inbox",
