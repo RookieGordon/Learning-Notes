@@ -11,9 +11,11 @@
             "id": "fa5cee61475cb232",
             "type": "leaf",
             "state": {
-              "type": "pdf-annotator",
+              "type": "markdown",
               "state": {
-                "file": "Custom SRP/Draw Calls.md"
+                "file": "Custom SRP/Draw Calls.md",
+                "mode": "source",
+                "source": false
               }
             }
           }
@@ -149,7 +151,7 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "3980a1c1a27a1a1d",
+  "active": "fa5cee61475cb232",
   "lastOpenFiles": [
     "Custom SRP/attachments/（图解5）使用GPU Instancing的绘制面板.png",
     "未命名思维导图.md",

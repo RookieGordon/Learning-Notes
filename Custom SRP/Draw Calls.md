@@ -133,3 +133,5 @@ annotation-target: Draw Calls.pdf
 
 ## 动态批处理
 
+将多个共享相同材料的小网格组合成一个更大的网格来绘制
+
