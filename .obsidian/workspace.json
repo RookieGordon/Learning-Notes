@@ -13,25 +13,9 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Custom SRP/未命名思维导图.md",
+                "file": "Custom SRP/Custom Render Pipeline.md",
                 "mode": "preview",
                 "source": false
-              }
-            }
-          }
-        ]
-      },
-      {
-        "id": "74f9136234ba00a5",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "ac3ebdadb5cf8a3a",
-            "type": "leaf",
-            "state": {
-              "type": "mindmapview",
-              "state": {
-                "file": "Custom SRP/attachments/Draw Calls-annotate.md"
               }
             }
           }
@@ -101,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Custom SRP/attachments/Draw Calls-annotate.md",
+                "file": "Custom SRP/Custom Render Pipeline.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -118,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Custom SRP/attachments/Draw Calls-annotate.md",
+                "file": "Custom SRP/Custom Render Pipeline.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -141,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Custom SRP/attachments/Draw Calls-annotate.md"
+                "file": "Custom SRP/Custom Render Pipeline.md"
               }
             }
           }
@@ -166,14 +150,14 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "ac3ebdadb5cf8a3a",
+  "active": "a623e70ccc55e072",
   "lastOpenFiles": [
-    "Custom SRP/attachments/Draw Calls.annos",
     "Custom SRP/未命名思维导图.md",
+    "Custom SRP/Custom Render Pipeline.md",
+    "Custom SRP/attachments/Draw Calls-annotate.md",
+    "Custom SRP/attachments/Draw Calls.annos",
     "Custom SRP/Draw Calls.md",
     "Custom SRP/Custom SRP.md",
-    "Custom SRP/attachments/Draw Calls-annotate.md",
-    "Custom SRP/Custom Render Pipeline.md",
     "【Unity技术美术】URP Shader训练营/自定义无光照URP-Shader.md",
     "【Unity技术美术】URP Shader训练营/自定义PBR-Shader.md",
     "Slurped Pages/shaderVariant 的更新测试.md",
@@ -214,7 +198,6 @@
     "【Unity技术美术】URP Shader训练营/attachments/（图解8）配置额外光照使用顶点光.png",
     "【Unity技术美术】URP Shader训练营/attachments/[Universal RP]Unity通用渲染管线的Lit.shader - 知乎.pdf",
     "【Unity技术美术】URP Shader训练营/attachments/（图解7）SRP合批流程.png",
-    "【Unity技术美术】URP Shader训练营/attachments/Forward Rendering vs Deferred Rendering.pdf",
     "计算机图形学—从0开始构建一个OpenGL软光栅/从0开始构建OpenGL软光栅.canvas",
     "未命名.canvas"
   ]
