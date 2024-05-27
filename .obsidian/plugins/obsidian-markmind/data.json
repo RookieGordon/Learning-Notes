@@ -15,8 +15,13 @@
   "useCustomShortcut": false,
   "highlightFormat": "\nPage:{{page}}\n<span style=\"color:rgb({{color}})\">■</span>:{{highlightText}}\nComment:{{comment}}\n[📌]({{link}})\n^{{id}}\n",
   "setup": 1716781592790,
-  "onlyUseObsidianFolder": false,
+  "onlyUseObsidianFolder": true,
   "openProtocol": 1,
   "useMarkdownSaveAnnotation": "md",
-  "imageFolder": "markmindassets"
+  "imageFolder": "markmindasset",
+  "pasteFolder": "markmindasset",
+  "uid": "00p01100p01001101200r00q00o00s01300p00s",
+  "useAnimate": true,
+  "openCodeBlock": true,
+  "isDecodeURl": false
 }
