@@ -23,5 +23,5 @@
   "onlyUseObsidianFolder": true,
   "autoCenter": true,
   "autoCreateNodeWhenAnnotate": true,
-  "useMarkdownSaveAnnotation": "annos"
+  "useMarkdownSaveAnnotation": "md"
 }

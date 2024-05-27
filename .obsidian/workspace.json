@@ -6,7 +6,6 @@
       {
         "id": "a9f693b035ed4c50",
         "type": "tabs",
-        "dimension": 41.494360902255636,
         "children": [
           {
             "id": "07d71d05926f819d",
@@ -15,7 +14,7 @@
               "type": "markdown",
               "state": {
                 "file": "Custom SRP/Directional Lights.md",
-                "mode": "preview",
+                "mode": "source",
                 "source": false
               }
             }
@@ -23,12 +22,11 @@
         ]
       },
       {
-        "id": "4e6d445ca3e6756d",
+        "id": "ec1e8b749507ec34",
         "type": "tabs",
-        "dimension": 58.505639097744364,
         "children": [
           {
-            "id": "f07c923a10567eaf",
+            "id": "72ebced6df9dde56",
             "type": "leaf",
             "state": {
               "type": "mindmapview",
@@ -103,7 +101,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Custom SRP/attachments/Directional Lights-annotate.md",
+                "file": "Custom SRP/Directional Lights.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -120,7 +118,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Custom SRP/attachments/Directional Lights-annotate.md",
+                "file": "Custom SRP/Directional Lights.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -143,7 +141,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Custom SRP/attachments/Directional Lights-annotate.md"
+                "file": "Custom SRP/Directional Lights.md"
               }
             }
           }
@@ -168,12 +166,14 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "f07c923a10567eaf",
+  "active": "07d71d05926f819d",
   "lastOpenFiles": [
-    "Custom SRP/attachments/Directional Lights-1716806943038.png",
+    "![[Directional Lights-1716816556920.png.md",
     "Custom SRP/Directional Lights.md",
-    "Custom SRP/Draw Calls.md",
+    "Custom SRP/attachments/Directional Lights-1716816556920.png",
     "Custom SRP/attachments/Directional Lights-annotate.md",
+    "Custom SRP/Draw Calls.md",
+    "Custom SRP/attachments/Directional Lights-1716806943038.png",
     "Custom SRP/attachments/Directional Lights-1716806826891.png",
     "Custom SRP/Custom Render Pipeline.md",
     "Custom SRP/attachments/Directional Lights.annos",
@@ -214,8 +214,6 @@
     "Custom SRP/attachments/（图解1）渲染命令缓冲区名称.png",
     "Custom SRP/attachments/（图解1）渲染命令缓冲区名称.png",
     "C++/C++.canvas",
-    "Excalidraw/Scripts/Downloaded/Relative Font Size Cycle.svg",
-    "Custom SRP/attachments/Pasted image 20240520130000.png",
     "Custom SRP/attachments",
     "计算机图形学—从0开始构建一个OpenGL软光栅/从0开始构建OpenGL软光栅.canvas",
     "未命名.canvas"
