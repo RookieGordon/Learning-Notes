@@ -11,11 +11,9 @@
             "id": "fa5cee61475cb232",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "mindmapview",
               "state": {
-                "file": "Custom SRP/Draw Calls.md",
-                "mode": "preview",
-                "source": false
+                "file": "Custom SRP/Directional Lights.md"
               }
             }
           }
@@ -69,8 +67,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 387.5,
-    "collapsed": true
+    "width": 387.5
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -86,7 +83,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Custom SRP/Draw Calls.md",
+                "file": "Custom SRP/Directional Lights.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +100,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Custom SRP/Draw Calls.md",
+                "file": "Custom SRP/Directional Lights.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -126,7 +123,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Custom SRP/Draw Calls.md"
+                "file": "Custom SRP/Directional Lights.md"
               }
             }
           }
@@ -153,18 +150,20 @@
   },
   "active": "fa5cee61475cb232",
   "lastOpenFiles": [
+    "Custom SRP/Custom SRP.md",
+    "Custom SRP/Custom Render Pipeline.md",
+    "Custom SRP/Draw Calls.md",
+    "Custom SRP/Directional Lights.md",
+    "Custom SRP/attachments/Directional Lights.pdf",
+    "Custom SRP/attachments/Custom Render Pipeline.pdf",
+    "Custom SRP/attachments/Draw Calls.pdf",
+    "Custom SRP/attachments/Draw Calls-annotate.md",
     "Custom SRP/attachments/（图解6）动态合批，GPU实例化和SRP合批.png",
     "Custom SRP/attachments/（图解5）使用GPU Instancing的绘制面板.png",
-    "未命名思维导图.md",
-    "Custom SRP/attachments/Draw Calls-annotate.md",
-    "Custom SRP/attachments/Draw Calls.pdf",
     "C++/模板.md",
-    "Custom SRP/Draw Calls.md",
-    "Custom SRP/Custom SRP.md",
     "Excalidraw/Map.md",
     "技术美术入门/Map&Texture贴图和纹理.md",
     "技术美术入门/技术美术入门.md",
-    "Custom SRP/Custom Render Pipeline.md",
     "Custom SRP/未命名思维导图.md",
     "Custom SRP/attachments/Draw Calls.annos",
     "【Unity技术美术】URP Shader训练营/自定义无光照URP-Shader.md",
@@ -192,14 +191,11 @@
     "Custom SRP/attachments/（图解1）渲染命令缓冲区名称.png",
     "Custom SRP/attachments/（图解1）渲染命令缓冲区名称.png",
     "C++/C++.canvas",
-    "Custom SRP/attachments/Custom Render Pipeline.pdf",
     "Excalidraw/Scripts/Downloaded/Relative Font Size Cycle.svg",
     "Custom SRP/attachments/Pasted image 20240520130000.png",
     "Custom SRP/attachments",
     "Custom SRP",
     "【Unity技术美术】URP Shader训练营/attachments/8a54268f16e147da8bbd79f7cbf579cd.gif",
-    "【Unity技术美术】URP Shader训练营/attachments/（图解8）配置额外光照使用顶点光.png",
-    "【Unity技术美术】URP Shader训练营/attachments/[Universal RP]Unity通用渲染管线的Lit.shader - 知乎.pdf",
     "计算机图形学—从0开始构建一个OpenGL软光栅/从0开始构建OpenGL软光栅.canvas",
     "未命名.canvas"
   ]
