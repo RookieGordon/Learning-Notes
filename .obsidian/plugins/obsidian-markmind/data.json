@@ -20,5 +20,7 @@
   "openProtocol": 1,
   "useAnimate": true,
   "openCodeBlock": true,
-  "onlyUseObsidianFolder": true
+  "onlyUseObsidianFolder": true,
+  "autoCenter": true,
+  "autoCreateNodeWhenAnnotate": true
 }

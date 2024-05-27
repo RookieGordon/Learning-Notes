@@ -11,26 +11,8 @@
             "id": "fa5cee61475cb232",
             "type": "leaf",
             "state": {
-              "type": "mindmapview",
-              "state": {
-                "file": "未命名思维导图.md"
-              }
-            }
-          }
-        ]
-      },
-      {
-        "id": "b8fd07902b4f37ad",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "98181a73f744276a",
-            "type": "leaf",
-            "state": {
-              "type": "mindmapview",
-              "state": {
-                "file": "Custom SRP/attachments/Draw Calls-annotate.md"
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -99,7 +81,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "未命名思维导图.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -116,7 +97,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "未命名思维导图.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -138,9 +118,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "未命名思维导图.md"
-              }
+              "state": {}
             }
           }
         ],
@@ -166,8 +144,8 @@
   },
   "active": "fa5cee61475cb232",
   "lastOpenFiles": [
-    "Custom SRP/attachments/Draw Calls-annotate.md",
     "未命名思维导图.md",
+    "Custom SRP/attachments/Draw Calls-annotate.md",
     "Custom SRP/attachments/Draw Calls.pdf",
     "C++/模板.md",
     "Custom SRP/Draw Calls.md",
