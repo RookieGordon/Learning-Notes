@@ -18,6 +18,22 @@
             }
           }
         ]
+      },
+      {
+        "id": "2c1b47aaf7f46ece",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "5e6f5fb3dc704e8e",
+            "type": "leaf",
+            "state": {
+              "type": "mindmapview",
+              "state": {
+                "file": "Custom SRP/attachments/Directional Lights-annotate.md"
+              }
+            }
+          }
+        ]
       }
     ],
     "direction": "vertical"
@@ -67,7 +83,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 387.5
+    "width": 387.5,
+    "collapsed": true
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -148,13 +165,15 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "fa5cee61475cb232",
+  "active": "3980a1c1a27a1a1d",
   "lastOpenFiles": [
+    "Custom SRP/attachments/Directional Lights-annotate.md",
+    "Custom SRP/attachments/Directional Lights.annos",
+    "Custom SRP/Directional Lights.md",
+    "Custom SRP/attachments/Directional Lights.pdf",
     "Custom SRP/Custom SRP.md",
     "Custom SRP/Custom Render Pipeline.md",
     "Custom SRP/Draw Calls.md",
-    "Custom SRP/Directional Lights.md",
-    "Custom SRP/attachments/Directional Lights.pdf",
     "Custom SRP/attachments/Custom Render Pipeline.pdf",
     "Custom SRP/attachments/Draw Calls.pdf",
     "Custom SRP/attachments/Draw Calls-annotate.md",
@@ -180,7 +199,6 @@
     "【Unity技术美术】URP Shader训练营/自定义BlinnPhong光照URP-Shader.md",
     "【Unity技术美术】URP Shader训练营/编写自定义URP Shader.md",
     "【Unity技术美术】URP Shader训练营/自定义漫反射URP-Shader.md",
-    "Slurped Pages/Unity SRP搞事（一）基本管线.md",
     "Custom SRP/attachments/（图解4）帧调试器中的UI.png",
     "ReadItLater Inbox/assets",
     "ReadItLater Inbox",
@@ -194,7 +212,6 @@
     "Excalidraw/Scripts/Downloaded/Relative Font Size Cycle.svg",
     "Custom SRP/attachments/Pasted image 20240520130000.png",
     "Custom SRP/attachments",
-    "Custom SRP",
     "【Unity技术美术】URP Shader训练营/attachments/8a54268f16e147da8bbd79f7cbf579cd.gif",
     "计算机图形学—从0开始构建一个OpenGL软光栅/从0开始构建OpenGL软光栅.canvas",
     "未命名.canvas"
