@@ -14,7 +14,7 @@
               "type": "markdown",
               "state": {
                 "file": "Custom SRP/Directional Lights.md",
-                "mode": "preview",
+                "mode": "source",
                 "source": false
               }
             }
@@ -22,20 +22,20 @@
         ]
       },
       {
-        "id": "b4145c077bc28709",
+        "id": "324eb8a22c006f92",
         "type": "tabs",
         "children": [
           {
-            "id": "07d71d05926f819d",
+            "id": "d08ddc11ff90d1d3",
             "type": "leaf",
             "state": {
               "type": "pdf",
               "state": {
                 "file": "Custom SRP/attachments/Directional Lights.pdf",
-                "page": 1,
-                "left": -169,
-                "top": 677,
-                "zoom": 1
+                "page": 4,
+                "left": -19,
+                "top": 557,
+                "zoom": 1.25
               }
             }
           }
@@ -89,8 +89,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 387.5,
-    "collapsed": true
+    "width": 387.5
   },
   "right": {
     "id": "abfee433681e25ee",
