@@ -127,3 +127,6 @@ annotation-target: Draw Calls.pdf
 >%%TAGS%%
 >
 ^ucn3tdi4jyc
+
+![[（图解5）使用GPU Instancing的绘制面板.png|410]]
+使用了`GPU Instancing`后，能够组合的物体会在Frame Debugger中，生成带有instanced标志的条目。
