@@ -14,7 +14,7 @@
               "type": "markdown",
               "state": {
                 "file": "Custom SRP/Directional Lights.md",
-                "mode": "source",
+                "mode": "preview",
                 "source": false
               }
             }
@@ -32,10 +32,10 @@
               "type": "pdf",
               "state": {
                 "file": "Custom SRP/attachments/Directional Lights.pdf",
-                "page": 4,
-                "left": -10,
-                "top": 534,
-                "zoom": 1.520270372480192
+                "page": 1,
+                "left": -169,
+                "top": 677,
+                "zoom": 1
               }
             }
           }
