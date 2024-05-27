@@ -128,10 +128,19 @@ annotation-target: Draw Calls.pdf
 >
 ^ucn3tdi4jyc
 
-![[（图解5）使用GPU Instancing的绘制面板.png|410]]
+![[（图解5）使用GPU Instancing的绘制面板.png|380]]
 使用了`GPU Instancing`后，能够组合的物体会在Frame Debugger中，生成带有instanced标志的条目。
 
 ## 动态批处理
 
 将多个共享相同材料的小网格组合成一个更大的网格来绘制
+
+![[（图解6）动态合批，GPU实例化和SRP合批.png|400]]
+可以通过`GraphicsSettings.useScriptableRenderPipelineBatching`，`DrawingSettings.enableInstancing`和`DrawingSettings.enableDynamicBatching`来分别控制这三个优化项。
+
+# 透明度
+
+## 混合模式
+
+
 
