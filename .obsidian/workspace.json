@@ -11,8 +11,10 @@
             "id": "fa5cee61475cb232",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "pdf-annotator",
+              "state": {
+                "file": "Custom SRP/Draw Calls.md"
+              }
             }
           }
         ]
@@ -65,7 +67,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 387.5
+    "width": 387.5,
+    "collapsed": true
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -81,6 +84,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "Custom SRP/Draw Calls.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -97,6 +101,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "Custom SRP/Draw Calls.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -118,7 +123,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "Custom SRP/Draw Calls.md"
+              }
             }
           }
         ],
@@ -142,7 +149,7 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "fa5cee61475cb232",
+  "active": "3980a1c1a27a1a1d",
   "lastOpenFiles": [
     "未命名思维导图.md",
     "Custom SRP/attachments/Draw Calls-annotate.md",
