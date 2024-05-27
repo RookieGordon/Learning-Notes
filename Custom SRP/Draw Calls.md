@@ -140,7 +140,23 @@ annotation-target: Draw Calls.pdf
 
 # 透明度
 
-## 混合模式
+## 纹理
 
-
-
+>%%
+>```annotation-json
+>{"created":"2024-05-27T07:45:59.137Z","text":"`baseUV`由顶点着色器提供，目前来说，GPU不需要关注，因此可以添加一个未定义的语义来标志","updated":"2024-05-27T07:45:59.137Z","document":{"title":"Draw Calls","link":[{"href":"urn:x-pdf:23ef64e21d6e965e28063c4b0394ee19"},{"href":"vault:/Custom SRP/attachments/Draw Calls.pdf"}],"documentFingerprint":"23ef64e21d6e965e28063c4b0394ee19"},"uri":"vault:/Custom SRP/attachments/Draw Calls.pdf","target":[{"source":"vault:/Custom SRP/attachments/Draw Calls.pdf","selector":[{"type":"TextPositionSelector","start":48755,"end":48864},{"type":"TextQuoteSelector","exact":"struct Varyings {float4 positionCS : SV_POSITION;float2 baseUV : VAR_BASE_UV;UNITY_VERTEX_INPUT_INSTANCE_ID};","prefix":"er, let'ssimply use VAR_BASE_UV.","suffix":"When we copy the coordinates in "}]}]}
+>```
+>%%
+>*%%PREFIX%%er, let'ssimply use VAR_BASE_UV.%%HIGHLIGHT%% 
+>==struct Varyings {
+>float4 positionCS : SV_POSITION;
+>float2 baseUV : VAR_BASE_UV;
+>UNITY_VERTEX_INPUT_INSTANCE_ID
+>};== 
+>%%POSTFIX%%When we copy the coordinates in*
+>%%LINK%%[[#^be2xulou0s5|show annotation]]
+>%%COMMENT%%
+>`baseUV`由顶点着色器提供，目前来说，GPU不需要关注，因此可以添加一个未定义的语义来标志
+>%%TAGS%%
+>
+^be2xulou0s5
