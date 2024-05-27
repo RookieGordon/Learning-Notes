@@ -6,6 +6,7 @@
       {
         "id": "a9f693b035ed4c50",
         "type": "tabs",
+        "dimension": 41.494360902255636,
         "children": [
           {
             "id": "07d71d05926f819d",
@@ -22,11 +23,12 @@
         ]
       },
       {
-        "id": "8970e3416dbe677a",
+        "id": "4e6d445ca3e6756d",
         "type": "tabs",
+        "dimension": 58.505639097744364,
         "children": [
           {
-            "id": "7c089dd51a37405d",
+            "id": "f07c923a10567eaf",
             "type": "leaf",
             "state": {
               "type": "mindmapview",
@@ -101,7 +103,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Custom SRP/Directional Lights.md",
+                "file": "Custom SRP/attachments/Directional Lights-annotate.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -118,7 +120,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Custom SRP/Directional Lights.md",
+                "file": "Custom SRP/attachments/Directional Lights-annotate.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -141,7 +143,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Custom SRP/Directional Lights.md"
+                "file": "Custom SRP/attachments/Directional Lights-annotate.md"
               }
             }
           }
@@ -166,15 +168,17 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "07d71d05926f819d",
+  "active": "f07c923a10567eaf",
   "lastOpenFiles": [
-    "Custom SRP/attachments/Directional Lights-annotate.md",
+    "Custom SRP/attachments/Directional Lights-1716806943038.png",
     "Custom SRP/Directional Lights.md",
+    "Custom SRP/Draw Calls.md",
+    "Custom SRP/attachments/Directional Lights-annotate.md",
+    "Custom SRP/attachments/Directional Lights-1716806826891.png",
+    "Custom SRP/Custom Render Pipeline.md",
     "Custom SRP/attachments/Directional Lights.annos",
     "Custom SRP/attachments/Directional Lights.pdf",
     "Custom SRP/Custom SRP.md",
-    "Custom SRP/Custom Render Pipeline.md",
-    "Custom SRP/Draw Calls.md",
     "Custom SRP/attachments/Custom Render Pipeline.pdf",
     "Custom SRP/attachments/Draw Calls.pdf",
     "Custom SRP/attachments/Draw Calls-annotate.md",
@@ -213,7 +217,6 @@
     "Excalidraw/Scripts/Downloaded/Relative Font Size Cycle.svg",
     "Custom SRP/attachments/Pasted image 20240520130000.png",
     "Custom SRP/attachments",
-    "【Unity技术美术】URP Shader训练营/attachments/8a54268f16e147da8bbd79f7cbf579cd.gif",
     "计算机图形学—从0开始构建一个OpenGL软光栅/从0开始构建OpenGL软光栅.canvas",
     "未命名.canvas"
   ]
