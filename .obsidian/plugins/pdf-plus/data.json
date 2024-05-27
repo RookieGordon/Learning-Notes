@@ -110,7 +110,7 @@
   "recordPDFInternalLinkHistory": true,
   "alwaysRecordHistory": true,
   "renderMarkdownInStickyNote": false,
-  "enablePDFEdit": false,
+  "enablePDFEdit": true,
   "author": "",
   "writeHighlightToFileOpacity": 0.2,
   "defaultWriteFileToggle": false,
