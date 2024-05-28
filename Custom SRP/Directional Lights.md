@@ -107,4 +107,19 @@ private static Vector4[]
     dirLightColors = new Vector4[MaxDirLightCounts],  
     dirLightDirections = new Vector4[MaxDirLightCounts];
 ```
-使用以上的结构，将多个灯光数据发送给GPU，
+使用以上的数组结构，将多个灯光数据发送给GPU。
+> [!PDF|yellow] [[Directional Lights.pdf#page=18&selection=101,0,113,7&color=yellow|Directional Lights, p.18]]
+> > Why not use structured buffers? That's possible, but I won't because shader support for structured buffers isn't good enough yet. Either they're not supported at all, are only in fragment programs, or perform worse than regular arrays. The good news is that the specifics of how data is passed between CPU and GPU only matter in a few places, so it's is easy to change. That's another benefit of using the Light struct.
+> 
+> `Structured Buffers`支持不好，并且性能不行
+
+```CSharp
+private void SetupDirectionalLight(int index, VisibleLight visibleLight)  
+{  
+    dirLightColors[index] = visibleLight.finalColor;  
+    dirLightDirections[index] = -visibleLight.localToWorldMatrix.GetColumn(2); 
+}
+```
+使用`finalColor`可以直接获取计算了光强的光的颜色。从`localToWorldMatrix`矩阵中，可以获取光的方向。
+
+## zuo'se'q

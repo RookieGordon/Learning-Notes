@@ -18,6 +18,20 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "513d90b659b03abe",
+            "type": "leaf",
+            "state": {
+              "type": "pdf",
+              "state": {
+                "file": "Custom SRP/attachments/Directional Lights.pdf",
+                "page": 18,
+                "left": -70,
+                "top": 826,
+                "zoom": 1.25
+              }
+            }
           }
         ]
       }
