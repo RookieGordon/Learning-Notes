@@ -39,3 +39,7 @@ tags:
 [[Directional Lights.pdf#page=11&rect=24,298,574,511&color=note|Directional Lights, p.11]]
 对于平行光，我们只考虑关的方向和颜色。
 
+## 光照函数
+
+
+
