@@ -81,7 +81,8 @@ CBUFFER_END
 private void SetupDirectionalLight()  
 {  
     Light light = RenderSettings.sun;  
-    this._buffer.SetGlobalVector(dirLightColorId, light.color);  
+    this._buffer.SetGlobalVector(dirLightColorId, 
+							    light.color.linear * light.intensity);  
     this._buffer.SetGlobalVector(dirLightDirectionId, -
 							    light.transform.forward);  
 }
