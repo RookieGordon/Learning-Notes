@@ -97,3 +97,14 @@ private void SetupDirectionalLight()
 
 ## 多个平行光
 
+```CSharp
+private const int MaxDirLightCounts = 4;  
+private static int  
+    dirLightCountId = Shader.PropertyToID("_DirectionalLightCount"),  
+    dirLightColorsId = Shader.PropertyToID("_DirectionalLightColors"),  
+    dirLightDirectionsId = Shader.PropertyToID("_DirectionalLightDirections");  
+private static Vector4[]  
+    dirLightColors = new Vector4[MaxDirLightCounts],  
+    dirLightDirections = new Vector4[MaxDirLightCounts];
+```
+使用以上的结构，将多个灯光数据发送给GPU，
