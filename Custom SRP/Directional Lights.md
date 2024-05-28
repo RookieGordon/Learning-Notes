@@ -14,3 +14,9 @@ tags:
 
 ## 法线
 
+> [!PDF|note] [[Directional Lights.pdf#page=6&selection=69,0,73,20&color=note|Directional Lights, p.6]]
+> > #pragma instancing_options assumeuniformscaling
+> 
+> 使用该指令，可以启用`TransformObjectToWorldNormal`函数中的`UNITY_ASSUME_UNIFORM_SCALING`宏
+
+## 表面属性
