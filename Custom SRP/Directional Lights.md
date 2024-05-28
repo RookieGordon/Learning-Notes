@@ -122,4 +122,8 @@ private void SetupDirectionalLight(int index, VisibleLight visibleLight)
 ```
 使用`finalColor`可以直接获取计算了光强的光的颜色。从`localToWorldMatrix`矩阵中，可以获取光的方向。
 
-## zuo'se'q
+## 着色器循环
+
+由于传递给着色器的灯光数据是数组，因此，着色器的灯光数据也需要同步修改一下。
+
+
