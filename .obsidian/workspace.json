@@ -20,7 +20,7 @@
             }
           },
           {
-            "id": "18c6d41dd491d91c",
+            "id": "f8c12123ec1e5f03",
             "type": "leaf",
             "state": {
               "type": "pdf",
@@ -28,13 +28,12 @@
                 "file": "Custom SRP/attachments/Directional Lights.pdf",
                 "page": 21,
                 "left": -454,
-                "top": 846,
+                "top": 726,
                 "zoom": 1.25
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -101,7 +100,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Custom SRP/attachments/Directional Lights.pdf",
+                "file": "Custom SRP/Directional Lights.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -118,7 +117,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Custom SRP/attachments/Directional Lights.pdf",
+                "file": "Custom SRP/Directional Lights.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -141,7 +140,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Custom SRP/attachments/Directional Lights.pdf"
+                "file": "Custom SRP/Directional Lights.md"
               }
             }
           }
@@ -169,10 +168,10 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "18c6d41dd491d91c",
+  "active": "ed9ca3ff85d3e564",
   "lastOpenFiles": [
-    "Custom SRP/Directional Lights.md",
     "Custom SRP/attachments/Directional Lights.pdf",
+    "Custom SRP/Directional Lights.md",
     "Custom SRP/attachments/Draw Calls.pdf",
     "Custom SRP/attachments/Custom Render Pipeline.pdf",
     "Custom SRP/Custom Render Pipeline.md",
