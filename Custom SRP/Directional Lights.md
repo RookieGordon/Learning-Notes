@@ -77,11 +77,16 @@ CBUFFER_END
 创建一个`Lighting`类，用于将自定义的灯光数据发送给GPU。
 
 使用`RenderSettings.sun`获取到场景主光源，然后将颜色和方向赋值给我们自定义的灯光数据：
-```HLSL
+```CSharp
 private void SetupDirectionalLight()  
 {  
     Light light = RenderSettings.sun;  
     this._buffer.SetGlobalVector(dirLightColorId, light.color);  
-    this._buffer.SetGlobalVector(dirLightDirectionId, -light.transform.forward);  
+    this._buffer.SetGlobalVector(dirLightDirectionId, -
+							    light.transform.forward);  
 }
 ```
+
+>[!QUESTION]
+> 为什么这里传递给Shader的灯光方向取了负值？
+
