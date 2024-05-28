@@ -4,38 +4,18 @@
     "type": "split",
     "children": [
       {
-        "id": "a9f693b035ed4c50",
+        "id": "ba7eb67aba2c90b0",
         "type": "tabs",
         "children": [
           {
-            "id": "59c0d4254fcf9b50",
+            "id": "7452f72fd50a57c5",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
                 "file": "Custom SRP/Directional Lights.md",
-                "mode": "source",
+                "mode": "preview",
                 "source": false
-              }
-            }
-          }
-        ]
-      },
-      {
-        "id": "324eb8a22c006f92",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "d08ddc11ff90d1d3",
-            "type": "leaf",
-            "state": {
-              "type": "pdf",
-              "state": {
-                "file": "Custom SRP/attachments/Directional Lights.pdf",
-                "page": 4,
-                "left": -19,
-                "top": 557,
-                "zoom": 1.25
               }
             }
           }
@@ -173,7 +153,7 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "59c0d4254fcf9b50",
+  "active": "7452f72fd50a57c5",
   "lastOpenFiles": [
     "Custom SRP/attachments/Directional Lights.pdf",
     "Custom SRP/Directional Lights.md",
