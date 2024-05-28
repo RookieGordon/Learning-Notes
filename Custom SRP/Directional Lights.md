@@ -91,3 +91,6 @@ private void SetupDirectionalLight()
 >[!QUESTION]
 > 为什么这里传递给Shader的灯光方向取了负值？
 
+## 可见光
+
+实际上来说，Unity在剔除阶段就会计算出哪些光照会影响到摄像机的可视空间，因此可以使用这些数据，而非场景主光源。
