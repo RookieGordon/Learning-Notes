@@ -41,3 +41,26 @@ tags:
 
 ## 光照函数
 
+```HLSL
+// （根据法线和入射光的夹角）获取表面进光  
+float3 IncomingLight(Surface surface, Light light)  
+{  
+    return saturate(dot(surface.normal, light.direction)) * light.color;  
+}  
+  
+// 获取表面反照光  
+float3 GetLighting(Surface surface, Light light)  
+{  
+    return IncomingLight(surface, light) * surface.color;  
+}  
+  
+float3 GetLighting(Surface surface)  
+{  
+    return GetLighting(surface, GetDirectionalLight());  
+}
+```
+
+## 发送光照数据到GPU
+
+
+
