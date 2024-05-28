@@ -62,5 +62,5 @@ float3 GetLighting(Surface surface)
 
 ## 发送光照数据到GPU
 
-
+到目前为止，都是使用的自己创建的光照数据，应该需要使用到Unity场景中提供的灯光数据。
 
