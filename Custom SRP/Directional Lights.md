@@ -151,7 +151,10 @@ private void SetupDirectionalLight(int index, VisibleLight visibleLight)
 >  
 >  `visibleLight.finalColor`已经是计算完的漫反射光了，而非入射光。
 
-## 表面属性
+## BRDF属性
+
+BRDF的反射光是漫反射和镜面反射的组合。我们需要将表面颜色分为漫反射和镜面反射两部分，还需要知道表面的粗糙程度。
+
 
 
 
