@@ -33,8 +33,7 @@
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -101,7 +100,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Custom SRP/attachments/Directional Lights.pdf",
+                "file": "Custom SRP/Directional Lights.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -118,7 +117,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Custom SRP/attachments/Directional Lights.pdf",
+                "file": "Custom SRP/Directional Lights.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -141,7 +140,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Custom SRP/attachments/Directional Lights.pdf"
+                "file": "Custom SRP/Directional Lights.md"
               }
             }
           }
@@ -169,10 +168,10 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "bfbf290ffde3015a",
+  "active": "ed9ca3ff85d3e564",
   "lastOpenFiles": [
-    "Custom SRP/Directional Lights.md",
     "Custom SRP/attachments/Directional Lights.pdf",
+    "Custom SRP/Directional Lights.md",
     "Custom SRP/attachments/（图解7）不同金属性对光的漫反射.png",
     "Custom SRP/attachments/Draw Calls.pdf",
     "Custom SRP/attachments/Custom Render Pipeline.pdf",
