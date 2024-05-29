@@ -179,6 +179,8 @@ struct Surface
 表面的反射率各不相同，但一般来说，金属通过镜面反射反射所有光线，漫反射为零。因此我们将反射率设置为等于金属表面属性。被反射的光线不会被漫反射，因此我们应该在`GetBRDF`中将漫反射颜色的比例减去反射率。
 
 ![[（图解7）不同金属性对光的漫反射.png|500]]
+物体表面金属性约强，则漫反射越弱（镜面反射会越强）。
 
-
+> ([[Directional Lights.pdf#page=29&selection=68,0,70,63&color=yellow|Directional Lights, p.29]])
+> In reality some light also bounces off dielectric surfaces, which gives them their highlight. The reflectivity of nonmetals varies, but is about 0.04 on average.
 

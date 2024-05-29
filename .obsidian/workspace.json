@@ -26,14 +26,15 @@
               "type": "pdf",
               "state": {
                 "file": "Custom SRP/attachments/Directional Lights.pdf",
-                "page": 28,
+                "page": 29,
                 "left": -70,
-                "top": 259,
+                "top": 809,
                 "zoom": 1.25
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -100,7 +101,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Custom SRP/Directional Lights.md",
+                "file": "Custom SRP/attachments/Directional Lights.pdf",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -117,7 +118,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Custom SRP/Directional Lights.md",
+                "file": "Custom SRP/attachments/Directional Lights.pdf",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -140,7 +141,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Custom SRP/Directional Lights.md"
+                "file": "Custom SRP/attachments/Directional Lights.pdf"
               }
             }
           }
@@ -149,7 +150,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 487.5
+    "width": 487.5,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -167,11 +169,11 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "ed9ca3ff85d3e564",
+  "active": "bfbf290ffde3015a",
   "lastOpenFiles": [
-    "Custom SRP/attachments/（图解7）不同金属性对光的漫反射.png",
-    "Custom SRP/attachments/Directional Lights.pdf",
     "Custom SRP/Directional Lights.md",
+    "Custom SRP/attachments/Directional Lights.pdf",
+    "Custom SRP/attachments/（图解7）不同金属性对光的漫反射.png",
     "Custom SRP/attachments/Draw Calls.pdf",
     "Custom SRP/attachments/Custom Render Pipeline.pdf",
     "Custom SRP/Custom Render Pipeline.md",
@@ -211,7 +213,6 @@
     "Untitled.sheet",
     "Custom SRP/attachments/（图解3）设置摄像机属性后，再清理上下文.png",
     "Custom SRP/attachments/（图解2）ClearRenderTarget的Frame Debbugger显示.png",
-    "Custom SRP/attachments/（图解1）渲染命令缓冲区名称.png",
     "Custom SRP/attachments/（图解1）渲染命令缓冲区名称.png",
     "C++/C++.canvas",
     "Custom SRP/attachments",
