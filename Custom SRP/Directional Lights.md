@@ -189,4 +189,25 @@ struct Surface
 
 ## 镜面反射（高光反射）
 
-根据能量守恒，镜面反射 + 漫反射 = 出射光。
+根据能量守恒，镜面反射 + 漫反射 = 出射光。即镜面颜色应该等于表面颜色减去漫反射颜色。
+```HLSL
+float OneMinusReflectivity(float metallic)  
+{  
+    float range = 1.0 - MIN_REFLECTIVITY;  
+    return range - metallic * range;  
+}  
+  
+BRDF GetBRDF(Surface surface)  
+{  
+    BRDF brdf;  
+    float oneMinusReflectivity = OneMinusReflectivity(surface.metallic);  
+    // 物体表面金属性约强，则漫反射约弱  
+    brdf.diffuse = surface.color * oneMinusReflectivity;  
+    brdf.specular = lerp(MIN_REFLECTIVITY, surface.color, surface.metallic);  
+    brdf.roughness = 1.0;  
+    return brdf;  
+}
+```
+但是，金属会影响镜面反射的颜色，非金属则不会。因此使用金属性进行插值。
+
+## 表面粗糙度
