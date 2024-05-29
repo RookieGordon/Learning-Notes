@@ -20,20 +20,29 @@
             }
           },
           {
+            "id": "bbe607e36cab2517",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.5.12"
+              }
+            }
+          },
+          {
             "id": "f8c12123ec1e5f03",
             "type": "leaf",
             "state": {
               "type": "pdf",
               "state": {
                 "file": "Custom SRP/attachments/Directional Lights.pdf",
-                "page": 24,
-                "left": -70,
-                "top": 216,
-                "zoom": 1.25
+                "page": 1,
+                "zoom": 1
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -168,7 +177,7 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "ed9ca3ff85d3e564",
+  "active": "bbe607e36cab2517",
   "lastOpenFiles": [
     "Custom SRP/attachments/Directional Lights.pdf",
     "Custom SRP/Directional Lights.md",
