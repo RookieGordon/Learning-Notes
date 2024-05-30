@@ -291,7 +291,7 @@ float3 GetLighting(Surface surface, BRDF brdf, Light light)
 
 ## 预乘Alpha
 
-设置源。同时将表面alpha作为参数去影响漫反射颜色来解决该问题，这种方法被称为预乘法Alpha混合。
+设置源混合系数为`One`，目标混合系数为`OneMinusSrcAlpha`。同时将表面alpha作为参数去影响漫反射颜色来解决该问题，这种方法被称为预乘法Alpha混合。
 
 # 着色器GUI
 

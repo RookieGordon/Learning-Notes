@@ -20,32 +20,21 @@
             }
           },
           {
-            "id": "f238856f7be59731",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/高级渲染管线功能.md",
-                "mode": "preview",
-                "source": false
-              }
-            }
-          },
-          {
             "id": "ebeae0255022398c",
             "type": "leaf",
             "state": {
               "type": "pdf",
               "state": {
                 "file": "Custom SRP/attachments/Directional Lights.pdf",
-                "page": 45,
+                "page": 46,
                 "left": -70,
-                "top": 727,
+                "top": 197,
                 "zoom": 1.25
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -113,7 +102,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Custom SRP/Directional Lights.md",
+                "file": "Custom SRP/attachments/Directional Lights.pdf",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -130,7 +119,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Custom SRP/Directional Lights.md",
+                "file": "Custom SRP/attachments/Directional Lights.pdf",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -153,7 +142,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Custom SRP/Directional Lights.md"
+                "file": "Custom SRP/attachments/Directional Lights.pdf"
               }
             }
           }
@@ -181,10 +170,10 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "3e3abf656b9bb1b2",
+  "active": "ebeae0255022398c",
   "lastOpenFiles": [
-    "计算机图形学—从0开始构建一个OpenGL软光栅/高级渲染管线功能.md",
     "Custom SRP/Directional Lights.md",
+    "计算机图形学—从0开始构建一个OpenGL软光栅/高级渲染管线功能.md",
     "Custom SRP/attachments/Directional Lights.pdf",
     "Custom SRP/Draw Calls.md",
     "Custom SRP/Custom SRP.md",
