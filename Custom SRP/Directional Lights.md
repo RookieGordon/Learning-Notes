@@ -228,4 +228,5 @@ brdf.roughness = PerceptualRoughnessToRoughness(perceptualRoughness);
 $$
 specular strength = \frac{r^{2} }{d^{2} \times max(0.1, (\vec{L} \cdot \vec{H})^{2})\times n} 
 $$
-其中：$d = (\vec{L} \cdot \vec{H})^{2}\times (r^{2} - 1) + 1.0001$，$\vec{N}$是表面法向量，
+其中：$r$是表面粗糙度。$d = (\vec{L} \cdot \vec{H})^{2}\times (r^{2} - 1) + 1.0001$，$\vec{N}$是表面法向量，$\vec{L}$是光照方向，$\vec{H} = normalize(\vec{L} + \vec{V})$。最后的$n = 4r + 2$常量。
+
