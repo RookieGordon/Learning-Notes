@@ -32,22 +32,22 @@ multi_compile与shader_feature可在shader中定义宏。两者区别如下图�
 
 ||multi_compile|shader_feature|
 |---|---|---|
-|定义方式|#pragma multi_compile A|#pragma shader_feature A|
+|定义方式|`#pragma multi_compile A`|`#pragma shader_feature A`|
 |宏的适用范围|所有Shader|所有Shader|
 |变体的生成|生成所有的变体|可自定义生成何种变体|
 |默认定义的宏|默认定义首个宏|默认定义首个宏（只有一个宏定义时默认为nokeyword）|
 
 ##### 1. 定义方式
 
-定义方式中值得注意的是，#pragma shader_feature A其实是 #pragma shader_feature _ A的简写，下划线表示未定义宏(nokeyword)。因此此时shader其实对应了两个变体，一个是nokeyword，一个是定义了宏A的。
+定义方式中值得注意的是，#pragma shader_feature A其实是 `#pragma shader_feature _ A`的简写，下划线表示未定义宏(nokeyword)。因此此时shader其实对应了两个变体，一个是nokeyword，一个是定义了宏A的。
 
-而#pragma multi_compile A并不存在简写这一说，所以shader此时只对应A这个变体。若要表示未定义任何变体，则应写为 #pragma multi_compile __ A。
+而`#pragma multi_compile A`并不存在简写这一说，所以shader此时只对应A这个变体。若要表示未定义任何变体，则应写为` #pragma multi_compile __ A`。
 
 ##### 2. 宏的适用范围
 
 两种定义方式可以使用在任何shader中，只是各自有一些建议使用情况。
 
-multi_compile定义的宏，如#pragma multi_compile_fog，#pragma multi_compile_fwdbase等，基本上适用于大部分shader，与shader自身所带的属性无关。
+multi_compile定义的宏，如`#pragma multi_compile_fog`，`#pragma multi_compile_fwdbase`等，基本上适用于大部分shader，与shader自身所带的属性无关。
 
 shader_feature定义的宏多用于针对shader自身的属性。比如shader中有_NormalMap这个属性(Property)，便可通过`#pragma shader_feature _NormalMap`来定义宏，用来实现这个shader在material有无_NormalMap时可进行不同的处理。
 
@@ -70,12 +70,12 @@ shader_feature要生成何种变体可用shader variant collection进行自定�
 
 multi_compile与shader_feature都默认定义首个宏，如下表所示:
 
-|宏定义语句|默认定义的宏|
-|---|---|
-|#pragma shader_feature A|nokeyword(存在简写问题)|
-|#pragma shader_feature A B C|A|
-|#pragma multi_compile A|A|
-|#pragma multi_compile A B C|A|
+| 宏定义语句                          | 默认定义的宏            |
+| ------------------------------ | ----------------- |
+| `#pragma shader_feature A`     | nokeyword(存在简写问题) |
+| `#pragma shader_feature A B C` | A                 |
+| `#pragma multi_compile A`      | A                 |
+| `#pragma multi_compile A B C`  | A                 |
 
 ##### 项目中shader变体的生成方式主要有三种，其优缺点如下图所示：
 
@@ -98,9 +98,9 @@ d. 若得到得交集中有新的Keywords，则回到b。
 上述过程类似递归。例如：  
 Shader 中有 ForwardBase、ForwardAdd、Normal 三种PassType(以下为了方便简称Base、Add、 Normal)。定义的宏如下：
 
-|Base|Add|Normal|
-|---|---|---|
-|#pragma shader_feature A  <br>#pragma shader_feature B  <br>#pragma shader_feature C|#pragma shader_feature A  <br>#pragma shader_feature E|#pragma shader_feature A  <br>#pragma shader_feature B  <br>#pragma shader_feature E|
+| Base                                                                                       | Add                                                        | Normal                                                                                    |
+| ------------------------------------------------------------------------------------------ | ---------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| `#pragma shader_feature A`  <br>`#pragma shader_feature B`  <br>`#pragma shader_feature C` | `#pragma shader_feature A`  <br>`#pragma shader_feature E` | `#pragma shader_feature A` <br>`#pragma shader_feature B`  <br>`#pragma shader_feature E` |
 
   此时若ShaderVariantCollection中包含的变体是 Base ABC，Add AE。则此时生成的变体为：这三种PassType的默认定义的宏(nokeyword)所对应的变体(3个)以及原先直接包含的Base ABC、Add AE。除此之外Unity还会额外生成Add A、Base A、Normal A、Normal AB、 Base AB、Normal AE这6个变体。
 

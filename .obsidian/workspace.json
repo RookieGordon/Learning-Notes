@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Slurped Pages/第9章 着色器编译、分支和变体.md",
+                "file": "Custom SRP/Directional Lights.md",
                 "mode": "source",
                 "source": false
               }
@@ -70,7 +70,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 387.5
+    "width": 387.5,
+    "collapsed": true
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -86,7 +87,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Slurped Pages/第9章 着色器编译、分支和变体.md",
+                "file": "Custom SRP/Directional Lights.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +104,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Slurped Pages/第9章 着色器编译、分支和变体.md",
+                "file": "Custom SRP/Directional Lights.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -126,7 +127,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Slurped Pages/第9章 着色器编译、分支和变体.md"
+                "file": "Custom SRP/Directional Lights.md"
               }
             }
           }
@@ -135,7 +136,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 487.5
+    "width": 487.5,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -153,9 +155,11 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "936b4cf76949286f",
+  "active": "3e3abf656b9bb1b2",
   "lastOpenFiles": [
+    "Slurped Pages/shaderVariant 的更新测试.md",
     "Custom SRP/Directional Lights.md",
+    "Slurped Pages/第9章 着色器编译、分支和变体.md",
     "Custom SRP/attachments/Directional Lights.pdf",
     "计算机图形学—从0开始构建一个OpenGL软光栅/高级渲染管线功能.md",
     "Custom SRP/Draw Calls.md",
@@ -167,7 +171,6 @@
     "Excalidraw/Map.md",
     "C++/使用CMake编译项目.md",
     "Slurped Pages/URP源码阅读之GI.md",
-    "Slurped Pages/第9章 着色器编译、分支和变体.md",
     "Slurped Pages/图形引擎实战：Unity Shader变体管理流程.md",
     "Slurped Pages/Unity SRP 管线【第五讲：URP烘培光照】_urpshader实现光照烘焙-CSDN博客.md",
     "Custom SRP/attachments/Draw Calls.pdf",
@@ -191,7 +194,6 @@
     "Custom SRP/attachments/Draw Calls.annos",
     "【Unity技术美术】URP Shader训练营/自定义无光照URP-Shader.md",
     "【Unity技术美术】URP Shader训练营/自定义PBR-Shader.md",
-    "Slurped Pages/shaderVariant 的更新测试.md",
     "Slurped Pages/Unity SRP 管线【第五讲：自定义烘培光照】_samplesinglelightmap-CSDN博客.md",
     "Slurped Pages/Shader：优化破解变体的“影分身”之术.md",
     "Slurped Pages/可编程脚本渲染管线SRP - Unity官方平台 - 博客园.md",
