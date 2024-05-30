@@ -26,9 +26,9 @@
               "type": "pdf",
               "state": {
                 "file": "Custom SRP/attachments/Directional Lights.pdf",
-                "page": 24,
-                "left": -328,
-                "top": 665,
+                "page": 32,
+                "left": -8,
+                "top": 64,
                 "zoom": 1.5
               }
             }
@@ -83,7 +83,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 387.5
+    "width": 387.5,
+    "collapsed": true
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -169,9 +170,10 @@
   },
   "active": "ed9ca3ff85d3e564",
   "lastOpenFiles": [
-    "Custom SRP/attachments/（图解8）不同情况的漫反射.png",
+    "Custom SRP/attachments/（图解9）不同平滑度的漫反射和高光.png",
     "Custom SRP/attachments/Directional Lights.pdf",
     "Custom SRP/Directional Lights.md",
+    "Custom SRP/attachments/（图解8）不同情况的漫反射.png",
     "Custom SRP/attachments/Pasted image 20240530120700.png",
     "Custom SRP/attachments/（图解7）不同金属性对光的漫反射.png",
     "Custom SRP/attachments/Draw Calls.pdf",
@@ -212,7 +214,6 @@
     "Slurped Pages",
     "Untitled.sheet",
     "Custom SRP/attachments/（图解3）设置摄像机属性后，再清理上下文.png",
-    "Custom SRP/attachments/（图解2）ClearRenderTarget的Frame Debbugger显示.png",
     "C++/C++.canvas",
     "Custom SRP/attachments",
     "计算机图形学—从0开始构建一个OpenGL软光栅/从0开始构建OpenGL软光栅.canvas",
