@@ -221,5 +221,11 @@ brdf.roughness = PerceptualRoughnessToRoughness(perceptualRoughness);
 
 ##  镜面强度
 
+> ([[Directional Lights.pdf#page=32&selection=12,1,14,41&color=red|Directional Lights, p.32]])
+> he strength of the specular reflection that we observe depends on how well our view direction matches the perfect reflection direction.
 
-
+镜面强度公式如下：
+$$
+specular strength = \frac{r^{2} }{d^{2} \times max(0.1, (\vec{L} \cdot \vec{H})^{2})\times n} 
+$$
+其中：$d = (\vec{L} \cdot \vec{H})^{2}\times (r^{2} - 1) + 1.0001$，$\vec{N}$是表面法向量，
