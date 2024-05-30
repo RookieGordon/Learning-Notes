@@ -20,15 +20,27 @@
             }
           },
           {
+            "id": "f238856f7be59731",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/高级渲染管线功能.md",
+                "mode": "preview",
+                "source": false
+              }
+            }
+          },
+          {
             "id": "ebeae0255022398c",
             "type": "leaf",
             "state": {
               "type": "pdf",
               "state": {
                 "file": "Custom SRP/attachments/Directional Lights.pdf",
-                "page": 42,
+                "page": 45,
                 "left": -70,
-                "top": 397,
+                "top": 727,
                 "zoom": 1.25
               }
             }
@@ -62,7 +74,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#管线设置/剔除物体设置",
+                "query": "混合",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -79,7 +91,8 @@
               "state": {}
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -170,8 +183,9 @@
   },
   "active": "3e3abf656b9bb1b2",
   "lastOpenFiles": [
-    "Custom SRP/attachments/Directional Lights.pdf",
+    "计算机图形学—从0开始构建一个OpenGL软光栅/高级渲染管线功能.md",
     "Custom SRP/Directional Lights.md",
+    "Custom SRP/attachments/Directional Lights.pdf",
     "Custom SRP/Draw Calls.md",
     "Custom SRP/Custom SRP.md",
     "Custom SRP/Custom Render Pipeline.md",
@@ -209,7 +223,6 @@
     "Slurped Pages/Unity SRP 管线【第五讲：自定义烘培光照】_samplesinglelightmap-CSDN博客.md",
     "Slurped Pages/Shader：优化破解变体的“影分身”之术.md",
     "Slurped Pages/可编程脚本渲染管线SRP - Unity官方平台 - 博客园.md",
-    "Slurped Pages/【Unity Shader】在URP里写Shader（三）：URP简单光照Shader.md",
     "ReadItLater Inbox/assets",
     "ReadItLater Inbox",
     "Slurped Pages",

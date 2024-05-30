@@ -287,11 +287,11 @@ float3 GetLighting(Surface surface, BRDF brdf, Light light)
 
 # 透明度
 
-物体的漫反射应该跟随透明度衰减，高光反射不应该有这种变化
+目前的[[高级渲染管线功能#^1205df|Alpha混合模式]]下，物体的高光表现是错的。物体的漫反射应该跟随透明度衰减，高光反射不应该有这种变化。
 
 ## 预乘Alpha
 
-使用alpha混合模式，同时将表面alpha作为参数去影响漫反射颜色来解决该问题，这种方法被称为预乘法Alpha混合。
+设置源。同时将表面alpha作为参数去影响漫反射颜色来解决该问题，这种方法被称为预乘法Alpha混合。
 
 # 着色器GUI
 
@@ -342,3 +342,4 @@ private bool PresetButton(string name) {
     return false;  
 }
 ```
+并且，还使用`RegisterPropertyChangeUndo`注册了一个撤销操作。
