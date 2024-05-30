@@ -229,7 +229,7 @@ void MixRealtimeAndBakedGI(inout Light light, half3 normalWS, inout half3 bakedG
 }
 ```
 
-#if defined(_MIXED_LIGHTING_SUBTRACTIVE) && defined(LIGHTMAP_ON)意思是只有MixedLighting的LightMode定义为Subtractive模式时的静态物体才需要做这个操作。LightMode的设置是在LightSetting面板设置的：
+`#if defined(_MIXED_LIGHTING_SUBTRACTIVE) && defined(LIGHTMAP_ON)`意思是只有MixedLighting的LightMode定义为Subtractive模式时的静态物体才需要做这个操作。LightMode的设置是在LightSetting面板设置的：
 
 ![](https://pic1.zhimg.com/v2-e6f6e23d8d2677eb5dd42d642989d040_b.jpg)
 

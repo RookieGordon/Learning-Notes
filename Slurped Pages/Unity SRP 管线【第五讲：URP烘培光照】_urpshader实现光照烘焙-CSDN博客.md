@@ -313,8 +313,9 @@ Varyings UniversalVertexMeta(Attributes input)
 `output.positionCS` 记录了LightMapUV坐标在的裁剪空间下的坐标。  
 `output.uv`记录了_BaseMap的UV坐标。  
 这里忽略EDITOR_VISUALIZATION被定义的代码。
-
-> #define TRANSFORM_TEX(tex,name) (tex.xy * name##_ST.xy + name##_ST.zw)
+```HLSL
+#define TRANSFORM_TEX(tex,name) (tex.xy * name##_ST.xy + name##_ST.zw)
+```
 
 我们得到片元着色器输入数据如下
 

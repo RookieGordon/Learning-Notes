@@ -4,17 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "0789c786e427c288",
+        "id": "774a19fe21616b4c",
         "type": "tabs",
         "children": [
           {
-            "id": "3258a6ac03927459",
+            "id": "3e3abf656b9bb1b2",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
                 "file": "Custom SRP/Directional Lights.md",
-                "mode": "preview",
+                "mode": "source",
                 "source": false
               }
             }
@@ -48,7 +48,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "tag:#管线设置/剔除物体设置",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -65,8 +65,7 @@
               "state": {}
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "horizontal",
@@ -117,7 +116,7 @@
               "type": "tag",
               "state": {
                 "sortOrder": "frequency",
-                "useHierarchy": false
+                "useHierarchy": true
               }
             }
           },
@@ -155,10 +154,16 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "7751a12b800567b4",
+  "active": "3e3abf656b9bb1b2",
   "lastOpenFiles": [
-    "Custom SRP/Custom Render Pipeline.md",
+    "Excalidraw/Map.md",
+    "C++/使用CMake编译项目.md",
+    "Slurped Pages/URP源码阅读之GI.md",
+    "Slurped Pages/第9章 着色器编译、分支和变体.md",
+    "Slurped Pages/图形引擎实战：Unity Shader变体管理流程.md",
+    "Slurped Pages/Unity SRP 管线【第五讲：URP烘培光照】_urpshader实现光照烘焙-CSDN博客.md",
     "Custom SRP/Directional Lights.md",
+    "Custom SRP/Custom Render Pipeline.md",
     "Custom SRP/Draw Calls.md",
     "Custom SRP/attachments/Draw Calls.pdf",
     "Custom SRP/attachments/Directional Lights.pdf",
@@ -179,7 +184,6 @@
     "Custom SRP/attachments/（图解6）动态合批，GPU实例化和SRP合批.png",
     "Custom SRP/attachments/（图解5）使用GPU Instancing的绘制面板.png",
     "C++/模板.md",
-    "Excalidraw/Map.md",
     "技术美术入门/Map&Texture贴图和纹理.md",
     "技术美术入门/技术美术入门.md",
     "Custom SRP/未命名思维导图.md",
@@ -187,12 +191,9 @@
     "【Unity技术美术】URP Shader训练营/自定义无光照URP-Shader.md",
     "【Unity技术美术】URP Shader训练营/自定义PBR-Shader.md",
     "Slurped Pages/shaderVariant 的更新测试.md",
-    "Slurped Pages/Unity SRP 管线【第五讲：URP烘培光照】_urpshader实现光照烘焙-CSDN博客.md",
     "Slurped Pages/Unity SRP 管线【第五讲：自定义烘培光照】_samplesinglelightmap-CSDN博客.md",
     "Slurped Pages/Shader：优化破解变体的“影分身”之术.md",
-    "Slurped Pages/图形引擎实战：Unity Shader变体管理流程.md",
     "Slurped Pages/可编程脚本渲染管线SRP - Unity官方平台 - 博客园.md",
-    "Slurped Pages/第9章 着色器编译、分支和变体.md",
     "Slurped Pages/【Unity Shader】在URP里写Shader（三）：URP简单光照Shader.md",
     "【Unity技术美术】URP Shader训练营/【Unity技术美术】URP Shader训练营.md",
     "【Unity技术美术】URP Shader训练营/自定义BlinnPhong光照URP-Shader.md",
