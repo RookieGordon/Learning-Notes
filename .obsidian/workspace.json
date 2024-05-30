@@ -18,6 +18,20 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "78c7f695333ddd11",
+            "type": "leaf",
+            "state": {
+              "type": "pdf",
+              "state": {
+                "file": "Custom SRP/attachments/Directional Lights.pdf",
+                "page": 9,
+                "left": -70,
+                "top": 176,
+                "zoom": 1.25
+              }
+            }
           }
         ]
       }
@@ -69,8 +83,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 387.5,
-    "collapsed": true
+    "width": 387.5
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -156,17 +169,18 @@
   },
   "active": "3e3abf656b9bb1b2",
   "lastOpenFiles": [
+    "Custom SRP/attachments/（图解11）应用了物体表面颜色的光线效果.png",
+    "Custom SRP/attachments/Directional Lights.pdf",
+    "Custom SRP/Directional Lights.md",
     "Excalidraw/Map.md",
     "C++/使用CMake编译项目.md",
     "Slurped Pages/URP源码阅读之GI.md",
     "Slurped Pages/第9章 着色器编译、分支和变体.md",
     "Slurped Pages/图形引擎实战：Unity Shader变体管理流程.md",
     "Slurped Pages/Unity SRP 管线【第五讲：URP烘培光照】_urpshader实现光照烘焙-CSDN博客.md",
-    "Custom SRP/Directional Lights.md",
     "Custom SRP/Custom Render Pipeline.md",
     "Custom SRP/Draw Calls.md",
     "Custom SRP/attachments/Draw Calls.pdf",
-    "Custom SRP/attachments/Directional Lights.pdf",
     "Custom SRP/attachments/（图解10）蓝色的底色.png",
     "Custom SRP/attachments/（图解9）不同平滑度的漫反射和高光.png",
     "Custom SRP/attachments/（图解8）不同情况的漫反射.png",
@@ -196,7 +210,6 @@
     "Slurped Pages/可编程脚本渲染管线SRP - Unity官方平台 - 博客园.md",
     "Slurped Pages/【Unity Shader】在URP里写Shader（三）：URP简单光照Shader.md",
     "【Unity技术美术】URP Shader训练营/【Unity技术美术】URP Shader训练营.md",
-    "【Unity技术美术】URP Shader训练营/自定义BlinnPhong光照URP-Shader.md",
     "ReadItLater Inbox/assets",
     "ReadItLater Inbox",
     "Slurped Pages",
