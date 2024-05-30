@@ -1,8 +1,10 @@
 ---
 tags:
   - Unity
-  - URP
-  - Shader
+  - 自定义管线
+  - 支持SPR-Batcher
+  - 支持GUP-Instancing
+  - 支持动态批处理
 annotation-target: Draw Calls.pdf
 ---
 # Shaders

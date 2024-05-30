@@ -1,8 +1,10 @@
 ---
 tags:
   - Unity
-  - URP
-  - Shader
+  - 自定义管线
+  - 绘制天空盒设置
+  - 绘制物体设置
+  - 剔除物体设置
 annotation-target: Custom Render Pipeline.pdf
 ---
 # 参考
