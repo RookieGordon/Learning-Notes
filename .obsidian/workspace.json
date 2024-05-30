@@ -26,15 +26,14 @@
               "type": "pdf",
               "state": {
                 "file": "Custom SRP/attachments/Directional Lights.pdf",
-                "page": 41,
+                "page": 42,
                 "left": -70,
-                "top": 87,
+                "top": 397,
                 "zoom": 1.25
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -101,7 +100,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Custom SRP/attachments/Directional Lights.pdf",
+                "file": "Custom SRP/Directional Lights.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -118,7 +117,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Custom SRP/attachments/Directional Lights.pdf",
+                "file": "Custom SRP/Directional Lights.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -141,7 +140,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Custom SRP/attachments/Directional Lights.pdf"
+                "file": "Custom SRP/Directional Lights.md"
               }
             }
           }
@@ -169,10 +168,10 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "ebeae0255022398c",
+  "active": "3e3abf656b9bb1b2",
   "lastOpenFiles": [
-    "Custom SRP/Directional Lights.md",
     "Custom SRP/attachments/Directional Lights.pdf",
+    "Custom SRP/Directional Lights.md",
     "Custom SRP/Draw Calls.md",
     "Custom SRP/Custom SRP.md",
     "Custom SRP/Custom Render Pipeline.md",

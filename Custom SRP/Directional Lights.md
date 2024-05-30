@@ -307,3 +307,26 @@ Shader "Custom RP/Lit"
 
 ## 设置属性和关键字
 
+通过`ShaderGUI.FindProperty`找到某个属性，并且设置其值：
+```CSharp
+private void SetProperty(string name, float value)  
+{  
+    FindProperty(name, this._matProperties).floatValue = value;  
+}
+```
+
+通过调用`Material.Enable`
+```CSharp
+private void SetKeyword(string keyWord, bool enable)  
+{  
+    foreach (Material mat in this._mats)  
+    {        
+	    if (enable)
+	    {            
+        mat.EnableKeyword(keyWord);  
+        }else{  
+            mat.DisableKeyword(keyWord);  
+        }    
+    }
+}
+```
