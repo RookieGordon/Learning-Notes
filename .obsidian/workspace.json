@@ -11,30 +11,11 @@
             "id": "3e3abf656b9bb1b2",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Custom SRP/Directional Lights.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "ebeae0255022398c",
-            "type": "leaf",
-            "state": {
-              "type": "pdf",
-              "state": {
-                "file": "Custom SRP/attachments/Directional Lights.pdf",
-                "page": 46,
-                "left": -70,
-                "top": 197,
-                "zoom": 1.25
-              }
+              "type": "graph",
+              "state": {}
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -63,7 +44,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "混合",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -102,7 +83,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Custom SRP/attachments/Directional Lights.pdf",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -119,7 +99,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Custom SRP/attachments/Directional Lights.pdf",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -141,13 +120,11 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "Custom SRP/attachments/Directional Lights.pdf"
-              }
+              "state": {}
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -170,11 +147,11 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "ebeae0255022398c",
+  "active": "3e3abf656b9bb1b2",
   "lastOpenFiles": [
     "Custom SRP/Directional Lights.md",
-    "计算机图形学—从0开始构建一个OpenGL软光栅/高级渲染管线功能.md",
     "Custom SRP/attachments/Directional Lights.pdf",
+    "计算机图形学—从0开始构建一个OpenGL软光栅/高级渲染管线功能.md",
     "Custom SRP/Draw Calls.md",
     "Custom SRP/Custom SRP.md",
     "Custom SRP/Custom Render Pipeline.md",
