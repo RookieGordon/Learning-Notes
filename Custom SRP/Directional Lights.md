@@ -315,18 +315,30 @@ private void SetProperty(string name, float value)
 }
 ```
 
-通过调用`Material.Enable`
+通过调用`Material.EnableKeyword`和`Material.DisableKeyword`可以设置关键字：
 ```CSharp
 private void SetKeyword(string keyWord, bool enable)  
 {  
     foreach (Material mat in this._mats)  
     {        
-	    if (enable)
-	    {            
-        mat.EnableKeyword(keyWord);  
+	    if (enable) {            
+	        mat.EnableKeyword(keyWord);  
         }else{  
             mat.DisableKeyword(keyWord);  
         }    
     }
+}
+```
+
+## 预设按钮
+
+创建一个`PresetButton`方法，用于判断名为name的按钮是否按下：
+```CSharp
+private bool PresetButton(string name) {  
+    if (GUILayout.Button(name)) {  
+        this._matEditor.RegisterPropertyChangeUndo(name);  
+        return true;  
+    }   
+    return false;  
 }
 ```
