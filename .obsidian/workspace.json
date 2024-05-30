@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Custom SRP/Directional Lights.md",
+                "file": "Custom SRP/Directional Shadows.md",
                 "mode": "source",
                 "source": false
               }
@@ -48,7 +48,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#pragma",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -65,13 +65,11 @@
               "state": {}
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
-    "width": 387.5,
-    "collapsed": true
+    "width": 387.5
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -87,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Custom SRP/Directional Lights.md",
+                "file": "Custom SRP/Directional Shadows.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Custom SRP/Directional Lights.md",
+                "file": "Custom SRP/Directional Shadows.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -127,12 +125,11 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Custom SRP/Directional Lights.md"
+                "file": "Custom SRP/Directional Shadows.md"
               }
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "horizontal",
@@ -157,15 +154,18 @@
   },
   "active": "3e3abf656b9bb1b2",
   "lastOpenFiles": [
-    "Slurped Pages/shaderVariant 的更新测试.md",
-    "Custom SRP/Directional Lights.md",
-    "Slurped Pages/第9章 着色器编译、分支和变体.md",
+    "Custom SRP/attachments/Directional Shadows.pdf",
+    "Custom SRP/Directional Shadows.md",
+    "Custom SRP/Custom Render Pipeline.md",
+    "Custom SRP/attachments/Pasted image 20240530120700.png",
+    "Custom SRP/attachments/（图解12）金属与非金属对镜面反射颜色的影响.png",
     "Custom SRP/attachments/Directional Lights.pdf",
+    "Custom SRP/Directional Lights.md",
+    "Slurped Pages/shaderVariant 的更新测试.md",
+    "Slurped Pages/第9章 着色器编译、分支和变体.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/高级渲染管线功能.md",
     "Custom SRP/Draw Calls.md",
     "Custom SRP/Custom SRP.md",
-    "Custom SRP/Custom Render Pipeline.md",
-    "Custom SRP/attachments/（图解12）金属与非金属对镜面反射颜色的影响.png",
     "^Directional-lights-p10.md",
     "Custom SRP/attachments/（图解11）应用了物体表面颜色的光线效果.png",
     "Excalidraw/Map.md",
@@ -177,7 +177,6 @@
     "Custom SRP/attachments/（图解10）蓝色的底色.png",
     "Custom SRP/attachments/（图解9）不同平滑度的漫反射和高光.png",
     "Custom SRP/attachments/（图解8）不同情况的漫反射.png",
-    "Custom SRP/attachments/Pasted image 20240530120700.png",
     "Custom SRP/attachments/（图解7）不同金属性对光的漫反射.png",
     "Custom SRP/attachments/Custom Render Pipeline.pdf",
     "Custom SRP/attachments/Draw Calls-annotate.md",
@@ -196,13 +195,11 @@
     "【Unity技术美术】URP Shader训练营/自定义PBR-Shader.md",
     "Slurped Pages/Unity SRP 管线【第五讲：自定义烘培光照】_samplesinglelightmap-CSDN博客.md",
     "Slurped Pages/Shader：优化破解变体的“影分身”之术.md",
-    "Slurped Pages/可编程脚本渲染管线SRP - Unity官方平台 - 博客园.md",
     "ReadItLater Inbox/assets",
     "ReadItLater Inbox",
     "Slurped Pages",
     "Untitled.sheet",
     "C++/C++.canvas",
-    "Custom SRP/attachments",
     "计算机图形学—从0开始构建一个OpenGL软光栅/从0开始构建OpenGL软光栅.canvas",
     "未命名.canvas"
   ]
