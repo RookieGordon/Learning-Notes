@@ -222,7 +222,8 @@ BRDF GetBRDF(Surface surface)
 ```
 但是，金属会影响镜面反射的颜色，非金属则不会。因此使用金属性进行插值。
 ![[（图解12）金属与非金属对镜面反射颜色的影响.png|400]]
-r'h
+如图可以看出，金属性越强，高光反射的颜色越红，非金属性越强，高光反射越白。
+
 ## 表面粗糙度
 
 URP核心库中，`PerceptualSmoothnessToPerceptualRoughness`和`PerceptualRoughnessToRoughness`两个函数，定义了从平滑度到粗糙度的转换
