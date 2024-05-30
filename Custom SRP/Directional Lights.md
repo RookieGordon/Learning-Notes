@@ -284,3 +284,8 @@ float3 GetLighting(Surface surface, BRDF brdf, Light light)
 ![[（图解10）蓝色的底色.png|370]]
 > ([[Directional Lights.pdf#page=34&selection=10,0,12,36&color=yellow|Directional Lights, p.34]])
 > You can also verify that metals affect the color of specular reflections while nonmetals don't, by using a base color other than white.
+
+# 透明度
+
+
+## 预乘Alpha
