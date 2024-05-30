@@ -291,5 +291,5 @@ float3 GetLighting(Surface surface, BRDF brdf, Light light)
 
 ## 预乘Alpha
 
-使用alpha混合模式，同时将表面alpha作为参数去影响漫反射颜色la
+使用alpha混合模式，同时将表面alpha作为参数去影响漫反射颜色来解决该问题，这种方法被称为预乘法Alpha混合。
 
