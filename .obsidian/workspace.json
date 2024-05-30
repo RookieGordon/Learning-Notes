@@ -26,15 +26,14 @@
               "type": "pdf",
               "state": {
                 "file": "Custom SRP/attachments/Directional Lights.pdf",
-                "page": 31,
-                "left": -10,
-                "top": 602,
-                "zoom": 1.4925374137782315
+                "page": 24,
+                "left": -328,
+                "top": 665,
+                "zoom": 1.5
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -84,8 +83,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 387.5,
-    "collapsed": true
+    "width": 387.5
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -101,7 +99,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Custom SRP/attachments/Directional Lights.pdf",
+                "file": "Custom SRP/Directional Lights.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -118,7 +116,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Custom SRP/attachments/Directional Lights.pdf",
+                "file": "Custom SRP/Directional Lights.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -141,7 +139,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Custom SRP/attachments/Directional Lights.pdf"
+                "file": "Custom SRP/Directional Lights.md"
               }
             }
           }
@@ -169,10 +167,12 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "bfbf290ffde3015a",
+  "active": "ed9ca3ff85d3e564",
   "lastOpenFiles": [
-    "Custom SRP/Directional Lights.md",
+    "Custom SRP/attachments/（图解8）不同情况的漫反射.png",
     "Custom SRP/attachments/Directional Lights.pdf",
+    "Custom SRP/Directional Lights.md",
+    "Custom SRP/attachments/Pasted image 20240530120700.png",
     "Custom SRP/attachments/（图解7）不同金属性对光的漫反射.png",
     "Custom SRP/attachments/Draw Calls.pdf",
     "Custom SRP/attachments/Custom Render Pipeline.pdf",
@@ -213,7 +213,6 @@
     "Untitled.sheet",
     "Custom SRP/attachments/（图解3）设置摄像机属性后，再清理上下文.png",
     "Custom SRP/attachments/（图解2）ClearRenderTarget的Frame Debbugger显示.png",
-    "Custom SRP/attachments/（图解1）渲染命令缓冲区名称.png",
     "C++/C++.canvas",
     "Custom SRP/attachments",
     "计算机图形学—从0开始构建一个OpenGL软光栅/从0开始构建OpenGL软光栅.canvas",

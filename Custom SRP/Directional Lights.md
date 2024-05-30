@@ -146,6 +146,10 @@ private void SetupDirectionalLight(int index, VisibleLight visibleLight)
 
 ## 出射光
 
+![[（图解8）不同情况的漫反射.png]]
+完美的镜面反射，这种情况下没有漫反射光线。完美漫反射，可以在ren'h'j'e
+
+
 > [!PDF|red] [[Directional Lights.pdf#page=25&selection=14,32,26,26&color=red|Directional Lights, p.25]]
 > >  This suggests that we should scale the incoming light by some factor. However, because the factor is always the same we can bake it into the light's color and intensity. Thus the final light color that we use represents the amount observed when reflected from a perfectly white diffuse surface fragment illuminated head-on. This is a tiny fraction of the total amount of light that is actually emitted. There are other ways to configure lights, for example by specifying lumen or lux, which make it easier to configure realistic light sources, but we'll stick with the current approach.
 >  
