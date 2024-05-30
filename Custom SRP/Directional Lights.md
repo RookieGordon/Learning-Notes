@@ -212,4 +212,14 @@ BRDF GetBRDF(Surface surface)
 
 ## 表面粗糙度
 
-URP核心库中，
+URP核心库中，`PerceptualSmoothnessToPerceptualRoughness`和`PerceptualRoughnessToRoughness`两个函数，定义了从平滑度到粗糙度的转换
+```HLSL
+float perceptualRoughness =  
+    PerceptualSmoothnessToPerceptualRoughness(surface.smoothness);  
+brdf.roughness = PerceptualRoughnessToRoughness(perceptualRoughness);
+```
+
+##  镜面强度
+
+
+
