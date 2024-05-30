@@ -37,7 +37,7 @@ tags:
 [[Directional Lights.pdf#page=10&rect=30,632,579,702&color=yellow|Directional Lights, p.10]]
 先写一个光照函数，由于光照是和物体表面法向量息息相关的。
 ![[（图解11）应用了物体表面颜色的光线效果.png|260]]
-可以看到。对着光线的面被照亮了（当然这里是错的，因为还没有真正的光线）
+可以看到。对着光线的面被照亮了（当然这里是错的，因为还没有真正的光线） ^c4fe76
 
 # 灯光
 
@@ -67,7 +67,7 @@ float3 GetLighting(Surface surface)
     return GetLighting(surface, GetDirectionalLight());  
 }
 ```
-
+将[[#^c4fe76|法向量]]应用成真实的灯光数据，`GetLighting`函数返回的就是物体表面在deng'guan
 
 ## 发送光照数据到GPU
 

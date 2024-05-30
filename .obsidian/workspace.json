@@ -18,20 +18,6 @@
                 "source": false
               }
             }
-          },
-          {
-            "id": "78c7f695333ddd11",
-            "type": "leaf",
-            "state": {
-              "type": "pdf",
-              "state": {
-                "file": "Custom SRP/attachments/Directional Lights.pdf",
-                "page": 9,
-                "left": -70,
-                "top": 176,
-                "zoom": 1.25
-              }
-            }
           }
         ]
       }
@@ -169,9 +155,10 @@
   },
   "active": "3e3abf656b9bb1b2",
   "lastOpenFiles": [
-    "Custom SRP/attachments/（图解11）应用了物体表面颜色的光线效果.png",
     "Custom SRP/attachments/Directional Lights.pdf",
     "Custom SRP/Directional Lights.md",
+    "^Directional-lights-p10.md",
+    "Custom SRP/attachments/（图解11）应用了物体表面颜色的光线效果.png",
     "Excalidraw/Map.md",
     "C++/使用CMake编译项目.md",
     "Slurped Pages/URP源码阅读之GI.md",
@@ -196,7 +183,6 @@
     "![[Directional Lights-1716816556920.png.md",
     "Custom SRP/attachments/Directional Lights.annos",
     "Custom SRP/attachments/（图解6）动态合批，GPU实例化和SRP合批.png",
-    "Custom SRP/attachments/（图解5）使用GPU Instancing的绘制面板.png",
     "C++/模板.md",
     "技术美术入门/Map&Texture贴图和纹理.md",
     "技术美术入门/技术美术入门.md",
@@ -209,7 +195,6 @@
     "Slurped Pages/Shader：优化破解变体的“影分身”之术.md",
     "Slurped Pages/可编程脚本渲染管线SRP - Unity官方平台 - 博客园.md",
     "Slurped Pages/【Unity Shader】在URP里写Shader（三）：URP简单光照Shader.md",
-    "【Unity技术美术】URP Shader训练营/【Unity技术美术】URP Shader训练营.md",
     "ReadItLater Inbox/assets",
     "ReadItLater Inbox",
     "Slurped Pages",
