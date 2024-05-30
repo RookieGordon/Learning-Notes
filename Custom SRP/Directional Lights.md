@@ -230,3 +230,15 @@ specular strength = \frac{r^{2} }{d^{2} \times max(0.1, (\vec{L} \cdot \vec{H})^
 $$
 其中：$r$是表面粗糙度。$d = (\vec{L} \cdot \vec{H})^{2}\times (r^{2} - 1) + 1.0001$，$\vec{N}$是表面法向量，$\vec{L}$是光照方向，$\vec{H} = normalize(\vec{L} + \vec{V})$。最后的$n = 4r + 2$常量。
 
+```HLSL
+float SpecularStrength(Surface surface, BRDF brdf, Light light)  
+{  
+    float3 h = SafeNormalize(light.direction + surface.viewDirection);  
+    float nh2 = Square(saturate(dot(surface.normal, h)));  
+    float lh2 = Square(saturate(dot(light.direction, h)));  
+    float r2 = Square(brdf.roughness);  
+    float d2 = Square(nh2 * (r2 - 1.0) + 1.0001);  
+    float n = 4.0 * brdf.roughness + 2.0;  
+    return r2 / (d2 * max(0.1, lh2) * n); 
+}
+```
