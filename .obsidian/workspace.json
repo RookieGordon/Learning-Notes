@@ -20,14 +20,16 @@
             }
           },
           {
-            "id": "c8ed45407b6b113a",
+            "id": "ebeae0255022398c",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "pdf",
               "state": {
-                "file": "Custom SRP/Directional Lights.md",
-                "mode": "source",
-                "source": false
+                "file": "Custom SRP/attachments/Directional Lights.pdf",
+                "page": 41,
+                "left": -70,
+                "top": 87,
+                "zoom": 1.25
               }
             }
           }
@@ -99,7 +101,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Custom SRP/Directional Lights.md",
+                "file": "Custom SRP/attachments/Directional Lights.pdf",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -116,7 +118,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Custom SRP/Directional Lights.md",
+                "file": "Custom SRP/attachments/Directional Lights.pdf",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -139,7 +141,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Custom SRP/Directional Lights.md"
+                "file": "Custom SRP/attachments/Directional Lights.pdf"
               }
             }
           }
@@ -167,14 +169,14 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "c8ed45407b6b113a",
+  "active": "ebeae0255022398c",
   "lastOpenFiles": [
+    "Custom SRP/Directional Lights.md",
+    "Custom SRP/attachments/Directional Lights.pdf",
     "Custom SRP/Draw Calls.md",
     "Custom SRP/Custom SRP.md",
     "Custom SRP/Custom Render Pipeline.md",
-    "Custom SRP/Directional Lights.md",
     "Custom SRP/attachments/（图解12）金属与非金属对镜面反射颜色的影响.png",
-    "Custom SRP/attachments/Directional Lights.pdf",
     "^Directional-lights-p10.md",
     "Custom SRP/attachments/（图解11）应用了物体表面颜色的光线效果.png",
     "Excalidraw/Map.md",

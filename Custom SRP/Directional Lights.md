@@ -293,3 +293,17 @@ float3 GetLighting(Surface surface, BRDF brdf, Light light)
 
 使用alpha混合模式，同时将表面alpha作为参数去影响漫反射颜色来解决该问题，这种方法被称为预乘法Alpha混合。
 
+# 着色器GUI
+
+在自定义着色器的底部加上`CustomEditor`表明使用该着色器的材质会用到指定的编辑器实例对象。
+```CSharp
+Shader "Custom RP/Lit"  
+{  
+    Properties  {...}  
+    SubShader  {...}  
+    CustomEditor "CustomShaderGUI"  
+}
+```
+
+## 设置属性和关键字
+
