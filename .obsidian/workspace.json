@@ -48,7 +48,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "tag:#绘制天空盒设置",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -65,7 +65,8 @@
               "state": {}
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -115,7 +116,7 @@
               "type": "tag",
               "state": {
                 "sortOrder": "frequency",
-                "useHierarchy": false
+                "useHierarchy": true
               }
             }
           },
@@ -129,7 +130,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "horizontal",
@@ -151,7 +153,7 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "3980a1c1a27a1a1d",
+  "active": "5312d8795cb1daad",
   "lastOpenFiles": [
     "Custom SRP/Draw Calls.md",
     "Custom SRP/Custom Render Pipeline.md",
