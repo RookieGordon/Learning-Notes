@@ -151,6 +151,7 @@ private void SetupDirectionalLight(int index, VisibleLight visibleLight)
 >  
 >  `visibleLight.finalColor`已经是计算完的漫反射光了，而非入射光。
 
+
 ## BRDF属性
 
 新增表面金属度`Metallic`和光滑度`Smoothness`两个参数：
@@ -240,5 +241,14 @@ float SpecularStrength(Surface surface, BRDF brdf, Light light)
     float d2 = Square(nh2 * (r2 - 1.0) + 1.0001);  
     float n = 4.0 * brdf.roughness + 2.0;  
     return r2 / (d2 * max(0.1, lh2) * n); 
+}
+```
+
+因此，`完美漫反射表面`
+```HLSL
+// 获取BRDF计算得到的表面反射光  
+float3 DirectBRDF(Surface surface, BRDF brdf, Light light)  
+{  
+    return SpecularStrength(surface, brdf, light) * brdf.specular + brdf.diffuse;  
 }
 ```
