@@ -287,6 +287,9 @@ float3 GetLighting(Surface surface, BRDF brdf, Light light)
 
 # 透明度
 
-alpha混合模式下，漫反射和镜面反射都会减弱，这是不对的。应该只仅仅淡化漫反射，保留镜面反射
+物体的漫反射应该跟随透明度衰减，高光反射不应该有这种变化
 
 ## 预乘Alpha
+
+使用alpha混合模式，同时将表面alpha作为参数去影响漫反射颜色la
+
