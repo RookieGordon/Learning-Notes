@@ -267,5 +267,9 @@ float3 GetLighting(Surface surface, BRDF brdf, Light light)
 ```
 
 ![[（图解9）不同平滑度的漫反射和高光.png|360]]
+> ([[Directional Lights.pdf#page=33&selection=46,71,52,29&color=red|Directional Lights, p.33]])
+> For perfectly rough surfaces the highlight mimics diffuse reflection. Smoother surfaces get a more focused highlight. A perfectly smooth surface gets an infinitesimal highlight, which we cannot see. Some scattering is needed to make it visible.
 
-
+![[（图解10）蓝色的底色.png|370]]
+> ([[Directional Lights.pdf#page=34&selection=10,0,12,36&color=yellow|Directional Lights, p.34]])
+> You can also verify that metals affect the color of specular reflections while nonmetals don't, by using a base color other than white.
