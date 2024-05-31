@@ -130,7 +130,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
@@ -153,7 +154,7 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "3980a1c1a27a1a1d",
+  "active": "6490a2fd7323267e",
   "lastOpenFiles": [
     "数据结构/attachments/（图解2）冒泡排序过程.gif",
     "数据结构/attachments/（图解2）冒泡排序过程.gif",
