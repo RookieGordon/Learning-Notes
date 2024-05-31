@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "数据结构/数据结构.md",
+                "file": "数据结构/数组、向量和链表.md",
                 "mode": "source",
                 "source": false
               }
@@ -69,8 +69,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 387.5,
-    "collapsed": true
+    "width": 387.5
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -86,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "数据结构/数据结构.md",
+                "file": "数据结构/数组、向量和链表.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "数据结构/数据结构.md",
+                "file": "数据结构/数组、向量和链表.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -126,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "数据结构/数据结构.md"
+                "file": "数据结构/数组、向量和链表.md"
               }
             }
           }
@@ -155,8 +154,9 @@
   },
   "active": "3e3abf656b9bb1b2",
   "lastOpenFiles": [
-    "Custom SRP/Directional Shadows.md",
     "数据结构/数据结构.md",
+    "数据结构/数组、向量和链表.md",
+    "Custom SRP/Directional Shadows.md",
     "数据结构",
     "Excalidraw/Drawing 2024-05-30 21.55.30.excalidraw.md",
     "Custom SRP/attachments/Directional Shadows.pdf",
@@ -197,7 +197,6 @@
     "Custom SRP/attachments/Draw Calls.annos",
     "【Unity技术美术】URP Shader训练营/自定义无光照URP-Shader.md",
     "【Unity技术美术】URP Shader训练营/自定义PBR-Shader.md",
-    "Slurped Pages/Unity SRP 管线【第五讲：自定义烘培光照】_samplesinglelightmap-CSDN博客.md",
     "ReadItLater Inbox/assets",
     "ReadItLater Inbox",
     "Slurped Pages",
