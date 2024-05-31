@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Custom SRP/Directional Shadows.md",
+                "file": "数据结构/数据结构.md",
                 "mode": "source",
                 "source": false
               }
@@ -69,8 +69,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 387.5,
-    "collapsed": true
+    "width": 387.5
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -86,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Custom SRP/Directional Shadows.md",
+                "file": "数据结构/数据结构.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Custom SRP/Directional Shadows.md",
+                "file": "数据结构/数据结构.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -126,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Custom SRP/Directional Shadows.md"
+                "file": "数据结构/数据结构.md"
               }
             }
           }
@@ -153,10 +152,12 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "3980a1c1a27a1a1d",
+  "active": "3e3abf656b9bb1b2",
   "lastOpenFiles": [
-    "Excalidraw/Drawing 2024-05-30 21.55.30.excalidraw.md",
     "Custom SRP/Directional Shadows.md",
+    "数据结构/数据结构.md",
+    "数据结构",
+    "Excalidraw/Drawing 2024-05-30 21.55.30.excalidraw.md",
     "Custom SRP/attachments/Directional Shadows.pdf",
     "Custom SRP/Custom Render Pipeline.md",
     "Custom SRP/attachments/Pasted image 20240530120700.png",
@@ -196,11 +197,9 @@
     "【Unity技术美术】URP Shader训练营/自定义无光照URP-Shader.md",
     "【Unity技术美术】URP Shader训练营/自定义PBR-Shader.md",
     "Slurped Pages/Unity SRP 管线【第五讲：自定义烘培光照】_samplesinglelightmap-CSDN博客.md",
-    "Slurped Pages/Shader：优化破解变体的“影分身”之术.md",
     "ReadItLater Inbox/assets",
     "ReadItLater Inbox",
     "Slurped Pages",
-    "Untitled.sheet",
     "C++/C++.canvas",
     "计算机图形学—从0开始构建一个OpenGL软光栅/从0开始构建OpenGL软光栅.canvas",
     "未命名.canvas"
