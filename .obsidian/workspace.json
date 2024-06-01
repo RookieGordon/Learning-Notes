@@ -14,7 +14,7 @@
               "type": "markdown",
               "state": {
                 "file": "数据结构/排序算法.md",
-                "mode": "source",
+                "mode": "preview",
                 "source": false
               }
             }
@@ -154,7 +154,7 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "3e3abf656b9bb1b2",
+  "active": "6490a2fd7323267e",
   "lastOpenFiles": [
     "数据结构/attachments/（图解3）希尔排序分组.png",
     "数据结构/attachments/（图解2）希尔排序过程.gif",
