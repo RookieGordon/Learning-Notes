@@ -13,8 +13,8 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "数据结构/数组、向量和链表.md",
-                "mode": "preview",
+                "file": "数据结构/排序算法.md",
+                "mode": "source",
                 "source": false
               }
             }
@@ -86,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "数据结构/数组、向量和链表.md",
+                "file": "数据结构/排序算法.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "数据结构/数组、向量和链表.md",
+                "file": "数据结构/排序算法.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -126,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "数据结构/数组、向量和链表.md"
+                "file": "数据结构/排序算法.md"
               }
             }
           }
@@ -156,6 +156,7 @@
   },
   "active": "3e3abf656b9bb1b2",
   "lastOpenFiles": [
+    "数据结构/数组、向量和链表.md",
     "数据结构/数据结构.md",
     "数据结构/排序算法.md",
     "数据结构/attachments/（图解3）希尔排序分组.png",
@@ -163,7 +164,6 @@
     "数据结构/attachments/（图解2）冒泡排序过程.gif",
     "数据结构/attachments/（图解2）冒泡排序过程.gif",
     "数据结构/查找与插入.md",
-    "数据结构/数组、向量和链表.md",
     "数据结构/attachments/（图解1）双向链表的一个节点.png",
     "数据结构/attachments",
     "Custom SRP/Directional Shadows.md",
