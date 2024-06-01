@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "数据结构/排序算法.md",
+                "file": "数据结构/数组、向量和链表.md",
                 "mode": "preview",
                 "source": false
               }
@@ -86,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "数据结构/排序算法.md",
+                "file": "数据结构/数组、向量和链表.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "数据结构/排序算法.md",
+                "file": "数据结构/数组、向量和链表.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -126,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "数据结构/排序算法.md"
+                "file": "数据结构/数组、向量和链表.md"
               }
             }
           }
@@ -154,15 +154,15 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "6490a2fd7323267e",
+  "active": "3e3abf656b9bb1b2",
   "lastOpenFiles": [
+    "数据结构/数据结构.md",
+    "数据结构/排序算法.md",
     "数据结构/attachments/（图解3）希尔排序分组.png",
     "数据结构/attachments/（图解2）希尔排序过程.gif",
     "数据结构/attachments/（图解2）冒泡排序过程.gif",
     "数据结构/attachments/（图解2）冒泡排序过程.gif",
     "数据结构/查找与插入.md",
-    "数据结构/排序算法.md",
-    "数据结构/数据结构.md",
     "数据结构/数组、向量和链表.md",
     "数据结构/attachments/（图解1）双向链表的一个节点.png",
     "数据结构/attachments",
@@ -190,7 +190,6 @@
     "Custom SRP/attachments/Draw Calls.pdf",
     "Custom SRP/attachments/（图解10）蓝色的底色.png",
     "Custom SRP/attachments/（图解9）不同平滑度的漫反射和高光.png",
-    "Custom SRP/attachments/（图解8）不同情况的漫反射.png",
     "Custom SRP/attachments/Custom Render Pipeline.pdf",
     "Custom SRP/attachments/Draw Calls-annotate.md",
     "Custom SRP/attachments/Directional Lights-annotate.md",
