@@ -13,8 +13,8 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "数据结构/查找与插入.md",
-                "mode": "source",
+                "file": "数据结构/排序算法.md",
+                "mode": "preview",
                 "source": false
               }
             }
@@ -69,7 +69,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 387.5
+    "width": 387.5,
+    "collapsed": true
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -85,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "数据结构/查找与插入.md",
+                "file": "数据结构/排序算法.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "数据结构/查找与插入.md",
+                "file": "数据结构/排序算法.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -125,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "数据结构/查找与插入.md"
+                "file": "数据结构/排序算法.md"
               }
             }
           }
@@ -155,14 +156,14 @@
   },
   "active": "3980a1c1a27a1a1d",
   "lastOpenFiles": [
-    "数据结构/排序算法.md",
     "数据结构/数据结构.md",
+    "数据结构/查找与插入.md",
+    "数据结构/排序算法.md",
     "数据结构/数组、向量和链表.md",
     "数据结构/attachments/（图解3）希尔排序分组.png",
     "数据结构/attachments/（图解2）希尔排序过程.gif",
     "数据结构/attachments/（图解2）冒泡排序过程.gif",
     "数据结构/attachments/（图解2）冒泡排序过程.gif",
-    "数据结构/查找与插入.md",
     "数据结构/attachments/（图解1）双向链表的一个节点.png",
     "数据结构/attachments",
     "Custom SRP/Directional Shadows.md",
