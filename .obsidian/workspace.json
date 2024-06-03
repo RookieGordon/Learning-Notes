@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "数据结构/二叉树.md",
+                "file": "数据结构/二叉查找树.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "数据结构/二叉树.md",
+                "file": "数据结构/二叉查找树.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "数据结构/二叉树.md",
+                "file": "数据结构/二叉查找树.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "数据结构/二叉树.md"
+                "file": "数据结构/二叉查找树.md"
               }
             }
           }
@@ -155,8 +155,8 @@
   },
   "active": "3e3abf656b9bb1b2",
   "lastOpenFiles": [
-    "数据结构/二叉查找树.md",
     "数据结构/二叉树.md",
+    "数据结构/二叉查找树.md",
     "数据结构/排序算法.md",
     "数据结构/attachments/（图解5）完全二叉树.png",
     "数据结构/attachments/（图解4）满二叉树.png",
