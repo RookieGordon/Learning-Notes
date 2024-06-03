@@ -69,7 +69,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 387.5
+    "width": 387.5,
+    "collapsed": true
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -155,6 +156,7 @@
   },
   "active": "3e3abf656b9bb1b2",
   "lastOpenFiles": [
+    "数据结构/attachments/（图解4）满二叉树.png",
     "数据结构/排序算法.md",
     "数据结构/二叉树.md",
     "数据结构/数据结构.md",
@@ -197,7 +199,6 @@
     "Custom SRP/attachments/Directional Lights.annos",
     "C++/模板.md",
     "技术美术入门/Map&Texture贴图和纹理.md",
-    "技术美术入门/技术美术入门.md",
     "Custom SRP/attachments/Draw Calls.annos",
     "ReadItLater Inbox/assets",
     "ReadItLater Inbox",
