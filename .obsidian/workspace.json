@@ -11,8 +11,12 @@
             "id": "3e3abf656b9bb1b2",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "Unity/插件/Unity Cinemachine.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
         ]
@@ -82,6 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "Unity/插件/Unity Cinemachine.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -98,6 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "Unity/插件/Unity Cinemachine.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -119,7 +125,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "Unity/插件/Unity Cinemachine.md"
+              }
             }
           }
         ],
@@ -148,6 +156,11 @@
   },
   "active": "3e3abf656b9bb1b2",
   "lastOpenFiles": [
+    "Unity/插件/AStar Pathing.md",
+    "Unity/插件/Timeline.md",
+    "Unity/插件/Unity Cinemachine.md",
+    "Unity/插件",
+    "Unity",
     "数据结构/数组、向量和链表.md",
     "数据结构/二叉查找树.md",
     "数据结构/二叉树.md",
@@ -187,13 +200,8 @@
     "Custom SRP/attachments/Custom Render Pipeline.pdf",
     "Custom SRP/attachments/Draw Calls-annotate.md",
     "Custom SRP/attachments/Directional Lights-annotate.md",
-    "![[Directional Lights-1716816556920.png.md",
     "Custom SRP/attachments/Directional Lights.annos",
-    "C++/模板.md",
-    "技术美术入门/Map&Texture贴图和纹理.md",
     "Custom SRP/attachments/Draw Calls.annos",
-    "ReadItLater Inbox/assets",
-    "ReadItLater Inbox",
     "C++/C++.canvas",
     "计算机图形学—从0开始构建一个OpenGL软光栅/从0开始构建OpenGL软光栅.canvas",
     "未命名.canvas"
