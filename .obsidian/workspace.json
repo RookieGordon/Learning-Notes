@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Unity/插件/Unity Cinemachine.md",
+                "file": "Slurped Pages/【游戏开发教程】Unity Cinemachine快速上手，详细案例讲解（虚拟相机系统 - 新发出品 - 良心教程）_cinemachine教程-CSDN博客.md",
                 "mode": "source",
                 "source": false
               }
@@ -69,8 +69,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 387.5,
-    "collapsed": true
+    "width": 387.5
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -86,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Unity/插件/Unity Cinemachine.md",
+                "file": "Slurped Pages/【游戏开发教程】Unity Cinemachine快速上手，详细案例讲解（虚拟相机系统 - 新发出品 - 良心教程）_cinemachine教程-CSDN博客.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Unity/插件/Unity Cinemachine.md",
+                "file": "Slurped Pages/【游戏开发教程】Unity Cinemachine快速上手，详细案例讲解（虚拟相机系统 - 新发出品 - 良心教程）_cinemachine教程-CSDN博客.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -126,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Unity/插件/Unity Cinemachine.md"
+                "file": "Slurped Pages/【游戏开发教程】Unity Cinemachine快速上手，详细案例讲解（虚拟相机系统 - 新发出品 - 良心教程）_cinemachine教程-CSDN博客.md"
               }
             }
           }
@@ -156,9 +155,10 @@
   },
   "active": "3e3abf656b9bb1b2",
   "lastOpenFiles": [
+    "Unity/插件/Unity Cinemachine.md",
+    "Slurped Pages/【游戏开发教程】Unity Cinemachine快速上手，详细案例讲解（虚拟相机系统 - 新发出品 - 良心教程）_cinemachine教程-CSDN博客.md",
     "Unity/插件/AStar Pathing.md",
     "Unity/插件/Timeline.md",
-    "Unity/插件/Unity Cinemachine.md",
     "Unity/插件",
     "Unity",
     "数据结构/数组、向量和链表.md",
@@ -199,7 +199,6 @@
     "Custom SRP/attachments/Draw Calls.pdf",
     "Custom SRP/attachments/Custom Render Pipeline.pdf",
     "Custom SRP/attachments/Draw Calls-annotate.md",
-    "Custom SRP/attachments/Directional Lights-annotate.md",
     "Custom SRP/attachments/Directional Lights.annos",
     "Custom SRP/attachments/Draw Calls.annos",
     "C++/C++.canvas",
