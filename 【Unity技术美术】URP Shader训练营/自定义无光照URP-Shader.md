@@ -224,6 +224,8 @@ Shader "Custom/Unlit/BasicUnlitShader"
 
 ### [[Shader：优化破解变体的“影分身”之术]]
 
+https://zhuanlan.zhihu.com/p/68888831
+
 可以使用以下着色器指令之一：
 
 | **Shader 指令**    | **分支类型**                                                                                             | **Unity 创建的着色器变体** |
