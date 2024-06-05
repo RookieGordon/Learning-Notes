@@ -8,18 +8,6 @@
         "type": "tabs",
         "children": [
           {
-            "id": "3e3abf656b9bb1b2",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Unity/插件/Unity Cinemachine.md",
-                "mode": "preview",
-                "source": false
-              }
-            }
-          },
-          {
             "id": "6f5a91adc70b302f",
             "type": "leaf",
             "state": {
@@ -30,9 +18,38 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "99d8c706fb56f2f8",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Slurped Pages/【游戏开发教程】Unity Cinemachine快速上手，详细案例讲解（虚拟相机系统 - 新发出品 - 良心教程）_cinemachine教程-CSDN博客.md",
+                "mode": "preview",
+                "source": false
+              }
+            }
           }
-        ],
-        "currentTab": 1
+        ]
+      },
+      {
+        "id": "5248df5c851e0ce1",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "066339c357c6648a",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Slurped Pages/【游戏开发教程】Unity Cinemachine快速上手，详细案例讲解（虚拟相机系统 - 新发出品 - 良心教程）_cinemachine教程-CSDN博客.md",
+                "mode": "preview",
+                "source": false
+              }
+            }
+          }
+        ]
       }
     ],
     "direction": "vertical"
