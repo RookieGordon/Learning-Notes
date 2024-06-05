@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "【Unity技术美术】URP Shader训练营/自定义无光照URP-Shader.md",
+                "file": "数据结构/数据结构.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "【Unity技术美术】URP Shader训练营/自定义无光照URP-Shader.md",
+                "file": "数据结构/数据结构.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "【Unity技术美术】URP Shader训练营/自定义无光照URP-Shader.md",
+                "file": "数据结构/数据结构.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "【Unity技术美术】URP Shader训练营/自定义无光照URP-Shader.md"
+                "file": "数据结构/数据结构.md"
               }
             }
           }
@@ -153,6 +153,7 @@
   },
   "active": "6f5a91adc70b302f",
   "lastOpenFiles": [
+    "【Unity技术美术】URP Shader训练营/自定义无光照URP-Shader.md",
     "Slurped Pages/Shader：优化破解变体的“影分身”之术.md",
     "Slurped Pages/第9章 着色器编译、分支和变体.md",
     "Unity/插件/AStar Pathing.md",
@@ -193,7 +194,6 @@
     "计算机图形学—从0开始构建一个OpenGL软光栅/高级渲染管线功能.md",
     "Custom SRP/Draw Calls.md",
     "Custom SRP/Custom SRP.md",
-    "^Directional-lights-p10.md",
     "Custom SRP/attachments/（图解11）应用了物体表面颜色的光线效果.png",
     "Custom SRP/attachments/Draw Calls.pdf",
     "Custom SRP/attachments/Custom Render Pipeline.pdf",
