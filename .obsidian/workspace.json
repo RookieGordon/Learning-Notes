@@ -13,13 +13,26 @@
             "state": {
               "type": "markdown",
               "state": {
+                "file": "Unity/插件/Unity Cinemachine.md",
+                "mode": "preview",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "6f5a91adc70b302f",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
                 "file": "Slurped Pages/【游戏开发教程】Unity Cinemachine快速上手，详细案例讲解（虚拟相机系统 - 新发出品 - 良心教程）_cinemachine教程-CSDN博客.md",
-                "mode": "source",
+                "mode": "preview",
                 "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -69,7 +82,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 387.5
+    "width": 387.5,
+    "collapsed": true
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -130,7 +144,7 @@
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 2
       }
     ],
     "direction": "horizontal",
@@ -153,12 +167,14 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "3e3abf656b9bb1b2",
+  "active": "6f5a91adc70b302f",
   "lastOpenFiles": [
     "Unity/插件/Unity Cinemachine.md",
     "Slurped Pages/【游戏开发教程】Unity Cinemachine快速上手，详细案例讲解（虚拟相机系统 - 新发出品 - 良心教程）_cinemachine教程-CSDN博客.md",
     "Unity/插件/AStar Pathing.md",
     "Unity/插件/Timeline.md",
+    "Slurped Pages/A星算法优化（一）启发函数_a算法启发式函数怎么设-CSDN博客.md",
+    "Slurped Pages/A星算法优化（二）权重系数_a星算法改进-CSDN博客.md",
     "Unity/插件",
     "Unity",
     "数据结构/数组、向量和链表.md",
@@ -195,10 +211,8 @@
     "C++/使用CMake编译项目.md",
     "Slurped Pages/URP源码阅读之GI.md",
     "Slurped Pages/图形引擎实战：Unity Shader变体管理流程.md",
-    "Slurped Pages/Unity SRP 管线【第五讲：URP烘培光照】_urpshader实现光照烘焙-CSDN博客.md",
     "Custom SRP/attachments/Draw Calls.pdf",
     "Custom SRP/attachments/Custom Render Pipeline.pdf",
-    "Custom SRP/attachments/Draw Calls-annotate.md",
     "Custom SRP/attachments/Directional Lights.annos",
     "Custom SRP/attachments/Draw Calls.annos",
     "C++/C++.canvas",

@@ -12,9 +12,7 @@ host: www.bilibili.com
 image: https://i2.hdslb.com/bfs/archive/f7673690b7d4ffdbf0d04c059863a9a07d40246f.jpg@100w_100h_1c.png
 ```
 
-```cardlink
-url: https://blog.csdn.net/weixin_52029211/article/details/123412402
-title: "A星算法优化（一）启发函数_a*算法启发式函数怎么设-CSDN博客"
-description: "文章浏览阅读1.8w次，点赞41次，收藏257次。笔者将从以下5个点进行改进：1、启发函数——曼哈顿距离等2、权重系数——动态加权等3、搜索邻域——基于8邻域搜索改进4、搜索策略——双向搜索、JPS策略等5、路径平滑处理——贝塞尔曲线、B样条曲线等一、启发函数（理论）A星算法评价函数为_a*算法启发式函数怎么设"
-host: blog.csdn.net
-```
+
+# [[A星算法优化（一）启发函数_a算法启发式函数怎么设-CSDN博客]]
+
+# [[A星算法优化（二）权重系数_a星算法改进-CSDN博客]]

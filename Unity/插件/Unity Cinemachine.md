@@ -12,9 +12,4 @@ host: www.bilibili.com
 image: https://i2.hdslb.com/bfs/archive/4800ba13e78961846e7b122d3a1d167c316a416f.jpg@100w_100h_1c.png
 ```
 
-```cardlink
-url: https://blog.csdn.net/linxinfa/article/details/124537415
-title: "【游戏开发教程】Unity Cinemachine快速上手，详细案例讲解（虚拟相机系统 | 新发出品 | 良心教程）_cinemachine教程-CSDN博客"
-description: "文章浏览阅读3.2w次，点赞269次，收藏657次。本文详细介绍了Cinemachine插件的使用方法，图文并茂，良心教程_cinemachine教程"
-host: blog.csdn.net
-```
+# [[【游戏开发教程】Unity Cinemachine快速上手，详细案例讲解（虚拟相机系统 - 新发出品 - 良心教程）_cinemachine教程-CSDN博客]]
