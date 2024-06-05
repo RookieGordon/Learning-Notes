@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Slurped Pages/15.Jenkins-Unity自动打包搭建流程.md",
+                "file": "Slurped Pages/Shader：优化破解变体的“影分身”之术.md",
                 "mode": "source",
                 "source": false
               }
@@ -48,7 +48,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "multi_compile",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -65,7 +65,8 @@
               "state": {}
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -85,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Slurped Pages/15.Jenkins-Unity自动打包搭建流程.md",
+                "file": "Slurped Pages/Shader：优化破解变体的“影分身”之术.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Slurped Pages/15.Jenkins-Unity自动打包搭建流程.md",
+                "file": "Slurped Pages/Shader：优化破解变体的“影分身”之术.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -125,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Slurped Pages/15.Jenkins-Unity自动打包搭建流程.md"
+                "file": "Slurped Pages/Shader：优化破解变体的“影分身”之术.md"
               }
             }
           }
@@ -155,8 +156,8 @@
   },
   "active": "6f5a91adc70b302f",
   "lastOpenFiles": [
-    "Slurped Pages/第9章 着色器编译、分支和变体.md",
     "Slurped Pages/15.Jenkins-Unity自动打包搭建流程.md",
+    "Slurped Pages/第9章 着色器编译、分支和变体.md",
     "Unity/插件/Unity Cinemachine.md",
     "Slurped Pages/【游戏开发进阶】教你Unity通过Jenkins实现自动化打包，打包这种事情就交给策划了（保姆级教程 - 命令行打包 - 自动构建）_unity jenkins 自动打包-CSDN博客.md",
     "Slurped Pages/【游戏开发教程】Unity Cinemachine快速上手，详细案例讲解（虚拟相机系统 - 新发出品 - 良心教程）_cinemachine教程-CSDN博客.md",
