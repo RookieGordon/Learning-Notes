@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "数据结构/数据结构.md",
+                "file": "Slurped Pages/红黑树（图解+秒懂+史上最全） - 疯狂创客圈 - 博客园.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "数据结构/数据结构.md",
+                "file": "Slurped Pages/红黑树（图解+秒懂+史上最全） - 疯狂创客圈 - 博客园.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "数据结构/数据结构.md",
+                "file": "Slurped Pages/红黑树（图解+秒懂+史上最全） - 疯狂创客圈 - 博客园.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "数据结构/数据结构.md"
+                "file": "Slurped Pages/红黑树（图解+秒懂+史上最全） - 疯狂创客圈 - 博客园.md"
               }
             }
           }
@@ -133,7 +133,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 487.5
+    "width": 487.5,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -153,6 +154,8 @@
   },
   "active": "6f5a91adc70b302f",
   "lastOpenFiles": [
+    "数据结构/数据结构.md",
+    "Slurped Pages/红黑树（图解+秒懂+史上最全） - 疯狂创客圈 - 博客园.md",
     "【Unity技术美术】URP Shader训练营/自定义无光照URP-Shader.md",
     "Slurped Pages/Shader：优化破解变体的“影分身”之术.md",
     "Slurped Pages/第9章 着色器编译、分支和变体.md",
@@ -162,7 +165,6 @@
     "Unity/插件/Unity Cinemachine.md",
     "Slurped Pages/【游戏开发进阶】教你Unity通过Jenkins实现自动化打包，打包这种事情就交给策划了（保姆级教程 - 命令行打包 - 自动构建）_unity jenkins 自动打包-CSDN博客.md",
     "Slurped Pages/【游戏开发教程】Unity Cinemachine快速上手，详细案例讲解（虚拟相机系统 - 新发出品 - 良心教程）_cinemachine教程-CSDN博客.md",
-    "数据结构/数据结构.md",
     "Unity/插件/Timeline.md",
     "Slurped Pages/A星算法优化（一）启发函数_a算法启发式函数怎么设-CSDN博客.md",
     "Slurped Pages/A星算法优化（二）权重系数_a星算法改进-CSDN博客.md",
@@ -193,7 +195,6 @@
     "Slurped Pages/shaderVariant 的更新测试.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/高级渲染管线功能.md",
     "Custom SRP/Draw Calls.md",
-    "Custom SRP/Custom SRP.md",
     "Custom SRP/attachments/（图解11）应用了物体表面颜色的光线效果.png",
     "Custom SRP/attachments/Draw Calls.pdf",
     "Custom SRP/attachments/Custom Render Pipeline.pdf",
