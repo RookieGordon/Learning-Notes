@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "数据结构/树.md",
+                "file": "数据结构/红黑树.md",
                 "mode": "source",
                 "source": false
               }
@@ -69,8 +69,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 387.5,
-    "collapsed": true
+    "width": 387.5
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -86,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "数据结构/树.md",
+                "file": "数据结构/红黑树.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "数据结构/树.md",
+                "file": "数据结构/红黑树.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -126,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "数据结构/树.md"
+                "file": "数据结构/红黑树.md"
               }
             }
           }
@@ -135,8 +134,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 487.5,
-    "collapsed": true
+    "width": 487.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -157,10 +155,12 @@
   "active": "6f5a91adc70b302f",
   "lastOpenFiles": [
     "数据结构/二叉查找树.md",
+    "数据结构/排序算法.md",
+    "数据结构/红黑树.md",
+    "数据结构/数据结构.md",
     "数据结构/树.md",
     "数据结构/数组、向量和链表.md",
     "Slurped Pages/红黑树（图解+秒懂+史上最全） - 疯狂创客圈 - 博客园.md",
-    "数据结构/数据结构.md",
     "【Unity技术美术】URP Shader训练营/自定义无光照URP-Shader.md",
     "Slurped Pages/Shader：优化破解变体的“影分身”之术.md",
     "Slurped Pages/第9章 着色器编译、分支和变体.md",
@@ -175,7 +175,6 @@
     "Slurped Pages/A星算法优化（二）权重系数_a星算法改进-CSDN博客.md",
     "Unity/插件",
     "Unity",
-    "数据结构/排序算法.md",
     "数据结构/attachments/（图解5）完全二叉树.png",
     "数据结构/attachments/（图解4）满二叉树.png",
     "数据结构/查找与插入.md",
@@ -196,7 +195,6 @@
     "Custom SRP/Directional Lights.md",
     "Slurped Pages/shaderVariant 的更新测试.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/高级渲染管线功能.md",
-    "Custom SRP/Draw Calls.md",
     "Custom SRP/attachments/（图解11）应用了物体表面颜色的光线效果.png",
     "Custom SRP/attachments/Draw Calls.pdf",
     "Custom SRP/attachments/Custom Render Pipeline.pdf",
