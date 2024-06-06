@@ -13,8 +13,8 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Slurped Pages/【游戏开发进阶】教你Unity通过Jenkins实现自动化打包，打包这种事情就交给策划了（保姆级教程 - 命令行打包 - 自动构建）_unity jenkins 自动打包-CSDN博客.md",
-                "mode": "source",
+                "file": "Building Quality Shaders for Unity/Building Quality Shaders for Unity.md",
+                "mode": "preview",
                 "source": false
               }
             }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Slurped Pages/【游戏开发进阶】教你Unity通过Jenkins实现自动化打包，打包这种事情就交给策划了（保姆级教程 - 命令行打包 - 自动构建）_unity jenkins 自动打包-CSDN博客.md",
+                "file": "Building Quality Shaders for Unity/Building Quality Shaders for Unity.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Slurped Pages/【游戏开发进阶】教你Unity通过Jenkins实现自动化打包，打包这种事情就交给策划了（保姆级教程 - 命令行打包 - 自动构建）_unity jenkins 自动打包-CSDN博客.md",
+                "file": "Building Quality Shaders for Unity/Building Quality Shaders for Unity.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Slurped Pages/【游戏开发进阶】教你Unity通过Jenkins实现自动化打包，打包这种事情就交给策划了（保姆级教程 - 命令行打包 - 自动构建）_unity jenkins 自动打包-CSDN博客.md"
+                "file": "Building Quality Shaders for Unity/Building Quality Shaders for Unity.md"
               }
             }
           }
@@ -154,6 +154,8 @@
   },
   "active": "6f5a91adc70b302f",
   "lastOpenFiles": [
+    "C++/C++.canvas",
+    "Slurped Pages/【游戏开发进阶】教你Unity通过Jenkins实现自动化打包，打包这种事情就交给策划了（保姆级教程 - 命令行打包 - 自动构建）_unity jenkins 自动打包-CSDN博客.md",
     "数据结构/数据结构.md",
     "数据结构/数组、向量和链表.md",
     "数据结构/红黑树.md",
@@ -168,7 +170,6 @@
     "Slurped Pages/图形引擎实战：Unity Shader变体管理流程.md",
     "Slurped Pages/15.Jenkins-Unity自动打包搭建流程.md",
     "Unity/插件/Unity Cinemachine.md",
-    "Slurped Pages/【游戏开发进阶】教你Unity通过Jenkins实现自动化打包，打包这种事情就交给策划了（保姆级教程 - 命令行打包 - 自动构建）_unity jenkins 自动打包-CSDN博客.md",
     "Slurped Pages/【游戏开发教程】Unity Cinemachine快速上手，详细案例讲解（虚拟相机系统 - 新发出品 - 良心教程）_cinemachine教程-CSDN博客.md",
     "Unity/插件/Timeline.md",
     "Slurped Pages/A星算法优化（一）启发函数_a算法启发式函数怎么设-CSDN博客.md",
@@ -194,13 +195,11 @@
     "Custom SRP/attachments/Directional Lights.pdf",
     "Custom SRP/Directional Lights.md",
     "Slurped Pages/shaderVariant 的更新测试.md",
-    "计算机图形学—从0开始构建一个OpenGL软光栅/高级渲染管线功能.md",
     "Custom SRP/attachments/（图解11）应用了物体表面颜色的光线效果.png",
     "Custom SRP/attachments/Draw Calls.pdf",
     "Custom SRP/attachments/Custom Render Pipeline.pdf",
     "Custom SRP/attachments/Directional Lights.annos",
     "Custom SRP/attachments/Draw Calls.annos",
-    "C++/C++.canvas",
     "计算机图形学—从0开始构建一个OpenGL软光栅/从0开始构建OpenGL软光栅.canvas",
     "未命名.canvas"
   ]
