@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Slurped Pages/红黑树（图解+秒懂+史上最全） - 疯狂创客圈 - 博客园.md",
+                "file": "数据结构/二叉树.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Slurped Pages/红黑树（图解+秒懂+史上最全） - 疯狂创客圈 - 博客园.md",
+                "file": "数据结构/二叉树.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Slurped Pages/红黑树（图解+秒懂+史上最全） - 疯狂创客圈 - 博客园.md",
+                "file": "数据结构/二叉树.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Slurped Pages/红黑树（图解+秒懂+史上最全） - 疯狂创客圈 - 博客园.md"
+                "file": "数据结构/二叉树.md"
               }
             }
           }
@@ -154,8 +154,9 @@
   },
   "active": "6f5a91adc70b302f",
   "lastOpenFiles": [
-    "数据结构/数据结构.md",
+    "数据结构/数组、向量和链表.md",
     "Slurped Pages/红黑树（图解+秒懂+史上最全） - 疯狂创客圈 - 博客园.md",
+    "数据结构/数据结构.md",
     "【Unity技术美术】URP Shader训练营/自定义无光照URP-Shader.md",
     "Slurped Pages/Shader：优化破解变体的“影分身”之术.md",
     "Slurped Pages/第9章 着色器编译、分支和变体.md",
@@ -170,7 +171,6 @@
     "Slurped Pages/A星算法优化（二）权重系数_a星算法改进-CSDN博客.md",
     "Unity/插件",
     "Unity",
-    "数据结构/数组、向量和链表.md",
     "数据结构/二叉查找树.md",
     "数据结构/二叉树.md",
     "数据结构/排序算法.md",
