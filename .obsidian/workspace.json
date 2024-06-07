@@ -69,7 +69,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 387.5
+    "width": 387.5,
+    "collapsed": true
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -153,7 +154,7 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "6f5a91adc70b302f",
+  "active": "3980a1c1a27a1a1d",
   "lastOpenFiles": [
     "Unity/插件/AStar Pathing.md",
     "Unity/插件/Unity Cinemachine.md",
