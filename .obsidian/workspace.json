@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Slurped Pages/游戏开发中常用的设计模式 - 养诚 - 博客园.md",
+                "file": "Unity/插件/Addressable.md",
                 "mode": "source",
                 "source": false
               }
@@ -69,8 +69,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 387.5,
-    "collapsed": true
+    "width": 387.5
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -86,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Slurped Pages/游戏开发中常用的设计模式 - 养诚 - 博客园.md",
+                "file": "Unity/插件/Addressable.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Slurped Pages/游戏开发中常用的设计模式 - 养诚 - 博客园.md",
+                "file": "Unity/插件/Addressable.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -126,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Slurped Pages/游戏开发中常用的设计模式 - 养诚 - 博客园.md"
+                "file": "Unity/插件/Addressable.md"
               }
             }
           }
@@ -154,10 +153,15 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "6490a2fd7323267e",
+  "active": "6f5a91adc70b302f",
   "lastOpenFiles": [
-    "Slurped Pages/A星算法优化（二）权重系数_a星算法改进-CSDN博客.md",
+    "Unity/插件/AStar Pathing.md",
+    "Unity/插件/Unity Cinemachine.md",
+    "Unity/插件/Timeline.md",
+    "Unity/插件/Addressable.md",
+    "Slurped Pages/【游戏开发探究】Unity Addressables资源管理方式用起来太爽了，资源打包、加载、热更变得如此轻松（Addressable Asset System - 简称AA）_unity aa-CSDN博客.md",
     "Slurped Pages/游戏开发中常用的设计模式 - 养诚 - 博客园.md",
+    "Slurped Pages/A星算法优化（二）权重系数_a星算法改进-CSDN博客.md",
     "Slurped Pages/游戏开发中常用的设计模式 【game design patterns】_游戏设计模式-CSDN博客.md",
     "Building Quality Shaders for Unity/Building Quality Shaders for Unity.md",
     "C++/C++.canvas",
@@ -172,12 +176,9 @@
     "【Unity技术美术】URP Shader训练营/自定义无光照URP-Shader.md",
     "Slurped Pages/Shader：优化破解变体的“影分身”之术.md",
     "Slurped Pages/第9章 着色器编译、分支和变体.md",
-    "Unity/插件/AStar Pathing.md",
     "Slurped Pages/图形引擎实战：Unity Shader变体管理流程.md",
     "Slurped Pages/15.Jenkins-Unity自动打包搭建流程.md",
-    "Unity/插件/Unity Cinemachine.md",
     "Slurped Pages/【游戏开发教程】Unity Cinemachine快速上手，详细案例讲解（虚拟相机系统 - 新发出品 - 良心教程）_cinemachine教程-CSDN博客.md",
-    "Unity/插件/Timeline.md",
     "Slurped Pages/A星算法优化（一）启发函数_a算法启发式函数怎么设-CSDN博客.md",
     "Unity/插件",
     "Unity",
@@ -192,9 +193,7 @@
     "数据结构/attachments",
     "Custom SRP/Directional Shadows.md",
     "数据结构",
-    "Excalidraw/Drawing 2024-05-30 21.55.30.excalidraw.md",
     "Custom SRP/attachments/Directional Shadows.pdf",
-    "Custom SRP/Custom Render Pipeline.md",
     "Custom SRP/attachments/Pasted image 20240530120700.png",
     "Custom SRP/attachments/（图解12）金属与非金属对镜面反射颜色的影响.png",
     "Custom SRP/attachments/Directional Lights.pdf",
