@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Unity/插件/Addressable.md",
+                "file": "Slurped Pages/2023年Unity面试题大全，共十万字面试题总结【收藏一篇足够面试，持续更新】_unity面试题2023-CSDN博客.md",
                 "mode": "source",
                 "source": false
               }
@@ -86,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Unity/插件/Addressable.md",
+                "file": "Slurped Pages/2023年Unity面试题大全，共十万字面试题总结【收藏一篇足够面试，持续更新】_unity面试题2023-CSDN博客.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Unity/插件/Addressable.md",
+                "file": "Slurped Pages/2023年Unity面试题大全，共十万字面试题总结【收藏一篇足够面试，持续更新】_unity面试题2023-CSDN博客.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -126,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Unity/插件/Addressable.md"
+                "file": "Slurped Pages/2023年Unity面试题大全，共十万字面试题总结【收藏一篇足够面试，持续更新】_unity面试题2023-CSDN博客.md"
               }
             }
           }
@@ -154,12 +154,13 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "3980a1c1a27a1a1d",
+  "active": "6f5a91adc70b302f",
   "lastOpenFiles": [
+    "Unity/插件/Addressable.md",
+    "Slurped Pages/2023年Unity面试题大全，共十万字面试题总结【收藏一篇足够面试，持续更新】_unity面试题2023-CSDN博客.md",
     "Unity/插件/AStar Pathing.md",
     "Unity/插件/Unity Cinemachine.md",
     "Unity/插件/Timeline.md",
-    "Unity/插件/Addressable.md",
     "Slurped Pages/【游戏开发探究】Unity Addressables资源管理方式用起来太爽了，资源打包、加载、热更变得如此轻松（Addressable Asset System - 简称AA）_unity aa-CSDN博客.md",
     "Slurped Pages/游戏开发中常用的设计模式 - 养诚 - 博客园.md",
     "Slurped Pages/A星算法优化（二）权重系数_a星算法改进-CSDN博客.md",
@@ -192,7 +193,6 @@
     "数据结构/attachments/（图解2）冒泡排序过程.gif",
     "数据结构/attachments/（图解1）双向链表的一个节点.png",
     "数据结构/attachments",
-    "Custom SRP/Directional Shadows.md",
     "数据结构",
     "Custom SRP/attachments/Directional Shadows.pdf",
     "Custom SRP/attachments/Pasted image 20240530120700.png",
