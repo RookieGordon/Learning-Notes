@@ -13,8 +13,8 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Slurped Pages/A星算法优化（二）权重系数_a星算法改进-CSDN博客.md",
-                "mode": "preview",
+                "file": "Slurped Pages/游戏开发中常用的设计模式 - 养诚 - 博客园.md",
+                "mode": "source",
                 "source": false
               }
             }
@@ -69,7 +69,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 387.5
+    "width": 387.5,
+    "collapsed": true
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -85,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Slurped Pages/A星算法优化（二）权重系数_a星算法改进-CSDN博客.md",
+                "file": "Slurped Pages/游戏开发中常用的设计模式 - 养诚 - 博客园.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Slurped Pages/A星算法优化（二）权重系数_a星算法改进-CSDN博客.md",
+                "file": "Slurped Pages/游戏开发中常用的设计模式 - 养诚 - 博客园.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -125,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Slurped Pages/A星算法优化（二）权重系数_a星算法改进-CSDN博客.md"
+                "file": "Slurped Pages/游戏开发中常用的设计模式 - 养诚 - 博客园.md"
               }
             }
           }
@@ -155,8 +156,9 @@
   },
   "active": "6f5a91adc70b302f",
   "lastOpenFiles": [
-    "Slurped Pages/游戏开发中常用的设计模式 【game design patterns】_游戏设计模式-CSDN博客.md",
     "Slurped Pages/A星算法优化（二）权重系数_a星算法改进-CSDN博客.md",
+    "Slurped Pages/游戏开发中常用的设计模式 - 养诚 - 博客园.md",
+    "Slurped Pages/游戏开发中常用的设计模式 【game design patterns】_游戏设计模式-CSDN博客.md",
     "Building Quality Shaders for Unity/Building Quality Shaders for Unity.md",
     "C++/C++.canvas",
     "Slurped Pages/【游戏开发进阶】教你Unity通过Jenkins实现自动化打包，打包这种事情就交给策划了（保姆级教程 - 命令行打包 - 自动构建）_unity jenkins 自动打包-CSDN博客.md",
@@ -196,7 +198,6 @@
     "Custom SRP/attachments/Pasted image 20240530120700.png",
     "Custom SRP/attachments/（图解12）金属与非金属对镜面反射颜色的影响.png",
     "Custom SRP/attachments/Directional Lights.pdf",
-    "Custom SRP/Directional Lights.md",
     "Custom SRP/attachments/（图解11）应用了物体表面颜色的光线效果.png",
     "Custom SRP/attachments/Draw Calls.pdf",
     "Custom SRP/attachments/Custom Render Pipeline.pdf",
