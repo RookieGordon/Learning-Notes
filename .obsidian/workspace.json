@@ -135,7 +135,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 487.5
+    "width": 487.5,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -153,7 +154,7 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "6f5a91adc70b302f",
+  "active": "6490a2fd7323267e",
   "lastOpenFiles": [
     "Slurped Pages/A星算法优化（二）权重系数_a星算法改进-CSDN博客.md",
     "Slurped Pages/游戏开发中常用的设计模式 - 养诚 - 博客园.md",
