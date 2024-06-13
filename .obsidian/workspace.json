@@ -167,8 +167,11 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "6490a2fd7323267e",
+  "active": "92dd06a5571f6bb5",
   "lastOpenFiles": [
+    "Unity/网络编程/attachments/Pasted image 20240613154301.png",
+    "Unity/网络编程/attachments/（图解1）网络模型.png",
+    "Unity/网络编程/attachments",
     "Slurped Pages/计算机网络：OSI七层协议和各种协议介绍.md",
     "Unity/网络编程/Unity Socket网络编程.md",
     "Slurped Pages/ISO七层协议模型架构、各层的解析及其协议_iso协议-CSDN博客.md",
@@ -196,7 +199,6 @@
     "【Unity技术美术】URP Shader训练营/自定义无光照URP-Shader.md",
     "Slurped Pages/Shader：优化破解变体的“影分身”之术.md",
     "Slurped Pages/第9章 着色器编译、分支和变体.md",
-    "Slurped Pages/图形引擎实战：Unity Shader变体管理流程.md",
     "Unity/插件",
     "Unity",
     "数据结构/attachments/（图解5）完全二叉树.png",
@@ -212,10 +214,8 @@
     "Custom SRP/attachments/Pasted image 20240530120700.png",
     "Custom SRP/attachments/（图解12）金属与非金属对镜面反射颜色的影响.png",
     "Custom SRP/attachments/Directional Lights.pdf",
-    "Custom SRP/attachments/（图解11）应用了物体表面颜色的光线效果.png",
     "Custom SRP/attachments/Draw Calls.pdf",
     "Custom SRP/attachments/Custom Render Pipeline.pdf",
-    "Custom SRP/attachments/Directional Lights.annos",
     "计算机图形学—从0开始构建一个OpenGL软光栅/从0开始构建OpenGL软光栅.canvas",
     "未命名.canvas"
   ]
