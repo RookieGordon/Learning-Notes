@@ -18,8 +18,19 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "ee12df585b9ffd70",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.6.2"
+              }
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -154,7 +165,7 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "6f5a91adc70b302f",
+  "active": "ee12df585b9ffd70",
   "lastOpenFiles": [
     "Unity/插件/Addressable.md",
     "Slurped Pages/2023年Unity面试题大全，共十万字面试题总结【收藏一篇足够面试，持续更新】_unity面试题2023-CSDN博客.md",
