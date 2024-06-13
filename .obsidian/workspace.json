@@ -20,12 +20,14 @@
             }
           },
           {
-            "id": "ee12df585b9ffd70",
+            "id": "92dd06a5571f6bb5",
             "type": "leaf",
             "state": {
-              "type": "release-notes",
+              "type": "markdown",
               "state": {
-                "currentVersion": "1.6.2"
+                "file": "Unity/网络编程/Unity Socket网络编程.md",
+                "mode": "source",
+                "source": false
               }
             }
           }
@@ -97,7 +99,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Slurped Pages/2023年Unity面试题大全，共十万字面试题总结【收藏一篇足够面试，持续更新】_unity面试题2023-CSDN博客.md",
+                "file": "Unity/网络编程/Unity Socket网络编程.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -114,7 +116,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Slurped Pages/2023年Unity面试题大全，共十万字面试题总结【收藏一篇足够面试，持续更新】_unity面试题2023-CSDN博客.md",
+                "file": "Unity/网络编程/Unity Socket网络编程.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -137,7 +139,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Slurped Pages/2023年Unity面试题大全，共十万字面试题总结【收藏一篇足够面试，持续更新】_unity面试题2023-CSDN博客.md"
+                "file": "Unity/网络编程/Unity Socket网络编程.md"
               }
             }
           }
@@ -165,10 +167,15 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "ee12df585b9ffd70",
+  "active": "6490a2fd7323267e",
   "lastOpenFiles": [
-    "Unity/插件/Addressable.md",
+    "Slurped Pages/计算机网络：OSI七层协议和各种协议介绍.md",
+    "Unity/网络编程/Unity Socket网络编程.md",
+    "Slurped Pages/ISO七层协议模型架构、各层的解析及其协议_iso协议-CSDN博客.md",
+    "Slurped Pages/深入解析OSI七层模型及各层工作原理（我只能帮你到这了）-腾讯云开发者社区-腾讯云.md",
+    "Unity/网络编程",
     "Slurped Pages/2023年Unity面试题大全，共十万字面试题总结【收藏一篇足够面试，持续更新】_unity面试题2023-CSDN博客.md",
+    "Unity/插件/Addressable.md",
     "Unity/插件/AStar Pathing.md",
     "Unity/插件/Unity Cinemachine.md",
     "Unity/插件/Timeline.md",
@@ -190,14 +197,10 @@
     "Slurped Pages/Shader：优化破解变体的“影分身”之术.md",
     "Slurped Pages/第9章 着色器编译、分支和变体.md",
     "Slurped Pages/图形引擎实战：Unity Shader变体管理流程.md",
-    "Slurped Pages/15.Jenkins-Unity自动打包搭建流程.md",
-    "Slurped Pages/【游戏开发教程】Unity Cinemachine快速上手，详细案例讲解（虚拟相机系统 - 新发出品 - 良心教程）_cinemachine教程-CSDN博客.md",
-    "Slurped Pages/A星算法优化（一）启发函数_a算法启发式函数怎么设-CSDN博客.md",
     "Unity/插件",
     "Unity",
     "数据结构/attachments/（图解5）完全二叉树.png",
     "数据结构/attachments/（图解4）满二叉树.png",
-    "数据结构/查找与插入.md",
     "数据结构/attachments/（图解3）希尔排序分组.png",
     "数据结构/attachments/（图解2）希尔排序过程.gif",
     "数据结构/attachments/（图解2）冒泡排序过程.gif",
@@ -213,7 +216,6 @@
     "Custom SRP/attachments/Draw Calls.pdf",
     "Custom SRP/attachments/Custom Render Pipeline.pdf",
     "Custom SRP/attachments/Directional Lights.annos",
-    "Custom SRP/attachments/Draw Calls.annos",
     "计算机图形学—从0开始构建一个OpenGL软光栅/从0开始构建OpenGL软光栅.canvas",
     "未命名.canvas"
   ]
