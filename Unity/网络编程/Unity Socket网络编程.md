@@ -12,7 +12,7 @@ tags:
 ![[（图解1）网络模型.png|490]]
 
 # 详细的TCP/IP网络模型
-![[Pasted image 20240613154301.png|480]]
+![[（图解2）.png|490]]
 
 # TCP/IP定义以及模型各层的概念
 
@@ -64,5 +64,36 @@ Sockt非常类以于电话插座。以一个电话网为例：
 
 ### Socket的通讯过程
 
-#### 
+#### 服务端
 
+- 申请个socket
+- 绑定到一个P地址和一个端口上
+- 开启侦听，等待接授连接
+- 服务器端接到连接请求后，产生一个新的sockt(端口大于1024)与客户端建立连接并进行通讯，原监听sockt继续监听
+
+#### 客户端
+
+- 申请一个socket
+- 连接服务器（指明IP地址和端口号）
+
+### Socket的构造函数
+
+#### 连接通过构造函数完成
+
+```CSharp
+public Socket(AddressFamily addressFamily,SocketType socketType,ProtocolType protocolType)
+```
+- AddressFamily成员指定Socket用来解析地址的寻址方察。例如，InterNetwork指示当Socket使用一个IP版本4地址连接。
+- SocketType定义要打开的Socket的类型
+- Socket类使用ProtocolType枚举向Windows Sockets API通知所请求的协议
+
+如下：
+```CSharp
+mySocket = new Socket(AddressFamily.InterNetwork,
+					  SocketType.Stream,
+					  ProtocolType.Tcp);
+```
+
+#### Socket方法
+
+![[（图解4）socket类中的方法.png|530]]
