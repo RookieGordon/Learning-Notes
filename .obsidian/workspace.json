@@ -14,7 +14,7 @@
               "type": "markdown",
               "state": {
                 "file": "Unity/网络编程/Unity Socket网络编程.md",
-                "mode": "preview",
+                "mode": "source",
                 "source": false
               }
             }
@@ -69,7 +69,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 387.5
+    "width": 387.5,
+    "collapsed": true
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -155,9 +156,11 @@
   },
   "active": "92dd06a5571f6bb5",
   "lastOpenFiles": [
+    "Unity/网络编程/attachments/Pasted image 20240613162701.png",
+    "Unity/网络编程/attachments/（图解5）socket通讯基本流程图.png",
     "Unity/网络编程/attachments/（图解4）socket类中的方法.png",
     "Unity/网络编程/attachments/（图解1）网络模型.png",
-    "Unity/网络编程/attachments/（图解2）.png",
+    "Unity/网络编程/attachments/（图解2）详细的tcp-ip模型.png",
     "Unity/网络编程/attachments/（图解3）流式Socket.png",
     "Unity/网络编程/Unity Socket网络编程.md",
     "Slurped Pages/2023年Unity面试题大全，共十万字面试题总结【收藏一篇足够面试，持续更新】_unity面试题2023-CSDN博客.md",
@@ -194,7 +197,6 @@
     "数据结构/attachments/（图解4）满二叉树.png",
     "数据结构/attachments/（图解3）希尔排序分组.png",
     "数据结构/attachments/（图解2）希尔排序过程.gif",
-    "数据结构/attachments/（图解2）冒泡排序过程.gif",
     "数据结构/attachments",
     "数据结构",
     "Custom SRP/attachments/Directional Shadows.pdf",
