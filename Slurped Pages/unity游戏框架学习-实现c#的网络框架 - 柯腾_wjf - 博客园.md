@@ -36,7 +36,7 @@ title: unity游戏框架学习-实现c#的网络框架 - 柯腾_wjf - 博客园
 
 该工程主要是实现客户端-服务端两端的连接，以及消息的监听、派发、发送、接受等功能，心跳包未实现。
 
-**一、创建一个socekt连接**
+# **一、创建一个socekt连接**
 
 客户端代码如下：创建一个Socket对象，这个对象在客户端是唯一的，连接指定服务器IP和端口号
 
@@ -124,7 +124,7 @@ public void InitSocket(string host, int port)
 }
 ```
 
-**二.protobuf协议生成、解析**
+# **二.protobuf协议生成、解析**
 
 我们在存储一串数据的时候，无论这串数据里包含了哪些数据以及哪些数据类型，当我们拿到这串数据在解析的时候能够知道该怎么解析，这是定义协议格式的目标。它是协议解析的规则。
 
@@ -143,7 +143,7 @@ protobuf提供的多语言支持，所以使用protobuf作为数据载体定制�
 需要生成数据解析类，占用空间  
 协议序号也要占空间，序号越大占空间越大，当序号小于16时无需额外增加字节就可以表示。
 
-1.protobuf语法：官方网站:https://developers.google.com/protocol-buffers/docs/proto3，英文不好可参考下面的中文语法，这边不做赘述
+## 1.protobuf语法：官方网站:https://developers.google.com/protocol-buffers/docs/proto3，英文不好可参考下面的中文语法，这边不做赘述
 
 中文语法：https://blog.csdn.net/u011518120/article/details/54604615
 
@@ -164,7 +164,7 @@ message PlayerInfo{
 }
 ```
 
-2.协议解析类的生成，如下图所示，双击protoToCs.bat文件就可以把proto文件夹下的.proto协议生成c#文件并存储在generate目录下，proto和生成的cs目录更改在protoToCs文件里面
+## 2.协议解析类的生成，如下图所示，双击protoToCs.bat文件就可以把proto文件夹下的.proto协议生成c#文件并存储在generate目录下，proto和生成的cs目录更改在protoToCs文件里面
 
 ![](https://img2018.cnblogs.com/blog/1268375/201907/1268375-20190702162341611-1488288356.png)
 
@@ -185,7 +185,7 @@ message PlayerInfo{
 ```
 
 
-3.协议的解包、封包（解析类的使用），这边协议的格式是  协议数据长度+协议id+协议数据
+## 3.协议的解包、封包（解析类的使用），这边协议的格式是  协议数据长度+协议id+协议数据
 
 当要发送消息给服务端（或客户端）时，调用PackNetMsg封装成二进制流数据，接受到另一端的消息时调用UnpackNetMsg解析成对应的数据类，在分发给客户端使用
 
@@ -280,7 +280,6 @@ public static NetMsgData UnpackNetMsg(byte[] msgData)
 
 然后这边会需要根据协议的id去生成对应的解析类，有两种方式，一种使用switch，一种是用反射的方式去生成，放射应该效率会高一点，本篇使用的是第一种（反射玩不转，我知道怎么根据类名生成指定的类，但是当参数是泛型是就盟了，评论如果有知道欢迎指出来，例如我知道类名xxx,我怎么调用`Serializer.Deserialize<T>(stream)`。这个方法呢，就是我要怎么用xxx替换T呢）
 
-
 switch实现方式：
 ```CSharp
 //动态修改，不要手动修改
@@ -340,7 +339,7 @@ public static void WriteCreateBufClass()
 
 这样协议的生成、解析都有了，剩下的就是消息的管理了
 
- **三、消息的缓存、接受、发送**
+# **三、消息的缓存、接受、发送**
 
 客户端消息队列：总共生成四个缓存队列，两个子线程，一个用于发送消息，一个用于接收消息，主要是防止同时接受、发送多条信息，以及实现转菊花的效果（发送消息开始转菊花，服务器回包后结束菊花，防止重复发送消息）
 
@@ -452,7 +451,7 @@ public void Update()
 }
 ```
 
-**四、消息的监听、派发，业务通过这个类和socket交互**
+# **四、消息的监听、派发，业务通过这个类和socket交互**
 ```CSharp
 
 using System;
@@ -532,7 +531,7 @@ public class NetMsg
 }
 ```
 
-**五、客户端身份验证**，做完上面的步骤，你已经可以生成、解析、使用消息协议，也可以和服务端通信了，其实通信功能就已经做完了，但是客户端验证和心跳包又是游戏绕不过去的一个步骤，所以  我们继续～
+# **五、客户端身份验证**，做完上面的步骤，你已经可以生成、解析、使用消息协议，也可以和服务端通信了，其实通信功能就已经做完了，但是客户端验证和心跳包又是游戏绕不过去的一个步骤，所以  我们继续～
 
 认证的过程大概是这样子的（以我当前的项目为例）
 
@@ -550,7 +549,7 @@ public class NetMsg
 
 那么为什么要有登录服呢，我个人的理解是1.登录服可以很大的分摊游服的压力，特别是开服的时候2.游戏服一般会有很多（例如slg的王国），而登录服只会有一个？好吧  这个有知道的大神麻烦在评论告诉我下
 
-**六、心跳包**，具体可以参考[https://gameinstitute.qq.com/community/detail/101837](https://gameinstitute.qq.com/community/detail/101837 "Socket心跳包机制")
+# **六、心跳包**，具体可以参考[https://gameinstitute.qq.com/community/detail/101837](https://gameinstitute.qq.com/community/detail/101837 "Socket心跳包机制")
 
 心跳包主要用于长连接的保活和断线处理，socket本身的断开通知不是很靠谱，有时候客户端断开网络，Socket并不能实时监测到，服务器还维持这个客户端不必要的引用
 
