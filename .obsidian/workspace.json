@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Unity/网络编程/Unity Socket网络编程.md",
+                "file": "Slurped Pages/unity游戏框架学习-实现c#的网络框架 - 柯腾_wjf - 博客园.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Unity/网络编程/Unity Socket网络编程.md",
+                "file": "Slurped Pages/unity游戏框架学习-实现c#的网络框架 - 柯腾_wjf - 博客园.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Unity/网络编程/Unity Socket网络编程.md",
+                "file": "Slurped Pages/unity游戏框架学习-实现c#的网络框架 - 柯腾_wjf - 博客园.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Unity/网络编程/Unity Socket网络编程.md"
+                "file": "Slurped Pages/unity游戏框架学习-实现c#的网络框架 - 柯腾_wjf - 博客园.md"
               }
             }
           }
@@ -155,9 +155,26 @@
   },
   "active": "92dd06a5571f6bb5",
   "lastOpenFiles": [
-    "Unity/网络编程/斗地主编程.md",
-    "Unity/网络编程/Unity Socket网络编程.md",
+    "Slurped Pages/15.Jenkins-Unity自动打包搭建流程.md",
     "Slurped Pages/unity游戏框架学习-实现c#的网络框架 - 柯腾_wjf - 博客园.md",
+    "Unity/网络编程/Unity Socket网络编程.md",
+    "Unity/网络编程/斗地主编程.md",
+    "Slurped Pages/Unity通用渲染管线（URP）系列（五）——烘焙光（Baked Light）.md",
+    "Slurped Pages/unity游戏框架学习-实现c.md",
+    "Slurped Pages/Unity URP 中的 GI.md",
+    "Slurped Pages/Unity SRP 管线【第五讲：URP烘培光照】_urpshader实现光照烘焙-CSDN博客.md",
+    "Slurped Pages/Unity SRP 管线【第五讲：自定义烘培光照】_samplesinglelightmap-CSDN博客.md",
+    "Slurped Pages/shaderVariant 的更新测试.md",
+    "Slurped Pages/A星算法优化（二）权重系数_a星算法改进-CSDN博客.md",
+    "Slurped Pages/游戏开发中常用的设计模式 - 养诚 - 博客园.md",
+    "Slurped Pages/图形引擎实战：Unity Shader变体管理流程.md",
+    "Slurped Pages/可编程脚本渲染管线SRP - Unity官方平台 - 博客园.md",
+    "Slurped Pages/计算机网络：OSI七层协议和各种协议介绍.md",
+    "Slurped Pages/红黑树（图解+秒懂+史上最全） - 疯狂创客圈 - 博客园.md",
+    "Slurped Pages/第9章 着色器编译、分支和变体.md",
+    "Slurped Pages/【Unity Shader】在URP里写Shader（三）：URP简单光照Shader.md",
+    "Slurped Pages/【游戏开发进阶】教你Unity通过Jenkins实现自动化打包，打包这种事情就交给策划了（保姆级教程 - 命令行打包 - 自动构建）_unity jenkins 自动打包-CSDN博客.md",
+    "Slurped Pages/【游戏开发教程】Unity Cinemachine快速上手，详细案例讲解（虚拟相机系统 - 新发出品 - 良心教程）_cinemachine教程-CSDN博客.md",
     "Unity/面试/C#.NET基础高频面试题_c#面试-CSDN博客.md",
     "Unity/面试/2023年Unity面试题大全，共十万字面试题总结【收藏一篇足够面试，持续更新】_unity面试题2023-CSDN博客.md",
     "Unity/面试/2023最新高级难度C#面试题,包含答案。刷题必备！记录一下。-CSDN博客.md",
@@ -165,7 +182,6 @@
     "Unity/面试/【面试题】C#面试常见基础知识点整理(附示例代码)-CSDN博客.md",
     "Unity/面试/Lua全知识点详细汇总（基础知识+面向对象+面试重点）_lua面试基础知识点-CSDN博客.md",
     "Unity/面试",
-    "Slurped Pages/60道计算机网络面试题(附答案，背诵版)_计算机网络试题-CSDN博客.md",
     "Unity/网络编程/attachments/Pasted image 20240613162701.png",
     "Unity/网络编程/attachments/（图解6）网络分层类比图.png",
     "Unity/网络编程/attachments/（图解6）网络分层类比图.png",
@@ -176,24 +192,8 @@
     "Unity/网络编程/attachments/（图解3）流式Socket.png",
     "Unity/网络编程/attachments/Pasted image 20240613154301.png",
     "Unity/网络编程/attachments",
-    "Slurped Pages/计算机网络：OSI七层协议和各种协议介绍.md",
-    "Slurped Pages/ISO七层协议模型架构、各层的解析及其协议_iso协议-CSDN博客.md",
-    "Slurped Pages/深入解析OSI七层模型及各层工作原理（我只能帮你到这了）-腾讯云开发者社区-腾讯云.md",
     "Unity/网络编程",
-    "Unity/插件/Addressable.md",
-    "Unity/插件/AStar Pathing.md",
-    "Unity/插件/Unity Cinemachine.md",
-    "Unity/插件/Timeline.md",
-    "Slurped Pages/【游戏开发探究】Unity Addressables资源管理方式用起来太爽了，资源打包、加载、热更变得如此轻松（Addressable Asset System - 简称AA）_unity aa-CSDN博客.md",
-    "Slurped Pages/游戏开发中常用的设计模式 - 养诚 - 博客园.md",
-    "Slurped Pages/A星算法优化（二）权重系数_a星算法改进-CSDN博客.md",
-    "Slurped Pages/游戏开发中常用的设计模式 【game design patterns】_游戏设计模式-CSDN博客.md",
-    "Building Quality Shaders for Unity/Building Quality Shaders for Unity.md",
     "C++/C++.canvas",
-    "Slurped Pages/【游戏开发进阶】教你Unity通过Jenkins实现自动化打包，打包这种事情就交给策划了（保姆级教程 - 命令行打包 - 自动构建）_unity jenkins 自动打包-CSDN博客.md",
-    "数据结构/数据结构.md",
-    "数据结构/数组、向量和链表.md",
-    "数据结构/红黑树.md",
     "Unity/插件",
     "Unity",
     "数据结构/attachments/（图解5）完全二叉树.png",

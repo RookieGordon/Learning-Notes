@@ -40,82 +40,89 @@ title: unity游戏框架学习-实现c#的网络框架 - 柯腾_wjf - 博客园
 
 客户端代码如下：创建一个Socket对象，这个对象在客户端是唯一的，连接指定服务器IP和端口号
 
+```CSharp
 public void Connect(string host, int port)
-    {
-        if (string.IsNullOrEmpty(host))
-        {
-            Debug.LogError("NetMgr.Connect host is null");
-            return;
-        }
+{
+    if (string.IsNullOrEmpty(host))
+    {
+        Debug.LogError("NetMgr.Connect host is null");
+        return;
+    }
 
-        //IP验证
-        IPEndPoint ipEndPoint = null;
-        Regex regex = new Regex("((25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]\\d|\\d)\\.){3}(25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]\\d|[1-9])");
-        Match match = regex.Match(host);
-        if (match.Success)
-        {
-            // IP
-            ipEndPoint = new IPEndPoint(IPAddress.Parse(host), port);
-        }
-        else
-        {
-            // 域名
-            IPAddress[] addresses = Dns.GetHostAddresses(host);
-            ipEndPoint = new IPEndPoint(addresses[0], port);
-        }
+    //IP验证
 
-        //新建连接，连接类型
-        mSocket = new Socket(ipEndPoint.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
-        
-        try
-        {           
-            mSocket.Connect(ipEndPoint);//链接IP和端口
-        }
-        catch (System.Exception e)
-        {
-            Debug.LogError(e.Message);
-        }
-    }
+    IPEndPoint ipEndPoint = null;
+
+    Regex regex = new Regex("((25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]\\d|\\d)\\.){3}(25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]\\d|[1-9])");
+
+    Match match = regex.Match(host);
+
+    if (match.Success)
+    {
+        // IP
+        ipEndPoint = new IPEndPoint(IPAddress.Parse(host), port);
+    }
+    else
+    {
+        // 域名
+        IPAddress[] addresses = Dns.GetHostAddresses(host);
+        ipEndPoint = new IPEndPoint(addresses[0], port);
+    }
+
+    //新建连接，连接类型
+    mSocket = new Socket(ipEndPoint.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
+
+    try
+    {          
+        mSocket.Connect(ipEndPoint);//链接IP和端口
+    }
+    catch (System.Exception e)
+    {
+        Debug.LogError(e.Message);
+    }
+}
+```
 
 服务端代码：创建一个服务器Socket对象，并绑定服务器IP地址和端口号
-
+```CSharp
 public void InitSocket(string host, int port)
-    {
-        if (string.IsNullOrEmpty(host))
-        {
-            Debug.LogError("NetMgr.Connect host is null");
-            return;
-        }
+{
+    if (string.IsNullOrEmpty(host))
+    {
+        Debug.LogError("NetMgr.Connect host is null");
+        return;
+    }
 
-        //IP验证
-        IPEndPoint ipEndPoint = null;
-        Regex regex = new Regex("((25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]\\d|\\d)\\.){3}(25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]\\d|[1-9])");
-        Match match = regex.Match(host);
-        if (match.Success)
-        {
-            // IP
-            ipEndPoint = new IPEndPoint(IPAddress.Parse(host), port);
-        }
-        else
-        {
-            // 域名
-            IPAddress[] addresses = Dns.GetHostAddresses(host);
-            ipEndPoint = new IPEndPoint(addresses[0], port);
-        }
+    //IP验证
+    IPEndPoint ipEndPoint = null;
+    Regex regex = new Regex("((25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]\\d|\\d)\\.){3}(25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]\\d|[1-9])");
+    Match match = regex.Match(host);
+    if (match.Success)
+    {
+        // IP
+        ipEndPoint = new IPEndPoint(IPAddress.Parse(host), port);
+    }
+    else
+    {
+        // 域名
+        IPAddress[] addresses = Dns.GetHostAddresses(host);
+        ipEndPoint = new IPEndPoint(addresses[0], port);
+    }
 
-        //新建连接，连接类型
-        mSocket = new Socket(ipEndPoint.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
-        
-        try
-        {
-            mSocket.Bind(ipEndPoint);//绑定IP和端口          
-            mSocket.Listen(5);//设置监听数量   
-        }
-        catch (System.Exception e)
-        {
-            Debug.LogError(e.Message);
-        }
-    }
+    //新建连接，连接类型
+    mSocket = new Socket(ipEndPoint.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
+    
+    try
+    {
+        mSocket.Bind(ipEndPoint);//绑定IP和端口          
+        mSocket.Listen(5);//设置监听数量  
+    }
+    catch (System.Exception e)
+    {
+        Debug.LogError(e.Message);
+    }
+}
+```
 
 **二.protobuf协议生成、解析**
 
@@ -141,7 +148,7 @@ protobuf提供的多语言支持，所以使用protobuf作为数据载体定制�
 中文语法：https://blog.csdn.net/u011518120/article/details/54604615
 
 大概样子如下：
-
+```CSharp
 package protocol;
 
 //握手验证
@@ -155,12 +162,14 @@ message PlayerInfo{
     required string password= 2;    
     required string name= 3;
 }
+```
 
 2.协议解析类的生成，如下图所示，双击protoToCs.bat文件就可以把proto文件夹下的.proto协议生成c#文件并存储在generate目录下，proto和生成的cs目录更改在protoToCs文件里面
 
 ![](https://img2018.cnblogs.com/blog/1268375/201907/1268375-20190702162341611-1488288356.png)
 
-@echo off
+```SHELL
+ @echo off
  @rem 对该目录下每个*.prot文件做转换
  set curdir=%cd%
  set protoPath=%curdir%\proto\
@@ -173,52 +182,62 @@ message PlayerInfo{
     protogen -i:"%%j" -o:%generate%%%~nj.cs 
  )
  pause
+```
+
 
 3.协议的解包、封包（解析类的使用），这边协议的格式是  协议数据长度+协议id+协议数据
 
 当要发送消息给服务端（或客户端）时，调用PackNetMsg封装成二进制流数据，接受到另一端的消息时调用UnpackNetMsg解析成对应的数据类，在分发给客户端使用
 
 协议封包：
+```CSharp
+/// <summary>  
+/// 序列化  
+/// </summary>  
+/// <typeparam name="T"></typeparam>  
+/// <param name="msg"></param>  
+/// <returns></returns>  
+static public byte[] Serialize<T>(T msg)
+{
+    byte[] result = null;
+    if (msg != null)
+    {
+        using (var stream = new MemoryStream())
+        {
+            Serializer.Serialize<T>(stream, msg);
+            result = stream.ToArray();
+        }
+    }
+    return result;
+}
 
-/// <summary>  
-    /// 序列化  
-    /// </summary>  
-    /// <typeparam name="T"></typeparam>  
-    /// <param name="msg"></param>  
-    /// <returns></returns>  
-    static public byte[] Serialize<T>(T msg)
-    {
-        byte[] result = null;
-        if (msg != null)
-        {
-            using (var stream = new MemoryStream())
-            {
-                Serializer.Serialize<T>(stream, msg);
-                result = stream.ToArray();
-            }
-        }
-        return result;
-    }
-  
-　　//封包，依次写入协议数据长度、协议id、协议内容
-    public static byte[] PackNetMsg(NetMsgData data)
-    {
-        ushort protoId = data.ProtoId;
-        MemoryStream ms = null;
-        using (ms = new MemoryStream())
-        {
-            ms.Position = 0;
-            BinaryWriter writer = new BinaryWriter(ms);
-            byte[] pbdata = Serialize(data.ProtoData);
-            ushort msglen = (ushort)pbdata.Length;
-            writer.Write(msglen);
-            writer.Write(protoId);
-            writer.Write(pbdata);
-            writer.Flush();
-            return ms.ToArray();
-        }
-    }
+//封包，依次写入协议数据长度、协议id、协议内容
+public static byte[] PackNetMsg(NetMsgData data)
+{
+    ushort protoId = data.ProtoId;
+    MemoryStream ms = null;
+    using (ms = new MemoryStream())
+    {
+        ms.Position = 0;
+        BinaryWriter writer = new BinaryWriter(ms);
+        byte[] pbdata = Serialize(data.ProtoData);
 
+        ushort msglen = (ushort)pbdata.Length;
+
+        writer.Write(msglen);
+
+        writer.Write(protoId);
+
+        writer.Write(pbdata);
+
+        writer.Flush();
+
+        return ms.ToArray();
+
+    }
+
+}
+```
 解包：
 
 /// <summary>  
