@@ -221,76 +221,71 @@ public static byte[] PackNetMsg(NetMsgData data)
         ms.Position = 0;
         BinaryWriter writer = new BinaryWriter(ms);
         byte[] pbdata = Serialize(data.ProtoData);
-
         ushort msglen = (ushort)pbdata.Length;
-
         writer.Write(msglen);
-
         writer.Write(protoId);
-
         writer.Write(pbdata);
-
         writer.Flush();
-
         return ms.ToArray();
-
     }
-
 }
 ```
+
 解包：
+```CSharp
+/// <summary>  
+/// 反序列化  
+/// </summary>  
+static public T Deserialize<T>(byte[] message)
+{
+    T result = default(T);
+    if (message != null)
+    {
+        using (var stream = new MemoryStream(message))
+        {
+            result = Serializer.Deserialize<T>(stream);
+        }
+    }
+    return result;
+}
 
-/// <summary>  
-    /// 反序列化  
-    /// </summary>  
-    /// <typeparam name="T"></typeparam>  
-    /// <param name="message"></param>  
-    /// <returns></returns>  
-    static public T Deserialize<T>(byte[] message)
-    {
-        T result = default(T);
-        if (message != null)
-        {
-            using (var stream = new MemoryStream(message))
-            {
-                result = Serializer.Deserialize<T>(stream);
-            }
-        }
-        return result;
-    }
-  
-　　//解包，依次写出协议数据长度、协议id、协议数据内容
-    public static NetMsgData UnpackNetMsg(byte[] msgData)
-    {
-        MemoryStream ms = null;
+//解包，依次写出协议数据长度、协议id、协议数据内容
+public static NetMsgData UnpackNetMsg(byte[] msgData)
+{
+    MemoryStream ms = null;
+    using (ms = new MemoryStream(msgData))
+    {
+        BinaryReader reader = new BinaryReader(ms);
+        ushort msgLen = reader.ReadUInt16();
+        ushort protoId = reader.ReadUInt16();
+        if (msgLen <= msgData.Length - 4)
+        {
+            IExtensible protoData = CreateProtoBuf.GetProtoData(
+						            (ProtoDefine)protoId, 
+						            reader.ReadBytes(msgLen));
 
-        using (ms = new MemoryStream(msgData))
-        {
-            BinaryReader reader = new BinaryReader(ms);
-            ushort msgLen = reader.ReadUInt16();
-            ushort protoId = reader.ReadUInt16();
+            return NetMsgDataPool.GetMsgData(
+								            (ProtoDefine)protoId, 
+								            protoData, 
+								            msgLen);
+        }
+        else
+        {
+            Debug.LogError("协议长度错误");
+        }
+    }
+    return null;
+}
+```
 
-            if (msgLen <= msgData.Length - 4)
-            {
-                IExtensible protoData = CreateProtoBuf.GetProtoData((ProtoDefine)protoId, reader.ReadBytes(msgLen));
-                return NetMsgDataPool.GetMsgData((ProtoDefine)protoId, protoData, msgLen);
-            }
-            else
-            {
-                Debug.LogError("协议长度错误");
-            }
-        }
+然后这边会需要根据协议的id去生成对应的解析类，有两种方式，一种使用switch，一种是用反射的方式去生成，放射应该效率会高一点，本篇使用的是第一种（反射玩不转，我知道怎么根据类名生成指定的类，但是当参数是泛型是就盟了，评论如果有知道欢迎指出来，例如我知道类名xxx,我怎么调用`Serializer.Deserialize<T>(stream)`。这个方法呢，就是我要怎么用xxx替换T呢）
 
-        return null;
-    }
-
-然后这边会需要根据协议的id去生成对应的解析类，有两种方式，一种使用switch，一种是用反射的方式去生成，放射应该效率会高一点，本篇使用的是第一种（反射玩不转，我知道怎么根据类名生成指定的类，但是当参数是泛型是就盟了，评论如果有知道欢迎指出来，例如我知道类名xxx,我怎么调用Serializer.Deserialize<T>(stream);这个方法呢，就是我要怎么用xxx替换T呢）
 
 switch实现方式：
-
+```CSharp
 //动态修改，不要手动修改
-
 using protocol;
+
 public class CreateProtoBuf
 {
   public static ProtoBuf.IExtensible GetProtoData(ProtoDefine protoId, byte[] msgData)
@@ -312,36 +307,36 @@ public class CreateProtoBuf
       }
   }
 }
+```
 
 createbuf这个类如果手撸的话，几百种协议还是很头疼的，所以我这边是写了个工具去生成这个类，模板也是可以实现这个功能的
-
+```Csharp
 public static void WriteCreateBufClass()
-    {
-        using (StreamWriter sw = new StreamWriter(Application.dataPath + "/Scripts/Engine/Net/CreateProtoBuf.cs", false))
-        {
-            sw.WriteLine("//动态修改，不要手动修改\n");
-            sw.WriteLine("using protocol;");
-            sw.WriteLine("public class CreateProtoBuf");
-            sw.WriteLine("{");
-            sw.WriteLine("  public static ProtoBuf.IExtensible GetProtoData(ProtoDefine protoId, byte[] msgData)");
-            sw.WriteLine("  {");
-            sw.WriteLine("      switch (protoId)");
-            sw.WriteLine("      {");
-
-            foreach (int value in Enum.GetValues(typeof(ProtoDefine)))
-            {
-                string strName = Enum.GetName(typeof(ProtoDefine), value);//获取名称
-                sw.WriteLine(string.Format("            case ProtoDefine.{0}:", strName));
-                sw.WriteLine(string.Format("                return NetUtilcs.Deserialize<{0}>(msgData);", strName));
-            }
-
-            sw.WriteLine("          default:");
-            sw.WriteLine("              return null;");
-            sw.WriteLine("      }");
-            sw.WriteLine("  }");
-            sw.WriteLine("}");
-        }
-    }
+{
+    using (StreamWriter sw = new StreamWriter(Application.dataPath + "/Scripts/Engine/Net/CreateProtoBuf.cs", false))
+    {
+        sw.WriteLine("//动态修改，不要手动修改\n");
+        sw.WriteLine("using protocol;");
+        sw.WriteLine("public class CreateProtoBuf");
+        sw.WriteLine("{");
+        sw.WriteLine("  public static ProtoBuf.IExtensible GetProtoData(ProtoDefine protoId, byte[] msgData)");
+        sw.WriteLine("  {");
+        sw.WriteLine("      switch (protoId)");
+        sw.WriteLine("      {");
+        foreach (int value in Enum.GetValues(typeof(ProtoDefine)))
+        {
+            string strName = Enum.GetName(typeof(ProtoDefine), value);//获取名称
+            sw.WriteLine(string.Format("            case ProtoDefine.{0}:", strName));
+            sw.WriteLine(string.Format("                return NetUtilcs.Deserialize<{0}>(msgData);", strName));
+        }
+        sw.WriteLine("          default:");
+        sw.WriteLine("              return null;");
+        sw.WriteLine("      }");
+        sw.WriteLine("  }");
+        sw.WriteLine("}");
+    }
+}
+```
 
 这样协议的生成、解析都有了，剩下的就是消息的管理了
 
@@ -351,110 +346,114 @@ public static void WriteCreateBufClass()
 
 发送代码如下：创建两个队列，一个用于存储主线程的等待发送的队列（由各模块调用），一个用于子线程向服务器发送消息（使用支线程向socket发送消息，减少主线程压力）
 
+```CSharp
 void Send()
+{
+    while (this.mIsRunning)
     {
-        while (this.mIsRunning)
+        if (mSendingMsgQueue.Count == 0)
         {
-            if (mSendingMsgQueue.Count == 0)
+            lock (this.mSendLock)
             {
-                lock (this.mSendLock)
-                {
-                    while (this.mSendWaitingMsgQueue.Count == 0)
-                        Monitor.Wait(this.mSendLock);
-                    Queue<NetMsgData> temp = this.mSendingMsgQueue;
-                    this.mSendingMsgQueue = this.mSendWaitingMsgQueue;
-                    this.mSendWaitingMsgQueue = temp;
-                }                
-            }
-            else
-            {
-                try
-                {
-                    NetMsgData msg = this.mSendingMsgQueue.Dequeue();
-                    byte[] data = NetUtilcs.PackNetMsg(msg);
-                    mSocket.Send(data, data.Length, SocketFlags.None);
-                    Debug.Log("client send: " + (ProtoDefine)msg.ProtoId);
-                }
-                catch (System.Exception e) {
-                    Debug.LogError(e.Message);
-                    Disconnect();
-                }
+                while (this.mSendWaitingMsgQueue.Count == 0)
+                    Monitor.Wait(this.mSendLock);
+                Queue<NetMsgData> temp = this.mSendingMsgQueue;
+                this.mSendingMsgQueue = this.mSendWaitingMsgQueue;
+                this.mSendWaitingMsgQueue = temp;
             }
         }
-
-        this.mSendingMsgQueue.Clear();
-        this.mSendWaitingMsgQueue.Clear();
-    }
-  
-　　//业务调用接口
-    public void SendMsg(ProtoDefine protoType, IExtensible protoData)
-    {
-        if (!this.mIsRunning) return;
-        lock (this.mSendLock)
-        {
-            mSendWaitingMsgQueue.Enqueue(NetMsgDataPool.GetMsgData(protoType, protoData));
-            Monitor.Pulse(this.mSendLock);
-        }
-    }
-
-数据的接受：创建两个队列，一个用于缓存子线程从服务器接受的消息，一个用于向主线程分发消息
-
-这边的update方法需要由主线程调用，或者使用协程也是可以实现的。
-
-void Receive()
-    {
-        byte[] data = new byte[1024];
-        while (this.mIsRunning)
+        else
         {
             try
             {
-                //将收到的数据取出来
-                int len = mSocket.Receive(data);
-                NetMsgData receive = NetUtilcs.UnpackNetMsg(data);
-                Debug.Log("client receive : " + (ProtoDefine)receive.ProtoId);
-
-                lock (this.mRecvLock)
-                {
-                    this.mRecvWaitingMsgQueue.Enqueue(receive);
-                }
+                NetMsgData msg = this.mSendingMsgQueue.Dequeue();
+                byte[] data = NetUtilcs.PackNetMsg(msg);
+                mSocket.Send(data, data.Length, SocketFlags.None);
+                Debug.Log("client send: " + (ProtoDefine)msg.ProtoId);
             }
             catch (System.Exception e)
             {
                 Debug.LogError(e.Message);
                 Disconnect();
             }
-            
         }
     }
 
-    public void Update()
+    this.mSendingMsgQueue.Clear();
+    this.mSendWaitingMsgQueue.Clear();
+}
+//业务调用接口
+public void SendMsg(ProtoDefine protoType, IExtensible protoData)
+{
+    if (!this.mIsRunning) return;
+    lock (this.mSendLock)
     {
-        if (!this.mIsRunning) return;
+        mSendWaitingMsgQueue.Enqueue(NetMsgDataPool.GetMsgData(protoType, protoData));
+        Monitor.Pulse(this.mSendLock);
+    }
+}
+```
 
-        if (this.mRecvingMsgQueue.Count == 0)
+数据的接受：创建两个队列，一个用于缓存子线程从服务器接受的消息，一个用于向主线程分发消息
+
+这边的update方法需要由主线程调用，或者使用协程也是可以实现的。
+```CSharp
+void Receive()
+{
+    byte[] data = new byte[1024];
+    while (this.mIsRunning)
+    {
+        try
         {
+            //将收到的数据取出来
+            int len = mSocket.Receive(data);
+            NetMsgData receive = NetUtilcs.UnpackNetMsg(data);
+            Debug.Log("client receive : " + (ProtoDefine)receive.ProtoId);
+
             lock (this.mRecvLock)
             {
-                if (this.mRecvWaitingMsgQueue.Count > 0)
-                {
-                    Queue<NetMsgData> temp = this.mRecvingMsgQueue;
-                    this.mRecvingMsgQueue = this.mRecvWaitingMsgQueue;
-                    this.mRecvWaitingMsgQueue = temp;
-                }
+                this.mRecvWaitingMsgQueue.Enqueue(receive);
             }
         }
-        else
+        catch (System.Exception e)
         {
-            while (this.mRecvingMsgQueue.Count > 0)
+            Debug.LogError(e.Message);
+            Disconnect();
+        }
+
+    }
+}
+
+public void Update()
+{
+    if (!this.mIsRunning) return;
+
+    if (this.mRecvingMsgQueue.Count == 0)
+    {
+        lock (this.mRecvLock)
+        {
+            if (this.mRecvWaitingMsgQueue.Count > 0)
             {
-                NetMsgData msg = this.mRecvingMsgQueue.Dequeue();
-                //发送给逻辑处理
-                NetMsg.DispatcherMsg(msg);
+                Queue<NetMsgData> temp = this.mRecvingMsgQueue;
+                this.mRecvingMsgQueue = this.mRecvWaitingMsgQueue;
+                this.mRecvWaitingMsgQueue = temp;
             }
         }
     }
+    else
+    {
+        while (this.mRecvingMsgQueue.Count > 0)
+        {
+            NetMsgData msg = this.mRecvingMsgQueue.Dequeue();
+            //发送给逻辑处理
+            NetMsg.DispatcherMsg(msg);
+        }
+    }
+}
+```
 
 **四、消息的监听、派发，业务通过这个类和socket交互**
+```CSharp
 
 using System;
 using System.Collections.Generic;
@@ -500,7 +499,7 @@ public class NetMsg
             {
                 m_EventTable.Remove(protoType);
             }
-        }     
+        }
     }
 
     /// <summary>
@@ -531,6 +530,7 @@ public class NetMsg
         SocketClint.Instance.SendMsg(protoType, protoData);
     }
 }
+```
 
 **五、客户端身份验证**，做完上面的步骤，你已经可以生成、解析、使用消息协议，也可以和服务端通信了，其实通信功能就已经做完了，但是客户端验证和心跳包又是游戏绕不过去的一个步骤，所以  我们继续～
 
