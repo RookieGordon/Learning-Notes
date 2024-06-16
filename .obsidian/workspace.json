@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Unity/网络编程/Unity Socket网络编程.md",
+                "file": "Unity/面试/60道计算机网络面试题(附答案，背诵版).md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Unity/网络编程/Unity Socket网络编程.md",
+                "file": "Unity/面试/60道计算机网络面试题(附答案，背诵版).md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Unity/网络编程/Unity Socket网络编程.md",
+                "file": "Unity/面试/60道计算机网络面试题(附答案，背诵版).md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Unity/网络编程/Unity Socket网络编程.md"
+                "file": "Unity/面试/60道计算机网络面试题(附答案，背诵版).md"
               }
             }
           }
@@ -153,13 +153,14 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "92dd06a5571f6bb5",
+  "active": "3980a1c1a27a1a1d",
   "lastOpenFiles": [
+    "Unity/网络编程/Unity Socket网络编程.md",
+    "Unity/面试/60道计算机网络面试题(附答案，背诵版).md",
     "Unity/网络编程/attachments/（图解8）半连接和全连接队列.png",
     "Unity/网络编程/attachments/（图解7）TCP三次握手.png",
     "Slurped Pages/unity游戏框架学习-实现CSharp的网络框架.md",
     "Slurped Pages/Unity通用渲染管线（URP）系列（五）——烘焙光（Baked Light）.md",
-    "Unity/网络编程/Unity Socket网络编程.md",
     "Unity/网络编程/斗地主编程.md",
     "Slurped Pages/Unity-TCP-网络聊天功能(四) - 消息粘包、心跳机制保活(心跳包)、断线重连_unity 聊天-CSDN博客.md",
     "Slurped Pages/Unity3D网络模块中的断线重连机制设计与实现 - CSDN文库.md",
@@ -191,7 +192,6 @@
     "Unity/网络编程/attachments/（图解1）网络模型.png",
     "Unity/网络编程/attachments/（图解2）详细的tcp-ip模型.png",
     "Unity/网络编程/attachments/（图解3）流式Socket.png",
-    "Unity/网络编程/attachments/Pasted image 20240613154301.png",
     "Unity/网络编程/attachments",
     "Unity/网络编程",
     "C++/C++.canvas",
