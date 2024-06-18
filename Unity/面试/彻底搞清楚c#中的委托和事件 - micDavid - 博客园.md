@@ -55,7 +55,9 @@ public delegate void GetPacage(string code);
 public class Heater
 {
     public event EventHandler OnBoiled;
+    
     public event GetPacage PackageHandler;
+    
     private void RasieBoiledEvent()
     {
         if (OnBoiled == null)
@@ -100,14 +102,14 @@ public class Heater
 ![](https://img2018.cnblogs.com/blog/110779/201907/110779-20190717142804355-912950814.png)
 
 编译器帮我们做了如下的事情：
-
-1、生成了一个私有的委托字段
-
+1. 生成了一个私有的委托字段
+```CSHARP
 [CompilerGenerated, DebuggerBrowsable(DebuggerBrowsableState.Never)]
 private GetPacage PackageHandler;
+```
 
-2、生成了添加和移除委托的方法
-
+2. 生成了添加和移除委托的方法
+```csharp
 [CompilerGenerated]
 public void add_PackageHandler(GetPacage value)
 {
@@ -121,60 +123,64 @@ public void add_PackageHandler(GetPacage value)
     }
     while (packageHandler != pacage2);
 }  
+```
 
 这就是事件和委托的关系。有点像字段和属性的关系。那有人说，事件是一种包装的委托，或者特殊的委托，那么到底对不对呢？我觉得不对。比如我坐了公交车回家了，能说我是一个特殊的公交车吗？不能说A事物拥有了B事物的能力，就说A是特殊的B。那到底该怎么描述事件和委托之间的关系呢？**事件基于委托，但并非委托。**可以把事件看成委托的代理。在使用者看来，只有事件，而没有委托。**事件是对委托的包装**，这个没错，到底包装了哪些东西？
 
-1、保护委托字段，对外不开放，所以外部对象没法直接操作委托。提供了Add和Remove方法，供外部对象订阅事件和取消事件
+1. 保护委托字段，对外不开放，所以外部对象没法直接操作委托。提供了Add和Remove方法，供外部对象订阅事件和取消事件
 
-2、事件的处理方法在对象外部定义，而事件的执行是在对象的内部，至于事件的触发，何时何地无所谓。
+2. 事件的处理方法在对象外部定义，而事件的执行是在对象的内部，至于事件的触发，何时何地无所谓。
 
-**五、c#鼠标键盘事件**
+# **五、c#鼠标键盘事件**
 
 此类事件的底层实现，一方面是消息循环，另一方面是硬件中断，或者两者结合实现，有空了再研究。
 
-**六、经典面试题，猫叫、老鼠跑了，主人醒来了**
+# **六、经典面试题，猫叫、老鼠跑了，主人醒来了**
+```CSHARP
+public delegate void ScreamHandler();
 
-   public delegate void ScreamHandler();
+public class Cat
+{
+    public event ScreamHandler OnScream;
 
-    public class Cat
+    public void Scream()
     {
-        public event ScreamHandler OnScream;
-
-        public void Scream()
-        {
-            Console.WriteLine("猫叫了一声");
-            OnScream?.Invoke();
-        }
-
-    }
-    public class Mouse
-    {
-        public Mouse(Cat c)
-        {
-            c.OnScream += () =>
-            {
-                Console.WriteLine("老鼠跑了");
-            };
-        }
+        Console.WriteLine("猫叫了一声");
+        OnScream?.Invoke();
     }
 
-    public class People
+}
+
+public class Mouse
+{
+    public Mouse(Cat c)
     {
-        public People(Cat c)
+        c.OnScream += () =>
         {
-            c.OnScream += () =>
-            {
-                Console.WriteLine("主人醒来了");
-            };
-        }
+            Console.WriteLine("老鼠跑了");
+        };
     }
+}
+
+public class People
+{
+    public People(Cat c)
+    {
+	    c.OnScream += () =>
+        {
+            Console.WriteLine("主人醒来了");
+        };
+    }
+}
+```
 
 客户端调用：
-
-  Cat cat = new Cat();
-  Mouse m = new Mouse(cat);
-  People p = new People(cat);
-  cat.Scream();
+```Csharp
+Cat cat = new Cat();
+Mouse m = new Mouse(cat);
+People p = new People(cat);
+cat.Scream();
+```
 
 运行结果：
 
