@@ -13,8 +13,8 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Unity/面试/【面试题】C#面试常见基础知识点整理(附示例代码)-CSDN博客.md",
-                "mode": "preview",
+                "file": "Unity/面试/彻底搞清楚c#中的委托和事件 - micDavid - 博客园.md",
+                "mode": "source",
                 "source": false
               }
             }
@@ -86,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Unity/面试/【面试题】C#面试常见基础知识点整理(附示例代码)-CSDN博客.md",
+                "file": "Unity/面试/彻底搞清楚c#中的委托和事件 - micDavid - 博客园.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Unity/面试/【面试题】C#面试常见基础知识点整理(附示例代码)-CSDN博客.md",
+                "file": "Unity/面试/彻底搞清楚c#中的委托和事件 - micDavid - 博客园.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -126,12 +126,12 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Unity/面试/【面试题】C#面试常见基础知识点整理(附示例代码)-CSDN博客.md"
+                "file": "Unity/面试/彻底搞清楚c#中的委托和事件 - micDavid - 博客园.md"
               }
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 2
       }
     ],
     "direction": "horizontal",
@@ -156,6 +156,11 @@
   },
   "active": "92dd06a5571f6bb5",
   "lastOpenFiles": [
+    "Unity/面试/2023最新高级难度C#面试题,包含答案。刷题必备！记录一下。-CSDN博客.md",
+    "Unity/面试/2023年Unity面试题大全，共十万字面试题总结【收藏一篇足够面试，持续更新】_unity面试题2023-CSDN博客.md",
+    "Unity/面试/彻底搞清楚c#中的委托和事件 - micDavid - 博客园.md",
+    "Unity/面试/C++继承（+继承原理超详解哦）_c++ 类继承底层原理-CSDN博客.md",
+    "Unity/面试/【面试题】C#面试常见基础知识点整理(附示例代码)-CSDN博客.md",
     "Unity/网络编程/斗地主编程.md",
     "Unity/面试/60道计算机网络面试题(附答案，背诵版).md",
     "Unity/网络编程/Unity Socket网络编程.md",
@@ -179,11 +184,6 @@
     "Slurped Pages/A星算法优化（二）权重系数_a星算法改进-CSDN博客.md",
     "Slurped Pages/游戏开发中常用的设计模式 - 养诚 - 博客园.md",
     "Slurped Pages/图形引擎实战：Unity Shader变体管理流程.md",
-    "Slurped Pages/可编程脚本渲染管线SRP - Unity官方平台 - 博客园.md",
-    "Slurped Pages/计算机网络：OSI七层协议和各种协议介绍.md",
-    "Slurped Pages/红黑树（图解+秒懂+史上最全） - 疯狂创客圈 - 博客园.md",
-    "Slurped Pages/第9章 着色器编译、分支和变体.md",
-    "Slurped Pages/【Unity Shader】在URP里写Shader（三）：URP简单光照Shader.md",
     "Unity/面试",
     "Unity/网络编程/attachments/Pasted image 20240613162701.png",
     "Unity/网络编程/attachments/（图解6）网络分层类比图.png",
