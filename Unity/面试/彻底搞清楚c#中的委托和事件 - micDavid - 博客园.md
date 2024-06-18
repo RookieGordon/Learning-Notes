@@ -42,54 +42,58 @@ vs命令行中输入 ildasm,会打开一个反编译的窗口，选择我们的�
 1. 委托有很好的封装性
 2. 委托的实例化与它的执行是在不同的对象中完成的
 
-**三、委托与代理**
+# **三、委托与代理**
 
 我说的代理，是指设计模式中的代理。代理与实际对象有相同的接口，委托与实际方法有相同的方法签名。这就是它们类似的地方。无论是相同的接口，还是相同的方法签名，其本质是遵循相同的协议。这是它们仅存的相似点。不同点多了，如目的不同，委托只是回调，而代理是对实际对象的访问控制。
 
-**四、委托和事件**
+# **四、委托和事件**
 
 先看一段代码：
 
- 1     public delegate void GetPacage(string code); 2     public class Heater 3     {
- 4         public event EventHandler OnBoiled; 5 
- 6         public event GetPacage PackageHandler; 7 
- 8         private void RasieBoiledEvent() 9 {
-10 
-11             if (OnBoiled == null)
-12 {
-13                 Console.WriteLine("加热完成处理订阅事件为空");
-14 }
-15             else
-16 {
-17                 OnBoiled(this, new EventArgs());
-18 }
-19 }
-20         public void Begin()
-21 {
-22             heatTime = 5;
-23 Heat();
-24             Console.WriteLine("加热器已经开启", heatTime);
-25 
-26 }
-27         private int heatTime;
-28         private void Heat()
-29 {
-30             Console.WriteLine("当前Heat Method线程：" + Thread.CurrentThread.ManagedThreadId);
-31             while (true)
-32 {
-33                 Console.WriteLine("加热还需{0}秒", heatTime);
-34 
-35                 if (heatTime == 0)
-36 {
-37 RasieBoiledEvent();
-38                     return;
-39 }
-40                 heatTime--;
-41                 Thread.Sleep(1000);
-42 
-43 }
-44 }
-45     }
+```CSharp
+public delegate void GetPacage(string code);
+public class Heater
+{
+    public event EventHandler OnBoiled;
+    public event GetPacage PackageHandler;
+    private void RasieBoiledEvent()
+    {
+        if (OnBoiled == null)
+        {
+            Console.WriteLine("加热完成处理订阅事件为空");
+        }
+        else
+        {
+            OnBoiled(this, new EventArgs());
+        }
+    }
+    public void Begin()
+    {
+        heatTime = 5;
+        Heat();
+        Console.WriteLine("加热器已经开启", heatTime);
+
+    }
+    private int heatTime;
+    private void Heat()
+    {
+        Console.WriteLine("当前Heat Method线程：" + Thread.CurrentThread.ManagedThreadId);
+        while (true)
+        {
+            Console.WriteLine("加热还需{0}秒", heatTime);
+
+            if (heatTime == 0)
+            {
+                RasieBoiledEvent();
+                return;
+            }
+            heatTime--;
+            Thread.Sleep(1000);
+
+        }
+    }
+}
+```
 
 这个是加热器例子，为了研究事件，里面混合了自定义的委托和事件。我们看看第6行编译后的代码（红框）：
 
