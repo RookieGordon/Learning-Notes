@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Slurped Pages/虚函数底层实现机制_c# 虚函数原理-CSDN博客.md",
+                "file": "Unity/面试/第四十篇，C++虚函数底层实现原理和多态的实现。_c++ 多个基类虚函数同名子类如何实现的问题-CSDN博客.md",
                 "mode": "source",
                 "source": false
               }
@@ -86,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Slurped Pages/虚函数底层实现机制_c# 虚函数原理-CSDN博客.md",
+                "file": "Unity/面试/第四十篇，C++虚函数底层实现原理和多态的实现。_c++ 多个基类虚函数同名子类如何实现的问题-CSDN博客.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Slurped Pages/虚函数底层实现机制_c# 虚函数原理-CSDN博客.md",
+                "file": "Unity/面试/第四十篇，C++虚函数底层实现原理和多态的实现。_c++ 多个基类虚函数同名子类如何实现的问题-CSDN博客.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -126,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Slurped Pages/虚函数底层实现机制_c# 虚函数原理-CSDN博客.md"
+                "file": "Unity/面试/第四十篇，C++虚函数底层实现原理和多态的实现。_c++ 多个基类虚函数同名子类如何实现的问题-CSDN博客.md"
               }
             }
           }
@@ -156,12 +156,19 @@
   },
   "active": "92dd06a5571f6bb5",
   "lastOpenFiles": [
-    "Unity/面试/C++继承（+继承原理超详解哦）_c++ 类继承底层原理-CSDN博客.md",
+    "Unity/面试/虚函数底层实现机制_c# 虚函数原理-CSDN博客.md",
+    "Unity/面试/attachments/Pasted image 20240619120423.png",
+    "Unity/面试/attachments/Pasted image 20240619120411.png",
+    "Unity/面试/attachments",
+    "Slurped Pages/游戏开发中常用的设计模式 - 养诚 - 博客园.md",
     "Slurped Pages/虚函数底层实现机制_c# 虚函数原理-CSDN博客.md",
+    "Slurped Pages/图形引擎实战：Unity Shader变体管理流程.md",
+    "Unity/面试/第四十篇，C++虚函数底层实现原理和多态的实现。_c++ 多个基类虚函数同名子类如何实现的问题-CSDN博客.md",
+    "Unity/面试/C#.NET基础高频面试题_c#面试-CSDN博客.md",
+    "Unity/面试/C++继承（+继承原理超详解哦）_c++ 类继承底层原理-CSDN博客.md",
     "Unity/面试/Lua全知识点详细汇总（基础知识+面向对象+面试重点）_lua面试基础知识点-CSDN博客.md",
     "Unity/面试/聊聊TCP协议的粘包、拆包以及http是如何解决的？_什么是tcp粘包,拆包。解决方式是什么-CSDN博客.md",
     "Unity/面试/60道计算机网络面试题(附答案，背诵版).md",
-    "Unity/面试/C#.NET基础高频面试题_c#面试-CSDN博客.md",
     "Unity/面试/C#高级语法之泛型、泛型约束，类型安全、逆变和协变（思想原理）-腾讯云开发者社区-腾讯云.md",
     "Unity/面试/彻底搞清楚c#中的委托和事件 - micDavid - 博客园.md",
     "Unity/面试/2023最新高级难度C#面试题,包含答案。刷题必备！记录一下。-CSDN博客.md",
@@ -179,11 +186,6 @@
     "Unity/面试/C_高级面试题.md",
     "Slurped Pages/C# 高级面试题-CSDN博客.md",
     "Slurped Pages/URP源码阅读之GI.md",
-    "Slurped Pages/15.Jenkins-Unity自动打包搭建流程.md",
-    "Slurped Pages/unity游戏框架学习-实现c.md",
-    "Slurped Pages/Unity URP 中的 GI.md",
-    "Slurped Pages/Unity SRP 管线【第五讲：URP烘培光照】_urpshader实现光照烘焙-CSDN博客.md",
-    "Slurped Pages/Unity SRP 管线【第五讲：自定义烘培光照】_samplesinglelightmap-CSDN博客.md",
     "Unity/面试",
     "Unity/网络编程/attachments/Pasted image 20240613162701.png",
     "Unity/网络编程/attachments/（图解6）网络分层类比图.png",
@@ -191,8 +193,6 @@
     "Unity/网络编程/attachments/（图解5）socket通讯基本流程图.png",
     "Unity/网络编程/attachments/（图解4）socket类中的方法.png",
     "Unity/网络编程/attachments/（图解1）网络模型.png",
-    "Unity/网络编程/attachments/（图解2）详细的tcp-ip模型.png",
-    "Unity/网络编程/attachments/（图解3）流式Socket.png",
     "Unity/网络编程/attachments",
     "Unity/网络编程",
     "C++/C++.canvas",
@@ -202,7 +202,6 @@
     "数据结构",
     "Custom SRP/attachments/Directional Shadows.pdf",
     "Custom SRP/attachments/Directional Lights.pdf",
-    "Custom SRP/attachments/Draw Calls.pdf",
     "计算机图形学—从0开始构建一个OpenGL软光栅/从0开始构建OpenGL软光栅.canvas",
     "未命名.canvas"
   ]
