@@ -3,6 +3,23 @@ tags:
   - Unity
   - 打Android包
 ---
+
+```cardlink
+url: https://www.bilibili.com/video/BV1V5411Y7VR?p=1&vd_source=b6adab4df1ba9fd0ec4afd2bda0940e9
+title: "Unity和Android通信（一）_哔哩哔哩_bilibili"
+description: "Unity和Android通信（一）是Unity和Android通信的第1集视频，该合集共计3集，视频收藏或关注UP主，及时了解更多相关视频内容。"
+host: www.bilibili.com
+image: https://i2.hdslb.com/bfs/archive/649ea21265c40711710d75be389b06c4d5ee758f.jpg@100w_100h_1c.png
+```
+
+```cardlink
+url: https://www.bilibili.com/video/BV1Qt4y1a7aW?p=1&vd_source=b6adab4df1ba9fd0ec4afd2bda0940e9
+title: "01-Android打包方式(1)配置环境_哔哩哔哩_bilibili"
+description: "01-Android打包方式(1)配置环境是Unity 与 Android 、IOS (一) 打包与交互的第1集视频，该合集共计16集，视频收藏或关注UP主，及时了解更多相关视频内容。"
+host: www.bilibili.com
+image: https://i1.hdslb.com/bfs/archive/0e3a9072007a964e03b9d4790fb3a9932e44c1ae.jpg@100w_100h_1c.png
+```
+
 # C#调用Java
 
 Unity提供了`AndroidJavaClass`和`AndroidJavajObject`两个对象来与Java进行交换，前者可以获取一个Java中的类，后者可以获取一个Java对象。

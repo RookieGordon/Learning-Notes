@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Unity/打包/打Android/Andorid项目结构.md",
+                "file": "Unity/打包/打Android/Unity与Android交互.md",
                 "mode": "source",
                 "source": false
               }
@@ -69,8 +69,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 387.5,
-    "collapsed": true
+    "width": 387.5
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -86,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Unity/打包/打Android/Andorid项目结构.md",
+                "file": "Unity/打包/打Android/Unity与Android交互.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Unity/打包/打Android/Andorid项目结构.md",
+                "file": "Unity/打包/打Android/Unity与Android交互.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -126,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Unity/打包/打Android/Andorid项目结构.md"
+                "file": "Unity/打包/打Android/Unity与Android交互.md"
               }
             }
           }
@@ -155,13 +154,13 @@
   },
   "active": "92dd06a5571f6bb5",
   "lastOpenFiles": [
+    "Unity/打包/打Android/Andorid项目结构.md",
+    "Unity/打包/打Android/Unity与Android交互.md",
     "Unity/打包/打Android/attachments/（图解7）Unity的Mainifest文件.png",
     "Unity/打包/打Android/attachments/（图解5）Android工程目录结构1.png",
-    "Unity/打包/打Android/Andorid项目结构.md",
     "Unity/打包/打Android/attachments/（图解6）Android工程目录结构2.png",
     "Unity/打包/打Android/attachments/（图解4）Android工程中的package.png",
     "Unity/打包/打Android/attachments/Pasted image 20240622171738.png",
-    "Unity/打包/打Android/Unity与Android交互.md",
     "Unity/打包/打Android/attachments/（图解3）Unity Player库文件.png",
     "Unity/打包/打Android/attachments/（图解2）Unity库文件.png",
     "Unity/打包/打Android/attachments/（图解1）Android添加Unity库文件.png",
@@ -191,7 +190,6 @@
     "Unity/面试/【面试题】C#面试常见基础知识点整理(附示例代码)-CSDN博客.md",
     "Unity/网络编程/斗地主编程.md",
     "Unity/网络编程/Unity Socket网络编程.md",
-    "Unity/网络编程/attachments/（图解8）半连接和全连接队列.png",
     "Slurped Pages/unity游戏框架学习-实现CSharp的网络框架.md",
     "Slurped Pages/Unity通用渲染管线（URP）系列（五）——烘焙光（Baked Light）.md",
     "Slurped Pages/Unity-TCP-网络聊天功能(四) - 消息粘包、心跳机制保活(心跳包)、断线重连_unity 聊天-CSDN博客.md",
