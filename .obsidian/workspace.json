@@ -69,8 +69,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 387.5,
-    "collapsed": true
+    "width": 387.5
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -135,8 +134,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 425.5,
-    "collapsed": true
+    "width": 425.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -156,11 +154,13 @@
   },
   "active": "92dd06a5571f6bb5",
   "lastOpenFiles": [
-    "Unity/打包/打Android/attachments/Pasted image 20240622172836.png",
+    "Unity/打包/打Android/attachments/Pasted image 20240622181515.png",
+    "Unity/打包/打Android/attachments/（图解5）Android工程目录结构1.png",
+    "Unity/打包/打Android/Andorid项目结构.md",
+    "Unity/打包/打Android/attachments/（图解6）Android工程目录结构2.png",
     "Unity/打包/打Android/attachments/（图解4）Android工程中的package.png",
     "Unity/打包/打Android/attachments/Pasted image 20240622171738.png",
     "Unity/打包/打Android/Unity与Android交互.md",
-    "Unity/打包/打Android/Andorid项目结构.md",
     "Unity/打包/打Android/attachments/（图解3）Unity Player库文件.png",
     "Unity/打包/打Android/attachments/（图解2）Unity库文件.png",
     "Unity/打包/打Android/attachments/（图解1）Android添加Unity库文件.png",
@@ -191,12 +191,10 @@
     "Unity/网络编程/斗地主编程.md",
     "Unity/网络编程/Unity Socket网络编程.md",
     "Unity/网络编程/attachments/（图解8）半连接和全连接队列.png",
-    "Unity/网络编程/attachments/（图解7）TCP三次握手.png",
     "Slurped Pages/unity游戏框架学习-实现CSharp的网络框架.md",
     "Slurped Pages/Unity通用渲染管线（URP）系列（五）——烘焙光（Baked Light）.md",
     "Slurped Pages/Unity-TCP-网络聊天功能(四) - 消息粘包、心跳机制保活(心跳包)、断线重连_unity 聊天-CSDN博客.md",
     "Unity/面试",
-    "Unity/网络编程/attachments/Pasted image 20240613162701.png",
     "Unity/网络编程/attachments",
     "Unity/网络编程",
     "C++/C++.canvas",
