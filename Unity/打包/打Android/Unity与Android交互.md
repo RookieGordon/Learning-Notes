@@ -50,5 +50,9 @@ AndroidJavaClass javaClass = new AndroidJavaClass("com.example.testunity.Test");
 
 # Java调用CSharp
 
-Android工程调用Unity工程，需要Unity提供相关的库文件。该库文件
-
+Android工程调用Unity工程，需要Unity提供相关的库文件。该库文件在Unity Editor的安装目录下：`Editor/Data/PlaybackEngine/AndroidPlayer/Variations/Mono/Release/Classes/classes.jar`。将该库文件放到Android的Lib文件夹中下，然后添加库文件。
+![[（图解1）Android添加Unity库文件.png|360]]
+添加完成库文件后，就可以在其中找到Unity相关的方法：
+![[（图解2）Unity库文件.png|370]]
+在Android工程中，可以通过Unity提供的`UnitySendMessage`方法来调用Unity中的方法：
+![[（图解3）Unity Player库文件.png|430]]
