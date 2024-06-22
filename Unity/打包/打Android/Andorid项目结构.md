@@ -41,8 +41,6 @@ tags:
 
 ## Unity的AndroidManifest配置文件
 
-![[Pasted image 20240622181515.png]]
+![[（图解7）Unity的Mainifest文件.png]]
 
-
-```X
-```
+`activity`组件是Android中的一个组件，用于和用户进行jiao'h
