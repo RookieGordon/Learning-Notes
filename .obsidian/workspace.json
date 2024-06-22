@@ -13,8 +13,8 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Unity/面试/单例模式和静态类的区别 - windpoplar - 博客园.md",
-                "mode": "preview",
+                "file": "Unity/打包/打Android/Unity与Java交互.md",
+                "mode": "source",
                 "source": false
               }
             }
@@ -69,8 +69,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 387.5,
-    "collapsed": true
+    "width": 387.5
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -86,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Unity/面试/单例模式和静态类的区别 - windpoplar - 博客园.md",
+                "file": "Unity/打包/打Android/Unity与Java交互.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Unity/面试/单例模式和静态类的区别 - windpoplar - 博客园.md",
+                "file": "Unity/打包/打Android/Unity与Java交互.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -126,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Unity/面试/单例模式和静态类的区别 - windpoplar - 博客园.md"
+                "file": "Unity/打包/打Android/Unity与Java交互.md"
               }
             }
           }
@@ -154,10 +153,13 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "3980a1c1a27a1a1d",
+  "active": "92dd06a5571f6bb5",
   "lastOpenFiles": [
-    "Unity/面试/面向对象的三大特性-CSDN博客.md",
     "Unity/面试/单例模式和静态类的区别 - windpoplar - 博客园.md",
+    "Unity/打包/打Android/Unity与Java交互.md",
+    "Unity/打包/打Android",
+    "Unity/打包",
+    "Unity/面试/面向对象的三大特性-CSDN博客.md",
     "Unity/面试/面向对象编程三大特性------封装、继承、多态-CSDN博客.md",
     "Unity/面试/60道计算机网络面试题(附答案，背诵版).md",
     "Unity/面试/第四十篇，C++虚函数底层实现原理和多态的实现。_c++ 多个基类虚函数同名子类如何实现的问题-CSDN博客.md",
@@ -186,7 +188,6 @@
     "Slurped Pages/Unity-TCP-网络聊天功能(四) - 消息粘包、心跳机制保活(心跳包)、断线重连_unity 聊天-CSDN博客.md",
     "Slurped Pages/Unity3D网络模块中的断线重连机制设计与实现 - CSDN文库.md",
     "Slurped Pages/ISO七层协议模型架构、各层的解析及其协议_iso协议-CSDN博客.md",
-    "Unity/面试/C_高级面试题.md",
     "Unity/面试",
     "Unity/网络编程/attachments/Pasted image 20240613162701.png",
     "Unity/网络编程/attachments/（图解6）网络分层类比图.png",
@@ -201,8 +202,6 @@
     "Unity",
     "数据结构/attachments",
     "数据结构",
-    "Custom SRP/attachments/Directional Shadows.pdf",
-    "Custom SRP/attachments/Directional Lights.pdf",
     "计算机图形学—从0开始构建一个OpenGL软光栅/从0开始构建OpenGL软光栅.canvas",
     "未命名.canvas"
   ]
