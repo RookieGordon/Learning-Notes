@@ -55,4 +55,16 @@ Android工程调用Unity工程，需要Unity提供相关的库文件。该库文
 添加完成库文件后，就可以在其中找到Unity相关的方法：
 ![[（图解2）Unity库文件.png|370]]
 在Android工程中，可以通过Unity提供的`UnitySendMessage`方法来调用Unity中的方法：
-![[（图解3）Unity Player库文件.png|430]]
+![[（图解3）Unity Player库文件.png|690]]
+```C#
+public void SendMessage(
+    string methodName, 
+    object value = null, 
+    SendMessageOptions options = SendMessageOptions.RequireReceiver
+);
+```
+参数一为unity脚本挂载的gameobject
+
+参数二为unity脚本中要调用的方法名
+
+参数三为传递的数据
