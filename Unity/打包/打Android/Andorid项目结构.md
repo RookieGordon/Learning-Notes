@@ -45,3 +45,5 @@ tags:
 
 `activity`组件是Android中的一个组件，用于和用户进行交互的组件，可以类比Unity中的Scene场景。这里的`activity`是指的`com.unity3d.player.UnityPlayerActivity`，其位置在`java/com.unity3d.player`文件夹下。
 
+`MAIN`属性，代表`UnityPlayerActivity`是主activity，是程序的入口。
+
