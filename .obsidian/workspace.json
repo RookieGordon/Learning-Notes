@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Unity/打包/打Android/Unity与Java交互.md",
+                "file": "Unity/打包/打Android/Unity与Android交互.md",
                 "mode": "source",
                 "source": false
               }
@@ -69,7 +69,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 387.5
+    "width": 387.5,
+    "collapsed": true
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -85,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Unity/打包/打Android/Unity与Java交互.md",
+                "file": "Unity/打包/打Android/Unity与Android交互.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Unity/打包/打Android/Unity与Java交互.md",
+                "file": "Unity/打包/打Android/Unity与Android交互.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -125,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Unity/打包/打Android/Unity与Java交互.md"
+                "file": "Unity/打包/打Android/Unity与Android交互.md"
               }
             }
           }
@@ -156,7 +157,7 @@
   "active": "92dd06a5571f6bb5",
   "lastOpenFiles": [
     "Unity/面试/单例模式和静态类的区别 - windpoplar - 博客园.md",
-    "Unity/打包/打Android/Unity与Java交互.md",
+    "Unity/打包/打Android/Unity与Android交互.md",
     "Unity/打包/打Android",
     "Unity/打包",
     "Unity/面试/面向对象的三大特性-CSDN博客.md",

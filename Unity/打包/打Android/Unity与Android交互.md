@@ -3,7 +3,7 @@ tags:
   - Unity
   - 打Android包
 ---
-# C#与Java交互
+# C#调用Java
 
 Unity提供了`AndroidJavaClass`和`AndroidJavajObject`两个对象来与Java进行交换，前者可以获取一个Java中的类，后者可以获取一个Java对象。
 
@@ -47,4 +47,8 @@ AndroidJavaClass javaClass = new AndroidJavaClass("com.example.testunity.Test");
 ```
 
 有了javaClass后，就可以通过`Call`，`CallStatic`等方法调用类中的方法。
+
+# Java调用CSharp
+
+Android工程调用Unity工程，需要Unity提供相关的库文件。该库文件
 
