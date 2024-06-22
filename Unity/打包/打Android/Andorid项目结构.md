@@ -36,6 +36,11 @@ tags:
 ```
 默认两条是网络权限
 
+某些高级用户权限，单纯在这里声明还是不够的，需要用户进行同意，Unity封装了请求相关权限的j接口`Permission`：
+```CSharp
+Permission.RequestUsetPermission(Permission.Camera);
+```
+
 # Unity相关目录结构
 ![[（图解6）Android工程目录结构2.png|370]]
 
