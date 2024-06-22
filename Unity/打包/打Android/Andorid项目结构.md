@@ -4,7 +4,8 @@ tags:
   - Android工程
 ---
 
-![[Pasted image 20240622172836.png]]
+# 项目目录结构
+![[Pasted image 20240622172836.png|280]]
 # AndroidManifest配置文件
 
 通过Unity导出的Android中，`package`就是unity中设置的包名：
@@ -26,3 +27,11 @@ tags:
 ```
 
 `@mipmap/app_icon`表示`res/mipmap/app_icon`文件夹下的图标
+
+# 权限
+
+```XML
+<uses-permission android:name="android.permission.ACCESS NETWORK STATE"/>
+<uses-permission android:name="android.permission.INTERNET"/>
+```
+
