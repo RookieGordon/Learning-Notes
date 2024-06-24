@@ -32,18 +32,24 @@ Android工程调用Unity工程，需要Unity提供相关的库文件。该库文
 
 ### 将Android项目库导入到Untiy使用
 
-删除
+删除项目中的资源文件，同时要将Mainfest文件中的引用也删除掉。因为这些资源文件都会被编译到包里面
+![[Pasted image 20240624112817.png|490]]
+然后
 
-## 调用Android库文件
+## 直接调用Android库文件
 
 ### 创建Android Library
 
 在空白工程中，创建Module
 ![[（图解9）创建Android Library.png|430]]
+创建一个类，用来封装Unity需要调用的方法：
+![[Pasted image 20240624112033.png|430]]
 
+### 导出Library给Unity
 
-
-
+编译完成的aar文件在Libiray库的build文件夹中：
+![[Pasted image 20240624112226.png|270]]
+将该aar放入到Untiy中，就能通过Unity提供的了`AndroidJavaClass`和`AndroidJavajObject`来使用了
 
 # C#调用Java
 
