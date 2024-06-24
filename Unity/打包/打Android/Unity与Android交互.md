@@ -20,6 +20,12 @@ host: www.bilibili.com
 image: https://i1.hdslb.com/bfs/archive/0e3a9072007a964e03b9d4790fb3a9932e44c1ae.jpg@100w_100h_1c.png
 ```
 
+# Android项目导出到Unity使用
+
+## 导入Unity的jar包到Android项目
+
+该库文件在Unity Editor的安装目录下：`Editor/Data/PlaybackEngine/AndroidPlayer/Variations/Mono/Release/Classes/classes.jar`。将该文件
+
 # C#调用Java
 
 Unity提供了`AndroidJavaClass`和`AndroidJavajObject`两个对象来与Java进行交换，前者可以获取一个Java中的类，后者可以获取一个Java对象。
