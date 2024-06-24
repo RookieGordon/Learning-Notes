@@ -60,6 +60,19 @@ Android工程调用Unity工程，需要Unity提供相关的库文件。该库文
 
 # Unity项目导出到Android工程使用
 
+将Unity用作Android应用中的库  
+
+github地址：  
+```cardlink
+url: https://github.com/Unity-Technologies/uaal-example
+title: "GitHub - Unity-Technologies/uaal-example"
+description: "Contribute to Unity-Technologies/uaal-example development by creating an account on GitHub."
+host: github.com
+favicon: https://github.githubassets.com/favicons/favicon.svg
+image: https://opengraph.githubassets.com/9207d041cd0c095ea48e18a2b31f4e4ad1af70b9f2f55bd96bb700668976f55d/Unity-Technologies/uaal-example
+```
+
+说明地址：[Fetching Data#lifd](https://forum.unity.com/threads/integration-unity-as-a-library-in-native-android-app-version-2.751712/)
 
 # C#调用Java
 
