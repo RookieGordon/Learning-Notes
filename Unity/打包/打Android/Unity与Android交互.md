@@ -34,7 +34,11 @@ Android工程调用Unity工程，需要Unity提供相关的库文件。该库文
 
 删除项目中的资源文件，同时要将Mainfest文件中的引用也删除掉。因为这些资源文件都会被编译到包里面
 ![[Pasted image 20240624112817.png|490]]
-然后
+然后配置一个build gradle，以Android Library形式导出aar文件，同时删除`applicationId`配置：
+![[Pasted image 20240624113529.png|480]]
+最后，由于项目引用了Unity提供的jar包，为了导入到Unity中后，不引起冲突，该jar包不能被包含到aar包中，将jar包修改成只编译
+
+
 
 ## 直接调用Android库文件
 
