@@ -36,9 +36,12 @@ Android工程调用Unity工程，需要Unity提供相关的库文件。该库文
 ![[Pasted image 20240624112817.png|490]]
 然后配置一个build gradle，以Android Library形式导出aar文件，同时删除`applicationId`配置：
 ![[Pasted image 20240624113529.png|480]]
-最后，由于项目引用了Unity提供的jar包，为了导入到Unity中后，不引起冲突，该jar包不能被包含到aar包中，将jar包修改成只编译
-
-
+最后，由于项目引用了Unity提供的jar包，为了导入到Unity中后，不引起冲突，该jar包不能被包含到aar包中，将jar包修改成只编译：
+![[Pasted image 20240624114006.png|470]]
+编译完成的aar包在build文件夹中：
+![[Pasted image 20240624114106.png|220]]
+解压aar文件，将其中AndroidManifest文件拿出来，和aar一起放入Unity工程：
+![[Pasted image 20240624114516.png|510]]
 
 ## 直接调用Android库文件
 
@@ -53,7 +56,10 @@ Android工程调用Unity工程，需要Unity提供相关的库文件。该库文
 
 编译完成的aar文件在Libiray库的build文件夹中：
 ![[Pasted image 20240624112226.png|270]]
-将该aar放入到Untiy中，就能通过Unity提供的了`AndroidJavaClass`和`AndroidJavajObject`来使用了
+将该aar放入到Untiy中，和上一种方法不同，这次不需要提供Mainfest文件给Unity。
+
+# Unity项目导出到Android工程使用
+
 
 # C#调用Java
 

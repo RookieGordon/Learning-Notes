@@ -135,8 +135,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 425.5,
-    "collapsed": true
+    "width": 425.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -156,6 +155,9 @@
   },
   "active": "92dd06a5571f6bb5",
   "lastOpenFiles": [
+    "Unity/打包/打Android/attachments/Pasted image 20240624114516.png",
+    "Unity/打包/打Android/attachments/Pasted image 20240624114106.png",
+    "Unity/打包/打Android/attachments/Pasted image 20240624114006.png",
     "Unity/打包/打Android/attachments/Pasted image 20240624113529.png",
     "Unity/打包/打Android/attachments/Pasted image 20240624113401.png",
     "Unity/打包/打Android/attachments/Pasted image 20240624112817.png",
@@ -166,9 +168,6 @@
     "Unity/打包/打Android/attachments/Pasted image 20240624111738.png",
     "Unity/打包/打Android/Andorid项目结构.md",
     "Unity/打包/打Android/Unity与Android交互.md",
-    "Unity/打包/打Android/attachments/（图解7）Unity的Mainifest文件.png",
-    "Unity/打包/打Android/attachments/（图解5）Android工程目录结构1.png",
-    "Unity/打包/打Android/attachments/（图解6）Android工程目录结构2.png",
     "Unity/打包/打Android/attachments",
     "Unity/面试/单例模式和静态类的区别 - windpoplar - 博客园.md",
     "Unity/打包/打Android",
