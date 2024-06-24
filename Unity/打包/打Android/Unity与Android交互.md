@@ -22,9 +22,28 @@ image: https://i1.hdslb.com/bfs/archive/0e3a9072007a964e03b9d4790fb3a9932e44c1ae
 
 # Android项目导出到Unity使用
 
-## 导入Unity的jar包到Android项目
+## 使用继承了UnityPlayerActivity的jar包调用Android功能
 
-该库文件在Unity Editor的安装目录下：`Editor/Data/PlaybackEngine/AndroidPlayer/Variations/Mono/Release/Classes/classes.jar`。将该文件
+### 导入Unity的jar包到Android项目
+
+Android工程调用Unity工程，需要Unity提供相关的库文件。该库文件在Unity Editor的安装目录下：`Editor/Data/PlaybackEngine/AndroidPlayer/Variations/Mono/Release/Classes/classes.jar`。将该库文件放到Android的Lib文件夹中下，然后添加库文件。
+![[（图解1）Android添加Unity库文件.png|360]]
+添加库文件完成后，将`MainActivity`继承`UnityPlayerActicity`，这样，该类就可以在Untiy中被调用了。
+
+### 将Android项目库导入到Untiy使用
+
+删除
+
+## 调用Android库文件
+
+### 创建Android Library
+
+在空白工程中，创建Module
+![[（图解9）创建Android Library.png|430]]
+
+
+
+
 
 # C#调用Java
 
