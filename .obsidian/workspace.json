@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Unity/面试/2023年Unity面试题大全，共十万字面试题总结【收藏一篇足够面试，持续更新】_unity面试题2023-CSDN博客.md",
+                "file": "Unity/UGUI/Unity遮罩之Mask、RectMask2D与Sprite Mask适用场景分析 - iwiniwin - 博客园.md",
                 "mode": "source",
                 "source": false
               }
@@ -69,8 +69,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 387.5,
-    "collapsed": true
+    "width": 387.5
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -86,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Unity/面试/2023年Unity面试题大全，共十万字面试题总结【收藏一篇足够面试，持续更新】_unity面试题2023-CSDN博客.md",
+                "file": "Unity/UGUI/Unity遮罩之Mask、RectMask2D与Sprite Mask适用场景分析 - iwiniwin - 博客园.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Unity/面试/2023年Unity面试题大全，共十万字面试题总结【收藏一篇足够面试，持续更新】_unity面试题2023-CSDN博客.md",
+                "file": "Unity/UGUI/Unity遮罩之Mask、RectMask2D与Sprite Mask适用场景分析 - iwiniwin - 博客园.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -126,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Unity/面试/2023年Unity面试题大全，共十万字面试题总结【收藏一篇足够面试，持续更新】_unity面试题2023-CSDN博客.md"
+                "file": "Unity/UGUI/Unity遮罩之Mask、RectMask2D与Sprite Mask适用场景分析 - iwiniwin - 博客园.md"
               }
             }
           }
@@ -154,8 +153,12 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "92dd06a5571f6bb5",
+  "active": "3980a1c1a27a1a1d",
   "lastOpenFiles": [
+    "Slurped Pages/unity游戏框架学习-实现CSharp的网络框架.md",
+    "Unity/UGUI/Unity遮罩之Mask、RectMask2D与Sprite Mask适用场景分析 - iwiniwin - 博客园.md",
+    "Unity/UGUI",
+    "Unity/面试/2023年Unity面试题大全，共十万字面试题总结【收藏一篇足够面试，持续更新】_unity面试题2023-CSDN博客.md",
     "Unity/打包/打Android/Unity与Android交互.md",
     "Unity/打包/打Android/attachments/Pasted image 20240624114516.png",
     "Unity/打包/打Android/attachments/Pasted image 20240624114106.png",
@@ -188,20 +191,16 @@
     "Unity/面试/C#高级语法之泛型、泛型约束，类型安全、逆变和协变（思想原理）-腾讯云开发者社区-腾讯云.md",
     "Unity/面试/彻底搞清楚c#中的委托和事件 - micDavid - 博客园.md",
     "Unity/面试/2023最新高级难度C#面试题,包含答案。刷题必备！记录一下。-CSDN博客.md",
-    "Unity/面试/2023年Unity面试题大全，共十万字面试题总结【收藏一篇足够面试，持续更新】_unity面试题2023-CSDN博客.md",
     "Unity/面试/【面试题】C#面试常见基础知识点整理(附示例代码)-CSDN博客.md",
     "Unity/网络编程/斗地主编程.md",
     "Unity/网络编程/Unity Socket网络编程.md",
-    "Slurped Pages/unity游戏框架学习-实现CSharp的网络框架.md",
     "Slurped Pages/Unity通用渲染管线（URP）系列（五）——烘焙光（Baked Light）.md",
-    "Slurped Pages/Unity-TCP-网络聊天功能(四) - 消息粘包、心跳机制保活(心跳包)、断线重连_unity 聊天-CSDN博客.md",
     "Unity/面试",
     "Unity/网络编程/attachments",
     "Unity/网络编程",
     "C++/C++.canvas",
     "Unity/插件",
     "Unity",
-    "数据结构/attachments",
     "计算机图形学—从0开始构建一个OpenGL软光栅/从0开始构建OpenGL软光栅.canvas",
     "未命名.canvas"
   ]
