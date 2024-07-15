@@ -145,11 +145,19 @@
       "canvas:Create new canvas": false,
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
-      "command-palette:Open command palette": false
+      "command-palette:Open command palette": false,
+      "obsidian-importer:Open Importer": false,
+      "markdown-table-editor:Open Markdown Table Editor": false,
+      "obsidian-excalidraw-plugin:Create new drawing": false,
+      "pdf-plus:PDF++: Toggle auto-copy": false,
+      "pdf-plus:PDF++: Toggle auto-focus": false,
+      "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "92dd06a5571f6bb5",
+  "active": "3980a1c1a27a1a1d",
   "lastOpenFiles": [
+    "Unity/帧同步",
+    "Unity/战斗",
     "Unity/网络编程/怎么让不可靠的UDP可靠_udp由不可靠传输变为可靠传输-CSDN博客.md",
     "Unity/网络编程/2.6 TCP与UDP的可靠性传输_tcp udp 可靠传输-CSDN博客.md",
     "Unity/面试/2023年Unity面试题大全，共十万字面试题总结【收藏一篇足够面试，持续更新】_unity面试题2023-CSDN博客.md",
@@ -190,13 +198,11 @@
     "Unity/面试/2023最新高级难度C#面试题,包含答案。刷题必备！记录一下。-CSDN博客.md",
     "Unity/面试/【面试题】C#面试常见基础知识点整理(附示例代码)-CSDN博客.md",
     "Unity/网络编程/斗地主编程.md",
-    "Unity/网络编程/Unity Socket网络编程.md",
     "Unity/面试",
     "Unity/网络编程/attachments",
     "Unity/网络编程",
     "C++/C++.canvas",
     "Unity/插件",
-    "Unity",
     "计算机图形学—从0开始构建一个OpenGL软光栅/从0开始构建OpenGL软光栅.canvas",
     "未命名.canvas"
   ]
