@@ -18,19 +18,8 @@
                 "source": false
               }
             }
-          },
-          {
-            "id": "f54a5f6939475789",
-            "type": "leaf",
-            "state": {
-              "type": "release-notes",
-              "state": {
-                "currentVersion": "1.6.5"
-              }
-            }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -80,8 +69,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 387.5,
-    "collapsed": true
+    "width": 387.5
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -165,7 +153,7 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "f54a5f6939475789",
+  "active": "92dd06a5571f6bb5",
   "lastOpenFiles": [
     "Unity/网络编程/怎么让不可靠的UDP可靠_udp由不可靠传输变为可靠传输-CSDN博客.md",
     "Unity/网络编程/2.6 TCP与UDP的可靠性传输_tcp udp 可靠传输-CSDN博客.md",
