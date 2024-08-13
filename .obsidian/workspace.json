@@ -4,15 +4,19 @@
     "type": "split",
     "children": [
       {
-        "id": "64e0386f1210365d",
+        "id": "590b401ae996f894",
         "type": "tabs",
         "children": [
           {
-            "id": "5138eb66519748e4",
+            "id": "bbe2e4d39e18cfac",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "Unity/战斗/帧同步战斗.md",
+                "mode": "preview",
+                "source": false
+              }
             }
           }
         ]
@@ -29,14 +33,6 @@
         "type": "tabs",
         "dimension": 61.72344689378757,
         "children": [
-          {
-            "id": "3980a1c1a27a1a1d",
-            "type": "leaf",
-            "state": {
-              "type": "empty",
-              "state": {}
-            }
-          },
           {
             "id": "936b4cf76949286f",
             "type": "leaf",
@@ -79,7 +75,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 726.5
+    "width": 327.5
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -163,7 +159,7 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "3980a1c1a27a1a1d",
+  "active": "6490a2fd7323267e",
   "lastOpenFiles": [
     "Unity/战斗/帧同步战斗.md",
     "Unity/战斗/战斗.drawio",
