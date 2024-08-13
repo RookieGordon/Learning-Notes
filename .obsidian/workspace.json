@@ -4,19 +4,15 @@
     "type": "split",
     "children": [
       {
-        "id": "e86cdd4ef29e9b9d",
+        "id": "64e0386f1210365d",
         "type": "tabs",
         "children": [
           {
-            "id": "83b735de3a264733",
+            "id": "5138eb66519748e4",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Unity/战斗/帧同步战斗.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -37,10 +33,8 @@
             "id": "3980a1c1a27a1a1d",
             "type": "leaf",
             "state": {
-              "type": "file-explorer",
-              "state": {
-                "sortOrder": "alphabetical"
-              }
+              "type": "empty",
+              "state": {}
             }
           },
           {
@@ -85,8 +79,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 439.5,
-    "collapsed": true
+    "width": 726.5
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -170,12 +163,14 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "83b735de3a264733",
+  "active": "3980a1c1a27a1a1d",
   "lastOpenFiles": [
+    "Unity/战斗/帧同步战斗.md",
+    "Unity/战斗/战斗.drawio",
     "Unity/战斗/attachments/Pasted image 20240813093233.png",
+    "Unity/战斗/attachments/战斗.drawio",
     "Unity/战斗/attachments",
     "计算机图形学—从0开始构建一个OpenGL软光栅/计算机图形学—从0开始构建一个OpenGL软光栅.md",
-    "Unity/战斗/帧同步战斗.md",
     "Unity/战斗",
     "计算机图形学—从0开始构建一个OpenGL软光栅/高级渲染管线功能.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/图片与纹理.md",
@@ -199,7 +194,6 @@
     "Unity/打包/打Android/attachments/Pasted image 20240624112553.png",
     "Unity/打包/打Android/attachments/Pasted image 20240624112226.png",
     "Unity/打包/打Android/attachments/Pasted image 20240624112033.png",
-    "Unity/打包/打Android/attachments/（图解9）创建Android Library.png",
     "Unity/打包/打Android/Andorid项目结构.md",
     "Unity/打包/打Android/attachments",
     "Unity/面试/单例模式和静态类的区别 - windpoplar - 博客园.md",
@@ -216,8 +210,6 @@
     "Slurped Pages/图形引擎实战：Unity Shader变体管理流程.md",
     "Unity/面试/C#.NET基础高频面试题_c#面试-CSDN博客.md",
     "Unity/面试",
-    "Unity/网络编程/attachments",
-    "Unity/网络编程",
     "C++/C++.canvas",
     "计算机图形学—从0开始构建一个OpenGL软光栅/从0开始构建OpenGL软光栅.canvas",
     "未命名.canvas"
