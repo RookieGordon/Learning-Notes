@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "590b401ae996f894",
+        "id": "a5e7abbc3a57e7c1",
         "type": "tabs",
         "children": [
           {
-            "id": "bbe2e4d39e18cfac",
+            "id": "0b0054c8c6b65e33",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -30,6 +30,16 @@
         "dimension": 61.72344689378757,
         "children": [
           {
+            "id": "f8a7eda2a99735cf",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
             "id": "936b4cf76949286f",
             "type": "leaf",
             "state": {
@@ -50,16 +60,6 @@
             "state": {
               "type": "bookmarks",
               "state": {}
-            }
-          },
-          {
-            "id": "bdb1f98c2e22a8cc",
-            "type": "leaf",
-            "state": {
-              "type": "file-explorer",
-              "state": {
-                "sortOrder": "alphabetical"
-              }
             }
           }
         ]
@@ -161,10 +161,11 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "936b4cf76949286f",
+  "active": "0b0054c8c6b65e33",
   "lastOpenFiles": [
-    "Untitled Diagram.svg",
     "Unity/战斗/帧同步战斗.md",
+    "Untitled Diagram.svg",
+    "Untitled.md",
     "Unity/战斗/战斗.drawio",
     "Unity/战斗/attachments/Pasted image 20240813093233.png",
     "Unity/战斗/attachments/战斗.drawio",
@@ -192,7 +193,6 @@
     "Unity/打包/打Android/attachments/Pasted image 20240624112817.png",
     "Unity/打包/打Android/attachments/Pasted image 20240624112553.png",
     "Unity/打包/打Android/attachments/Pasted image 20240624112226.png",
-    "Unity/打包/打Android/attachments/Pasted image 20240624112033.png",
     "Unity/打包/打Android/Andorid项目结构.md",
     "Unity/打包/打Android/attachments",
     "Unity/面试/单例模式和静态类的区别 - windpoplar - 博客园.md",
@@ -207,7 +207,6 @@
     "Slurped Pages/游戏开发中常用的设计模式 - 养诚 - 博客园.md",
     "Slurped Pages/虚函数底层实现机制_c# 虚函数原理-CSDN博客.md",
     "Slurped Pages/图形引擎实战：Unity Shader变体管理流程.md",
-    "Unity/面试/C#.NET基础高频面试题_c#面试-CSDN博客.md",
     "Unity/面试",
     "C++/C++.canvas",
     "计算机图形学—从0开始构建一个OpenGL软光栅/从0开始构建OpenGL软光栅.canvas",
