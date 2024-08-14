@@ -11,12 +11,8 @@
             "id": "bbe2e4d39e18cfac",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Unity/战斗/帧同步战斗.md",
-                "mode": "preview",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -55,6 +51,16 @@
               "type": "bookmarks",
               "state": {}
             }
+          },
+          {
+            "id": "bdb1f98c2e22a8cc",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
           }
         ]
       },
@@ -91,7 +97,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Unity/战斗/帧同步战斗.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -108,7 +113,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Unity/战斗/帧同步战斗.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -130,9 +134,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "Unity/战斗/帧同步战斗.md"
-              }
+              "state": {}
             }
           }
         ],
@@ -159,8 +161,9 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "6490a2fd7323267e",
+  "active": "936b4cf76949286f",
   "lastOpenFiles": [
+    "Untitled Diagram.svg",
     "Unity/战斗/帧同步战斗.md",
     "Unity/战斗/战斗.drawio",
     "Unity/战斗/attachments/Pasted image 20240813093233.png",
