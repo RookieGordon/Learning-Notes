@@ -10,13 +10,15 @@
           {
             "id": "0b0054c8c6b65e33",
             "type": "leaf",
+            "pinned": true,
             "state": {
               "type": "markdown",
               "state": {
                 "file": "Unity/战斗/帧同步战斗.md",
                 "mode": "source",
                 "source": false
-              }
+              },
+              "pinned": true
             }
           }
         ]
