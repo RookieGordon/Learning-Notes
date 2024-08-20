@@ -25,9 +25,11 @@
             "id": "4b31e296ca2317b0",
             "type": "leaf",
             "state": {
-              "type": "pdf-annotator",
+              "type": "markdown",
               "state": {
-                "file": "Custom SRP/Draw Calls.md"
+                "file": "Unity/战斗/帧同步战斗.md",
+                "mode": "preview",
+                "source": false
               }
             }
           }
@@ -114,7 +116,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Custom SRP/Draw Calls.md",
+                "file": "Unity/战斗/帧同步战斗.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -131,7 +133,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Custom SRP/Draw Calls.md",
+                "file": "Unity/战斗/帧同步战斗.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -154,7 +156,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Custom SRP/Draw Calls.md"
+                "file": "Unity/战斗/帧同步战斗.md"
               }
             }
           }
@@ -184,6 +186,7 @@
   },
   "active": "4b31e296ca2317b0",
   "lastOpenFiles": [
+    "Custom SRP/Draw Calls.md",
     "Custom SRP/Custom Render Pipeline.md",
     "Custom SRP/Custom SRP.md",
     "Unity/战斗/帧同步战斗.md",
@@ -229,7 +232,6 @@
     "Unity/面试/虚函数底层实现机制_c# 虚函数原理-CSDN博客.md",
     "Unity/面试/attachments",
     "Slurped Pages/游戏开发中常用的设计模式 - 养诚 - 博客园.md",
-    "Slurped Pages/虚函数底层实现机制_c# 虚函数原理-CSDN博客.md",
     "C++/C++.canvas",
     "计算机图形学—从0开始构建一个OpenGL软光栅/从0开始构建OpenGL软光栅.canvas",
     "未命名.canvas"
