@@ -20,19 +20,8 @@
               },
               "pinned": true
             }
-          },
-          {
-            "id": "4b31e296ca2317b0",
-            "type": "leaf",
-            "state": {
-              "type": "excalidraw",
-              "state": {
-                "file": "Excalidraw/Map.md"
-              }
-            }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -114,7 +103,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Excalidraw/Map.md",
+                "file": "Unity/战斗/帧同步战斗.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -131,7 +120,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Excalidraw/Map.md",
+                "file": "Unity/战斗/帧同步战斗.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -154,7 +143,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Excalidraw/Map.md"
+                "file": "Unity/战斗/帧同步战斗.md"
               }
             }
           }
@@ -182,8 +171,9 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "4b31e296ca2317b0",
+  "active": "0b0054c8c6b65e33",
   "lastOpenFiles": [
+    "Excalidraw/Map.md",
     "Unity/战斗/帧同步战斗.md",
     "Custom SRP/Draw Calls.md",
     "Custom SRP/Custom Render Pipeline.md",
@@ -229,7 +219,6 @@
     "Unity/面试/第四十篇，C++虚函数底层实现原理和多态的实现。_c++ 多个基类虚函数同名子类如何实现的问题-CSDN博客.md",
     "Unity/面试/虚函数底层实现机制_c# 虚函数原理-CSDN博客.md",
     "Unity/面试/attachments",
-    "Slurped Pages/游戏开发中常用的设计模式 - 养诚 - 博客园.md",
     "C++/C++.canvas",
     "计算机图形学—从0开始构建一个OpenGL软光栅/从0开始构建OpenGL软光栅.canvas",
     "未命名.canvas"
