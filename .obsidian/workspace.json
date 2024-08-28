@@ -87,7 +87,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 327.5
+    "width": 327.5,
+    "collapsed": true
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -171,7 +172,7 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "0b0054c8c6b65e33",
+  "active": "f8a7eda2a99735cf",
   "lastOpenFiles": [
     "Excalidraw/Map.md",
     "Unity/战斗/帧同步战斗.md",
