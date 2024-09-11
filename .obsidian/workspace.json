@@ -20,8 +20,21 @@
               },
               "pinned": true
             }
+          },
+          {
+            "id": "58707fdbd6823b0e",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Unity/打包/YooAsset/未命名.md",
+                "mode": "source",
+                "source": false
+              }
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -103,7 +116,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "收藏夹/杂项.md",
+                "file": "Unity/打包/YooAsset/未命名.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -120,7 +133,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "收藏夹/杂项.md",
+                "file": "Unity/打包/YooAsset/未命名.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -143,7 +156,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "收藏夹/杂项.md"
+                "file": "Unity/打包/YooAsset/未命名.md"
               }
             }
           },
@@ -181,10 +194,23 @@
   },
   "active": "f8a7eda2a99735cf",
   "lastOpenFiles": [
-    "Unity/战斗/帧同步战斗.md",
+    "Unity/打包/YooAsset/attachments/WaitForAsyncComplete.png",
+    "Unity/打包/YooAsset/attachments/DebugCheckAssetLoadType(assetInfo.AssetType).png",
+    "Unity/打包/YooAsset/attachments/LoadAllAssetsAsync(assetInfo, priority).png",
+    "Unity/打包/YooAsset/attachments/LoadAllAssetsInternal(assetInfo, false, priority).png",
+    "Unity/打包/YooAsset/attachments/SequenceDiagram LoadAllAssetsAsync.png",
+    "Unity/打包/YooAsset/attachments/Pasted image 20240911193225.png",
+    "Unity/打包/YooAsset/attachments",
     "收藏夹/杂项.md",
+    "Unity/打包/YooAsset/未命名.md",
+    "Unity/打包/YooAsset",
+    "Unity/战斗/attachments/_SetCameraFollowTarget(_pSelfTeamEntity).png",
+    "Unity/战斗/attachments/Input(_pBattleInputMgr.AllPlayerFrameList[_pBattleInputMgr.CurrentClientFrameIndex + 1]).png",
+    "Unity/战斗/attachments/Update(realtimeSinceBattleStartup, p_fix64DeltaTime)2.png",
+    "Unity/战斗/attachments/Update(realtimeSinceBattleStartup, p_fix64DeltaTime)1.png",
+    "Unity/战斗/attachments/Update(realtimeSinceBattleStartup, p_fix64DeltaTime).png",
+    "Unity/战斗/帧同步战斗.md",
     "收藏夹",
-    "Unity/战斗/attachments/Pasted image 20240813093233.png",
     "Unity/打包/HybridCLR&YooAsset/HybridCLR+YooAsset热更框架.md",
     "Unity/打包/文件压缩/PNG图片格式.md",
     "Unity/打包/文件压缩",
@@ -195,13 +221,11 @@
     "Custom SRP/Custom Render Pipeline.md",
     "Custom SRP/Custom SRP.md",
     "Unity/战斗/战斗.drawio.crswap",
-    "Untitled Diagram.svg",
     "Untitled.md",
     "Unity/战斗/战斗.drawio",
     "Unity/战斗/attachments/战斗.drawio",
     "Unity/战斗/attachments",
     "计算机图形学—从0开始构建一个OpenGL软光栅/计算机图形学—从0开始构建一个OpenGL软光栅.md",
-    "Unity/战斗",
     "计算机图形学—从0开始构建一个OpenGL软光栅/高级渲染管线功能.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/图片与纹理.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/三角形绘制.md",
@@ -213,20 +237,9 @@
     "Unity/面试/2023年Unity面试题大全，共十万字面试题总结【收藏一篇足够面试，持续更新】_unity面试题2023-CSDN博客.md",
     "Unity/UGUI/Unity遮罩之Mask、RectMask2D与Sprite Mask适用场景分析 - iwiniwin - 博客园.md",
     "Slurped Pages/unity游戏框架学习-实现CSharp的网络框架.md",
-    "Unity/UGUI",
     "Unity/打包/打Android/Unity与Android交互.md",
-    "Unity/打包/打Android/attachments/Pasted image 20240624114516.png",
-    "Unity/打包/打Android/attachments/Pasted image 20240624114106.png",
-    "Unity/打包/打Android/attachments/Pasted image 20240624114006.png",
-    "Unity/打包/打Android/attachments/Pasted image 20240624113529.png",
-    "Unity/打包/打Android/attachments/Pasted image 20240624113401.png",
-    "Unity/打包/打Android/attachments/Pasted image 20240624112817.png",
-    "Unity/打包/打Android/attachments/Pasted image 20240624112553.png",
-    "Unity/打包/打Android/attachments/Pasted image 20240624112226.png",
     "Unity/打包/打Android/Andorid项目结构.md",
     "Unity/面试/单例模式和静态类的区别 - windpoplar - 博客园.md",
-    "Unity/面试/面向对象的三大特性-CSDN博客.md",
-    "Unity/面试/面向对象编程三大特性------封装、继承、多态-CSDN博客.md",
     "C++/C++.canvas",
     "计算机图形学—从0开始构建一个OpenGL软光栅/从0开始构建OpenGL软光栅.canvas",
     "未命名.canvas"
