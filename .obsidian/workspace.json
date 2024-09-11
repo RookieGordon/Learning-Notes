@@ -20,21 +20,8 @@
               },
               "pinned": true
             }
-          },
-          {
-            "id": "58707fdbd6823b0e",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Unity/打包/YooAsset/未命名.md",
-                "mode": "source",
-                "source": false
-              }
-            }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -116,7 +103,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Unity/打包/YooAsset/未命名.md",
+                "file": "Unity/战斗/帧同步战斗.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -133,7 +120,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Unity/打包/YooAsset/未命名.md",
+                "file": "Unity/战斗/帧同步战斗.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -156,7 +143,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Unity/打包/YooAsset/未命名.md"
+                "file": "Unity/战斗/帧同步战斗.md"
               }
             }
           },
@@ -192,23 +179,23 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "f8a7eda2a99735cf",
+  "active": "0b0054c8c6b65e33",
   "lastOpenFiles": [
+    "Unity/打包/YooAsset/attachments/WaitForAsyncComplete2.png",
     "Unity/打包/YooAsset/attachments/WaitForAsyncComplete.png",
+    "Unity/打包/YooAsset/attachments/CreateHandle1.png",
+    "Unity/打包/YooAsset/attachments/StartOperation(PackageName, provider).png",
+    "Unity/打包/YooAsset/attachments/InitSpawnDebugInfo.png",
+    "Unity/打包/YooAsset/attachments/GUID.png",
+    "Unity/打包/YooAsset/attachments/CreateHandle.png",
+    "Unity/打包/YooAsset/attachments/SetCompleted(assetInfo.Error).png",
+    "Unity/打包/YooAsset/attachments/LoadAssetAsync(assetInfo, priority).png",
     "Unity/打包/YooAsset/attachments/DebugCheckAssetLoadType(assetInfo.AssetType).png",
-    "Unity/打包/YooAsset/attachments/LoadAllAssetsAsync(assetInfo, priority).png",
-    "Unity/打包/YooAsset/attachments/LoadAllAssetsInternal(assetInfo, false, priority).png",
-    "Unity/打包/YooAsset/attachments/SequenceDiagram LoadAllAssetsAsync.png",
-    "Unity/打包/YooAsset/attachments/Pasted image 20240911193225.png",
+    "Unity/打包/YooAsset/attachments/LoadAssetInternal(assetInfo, false, priority).png",
+    "Unity/打包/YooAsset/未命名.md",
     "Unity/打包/YooAsset/attachments",
     "收藏夹/杂项.md",
-    "Unity/打包/YooAsset/未命名.md",
     "Unity/打包/YooAsset",
-    "Unity/战斗/attachments/_SetCameraFollowTarget(_pSelfTeamEntity).png",
-    "Unity/战斗/attachments/Input(_pBattleInputMgr.AllPlayerFrameList[_pBattleInputMgr.CurrentClientFrameIndex + 1]).png",
-    "Unity/战斗/attachments/Update(realtimeSinceBattleStartup, p_fix64DeltaTime)2.png",
-    "Unity/战斗/attachments/Update(realtimeSinceBattleStartup, p_fix64DeltaTime)1.png",
-    "Unity/战斗/attachments/Update(realtimeSinceBattleStartup, p_fix64DeltaTime).png",
     "Unity/战斗/帧同步战斗.md",
     "收藏夹",
     "Unity/打包/HybridCLR&YooAsset/HybridCLR+YooAsset热更框架.md",
