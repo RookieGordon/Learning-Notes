@@ -20,8 +20,21 @@
               },
               "pinned": true
             }
+          },
+          {
+            "id": "cd84a52d716784e6",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Unity/网络编程/UDP可靠性封装.md",
+                "mode": "source",
+                "source": false
+              }
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -103,7 +116,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Unity/战斗/帧同步战斗.md",
+                "file": "Unity/网络编程/UDP可靠性封装.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -120,7 +133,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Unity/战斗/帧同步战斗.md",
+                "file": "Unity/网络编程/UDP可靠性封装.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -143,7 +156,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Unity/战斗/帧同步战斗.md"
+                "file": "Unity/网络编程/UDP可靠性封装.md"
               }
             }
           },
@@ -179,8 +192,15 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "0b0054c8c6b65e33",
+  "active": "cd84a52d716784e6",
   "lastOpenFiles": [
+    "Unity/网络编程/Unity Socket网络编程.md",
+    "Unity/网络编程/UDP可靠性封装.md",
+    "Unity/网络编程/UDP可靠性封装",
+    "Unity/网络编程/怎么让不可靠的UDP可靠_udp由不可靠传输变为可靠传输-CSDN博客.md",
+    "Unity/网络编程/斗地主编程.md",
+    "Unity/网络编程/2.6 TCP与UDP的可靠性传输_tcp udp 可靠传输-CSDN博客.md",
+    "Unity/战斗/帧同步战斗.md",
     "Unity/打包/YooAsset/attachments/OperationSystem.StartOperation(PackageName, provider).png",
     "Unity/打包/YooAsset/attachments/AssetInfo.GUID.png",
     "Unity/打包/YooAsset/attachments/CompletedProvider.CreateHandle.png",
@@ -191,12 +211,10 @@
     "Unity/打包/YooAsset/attachments/SequenceDiagram TaskBuilding_BBP.Run.png",
     "Unity/打包/YooAsset/attachments/SequenceDiagram BuiltinBuildPipeline.Run.png",
     "Unity/打包/YooAsset/attachments/SetContextObject(buildMapContext).png",
-    "Unity/打包/YooAsset/attachments/PackAsset(assetInfo)1.png",
     "Unity/打包/YooAsset/未命名.md",
     "Unity/打包/YooAsset/attachments",
     "收藏夹/杂项.md",
     "Unity/打包/YooAsset",
-    "Unity/战斗/帧同步战斗.md",
     "收藏夹",
     "Unity/打包/HybridCLR&YooAsset/HybridCLR+YooAsset热更框架.md",
     "Unity/打包/文件压缩/PNG图片格式.md",
@@ -211,7 +229,6 @@
     "Untitled.md",
     "Unity/战斗/战斗.drawio",
     "Unity/战斗/attachments/战斗.drawio",
-    "Unity/战斗/attachments",
     "计算机图形学—从0开始构建一个OpenGL软光栅/计算机图形学—从0开始构建一个OpenGL软光栅.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/高级渲染管线功能.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/图片与纹理.md",
@@ -219,14 +236,10 @@
     "计算机图形学—从0开始构建一个OpenGL软光栅/直线绘制.md",
     "Unity/插件/Addressable.md",
     "conflict-files-obsidian-git.md",
-    "Unity/网络编程/2.6 TCP与UDP的可靠性传输_tcp udp 可靠传输-CSDN博客.md",
-    "Unity/网络编程/怎么让不可靠的UDP可靠_udp由不可靠传输变为可靠传输-CSDN博客.md",
     "Unity/面试/2023年Unity面试题大全，共十万字面试题总结【收藏一篇足够面试，持续更新】_unity面试题2023-CSDN博客.md",
     "Unity/UGUI/Unity遮罩之Mask、RectMask2D与Sprite Mask适用场景分析 - iwiniwin - 博客园.md",
     "Slurped Pages/unity游戏框架学习-实现CSharp的网络框架.md",
     "Unity/打包/打Android/Unity与Android交互.md",
-    "Unity/打包/打Android/Andorid项目结构.md",
-    "Unity/面试/单例模式和静态类的区别 - windpoplar - 博客园.md",
     "C++/C++.canvas",
     "计算机图形学—从0开始构建一个OpenGL软光栅/从0开始构建OpenGL软光栅.canvas",
     "未命名.canvas"
