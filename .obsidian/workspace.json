@@ -192,8 +192,9 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "cd84a52d716784e6",
+  "active": "f8a7eda2a99735cf",
   "lastOpenFiles": [
+    "Unity/网络编程/attachments/SequenceDiagram GameKcpNetwork.Connect.png",
     "Unity/网络编程/Unity Socket网络编程.md",
     "Unity/网络编程/UDP可靠性封装.md",
     "Unity/网络编程/UDP可靠性封装",
@@ -239,7 +240,6 @@
     "Unity/面试/2023年Unity面试题大全，共十万字面试题总结【收藏一篇足够面试，持续更新】_unity面试题2023-CSDN博客.md",
     "Unity/UGUI/Unity遮罩之Mask、RectMask2D与Sprite Mask适用场景分析 - iwiniwin - 博客园.md",
     "Slurped Pages/unity游戏框架学习-实现CSharp的网络框架.md",
-    "Unity/打包/打Android/Unity与Android交互.md",
     "C++/C++.canvas",
     "计算机图形学—从0开始构建一个OpenGL软光栅/从0开始构建OpenGL软光栅.canvas",
     "未命名.canvas"
