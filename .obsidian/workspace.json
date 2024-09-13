@@ -27,7 +27,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Unity/网络编程/UDP可靠性封装.md",
+                "file": "收藏夹/杂项.md",
                 "mode": "source",
                 "source": false
               }
@@ -116,7 +116,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Unity/网络编程/UDP可靠性封装.md",
+                "file": "收藏夹/杂项.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -133,7 +133,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Unity/网络编程/UDP可靠性封装.md",
+                "file": "收藏夹/杂项.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -156,7 +156,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Unity/网络编程/UDP可靠性封装.md"
+                "file": "收藏夹/杂项.md"
               }
             }
           },
@@ -192,21 +192,22 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "f8a7eda2a99735cf",
+  "active": "cd84a52d716784e6",
   "lastOpenFiles": [
+    "收藏夹/attachments/Pasted image 20240913092557.png",
+    "收藏夹/attachments/Pasted image 20240913092449.png",
+    "收藏夹/attachments/Pasted image 20240913092436.png",
+    "收藏夹/attachments/Pasted image 20240913092333.png",
+    "收藏夹/attachments/Pasted image 20240913092209.png",
+    "收藏夹/attachments/Pasted image 20240913092149.png",
+    "收藏夹/attachments/Pasted image 20240913092021.png",
+    "收藏夹/attachments/Pasted image 20240913091959.png",
+    "收藏夹/attachments",
+    "Unity/网络编程/UDP可靠性封装.md",
     "Unity/网络编程/attachments/Read(_pArrRecvBuffer, _iCurRecvStartIndex + 1, (int)_iCurHeaderLen - 1).png",
     "Unity/网络编程/attachments/Recv(mRecvBuffer.RawBuffer, mRecvBuffer.WriterIndex, size).png",
     "Unity/网络编程/attachments/EnsureWritableBytes(size).png",
-    "Unity/网络编程/attachments/PeekSize.png",
-    "Unity/网络编程/attachments/update_ack(_itimediff(current, latest)).png",
-    "Unity/网络编程/attachments/parse_data(seg).png",
-    "Unity/网络编程/attachments/Get((int)length).png",
-    "Unity/网络编程/attachments/_itimediff(sn, rcv_nxt).png",
-    "Unity/网络编程/attachments/_itimediff(sn, rcv_nxt + rcv_wnd).png",
-    "Unity/网络编程/attachments/parse_fastack(sn, ts).png",
-    "Unity/网络编程/attachments/parse_ack(sn).png",
     "Unity/网络编程/Unity Socket网络编程.md",
-    "Unity/网络编程/UDP可靠性封装.md",
     "Unity/网络编程/UDP可靠性封装",
     "Unity/网络编程/怎么让不可靠的UDP可靠_udp由不可靠传输变为可靠传输-CSDN博客.md",
     "Unity/网络编程/斗地主编程.md",
@@ -229,7 +230,6 @@
     "Unity/战斗/战斗.drawio.crswap",
     "Untitled.md",
     "Unity/战斗/战斗.drawio",
-    "Unity/战斗/attachments/战斗.drawio",
     "计算机图形学—从0开始构建一个OpenGL软光栅/计算机图形学—从0开始构建一个OpenGL软光栅.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/高级渲染管线功能.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/图片与纹理.md",
