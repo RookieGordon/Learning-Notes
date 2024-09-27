@@ -20,4 +20,4 @@ image: https://www.yooasset.com/img/docusaurus-social-card.jpg
 
 # 整包模式+ 热更新
 
-将Boot场景运行模式改成`HostPlayMode`模式，然后使用YooAsset进行Build，将`CopyBuildinFileOption`选项改成拷贝模式，
+将Boot场景运行模式改成`HostPlayMode`模式，然后使用YooAsset进行Build，将`CopyBuildinFileOption`选项改成拷贝模式，在2.2.4-preview
