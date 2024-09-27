@@ -116,7 +116,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Unity/打包/YooAsset/YooAsset-Space Shooter Example.md",
+                "file": "Unity/战斗/帧同步战斗.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -133,7 +133,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Unity/打包/YooAsset/YooAsset-Space Shooter Example.md",
+                "file": "Unity/战斗/帧同步战斗.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -156,7 +156,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Unity/打包/YooAsset/YooAsset-Space Shooter Example.md"
+                "file": "Unity/战斗/帧同步战斗.md"
               }
             }
           },
