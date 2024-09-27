@@ -26,3 +26,8 @@ Bundle打完后，直接开始打PC包，在2.2.4-preview版本中，打包的�
 # 热更新
 
 修改一下资源，然后采用增量模式进行Build，将资源复制到CDN中即可。
+
+# 空包 + 热更新
+不使用任何`CopyBuildinFileOption`选项，将Bundle打完后，需要将Package的versio文件复制到StreamingAssets文件夹中去，但是不要复制如何bundle资源。
+![[（图解3）YooAsset打空包.png|540]]
+这样也会生成Catalog文件，但是不会搜集到任何资源。
