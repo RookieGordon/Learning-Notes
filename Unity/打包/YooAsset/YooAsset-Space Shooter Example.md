@@ -20,4 +20,5 @@ image: https://www.yooasset.com/img/docusaurus-social-card.jpg
 
 # 整包模式+ 热更新
 
-将Boot场景运行模式改成`HostPlayMode`模式，然后使用YooAsset进行Build，将`CopyBuildinFileOption`选项改成拷贝模式，在2.2.4-preview
+将Boot场景运行模式改成`HostPlayMode`模式，然后使用YooAsset进行Build，将`CopyBuildinFileOption`选项改成拷贝模式，这样就可以将打出来的bundle文件，直接复制到StreamingAssets文件夹中。
+Bundle打完后，直接开始打PC包，在2.2.4-preview版本中，打包的时候，会在Resource目录中，生成一份catlog文件，用于记录复制到本地的Bundle文件。
