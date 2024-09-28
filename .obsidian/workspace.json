@@ -4,17 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "a5e7abbc3a57e7c1",
+        "id": "7dfe750c6da0c7d0",
         "type": "tabs",
         "children": [
           {
-            "id": "e4c748bcb4bfdaa3",
+            "id": "78f8f7737e19de05",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "收藏夹/杂项.md",
-                "mode": "preview",
+                "file": "Unity/踩坑记录/杂项.md",
+                "mode": "source",
                 "source": false
               }
             }
@@ -31,7 +31,6 @@
       {
         "id": "c98910f89b7d8dc9",
         "type": "tabs",
-        "dimension": 61.72344689378757,
         "children": [
           {
             "id": "f8a7eda2a99735cf",
@@ -67,25 +66,10 @@
             }
           }
         ]
-      },
-      {
-        "id": "c87f52acd7852e9b",
-        "type": "tabs",
-        "dimension": 38.276553106212425,
-        "children": [
-          {
-            "id": "0617d2d69e526811",
-            "type": "leaf",
-            "state": {
-              "type": "calendar-view",
-              "state": {}
-            }
-          }
-        ]
       }
     ],
     "direction": "horizontal",
-    "width": 284.5
+    "width": 341.5
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -101,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "收藏夹/杂项.md",
+                "file": "Unity/踩坑记录/杂项.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -118,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "收藏夹/杂项.md",
+                "file": "Unity/踩坑记录/杂项.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -141,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "收藏夹/杂项.md"
+                "file": "Unity/踩坑记录/杂项.md"
               }
             }
           },
@@ -154,7 +138,7 @@
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
@@ -177,8 +161,12 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "e4c748bcb4bfdaa3",
+  "active": "78f8f7737e19de05",
   "lastOpenFiles": [
+    "Unity/踩坑记录/杂项.md",
+    "Unity/踩坑记录/杂项.md",
+    "收藏夹/杂项.md",
+    "Unity/网络编程/UDP可靠性封装.md",
     "收藏夹/attachments/Pasted image 20240913091959.png",
     "Unity/打包/文件压缩/PNG图片格式.md",
     "Unity/打包/HybridCLR&YooAsset/HybridCLR+YooAsset热更框架.md",
@@ -190,15 +178,12 @@
     "Unity/踩坑记录",
     "Unity/打包/YooAsset/attachments/（图解1）SpaceShooter项目结构.png",
     "Unity/打包/YooAsset/attachments/AddReferenceBundleName(bundleName).png",
-    "收藏夹/杂项.md",
     "Unity/战斗/attachments/EntityManager.Update(realtimeSinceBattleStartup, p_fix64DeltaTime)2.png",
     "Unity/战斗/attachments/Update(realtimeSinceBattleStartup, p_fix64DeltaTime).png",
     "Unity/战斗/attachments/BattleHeroChestManager.Update(realtimeSinceBattleStartup, p_fix64DeltaTime).png",
     "Unity/战斗/attachments/BattleManager.Update.png",
     "Unity/战斗/attachments/SearchManager.Update(realtimeSinceBattleStartup, p_fix64DeltaTime).png",
-    "Unity/战斗/attachments/SearchManager.Update(realtimeSinceBattleStartup, p_fix64DeltaTime)1.png",
     "收藏夹/attachments",
-    "Unity/网络编程/UDP可靠性封装.md",
     "Unity/网络编程/Unity Socket网络编程.md",
     "Unity/网络编程/UDP可靠性封装",
     "Unity/网络编程/怎么让不可靠的UDP可靠_udp由不可靠传输变为可靠传输-CSDN博客.md",
@@ -223,7 +208,6 @@
     "Unity/插件/Addressable.md",
     "conflict-files-obsidian-git.md",
     "Unity/面试/2023年Unity面试题大全，共十万字面试题总结【收藏一篇足够面试，持续更新】_unity面试题2023-CSDN博客.md",
-    "Unity/UGUI/Unity遮罩之Mask、RectMask2D与Sprite Mask适用场景分析 - iwiniwin - 博客园.md",
     "C++/C++.canvas",
     "计算机图形学—从0开始构建一个OpenGL软光栅/从0开始构建OpenGL软光栅.canvas",
     "未命名.canvas"
