@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Unity/打包/HybridCLR&YooAsset/HybridCLR+YooAsset热更框架.md",
+                "file": "Unity/打包/YooAsset/YooAsset-Space Shooter Example.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Unity/打包/HybridCLR&YooAsset/HybridCLR+YooAsset热更框架.md",
+                "file": "Unity/打包/YooAsset/YooAsset-Space Shooter Example.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Unity/打包/HybridCLR&YooAsset/HybridCLR+YooAsset热更框架.md",
+                "file": "Unity/打包/YooAsset/YooAsset-Space Shooter Example.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Unity/打包/HybridCLR&YooAsset/HybridCLR+YooAsset热更框架.md"
+                "file": "Unity/打包/YooAsset/YooAsset-Space Shooter Example.md"
               }
             }
           },
@@ -163,6 +163,7 @@
   },
   "active": "78f8f7737e19de05",
   "lastOpenFiles": [
+    "Unity/打包/HybridCLR&YooAsset/HybridCLR+YooAsset热更框架.md",
     "Unity/打包/YooAsset/YooAsset-Space Shooter Example.md",
     "Unity/踩坑记录/杂项.md",
     "Unity/踩坑记录/attachments/Pasted image 20240928173626.png",
@@ -172,7 +173,6 @@
     "Unity/网络编程/UDP可靠性封装.md",
     "收藏夹/attachments/Pasted image 20240913091959.png",
     "Unity/打包/文件压缩/PNG图片格式.md",
-    "Unity/打包/HybridCLR&YooAsset/HybridCLR+YooAsset热更框架.md",
     "Unity/战斗/帧同步战斗.md",
     "Unity/打包/YooAsset/attachments/（图解3）YooAsset打空包.png",
     "Unity/打包/YooAsset/attachments/（图解2）YooAsset的Catalog文件.png",
