@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Unity/打包/YooAsset/YooAsset-Space Shooter Example.md",
+                "file": "记录/工作/2024年11月.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Unity/打包/YooAsset/YooAsset-Space Shooter Example.md",
+                "file": "记录/工作/2024年11月.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Unity/打包/YooAsset/YooAsset-Space Shooter Example.md",
+                "file": "记录/工作/2024年11月.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Unity/打包/YooAsset/YooAsset-Space Shooter Example.md"
+                "file": "记录/工作/2024年11月.md"
               }
             }
           },
@@ -163,8 +163,13 @@
   },
   "active": "78f8f7737e19de05",
   "lastOpenFiles": [
-    "Unity/打包/HybridCLR&YooAsset/HybridCLR+YooAsset热更框架.md",
     "Unity/打包/YooAsset/YooAsset-Space Shooter Example.md",
+    "记录/工作/2024年11月.md",
+    "记录/工作/2.md",
+    "记录/工作/2024年11月.md",
+    "记录/工作",
+    "记录",
+    "Unity/打包/HybridCLR&YooAsset/HybridCLR+YooAsset热更框架.md",
     "Unity/踩坑记录/杂项.md",
     "Unity/踩坑记录/attachments/Pasted image 20240928173626.png",
     "Unity/踩坑记录/attachments/Pasted image 20240928172317.png",
@@ -192,8 +197,6 @@
     "Unity/打包/YooAsset/attachments",
     "Unity/打包/YooAsset",
     "收藏夹",
-    "Unity/打包/文件压缩",
-    "Unity/打包/HybridCLR&YooAsset",
     "Excalidraw/Map.md",
     "Custom SRP/Draw Calls.md",
     "Custom SRP/Custom Render Pipeline.md",
@@ -206,7 +209,6 @@
     "计算机图形学—从0开始构建一个OpenGL软光栅/直线绘制.md",
     "Unity/插件/Addressable.md",
     "conflict-files-obsidian-git.md",
-    "Unity/面试/2023年Unity面试题大全，共十万字面试题总结【收藏一篇足够面试，持续更新】_unity面试题2023-CSDN博客.md",
     "C++/C++.canvas",
     "计算机图形学—从0开始构建一个OpenGL软光栅/从0开始构建OpenGL软光栅.canvas",
     "未命名.canvas"
