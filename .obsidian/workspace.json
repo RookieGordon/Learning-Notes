@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "7dfe750c6da0c7d0",
+        "id": "075de0a1a75ac577",
         "type": "tabs",
         "children": [
           {
-            "id": "78f8f7737e19de05",
+            "id": "8bc0a6e515eab07e",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -77,7 +77,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 369.5
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -93,7 +93,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "记录/工作/工作日程/2024年11月.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +102,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "2024年11月 的反向链接列表"
+              "title": "反向链接"
             }
           },
           {
@@ -112,12 +111,11 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "记录/工作/工作日程/2024年11月.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               },
               "icon": "links-going-out",
-              "title": "2024年11月 的出链列表"
+              "title": "出链"
             }
           },
           {
@@ -138,11 +136,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "记录/工作/工作日程/2024年11月.md"
-              },
+              "state": {},
               "icon": "lucide-list",
-              "title": "2024年11月 的大纲"
+              "title": "大纲"
             }
           },
           {
@@ -154,9 +150,19 @@
               "icon": "clock",
               "title": "Reminders"
             }
+          },
+          {
+            "id": "edd5eed322f8f1ea",
+            "type": "leaf",
+            "state": {
+              "type": "todo",
+              "state": {},
+              "icon": "checkmark",
+              "title": "Todo List"
+            }
           }
         ],
-        "currentTab": 4
+        "currentTab": 5
       }
     ],
     "direction": "horizontal",
@@ -179,10 +185,11 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "78f8f7737e19de05",
+  "active": "8bc0a6e515eab07e",
   "lastOpenFiles": [
-    "未命名.canvas",
+    "2024-11-18.md",
     "记录/工作/工作日程/2024年11月.md",
+    "未命名.canvas",
     "记录/工作/工作日程",
     "Unity/打包/YooAsset/YooAsset-Space Shooter Example.md",
     "记录/工作/2.md",
