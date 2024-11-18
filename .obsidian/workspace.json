@@ -52,7 +52,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": " ",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -73,11 +73,13 @@
               "title": "书签"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
-    "width": 369.5
+    "width": 369.5,
+    "collapsed": true
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -136,9 +138,11 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {},
+              "state": {
+                "file": "记录/工作/工作日程/2024年11月.md"
+              },
               "icon": "lucide-list",
-              "title": "大纲"
+              "title": "2024年11月 的大纲"
             }
           },
           {
@@ -152,7 +156,7 @@
             }
           },
           {
-            "id": "edd5eed322f8f1ea",
+            "id": "c629e0c3f1c530c3",
             "type": "leaf",
             "state": {
               "type": "todo",
@@ -166,8 +170,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 425.5,
-    "collapsed": true
+    "width": 425.5
   },
   "left-ribbon": {
     "hiddenItems": {
