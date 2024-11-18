@@ -20,21 +20,8 @@
               "icon": "lucide-file",
               "title": "2024年11月"
             }
-          },
-          {
-            "id": "3c19cbff5140ad12",
-            "type": "leaf",
-            "state": {
-              "type": "release-notes",
-              "state": {
-                "currentVersion": "1.7.6"
-              },
-              "icon": "lucide-file",
-              "title": "Release Notes 1.7.6"
-            }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -106,6 +93,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "记录/工作/2024年11月.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,7 +103,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "反向链接"
+              "title": "2024年11月 的反向链接列表"
             }
           },
           {
@@ -124,11 +112,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "记录/工作/2024年11月.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               },
               "icon": "links-going-out",
-              "title": "出链"
+              "title": "2024年11月 的出链列表"
             }
           },
           {
@@ -149,9 +138,11 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {},
+              "state": {
+                "file": "记录/工作/2024年11月.md"
+              },
               "icon": "lucide-list",
-              "title": "大纲"
+              "title": "2024年11月 的大纲"
             }
           },
           {
@@ -188,7 +179,7 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "3c19cbff5140ad12",
+  "active": "78f8f7737e19de05",
   "lastOpenFiles": [
     "Unity/打包/YooAsset/YooAsset-Space Shooter Example.md",
     "记录/工作/2024年11月.md",
