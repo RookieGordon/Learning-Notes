@@ -14,7 +14,7 @@
               "type": "markdown",
               "state": {
                 "file": "记录/工作/工作日程/2024年11月.md",
-                "mode": "source",
+                "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
@@ -179,13 +179,13 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "f8a7eda2a99735cf",
+  "active": "78f8f7737e19de05",
   "lastOpenFiles": [
+    "未命名.canvas",
+    "记录/工作/工作日程/2024年11月.md",
     "记录/工作/工作日程",
     "Unity/打包/YooAsset/YooAsset-Space Shooter Example.md",
-    "记录/工作/工作日程/2024年11月.md",
     "记录/工作/2.md",
-    "记录/工作/工作日程/2024年11月.md",
     "记录/工作",
     "记录",
     "Unity/打包/HybridCLR&YooAsset/HybridCLR+YooAsset热更框架.md",
@@ -215,7 +215,6 @@
     "Unity/网络编程/2.6 TCP与UDP的可靠性传输_tcp udp 可靠传输-CSDN博客.md",
     "Unity/打包/YooAsset/attachments",
     "Unity/打包/YooAsset",
-    "收藏夹",
     "Excalidraw/Map.md",
     "Custom SRP/Draw Calls.md",
     "Custom SRP/Custom Render Pipeline.md",
@@ -228,7 +227,6 @@
     "计算机图形学—从0开始构建一个OpenGL软光栅/直线绘制.md",
     "Unity/插件/Addressable.md",
     "C++/C++.canvas",
-    "计算机图形学—从0开始构建一个OpenGL软光栅/从0开始构建OpenGL软光栅.canvas",
-    "未命名.canvas"
+    "计算机图形学—从0开始构建一个OpenGL软光栅/从0开始构建OpenGL软光栅.canvas"
   ]
 }
