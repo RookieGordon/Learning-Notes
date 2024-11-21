@@ -405,5 +405,13 @@ public static void BuildWholeApk()
 }
 ```
 #### YooAsset构建AssetBundle
+##### 构建整包
 某些情况下，我们需要构建整包，即将构建的AssetBundle放到Unity中，让后打一个Apk。实验发现，2.1.x版本的YooAsset没有该功能，即使bundle打到包里面去，运行时还是会从服务器下载所有的bundle文件。2.2.x版本才有，其新增了一个`BuildinCatalog`文件，记录了所有在包里的bundle文件信息。
-目前来说，YooAsset构建Asset，Bundle的粒度取决于Collector的划分，比如一般情况下，UI界面会划分到一个Group里面去，如果我此时想对某个UI进行打bundle是做不到的，因此对这块做了修改。
+##### 极细粒度构建
+目前来说，YooAsset构建Asset，Bundle的粒度取决于Collector的划分，比如一般情况下，UI界面会划分到一个Group里面去，如果我此时想对某个UI进行打bundle是做不到的，因此对这块做了修补。思路是在增量构建完成后，筛选出，需要的资源，重新构建一份新的Manifest文件，只包含需要更新的资源信息。
+`Report`文件包含了本次构建的详细信息：
+![[Pasted image 20241121170935.png|420]]
+![[Pasted image 20241121171019.png|400]]
+![[Pasted image 20241121171039.png|410]]
+通过分析发现，`BundleInfos`中，是每个bundle的详细信息，包括bundle名称`BundleName`，bundle的依赖bundle名列表`DependBundles`，bundle包含的资源列表`AllBuiltinAssets`。
+在指定了本次打bundle的资源后，通过遍历比对··
