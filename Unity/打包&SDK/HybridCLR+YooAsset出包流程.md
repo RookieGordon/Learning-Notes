@@ -414,4 +414,68 @@ public static void BuildWholeApk()
 ![[Pasted image 20241121171019.png|400]]
 ![[Pasted image 20241121171039.png|410]]
 通过分析发现，`BundleInfos`中，是每个bundle的详细信息，包括bundle名称`BundleName`，bundle的依赖bundle名列表`DependBundles`，bundle包含的资源列表`AllBuiltinAssets`。
-在指定了本次打bundle的资源后，通过遍历比对··
+在指定了本次打bundle的资源后，通过遍历比对`BundleInfos`中的每个元素，只要该bundle的`AllBuiltinAssets`包含我们需要的资源，那么该bundle就需要保留。另外，依赖该bundle的bundle也需要被找出来。
+最后，将变动的bundle的信息，写入到上一版本的manifest中去
+```CSharp
+/// <summary>  
+/// 将当前生成的NewManifest文件和上一次的OldManifest合并生成新的Manifest，覆盖当前的  
+/// </summary>  
+public static void GenerateManifestFile(string outputDir, string oldVersion, string version)  
+{  
+    // 读取上一版本的Manifest文件，本次版本的manifest文件，本次版本的report文件  
+  
+    // 通过report，找到包含buildAsset的bundle  
+    var resultBundleNameSet = new HashSet<string>();  
+    foreach (var reportBundleInfo 
+		     in from reportBundleInfo in newBuildReport.BundleInfos  
+             from buildAsset in buildAssetList  
+             where reportBundleInfo.AllBuiltinAssets.Contains(buildAsset)  
+             select reportBundleInfo)  
+    {        
+	    resultBundleNameSet.Add(reportBundleInfo.BundleName);  
+    }  
+    
+    var depBundleSet = new HashSet<string>();  
+    foreach (var bundeInfo 
+		    in from bundleName in resultBundleNameSet 
+		    from bundeInfo in newBuildReport.BundleInfos 
+		    where bundeInfo.DependBundles.Contains(bundleName) 
+		    select bundeInfo)  
+    {        
+	    depBundleSet.Add(bundeInfo.BundleName);  
+    }  
+    foreach (var depBundleName in depBundleSet)  
+    {        
+	    resultBundleNameSet.Add(depBundleName);  
+    }    
+    foreach (var bundleName in resultBundleNameSet)  
+    {        
+	    var newBundle = newManifest.BundleList.
+					    FirstOrDefault(b => b.BundleName == bundleName);  
+        var oldBundle = oldManifest.BundleList.
+				        FirstOrDefault(b => b.BundleName == bundleName);  
+        if (oldBundle == null || string.IsNullOrEmpty(oldBundle.BundleName)) // 新的bundle  
+        {  
+            throw new Exception("[BUILD] Separate bundle of newly added resources is not supported!");  
+        }else if (oldBundle == newBundle)  
+        {            
+	        continue;  
+        }  
+        else  
+        {  
+            oldBundle.UnityCRC = newBundle.UnityCRC;  
+            oldBundle.FileHash = newBundle.FileHash;  
+            oldBundle.FileCRC = newBundle.FileCRC;  
+            oldBundle.FileSize = newBundle.FileSize;  
+        }    
+    }  
+    
+    ManifestTools.SerializeToJson(newManifestPath, oldManifest);  
+    var bytesFilePath = newManifestPath.Replace(".json", ".bytes");  
+    ManifestTools.SerializeToBinary(bytesFilePath, oldManifest);  
+    var bytesFileHashStr = HashUtility.FileMD5(bytesFilePath);  
+    File.WriteAllText(newManifestPath.Replace(".json", ".hash"), bytesFileHashStr);  
+}
+```
+
+
