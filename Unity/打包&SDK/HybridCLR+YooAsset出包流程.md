@@ -156,8 +156,9 @@ public static List<ParamFormatInfo> ListParams = new List<ParamFormatInfo>()
 ```
 ##  Jenkins调用构建脚本
 Jenkins构建过程使用到的脚本都放在了BuildTools文件夹中
-![[Pasted image 20241121155016.png]]
-`JenkinsBuild.bat`脚本是写在Jenkins里面的内容：
+![[Pasted image 20241121155016.png|720]]
+### JenkinsBuild.bat
+该脚本的内容是写在Jenkins的Job中的代码
 ```Batch
 @echo off
 setlocal
@@ -168,192 +169,38 @@ if exist "%FUNC_PARAM_FILE%" (
     del "%FUNC_PARAM_FILE%"
 )
 
-set SDK_SWITCH_FILE=%ProjectPath%\BuildTools\sdk_switch.txt
-
-if exist "%SDK_SWITCH_FILE%" (
-
-    del "%SDK_SWITCH_FILE%"
-
-)
-
-set SDK_PARAM_FILE=%ProjectPath%\BuildTools\sdk_param.txt
-
-if exist "%SDK_PARAM_FILE%" (
-
-    del "%SDK_PARAM_FILE%"
-
-)
-
-  
-
-set BUILD_ASSETS_FILE=%ProjectPath%\BuildTools\asset_list.txt
-
-if exist "%BUILD_ASSETS_FILE%" (
-
-    del "%BUILD_ASSETS_FILE%"
-
-)
-
-  
-
 REM 使用 PowerShell 将GameFunParams 参数内容写入文件
-
-powershell -Command "Set-Content -Path '%FUNC_PARAM_FILE%' -Value ([System.Environment]::GetEnvironmentVariable('GameFunParams', 'Process')) -Encoding UTF8"
-
-  
+powershell -Command "Set-Content -Path '%FUNC_PARAM_FILE%' -Value ([System.Environment]::GetEnvironmentVariable('GameFunParams', 'Process')) -Encoding UTF8"  
 
 REM 检查文件是否创建成功
-
 echo Checking "%FUNC_PARAM_FILE%" exist...
-
 if exist "%FUNC_PARAM_FILE%" (
-
     echo File "%FUNC_PARAM_FILE%" exist。
-
 ) else (
-
     echo Error: Can't create file "%FUNC_PARAM_FILE%"
-
     exit /b 1
-
 )
 
-  
-
-REM 使用 PowerShell 将SDKSwitch参数内容写入文件
-
-powershell -Command "Set-Content -Path '%SDK_SWITCH_FILE%' -Value ([System.Environment]::GetEnvironmentVariable('SDKSwitch', 'Process')) -Encoding UTF8"
-
-  
-
-REM 检查文件是否创建成功
-
-echo Checking "%SDK_SWITCH_FILE%" exist...
-
-if exist "%SDK_SWITCH_FILE%" (
-
-    echo File "%SDK_SWITCH_FILE%" exist。
-
-) else (
-
-    echo Error: Can't create file "%SDK_SWITCH_FILE%"
-
-    exit /b 1
-
-)
-
-  
-
-REM 使用 PowerShell 将SDKParams参数内容写入文件
-
-powershell -Command "Set-Content -Path '%SDK_PARAM_FILE%' -Value ([System.Environment]::GetEnvironmentVariable('SDKParams', 'Process')) -Encoding UTF8"
-
-  
-
-REM 检查文件是否创建成功
-
-echo Checking "%SDK_PARAM_FILE%" exist...
-
-if exist "%SDK_PARAM_FILE%" (
-
-    echo File "%SDK_PARAM_FILE%" exist。
-
-) else (
-
-    echo Error: Can't create file "%SDK_PARAM_FILE%"
-
-    exit /b 1
-
-)
-
-  
-
-REM 使用 PowerShell 将BuildAssets参数内容写入文件
-
-powershell -Command "Set-Content -Path '%BUILD_ASSETS_FILE%' -Value ([System.Environment]::GetEnvironmentVariable('BuildAssets', 'Process')) -Encoding UTF8"
-
-  
-
-REM 检查文件是否创建成功
-
-echo Checking "%BUILD_ASSETS_FILE%" exist...
-
-if exist "%BUILD_ASSETS_FILE%" (
-
-    echo File "%BUILD_ASSETS_FILE%" exist。
-
-) else (
-
-    echo Error: Can't create file "%BUILD_ASSETS_FILE%"
-
-    exit /b 1
-
-)
-
-  
-  
+@REM 处理其他需要写入到本地的参数
 
 if "%ResServerDirName%" == "" set ResServerDirName=""
-
 if "%ServerListURL%" == "" set ServerListURL=""
-
 if "%ReviewServerListURL%" == "" set ReviewServerListURL=""
 
-  
-
 set BuildScriptPath=%ProjectPath%\BuildTools\Build.bat
-
 call %BuildScriptPath% ^
-
         %ProjectPath% ^
-
-        %BuildMethod% ^
-
-        %RepositoryPath% ^
-
-        %BuildVersion% ^
-
-        %BuildRevision% ^
-
-        %BuildChannelID% ^
-
-        %BuildChannelName% ^
-
-        %ResServerDirName% ^
-
-        %BuildDev% ^
-
-        %UploadOSS% ^
-
-        %ReviewState% ^
-
-        %ServerListURL% ^
-
-        %ReviewServerListURL% ^
-
-        %AndroidBuildType% ^
-
-        "%FUNC_PARAM_FILE%" ^
-
-        "%SDK_SWITCH_FILE%" ^
-
-        "%SDK_PARAM_FILE%" ^
-
-        "%BUILD_ASSETS_FILE%"
-
-  
-  
+@REM 其他参数....
 
 if %errorlevel% neq 0 (
-
     echo Error: Jenkins run failed.
-
     exit /b 1
-
 )
 
-  
-
 endlocal
-
 ```
+Jenkins中有很多不同的参数类型，其中
+- 多行参数类型，需要写入到本地文件中，才能被正确传递
+- string类型参数，如果不填写任何内容，需要在bat中，赋值空字符串，否则该参数就是空，在向下传递时，会引起参数顺序的错乱。
+### Build.bat
+该脚本用于调用打包前处理和Untiy中的构建代码
