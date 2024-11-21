@@ -29,5 +29,11 @@ host: www.cnblogs.com
 ```
 
 使用Toolkey配合openssl来获取密钥散列，命令行格式如下：
-`keytool -exportcert -alias release -keystore keystroe路径 | openssl.exe路径 sha1 -binary | openssl.exe路径 base64
-`
+`keytool -exportcert -alias release -keystore keystroe路径 | openssl.exe路径 sha1 -binary | openssl.exe路径 base64`
+openssl下载和安装：
+```cardlink
+url: https://blog.csdn.net/loveryunz/article/details/136739887
+title: "保姆级OpenSSL下载及安装教程-CSDN博客"
+description: "文章浏览阅读2.1w次，点赞56次，收藏92次。保姆级OpenSSL下载及安装教程_openssl下载"
+host: blog.csdn.net
+```
