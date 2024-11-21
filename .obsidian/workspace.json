@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "621c5fbfdeaf0b8d",
+        "id": "85f7a85b28ac18e8",
         "type": "tabs",
         "children": [
           {
-            "id": "25dc3372e38482da",
+            "id": "0b030c7dbc9e9b12",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Unity/打包&SDK/Fackbook接入.md",
+                "file": "计算机图形学—从0开始构建一个OpenGL软光栅/摄像机系统.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Fackbook接入"
+              "title": "摄像机系统"
             }
           }
         ]
@@ -187,11 +187,12 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "25dc3372e38482da",
+  "active": "0b030c7dbc9e9b12",
   "lastOpenFiles": [
+    "计算机图形学—从0开始构建一个OpenGL软光栅/图片与纹理.md",
     "记录/工作/工作日程/2024年11月.md",
-    "计算机图形学—从0开始构建一个OpenGL软光栅/三角形绘制.md",
     "Unity/打包&SDK/Fackbook接入.md",
+    "计算机图形学—从0开始构建一个OpenGL软光栅/三角形绘制.md",
     "2024-11-18.md",
     "记录/工作/Work Todo.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/面片与模型.md",
@@ -233,7 +234,6 @@
     "Unity/网络编程/UDP可靠性封装",
     "Unity/网络编程/怎么让不可靠的UDP可靠_udp由不可靠传输变为可靠传输-CSDN博客.md",
     "Unity/网络编程/斗地主编程.md",
-    "Unity/网络编程/2.6 TCP与UDP的可靠性传输_tcp udp 可靠传输-CSDN博客.md",
     "Unity/打包&SDK/YooAsset/attachments",
     "Unity/打包&SDK/YooAsset",
     "C++/C++.canvas",
