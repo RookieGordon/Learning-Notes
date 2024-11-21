@@ -275,6 +275,9 @@ endlocal
 考虑到透传参数的不确定，因此考虑用Json将参数存到本地，同时Jenkins上，采用多行参数，填写SDK的参数，设计成列表形式，支持多个三方库同时导入。
 前处理放在了.net工程中，不和Unity有交互。
 ### SDK参数处理
+参数示例：
+![[Pasted image 20241121192211.png|380]]
+由于不清楚参数的数据结构类型，因此，直接将其反序列化成object类型，然后在通过key获取type类型，进行序列话操作。
 ```CSharp
 public static int ParseSDKParam(string projectPath, string filePath, out Dictionary<string, Object> dicCfgs)  
 {  
@@ -304,7 +307,8 @@ public static int ParseSDKParam(string projectPath, string filePath, out Diction
     return 0;  
 }
 ```
-对于每个SDK（三方库）设计一个类，用于存放参数和指定操作：
+### 复制（导入）操作
+对于每个SDK（三方库）设计一个类，用于存放参数。并且通过特性来指定操作，省却了在jenkins中配置固定参数的过程
 ```CSharp
 [PluginsCopy("SDK/Bugly")]  
 [IOCopy("", "")]  
@@ -314,7 +318,6 @@ public class BuglyConfig
     public string AppId;  
 }
 ```
-通过特性来指定操作，省却了在jenkins中配置固定参数的过程
 目前设计了两种特性：
 ```CSharp
 public class IOCopyAttribute : Attribute  
@@ -348,6 +351,29 @@ public class AssemblyRefAttribute : Attribute
     }
 }
 ```
+
+```CSharp
+try  
+{  
+    foreach (var kvpairs in _sdkCfgs)  
+    {        
+	    if (!Program._sdkSwitch.TryGetValue(kvpairs.Key, out var opened) || !opened)  
+        {            
+	        Console.WriteLine($"[BUILD] SDK {kvpairs.Key} is not opened, skip.");  
+            continue;  
+        }  
+        ProcessOperate.CopyOperate(_projectPath, _buildParam, kvpairs.Value);  
+        ProcessOperate.GenerateJson(  
+            Path.Combine(_projectPath, $"Assets/PG/Resources/SDKCfg/{kvpairs.Key}.json"), kvpairs.Value);  
+    }
+}  
+catch (Exception e)  
+{  
+    Console.WriteLine($"[BUILD] Preprocessing error, {e.Message}");  
+    return -1;  
+}
+```
+
 
 ## Unity中的打包流程设计
 按照需求，完整的打包流程包含：
