@@ -138,10 +138,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "记录/工作/工作日程/2024年11月.md"
+                "file": "Unity/打包&SDK/HybridCLR+YooAsset出包流程.md"
               },
               "icon": "lucide-list",
-              "title": "2024年11月 的大纲"
+              "title": "HybridCLR+YooAsset出包流程 的大纲"
             }
           },
           {
@@ -165,12 +165,11 @@
             }
           }
         ],
-        "currentTab": 5
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
-    "width": 253.5,
-    "collapsed": true
+    "width": 253.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -188,7 +187,7 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "1bd5a7f1caaab2e8",
+  "active": "6490a2fd7323267e",
   "lastOpenFiles": [
     "Unity/打包&SDK/attachments/Pasted image 20241121155016.png",
     "Unity/打包&SDK/attachments",

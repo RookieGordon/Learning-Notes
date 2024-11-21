@@ -247,6 +247,27 @@ REM 执行Unity的静态方法BuildTool.BuildPC，并传递参数，日志输出
 
 REM 读取%PROJECT_PATH%\BuildTools\ErrorLevel.txt"文件的内容到RESULT变量
 set /p RESULT=<"%PROJECT_PATH%\BuildTools\ErrorLevel.txt"
+
+REM 检查构建是否成功
+if %RESULT% equ 0 (
+    echo Unity build successfully.
+    exit /b 0
+) else (
+    echo Unity build failed.
+    exit /b 1
+)
+
+endlocal
 ```
 - 使用遍历的方式接受外界的参数（参数比较多）
 - 调用完成Unity的方法后，quit参数会自动结束Unity进程。即使`METHOD_NAME`是带有返回值的，返回值也会被quit过程吞掉，因此将执行过程的结果保存到`ErrorLevel.txt`中，这一步主要是为了能够在Jenkins中，直观的看到本次构建是否成功。
+## Unity中的打包流程设计
+根据实际需求，Jenkins中的部分参数，是需要传递到Runtime中的，因此设计了`GameDefineConfig`对象用于记录这些数据到本地，另外其存储位置是`StreamingAssets`，也可以方便他人（运营）在发布流程前，按需修改内部的参数。`GameDefineConfig`对象目前是可读可写的，但是不会写入本地，因此上一次运行和本次运行期间，数据一致。
+按照需求，完整的打包流程包含：
+- 版本号升级
+- 写入`GameDefineConfig`参数
+- 使用HybridCLR构建dll
+- 使用YooAsset构建Bundle
+- 构建EXE/APK/AAB等
+- 同步资源到服务器
+- 写入更新信息，同时上传服务器
