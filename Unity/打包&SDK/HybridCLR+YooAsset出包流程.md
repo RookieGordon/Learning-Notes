@@ -624,8 +624,16 @@ public static void GenerateManifestFile(string outputDir, string oldVersion, str
 通过`gradlew.bat assembleDebug`命令，可以生成Debug模式的Apk。通过`gradlew.bat bundleDebug`可以生成Debug模式的AAB。
 ## 打包中的文件（夹）设计
 ### Unity工程中的文件夹结构
+因为打包和发布是分成了两个Job来处理，完整的发布流程，会涉及多次打包，因此需要存放关键信息。
 在Assets文件夹上层，新增一个Version文件夹
 ![[Pasted image 20241121200843.png|520]]
-Version文件夹中，会根据渠道名，分别存放该渠道的三个功能性文件，因为打包和发布是分成了两个Job来处理，整个
+Version文件夹中，会根据渠道名，分别存放该渠道的三个功能性文件
+- `Version.txt`文件，存放本次打包前后的版本信息
+- `Update.json`文件，存放更新版本的信息，主要用于提审，发布时，读取和对比版本信息
 ### 资源服文件夹结构
+![[Pasted image 20241121201546.png|360]]
+Channels文件夹，存放Bundle文件，路径为：`Channels\渠道名\平台\App版本`
+Updates文件夹，存放Update更新文件，路径为：`Updates\渠道名\平台\App版本`
+
+
 
