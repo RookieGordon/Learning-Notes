@@ -27,3 +27,7 @@ title: "生成facebook所需的android密钥散列 - JohnRey - 博客园"
 description: "android接入facebook sdk，网页版登录成功，app登录失败，多半是对应应用的facebook后台需要更新散列密钥 在windows下，我所用到的有两种方式获取散列密钥（keytool配置到环境变量中） 执行以下命令，再输入密钥库口令即可生成 keytool -exportcert -"
 host: www.cnblogs.com
 ```
+
+使用Toolkey配合openssl来获取密钥散列，命令行格式如下：
+`keytool -exportcert -alias release -keystore keystroe路径 | openssl.exe路径 sha1 -binary | openssl.exe路径 base64
+`
