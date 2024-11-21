@@ -308,7 +308,7 @@ public static int ParseSDKParam(string projectPath, string filePath, out Diction
 }
 ```
 ### 复制（导入）操作
-对于每个SDK（三方库）设计一个类，用于存放参数。并且通过特性来指定操作，省却了在jenkins中配置固定参数的过程
+对于每个SDK（三方库）设计一个参数类，用于存放参数。并且通过特性来指定操作，省却了在jenkins中配置固定参数的过程
 ```CSharp
 [PluginsCopy("SDK/Bugly/Bugly")]  
 [IOCopy("SDK/Bugly/BuglyInit.cs", "Assets/PG/Scripts/Main/BuglyInit.cs")]  
@@ -410,8 +410,6 @@ public static void AddAssemblyRef(string projectPath, string sourceAssemby,     
     }
 }
 ```
-
-
 ## Unity中的打包流程设计
 按照需求，完整的打包流程包含：
 - 版本号升级
@@ -624,4 +622,6 @@ public static void GenerateManifestFile(string outputDir, string oldVersion, str
 使用`gradlew.bat`构建Apk和AAB。Unity导出的安卓工程是没有该脚本的，可以通过安装[GradleWrapperGenerator]([gilzoide/unity-gradle-wrapper: Automatically generate Gradle Wrapper (gradlew) when exporting Android projects in Unity](https://github.com/gilzoide/unity-gradle-wrapper))插件，使得导出android工程后，自动生成gradlew。
 ![[Pasted image 20241121173807.png|560]]
 通过`gradlew.bat assembleDebug`命令，可以生成Debug模式的Apk。通过`gradlew.bat bundleDebug`可以生成Debug模式的AAB。
+## 打包中的文件设计
+
 
