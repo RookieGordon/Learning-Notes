@@ -30,6 +30,7 @@ host: www.cnblogs.com
 
 使用Toolkey配合openssl来获取密钥散列，命令行格式如下：
 `keytool -exportcert -alias release -keystore keystroe路径 | openssl.exe路径 sha1 -binary | openssl.exe路径 base64`
+
 openssl下载和安装：
 ```cardlink
 url: https://blog.csdn.net/loveryunz/article/details/136739887

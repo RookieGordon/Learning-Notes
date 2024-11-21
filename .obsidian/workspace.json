@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Unity/打包&SDK/Fackbook接入.md",
+                "file": "记录/工作/Work Todo.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Fackbook接入"
+              "title": "Work Todo"
             }
           }
         ]
@@ -168,8 +168,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 238.5,
-    "collapsed": true
+    "width": 253.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -189,9 +188,9 @@
   },
   "active": "1bd5a7f1caaab2e8",
   "lastOpenFiles": [
+    "Unity/打包&SDK/Fackbook接入.md",
     "C++/容器、算法和迭代器.md",
     "C++/模板.md",
-    "Unity/打包&SDK/Fackbook接入.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/摄像机系统.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/面片与模型.md",
     "C++/内存管理.md",
