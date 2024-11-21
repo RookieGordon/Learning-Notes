@@ -77,8 +77,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 369.5,
-    "collapsed": true
+    "width": 285
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -191,6 +190,7 @@
   "active": "25dc3372e38482da",
   "lastOpenFiles": [
     "记录/工作/工作日程/2024年11月.md",
+    "计算机图形学—从0开始构建一个OpenGL软光栅/三角形绘制.md",
     "Unity/打包&SDK/Fackbook接入.md",
     "2024-11-18.md",
     "记录/工作/Work Todo.md",
@@ -236,7 +236,6 @@
     "Unity/网络编程/2.6 TCP与UDP的可靠性传输_tcp udp 可靠传输-CSDN博客.md",
     "Unity/打包&SDK/YooAsset/attachments",
     "Unity/打包&SDK/YooAsset",
-    "Excalidraw/Map.md",
     "C++/C++.canvas",
     "计算机图形学—从0开始构建一个OpenGL软光栅/从0开始构建OpenGL软光栅.canvas"
   ]
