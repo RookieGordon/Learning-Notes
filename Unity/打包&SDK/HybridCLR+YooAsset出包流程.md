@@ -477,5 +477,7 @@ public static void GenerateManifestFile(string outputDir, string oldVersion, str
     File.WriteAllText(newManifestPath.Replace(".json", ".hash"), bytesFileHashStr);  
 }
 ```
-
+#### Android工程构建Apk或AAB
+使用`gradlew.bat`构建Apk和AAB。Unity导出的安卓工程是没有该脚本的，可以通过安装[GradleWrapperGenerator]([gilzoide/unity-gradle-wrapper: Automatically generate Gradle Wrapper (gradlew) when exporting Android projects in Unity](https://github.com/gilzoide/unity-gradle-wrapper))插件，使得导出android工程后，自动生成gradlew。
+通过`gradlew.bat assembleDebug`m
 
