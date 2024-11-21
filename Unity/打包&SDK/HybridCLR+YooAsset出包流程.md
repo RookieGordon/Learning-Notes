@@ -271,8 +271,54 @@ endlocal
 - 调用完成Unity的方法后，quit参数会自动结束Unity进程。即使`METHOD_NAME`是带有返回值的，返回值也会被quit过程吞掉，因此将执行过程的结果保存到`ErrorLevel.txt`中，这一步主要是为了能够在Jenkins中，直观的看到本次构建是否成功。
 ## 打包前处理
 不同的渠道，可能会需要不同的三方功能，SDK等，因此这些东西是需要打包的过程中，动态集成到工程中的，据此设计了打包前处理功能，该功能通常情况下，只会涉及到文件的拷贝或导入（使用unitypackage）。
-由于SDK或者三方库，可能会需要通过jenkins指定参数，因此需要一种途径将这些参数传递给runtime，另外涉及到文件复制，还需要有地方指定路径。
-考虑到透传参数的不确定，因此考虑用
+由于SDK（三方库），可能会需要通过jenkins指定参数，因此需要一种途径将这些参数传递给runtime，另外涉及到文件复制，还需要有地方指定路径。
+考虑到透传参数的不确定，因此考虑用Json将参数存到本地，同时Jenkins上，采用多行参数，填写SDK的参数，设计成列表形式，支持多个三方库同时导入。
+前处理放在了.net工程中，不和Unity有交互。
+对于每个SDK（三方库）设计一个类，用于存放参数和指定操作：
+```CSharp
+[PluginsCopy("SDK/Bugly")]  
+[IOCopy("", "")]  
+[AssemblyRef("", new string[2]{"HotfixsMain", "Main"})]  
+public class BuglyConfig  
+{  
+    public string AppId;  
+}
+```
+通过特性来指定操作，省却了在jenkins中配置固定参数的过程
+目前设计了两种特性：
+```CSharp
+public class IOCopyAttribute : Attribute  
+{  
+    public string SourcePath;  
+    public string DestPath;  
+    public IOCopyAttribute(string sourcePath, string destPath)  
+    {        
+	    this.SourcePath = sourcePath;  
+        this.DestPath = destPath;  
+    }
+}  
+
+/// <summary>  
+/// 程序集添加引用  
+/// </summary>  
+public class AssemblyRefAttribute : Attribute  
+{  
+    /// <summary>  
+    /// 被引用的程序集的名字  
+    /// </summary>  
+    public string RefAssemblyName;  
+    /// <summary>  
+    /// 需要添加引用的程序集的名字  
+    /// </summary>  
+    public string[] AddRefAssemblies;  
+    public AssemblyRefAttribute(string refAssemblyName, params string[] addRefAssemblies)  
+    {        
+	    this.RefAssemblyName = refAssemblyName;  
+        this.AddRefAssemblies = addRefAssemblies;  
+    }
+}
+```
+
 ## Unity中的打包流程设计
 按照需求，完整的打包流程包含：
 - 版本号升级
