@@ -180,17 +180,15 @@ if exist "%FUNC_PARAM_FILE%" (
     echo Error: Can't create file "%FUNC_PARAM_FILE%"
     exit /b 1
 )
-
-@REM 处理其他需要写入到本地的参数
+@ ....处理其他需要写入到本地的参数
 
 if "%ResServerDirName%" == "" set ResServerDirName=""
-if "%ServerListURL%" == "" set ServerListURL=""
-if "%ReviewServerListURL%" == "" set ReviewServerListURL=""
+@ .....
 
 set BuildScriptPath=%ProjectPath%\BuildTools\Build.bat
 call %BuildScriptPath% ^
         %ProjectPath% ^
-@REM 其他参数....
+@ ....其他参数
 
 if %errorlevel% neq 0 (
     echo Error: Jenkins run failed.
@@ -204,3 +202,51 @@ Jenkins中有很多不同的参数类型，其中
 - string类型参数，如果不填写任何内容，需要在bat中，赋值空字符串，否则该参数就是空，在向下传递时，会引起参数顺序的错乱。
 ### Build.bat
 该脚本用于调用打包前处理和Untiy中的构建代码
+```Batch
+@echo off
+setlocal enabledelayedexpansion
+
+REM 初始化计数器
+set "count=0"
+
+REM 遍历所有参数并存储到 param 数组
+for %%a in (%*) do (
+    set /a count+=1
+    set "param[!count!]=%%~a"
+)
+
+REM 将参数赋值给对应的变量
+set "PROJECT_PATH=!param[1]!"
+set "METHOD_NAME=!param[2]!"
+set "REPOSITORY_PATH=!param[3]!"
+@ ...接受其他参数
+
+@ ...其他操作
+ 
+REM 1、关闭Unity进程
+echo Closing Unity process...
+taskkill /F /IM Unity.exe
+
+REM 2、清理工程
+set "CLEAN_PROJ=%PROJECT_PATH%\BuildTools\CleanProject.bat"
+call %CLEAN_PROJ% %PROJECT_PATH%
+
+@ ...其他操作
+
+REM 3、预处理
+echo Preprocessing...
+set "PREPROCESS_SCRIPT_PATH=%PROJECT_PATH%\BuildTools\BuildPreprocessing\BuildPreprocessing.exe"
+"%PREPROCESS_SCRIPT_PATH%" ^
+@ ....其他参数
+
+REM 执行Unity的静态方法BuildTool.BuildPC，并传递参数，日志输出到标准输出
+"%UNITY_EXE_PATH%" -projectPath "%PROJECT_PATH%" -batchmode -quit -executeMethod "%METHOD_NAME%" ^
+    --RepositoryPath:"%REPOSITORY_PATH%" ^
+    --BuildVersion:"%BUILD_VERSION%" ^
+    @ ....其他参数
+
+REM 读取%PROJECT_PATH%\BuildTools\ErrorLevel.txt"文件的内容到RESULT变量
+set /p RESULT=<"%PROJECT_PATH%\BuildTools\ErrorLevel.txt"
+```
+- 使用遍历的方式接受外界的参数（参数比较多）
+- 调用完成Unity的方法后，quit参数会自动结束Unity进程。即使`METHOD_NAME`是带有返回值的，返回值也会被quit过程吞掉，因此将执行过程的结果保存到`ErrorLevel.txt`中，这一步主要是为了能够在Jenkins中，直观的看到本次构建是否成功。
