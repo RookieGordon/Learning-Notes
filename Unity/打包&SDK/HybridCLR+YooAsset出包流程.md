@@ -405,5 +405,5 @@ public static void BuildWholeApk()
 }
 ```
 #### YooAsset构建AssetBundle
-某些情况下，我们需要构建整包，即将构建的A
-目前来说，YooAsset构建Asset，Bundle的粒度取决于
+某些情况下，我们需要构建整包，即将构建的AssetBundle放到Unity中，让后打一个Apk。实验发现，2.1.x版本的YooAsset没有该功能，即使bundle打到包里面去，运行时还是会从服务器下载所有的bundle文件。2.2.x版本才有，其新增了一个`BuildinCatalog`文件，记录了所有在包里的bundle文件信息。
+目前来说，YooAsset构建Asset，Bundle的粒度取决于Collector的划分，比如一般情况下，UI界面会划分到一个Group里面去，如果我此时想对某个UI进行打bundle是做不到的，因此对这块做了修改。
