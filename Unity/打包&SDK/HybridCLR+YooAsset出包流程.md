@@ -40,27 +40,80 @@ YooAsset启动后，就可以使用其进行资源的加载（下载）
 ```CSharp
 //补充元数据dll的列表  
 //通过RuntimeApi.LoadMetadataForAOTAssembly()函数来补充AOT泛型的原始元数据  
-private List<string> _listAOTMetaAssemblyFiles { get; } =  
-    new() { "mscorlib.dll", "System.dll", "System.Core.dll", "ThirdParty.dll" };
+private List<string> _listAOTMetaAssemblyFiles { get; } =  new() {
+														"mscorlib.dll", 
+													    "System.dll", 
+													    "System.Core.dll", 
+													    "ThirdParty.dll" };
     
 private Dictionary<string, TextAsset> _dicAssetDatas = new Dictionary<string, TextAsset>();
 
 private IEnumerator _LoadDlls()  
 {  
     if (GameDefineConfig.Instance.PlayModeType != EPlayMode.EditorSimulateMode)  
-    {        var dllPath = "Assets/Arts/Codes/{0}.bytes";  
+    {       
+        var dllPath = "Assets/Arts/Codes/{0}.bytes";  
         //判断是否下载成功  
-        var assets = new List<string> { "HotfixsMain.dll", "GameCfg.dll" }.Concat(this._listAOTMetaAssemblyFiles);  
+        var assets = new List<string> { "HotfixsMain.dll", "GameCfg.dll" }
+                                  .Concat(this._listAOTMetaAssemblyFiles);  
         foreach (var asset in assets)  
-        {            var filePath = string.Format(dllPath, asset);  
+        {            
+            var filePath = string.Format(dllPath, asset);  
             Log.Debug($"Load dll {filePath}");  
-            var handle = ResourceMgr.Instance.LoadAssetAsync<TextAsset>(filePath, null);  
+            var handle = ResourceMgr.Instance.LoadAssetAsync<TextAsset> (filePath, null);  
             yield return handle;  
             var assetObj = handle.AssetObject as TextAsset;  
             this._dicAssetDatas[asset] = assetObj;  
         }  
 		// other game logic....
-        Log.Debug("--------------- Hotfix Dll Load Success -------------------");  
-    }}
+        Log.Debug("--------------- Hotfix Dll Load Success");  
+    }
+}
 ```
-这里在当时实践时发现一些情况，配置程序集`GameCfg.dll`是被热更程序集`HotfixsMain.dll`，原以为是不需要shoudo
+这里在当时实践时发现一些情况，配置程序集`GameCfg.dll`是被热更程序集`HotfixsMain.dll`，原以为是不需要手动加载的，实践发现，会报错
+### 启动热更层
+```CSharp
+// 启动 热更 dll 接口  
+private void _StartGame()  
+{  
+	// Editor下无需加载，直接查找获得HotUpdate程序集 
+#if UNITY_EDITOR   
+    this._pHotUpdateAss =  
+        System.AppDomain.CurrentDomain
+        .GetAssemblies().First(a => a.GetName().Name == "HotfixsMain");    
+#else  
+    _LoadMetadataForAOTAssemblies();  
+	var cfg = Assembly.Load(_ReadBytesFromStreamingAssets("GameCfg.dll"));         this._pHotUpdateAss = Assembly.Load(
+		                 _ReadBytesFromStreamingAssets("HotfixsMain.dll"));
+#endif  
+  
+    Log.Debug("--------------- Enter Hotfix -------------------");  
+    var type = this._pHotUpdateAss.GetType("HotfixEntrance");  
+    type.GetMethod("StartGame")?.Invoke(null, null);  
+}
+
+/// <summary>  
+/// 为aot assembly加载原始metadata， 这个代码放aot或者热更新都行。  
+/// 一旦加载后，如果AOT泛型函数对应native实现不存在，则自动替换为解释模式执行  
+/// </summary>  
+private void _LoadMetadataForAOTAssemblies()  
+{  
+    // 注意，补充元数据是给AOT dll补充元数据，而不是给热更新dll补充元数据。  
+    // 热更新dll不缺元数据，不需要补充，如果调用LoadMetadataForAOTAssembly会返回错误  
+    HomologousImageMode mode = HomologousImageMode.SuperSet;  
+    foreach (var aotDllName in _listAOTMetaAssemblyFiles)  
+    {        byte[] dllBytes = _ReadBytesFromStreamingAssets(aotDllName);  
+        // 加载assembly对应的dll，会自动为它hook。一旦aot泛型函数的native函数不存在，用解释器版本代码  
+        LoadImageErrorCode err = RuntimeApi.LoadMetadataForAOTAssembly(dllBytes, mode);  
+        Debug.Log($"LoadMetadataForAOTAssembly:{aotDllName}. mode:{mode} ret:{err}");  
+    }}  
+  
+private byte[] _ReadBytesFromStreamingAssets(string dllName)  
+{  
+    if (this._dicAssetDatas.TryGetValue(dllName, out var asset))  
+    {        return asset.bytes;  
+    }  
+    return Array.Empty<byte>();  
+}
+```
+
