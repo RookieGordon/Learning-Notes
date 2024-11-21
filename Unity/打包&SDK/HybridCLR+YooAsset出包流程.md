@@ -348,6 +348,8 @@ public string ReviewResServerURL;
 
 // ----------------------- 其他参数
 ```
+### 打包前处理
+
 ### 打包脚本
 典型的打包过程如下
 ```CSharp
@@ -479,5 +481,6 @@ public static void GenerateManifestFile(string outputDir, string oldVersion, str
 ```
 #### Android工程构建Apk或AAB
 使用`gradlew.bat`构建Apk和AAB。Unity导出的安卓工程是没有该脚本的，可以通过安装[GradleWrapperGenerator]([gilzoide/unity-gradle-wrapper: Automatically generate Gradle Wrapper (gradlew) when exporting Android projects in Unity](https://github.com/gilzoide/unity-gradle-wrapper))插件，使得导出android工程后，自动生成gradlew。
-通过`gradlew.bat assembleDebug`m
+![[Pasted image 20241121173807.png|560]]
+通过`gradlew.bat assembleDebug`命令，可以生成Debug模式的Apk。通过`gradlew.bat bundleDebug`可以生成Debug模式的AAB。
 
