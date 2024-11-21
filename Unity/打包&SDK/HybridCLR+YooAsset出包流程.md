@@ -310,9 +310,9 @@ public static int ParseSDKParam(string projectPath, string filePath, out Diction
 ### 复制（导入）操作
 对于每个SDK（三方库）设计一个类，用于存放参数。并且通过特性来指定操作，省却了在jenkins中配置固定参数的过程
 ```CSharp
-[PluginsCopy("SDK/Bugly")]  
-[IOCopy("", "")]  
-[AssemblyRef("", new string[2]{"HotfixsMain", "Main"})]  
+[PluginsCopy("SDK/Bugly/Bugly")]  
+[IOCopy("SDK/Bugly/BuglyInit.cs", "Assets/PG/Scripts/Main/BuglyInit.cs")]  
+[AssemblyRef("Bugly", new string[2]{"HotfixsMain", "Main"})]  
 public class BuglyConfig  
 {  
     public string AppId;  
@@ -351,26 +351,63 @@ public class AssemblyRefAttribute : Attribute
     }
 }
 ```
-
+对于字典中的每个参数类，找到其持有的特性，针对这些特性，执行对应操作
 ```CSharp
-try  
+public static void CopyOperate(string projectPath, BuildParameters buildPara, System.Object obj)  
 {  
-    foreach (var kvpairs in _sdkCfgs)  
+    // 如果obj有PluginsCopy特性  
+    var type = obj.GetType();  
+    var attrs = type.GetCustomAttributes(true);  
+    foreach (var attr in attrs)  
     {        
-	    if (!Program._sdkSwitch.TryGetValue(kvpairs.Key, out var opened) || !opened)  
+	    switch (attr)  
         {            
-	        Console.WriteLine($"[BUILD] SDK {kvpairs.Key} is not opened, skip.");  
-            continue;  
-        }  
-        ProcessOperate.CopyOperate(_projectPath, _buildParam, kvpairs.Value);  
-        ProcessOperate.GenerateJson(  
-            Path.Combine(_projectPath, $"Assets/PG/Resources/SDKCfg/{kvpairs.Key}.json"), kvpairs.Value);  
+	        case IOCopyAttribute ioCopyAttr:  
+                ProcessOperate.CopyFileOrDir(projectPath, ioCopyAttr.SourcePath, ioCopyAttr.DestPath);  
+                break;  
+            case AssemblyRefAttribute assemblyRefAttr:  
+                ProcessOperate.AddAssemblyRef(projectPath, assemblyRefAttr.RefAssemblyName, assemblyRefAttr.AddRefAssemblies);  
+                break;  
+        }    
     }
 }  
-catch (Exception e)  
+  
+public static void AddAssemblyRef(string projectPath, string sourceAssemby,     string[] destAssemblies)  
 {  
-    Console.WriteLine($"[BUILD] Preprocessing error, {e.Message}");  
-    return -1;  
+    if (string.IsNullOrEmpty(sourceAssemby))  
+    {        
+	    Console.WriteLine("[BUILD] AddAssemblyRef error, sourceAssemby is null.");  
+        return;  
+    }    
+    var soureMetaPath = Path.Combine(projectPath, sourceAssemby, ".asmdef.meta");  
+    // 逐行读取soureMetaPath文件  
+    var lines = File.ReadAllLines(soureMetaPath);  
+    var guid = string.Empty;  
+    foreach (var line in lines)  
+    {        
+	    if (line.StartsWith("guid:"))  
+        {            
+	        guid = line.Split(':')[1].Trim();  
+        }    
+    }  
+  
+    var pgDir = Path.Combine(projectPath, "Assets/PG");  
+    foreach (var dest in destAssemblies)  
+    {        
+	    // 从pgDir中，找到文件名为dest的文件  
+        var assemblys = Directory.GetFiles(pgDir, dest, SearchOption.AllDirectories);  
+        if (assemblys.Length == 0)  
+        {            
+	        Console.WriteLine($"[BUILD] AddAssemblyRef error, {dest} not found.");  
+            continue;  
+        }        
+        var metaPath = assemblys[0] + ".meta";  
+        string jsonContent = File.ReadAllText(metaPath);  
+        JObject jsonObj = JObject.Parse(jsonContent);  
+        JArray references = (JArray)jsonObj["references"];  
+        references.Add($"GUID:{guid}");  
+        File.WriteAllText(metaPath, jsonObj.ToString());  
+    }
 }
 ```
 
