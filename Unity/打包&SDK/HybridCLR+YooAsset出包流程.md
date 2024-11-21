@@ -262,7 +262,6 @@ endlocal
 - 使用遍历的方式接受外界的参数（参数比较多）
 - 调用完成Unity的方法后，quit参数会自动结束Unity进程。即使`METHOD_NAME`是带有返回值的，返回值也会被quit过程吞掉，因此将执行过程的结果保存到`ErrorLevel.txt`中，这一步主要是为了能够在Jenkins中，直观的看到本次构建是否成功。
 ## Unity中的打包流程设计
-根据实际需求，Jenkins中的部分参数，是需要传递到Runtime中的，因此设计了`GameDefineConfig`对象用于记录这些数据到本地，另外其存储位置是`StreamingAssets`，也可以方便他人（运营）在发布流程前，按需修改内部的参数。`GameDefineConfig`对象目前是可读可写的，但是不会写入本地，因此上一次运行和本次运行期间，数据一致。
 按照需求，完整的打包流程包含：
 - 版本号升级
 - 写入`GameDefineConfig`参数
@@ -270,4 +269,122 @@ endlocal
 - 使用YooAsset构建Bundle
 - 构建EXE/APK/AAB等
 - 同步资源到服务器
-- 写入更新信息，同时上传服务器
+- 写入`GameUpdateConfig`更新信息，同时上传服务器
+### GameDefineConfig参数
+根据实际需求，Jenkins中的部分参数，是需要传递到Runtime中的，因此设计了`GameDefineConfig`对象用于记录这些数据到本地，另外其存储位置是`StreamingAssets`，也可以方便他人（运营）在发布流程前，按需修改内部的参数。`GameDefineConfig`对象目前是可读可写的，但是不会写入本地，因此上一次运行和本次运行期间，数据一致。
+```CSharp
+#region --------------------------------------------------更新相关  
+/// <summary>  
+/// YooAsset 资源加载模式  
+/// </summary>  
+public EPlayMode PlayModeType = EPlayMode.EditorSimulateMode;  
+public EDefaultBuildPipeline BuildPipelineType = EDefaultBuildPipeline.BuiltinBuildPipeline;  
+/// <summary>  
+/// 资源版本号  
+/// </summary>  
+public int ResVersion = 0;  
+/// <summary>  
+/// Bundle资源服地址  
+/// </summary>  
+public string ResServerURL = "";  
+/// <summary>  
+/// 获取热更信息的地址  
+/// </summary>  
+public string UpdateVersionURL;  
+  
+#endregion --------------------------------------------------  
+  
+#region --------------------------------------------------全局定义  
+public string AppVersion = "1.0.0";  
+/// <summary>  
+/// 设备操作系统  
+/// </summary>  
+public string DevicePlatform;  
+
+// ----------------------- 其他参数
+  
+#endregion --------------------------------------------------  
+  
+#region --------------------------------------------------业务开关和业务定义  
+/// <summary>  
+/// 日志级别  
+/// </summary>  
+public string LOG_LEVEL = "Error";  
+/// <summary>  
+/// 显示GM功能  
+/// </summary>  
+public bool DISPLAY_GM = false; 
+
+// ----------------------- 其他参数
+#endregion --------------------------------------------------
+```
+### GameUpdateConfig参数
+由于YooAsset只能更新到最新的版本，这是不符合运行需求的。并且还有一些其他需求，比如服务器列表也会有热更的需求，因此设计了`GameUpdateConfig`用于控制线上版本和服务器列表。
+```CSharp
+/// <summary>  
+/// 发布版本  
+/// </summary>  
+public int PublishVersion;  
+/// <summary>  
+/// 审核版本  
+/// </summary>  
+public int ReviewVersion;  
+/// <summary>  
+/// Bundle资源地址  
+/// </summary>  
+public string ResServerURL;  
+/// <summary>  
+/// 提审包的Bundle资源地址  
+/// </summary>  
+public string ReviewResServerURL;
+
+// ----------------------- 其他参数
+```
+### 打包脚本
+典型的打包过程如下
+```CSharp
+public static void BuildWholeApk()  
+{  
+    if (!BuildHelper.CheckBuildTarget(BuildTarget.Android))  
+    {        _WriteExecuteResult(1);  
+        return;  
+    }  
+    var buildParams = BuildTool._ParseArguments();  
+    if (buildParams == null)  
+    {        
+	    _WriteExecuteResult(1);  
+        return;  
+    }  
+    var pipeline = new Pipeline();  
+    pipeline.Name = "Build Whole Android";  
+    pipeline.Build(new UpdateLocalVersionTask(buildParams.AppVersion, buildParams.Channel, true));  
+    pipeline.Build(  
+        new SetupGameDefineCfgTask(BuildDefine.YOOASSET_PLAYMODE, buildParams));  
+    pipeline.Build(new SetupBuildSettingsTask(buildParams));  
+    pipeline.Build(new GenerateAOTDLLTask(BuildDefine.DLLGroupName));  
+    pipeline.Build(new GenerateHotUpdateDLLTask(BuildDefine.DLLGroupName));  
+    pipeline.Build(new BuildBundleTask(EBuildMode.ForceRebuild, null, EBuildinFileCopyOption.ClearAndCopyAll));  
+    pipeline.Build(new UnityBuildTask(buildParams.DevMode));  
+    pipeline.Build(new AndroidBuildTask(buildParams));  
+    pipeline.Build(new SyncAPKTask(buildParams.RepositoryPath, buildParams.Channel));  
+    pipeline.Build(new CompareBundleTask(buildParams.UploadToOSS));  
+    pipeline.Build(new SyncBundleTask(buildParams));  
+    pipeline.Build(new WriteVersionTask());  
+    pipeline.Build(new SetupUpdateVersionTask(buildParams));  
+  
+    bool hasError = false;  
+    try  
+    {  
+        pipeline.Execute();  
+    }    catch (Exception e)  
+    {        UnityEngine.Debug.LogError($"[PIPELINE] Run pipeline {pipeline.Name} error, {e.ToString()}!");  
+        hasError = true;  
+    }  
+    if (buildParams.UploadToOSS)  
+    {        var result = pipeline.ReadBlackboard("UPLOAD_BUNDLE_RESULT") as string;  
+        if (result == "false")  
+        {            hasError = true;  
+        }    }  
+    _WriteExecuteResult(hasError ? 1 : 0);  
+}
+```
