@@ -622,6 +622,10 @@ public static void GenerateManifestFile(string outputDir, string oldVersion, str
 使用`gradlew.bat`构建Apk和AAB。Unity导出的安卓工程是没有该脚本的，可以通过安装[GradleWrapperGenerator]([gilzoide/unity-gradle-wrapper: Automatically generate Gradle Wrapper (gradlew) when exporting Android projects in Unity](https://github.com/gilzoide/unity-gradle-wrapper))插件，使得导出android工程后，自动生成gradlew。
 ![[Pasted image 20241121173807.png|560]]
 通过`gradlew.bat assembleDebug`命令，可以生成Debug模式的Apk。通过`gradlew.bat bundleDebug`可以生成Debug模式的AAB。
-## 打包中的文件设计
-
+## 打包中的文件（夹）设计
+### Unity工程中的文件夹结构
+在Assets文件夹上层，新增一个Version文件夹
+![[Pasted image 20241121200843.png|520]]
+Version文件夹中，会根据渠道名，分别存放该渠道的三个功能性文件，因为打包和发布是分成了两个Job来处理，整个
+### 资源服文件夹结构
 
