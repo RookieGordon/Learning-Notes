@@ -274,6 +274,36 @@ endlocal
 由于SDK（三方库），可能会需要通过jenkins指定参数，因此需要一种途径将这些参数传递给runtime，另外涉及到文件复制，还需要有地方指定路径。
 考虑到透传参数的不确定，因此考虑用Json将参数存到本地，同时Jenkins上，采用多行参数，填写SDK的参数，设计成列表形式，支持多个三方库同时导入。
 前处理放在了.net工程中，不和Unity有交互。
+### SDK参数处理
+```CSharp
+public static int ParseSDKParam(string projectPath, string filePath, out Dictionary<string, Object> dicCfgs)  
+{  
+    dicCfgs = null;  
+    if (string.IsNullOrEmpty(filePath))  
+    {        
+	    return 0;  
+    }  
+    try  
+    {  
+        var content = File.ReadAllText(filePath);  
+        var tempDict = JsonConvert.DeserializeObject<Dictionary<string, object>>(content);  
+        dicCfgs = new Dictionary<string, object>();  
+  
+        foreach (var kvp in tempDict)  
+        {            
+	        var objType = SDKCfgDefine.SDKCfgTypeDict[kvp.Key];  
+            Console.WriteLine($"[BUILD] ParseSDKParam, {kvp.Key} ==> {kvp.Value.ToString()}");  
+            dicCfgs[kvp.Key] = JsonConvert.DeserializeObject(kvp.Value.ToString(), objType);  
+        }    
+    }    
+    catch (Exception e)  
+    {        
+	    Console.WriteLine($"[BUILD] Parse SDKParam error, {e.Message}");  
+        return -1;  
+    }  
+    return 0;  
+}
+```
 对于每个SDK（三方库）设计一个类，用于存放参数和指定操作：
 ```CSharp
 [PluginsCopy("SDK/Bugly")]  
