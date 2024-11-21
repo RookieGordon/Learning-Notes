@@ -102,18 +102,35 @@ private void _LoadMetadataForAOTAssemblies()
     // 热更新dll不缺元数据，不需要补充，如果调用LoadMetadataForAOTAssembly会返回错误  
     HomologousImageMode mode = HomologousImageMode.SuperSet;  
     foreach (var aotDllName in _listAOTMetaAssemblyFiles)  
-    {        byte[] dllBytes = _ReadBytesFromStreamingAssets(aotDllName);  
+    {        
+	    byte[] dllBytes = _ReadBytesFromStreamingAssets(aotDllName);  
         // 加载assembly对应的dll，会自动为它hook。一旦aot泛型函数的native函数不存在，用解释器版本代码  
-        LoadImageErrorCode err = RuntimeApi.LoadMetadataForAOTAssembly(dllBytes, mode);  
+		LoadImageErrorCode err = 
+					RuntimeApi.LoadMetadataForAOTAssembly(dllBytes, mode);  
         Debug.Log($"LoadMetadataForAOTAssembly:{aotDllName}. mode:{mode} ret:{err}");  
     }}  
   
 private byte[] _ReadBytesFromStreamingAssets(string dllName)  
 {  
     if (this._dicAssetDatas.TryGetValue(dllName, out var asset))  
-    {        return asset.bytes;  
+    {        
+	    return asset.bytes;  
     }  
     return Array.Empty<byte>();  
 }
 ```
 
+# 打包流程
+整合HybridCLR和YooAsset提供的工具面板的功能，参考
+
+```cardlink
+url: https://github.com/JoinEnjoyJoyYangLingYun/HybridCLR_YooAsset_UniTask
+title: "GitHub - JoinEnjoyJoyYangLingYun/HybridCLR_YooAsset_UniTask: 整合HybridCLR+YooAsset+UniTask工程"
+description: "整合HybridCLR+YooAsset+UniTask工程. Contribute to JoinEnjoyJoyYangLingYun/HybridCLR_YooAsset_UniTask development by creating an account on GitHub."
+host: github.com
+favicon: https://github.githubassets.com/favicons/favicon.svg
+image: https://opengraph.githubassets.com/a3934a09c3cc83c527bbea5cdad457f0ee15b686e15afe9b086a3b7127d461d4/JoinEnjoyJoyYangLingYun/HybridCLR_YooAsset_UniTask
+```
+参考了YooAsset打Bundle的代码，设计了一个简陋的管线流程`Pipeline`，将打包的各个步骤，串联成一个管线流程。
+## Jenkins打包参数传递
+`BuildParameters`d
