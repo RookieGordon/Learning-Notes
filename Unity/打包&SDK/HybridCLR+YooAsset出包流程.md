@@ -404,6 +404,6 @@ public static void BuildWholeApk()
     _WriteExecuteResult(hasError ? 1 : 0);  
 }
 ```
-#### YooAsset构建Bundle
-
-目前来说，YooAsset构建AssetBundle的粒度取决于
+#### YooAsset构建AssetBundle
+某些情况下，我们需要构建整包，即将构建的A
+目前来说，YooAsset构建Asset，Bundle的粒度取决于
