@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "5cf6326b2d29b587",
+        "id": "9c216c65ebdd08d8",
         "type": "tabs",
         "children": [
           {
-            "id": "1bd5a7f1caaab2e8",
+            "id": "d1e5226bcb914e38",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -52,7 +52,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:todo",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -77,7 +77,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 285,
+    "width": 549.5,
     "collapsed": true
   },
   "right": {
@@ -187,18 +187,19 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "6490a2fd7323267e",
+  "active": "d1e5226bcb914e38",
   "lastOpenFiles": [
+    "Unity/打包&SDK/Fackbook接入.md",
+    "C++/容器、算法和迭代器.md",
+    "Slurped Pages/【游戏开发进阶】教你Unity通过Jenkins实现自动化打包，打包这种事情就交给策划了（保姆级教程 - 命令行打包 - 自动构建）_unity jenkins 自动打包-CSDN博客.md",
+    "Unity/打包&SDK/HybridCLR+YooAsset出包流程.md",
     "Unity/打包&SDK/attachments/Pasted image 20241121155016.png",
     "Unity/打包&SDK/attachments",
     "记录/工作/工作日程/2024年11月.md",
-    "Unity/打包&SDK/HybridCLR+YooAsset出包流程.md",
     "记录/工作/Work Todo.md",
     "记录/工作/面试/2023年Unity面试题大全，共十万字面试题总结【收藏一篇足够面试，持续更新】_unity面试题2023-CSDN博客.md",
     "记录/工作/面试/60道计算机网络面试题(附答案，背诵版).md",
     "记录/工作/面试/【面试题】C#面试常见基础知识点整理(附示例代码)-CSDN博客.md",
-    "Unity/打包&SDK/Fackbook接入.md",
-    "C++/容器、算法和迭代器.md",
     "C++/模板.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/摄像机系统.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/面片与模型.md",
@@ -232,7 +233,6 @@
     "Unity/打包&SDK/YooAsset/attachments/AddReferenceBundleName(bundleName).png",
     "Unity/战斗/attachments/EntityManager.Update(realtimeSinceBattleStartup, p_fix64DeltaTime)2.png",
     "Unity/战斗/attachments/Update(realtimeSinceBattleStartup, p_fix64DeltaTime).png",
-    "Unity/战斗/attachments/BattleHeroChestManager.Update(realtimeSinceBattleStartup, p_fix64DeltaTime).png",
     "收藏夹/attachments",
     "Unity/网络编程/UDP可靠性封装",
     "Unity/打包&SDK/YooAsset/attachments",

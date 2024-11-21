@@ -124,6 +124,14 @@ private byte[] _ReadBytesFromStreamingAssets(string dllName)
 整合HybridCLR和YooAsset提供的工具面板的功能，参考
 
 ```cardlink
+url: https://blog.csdn.net/capricorn1245/article/details/139990520
+title: "Unity热更新方案HybridCLR+YooAsset，从零开始，保姆级教程，纯c#开发热更_unity yooasset-CSDN博客"
+description: "文章浏览阅读9.5k次，点赞61次，收藏125次。Unity热更，HybirdCLR热更，YooAsset热更，保姆级教程，从零开始_unity yooasset"
+host: blog.csdn.net
+```
+
+
+```cardlink
 url: https://github.com/JoinEnjoyJoyYangLingYun/HybridCLR_YooAsset_UniTask
 title: "GitHub - JoinEnjoyJoyYangLingYun/HybridCLR_YooAsset_UniTask: 整合HybridCLR+YooAsset+UniTask工程"
 description: "整合HybridCLR+YooAsset+UniTask工程. Contribute to JoinEnjoyJoyYangLingYun/HybridCLR_YooAsset_UniTask development by creating an account on GitHub."
@@ -346,7 +354,8 @@ public string ReviewResServerURL;
 public static void BuildWholeApk()  
 {  
     if (!BuildHelper.CheckBuildTarget(BuildTarget.Android))  
-    {        _WriteExecuteResult(1);  
+    {        
+	    _WriteExecuteResult(1);  
         return;  
     }  
     var buildParams = BuildTool._ParseArguments();  
@@ -355,6 +364,7 @@ public static void BuildWholeApk()
 	    _WriteExecuteResult(1);  
         return;  
     }  
+    
     var pipeline = new Pipeline();  
     pipeline.Name = "Build Whole Android";  
     pipeline.Build(new UpdateLocalVersionTask(buildParams.AppVersion, buildParams.Channel, true));  
@@ -376,15 +386,24 @@ public static void BuildWholeApk()
     try  
     {  
         pipeline.Execute();  
-    }    catch (Exception e)  
-    {        UnityEngine.Debug.LogError($"[PIPELINE] Run pipeline {pipeline.Name} error, {e.ToString()}!");  
+    }    
+    catch (Exception e)  
+    {        
+	    UnityEngine.Debug.LogError($"[PIPELINE] Run pipeline {pipeline.Name} error, {e.ToString()}!");  
         hasError = true;  
     }  
+    
     if (buildParams.UploadToOSS)  
-    {        var result = pipeline.ReadBlackboard("UPLOAD_BUNDLE_RESULT") as string;  
+    {        
+	    var result = pipeline.ReadBlackboard("UPLOAD_BUNDLE_RESULT") as string;  
         if (result == "false")  
-        {            hasError = true;  
-        }    }  
+        {            
+	        hasError = true;  
+        }    
+    }  
     _WriteExecuteResult(hasError ? 1 : 0);  
 }
 ```
+#### YooAsset构建Bundle
+
+目前来说，YooAsset构建AssetBundle的粒度取决于
