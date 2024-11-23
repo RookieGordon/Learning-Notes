@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Unity/打包&SDK/HybridCLR+YooAsset出包流程.md",
-                "mode": "preview",
+                "file": "Unity/打包&SDK/埋点系统设计.md",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "HybridCLR+YooAsset出包流程"
+              "title": "埋点系统设计"
             }
           }
         ]
@@ -137,10 +137,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Unity/打包&SDK/HybridCLR+YooAsset出包流程.md"
+                "file": "Unity/打包&SDK/埋点系统设计.md"
               },
               "icon": "lucide-list",
-              "title": "HybridCLR+YooAsset出包流程 的大纲"
+              "title": "埋点系统设计 的大纲"
             }
           },
           {
@@ -189,8 +189,8 @@
   },
   "active": "d1e5226bcb914e38",
   "lastOpenFiles": [
-    "Unity/打包&SDK/HybridCLR&YooAsset/HybridCLR+YooAsset热更框架.md",
     "Unity/打包&SDK/HybridCLR+YooAsset出包流程.md",
+    "Unity/打包&SDK/HybridCLR&YooAsset/HybridCLR+YooAsset热更框架.md",
     "Unity/打包&SDK/埋点系统设计.md",
     "Unity/打包&SDK/Fackbook接入.md",
     "Unity/打包&SDK/attachments/Pasted image 20241121201546.png",
