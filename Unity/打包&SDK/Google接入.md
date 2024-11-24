@@ -33,7 +33,8 @@ PlayerSettings.Android.keystorePass = "q1.com.123";
 PlayerSettings.Android.keyaliasName = "key0";  
 PlayerSettings.Android.keyaliasPass = "q1.com.123";  
 ```
-这样，导出的工程里面，
+这样，导出的工程里面，build.gradle文件中，就会包含密钥信息，可以直接出AAB或APK。
+![[Pasted image 20241124112151.png|540]]
 # Google内购
 
 ```cardlink
