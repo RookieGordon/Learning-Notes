@@ -43,8 +43,13 @@ title: "Android aab的打包、调试、安装_.aab-CSDN博客"
 description: "文章浏览阅读3w次，点赞15次，收藏50次。前言Google Play在今年3月发出了一个 Google Play新政策通知，即在今年8月后新应用必须以 API 级别 30 (Android 11) 为目标平台，并使用 Android App Bundle（aab）发布格式，对于现有应用是不受强制影响的。如果我没记错的话，早在18年Google就已经提出了aab这个东西，那么对于这次提到的Android APP Bundle直接带来的好处也是清晰明了的，我直接给撸过来了：Android App Bundle：Google Play 使用_.aab"
 host: blog.csdn.net
 ```
-
-`
+可以使用以下命令：
+`java -jar bundletool-all-1.17.2.jar build-apks --bundle aab包地址 --output apks输出地址 --ks=keystore地址 --ks-pass=pass:密码 --ks-key-alias=密钥别名 --key-pass=pass:别名密码 --mode=universal
+注意：
+- 需要`bundletool`工具，如果没有，可以前往[官方地址下载]([Releases · google/bundletool](https://github.com/google/bundletool/releases))。
+- aab地址和apks地址，前面可能需要加`=`，改为`--bundle=E:/Test/my.aab`，不过如果aab和bundletool放一起，就不用了。
+拿到APKS文件后，后缀改成zip解压即可
+## 密钥加密
 
 # Google内购
 
