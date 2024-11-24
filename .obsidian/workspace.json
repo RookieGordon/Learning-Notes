@@ -77,7 +77,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 275.5
+    "width": 275.5,
+    "collapsed": true
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -189,6 +190,8 @@
   },
   "active": "d1e5226bcb914e38",
   "lastOpenFiles": [
+    "Unity/打包&SDK/attachments/Pasted image 20241124110409.png",
+    "Unity/打包&SDK/attachments/Pasted image 20241124110349.png",
     "Unity/打包&SDK/Fackbook接入.md",
     "Unity/打包&SDK/Google接入.md",
     "记录/工作/工作日程/2024年11月.md",
@@ -223,13 +226,11 @@
     "【Unity技术美术】URP Shader训练营/自定义PBR-Shader.md",
     "【Unity技术美术】URP Shader训练营/【Unity技术美术】URP Shader训练营.md",
     "数据结构/排序算法.md",
-    "数据结构/二叉查找树.md",
     "未命名.canvas",
     "记录/工作/工作日程",
     "记录/工作",
     "记录",
     "Unity/踩坑记录/attachments/Pasted image 20240928173626.png",
-    "Unity/踩坑记录/attachments/Pasted image 20240928172317.png",
     "Unity/踩坑记录/attachments",
     "Unity/踩坑记录/粒子特效",
     "Unity/踩坑记录",

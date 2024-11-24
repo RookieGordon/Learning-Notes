@@ -11,10 +11,15 @@ description: "文章浏览阅读1.2w次，点赞44次，收藏60次。本文主�
 host: blog.csdn.net
 ```
 
-# Apk签名、密钥
-## 上传签名
-
+# AAB签名、密钥
+上传google play的应用必须以aab格式，aab的签名流程要比之前apk的复杂一些。需要上传密钥和应用签名密钥两个密钥。
+上传密钥和签名密钥都可以使用Android Studio来生成
+## 上传密钥
+![[Pasted image 20241124110349.png|350]]
+![[Pasted image 20241124110409.png|350]]
+上传密钥，后缀名是`.jks`
 ## 应用签名
+应用签名密钥生成步骤和上传密钥一致，不过后缀名是`.keystore`。要使用该密钥给应用签名的话，可以通过Android Studio手动出AAB签名。
 
 # Google内购
 
