@@ -12,6 +12,10 @@ host: blog.csdn.net
 ```
 
 # Apk签名、密钥
+## 上传签名
+
+## 应用签名
+
 # Google内购
 
 ```cardlink
