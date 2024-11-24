@@ -19,8 +19,21 @@ host: blog.csdn.net
 ![[Pasted image 20241124110409.png|350]]
 上传密钥，后缀名是`.jks`
 ## 应用签名
-应用签名密钥生成步骤和上传密钥一致，不过后缀名是`.keystore`。要使用该密钥给应用签名的话，可以通过Android Studio手动出AAB签名。
-
+应用签名密钥生成步骤和上传密钥一致，不过后缀名是`.keystore`。
+要使用该密钥给应用签名的话，可以通过Android Studio手动出AAB签名。
+![[Pasted image 20241124111358.png|420]]
+![[Pasted image 20241124111428.png|400]]
+因为是Untiy导出的Android工程，因此也可以在Unity中配置应用签名密钥
+![[Pasted image 20241124111702.png|410]]
+或者通过代码设置
+```CSharp
+PlayerSettings.Android.useCustomKeystore = true;  
+PlayerSettings.Android.keystoreName = Path.Combine(BuildDefine.BuildToolDir, "AppKey/app_signing_key.keystore");  
+PlayerSettings.Android.keystorePass = "q1.com.123";  
+PlayerSettings.Android.keyaliasName = "key0";  
+PlayerSettings.Android.keyaliasPass = "q1.com.123";  
+```
+这样，导出的工程里面，
 # Google内购
 
 ```cardlink
