@@ -37,7 +37,14 @@ PlayerSettings.Android.keyaliasPass = "q1.com.123";
 这样，导出的工程里面，build.gradle文件中，就会包含密钥信息，可以直接出AAB或APK。
 ![[Pasted image 20241124112151.png|540]]
 ### 验证签名
+```cardlink
+url: https://blog.csdn.net/qq_39420519/article/details/118554055
+title: "Android aab的打包、调试、安装_.aab-CSDN博客"
+description: "文章浏览阅读3w次，点赞15次，收藏50次。前言Google Play在今年3月发出了一个 Google Play新政策通知，即在今年8月后新应用必须以 API 级别 30 (Android 11) 为目标平台，并使用 Android App Bundle（aab）发布格式，对于现有应用是不受强制影响的。如果我没记错的话，早在18年Google就已经提出了aab这个东西，那么对于这次提到的Android APP Bundle直接带来的好处也是清晰明了的，我直接给撸过来了：Android App Bundle：Google Play 使用_.aab"
+host: blog.csdn.net
+```
 
+`
 
 # Google内购
 
