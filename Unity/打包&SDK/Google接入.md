@@ -50,7 +50,8 @@ host: blog.csdn.net
 - aab地址和apks地址，前面可能需要加`=`，改为`--bundle=E:/Test/my.aab`，不过如果aab和bundletool放一起，就不用了。
 拿到APKS文件后，后缀改成zip解压即可
 ## 密钥加密
-
+一般需使用加密公钥（`encryption_public_key.pem`）对签名密钥进行加密。加密公钥可以在`Google play console`上面下载。使用以下命令，对密钥进行加密：
+`java -jar pepk.jar --keystore=keystore路径 --alias=密钥别名 --output=output.zip --include-cert --rsa-aes-encryption --encryption-key-path=pem公钥路径`
 # Google内购
 
 ```cardlink
