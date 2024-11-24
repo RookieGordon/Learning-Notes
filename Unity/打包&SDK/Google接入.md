@@ -14,12 +14,13 @@ host: blog.csdn.net
 # AAB签名、密钥
 上传google play的应用必须以aab格式，aab的签名流程要比之前apk的复杂一些。需要上传密钥和应用签名密钥两个密钥。
 上传密钥和签名密钥都可以使用Android Studio来生成
-## 上传密钥
+## 上传密钥和应用签名密钥
 ![[Pasted image 20241124110349.png|350]]
 ![[Pasted image 20241124110409.png|350]]
-上传密钥，后缀名是`.jks`
-## 应用签名
+上传密钥，后缀名是`.jks`。
 应用签名密钥生成步骤和上传密钥一致，不过后缀名是`.keystore`。
+## 应用签名
+### 使用密钥给应用签名
 要使用该密钥给应用签名的话，可以通过Android Studio手动出AAB签名。
 ![[Pasted image 20241124111358.png|420]]
 ![[Pasted image 20241124111428.png|400]]
@@ -35,6 +36,9 @@ PlayerSettings.Android.keyaliasPass = "q1.com.123";
 ```
 这样，导出的工程里面，build.gradle文件中，就会包含密钥信息，可以直接出AAB或APK。
 ![[Pasted image 20241124112151.png|540]]
+### 验证签名
+
+
 # Google内购
 
 ```cardlink
