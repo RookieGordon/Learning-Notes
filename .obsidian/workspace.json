@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Unity/打包&SDK/Fackbook接入.md",
+                "file": "记录/工作/工作日程/2024年11月.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Fackbook接入"
+              "title": "2024年11月"
             }
           }
         ]
@@ -137,10 +137,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Unity/打包&SDK/Fackbook接入.md"
+                "file": "记录/工作/工作日程/2024年11月.md"
               },
               "icon": "lucide-list",
-              "title": "Fackbook接入 的大纲"
+              "title": "2024年11月 的大纲"
             }
           },
           {
@@ -187,8 +187,9 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "f8a7eda2a99735cf",
+  "active": "d1e5226bcb914e38",
   "lastOpenFiles": [
+    "Unity/打包&SDK/Fackbook接入.md",
     "Unity/打包&SDK/Google接入.md",
     "Unity/打包&SDK/attachments/Pasted image 20241124112151.png",
     "Unity/打包&SDK/attachments/Pasted image 20241124111702.png",
@@ -196,7 +197,6 @@
     "Unity/打包&SDK/attachments/Pasted image 20241124111358.png",
     "Unity/打包&SDK/attachments/Pasted image 20241124110409.png",
     "Unity/打包&SDK/attachments/Pasted image 20241124110349.png",
-    "Unity/打包&SDK/Fackbook接入.md",
     "记录/工作/工作日程/2024年11月.md",
     "记录/工作/Work Todo.md",
     "Unity/打包&SDK/埋点系统设计.md",
