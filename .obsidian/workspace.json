@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Unity/打包&SDK/埋点系统设计.md",
+                "file": "记录/工作/工作日程/2024年11月.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "埋点系统设计"
+              "title": "2024年11月"
             }
           }
         ]
@@ -189,11 +189,11 @@
   },
   "active": "d1e5226bcb914e38",
   "lastOpenFiles": [
-    "Unity/打包&SDK/Google接入.md",
-    "Unity/打包&SDK/Fackbook接入.md",
-    "Unity/打包&SDK/埋点系统设计.md",
     "记录/工作/Work Todo.md",
     "记录/工作/工作日程/2024年11月.md",
+    "Unity/打包&SDK/埋点系统设计.md",
+    "Unity/打包&SDK/Google接入.md",
+    "Unity/打包&SDK/Fackbook接入.md",
     "Unity/打包&SDK/attachments/Pasted image 20241124112151.png",
     "Unity/打包&SDK/attachments/Pasted image 20241124111702.png",
     "Unity/打包&SDK/attachments/Pasted image 20241124111428.png",
