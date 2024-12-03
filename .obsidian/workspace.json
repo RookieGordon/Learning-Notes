@@ -184,9 +184,7 @@
       "markdown-table-editor:Open Markdown Table Editor": false,
       "pdf-plus:PDF++: Toggle auto-copy": false,
       "pdf-plus:PDF++: Toggle auto-focus": false,
-      "pdf-plus:PDF++: Toggle auto-paste": false,
-      "vscode-editor:新建代码文件": false,
-      "code-files:Create Code File": false
+      "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
   "active": "d5f584eeed55f667",
