@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Unity/战斗/四叉树.md",
+                "file": "Unity/打包&SDK/HybridCLR+YooAsset出包流程.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "四叉树"
+              "title": "HybridCLR+YooAsset出包流程"
             }
           }
         ]
@@ -184,14 +184,16 @@
       "markdown-table-editor:Open Markdown Table Editor": false,
       "pdf-plus:PDF++: Toggle auto-copy": false,
       "pdf-plus:PDF++: Toggle auto-focus": false,
-      "pdf-plus:PDF++: Toggle auto-paste": false
+      "pdf-plus:PDF++: Toggle auto-paste": false,
+      "vscode-editor:新建代码文件": false
     }
   },
   "active": "d5f584eeed55f667",
   "lastOpenFiles": [
+    "Unity/战斗/帧同步战斗.md",
+    "Unity/战斗/四叉树.md",
     "My code file.ts",
     "My Code File.cs",
-    "Unity/战斗/四叉树.md",
     "My code file.cs",
     "Unity/战斗/attachments/SearchManager.Update(realtimeSinceBattleStartup, p_fix64DeltaTime).png",
     "Unity/战斗/attachments/Step.png",
@@ -204,7 +206,6 @@
     "Unity/战斗/attachments/IQuadTree.cs",
     "Unity/战斗/attachments/InsertRetType.cs",
     "Unity/战斗/attachments/QuadTree.cs",
-    "Unity/战斗/帧同步战斗.md",
     "Slurped Pages/红黑树（图解+秒懂+史上最全） - 疯狂创客圈 - 博客园.md",
     "记录/工作/Work Todo.md",
     "记录/工作/工作日程/2024年.md",
@@ -224,7 +225,6 @@
     "GradleWrapperGenerator.md",
     "C++/容器、算法和迭代器.md",
     "Slurped Pages/【游戏开发进阶】教你Unity通过Jenkins实现自动化打包，打包这种事情就交给策划了（保姆级教程 - 命令行打包 - 自动构建）_unity jenkins 自动打包-CSDN博客.md",
-    "Unity/打包&SDK/attachments",
     "记录/工作/面试/2023年Unity面试题大全，共十万字面试题总结【收藏一篇足够面试，持续更新】_unity面试题2023-CSDN博客.md",
     "记录/工作/面试/60道计算机网络面试题(附答案，背诵版).md",
     "记录/工作/面试/【面试题】C#面试常见基础知识点整理(附示例代码)-CSDN博客.md",
