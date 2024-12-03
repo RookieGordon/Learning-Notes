@@ -20,16 +20,6 @@
               "icon": "lucide-file",
               "title": "四叉树"
             }
-          },
-          {
-            "id": "b567a432292654f2",
-            "type": "leaf",
-            "state": {
-              "type": "empty",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "新标签页"
-            }
           }
         ]
       }
@@ -195,13 +185,15 @@
       "pdf-plus:PDF++: Toggle auto-copy": false,
       "pdf-plus:PDF++: Toggle auto-focus": false,
       "pdf-plus:PDF++: Toggle auto-paste": false,
-      "vscode-editor:新建代码文件": false
+      "vscode-editor:新建代码文件": false,
+      "code-files:Create Code File": false
     }
   },
-  "active": "f8a7eda2a99735cf",
+  "active": "d5f584eeed55f667",
   "lastOpenFiles": [
-    "Unity/战斗/四叉树.md",
     "My code file.ts",
+    "My Code File.cs",
+    "Unity/战斗/四叉树.md",
     "My code file.cs",
     "Unity/战斗/attachments/SearchManager.Update(realtimeSinceBattleStartup, p_fix64DeltaTime).png",
     "Unity/战斗/attachments/Step.png",
