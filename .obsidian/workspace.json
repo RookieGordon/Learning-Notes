@@ -11,12 +11,14 @@
             "id": "c45360da9b0991e5",
             "type": "leaf",
             "state": {
-              "type": "vscode-editor",
+              "type": "markdown",
               "state": {
-                "file": "数据结构/空间加速（四叉树）/QuadTree/QuadTree.cs"
+                "file": "数据结构/空间加速（四叉树）/四叉树.md",
+                "mode": "preview",
+                "source": false
               },
               "icon": "lucide-file",
-              "title": "QuadTree"
+              "title": "四叉树"
             }
           }
         ]
@@ -186,15 +188,16 @@
       "vscode-editor:新建代码文件": false
     }
   },
-  "active": "f8a7eda2a99735cf",
+  "active": "c45360da9b0991e5",
   "lastOpenFiles": [
-    "数据结构/空间加速（四叉树）/四叉树.md",
-    "数据结构/空间加速（四叉树）/QuadTree/QuadTree.cs",
     "数据结构/空间加速（四叉树）/QuadTree/QTUtils.cs",
+    "数据结构/空间加速（四叉树）/QuadTree/QTAABB.cs",
     "数据结构/空间加速（四叉树）/QuadTree/QT_SAS.cs",
-    "数据结构/空间加速（四叉树）/QuadTree/ListPool.cs",
     "数据结构/空间加速（四叉树）/QuadTree/IQuadTree.cs",
     "数据结构/空间加速（四叉树）/QuadTree/InsertRetType.cs",
+    "数据结构/空间加速（四叉树）/QuadTree/QuadTree.cs",
+    "数据结构/空间加速（四叉树）/四叉树.md",
+    "数据结构/空间加速（四叉树）/QuadTree/ListPool.cs",
     "数据结构/空间加速（四叉树）/QuadTree",
     "数据结构/空间加速（四叉树）/新建文件夹",
     "数据结构/空间加速（四叉树）/QTUtils.cs",

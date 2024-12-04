@@ -1,4 +1,4 @@
-﻿// jave.lin 2024/09/16
+// jave.lin 2024/09/16
 
 // jave.lin :
 // [打开] 开启 Profiler sample 的话
