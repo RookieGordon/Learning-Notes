@@ -77,8 +77,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 353.5,
-    "collapsed": true
+    "width": 353.5
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -189,8 +188,10 @@
       "vscode-editor:新建代码文件": false
     }
   },
-  "active": "d5f584eeed55f667",
+  "active": "f8a7eda2a99735cf",
   "lastOpenFiles": [
+    "记录/工作/工作日程/2024年.md",
+    "Excalidraw/Drawing 2024-12-04 11.23.00.excalidraw.md",
     "Unity/打包&SDK/埋点系统设计.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/高级渲染管线功能.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/计算机图形学—从0开始构建一个OpenGL软光栅.md",
@@ -214,7 +215,6 @@
     "Unity/战斗/attachments/QuadTree.cs",
     "Slurped Pages/红黑树（图解+秒懂+史上最全） - 疯狂创客圈 - 博客园.md",
     "记录/工作/Work Todo.md",
-    "记录/工作/工作日程/2024年.md",
     "Unity/网络编程/2.6 TCP与UDP的可靠性传输_tcp udp 可靠传输-CSDN博客.md",
     "记录/工作/工作日程/2024年12月.md",
     "Unity/打包&SDK/Google接入.md",
@@ -236,7 +236,6 @@
     "计算机图形学—从0开始构建一个OpenGL软光栅/摄像机系统.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/面片与模型.md",
     "C++/内存管理.md",
-    "C++/类和对象.md",
     "未命名.canvas",
     "C++/C++.canvas",
     "计算机图形学—从0开始构建一个OpenGL软光栅/从0开始构建OpenGL软光栅.canvas"
