@@ -17,5 +17,8 @@
   "obsidian-reminder-plugin",
   "obsidian-checklist-plugin",
   "obsidian-advanced-codeblock",
-  "vscode-editor"
+  "vscode-editor",
+  "timelines-revamped",
+  "dataview",
+  "dbfolder"
 ]
