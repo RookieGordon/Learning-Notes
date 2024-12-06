@@ -187,10 +187,10 @@
       "dbfolder:创建一个新数据库表": false
     }
   },
-  "active": "f8a7eda2a99735cf",
+  "active": "c7c8814ef6250b16",
   "lastOpenFiles": [
-    "未命名",
     "Task.md",
+    "任务看板",
     "Unity/打包&SDK/HybridCLR+YooAsset出包流程.md",
     "记录/工作/工作日程/2024年.md",
     "记录/工作/Work Todo.md",
@@ -205,7 +205,6 @@
     "数据结构/空间加速（四叉树）/QuadTree/ListPool.cs",
     "数据结构/空间加速（四叉树）/QuadTree",
     "数据结构/空间加速（四叉树）/新建文件夹",
-    "数据结构/空间加速（四叉树）/QTUtils.cs",
     "Unity/打包&SDK/attachments/Pasted image 20241124112151.png",
     "Excalidraw/Drawing 2024-12-04 11.23.00.excalidraw.md",
     "Unity/打包&SDK/埋点系统设计.md",
