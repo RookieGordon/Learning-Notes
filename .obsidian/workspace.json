@@ -11,10 +11,14 @@
             "id": "c7c8814ef6250b16",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "记录/工作/工作日程/2024年.md",
+                "mode": "preview",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "新标签页"
+              "title": "2024年"
             }
           }
         ]
