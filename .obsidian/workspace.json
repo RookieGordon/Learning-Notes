@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "06f89a3851105ce8",
+        "id": "eee43561354af3b5",
         "type": "tabs",
         "children": [
           {
-            "id": "c7c8814ef6250b16",
+            "id": "d462eef769270d78",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -191,14 +191,18 @@
       "dbfolder:创建一个新数据库表": false
     }
   },
-  "active": "c7c8814ef6250b16",
+  "active": "d462eef769270d78",
   "lastOpenFiles": [
+    "Excalidraw/Drawing 2024-12-04 11.23.00.excalidraw.md",
+    "Excalidraw/Map.md",
+    "Excalidraw/Scripts/Downloaded/Relative Font Size Cycle.svg",
+    "Excalidraw/Scripts/Downloaded/Relative Font Size Cycle.md",
+    "记录/工作/工作日程/2024年.md",
+    "数据结构/空间加速（四叉树）/四叉树.md",
+    "记录/工作/Work Todo.md",
     "Task.md",
     "任务看板",
     "Unity/打包&SDK/HybridCLR+YooAsset出包流程.md",
-    "记录/工作/工作日程/2024年.md",
-    "记录/工作/Work Todo.md",
-    "数据结构/空间加速（四叉树）/四叉树.md",
     "Slurped Pages/【算法】四叉树并集-腾讯云开发者社区-腾讯云.md",
     "数据结构/空间加速（四叉树）/QuadTree/QTUtils.cs",
     "数据结构/空间加速（四叉树）/QuadTree/QTAABB.cs",
@@ -210,7 +214,6 @@
     "数据结构/空间加速（四叉树）/QuadTree",
     "数据结构/空间加速（四叉树）/新建文件夹",
     "Unity/打包&SDK/attachments/Pasted image 20241124112151.png",
-    "Excalidraw/Drawing 2024-12-04 11.23.00.excalidraw.md",
     "Unity/打包&SDK/埋点系统设计.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/高级渲染管线功能.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/计算机图形学—从0开始构建一个OpenGL软光栅.md",
@@ -229,7 +232,6 @@
     "Unity/打包&SDK/attachments/Pasted image 20241124111428.png",
     "Unity/打包&SDK/attachments/Pasted image 20241124111358.png",
     "Unity/打包&SDK/attachments/Pasted image 20241124110409.png",
-    "Unity/打包&SDK/attachments/Pasted image 20241124110349.png",
     "Unity/打包&SDK/HybridCLR&YooAsset/HybridCLR+YooAsset热更框架.md",
     "GradleWrapperGenerator.md",
     "C++/容器、算法和迭代器.md",
@@ -237,7 +239,6 @@
     "记录/工作/面试/2023年Unity面试题大全，共十万字面试题总结【收藏一篇足够面试，持续更新】_unity面试题2023-CSDN博客.md",
     "记录/工作/面试/60道计算机网络面试题(附答案，背诵版).md",
     "记录/工作/面试/【面试题】C#面试常见基础知识点整理(附示例代码)-CSDN博客.md",
-    "C++/模板.md",
     "未命名.canvas",
     "C++/C++.canvas",
     "计算机图形学—从0开始构建一个OpenGL软光栅/从0开始构建OpenGL软光栅.canvas"
