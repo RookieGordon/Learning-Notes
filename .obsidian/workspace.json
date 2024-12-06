@@ -8,17 +8,13 @@
         "type": "tabs",
         "children": [
           {
-            "id": "c45360da9b0991e5",
+            "id": "c7c8814ef6250b16",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Unity/打包&SDK/HybridCLR+YooAsset出包流程.md",
-                "mode": "preview",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "HybridCLR+YooAsset出包流程"
+              "title": "新标签页"
             }
           }
         ]
@@ -191,8 +187,11 @@
       "dbfolder:创建一个新数据库表": false
     }
   },
-  "active": "c45360da9b0991e5",
+  "active": "f8a7eda2a99735cf",
   "lastOpenFiles": [
+    "未命名",
+    "Task.md",
+    "Unity/打包&SDK/HybridCLR+YooAsset出包流程.md",
     "记录/工作/工作日程/2024年.md",
     "记录/工作/Work Todo.md",
     "数据结构/空间加速（四叉树）/四叉树.md",
@@ -213,7 +212,6 @@
     "计算机图形学—从0开始构建一个OpenGL软光栅/高级渲染管线功能.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/计算机图形学—从0开始构建一个OpenGL软光栅.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/直线绘制.md",
-    "Unity/打包&SDK/HybridCLR+YooAsset出包流程.md",
     "Unity/战斗/帧同步战斗.md",
     "Unity/战斗/attachments/SearchManager.Update(realtimeSinceBattleStartup, p_fix64DeltaTime).png",
     "Unity/战斗/attachments/Step.png",
@@ -237,8 +235,6 @@
     "记录/工作/面试/60道计算机网络面试题(附答案，背诵版).md",
     "记录/工作/面试/【面试题】C#面试常见基础知识点整理(附示例代码)-CSDN博客.md",
     "C++/模板.md",
-    "计算机图形学—从0开始构建一个OpenGL软光栅/摄像机系统.md",
-    "计算机图形学—从0开始构建一个OpenGL软光栅/面片与模型.md",
     "未命名.canvas",
     "C++/C++.canvas",
     "计算机图形学—从0开始构建一个OpenGL软光栅/从0开始构建OpenGL软光栅.canvas"
