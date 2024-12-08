@@ -8,31 +8,20 @@
         "type": "tabs",
         "children": [
           {
-            "id": "d462eef769270d78",
-            "type": "leaf",
-            "state": {
-              "type": "excalidraw",
-              "state": {
-                "file": "Excalidraw/Map.md"
-              },
-              "icon": "excalidraw-icon",
-              "title": "Map"
-            }
-          },
-          {
             "id": "c14888b318f030ea",
             "type": "leaf",
             "state": {
-              "type": "excalidraw",
+              "type": "markdown",
               "state": {
-                "file": "Excalidraw/Drawing 2024-12-08 16.13.47.excalidraw.md"
+                "file": "数据结构/四叉树，场景管理/四叉树.md",
+                "mode": "preview",
+                "source": false
               },
-              "icon": "excalidraw-icon",
-              "title": "Drawing 2024-12-08 16.13.47.excalidraw"
+              "icon": "lucide-file",
+              "title": "四叉树"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -88,7 +77,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 353.5
+    "width": 353.5,
+    "collapsed": true
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -148,10 +138,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Excalidraw/Drawing 2024-12-08 16.13.47.excalidraw.md"
+                "file": "数据结构/四叉树，场景管理/四叉树.md"
               },
               "icon": "lucide-list",
-              "title": "Drawing 2024-12-08 16.13.47.excalidraw 的大纲"
+              "title": "四叉树 的大纲"
             }
           },
           {
@@ -204,10 +194,10 @@
   },
   "active": "c14888b318f030ea",
   "lastOpenFiles": [
-    "Excalidraw/Map.md",
-    "Excalidraw/Drawing 2024-12-08 16.13.47.excalidraw.md",
-    "Excalidraw/四叉树.svg",
+    "数据结构/四叉树，场景管理/四叉树构建思路.md",
     "数据结构/四叉树，场景管理/四叉树.md",
+    "Excalidraw/Map.md",
+    "Excalidraw/四叉树.svg",
     "数据结构/四叉树，场景管理/attachments/（图解1）四叉树示意图.png",
     "数据结构/四叉树，场景管理/attachments",
     "Excalidraw/Scripts/Downloaded/Relative Font Size Cycle.svg",
