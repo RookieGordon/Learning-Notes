@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "数据结构/空间加速（四叉树）/四叉树.md",
+                "file": "数据结构/四叉树，场景管理/四叉树.md",
                 "mode": "source",
                 "source": false
               },
@@ -77,7 +77,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 353.5
+    "width": 353.5,
+    "collapsed": true
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -137,10 +138,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "记录/工作/工作日程/2024年11月.md"
+                "file": "数据结构/四叉树，场景管理/四叉树.md"
               },
               "icon": "lucide-list",
-              "title": "2024年11月 的大纲"
+              "title": "四叉树 的大纲"
             }
           },
           {
@@ -193,26 +194,27 @@
   },
   "active": "d462eef769270d78",
   "lastOpenFiles": [
+    "数据结构/四叉树，场景管理/attachments/（图解1）四叉树示意图.png",
+    "数据结构/四叉树，场景管理/attachments",
     "Excalidraw/Scripts/Downloaded/Relative Font Size Cycle.svg",
     "Excalidraw/Scripts/Downloaded/Relative Font Size Cycle.md",
     "记录/工作/Work Todo.md",
     "记录/工作/工作日程/2024年.md",
     "Excalidraw/Drawing 2024-12-04 11.23.00.excalidraw.md",
     "Excalidraw/Map.md",
-    "数据结构/空间加速（四叉树）/四叉树.md",
+    "数据结构/四叉树，场景管理/四叉树.md",
     "Task.md",
     "任务看板",
     "Unity/打包&SDK/HybridCLR+YooAsset出包流程.md",
     "Slurped Pages/【算法】四叉树并集-腾讯云开发者社区-腾讯云.md",
-    "数据结构/空间加速（四叉树）/QuadTree/QTUtils.cs",
-    "数据结构/空间加速（四叉树）/QuadTree/QTAABB.cs",
-    "数据结构/空间加速（四叉树）/QuadTree/QT_SAS.cs",
-    "数据结构/空间加速（四叉树）/QuadTree/IQuadTree.cs",
-    "数据结构/空间加速（四叉树）/QuadTree/InsertRetType.cs",
-    "数据结构/空间加速（四叉树）/QuadTree/QuadTree.cs",
-    "数据结构/空间加速（四叉树）/QuadTree/ListPool.cs",
-    "数据结构/空间加速（四叉树）/QuadTree",
-    "数据结构/空间加速（四叉树）/新建文件夹",
+    "数据结构/四叉树，场景管理/QuadTree/QTUtils.cs",
+    "数据结构/四叉树，场景管理/QuadTree/QTAABB.cs",
+    "数据结构/四叉树，场景管理/QuadTree/QT_SAS.cs",
+    "数据结构/四叉树，场景管理/QuadTree/IQuadTree.cs",
+    "数据结构/四叉树，场景管理/QuadTree/InsertRetType.cs",
+    "数据结构/四叉树，场景管理/QuadTree/QuadTree.cs",
+    "数据结构/四叉树，场景管理/QuadTree/ListPool.cs",
+    "数据结构/四叉树，场景管理/QuadTree",
     "Unity/打包&SDK/attachments/Pasted image 20241124112151.png",
     "Unity/打包&SDK/埋点系统设计.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/高级渲染管线功能.md",
