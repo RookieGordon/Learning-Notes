@@ -11,12 +11,14 @@
             "id": "c14888b318f030ea",
             "type": "leaf",
             "state": {
-              "type": "vscode-editor",
+              "type": "markdown",
               "state": {
-                "file": "数据结构/字典树/AhoCorasick.cs"
+                "file": "记录/工作/工作日程/2024年.md",
+                "mode": "preview",
+                "source": false
               },
               "icon": "lucide-file",
-              "title": "AhoCorasick"
+              "title": "2024年"
             }
           },
           {
@@ -204,8 +206,8 @@
   },
   "active": "c14888b318f030ea",
   "lastOpenFiles": [
-    "数据结构/四叉树，场景管理/四叉树构建思路.md",
     "数据结构/字典树/AhoCorasick.cs",
+    "数据结构/四叉树，场景管理/四叉树构建思路.md",
     "数据结构/字典树/字典树——匹配字符.md",
     "记录/工作/工作日程/2024年.md",
     "数据结构/字典树",
