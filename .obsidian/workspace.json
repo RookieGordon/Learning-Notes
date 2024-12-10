@@ -89,8 +89,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 353.5,
-    "collapsed": true
+    "width": 353.5
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -206,6 +205,8 @@
   },
   "active": "c14888b318f030ea",
   "lastOpenFiles": [
+    "().md",
+    "记录/工作/工作日程/2024年.md",
     "数据结构/四叉树，场景管理/四叉树.md",
     "数据结构/四叉树，场景管理/四叉树构建思路.md",
     "Excalidraw/Map.md",
@@ -215,7 +216,6 @@
     "Excalidraw/Scripts/Downloaded/Relative Font Size Cycle.svg",
     "Excalidraw/Scripts/Downloaded/Relative Font Size Cycle.md",
     "记录/工作/Work Todo.md",
-    "记录/工作/工作日程/2024年.md",
     "Excalidraw/Drawing 2024-12-04 11.23.00.excalidraw.md",
     "Task.md",
     "任务看板",
@@ -251,7 +251,6 @@
     "C++/容器、算法和迭代器.md",
     "Slurped Pages/【游戏开发进阶】教你Unity通过Jenkins实现自动化打包，打包这种事情就交给策划了（保姆级教程 - 命令行打包 - 自动构建）_unity jenkins 自动打包-CSDN博客.md",
     "记录/工作/面试题/2023年Unity面试题大全，共十万字面试题总结【收藏一篇足够面试，持续更新】_unity面试题2023-CSDN博客.md",
-    "记录/工作/面试题/60道计算机网络面试题(附答案，背诵版).md",
     "未命名.canvas",
     "C++/C++.canvas",
     "计算机图形学—从0开始构建一个OpenGL软光栅/从0开始构建OpenGL软光栅.canvas"
