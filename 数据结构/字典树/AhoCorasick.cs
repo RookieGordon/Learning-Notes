@@ -24,14 +24,17 @@ class AhoCorasick
     private TrieNode Root = new TrieNode();
     private List<string> Patterns = new List<string>(); // 保存所有敏感词
 
-    
+    /// <summary>
+    /// 构建 Trie 树
+    /// </summary>
     public void AddPattern(string pattern)
     {
         TrieNode current = Root;
         foreach (char c in pattern)
         {
-            if (!current.Children.ContainsKey(c))
+            if (!current.Children.ContainsKey(c)) {
                 current.Children[c] = new TrieNode();
+            }
             current = current.Children[c];
         }
 
@@ -39,7 +42,9 @@ class AhoCorasick
         Patterns.Add(pattern);
     }
 
-    // 构建失败指针
+    /// <summary>
+    /// 构建失败指针
+    /// </summary>
     private void BuildFailurePointers()
     {
         Queue<TrieNode> queue = new Queue<TrieNode>();
@@ -59,13 +64,14 @@ class AhoCorasick
                 TrieNode child = kvp.Value;
 
                 TrieNode failure = current.FailPointer;
-                while (failure != null && !failure.Children.ContainsKey(c))
+                while (failure != null && !failure.Children.ContainsKey(c)) {
                     failure = failure.FailPointer;
+                }
 
                 child.FailPointer = (failure == null) ? Root : failure.Children[c];
-                if (child.FailPointer.Output != null)
+                if (child.FailPointer.Output != null) {
                     child.Output.AddRange(child.FailPointer.Output);
-
+                }
                 queue.Enqueue(child);
             }
         }
@@ -83,21 +89,25 @@ class AhoCorasick
             char c = input[i];
 
             // 移动失败指针直到匹配当前字符为止
-            while (current != null && !current.Children.ContainsKey(c))
+            while (current != null && !current.Children.ContainsKey(c)) {
                 current = current.FailPointer;
+            }
 
-            if (current == null)
+            if (current == null) {
                 current = Root;
-            else
+            } else {
                 current = current.Children[c];
+            }
 
             if (current.Output.Count > 0) // 找到敏感词
             {
                 foreach (int patternIndex in current.Output)
                 {
                     int start = i - Patterns[patternIndex].Length + 1; // 计算敏感词起始位置
-                    for (int j = start; j <= i; j++) // 敏感词替换为 *
+                    // 敏感词替换为 *
+                    for (int j = start; j <= i; j++) {
                         result[j] = '*';
+                    }
                 }
             }
         }
