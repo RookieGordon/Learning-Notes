@@ -13,7 +13,7 @@
             "state": {
               "type": "vscode-editor",
               "state": {
-                "file": "数据结构/字典树/AhoCorasick.cs"
+                "file": "数据结构/树/字典树/AhoCorasick.cs"
               },
               "icon": "lucide-file",
               "title": "AhoCorasick"
@@ -25,15 +25,16 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "数据结构/字典树/字典树——匹配字符.md",
+                "file": "数据结构/树/四叉树，场景管理/四叉树.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "字典树——匹配字符"
+              "title": "四叉树"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -89,8 +90,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 353.5,
-    "collapsed": true
+    "width": 353.5
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -150,10 +150,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "数据结构/字典树/AhoCorasick.cs"
+                "file": "数据结构/树/四叉树，场景管理/四叉树.md"
               },
               "icon": "lucide-list",
-              "title": "AhoCorasick 的大纲"
+              "title": "四叉树 的大纲"
             }
           },
           {
@@ -204,20 +204,22 @@
       "dbfolder:创建一个新数据库表": false
     }
   },
-  "active": "0bcd00a7ab5afa85",
+  "active": "0c91aed9717b7d44",
   "lastOpenFiles": [
-    "数据结构/字典树/字典树——匹配字符.md",
-    "数据结构/字典树/AhoCorasick.cs",
+    "数据结构/树/字典树/字典树——匹配字符.md",
+    "数据结构/树/树.md",
+    "数据结构/树/四叉树，场景管理/四叉树.md",
+    "数据结构/树/四叉树，场景管理/四叉树构建思路.md",
+    "数据结构/树",
+    "数据结构/树/字典树/AhoCorasick.cs",
     "记录/工作/Work Todo.md",
-    "数据结构/四叉树，场景管理/四叉树构建思路.md",
     "记录/工作/工作日程/2024年.md",
-    "数据结构/字典树",
+    "数据结构/树/字典树",
     "().md",
-    "数据结构/四叉树，场景管理/四叉树.md",
     "Excalidraw/Map.md",
     "Excalidraw/四叉树.svg",
-    "数据结构/四叉树，场景管理/attachments/（图解1）四叉树示意图.png",
-    "数据结构/四叉树，场景管理/attachments",
+    "数据结构/树/四叉树，场景管理/attachments/（图解1）四叉树示意图.png",
+    "数据结构/树/四叉树，场景管理/attachments",
     "Excalidraw/Scripts/Downloaded/Relative Font Size Cycle.svg",
     "Excalidraw/Scripts/Downloaded/Relative Font Size Cycle.md",
     "Excalidraw/Drawing 2024-12-04 11.23.00.excalidraw.md",
@@ -225,12 +227,11 @@
     "任务看板",
     "Unity/打包&SDK/HybridCLR+YooAsset出包流程.md",
     "Slurped Pages/【算法】四叉树并集-腾讯云开发者社区-腾讯云.md",
-    "数据结构/四叉树，场景管理/QuadTree/QTUtils.cs",
-    "数据结构/四叉树，场景管理/QuadTree/QTAABB.cs",
-    "数据结构/四叉树，场景管理/QuadTree/QT_SAS.cs",
-    "数据结构/四叉树，场景管理/QuadTree/IQuadTree.cs",
-    "数据结构/四叉树，场景管理/QuadTree/InsertRetType.cs",
-    "数据结构/四叉树，场景管理/QuadTree/QuadTree.cs",
+    "数据结构/树/四叉树，场景管理/QuadTree/QTUtils.cs",
+    "数据结构/树/四叉树，场景管理/QuadTree/QTAABB.cs",
+    "数据结构/树/四叉树，场景管理/QuadTree/QT_SAS.cs",
+    "数据结构/树/四叉树，场景管理/QuadTree/IQuadTree.cs",
+    "数据结构/树/四叉树，场景管理/QuadTree/InsertRetType.cs",
     "Unity/打包&SDK/attachments/Pasted image 20241124112151.png",
     "Unity/打包&SDK/埋点系统设计.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/高级渲染管线功能.md",
