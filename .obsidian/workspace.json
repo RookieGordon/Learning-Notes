@@ -25,12 +25,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "数据结构/树/四叉树，场景管理/四叉树.md",
+                "file": "数据结构/树/字典树/字典树——匹配字符.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "四叉树"
+              "title": "字典树——匹配字符"
             }
           }
         ],
@@ -90,7 +90,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 353.5
+    "width": 353.5,
+    "collapsed": true
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -150,10 +151,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "数据结构/树/四叉树，场景管理/四叉树.md"
+                "file": "数据结构/树/字典树/字典树——匹配字符.md"
               },
               "icon": "lucide-list",
-              "title": "四叉树 的大纲"
+              "title": "字典树——匹配字符 的大纲"
             }
           },
           {
@@ -206,12 +207,16 @@
   },
   "active": "0c91aed9717b7d44",
   "lastOpenFiles": [
-    "数据结构/树/字典树/字典树——匹配字符.md",
+    "数据结构/树/字典树/attachments/（图解1）字典树.png",
+    "数据结构/树/字典树/attachments",
     "数据结构/树/树.md",
+    "数据结构/树/字典树/AhoCorasick.cs",
     "数据结构/树/四叉树，场景管理/四叉树.md",
+    "数据结构/树/红黑树",
+    "数据结构/树/二叉树",
+    "数据结构/树/字典树/字典树——匹配字符.md",
     "数据结构/树/四叉树，场景管理/四叉树构建思路.md",
     "数据结构/树",
-    "数据结构/树/字典树/AhoCorasick.cs",
     "记录/工作/Work Todo.md",
     "记录/工作/工作日程/2024年.md",
     "数据结构/树/字典树",
@@ -229,9 +234,6 @@
     "Slurped Pages/【算法】四叉树并集-腾讯云开发者社区-腾讯云.md",
     "数据结构/树/四叉树，场景管理/QuadTree/QTUtils.cs",
     "数据结构/树/四叉树，场景管理/QuadTree/QTAABB.cs",
-    "数据结构/树/四叉树，场景管理/QuadTree/QT_SAS.cs",
-    "数据结构/树/四叉树，场景管理/QuadTree/IQuadTree.cs",
-    "数据结构/树/四叉树，场景管理/QuadTree/InsertRetType.cs",
     "Unity/打包&SDK/attachments/Pasted image 20241124112151.png",
     "Unity/打包&SDK/埋点系统设计.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/高级渲染管线功能.md",
@@ -250,8 +252,6 @@
     "Unity/打包&SDK/attachments/Pasted image 20241124111702.png",
     "Unity/打包&SDK/attachments/Pasted image 20241124111428.png",
     "Unity/打包&SDK/HybridCLR&YooAsset/HybridCLR+YooAsset热更框架.md",
-    "GradleWrapperGenerator.md",
-    "C++/容器、算法和迭代器.md",
     "未命名.canvas",
     "C++/C++.canvas",
     "计算机图形学—从0开始构建一个OpenGL软光栅/从0开始构建OpenGL软光栅.canvas"
