@@ -24,7 +24,7 @@ class AhoCorasick
     private TrieNode Root = new TrieNode();
     private List<string> Patterns = new List<string>(); // 保存所有敏感词
 
-    // 构建 Trie 树
+    
     public void AddPattern(string pattern)
     {
         TrieNode current = Root;
@@ -106,28 +106,28 @@ class AhoCorasick
     }
 }
 
-public class IllegallyWordHelper
+public class SensitiveWordsHelper
 {
     private static AhoCorasick _ac;
     private static HashSet<string> _wordSet = new HashSet<string>();
 
     public static string Filter(string input)
     {
-        if (IllegallyWordHelper._ac == null)
+        if (SensitiveWordsHelper._ac == null)
         {
-            IllegallyWordHelper._ac = new AhoCorasick();
+            SensitiveWordsHelper._ac = new AhoCorasick();
             foreach (var VARIABLE in IllegallyWordCfgCreater.GetData().Values)
             {
-                if (IllegallyWordHelper._wordSet.Contains(VARIABLE.Word))
+                if (SensitiveWordsHelper._wordSet.Contains(VARIABLE.Word))
                 {
                     continue;
                 }
 
-                IllegallyWordHelper._wordSet.Add(VARIABLE.Word);
-                IllegallyWordHelper._ac.AddPattern(VARIABLE.Word);
+                SensitiveWordsHelper._wordSet.Add(VARIABLE.Word);
+                SensitiveWordsHelper._ac.AddPattern(VARIABLE.Word);
             }
         }
 
-        return IllegallyWordHelper._ac.ReplaceSensitiveWords(input);
+        return SensitiveWordsHelper._ac.ReplaceSensitiveWords(input);
     }
 }
