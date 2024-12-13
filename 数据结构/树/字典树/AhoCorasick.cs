@@ -17,15 +17,21 @@ class AhoCorasick
     private class TrieNode
     {
         public Dictionary<char, TrieNode> Children = new Dictionary<char, TrieNode>();
-        public TrieNode FailPointer = null; // 失败指针
-        public List<int> Output = new List<int>(); // 存储匹配到的敏感词索引
+        /// <summary>
+        /// 失败指针
+        /// </summary>
+        public TrieNode FailPointer = null;
+        /// <summary>
+        /// 存储匹配到的敏感词索引
+        /// </summary>
+        public List<int> Output = new List<int>();\
     }
 
     private TrieNode Root = new TrieNode();
     private List<string> Patterns = new List<string>(); // 保存所有敏感词
 
     /// <summary>
-    /// 构建 Trie 树
+    /// 构建Trie树
     /// </summary>
     public void AddPattern(string pattern)
     {
