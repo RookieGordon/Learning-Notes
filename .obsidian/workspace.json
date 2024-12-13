@@ -33,8 +33,7 @@
               "title": "字典树——匹配字符"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       },
       {
         "id": "ee7864f85c0e96f8",
@@ -171,10 +170,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "数据结构/树/字典树/字典树——匹配字符.md"
+                "file": "数据结构/树/字典树/AhoCorasick.cs"
               },
               "icon": "lucide-list",
-              "title": "字典树——匹配字符 的大纲"
+              "title": "AhoCorasick 的大纲"
             }
           },
           {
@@ -225,10 +224,10 @@
       "dbfolder:创建一个新数据库表": false
     }
   },
-  "active": "e67a1b44db71c619",
+  "active": "0bcd00a7ab5afa85",
   "lastOpenFiles": [
-    "数据结构/树/字典树/AhoCorasick.cs",
     "数据结构/树/字典树/字典树——匹配字符.md",
+    "数据结构/树/字典树/AhoCorasick.cs",
     "数据结构/树/字典树/attachments/（图解1）字典树.png",
     "数据结构/树/字典树/attachments",
     "数据结构/树/树.md",
