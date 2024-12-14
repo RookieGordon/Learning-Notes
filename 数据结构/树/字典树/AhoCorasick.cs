@@ -24,7 +24,7 @@ class AhoCorasick
         /// <summary>
         /// 存储匹配到的敏感词索引
         /// </summary>
-        public List<int> Output = new List<int>();\
+        public List<int> Output = new List<int>();
     }
 
     private TrieNode Root = new TrieNode();
