@@ -6,6 +6,7 @@
       {
         "id": "eee43561354af3b5",
         "type": "tabs",
+        "dimension": 49.20042643923241,
         "children": [
           {
             "id": "0bcd00a7ab5afa85",
@@ -38,6 +39,7 @@
       {
         "id": "ee7864f85c0e96f8",
         "type": "tabs",
+        "dimension": 50.799573560767584,
         "children": [
           {
             "id": "e67a1b44db71c619",
@@ -170,10 +172,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "数据结构/树/字典树/AhoCorasick.cs"
+                "file": "数据结构/树/字典树/字典树——匹配字符.md"
               },
               "icon": "lucide-list",
-              "title": "AhoCorasick 的大纲"
+              "title": "字典树——匹配字符 的大纲"
             }
           },
           {
@@ -224,10 +226,10 @@
       "dbfolder:创建一个新数据库表": false
     }
   },
-  "active": "0bcd00a7ab5afa85",
+  "active": "e67a1b44db71c619",
   "lastOpenFiles": [
-    "数据结构/树/字典树/字典树——匹配字符.md",
     "数据结构/树/字典树/AhoCorasick.cs",
+    "数据结构/树/字典树/字典树——匹配字符.md",
     "数据结构/树/字典树/attachments/（图解1）字典树.png",
     "数据结构/树/字典树/attachments",
     "数据结构/树/树.md",
