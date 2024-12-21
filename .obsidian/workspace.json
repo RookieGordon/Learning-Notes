@@ -8,18 +8,6 @@
         "type": "tabs",
         "children": [
           {
-            "id": "85e066be71a793df",
-            "type": "leaf",
-            "state": {
-              "type": "vscode-editor",
-              "state": {
-                "file": "数据结构/树/字典树/AhoCorasick.cs"
-              },
-              "icon": "lucide-file",
-              "title": "AhoCorasick"
-            }
-          },
-          {
             "id": "7b4ab57c21fff95a",
             "type": "leaf",
             "state": {
