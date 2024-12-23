@@ -25,12 +25,14 @@
             "id": "79f71435d85ceda5",
             "type": "leaf",
             "state": {
-              "type": "vscode-editor",
+              "type": "markdown",
               "state": {
-                "file": "数据结构/树/字典树/AhoCorasick.cs"
+                "file": "记录/工作/Work Todo.md",
+                "mode": "preview",
+                "source": false
               },
               "icon": "lucide-file",
-              "title": "AhoCorasick"
+              "title": "Work Todo"
             }
           }
         ],
@@ -90,8 +92,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 262.5,
-    "collapsed": true
+    "width": 262.5
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -207,8 +208,8 @@
   },
   "active": "79f71435d85ceda5",
   "lastOpenFiles": [
-    "数据结构/树/字典树/字典树——匹配字符.md",
     "数据结构/树/字典树/AhoCorasick.cs",
+    "数据结构/树/字典树/字典树——匹配字符.md",
     "记录/工作/工作日程/2024年.md",
     "记录/工作/Work Todo.md",
     "Unity/网络编程/UDP可靠性封装/UDP可靠性封装.md",
