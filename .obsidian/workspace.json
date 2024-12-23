@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "记录/工作/Work Todo.md",
+                "file": "数据结构/树/字典树/字典树——匹配字符.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Work Todo"
+              "title": "字典树——匹配字符"
             }
           }
         ],
@@ -209,8 +209,9 @@
   },
   "active": "79f71435d85ceda5",
   "lastOpenFiles": [
-    "记录/工作/工作日程/2024年.md",
+    "数据结构/树/树.md",
     "记录/工作/Work Todo.md",
+    "记录/工作/工作日程/2024年.md",
     "数据结构/树/字典树/AhoCorasick.cs",
     "数据结构/树/字典树/字典树——匹配字符.md",
     "Unity/网络编程/UDP可靠性封装/UDP可靠性封装.md",
@@ -222,7 +223,6 @@
     "Unity/网络编程/UDP可靠性封装/2.6 TCP与UDP的可靠性传输_tcp udp 可靠传输-CSDN博客.md",
     "数据结构/树/字典树/attachments/（图解1）字典树.png",
     "数据结构/树/字典树/attachments",
-    "数据结构/树/树.md",
     "数据结构/树/四叉树，场景管理/四叉树.md",
     "数据结构/树/红黑树",
     "数据结构/树/二叉树",
