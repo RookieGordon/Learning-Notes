@@ -11,14 +11,12 @@
             "id": "7b4ab57c21fff95a",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "vscode-editor",
               "state": {
-                "file": "数据结构/树/字典树/字典树——匹配字符.md",
-                "mode": "source",
-                "source": false
+                "file": "数据结构/树/字典树/AhoCorasick.cs"
               },
               "icon": "lucide-file",
-              "title": "字典树——匹配字符"
+              "title": "AhoCorasick"
             }
           }
         ]
@@ -194,13 +192,15 @@
   },
   "active": "7b4ab57c21fff95a",
   "lastOpenFiles": [
-    "Unity/网络编程/未命名.md",
     "数据结构/树/字典树/字典树——匹配字符.md",
+    "数据结构/树/字典树/AhoCorasick.cs",
+    "计算机图形学—从0开始构建一个OpenGL软光栅/高级渲染管线功能.md",
+    "【Unity技术美术】URP Shader训练营/自定义漫反射URP-Shader.md",
+    "Unity/网络编程/未命名.md",
     "[.md",
     "数据结构/树/树.md",
     "记录/工作/Work Todo.md",
     "记录/工作/工作日程/2024年.md",
-    "数据结构/树/字典树/AhoCorasick.cs",
     "Unity/网络编程/UDP可靠性封装/UDP可靠性封装.md",
     "Unity/网络编程/移动端断线重连方案 - niep的博客.md",
     "Unity/网络编程/谈谈Unity游戏TCP连接和网络重连.md",
@@ -232,9 +232,6 @@
     "数据结构/树/四叉树，场景管理/QuadTree/QTAABB.cs",
     "Unity/打包&SDK/attachments/Pasted image 20241124112151.png",
     "Unity/打包&SDK/埋点系统设计.md",
-    "计算机图形学—从0开始构建一个OpenGL软光栅/高级渲染管线功能.md",
-    "计算机图形学—从0开始构建一个OpenGL软光栅/计算机图形学—从0开始构建一个OpenGL软光栅.md",
-    "计算机图形学—从0开始构建一个OpenGL软光栅/直线绘制.md",
     "Unity/战斗/attachments/SearchManager.Update(realtimeSinceBattleStartup, p_fix64DeltaTime).png",
     "Unity/战斗/attachments/Step.png",
     "Unity/战斗/attachments/USE_LOCAL_BATTLE.png",
