@@ -77,7 +77,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 262.5
+    "width": 262.5,
+    "collapsed": true
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -191,11 +192,11 @@
       "dbfolder:创建一个新数据库表": false
     }
   },
-  "active": "f8a7eda2a99735cf",
+  "active": "7b4ab57c21fff95a",
   "lastOpenFiles": [
+    "Unity/网络编程/未命名.md",
     "数据结构/树/字典树/字典树——匹配字符.md",
     "[.md",
-    "Unity/网络编程/未命名.md",
     "数据结构/树/树.md",
     "记录/工作/Work Todo.md",
     "记录/工作/工作日程/2024年.md",
