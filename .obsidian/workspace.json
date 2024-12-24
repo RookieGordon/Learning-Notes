@@ -11,12 +11,14 @@
             "id": "7b4ab57c21fff95a",
             "type": "leaf",
             "state": {
-              "type": "vscode-editor",
+              "type": "markdown",
               "state": {
-                "file": "数据结构/树/字典树/AhoCorasick.cs"
+                "file": "数据结构/树/字典树/字典树——匹配字符.md",
+                "mode": "source",
+                "source": false
               },
               "icon": "lucide-file",
-              "title": "AhoCorasick"
+              "title": "字典树——匹配字符"
             }
           }
         ]
@@ -192,8 +194,8 @@
   },
   "active": "7b4ab57c21fff95a",
   "lastOpenFiles": [
-    "数据结构/树/字典树/字典树——匹配字符.md",
     "数据结构/树/字典树/AhoCorasick.cs",
+    "数据结构/树/字典树/字典树——匹配字符.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/高级渲染管线功能.md",
     "【Unity技术美术】URP Shader训练营/自定义漫反射URP-Shader.md",
     "Unity/网络编程/未命名.md",
