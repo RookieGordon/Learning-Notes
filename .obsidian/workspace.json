@@ -6,7 +6,7 @@
       {
         "id": "0c259511cec68d69",
         "type": "tabs",
-        "dimension": 46.64179104477612,
+        "dimension": 34.11513859275053,
         "children": [
           {
             "id": "20a2624e0d6962da",
@@ -25,7 +25,7 @@
       {
         "id": "3b0c02331555ad61",
         "type": "tabs",
-        "dimension": 53.35820895522389,
+        "dimension": 65.88486140724946,
         "children": [
           {
             "id": "7f699b34934eae0d",
@@ -158,10 +158,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "记录/工作/工作日程/2024年.md"
+                "file": "数据结构/树/字典树/字典树——匹配字符.md"
               },
               "icon": "lucide-list",
-              "title": "2024年 的大纲"
+              "title": "字典树——匹配字符 的大纲"
             }
           },
           {
