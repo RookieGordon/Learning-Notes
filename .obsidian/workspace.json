@@ -11,14 +11,12 @@
             "id": "7b4ab57c21fff95a",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "vscode-editor",
               "state": {
-                "file": "记录/工作/工作日程/2024年.md",
-                "mode": "preview",
-                "source": false
+                "file": "数据结构/树/字典树/AhoCorasick.cs"
               },
               "icon": "lucide-file",
-              "title": "2024年"
+              "title": "AhoCorasick"
             }
           }
         ]
@@ -77,7 +75,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 262.5
+    "width": 262.5,
+    "collapsed": true
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -193,9 +192,9 @@
   },
   "active": "7b4ab57c21fff95a",
   "lastOpenFiles": [
+    "记录/工作/工作日程/2024年.md",
     "记录/工作/Work Todo.md",
     "Excalidraw/Drawing 2024-12-26 18.08.19.excalidraw.md",
-    "记录/工作/工作日程/2024年.md",
     "数据结构/树/字典树/字典树——匹配字符.md",
     "数据结构/树/字典树/AhoCorasick.cs",
     "计算机图形学—从0开始构建一个OpenGL软光栅/高级渲染管线功能.md",
