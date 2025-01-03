@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Unity/战斗/如何设计技能系统.md",
+                "file": "记录/工作/工作日程/2024年.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "如何设计技能系统"
+              "title": "2024年"
             }
           }
         ]
@@ -138,10 +138,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Unity/战斗/如何设计技能系统.md"
+                "file": "记录/工作/工作日程/2024年.md"
               },
               "icon": "lucide-list",
-              "title": "如何设计技能系统 的大纲"
+              "title": "2024年 的大纲"
             }
           },
           {
@@ -194,8 +194,8 @@
   },
   "active": "349878b33728d8f6",
   "lastOpenFiles": [
-    "Unity/战斗/attachments/_HandleTeamAttackTarget.png",
     "Unity/战斗/如何设计技能系统.md",
+    "Unity/战斗/attachments/_HandleTeamAttackTarget.png",
     "数据结构/树/四叉树，场景管理/四叉树.md",
     "数据结构/树/四叉树，场景管理/四叉树构建思路.md",
     "记录/工作/工作日程/2025年.md",
@@ -239,7 +239,6 @@
     "Unity/战斗/attachments/SearchManager.Update(realtimeSinceBattleStartup, p_fix64DeltaTime).png",
     "Unity/战斗/attachments/Step.png",
     "Unity/战斗/attachments/USE_LOCAL_BATTLE.png",
-    "Unity/战斗/attachments/Pasted image 20240813093233.png",
     "未命名.canvas",
     "C++/C++.canvas",
     "计算机图形学—从0开始构建一个OpenGL软光栅/从0开始构建OpenGL软光栅.canvas"
