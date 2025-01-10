@@ -1,18 +1,8 @@
-/*
- * author       : TGD-3-89
- * datetime     : 2025/1/2 20:49:21
- * description  : [description]
- * */
-
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.IO;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
-using UnityEngine;
-using UnityEngine.Networking;
 
 public enum EDownloadStatus
 {
@@ -34,380 +24,250 @@ public struct DownloadInfo
 public struct DownloadConfig
 {
     public Action<EDownloadStatus, DownloadInfo> DownloadCallback;
-    public int MaxRetryCount;
-    public int Timeout;
-    public bool EnableBreakpointResume;
+    public string RemoteUrl;
+    public string LocalFilePath;
+    public int MaxRetries;
+    public int RequestTimeout;
+    public int WakeUpInterval;
 }
 
-public class Downloader
+public abstract class Downloader
 {
-    private static int _Id = 0;
-    private const int _defaultTimeout = 60;
-    private const int _waitTimeout = 5;
-    private const int _retryInterval = 5;
-    public int DownloadId { get; private set; }
-    public string ResUrl { get; private set; }
-    public string FilePath { get; private set; }
-    public string TempFilePath { get; private set; }
-    public DownloadConfig Cfg { get; private set; }
+    private static int _idCounter = 0;
+    public int Id { get; set; }
+    protected DownloadConfig Cfg { get; set; }
 
-    private int _retryCount;
+    protected CancellationToken _cancelToken;
 
-    public DateTime WakeUpTime { get; private set; }
+    protected int _retryCount = 0;
 
-    public Downloader(string p_strUrl, string p_strPath, DownloadConfig p_config)
+    public Downloader(DownloadConfig cfg)
     {
-        DownloadId = _Id++;
-        ResUrl = p_strUrl;
-        FilePath = p_strPath;
-        Cfg = p_config;
-        if (Cfg.EnableBreakpointResume && !string.IsNullOrEmpty(FilePath))
-        {
-            TempFilePath = FilePath + ".temp";
-        }
+        Id = _idCounter++;
+        Cfg = cfg;
     }
 
-    public IEnumerator StartDownload()
+    public abstract Task<string> Download(CancellationToken cancelToken);
+
+    public async Task<string> WaitForRetry()
     {
-        if (this._retryCount == 0)
+        await Task.Delay(TimeSpan.FromSeconds(Cfg.WakeUpInterval), this._cancelToken);
+        Console.WriteLine($"Retry count: {this._retryCount}");
+        Cfg.DownloadCallback?.Invoke(EDownloadStatus.Retry, new DownloadInfo());
+        return await Download(this._cancelToken);
+    }
+    
+    protected async Task<string> _OnDownloadError(string errorMsg)
+    {
+        if (this._retryCount > Cfg.MaxRetries)
         {
-            Cfg.DownloadCallback?.Invoke(EDownloadStatus.Start, new DownloadInfo());
-        }
-        else
-        {
-            Log.RedDebug($"StartDownload {ResUrl}, retry count: {this._retryCount}");
+            Console.WriteLine($"Download failed. Error: {errorMsg}");
+            Cfg.DownloadCallback?.Invoke(EDownloadStatus.Failed, new DownloadInfo()
+            {
+                ErrorMsg = errorMsg,
+            });
+            return String.Empty;
         }
 
-        if (Cfg.EnableBreakpointResume)
+        Console.WriteLine($"Download failed, waiting for retry. Error:{errorMsg}");
+        this._retryCount++;
+        return await WaitForRetry();
+    }
+}
+
+public class DCFSDownloader : Downloader
+{
+    private const int BufferSize = 2048;
+
+    private string _tempFilePath;
+
+    public DCFSDownloader(DownloadConfig cfg) : base(cfg)
+    {
+        if (string.IsNullOrEmpty(cfg.LocalFilePath))
         {
-            var task = _BreakpointResumeDownloadAsync();
-            while (!task.IsCompleted)
-            {
-                yield return new WaitForEndOfFrame();
-            }
+            throw new ArgumentException("LocalFilePath cannot be null or empty.");
         }
-        else
-        {
-            var t = _SimpleDownloadAsync();
-            while (!t.IsCompleted)
-            {
-                yield return new WaitForEndOfFrame();
-            }
-        }
+
+        this._tempFilePath = cfg.LocalFilePath + ".tmp";
     }
 
-    public string DownloadSync()
+    public override async Task<string> Download(CancellationToken cancelToken)
     {
+        this._cancelToken = cancelToken;
+        cancelToken.ThrowIfCancellationRequested();
         try
         {
-            string r = string.Empty;
-            var t = Task.Run(async () => { r = await _SimpleDownloadAsync(); });
-            t.Wait();
-            return r;
-        }
-        catch (Exception e)
-        {
-            return string.Empty;
-        }
-    }
-
-    private async Task<string> _SimpleDownloadAsync()
-    {
-        using (var httpClient = new HttpClient())
-        {
-            httpClient.Timeout =
-                Cfg.Timeout == 0 ? TimeSpan.FromSeconds(_defaultTimeout) : TimeSpan.FromSeconds(Cfg.Timeout);
-            using (var cts = new CancellationTokenSource())
+            using (var httpClient = new HttpClient())
             {
-                cts.CancelAfter(TimeSpan.FromSeconds(_waitTimeout)); // 设置超时时间
-                HttpResponseMessage response;
-                try
+                if (Cfg.RequestTimeout > 0)
                 {
-                    response = await httpClient.GetAsync(ResUrl, cts.Token);
-                }
-                catch (TaskCanceledException)
-                {
-                    _OnSimpleDownloadError(System.Net.HttpStatusCode.RequestTimeout.ToString());
-                    return string.Empty;
-                }
-                catch (Exception e)
-                {
-                    _OnSimpleDownloadError($"Error: {e}, InnerError: {e.InnerException?.ToString()}");
-                    return string.Empty;
+                    httpClient.Timeout = TimeSpan.FromSeconds(Cfg.RequestTimeout);
                 }
 
-                if (!response.IsSuccessStatusCode)
+                await using (var fileStream = new FileStream(
+                                 this._tempFilePath, FileMode.OpenOrCreate, FileAccess.Write,
+                                 FileShare.Write, BufferSize, true))
                 {
-                    _OnSimpleDownloadError(response.StatusCode.ToString());
-                    return string.Empty;
-                }
+                    if (fileStream.Length > 0)
+                    {
+                        httpClient.DefaultRequestHeaders.Range =
+                            new System.Net.Http.Headers.RangeHeaderValue(fileStream.Length, null);
+                    }
 
-                try
-                {
-                    var content = await response.Content.ReadAsStringAsync();
-                    if (!string.IsNullOrEmpty(FilePath))
+                    HttpResponseMessage response = await httpClient.GetAsync(Cfg.RemoteUrl,
+                        HttpCompletionOption.ResponseHeadersRead, cancelToken);
+
+                    response.EnsureSuccessStatusCode();
+
+                    long totalBytes = response.Content.Headers.ContentLength ?? 0;
+                    long bytesRead = 0;
+                    await using (var contentStream = await response.Content.ReadAsStreamAsync(cancelToken))
                     {
-                        await File.WriteAllTextAsync(FilePath, content, cts.Token);
-                        Cfg.DownloadCallback?.Invoke(EDownloadStatus.Succeed, new DownloadInfo
+                        byte[] buffer = new byte[BufferSize];
+                        int bytes;
+                        while (true)
                         {
-                            Result = FilePath,
-                        });
-                        return FilePath;
+                            var readTask = contentStream.ReadAsync(buffer, 0, buffer.Length, cancelToken);
+                            if (await Task.WhenAny(readTask, Task.Delay(TimeSpan.FromSeconds(5), cancelToken)) ==
+                                readTask)
+                            {
+                                bytes = await readTask;
+                                if (bytes == 0)
+                                {
+                                    break;
+                                }
+
+                                cancelToken.ThrowIfCancellationRequested();
+
+                                await fileStream.WriteAsync(buffer, 0, bytes, cancelToken);
+                                bytesRead += bytes;
+                                Cfg.DownloadCallback?.Invoke(EDownloadStatus.Downloading, new DownloadInfo()
+                                {
+                                    CurrentSize = (ulong)bytesRead,
+                                    Progress = (float)bytesRead / totalBytes,
+                                });
+
+                                cancelToken.ThrowIfCancellationRequested();
+                            }
+                            else
+                            {
+                                throw new TimeoutException("Timeout while reading from stream.");
+                            }
+                        }
                     }
-                    else
-                    {
-                        Cfg.DownloadCallback?.Invoke(EDownloadStatus.Succeed, new DownloadInfo
-                        {
-                            Result = content,
-                        });
-                        return content;
-                    }
-                }
-                catch (Exception e)
-                {
-                    _OnSimpleDownloadError(
-                        $"Error reading response stream: {e}, InnerError: {e.InnerException?.ToString()}");
-                    return string.Empty;
                 }
             }
         }
-    }
-
-    private void _OnSimpleDownloadError(string p_strErrMsg)
-    {
-        if (this._retryCount < Cfg.MaxRetryCount)
+        catch (OperationCanceledException ex)
         {
-            this._retryCount++;
-            Cfg.DownloadCallback?.Invoke(EDownloadStatus.Retry, new DownloadInfo());
-            WakeUpTime = DateTime.Now.AddSeconds(_retryInterval);
-            DownloadHelper.Instance.AddToRetryList(DownloadId);
+            Console.WriteLine("Operation was cancelled.");
+            return String.Empty;
         }
-        else
+        catch (HttpRequestException ex)
         {
-            Cfg.DownloadCallback?.Invoke(EDownloadStatus.Failed, new DownloadInfo
+            return await _OnDownloadError(ex.ToString());
+        }
+        catch (Exception ex)
+        {
+            return await _OnDownloadError(ex.ToString());
+        }
+
+        try
+        {
+            if (File.Exists(Cfg.LocalFilePath))
             {
-                ErrorMsg = p_strErrMsg,
-            });
-            DownloadHelper.Instance.RemoveDownloader(DownloadId);
+                File.Delete(Cfg.LocalFilePath);
+            }
+
+            await using (var sourceFileStream = new FileStream(
+                             this._tempFilePath, FileMode.Open, FileAccess.Read,
+                             FileShare.Read, BufferSize, true))
+            {
+                await using (var destFileStream = new FileStream(
+                                 Cfg.LocalFilePath, FileMode.OpenOrCreate, FileAccess.Write,
+                                 FileShare.Write, BufferSize, true))
+                {
+                    await sourceFileStream.CopyToAsync(destFileStream, cancelToken);
+                }
+            }
+
+            File.Delete(this._tempFilePath);
         }
+        catch (OperationCanceledException ex)
+        {
+            Console.WriteLine("Operation was cancelled during file copy.");
+            return String.Empty;
+        }
+        catch (IOException ex)
+        {
+            return await _OnDownloadError(ex.ToString());
+        }
+        catch (Exception ex)
+        {
+            return await _OnDownloadError(ex.ToString());
+        }
+
+        Cfg.DownloadCallback?.Invoke(EDownloadStatus.Succeed, new DownloadInfo()
+        {
+            Result = Cfg.LocalFilePath,
+        });
+        return Cfg.LocalFilePath;
+    }
+}
+
+public class SimpleDownloader : Downloader
+{
+    public SimpleDownloader(DownloadConfig cfg) : base(cfg)
+    {
     }
 
-    private async Task _BreakpointResumeDownloadAsync()
+    public override async Task<string> Download(CancellationToken cancelToken)
     {
-        long startByte = 0;
-
-        // 检查是否存在已下载的临时文件
-        if (File.Exists(TempFilePath))
-        {
-            startByte = new FileInfo(TempFilePath).Length;
-        }
-
+        this._cancelToken = cancelToken;
+        cancelToken.ThrowIfCancellationRequested();
         using (var httpClient = new HttpClient())
         {
-            // 设置Range头以支持断点续传
-            httpClient.DefaultRequestHeaders.Range = new System.Net.Http.Headers.RangeHeaderValue(startByte, null);
-            httpClient.Timeout =
-                Cfg.Timeout == 0 ? TimeSpan.FromSeconds(_defaultTimeout) : TimeSpan.FromSeconds(Cfg.Timeout);
-
-            using (var cts = new CancellationTokenSource())
+            if (Cfg.RequestTimeout > 0)
             {
-                cts.CancelAfter(TimeSpan.FromSeconds(_waitTimeout)); // 设置超时时间
-
-                HttpResponseMessage response;
-                try
-                {
-                    response = await httpClient.GetAsync(ResUrl, HttpCompletionOption.ResponseHeadersRead, cts.Token);
-                }
-                catch (TaskCanceledException)
-                {
-                    _OnResumeDownloadError(System.Net.HttpStatusCode.RequestTimeout.ToString());
-                    return;
-                }
-                catch (Exception e)
-                {
-                    _OnResumeDownloadError($"Error: {e}, InnerError: {e.InnerException?.ToString()}");
-                    return;
-                }
-
-                // 判断连接请求是否成功
-                if (!response.IsSuccessStatusCode)
-                {
-                    _OnResumeDownloadError(response.StatusCode.ToString());
-                    return;
-                }
-
-                // 使用FileStream进行流式写入
-                using (var fileStream = new FileStream(TempFilePath, FileMode.Append, FileAccess.Write, FileShare.None))
-                {
-                    this._retryCount = 0;
-                    Stream contentStream;
-                    try
-                    {
-                        contentStream = await response.Content.ReadAsStreamAsync();
-                    }
-                    catch (Exception e)
-                    {
-                        _OnResumeDownloadError(
-                            $"Error reading response stream: {e}, InnerError: {e.InnerException?.ToString()}");
-                        return;
-                    }
-
-                    // 使用CancellationTokenSource包裹文件流写入部分
-                    using (var innerCts = new CancellationTokenSource())
-                    {
-                        innerCts.CancelAfter(TimeSpan.FromSeconds(_waitTimeout)); // 设置超时时间
-
-                        try
-                        {
-                            // 使用CopyToAsync进行流式写入
-                            await contentStream.CopyToAsync(fileStream, 8192, innerCts.Token);
-                        }
-                        catch (TaskCanceledException)
-                        {
-                            _OnResumeDownloadError("File write operation timed out.");
-                            return;
-                        }
-                        catch (Exception e)
-                        {
-                            _OnResumeDownloadError(
-                                $"File write error: {e}, InnerError: {e.InnerException?.ToString()}");
-                            return;
-                        }
-                    }
-                }
-
-                if (File.Exists(FilePath))
-                {
-                    File.Delete(FilePath);
-                }
-
-                File.Move(TempFilePath, FilePath);
-                Cfg.DownloadCallback?.Invoke(EDownloadStatus.Succeed, new DownloadInfo
-                {
-                    Result = FilePath,
-                });
+                httpClient.Timeout = TimeSpan.FromSeconds(Cfg.RequestTimeout);
             }
-        }
-    }
 
-    private void _OnResumeDownloadError(string p_strErrMsg)
-    {
-        if (this._retryCount < Cfg.MaxRetryCount)
-        {
-            this._retryCount++;
-            Log.RedDebug($"Download {ResUrl} error, prepare to retry. {p_strErrMsg}");
-            Cfg.DownloadCallback?.Invoke(EDownloadStatus.Retry, new DownloadInfo());
-            WakeUpTime = DateTime.Now.AddSeconds(Downloader._retryInterval);
-            DownloadHelper.Instance.AddToRetryList(DownloadId);
-        }
-        else
-        {
-            Cfg.DownloadCallback?.Invoke(EDownloadStatus.Failed, new DownloadInfo
+            try
             {
-                ErrorMsg = p_strErrMsg,
-            });
-            DownloadHelper.Instance.RemoveDownloader(DownloadId);
+                var response = await httpClient.GetAsync(Cfg.RemoteUrl, cancelToken);
+                response.EnsureSuccessStatusCode();
+                return await response.Content.ReadAsStringAsync(cancelToken);
+            }
+            catch (OperationCanceledException ex)
+            {
+                Console.WriteLine("Operation was cancelled.");
+                return String.Empty;
+            }
+            catch (HttpRequestException ex)
+            {
+                return await _OnDownloadError(ex.ToString());
+            }
+            catch (Exception ex)
+            {
+                return await _OnDownloadError(ex.ToString());
+            }
         }
     }
 }
 
-public class DownloadHelper : MonoSingleton<DownloadHelper>, IMonoSingleton
+public class DownloadHelper
 {
-    private Dictionary<int, Downloader> _dicDownloaders = new Dictionary<int, Downloader>();
+    private Dictionary<int, Downloader> _downloaders = new Dictionary<int, Downloader>();
 
-    private List<Downloader> _listRetry = new List<Downloader>();
-
-    public int CreateDownloader(string p_strUrl, string p_strPath, DownloadConfig p_config, bool p_bStart = false)
+    public async Task<string> CreateDownloader(DownloadConfig cfg, bool start = true)
     {
-        var downloader = new Downloader(p_strUrl, p_strPath, p_config);
-        this._dicDownloaders.Add(downloader.DownloadId, downloader);
-        if (p_bStart)
+        var downloader = new DCFSDownloader(cfg);
+        _downloaders.Add(downloader.Id, downloader);
+        if (start)
         {
-            StartCoroutine(downloader.StartDownload());
+            await downloader.Download(CancellationToken.None);
         }
 
-        return downloader.DownloadId;
-    }
-
-    public void CreateDCFSDownloader(string p_strUrl, string p_strPath, Action<string> p_fnFailCallback,
-        Action<string> p_fnSuccessCallback, Action p_fnRetryCallback = null)
-    {
-        var downloader = new Downloader(p_strUrl, p_strPath, new DownloadConfig()
-        {
-            MaxRetryCount = 6,
-            EnableBreakpointResume = true,
-            DownloadCallback = (state, info) =>
-            {
-                if (state == EDownloadStatus.Failed)
-                {
-                    p_fnFailCallback?.Invoke(info.ErrorMsg);
-                }
-                else if (state == EDownloadStatus.Succeed)
-                {
-                    p_fnSuccessCallback?.Invoke(info.Result);
-                }
-                else if (state == EDownloadStatus.Retry)
-                {
-                    p_fnRetryCallback?.Invoke();
-                }
-            }
-        });
-
-        this._dicDownloaders.Add(downloader.DownloadId, downloader);
-        StartCoroutine(downloader.StartDownload());
-    }
-
-#if UNITY_EDITOR
-    public static string DownloadSync(string p_strUrl)
-    {
-        var downloader = new Downloader(p_strUrl, string.Empty, new DownloadConfig());
-        return downloader.DownloadSync();
-    }
-#endif
-
-    public void StartDownload(int p_id)
-    {
-        if (this._dicDownloaders.TryGetValue(p_id, out var downloader))
-        {
-            StartCoroutine(downloader.StartDownload());
-        }
-    }
-
-    public void RemoveDownloader(int p_id)
-    {
-        this._dicDownloaders.Remove(p_id);
-    }
-
-    public void AddToRetryList(int p_id)
-    {
-        if (this._dicDownloaders.TryGetValue(p_id, out var downloader))
-        {
-            this._listRetry.Add(downloader);
-            this._dicDownloaders.Remove(p_id);
-        }
-    }
-
-    public void Update()
-    {
-        if (this._listRetry.Count == 0)
-        {
-            return;
-        }
-
-        var now = DateTime.Now;
-        for (int i = this._listRetry.Count - 1; i >= 0; i--)
-        {
-            var downloader = this._listRetry[i];
-            if (now > downloader.WakeUpTime)
-            {
-                StartCoroutine(downloader.StartDownload());
-                this._listRetry.RemoveAt(i);
-                this._dicDownloaders.Add(downloader.DownloadId, downloader);
-            }
-        }
-    }
-
-    public override void Init()
-    {
+        return String.Empty;
     }
 }
