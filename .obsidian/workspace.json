@@ -11,14 +11,12 @@
             "id": "349878b33728d8f6",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "vscode-editor",
               "state": {
-                "file": "Unity/杂项/简单的下载功能.md",
-                "mode": "source",
-                "source": false
+                "file": "Unity/杂项/DownloadHelper.cs"
               },
               "icon": "lucide-file",
-              "title": "简单的下载功能"
+              "title": "DownloadHelper"
             }
           }
         ]
@@ -77,7 +75,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 262.5
+    "width": 262.5,
+    "collapsed": true
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -193,8 +192,8 @@
   },
   "active": "349878b33728d8f6",
   "lastOpenFiles": [
-    "Unity/杂项/DownloadHelper.cs",
     "Unity/杂项/简单的下载功能.md",
+    "Unity/杂项/DownloadHelper.cs",
     "记录/工作/Work Todo.md",
     "记录/工作/工作日程/2025年.md",
     "记录/工作/工作日程/2024年.md",
