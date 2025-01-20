@@ -11,14 +11,12 @@
             "id": "349878b33728d8f6",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "excalidraw",
               "state": {
-                "file": "Unity/杂项/Git使用.md",
-                "mode": "preview",
-                "source": false
+                "file": "数据结构/树/四叉树，场景管理/四叉树构建思路.md"
               },
-              "icon": "lucide-file",
-              "title": "Git使用"
+              "icon": "excalidraw-icon",
+              "title": "四叉树构建思路"
             }
           }
         ]
@@ -138,10 +136,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Unity/杂项/Git使用.md"
+                "file": "数据结构/树/四叉树，场景管理/四叉树构建思路.md"
               },
               "icon": "lucide-list",
-              "title": "Git使用 的大纲"
+              "title": "四叉树构建思路 的大纲"
             }
           },
           {
@@ -194,6 +192,7 @@
   },
   "active": "349878b33728d8f6",
   "lastOpenFiles": [
+    "Unity/杂项/Git使用.md",
     "数据结构/树/四叉树，场景管理/QuadTree/QT_SAS.cs",
     "数据结构/树/四叉树，场景管理/QuadTree/ListPool.cs",
     "数据结构/树/四叉树，场景管理/QuadTree/IQuadTree.cs",
@@ -202,7 +201,6 @@
     "数据结构/树/四叉树，场景管理/四叉树构建思路.md",
     "记录/工作/工作日程/2025年.md",
     "Unity/杂项/简单的下载功能.md",
-    "Unity/杂项/Git使用.md",
     "Building Quality Shaders for Unity/Building Quality Shaders for Unity.md",
     "记录/工作/工作日程/2024年.md",
     "Unity/杂项/DownloadHelper.cs",
@@ -232,7 +230,6 @@
     "数据结构/树/字典树/attachments/（图解1）字典树.png",
     "数据结构/树/字典树/attachments",
     "数据结构/树/红黑树",
-    "数据结构/树/二叉树",
     "Excalidraw/四叉树.svg",
     "数据结构/树/四叉树，场景管理/attachments/（图解1）四叉树示意图.png",
     "Excalidraw/Scripts/Downloaded/Relative Font Size Cycle.svg",
