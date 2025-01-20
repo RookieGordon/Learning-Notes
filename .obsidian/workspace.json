@@ -11,14 +11,12 @@
             "id": "349878b33728d8f6",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "excalidraw",
               "state": {
-                "file": "数据结构/树/树.md",
-                "mode": "source",
-                "source": false
+                "file": "数据结构/树/四叉树，场景管理/四叉树构建思路.md"
               },
-              "icon": "lucide-file",
-              "title": "树"
+              "icon": "excalidraw-icon",
+              "title": "四叉树构建思路"
             }
           }
         ]
@@ -77,7 +75,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 432.5
+    "width": 432.5,
+    "collapsed": true
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -137,10 +136,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "数据结构/树/树.md"
+                "file": "数据结构/树/四叉树，场景管理/四叉树构建思路.md"
               },
               "icon": "lucide-list",
-              "title": "树 的大纲"
+              "title": "四叉树构建思路 的大纲"
             }
           },
           {
@@ -193,6 +192,7 @@
   },
   "active": "349878b33728d8f6",
   "lastOpenFiles": [
+    "数据结构/树/树.md",
     "数据结构/树/四叉树，场景管理/四叉树.md",
     "数据结构/树/四叉树，场景管理/QuadTree/QuadTree.cs",
     "数据结构/树/四叉树，场景管理/四叉树构建思路.md",
@@ -212,7 +212,6 @@
     "Unity/杂项/客户端同步服务器时间.md",
     "数据结构/树/字典树/字典树——匹配字符.md",
     "Unity/杂项",
-    "数据结构/树/树.md",
     "数据结构/树/字典树/AhoCorasick.cs",
     "收藏夹/attachments/Pasted image 20240913091959.png",
     "收藏夹/60个独立游戏的营销错误_60MistakesEbookV1.pdf",
