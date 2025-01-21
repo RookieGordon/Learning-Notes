@@ -11,12 +11,14 @@
             "id": "349878b33728d8f6",
             "type": "leaf",
             "state": {
-              "type": "vscode-editor",
+              "type": "markdown",
               "state": {
-                "file": "数据结构/树/四叉树，场景管理/QuadTree/QTUtils.cs"
+                "file": "数据结构/树/四叉树，场景管理/四叉树.md",
+                "mode": "preview",
+                "source": false
               },
               "icon": "lucide-file",
-              "title": "QTUtils"
+              "title": "四叉树"
             }
           }
         ]
@@ -135,10 +137,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "数据结构/树/四叉树，场景管理/QuadTree/QTUtils.cs"
+                "file": "数据结构/树/四叉树，场景管理/四叉树.md"
               },
               "icon": "lucide-list",
-              "title": "QTUtils 的大纲"
+              "title": "四叉树 的大纲"
             }
           },
           {
@@ -191,6 +193,8 @@
   },
   "active": "349878b33728d8f6",
   "lastOpenFiles": [
+    "数据结构/树/四叉树，场景管理/QuadTree/QTUtils.cs",
+    "Slurped Pages/四叉树空间索引原理及其实现_4叉树-CSDN博客.md",
     "数据结构/树/四叉树，场景管理/QuadTree/QuadTree.cs",
     "数据结构/树/四叉树，场景管理/四叉树构建思路.md",
     "数据结构/树/树.md",
@@ -226,7 +230,6 @@
     "Unity/网络编程/Unity Socket网络编程.md",
     "Unity/网络编程/UDP可靠性封装/怎么让不可靠的UDP可靠_udp由不可靠传输变为可靠传输-CSDN博客.md",
     "Unity/网络编程/斗地主编程.md",
-    "Unity/网络编程/UDP可靠性封装/2.6 TCP与UDP的可靠性传输_tcp udp 可靠传输-CSDN博客.md",
     "数据结构/树/字典树/attachments/（图解1）字典树.png",
     "数据结构/树/字典树/attachments",
     "Excalidraw/四叉树.svg",
