@@ -37,76 +37,54 @@ title: 四叉树空间索引原理及其实现_4叉树-CSDN博客
 (1)四分区域标识
 
 分别定义了一个平面区域的四个子区域索引号，右上为第一象限0，左上为第二象限1，左下为第三象限2，右下为第四象限3。
-
+```Cpp
 typedef enum
-
 {
-
-      UR = 0,// UR第一象限
-
-      UL = 1, // UL为第二象限
-
-      LL = 2, // LL为第三象限
-
-      LR = 3  // LR为第四象限
-
+    UR = 0,// UR第一象限
+    UL = 1, // UL为第二象限
+    LL = 2, // LL为第三象限
+    LR = 3  // LR为第四象限
 }QuadrantEnum;
+```
 
 (2)空间对象数据结构
 
 空间对象数据结构是对地理空间对象的近似，在空间索引中，相当一部分都是采用MBR作为近似。
-
+```Cpp
 /*空间对象MBR信息*/
-
 typedef struct SHPMBRInfo
-
 {
-
-      int nID;       //空间对象ID号
-
-      MapRect Box;    //空间对象MBR范围坐标
-
+    int nID;       //空间对象ID号
+    MapRect Box;    //空间对象MBR范围坐标
 }SHPMBRInfo;
-
+```
 nID是空间对象的标识号，Box是空间对象的最小外包矩形（MBR）。
 
 (3)四叉树节点数据结构
 
 四叉树节点是四叉树结构的主要组成部分，主要用于存储空间对象的标识号和MBR，也是四叉树算法操作的主要部分。
-
+```Cpp
 /*四叉树节点类型结构*/
-
 typedef struct QuadNode
-
 {
-
-      MapRect            Box;                   //节点所代表的矩形区域
-
-      int                nShpCount;        //节点所包含的所有空间对象个数
-
-      SHPMBRInfo* pShapeObj;          //空间对象指针数组
-
-      int         nChildCount;            //子节点个数
-
-      QuadNode *children[4];             //指向节点的四个孩子
-
+    MapRect     Box;                   //节点所代表的矩形区域
+    int         nShpCount;        //节点所包含的所有空间对象个数
+    SHPMBRInfo  *pShapeObj;          //空间对象指针数组
+    int         nChildCount;            //子节点个数
+    QuadNode    *children[4];             //指向节点的四个孩子
 }QuadNode;
-
+```
 Box是代表四叉树对应区域的最小外包矩形，上一层的节点的最小外包矩形包含下一层最小外包矩形区域；nShpCount代表本节点包含的空间对象的个数；pShapeObj代表指向空间对象存储地址的首地址，同一个节点的空间对象在内存中连续存储；nChildCount代表节点拥有的子节点的数目；children是指向孩子节点指针的数组。
 
 上述理论部分都都讲的差不多了，下面就贴上我的C语言实现版本代码。
 
 头文件如下：
 
-```
+```Cpp
 #ifndef __QUADTREE_H_59CAE94A_E937_42AD_AA27_794E467715BB__
 #define __QUADTREE_H_59CAE94A_E937_42AD_AA27_794E467715BB__
 
-
-
-
 /* 一个矩形区域的象限划分：:
-
 UL(1)   |    UR(0)
 ----------|-----------
 LL(2)   |    LR(3)
@@ -200,9 +178,8 @@ typedef struct quadtree_t
   
 源文件如下：
 
-```
+```Cpp
 #include "QuadTree.h"
-
 
 QuadNode *InitQuadNode()
 {
