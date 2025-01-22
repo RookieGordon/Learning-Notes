@@ -11,14 +11,12 @@
             "id": "349878b33728d8f6",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "excalidraw",
               "state": {
-                "file": "Slurped Pages/四叉树空间索引原理及其实现_4叉树-CSDN博客.md",
-                "mode": "preview",
-                "source": false
+                "file": "数据结构/树/四叉树，场景管理/四叉树构建思路.md"
               },
-              "icon": "lucide-file",
-              "title": "四叉树空间索引原理及其实现_4叉树-CSDN博客"
+              "icon": "excalidraw-icon",
+              "title": "四叉树构建思路"
             }
           }
         ]
@@ -77,8 +75,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 432.5,
-    "collapsed": true
+    "width": 432.5
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -138,10 +135,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Slurped Pages/四叉树空间索引原理及其实现_4叉树-CSDN博客.md"
+                "file": "数据结构/树/四叉树，场景管理/四叉树构建思路.md"
               },
               "icon": "lucide-list",
-              "title": "四叉树空间索引原理及其实现_4叉树-CSDN博客 的大纲"
+              "title": "四叉树构建思路 的大纲"
             }
           },
           {
@@ -194,12 +191,12 @@
   },
   "active": "349878b33728d8f6",
   "lastOpenFiles": [
+    "数据结构/树/四叉树，场景管理/四叉树.md",
+    "Slurped Pages/四叉树空间索引原理及其实现_4叉树-CSDN博客.md",
     "数据结构/树/四叉树，场景管理/QuadTree/QuadTree.cs",
     "数据结构/树/四叉树，场景管理/QuadTree/QT_SAS.cs",
     "数据结构/树/四叉树，场景管理/QuadTree/QTAABB.cs",
     "数据结构/树/四叉树，场景管理/QuadTree/QTUtils.cs",
-    "Slurped Pages/四叉树空间索引原理及其实现_4叉树-CSDN博客.md",
-    "数据结构/树/四叉树，场景管理/四叉树.md",
     "数据结构/树/四叉树，场景管理/四叉树构建思路.md",
     "数据结构/树/树.md",
     "Unity/杂项/Git使用.md",
@@ -219,7 +216,6 @@
     "Unity/杂项",
     "数据结构/树/字典树/AhoCorasick.cs",
     "收藏夹/attachments/Pasted image 20240913091959.png",
-    "收藏夹/60个独立游戏的营销错误_60MistakesEbookV1.pdf",
     "收藏夹/杂项.md",
     "Excalidraw/Drawing 2024-12-26 18.08.19.excalidraw.md",
     "计算机图形学—从0开始构建一个OpenGL软光栅/高级渲染管线功能.md",
