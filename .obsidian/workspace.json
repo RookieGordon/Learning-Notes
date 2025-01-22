@@ -11,12 +11,14 @@
             "id": "349878b33728d8f6",
             "type": "leaf",
             "state": {
-              "type": "excalidraw",
+              "type": "markdown",
               "state": {
-                "file": "数据结构/树/四叉树，场景管理/四叉树构建思路.md"
+                "file": "数据结构/树/四叉树，场景管理/四叉树.md",
+                "mode": "preview",
+                "source": false
               },
-              "icon": "excalidraw-icon",
-              "title": "四叉树构建思路"
+              "icon": "lucide-file",
+              "title": "四叉树"
             }
           }
         ]
@@ -135,10 +137,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "数据结构/树/四叉树，场景管理/四叉树构建思路.md"
+                "file": "数据结构/树/四叉树，场景管理/四叉树.md"
               },
               "icon": "lucide-list",
-              "title": "四叉树构建思路 的大纲"
+              "title": "四叉树 的大纲"
             }
           },
           {
@@ -191,13 +193,13 @@
   },
   "active": "349878b33728d8f6",
   "lastOpenFiles": [
+    "数据结构/树/四叉树，场景管理/四叉树构建思路.md",
     "数据结构/树/四叉树，场景管理/四叉树.md",
     "Slurped Pages/四叉树空间索引原理及其实现_4叉树-CSDN博客.md",
     "数据结构/树/四叉树，场景管理/QuadTree/QuadTree.cs",
     "数据结构/树/四叉树，场景管理/QuadTree/QT_SAS.cs",
     "数据结构/树/四叉树，场景管理/QuadTree/QTAABB.cs",
     "数据结构/树/四叉树，场景管理/QuadTree/QTUtils.cs",
-    "数据结构/树/四叉树，场景管理/四叉树构建思路.md",
     "数据结构/树/树.md",
     "Unity/杂项/Git使用.md",
     "数据结构/树/四叉树，场景管理/QuadTree/ListPool.cs",
