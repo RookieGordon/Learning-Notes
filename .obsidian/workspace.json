@@ -11,12 +11,14 @@
             "id": "349878b33728d8f6",
             "type": "leaf",
             "state": {
-              "type": "vscode-editor",
+              "type": "markdown",
               "state": {
-                "file": "数据结构/树/四叉树，场景管理/QuadTree/QuadTree.cs"
+                "file": "Slurped Pages/四叉树空间索引原理及其实现_4叉树-CSDN博客.md",
+                "mode": "preview",
+                "source": false
               },
               "icon": "lucide-file",
-              "title": "QuadTree"
+              "title": "四叉树空间索引原理及其实现_4叉树-CSDN博客"
             }
           }
         ]
@@ -75,7 +77,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 432.5
+    "width": 432.5,
+    "collapsed": true
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -135,10 +138,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "数据结构/树/四叉树，场景管理/QuadTree/QuadTree.cs"
+                "file": "Slurped Pages/四叉树空间索引原理及其实现_4叉树-CSDN博客.md"
               },
               "icon": "lucide-list",
-              "title": "QuadTree 的大纲"
+              "title": "四叉树空间索引原理及其实现_4叉树-CSDN博客 的大纲"
             }
           },
           {
@@ -189,12 +192,12 @@
       "dbfolder:创建一个新数据库表": false
     }
   },
-  "active": "f8a7eda2a99735cf",
+  "active": "349878b33728d8f6",
   "lastOpenFiles": [
+    "数据结构/树/四叉树，场景管理/QuadTree/QuadTree.cs",
     "数据结构/树/四叉树，场景管理/QuadTree/QT_SAS.cs",
     "数据结构/树/四叉树，场景管理/QuadTree/QTAABB.cs",
     "数据结构/树/四叉树，场景管理/QuadTree/QTUtils.cs",
-    "数据结构/树/四叉树，场景管理/QuadTree/QuadTree.cs",
     "Slurped Pages/四叉树空间索引原理及其实现_4叉树-CSDN博客.md",
     "数据结构/树/四叉树，场景管理/四叉树.md",
     "数据结构/树/四叉树，场景管理/四叉树构建思路.md",
