@@ -77,7 +77,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 432.5
+    "width": 432.5,
+    "collapsed": true
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -193,8 +194,9 @@
   },
   "active": "349878b33728d8f6",
   "lastOpenFiles": [
-    "数据结构/树/四叉树，场景管理/四叉树构建思路.md",
+    "Slurped Pages/Quick Tip - Use Quadtrees to Detect Likely Collisions in 2D Space.md",
     "数据结构/树/四叉树，场景管理/四叉树.md",
+    "数据结构/树/四叉树，场景管理/四叉树构建思路.md",
     "Slurped Pages/四叉树空间索引原理及其实现_4叉树-CSDN博客.md",
     "数据结构/树/四叉树，场景管理/QuadTree/QuadTree.cs",
     "数据结构/树/四叉树，场景管理/QuadTree/QT_SAS.cs",
