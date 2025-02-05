@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "0c259511cec68d69",
+        "id": "9dae63f26ee4a027",
         "type": "tabs",
         "children": [
           {
-            "id": "349878b33728d8f6",
+            "id": "dbdaabcc4bb424e9",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "数据结构/树/四叉树，场景管理/四叉树.md",
+                "file": "Unity/杂项/Git使用.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "四叉树"
+              "title": "Git使用"
             }
           }
         ]
@@ -35,15 +35,16 @@
         "type": "tabs",
         "children": [
           {
-            "id": "f8a7eda2a99735cf",
+            "id": "3980a1c1a27a1a1d",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
               "state": {
-                "sortOrder": "alphabetical"
+                "sortOrder": "alphabetical",
+                "autoReveal": false
               },
               "icon": "lucide-folder-closed",
-              "title": "文件列表"
+              "title": "Files"
             }
           },
           {
@@ -60,7 +61,7 @@
                 "sortOrder": "alphabetical"
               },
               "icon": "lucide-search",
-              "title": "搜索"
+              "title": "Search"
             }
           },
           {
@@ -70,14 +71,14 @@
               "type": "bookmarks",
               "state": {},
               "icon": "lucide-bookmark",
-              "title": "书签"
+              "title": "Bookmarks"
             }
           }
         ]
       }
     ],
     "direction": "horizontal",
-    "width": 432.5,
+    "width": 439.5,
     "collapsed": true
   },
   "right": {
@@ -103,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "反向链接"
+              "title": "Backlinks"
             }
           },
           {
@@ -116,7 +117,7 @@
                 "unlinkedCollapsed": false
               },
               "icon": "links-going-out",
-              "title": "出链"
+              "title": "Outgoing links"
             }
           },
           {
@@ -126,10 +127,12 @@
               "type": "tag",
               "state": {
                 "sortOrder": "frequency",
-                "useHierarchy": true
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
               },
               "icon": "lucide-tags",
-              "title": "标签"
+              "title": "Tags"
             }
           },
           {
@@ -138,14 +141,17 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "数据结构/树/四叉树，场景管理/四叉树.md"
+                "file": "conflict-files-obsidian-git.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "四叉树 的大纲"
+              "title": "Outline of conflict-files-obsidian-git"
             }
           },
           {
-            "id": "64c88f4518dba940",
+            "id": "ac6c4f96f826b3af",
             "type": "leaf",
             "state": {
               "type": "reminder-list",
@@ -155,7 +161,7 @@
             }
           },
           {
-            "id": "c629e0c3f1c530c3",
+            "id": "3d03363381643893",
             "type": "leaf",
             "state": {
               "type": "todo",
@@ -165,83 +171,83 @@
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 5
       }
     ],
     "direction": "horizontal",
-    "width": 438.5,
+    "width": 425.5,
     "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
-      "obsidian-excalidraw-plugin:新建绘图文件": false,
-      "switcher:打开快速切换": false,
-      "graph:查看关系图谱": false,
-      "canvas:新建白板": false,
-      "daily-notes:打开/创建今天的日记": false,
-      "templates:插入模板": false,
-      "command-palette:打开命令面板": false,
+      "vscode-editor:Create Code File": false,
+      "timelines-revamped:Insert Timeline Event": false,
+      "timelines-revamped:Insert Timeline Event (Frontmatter)": false,
+      "dbfolder:Create a new database table": false,
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
       "obsidian-importer:Open Importer": false,
+      "obsidian-excalidraw-plugin:Create new drawing": false,
       "markdown-table-editor:Open Markdown Table Editor": false,
       "pdf-plus:PDF++: Toggle auto-copy": false,
       "pdf-plus:PDF++: Toggle auto-focus": false,
-      "pdf-plus:PDF++: Toggle auto-paste": false,
-      "vscode-editor:新建代码文件": false,
-      "timelines-revamped:Insert Timeline Event": false,
-      "timelines-revamped:Insert Timeline Event (Frontmatter)": false,
-      "dbfolder:创建一个新数据库表": false
+      "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "349878b33728d8f6",
+  "active": "dbdaabcc4bb424e9",
   "lastOpenFiles": [
-    "Slurped Pages/Quick Tip - Use Quadtrees to Detect Likely Collisions in 2D Space.md",
-    "数据结构/树/四叉树，场景管理/四叉树.md",
-    "数据结构/树/四叉树，场景管理/四叉树构建思路.md",
-    "Slurped Pages/四叉树空间索引原理及其实现_4叉树-CSDN博客.md",
-    "数据结构/树/四叉树，场景管理/QuadTree/QuadTree.cs",
-    "数据结构/树/四叉树，场景管理/QuadTree/QT_SAS.cs",
-    "数据结构/树/四叉树，场景管理/QuadTree/QTAABB.cs",
-    "数据结构/树/四叉树，场景管理/QuadTree/QTUtils.cs",
-    "数据结构/树/树.md",
-    "Unity/杂项/Git使用.md",
-    "数据结构/树/四叉树，场景管理/QuadTree/ListPool.cs",
-    "数据结构/树/四叉树，场景管理/QuadTree/IQuadTree.cs",
-    "数据结构/树/四叉树，场景管理/QuadTree/InsertRetType.cs",
-    "记录/工作/工作日程/2025年.md",
-    "Unity/杂项/简单的下载功能.md",
-    "Building Quality Shaders for Unity/Building Quality Shaders for Unity.md",
-    "记录/工作/工作日程/2024年.md",
-    "Unity/杂项/DownloadHelper.cs",
     "记录/工作/Work Todo.md",
-    "Unity/战斗/如何设计技能系统.md",
-    "Unity/战斗/attachments/_HandleTeamAttackTarget.png",
-    "Unity/杂项/客户端同步服务器时间.md",
-    "数据结构/树/字典树/字典树——匹配字符.md",
-    "Unity/杂项",
-    "数据结构/树/字典树/AhoCorasick.cs",
-    "收藏夹/attachments/Pasted image 20240913091959.png",
-    "收藏夹/杂项.md",
-    "Excalidraw/Drawing 2024-12-26 18.08.19.excalidraw.md",
-    "计算机图形学—从0开始构建一个OpenGL软光栅/高级渲染管线功能.md",
-    "【Unity技术美术】URP Shader训练营/自定义漫反射URP-Shader.md",
-    "Unity/网络编程/未命名.md",
-    "[.md",
-    "Unity/网络编程/UDP可靠性封装/UDP可靠性封装.md",
-    "Unity/网络编程/移动端断线重连方案 - niep的博客.md",
-    "Unity/网络编程/谈谈Unity游戏TCP连接和网络重连.md",
-    "Unity/网络编程/Unity Socket网络编程.md",
-    "Unity/网络编程/UDP可靠性封装/怎么让不可靠的UDP可靠_udp由不可靠传输变为可靠传输-CSDN博客.md",
-    "Unity/网络编程/斗地主编程.md",
-    "数据结构/树/字典树/attachments/（图解1）字典树.png",
-    "Excalidraw/四叉树.svg",
-    "数据结构/树/四叉树，场景管理/attachments/（图解1）四叉树示意图.png",
-    "Excalidraw/Scripts/Downloaded/Relative Font Size Cycle.svg",
-    "Unity/打包&SDK/attachments/Pasted image 20241124112151.png",
-    "Unity/战斗/attachments/SearchManager.Update(realtimeSinceBattleStartup, p_fix64DeltaTime).png",
-    "Unity/战斗/attachments/Step.png",
-    "Unity/战斗/attachments/USE_LOCAL_BATTLE.png",
-    "未命名.canvas",
+    "数据结构/红黑树.md",
+    "数据结构/树.md",
+    "数据结构/二叉查找树.md",
+    "Unity/面试/attachments/Pasted image 20240619120423.png",
+    "Unity/面试/attachments/Pasted image 20240619120411.png",
+    "Unity/面试/面向对象编程三大特性------封装、继承、多态-CSDN博客.md",
+    "Unity/面试/面向对象的三大特性-CSDN博客.md",
+    "Unity/面试/虚函数底层实现机制_c# 虚函数原理-CSDN博客.md",
+    "Unity/面试/聊聊TCP协议的粘包、拆包以及http是如何解决的？_什么是tcp粘包,拆包。解决方式是什么-CSDN博客.md",
+    "Unity/面试/第四十篇，C++虚函数底层实现原理和多态的实现。_c++ 多个基类虚函数同名子类如何实现的问题-CSDN博客.md",
+    "Unity/面试/彻底搞清楚c#中的委托和事件 - micDavid - 博客园.md",
+    "Unity/面试/单例模式和静态类的区别 - windpoplar - 博客园.md",
+    "Unity/面试/【面试题】C#面试常见基础知识点整理(附示例代码)-CSDN博客.md",
+    "Unity/面试/Lua全知识点详细汇总（基础知识+面向对象+面试重点）_lua面试基础知识点-CSDN博客.md",
+    "Unity/面试/C#高级语法之泛型、泛型约束，类型安全、逆变和协变（思想原理）-腾讯云开发者社区-腾讯云.md",
+    "Unity/面试/C#面试宝典 2022年 60个常见的C#面试问题和答案.md",
+    "Unity/面试/attachments",
+    "Unity/面试/C#.NET基础高频面试题_c#面试-CSDN博客.md",
+    "Unity/面试/60道计算机网络面试题(附答案，背诵版).md",
+    "Unity/面试/2023最新高级难度C#面试题,包含答案。刷题必备！记录一下。-CSDN博客.md",
+    "Unity/面试/2023年Unity面试题大全，共十万字面试题总结【收藏一篇足够面试，持续更新】_unity面试题2023-CSDN博客.md",
+    "Unity/面试",
+    "Unity/网络编程/怎么让不可靠的UDP可靠_udp由不可靠传输变为可靠传输-CSDN博客.md",
+    "Unity/网络编程/2.6 TCP与UDP的可靠性传输_tcp udp 可靠传输-CSDN博客.md",
+    "Unity/打包/打Android/attachments/（图解9）创建Android Library.png",
+    "Unity/打包/打Android/attachments/（图解7）Unity的Mainifest文件.png",
+    "Unity/打包/打Android/attachments/（图解6）Android工程目录结构2.png",
+    "Unity/打包/打Android/attachments/（图解5）Android工程目录结构1.png",
+    "Unity/打包/打Android/attachments/（图解4）Android工程中的package.png",
+    "Unity/打包/打Android/attachments/（图解3）Unity Player库文件.png",
+    "Unity/打包/打Android/attachments/（图解2）Unity库文件.png",
+    "Unity/打包/打Android/attachments/（图解1）Android添加Unity库文件.png",
+    "Unity/打包/打Android/Unity与Android交互.md",
+    "Unity/打包/打Android/attachments",
+    "Unity/打包/打Android/Andorid项目结构.md",
+    "Unity/打包/打Android",
+    "Unity/打包",
+    "conflict-files-obsidian-git.md",
+    "记录/工作/面试题/面向对象编程三大特性------封装、继承、多态-CSDN博客.md",
+    "记录/工作/面试题/面向对象的三大特性-CSDN博客.md",
+    "记录/工作/面试题/attachments",
+    "记录/工作/面试题",
+    "记录/工作/工作日程",
+    "记录/工作",
+    "记录",
     "C++/C++.canvas",
-    "计算机图形学—从0开始构建一个OpenGL软光栅/从0开始构建OpenGL软光栅.canvas"
+    "计算机图形学—从0开始构建一个OpenGL软光栅/从0开始构建OpenGL软光栅.canvas",
+    "未命名.canvas"
   ]
 }
