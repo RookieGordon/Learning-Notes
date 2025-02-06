@@ -7,12 +7,22 @@ tags:
 ```CSharp
 private readonly Dictionary<Type, ASingleton> singletons = new();
 ```
-
-# FiberManager
-
 # CodeLoader热更代码加载器
-`CodeLoader`通过`YooAsset`和`HybridCLR`加载到热更新代码后，向`World`添加`CodeTypes`单例对象，该对象主要是用来做代码热重载的，只有被`CodeAttribute`特性修饰的类才能被re'chong
-# Fiber和Scene
+`CodeLoader`通过`YooAsset`和`HybridCLR`加载到热更新代码后，向`World`添加`CodeTypes`单例对象，该对象主要是用来做代码热重载的，只有被`CodeAttribute`特性修饰的类才能被热重载
+```CSharp
+public void CreateCode()  
+{  
+    var hashSet = this.GetTypes(typeof (CodeAttribute));  
+    foreach (Type type in hashSet)  
+    {        object obj = Activator.CreateInstance(type);  
+        ((ISingletonAwake)obj).Awake();  
+        World.Instance.AddSingleton((ASingleton)obj);  
+    }
+}
+```
+# FiberManager和Fiber
+`Fiber`是ET8.0版本的核心内容。
+## Fiber和Scene
 ![[（图解1）Fiber和Scene的层级关系.png|550]]
 
 ![[（图解2）ET8.0版本进程示例.png|530]]
