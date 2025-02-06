@@ -22,6 +22,33 @@ public void CreateCode()
 ```
 # FiberManager和Fiber
 `Fiber`是ET8.0版本的核心内容。
+```CSharp
+public int Process  
+{  
+    get  
+    {  
+        return Options.Instance.Process;  
+    }
+}
+
+// 其他字段和属性
+
+internal Fiber(int id, int zone, SceneType sceneType, string name)  
+{            
+	this.Id = id;  
+    this.Zone = zone;  
+    this.EntitySystem = new EntitySystem();  
+    this.Mailboxes = new Mailboxes();  
+    this.ThreadSynchronizationContext = new ThreadSynchronizationContext();  
+#if UNITY  
+    this.Log = Logger.Instance.Log;  
+#else  
+    this.Log = new NLogger(sceneType.ToString(), this.Process, this.Id);  
+#endif  
+    this.Root = new Scene(this, id, 1, sceneType, name);  
+}
+```
+`Fiber`
 ## Fiber和Scene
 ![[（图解1）Fiber和Scene的层级关系.png|550]]
 
