@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ET/Fiber和Scene的层级关系.md",
+                "file": "ET/ET框架结构.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Fiber和Scene的层级关系"
+              "title": "ET框架结构"
             }
           }
         ]
@@ -78,7 +78,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 439.5
+    "width": 439.5,
+    "collapsed": true
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -199,11 +200,11 @@
   },
   "active": "dbdaabcc4bb424e9",
   "lastOpenFiles": [
-    "ET/attachments/Pasted image 20250206214250.png",
+    "ET/attachments/（图解2）ET8.0版本进程示例.png",
     "ET/attachments/（图解1）Fiber和Scene的层级关系.png",
     "ET/attachments",
     "Unity/杂项/Git使用.md",
-    "ET/Fiber和Scene的层级关系.md",
+    "ET/ET框架结构.md",
     "ET",
     "记录/工作/Work Todo.md",
     "数据结构/红黑树.md",
