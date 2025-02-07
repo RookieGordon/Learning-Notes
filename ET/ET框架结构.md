@@ -76,7 +76,7 @@ public ThreadPoolScheduler(FiberManager fiberManager)
     }
 }
 ```
-根据可用的核心数量，创建出相应的线程个数
+根据可用的核心数量，创建出相应的线程个数，
 
 `Fiber`是ET8.0版本的核心内容。通过`Process`和`Id`可以定位一个`Fiber`。
 ```CSharp
