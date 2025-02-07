@@ -34,15 +34,16 @@ public enum SchedulerType
 ### MainThreadScheduler主线程调度
 ```CSharp
 private readonly ConcurrentQueue<int> idQueue = new();
-        private readonly ConcurrentQueue<int> addIds = new();
-        private readonly FiberManager fiberManager;
-        private readonly ThreadSynchronizationContext threadSynchronizationContext = new();
+private readonly ConcurrentQueue<int> addIds = new();
+private readonly FiberManager fiberManager;
+private readonly ThreadSynchronizationContext threadSynchronizationContext = new();
 
-        public MainThreadScheduler(FiberManager fiberManager)
-        {
-            SynchronizationContext.SetSynchronizationContext(this.threadSynchronizationContext);
-            this.fiberManager = fiberManager;
-        }
+public MainThreadScheduler(FiberManager fiberManager)
+{
+    SynchronizationContext.SetSynchronizationContext(
+                                                this.threadSynchronizationContext);
+    this.fiberManager = fiberManager;
+}
 ```
 `ThreadSynchronizationContext`是自定义的上下文同步对象，`Fiber`中就有该对象，用于记录当前`Fiber`的上下文。
 
