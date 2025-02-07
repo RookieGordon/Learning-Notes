@@ -195,7 +195,7 @@ internal Fiber(int id, int zone, SceneType sceneType, string name)
     this.Root = new Scene(this, id, 1, sceneType, name);  
 }
 ```
-`Fiber`
+`EventSystem`用于执行`Entity`对象的生命周期（主要是Update和LateUpdate）
 ## Fiber和Scene
 ![[（图解1）Fiber和Scene的层级关系.png|500]]
 
