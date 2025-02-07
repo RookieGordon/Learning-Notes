@@ -21,6 +21,49 @@ public void CreateCode()
 }
 ```
 # FiberManager和Fiber
+通过`Create`方法，可以创建一个`Fiber`对象
+```CSharp
+public async ETTask<int> Create(SchedulerType schedulerType, 
+                                int fiberId, 
+                                int zone, 
+                                SceneType sceneType, 
+                                string name)
+{
+    try
+    {
+        Fiber fiber = new(fiberId, zone, sceneType, name);
+        if (!this.fibers.TryAdd(fiberId, fiber))
+        {
+            throw new Exception(
+                            $"same fiber already existed, 
+                            if you remove, please await Remove then Create fiber! {fiberId}");
+        }
+        this.schedulers[(int) schedulerType].Add(fiberId);
+        TaskCompletionSource<bool> tcs = new TaskCompletionSource<bool>();
+        fiber.ThreadSynchronizationContext.Post(async () =>
+        {
+            try
+            {
+                // 根据Fiber的SceneType分发Init,必须在Fiber线程中执行
+                await EventSystem.Instance.Invoke<FiberInit, ETTask>(
+                                                (long)sceneType, 
+                                                new FiberInit() {Fiber = fiber});
+                tcs.SetResult(true);
+            }
+            catch (Exception e)
+            {
+                Log.Error($"init fiber fail: {sceneType} {e}");
+            }
+        });
+        await tcs.Task;
+        return fiberId;
+    }
+    catch (Exception e)
+    {
+        throw new Exception($"create fiber error: {fiberId} {sceneType}", e);
+    }
+}
+```
 ## Filber调度方式
 `FiberManager`提供了三种调度方式，分别是：主线程调度，（指定）线程调度和线程池调度
 ```CSharp
@@ -123,7 +166,7 @@ private void Loop()
      }
 }
 ```
-
+## Fiber
 `Fiber`是ET8.0版本的核心内容。通过`Process`和`Id`可以定位一个`Fiber`。
 ```CSharp
 public int Process  
