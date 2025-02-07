@@ -104,7 +104,25 @@ public ThreadPoolScheduler(FiberManager fiberManager)
     }
 }
 ```
-根据可用的核心数量，创建出相应的线程个数
+根据可用的核心数量，创建出相应的线程个数。`Loop`方法，会将所有的`Fiber`分配到这些线程上去执行（非固定）。
+```CSharp
+private void Loop()
+{
+    int count = 0;
+    while (true)
+    {
+        if (count <= 0)
+        {
+            Thread.Sleep(1);
+            // count最小为1
+            count = this.fiberManager.Count() / this.threads.Count + 1;
+        }
+  
+        --count;
+        // 从队列中取出Fiber，执行Fiber的任务
+     }
+}
+```
 
 `Fiber`是ET8.0版本的核心内容。通过`Process`和`Id`可以定位一个`Fiber`。
 ```CSharp
