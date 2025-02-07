@@ -45,7 +45,7 @@ public MainThreadScheduler(FiberManager fiberManager)
     this.fiberManager = fiberManager;
 }
 ```
-`ThreadSynchronizationContext`是自定义的上下文同步对象，`Fiber`中就有该对象，用于记录当前`Fiber`的上下文。
+`ThreadSynchronizationContext`是自定义的上下文同步对象，`Fiber`中就有该对象，用于记录当前`Fiber`的上下文。`idQueue`用于记录`Fiber`对象的id。`MainThreadScheduler.Update`方法，会
 
 `Fiber`是ET8.0版本的核心内容。通过`Process`和`Id`可以定位一个`Fiber`。
 ```CSharp
