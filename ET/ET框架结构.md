@@ -168,7 +168,7 @@ private void Loop()
 }
 ```
 ## Fiber
-`Fiber`是ET8.0版本的核心内容。通过`Process`和`Id`可以定位一个`Fiber`。
+通过`Process`和`Id`可以定位一个`Fiber`，`Process`来自于启动参数，Unity客户端默认是1，服务器则是通过启动配置`StartSceneConfig@s.xlsx`来启动服务器的。
 ```CSharp
 public int Process  
 {  
