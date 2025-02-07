@@ -197,7 +197,10 @@ internal Fiber(int id, int zone, SceneType sceneType, string name)
 ```
 `EventSystem`用于执行`Entity`对象的Update和LateUpdate生命周期。
 `LateUpdate`在执行完`Entity`的`LateUpdate`生命周期后，会完成`WaitFrameFinish`的task。最后再执行抛回到主线程的回调。
-## Fiber和Scene
+# 初始化和登录流程
+## 初始化流程
+### Fiber和Scene
 ![[（图解1）Fiber和Scene的层级关系.png|500]]
 
 ![[（图解2）ET8.0版本进程示例.png|530]]
+## 登录流程
