@@ -49,7 +49,8 @@ public MainThreadScheduler(FiberManager fiberManager)
 ```CSharp
 public void Update()
 {
-    SynchronizationContext.SetSynchronizationContext(this.threadSynchronizationContext);
+    SynchronizationContext.SetSynchronizationContext(
+                                        this.threadSynchronizationContext);
     this.threadSynchronizationContext.Update();
     int count = this.idQueue.Count;
     while (count-- > 0)
@@ -60,16 +61,17 @@ public void Update()
         }
 
         Fiber fiber = this.fiberManager.Get(id);
-        // 合法性判断
-
+        // 一些合法性判断
         Fiber.Instance = fiber;
-        SynchronizationContext.SetSynchronizationContext(fiber.ThreadSynchronizationContext);
+        SynchronizationContext.SetSynchronizationContext(
+                                        fiber.ThreadSynchronizationContext);
         fiber.Update();
         Fiber.Instance = null;
         this.idQueue.Enqueue(id);
      }
      // Fiber调度完成，要还原成默认的上下文，否则unity的回调会找不到正确的上下文
-     SynchronizationContext.SetSynchronizationContext(this.threadSynchronizationContext);
+     SynchronizationContext.SetSynchronizationContext(
+                                        this.threadSynchronizationContext);
 }
 ```
 ### ThreadScheduler固定线程调度
@@ -82,7 +84,7 @@ public ThreadScheduler(FiberManager fiberManager)
     this.fiberManager = fiberManager;
 }
 ```
-`dictionary`用于存放线程，通过`Add`方法可知，每个`Fiber`对象都会分配一个线程。
+`dictionary`用于存放线程，通过`Add`方法可知，每个`Fiber`对象都会分配一个线程。`Lopp`方法和`MainThreadScheduler.Update`方法思路一致，都是取出`Fiber`后，同步上下文，然后执行`Fiber.Update`和`Fiber.LateUpdate`
 ### ThreadPoolScheduler线程池调度
 ```CSharp
 private readonly List<Thread> threads;
