@@ -21,6 +21,17 @@ public void CreateCode()
 }
 ```
 # FiberManager和Fiber
+## Filber调度方式
+`FiberManager`提供了三种调度方式，分别是：主线程调度，（指定）线程调度和线程池调度
+```CSharp
+public enum SchedulerType
+{
+    Main,
+    Thread,
+    ThreadPool,
+}
+```
+
 `Fiber`是ET8.0版本的核心内容。
 ```CSharp
 public int Process  
