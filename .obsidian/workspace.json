@@ -139,10 +139,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "数据结构/树/四叉树，场景管理/四叉树.md"
+                "file": "ET/ET框架结构.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "四叉树 的大纲"
+              "title": "Outline of ET框架结构"
             }
           },
           {
