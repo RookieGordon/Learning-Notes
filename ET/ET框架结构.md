@@ -104,7 +104,7 @@ public ThreadPoolScheduler(FiberManager fiberManager)
     }
 }
 ```
-根据可用的核心数量，创建出相应的线程个数。`Loop`方法，会将所有的`Fiber`分配到这些线程上去执行（非固定）。
+根据可用的核心数量，创建出相应的线程个数。`Loop`方法，会将所有的`Fiber`分配到这些线程上去执行（非固定），每次`While`执行的`Fiber`数量是`Fiber`总数和可用核心数共同决定的。
 ```CSharp
 private void Loop()
 {
