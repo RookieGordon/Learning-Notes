@@ -1,5 +1,6 @@
 {
   "accentColor": "",
   "theme": "obsidian",
-  "cssTheme": "Dracula + LYT"
+  "cssTheme": "Prism",
+  "baseFontSize": 15
 }
