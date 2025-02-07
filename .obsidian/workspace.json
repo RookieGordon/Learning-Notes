@@ -78,8 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 269,
-    "collapsed": true
+    "width": 269
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -195,11 +194,11 @@
   },
   "active": "0df3f7707cca0e34",
   "lastOpenFiles": [
+    "ET/Untitled Diagram.svg",
+    "ET/ET框架结构.md",
     "ET/MMO战斗框架",
     "ET/代码分析器",
     "ET/代码生成器",
-    "ET/Untitled Diagram.svg",
-    "ET/ET框架结构.md",
     "记录/工作/工作日程/2025年.md",
     "记录/工作/工作日程/2024年.md",
     "Excalidraw/Map.md",
@@ -218,7 +217,6 @@
     "数据结构/树/树.md",
     "Unity/杂项/Git使用.md",
     "数据结构/树/四叉树，场景管理/QuadTree/ListPool.cs",
-    "数据结构/树/四叉树，场景管理/QuadTree/IQuadTree.cs",
     "Unity/杂项/简单的下载功能.md",
     "Building Quality Shaders for Unity/Building Quality Shaders for Unity.md",
     "记录/工作/Work Todo.md",

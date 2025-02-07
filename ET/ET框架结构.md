@@ -46,6 +46,32 @@ public MainThreadScheduler(FiberManager fiberManager)
 }
 ```
 `ThreadSynchronizationContext`是自定义的上下文同步对象，`Fiber`中就有该对象，用于记录当前`Fiber`的上下文。`idQueue`用于记录`Fiber`对象的id。`MainThreadScheduler.Update`方法，会先切换到主线程，执行主线程的任务，然后遍历`idQueue`队列，通过`FiberManager`获取到指定的`Fiber`对象，切换到其上下文，执行其内部的任务。所有`Fiber`都执行完毕后，最后再切回主线程。
+```CSharp
+public void Update()
+{
+    SynchronizationContext.SetSynchronizationContext(this.threadSynchronizationContext);
+    this.threadSynchronizationContext.Update();
+    int count = this.idQueue.Count;
+    while (count-- > 0)
+    {
+        if (!this.idQueue.TryDequeue(out int id))
+        {
+            continue;
+        }
+
+        Fiber fiber = this.fiberManager.Get(id);
+        // 合法性判断
+
+        Fiber.Instance = fiber;
+        SynchronizationContext.SetSynchronizationContext(fiber.ThreadSynchronizationContext);
+        fiber.Update();
+        Fiber.Instance = null;
+        this.idQueue.Enqueue(id);
+     }
+     // Fiber调度完成，要还原成默认的上下文，否则unity的回调会找不到正确的上下文
+     SynchronizationContext.SetSynchronizationContext(this.threadSynchronizationContext);
+}
+```
 ### ThreadScheduler固定线程调度
 ```CSharp
 private readonly ConcurrentDictionary<int, Thread> dictionary = new();
@@ -76,7 +102,7 @@ public ThreadPoolScheduler(FiberManager fiberManager)
     }
 }
 ```
-根据可用的核心数量，创建出相应的线程个数，
+根据可用的核心数量，创建出相应的线程个数
 
 `Fiber`是ET8.0版本的核心内容。通过`Process`和`Id`可以定位一个`Fiber`。
 ```CSharp
