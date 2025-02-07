@@ -195,7 +195,8 @@ internal Fiber(int id, int zone, SceneType sceneType, string name)
     this.Root = new Scene(this, id, 1, sceneType, name);  
 }
 ```
-`EventSystem`用于执行`Entity`对象的生命周期（主要是Update和LateUpdate）
+`EventSystem`用于执行`Entity`对象的Update和LateUpdate生命周期。
+`LateUpdate`在执行完`Entity`的`LateUpdate`生命周期后，会完成`WaitFrameFinish`的task。最后再执行抛回到主线程的回调。
 ## Fiber和Scene
 ![[（图解1）Fiber和Scene的层级关系.png|500]]
 
