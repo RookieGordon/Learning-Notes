@@ -56,7 +56,8 @@ public ThreadScheduler(FiberManager fiberManager)
     this.fiberManager = fiberManager;
 }
 ```
-`dictionary`用于存放线程，通过`Add方法`
+`dictionary`用于存放线程，通过`Add`方法可知，每个`Fiber`对象都会分配一个线程。
+### ThreadPoolScheduler线程池调度
 
 `Fiber`是ET8.0版本的核心内容。通过`Process`和`Id`可以定位一个`Fiber`。
 ```CSharp
