@@ -32,7 +32,7 @@ public enum SchedulerType
 }
 ```
 
-`Fiber`是ET8.0版本的核心内容。
+`Fiber`是ET8.0版本的核心内容。通过`Process`和`Id`可以定位一个`Fiber`。
 ```CSharp
 public int Process  
 {  
