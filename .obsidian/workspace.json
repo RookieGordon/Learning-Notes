@@ -14,7 +14,7 @@
               "type": "markdown",
               "state": {
                 "file": "ET/ET框架结构.md",
-                "mode": "preview",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
@@ -78,8 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 269,
-    "collapsed": true
+    "width": 269
   },
   "right": {
     "id": "abfee433681e25ee",

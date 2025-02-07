@@ -50,6 +50,6 @@ internal Fiber(int id, int zone, SceneType sceneType, string name)
 ```
 `Fiber`
 ## Fiber和Scene
-![[（图解1）Fiber和Scene的层级关系.png|550]]
+![[（图解1）Fiber和Scene的层级关系.png|500]]
 
 ![[（图解2）ET8.0版本进程示例.png|530]]
