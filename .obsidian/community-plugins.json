@@ -20,5 +20,6 @@
   "vscode-editor",
   "timelines-revamped",
   "dataview",
-  "dbfolder"
+  "dbfolder",
+  "plugin-manager"
 ]
