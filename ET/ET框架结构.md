@@ -200,6 +200,7 @@ internal Fiber(int id, int zone, SceneType sceneType, string name)
 # 初始化和登录流程
 ## 初始化流程
 ## 客户端初始流程
+
 ## 服务器初始化流程
 ## Entry流程
 ### Fiber和Scene
