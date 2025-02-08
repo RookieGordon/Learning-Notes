@@ -20,16 +20,6 @@
               "icon": "lucide-file",
               "title": "ET框架结构"
             }
-          },
-          {
-            "id": "5f8dcdcc2fabbece",
-            "type": "leaf",
-            "state": {
-              "type": "thino_view",
-              "state": {},
-              "icon": "Memos",
-              "title": "Thino"
-            }
           }
         ]
       }
@@ -88,7 +78,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 507.5
+    "width": 507.5,
+    "collapsed": true
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -194,7 +185,6 @@
       "daily-notes:打开/创建今天的日记": false,
       "templates:插入模板": false,
       "command-palette:打开命令面板": false,
-      "obsidian-importer:Open Importer": false,
       "markdown-table-editor:Open Markdown Table Editor": false,
       "pdf-plus:PDF++: Toggle auto-copy": false,
       "pdf-plus:PDF++: Toggle auto-focus": false,
@@ -202,17 +192,16 @@
       "vscode-editor:新建代码文件": false,
       "timelines-revamped:Insert Timeline Event": false,
       "timelines-revamped:Insert Timeline Event (Frontmatter)": false,
-      "dbfolder:创建一个新数据库表": false,
       "obsidian-git:Open Git source control": false,
       "obsidian-memos:Thino": false
     }
   },
   "active": "0df3f7707cca0e34",
   "lastOpenFiles": [
-    "数据结构/树/红黑树/红黑树.md",
-    "ET/ET框架结构.md",
-    "ET/attachments/（图解2）ET8.0版本进程示例.png",
     "ET/Untitled Diagram.svg",
+    "ET/ET框架结构.md",
+    "数据结构/树/红黑树/红黑树.md",
+    "ET/attachments/（图解2）ET8.0版本进程示例.png",
     "ET/MMO战斗框架",
     "ET/代码分析器",
     "ET/代码生成器",
@@ -249,7 +238,6 @@
     "[.md",
     "Unity/网络编程/UDP可靠性封装/UDP可靠性封装.md",
     "Unity/网络编程/移动端断线重连方案 - niep的博客.md",
-    "Unity/网络编程/谈谈Unity游戏TCP连接和网络重连.md",
     "数据结构/树/字典树/attachments/（图解1）字典树.png",
     "Excalidraw/四叉树.svg",
     "数据结构/树/四叉树，场景管理/attachments/（图解1）四叉树示意图.png",

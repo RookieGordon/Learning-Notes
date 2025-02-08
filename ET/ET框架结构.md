@@ -199,12 +199,13 @@ internal Fiber(int id, int zone, SceneType sceneType, string name)
 每个`Fiber`都会配置一个`Scene`
 # 初始化和登录流程
 ## 初始化流程
-## 客户端初始流程
 
-## 服务器初始化流程
-## Entry流程
 ### Fiber和Scene
 ![[（图解1）Fiber和Scene的层级关系.png|500]]
 
 ![[（图解2）ET8.0版本进程示例.png|530]]
 ## 登录流程
+
+![[ET/Untitled Diagram.svg]]
+
+![[ET/Untitled Diagram.svg]]

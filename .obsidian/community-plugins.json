@@ -1,6 +1,5 @@
 [
   "obsidian-git",
-  "obsidian-importer",
   "obsidian-style-settings",
   "editing-toolbar",
   "collapse-node",
@@ -17,8 +16,6 @@
   "obsidian-checklist-plugin",
   "vscode-editor",
   "timelines-revamped",
-  "dataview",
-  "dbfolder",
   "plugin-manager",
   "obsidian-advanced-codeblock",
   "obsidian-memos"
