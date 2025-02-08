@@ -20,6 +20,16 @@
               "icon": "lucide-file",
               "title": "ET框架结构"
             }
+          },
+          {
+            "id": "5f8dcdcc2fabbece",
+            "type": "leaf",
+            "state": {
+              "type": "thino_view",
+              "state": {},
+              "icon": "Memos",
+              "title": "Thino"
+            }
           }
         ]
       }
@@ -78,7 +88,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 507.5
+    "width": 507.5,
+    "collapsed": true
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -172,7 +183,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 438.5
+    "width": 438.5,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -192,13 +204,15 @@
       "timelines-revamped:Insert Timeline Event": false,
       "timelines-revamped:Insert Timeline Event (Frontmatter)": false,
       "dbfolder:创建一个新数据库表": false,
-      "obsidian-git:Open Git source control": false
+      "obsidian-git:Open Git source control": false,
+      "obsidian-memos:Thino": false
     }
   },
   "active": "0df3f7707cca0e34",
   "lastOpenFiles": [
-    "ET/attachments/（图解2）ET8.0版本进程示例.png",
+    "数据结构/树/红黑树/红黑树.md",
     "ET/ET框架结构.md",
+    "ET/attachments/（图解2）ET8.0版本进程示例.png",
     "ET/Untitled Diagram.svg",
     "ET/MMO战斗框架",
     "ET/代码分析器",
