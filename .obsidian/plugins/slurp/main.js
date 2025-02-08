@@ -9050,11 +9050,19 @@ var import_obsidian = require("obsidian");
 
 // src/lib/util.ts
 var isEmpty = (val) => {
-  return val == null || typeof val === "string" && val.trim().length === 0 || typeof val[Symbol.iterator] === "function" && val.length === 0;
+  return !val || typeof val === "string" && val.trim().length === 0 || typeof val[Symbol.iterator] === "function" && val.length === 0;
 };
 var removeTrailingSlash = (str) => str.endsWith("/") ? str.substring(0, str.length - 1) : str;
 var cleanTitle = (title) => {
-  return title.replace(/\s?[\|:]\s?/g, " - ").replace('"', "'").replace(/[\*"\\/<>:\?]/g, "");
+  return title.replace(/\s?[\|:]\s?/g, " - ").replace('"', "'").replace(/[\*"\\/#<>:\?]/g, "");
+};
+var cleanTag = (text2, tagCase) => {
+  const other = new RegExp(/[^\w\-\/]+/g);
+  const extraWhitespace = new RegExp(/\s{2,}/);
+  return updateStringCase(
+    text2.replace("&", " and ").replace(":", "/").replace(other, " ").replace(extraWhitespace, " ").trim(),
+    tagCase
+  );
 };
 var updateStringCase = (text2, targetCase) => {
   switch (targetCase) {
@@ -9408,11 +9416,21 @@ var validateFrontMatterProps = (props) => {
     return { format: fmt, key, hasErrors: fmt.length + key.length > 0 };
   });
 };
+var formatFrontMatterValue = (fmItem, value) => {
+  return fmItem.format && value ? format(fmItem.format, value) : value ? value : null;
+};
 var getFrontMatterValue = (fmItem, article, showEmpty) => {
-  if (isEmpty(article[fmItem.id]) && fmItem.defaultValue !== void 0)
-    return typeof fmItem.defaultValue === "function" ? fmItem.defaultValue() : fmItem.defaultValue;
-  if (!isEmpty(article[fmItem.id]) || showEmpty)
-    return fmItem.format ? format(fmItem.format, article[fmItem.id]) : article[fmItem.id] !== void 0 ? article[fmItem.id] : null;
+  if (isEmpty(article[fmItem.id]) && fmItem.defaultValue !== void 0) {
+    const raw = typeof fmItem.defaultValue === "function" ? fmItem.defaultValue() : fmItem.defaultValue;
+    const val = formatFrontMatterValue(fmItem, raw);
+    logger().debug("got frontmatter default", { key: fmItem.id, rawValue: raw, format: fmItem.format, value: val });
+    return val;
+  }
+  if (!isEmpty(article[fmItem.id]) || showEmpty) {
+    const val = formatFrontMatterValue(fmItem, article[fmItem.id]);
+    logger().debug("got frontmatter value", { key: fmItem.id, rawValue: article[fmItem.id], format: fmItem.format, value: val });
+    return val;
+  }
 };
 var getFrontMatterYaml = (fm, idx) => {
   logger().debug("stringifying yaml...", fm, idx);
@@ -9727,7 +9745,10 @@ var parsePage = (doc) => {
 };
 var parseMetadataTags = (elements, tagPrefix, tagCase) => {
   const tags = /* @__PURE__ */ new Set();
-  elements.forEach((e) => e.content.split(",").forEach((text2) => tags.add({ prefix: tagPrefix, tag: updateStringCase(text2.trim(), tagCase) })));
+  elements.forEach((e) => e.content.split(",").forEach((text2) => tags.add({
+    prefix: tagPrefix,
+    tag: cleanTag(text2, tagCase)
+  })));
   logger().debug("parsed tags", tags);
   return tags;
 };
@@ -9760,9 +9781,20 @@ var parseMetadata = (doc, fmProps, tagPrefix, tagCase) => {
   ;
   return metadata;
 };
+var dedupeTags = (tagsA, tagsB) => {
+  const found = new Array();
+  const results = [];
+  for (const tag of [...tagsA, ...tagsB]) {
+    if (found.length == 0 || !found.includes(tag.tag)) {
+      found.push(tag.tag);
+      results.push(tag);
+    }
+  }
+  return results;
+};
 var mergeMetadata = (article, metadata) => {
   const merged = { ...article };
-  merged.tags = Array.from(/* @__PURE__ */ new Set([...article.tags, ...metadata.tags]));
+  merged.tags = dedupeTags(article.tags, metadata.tags);
   for (const key in metadata) {
     if (key !== "tags" && isEmpty(merged[key]) && !isEmpty(metadata[key]))
       merged[key] = metadata[key];
@@ -10965,7 +10997,7 @@ if (typeof HTMLElement === "function") {
     disconnectedCallback() {
       this.$$cn = false;
       Promise.resolve().then(() => {
-        if (!this.$$cn) {
+        if (!this.$$cn && this.$$c) {
           this.$$c.$destroy();
           this.$$c = void 0;
         }
@@ -12545,3 +12577,5 @@ moment/moment.js:
   (*! license : MIT *)
   (*! momentjs.com *)
 */
+
+/* nosourcemap */

@@ -13,13 +13,12 @@
   "obsidian-annotator",
   "pdf-plus",
   "tag-wrangler",
-  "drawio-obsidian",
   "obsidian-reminder-plugin",
   "obsidian-checklist-plugin",
-  "obsidian-advanced-codeblock",
   "vscode-editor",
   "timelines-revamped",
   "dataview",
   "dbfolder",
-  "plugin-manager"
+  "plugin-manager",
+  "obsidian-advanced-codeblock"
 ]

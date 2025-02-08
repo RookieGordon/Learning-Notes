@@ -58,6 +58,59 @@ settings:
         step: 1
         default: 2
         format: px
+    -
+        id: hover-popover
+        title: Hover popovers
+        type: heading
+        level: 2
+    -
+        id: pdf-plus-backlink-popover
+        title: Backlink popovers
+        description: Styles for popovers displayed when hovering over backlinked highlights or rectangular selections in PDF viewer
+        type: heading
+        level: 3
+    -
+        id: pdf-plus-backlink-popover-width
+        title: Backlink popover width (px)
+        type: variable-number-slider
+        min: 100
+        max: 1000
+        step: 10
+        default: 450
+        format: px
+    -
+        id: pdf-plus-backlink-popover-height
+        title: Backlink popover height (px)
+        type: variable-number-slider
+        min: 100
+        max: 1000
+        step: 10
+        default: 400
+        format: px
+    -
+        id: pdf-plus-pdf-link-like-popover
+        title: PDF internal link popovers
+        description: Styles for popovers displayed when hovering over internal links, outline items or thumbnails in PDF viewer
+        type: heading
+        level: 3
+    -
+        id: pdf-plus-pdf-link-like-popover-width
+        title: PDF internal link popover width (px)
+        type: variable-number-slider
+        min: 100
+        max: 1000
+        step: 10
+        default: 450
+        format: px
+    -
+        id: pdf-plus-pdf-link-like-popover-height
+        title: PDF internal link popover height (px)
+        type: variable-number-slider
+        min: 100
+        max: 1000
+        step: 10
+        default: 400
+        format: px
     - 
         id: pdf-toolbar
         title: PDF toolbars
@@ -87,6 +140,21 @@ settings:
         step: 10
         default: 140
         format: px
+    -
+        id: pdf-plus-vim
+        title: Vim keybindings
+        type: heading
+        level: 2
+    -
+        id: pdf-plus-vim-hin
+        title: Hint mode
+        type: heading
+        level: 3
+    - 
+        id: pdf-plus-vim-hint-inverted
+        title: Inverted color scheme
+        type: class-toggle
+        default: false
 */
 
 :root {
@@ -302,8 +370,7 @@ settings:
 }
 
 body:not(.pdf-plus-backlink-selection-underline) .pdf-plus-backlink-highlight-layer .pdf-plus-backlink.pdf-plus-backlink-selection {
-    background-color: var(--pdf-plus-color);
-    opacity: var(--pdf-plus-highlight-opacity, 0.2);
+    background-color: rgb(from var(--pdf-plus-color) r g b / var(--pdf-plus-highlight-opacity, 0.2));
     padding: var(--pdf-plus-highlight-padding-vertical-em, var(--pdf-plus-highlight-padding-default-em)) var(--pdf-plus-highlight-padding-horizontal-em, var(--pdf-plus-highlight-padding-default-em));
     margin: calc(var(--pdf-plus-highlight-padding-vertical-em, var(--pdf-plus-highlight-padding-default-em)) * -1) calc(var(--pdf-plus-highlight-padding-horizontal-em, var(--pdf-plus-highlight-padding-default-em)) * -1);
     border-radius: 0.1em;
@@ -335,8 +402,7 @@ body.pdf-plus-backlink-selection-underline {
 }
 
 .pdf-plus-backlink-highlight-layer .pdf-plus-backlink.pdf-plus-backlink-fit-r {
-    border: dashed var(--pdf-plus-rect-color) var(--pdf-plus-rect-highlight-border-width, 2px);
-    opacity: var(--pdf-plus-rect-highlight-opacity, 1);
+    border: dashed rgb(from var(--pdf-plus-rect-color) r g b / var(--pdf-plus-rect-highlight-opacity, 1)) var(--pdf-plus-rect-highlight-border-width, 2px);
 }
 
 .pdf-plus-backlink-icon {
@@ -454,6 +520,10 @@ body.pdf-plus-backlink-selection-underline {
     }
 }
 
+.pdf-plus-restore-default-modal {
+    user-select: text;
+}
+
 .pdf-content-container {
     --sidebar-width: var(--pdf-plus-sidebar-width, 140px);
 }
@@ -509,6 +579,16 @@ body {
     pointer-events: none;
 }
 
+.popover.hover-popover.pdf-plus-backlink-popover {
+    --popover-width: var(--pdf-plus-backlink-popover-width, 450px);
+    --popover-height: var(--pdf-plus-backlink-popover-height, 400px);
+}
+
+.popover.hover-popover.pdf-plus-pdf-link-like-popover {
+    --popover-pdf-width: var(--pdf-plus-pdf-link-like-popover-width, 450px);
+    --popover-pdf-height: var(--pdf-plus-pdf-link-like-popover-height, 400px);
+}
+
 .popover.hover-popover.pdf-plus-bib-popover {
     --popover-width: 400px;
     --pdf-plus-bib-metadata-font-size: var(--font-ui-small);
@@ -516,6 +596,11 @@ body {
     .pdf-plus-bib {
         padding: var(--size-4-3);
         font-size: var(--font-ui-medium);
+
+        /* Make text inside citation hover selectable (https://github.com/RyotaUshio/obsidian-pdf-plus/issues/252) */
+        -moz-user-select: text;
+        -webkit-user-select: text;
+        user-select: text;
 
         .bib-title {
             font-weight: bold;
@@ -543,4 +628,45 @@ body {
             flex-wrap: wrap;
         }
     }
+}
+
+.pdf-plus-vim-command {
+    border-top: 1px solid var(--background-modifier-border);
+    /* height: var(--size-4-8); */
+    font-family: monospace;
+
+    input {
+        background: transparent;
+        border: none;
+        outline: none;
+        font-family: monospace;
+        white-space: pre;
+        width: 90%;
+    }
+}
+
+.page.pdf-plus-vim-hint-mode [data-pdf-plus-vim-hint]::after {
+    content: attr(data-pdf-plus-vim-hint);
+    color: var(--pdf-plus-vim-hint-color);
+    text-transform: uppercase;
+    font-size: var(--font-ui-medium);
+    font-weight: bold;
+    background-color: var(--pdf-plus-vim-hint-background-color);
+    border: var(--size-2-1) solid hsl(var(--accent-h), var(--accent-s), var(--accent-l));
+    border-radius: 10%;
+    padding: 0 var(--size-2-2);
+    position: relative;
+    left: 0;
+    top: 0;
+    z-index: 9999;
+}
+
+body {
+    --pdf-plus-vim-hint-color: var(--text-normal);
+    --pdf-plus-vim-hint-background-color: var(--background-primary);
+}
+
+body.pdf-plus-vim-hint-inverted {
+    --pdf-plus-vim-hint-color: var(--text-on-accent);
+    --pdf-plus-vim-hint-background-color: hsl(var(--accent-h), var(--accent-s), var(--accent-l));
 }

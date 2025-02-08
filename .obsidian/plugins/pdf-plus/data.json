@@ -186,6 +186,8 @@
     "display"
   ],
   "updateColorPaletteStateFromContextMenu": true,
+  "mobileCopyAction": "pdf-plus",
+  "showContextMenuOnTablet": false,
   "executeBuiltinCommandForOutline": true,
   "executeBuiltinCommandForZoom": true,
   "executeFontSizeAdjusterCommand": true,
@@ -218,6 +220,7 @@
   "focusEditorAfterAutoPaste": true,
   "clearSelectionAfterAutoPaste": true,
   "respectCursorPositionWhenAutoPaste": true,
+  "blankLineAboveAppendedContent": true,
   "autoCopy": false,
   "autoFocus": false,
   "autoPaste": false,
@@ -282,6 +285,7 @@
   "defaultZoomValue": "page-width",
   "scrollModeOnLoad": 0,
   "spreadModeOnLoad": 0,
+  "usePageUpAndPageDown": true,
   "hoverableDropdownMenuInToolbar": true,
   "zoomLevelInputBoxInToolbar": true,
   "popoverPreviewOnExternalLinkHover": true,
@@ -289,11 +293,30 @@
   "enableBibInEmbed": false,
   "enableBibInHoverPopover": false,
   "enableBibInCanvas": true,
+  "citationIdPatterns": "^cite.\n^bib\\d+$",
+  "copyAsSingleLine": true,
   "removeWhitespaceBetweenCJChars": true,
+  "dummyFileFolderPath": "",
+  "externalURIPatterns": [
+    ".*\\.pdf$",
+    "https://arxiv.org/pdf/.*"
+  ],
+  "modifierToDropExternalPDFToCreateDummy": [
+    "Shift"
+  ],
   "vim": false,
+  "vimrcPath": "",
+  "vimVisualMotion": true,
   "vimScrollSize": 40,
+  "vimLargerScrollSizeWhenZoomIn": true,
   "vimContinuousScrollSpeed": 1.2,
   "vimSmoothScroll": true,
   "vimHlsearch": true,
-  "vimIncsearch": true
+  "vimIncsearch": true,
+  "enableVimInContextMenu": true,
+  "enableVimOutlineMode": true,
+  "vimSmoothOutlineMode": true,
+  "vimHintChars": "hjklasdfgyuiopqwertnmzxcvb",
+  "vimHintArgs": "all",
+  "PATH": ""
 }

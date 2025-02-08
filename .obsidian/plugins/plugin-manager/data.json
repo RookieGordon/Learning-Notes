@@ -1,0 +1,139 @@
+{
+  "pluginArr": {
+    "obsidian-advanced-codeblock": {
+      "id": "obsidian-advanced-codeblock",
+      "delay": 0,
+      "enabled": true
+    },
+    "obsidian-annotator": {
+      "id": "obsidian-annotator",
+      "delay": 0,
+      "enabled": true
+    },
+    "any-block": {
+      "id": "any-block",
+      "delay": 0,
+      "enabled": false
+    },
+    "attachment-flow-plugin": {
+      "id": "attachment-flow-plugin",
+      "delay": 0,
+      "enabled": true
+    },
+    "auto-card-link": {
+      "id": "auto-card-link",
+      "delay": 0,
+      "enabled": true
+    },
+    "obsidian-checklist-plugin": {
+      "id": "obsidian-checklist-plugin",
+      "delay": 0,
+      "enabled": true
+    },
+    "collapse-node": {
+      "id": "collapse-node",
+      "delay": 0,
+      "enabled": true
+    },
+    "dataview": {
+      "id": "dataview",
+      "delay": 0,
+      "enabled": true
+    },
+    "dbfolder": {
+      "id": "dbfolder",
+      "delay": 0,
+      "enabled": true
+    },
+    "editing-toolbar": {
+      "id": "editing-toolbar",
+      "delay": 0,
+      "enabled": true
+    },
+    "obsidian-excalidraw-plugin": {
+      "id": "obsidian-excalidraw-plugin",
+      "delay": 0,
+      "enabled": true
+    },
+    "obsidian-git": {
+      "id": "obsidian-git",
+      "delay": 0,
+      "enabled": true
+    },
+    "obsidian-importer": {
+      "id": "obsidian-importer",
+      "delay": 0,
+      "enabled": true
+    },
+    "link-favicon": {
+      "id": "link-favicon",
+      "delay": 0,
+      "enabled": true
+    },
+    "markdown-table-editor": {
+      "id": "markdown-table-editor",
+      "delay": 0,
+      "enabled": true
+    },
+    "obsidian-markmind": {
+      "id": "obsidian-markmind",
+      "delay": 0,
+      "enabled": false
+    },
+    "note-gallery": {
+      "id": "note-gallery",
+      "delay": 0,
+      "enabled": true
+    },
+    "pdf-plus": {
+      "id": "pdf-plus",
+      "delay": 0,
+      "enabled": true
+    },
+    "plugin-manager": {
+      "id": "plugin-manager",
+      "delay": 0,
+      "enabled": true
+    },
+    "quickadd": {
+      "id": "quickadd",
+      "delay": 0,
+      "enabled": false
+    },
+    "obsidian-reminder-plugin": {
+      "id": "obsidian-reminder-plugin",
+      "delay": 0,
+      "enabled": true
+    },
+    "slurp": {
+      "id": "slurp",
+      "delay": 0,
+      "enabled": true
+    },
+    "obsidian-style-settings": {
+      "id": "obsidian-style-settings",
+      "delay": 0,
+      "enabled": true
+    },
+    "tag-wrangler": {
+      "id": "tag-wrangler",
+      "delay": 0,
+      "enabled": true
+    },
+    "templater-obsidian": {
+      "id": "templater-obsidian",
+      "delay": 0,
+      "enabled": false
+    },
+    "timelines-revamped": {
+      "id": "timelines-revamped",
+      "delay": 0,
+      "enabled": true
+    },
+    "vscode-editor": {
+      "id": "vscode-editor",
+      "delay": 0,
+      "enabled": true
+    }
+  }
+}

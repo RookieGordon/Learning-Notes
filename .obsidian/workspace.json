@@ -78,8 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 269,
-    "collapsed": true
+    "width": 507.5
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -139,24 +138,17 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "数据结构/树/四叉树，场景管理/四叉树.md"
+                "file": "ET/ET框架结构.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "四叉树 的大纲"
+              "title": "ET框架结构 的大纲"
             }
           },
           {
-            "id": "64c88f4518dba940",
-            "type": "leaf",
-            "state": {
-              "type": "reminder-list",
-              "state": {},
-              "icon": "clock",
-              "title": "Reminders"
-            }
-          },
-          {
-            "id": "c629e0c3f1c530c3",
+            "id": "2ae518fe69aa984f",
             "type": "leaf",
             "state": {
               "type": "todo",
@@ -164,14 +156,23 @@
               "icon": "checkmark",
               "title": "Todo List"
             }
+          },
+          {
+            "id": "fa0c09358c6869c6",
+            "type": "leaf",
+            "state": {
+              "type": "reminder-list",
+              "state": {},
+              "icon": "clock",
+              "title": "Reminders"
+            }
           }
         ],
-        "currentTab": 3
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
-    "width": 438.5,
-    "collapsed": true
+    "width": 438.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -190,13 +191,14 @@
       "vscode-editor:新建代码文件": false,
       "timelines-revamped:Insert Timeline Event": false,
       "timelines-revamped:Insert Timeline Event (Frontmatter)": false,
-      "dbfolder:创建一个新数据库表": false
+      "dbfolder:创建一个新数据库表": false,
+      "obsidian-git:Open Git source control": false
     }
   },
-  "active": "0df3f7707cca0e34",
+  "active": "2ae518fe69aa984f",
   "lastOpenFiles": [
-    "ET/Untitled Diagram.svg",
     "ET/ET框架结构.md",
+    "ET/Untitled Diagram.svg",
     "ET/MMO战斗框架",
     "ET/代码分析器",
     "ET/代码生成器",
