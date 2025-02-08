@@ -14,7 +14,7 @@
               "type": "markdown",
               "state": {
                 "file": "ET/ET框架结构.md",
-                "mode": "source",
+                "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
@@ -198,6 +198,7 @@
   },
   "active": "0df3f7707cca0e34",
   "lastOpenFiles": [
+    "ET/attachments/（图解1）ET框架初始化流程.png",
     "ET/Untitled Diagram.svg",
     "ET/ET框架结构.md",
     "数据结构/树/红黑树/红黑树.md",
