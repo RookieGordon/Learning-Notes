@@ -14,7 +14,7 @@
               "type": "markdown",
               "state": {
                 "file": "ET/ET框架结构.md",
-                "mode": "preview",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
@@ -78,7 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 507.5,
+    "width": 269,
     "collapsed": true
   },
   "right": {
@@ -145,21 +145,11 @@
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "ET框架结构 的大纲"
+              "title": "Outline of ET框架结构"
             }
           },
           {
-            "id": "2ae518fe69aa984f",
-            "type": "leaf",
-            "state": {
-              "type": "todo",
-              "state": {},
-              "icon": "checkmark",
-              "title": "Todo List"
-            }
-          },
-          {
-            "id": "fa0c09358c6869c6",
+            "id": "64c88f4518dba940",
             "type": "leaf",
             "state": {
               "type": "reminder-list",
@@ -167,9 +157,19 @@
               "icon": "clock",
               "title": "Reminders"
             }
+          },
+          {
+            "id": "c629e0c3f1c530c3",
+            "type": "leaf",
+            "state": {
+              "type": "todo",
+              "state": {},
+              "icon": "checkmark",
+              "title": "Todo List"
+            }
           }
         ],
-        "currentTab": 4
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
@@ -178,22 +178,22 @@
   },
   "left-ribbon": {
     "hiddenItems": {
-      "obsidian-excalidraw-plugin:新建绘图文件": false,
-      "switcher:打开快速切换": false,
-      "graph:查看关系图谱": false,
-      "canvas:新建白板": false,
-      "daily-notes:打开/创建今天的日记": false,
-      "templates:插入模板": false,
-      "command-palette:打开命令面板": false,
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "obsidian-excalidraw-plugin:Create new drawing": false,
+      "vscode-editor:Create Code File": false,
+      "dbfolder:Create a new database table": false,
+      "obsidian-importer:Open Importer": false,
       "markdown-table-editor:Open Markdown Table Editor": false,
       "pdf-plus:PDF++: Toggle auto-copy": false,
       "pdf-plus:PDF++: Toggle auto-focus": false,
       "pdf-plus:PDF++: Toggle auto-paste": false,
-      "vscode-editor:新建代码文件": false,
       "timelines-revamped:Insert Timeline Event": false,
-      "timelines-revamped:Insert Timeline Event (Frontmatter)": false,
-      "obsidian-git:Open Git source control": false,
-      "obsidian-memos:Thino": false
+      "timelines-revamped:Insert Timeline Event (Frontmatter)": false
     }
   },
   "active": "0df3f7707cca0e34",
@@ -201,8 +201,6 @@
     "ET/attachments/（图解1）ET框架初始化流程.png",
     "ET/Untitled Diagram.svg",
     "ET/ET框架结构.md",
-    "数据结构/树/红黑树/红黑树.md",
-    "ET/attachments/（图解2）ET8.0版本进程示例.png",
     "ET/MMO战斗框架",
     "ET/代码分析器",
     "ET/代码生成器",
@@ -211,6 +209,7 @@
     "Excalidraw/Map.md",
     "ET/attachments/（图解1）Fiber和Scene的层级关系.png",
     "数据结构/树/四叉树，场景管理/四叉树.md",
+    "ET/attachments/（图解2）ET8.0版本进程示例.png",
     "ET/attachments",
     "ET",
     "Slurped Pages/Quick Tip - Use Quadtrees to Detect Likely Collisions in 2D Space.md",
@@ -239,6 +238,7 @@
     "[.md",
     "Unity/网络编程/UDP可靠性封装/UDP可靠性封装.md",
     "Unity/网络编程/移动端断线重连方案 - niep的博客.md",
+    "Unity/网络编程/谈谈Unity游戏TCP连接和网络重连.md",
     "数据结构/树/字典树/attachments/（图解1）字典树.png",
     "Excalidraw/四叉树.svg",
     "数据结构/树/四叉树，场景管理/attachments/（图解1）四叉树示意图.png",
