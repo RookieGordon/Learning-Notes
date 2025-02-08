@@ -1,22 +1,8 @@
 [
-  "obsidian-git",
   "obsidian-style-settings",
   "editing-toolbar",
-  "collapse-node",
   "attachment-flow-plugin",
-  "auto-card-link",
-  "link-favicon",
-  "obsidian-excalidraw-plugin",
-  "markdown-table-editor",
-  "slurp",
-  "obsidian-annotator",
-  "pdf-plus",
-  "tag-wrangler",
-  "obsidian-reminder-plugin",
-  "obsidian-checklist-plugin",
-  "vscode-editor",
-  "timelines-revamped",
   "plugin-manager",
-  "obsidian-advanced-codeblock",
-  "obsidian-memos"
+  "dbfolder",
+  "obsidian-git"
 ]

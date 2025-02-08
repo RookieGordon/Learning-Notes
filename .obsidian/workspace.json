@@ -44,7 +44,7 @@
                 "autoReveal": false
               },
               "icon": "lucide-folder-closed",
-              "title": "文件列表"
+              "title": "Files"
             }
           },
           {
@@ -78,8 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 269,
-    "collapsed": true
+    "width": 269
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -149,17 +148,27 @@
             }
           },
           {
-            "id": "64c88f4518dba940",
+            "id": "9075117020b109eb",
+            "type": "leaf",
+            "state": {
+              "type": "todo",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "Plugin no longer active"
+            }
+          },
+          {
+            "id": "f2d0542beab1ce70",
             "type": "leaf",
             "state": {
               "type": "reminder-list",
               "state": {},
-              "icon": "clock",
-              "title": "Reminders"
+              "icon": "lucide-file",
+              "title": "Plugin no longer active"
             }
           },
           {
-            "id": "c629e0c3f1c530c3",
+            "id": "e6be0f058f83f277",
             "type": "leaf",
             "state": {
               "type": "todo",
@@ -167,9 +176,19 @@
               "icon": "checkmark",
               "title": "Todo List"
             }
+          },
+          {
+            "id": "9f3b4b69b51267d9",
+            "type": "leaf",
+            "state": {
+              "type": "reminder-list",
+              "state": {},
+              "icon": "clock",
+              "title": "Reminders"
+            }
           }
         ],
-        "currentTab": 3
+        "currentTab": 6
       }
     ],
     "direction": "horizontal",
@@ -184,32 +203,38 @@
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
-      "obsidian-excalidraw-plugin:Create new drawing": false,
-      "vscode-editor:Create Code File": false,
       "dbfolder:Create a new database table": false,
-      "obsidian-importer:Open Importer": false,
       "markdown-table-editor:Open Markdown Table Editor": false,
       "pdf-plus:PDF++: Toggle auto-copy": false,
       "pdf-plus:PDF++: Toggle auto-focus": false,
       "pdf-plus:PDF++: Toggle auto-paste": false,
+      "obsidian-excalidraw-plugin:New drawing": false,
+      "obsidian-importer:Open Importer": false,
       "timelines-revamped:Insert Timeline Event": false,
-      "timelines-revamped:Insert Timeline Event (Frontmatter)": false
+      "timelines-revamped:Insert Timeline Event (Frontmatter)": false,
+      "vscode-editor:Create Code File": false,
+      "obsidian-memos:Thino": false
     }
   },
   "active": "0df3f7707cca0e34",
   "lastOpenFiles": [
+    "ET/attachments/Pasted image 20250208222054.png",
+    "ET/代码生成器/Untitled.md",
+    "ET/代码分析器/Untitled.md",
+    "ET/ET框架结构.md",
+    "ET/代码生成器",
+    "ET/代码分析器",
     "ET/attachments/（图解1）ET框架初始化流程.png",
     "ET/Untitled Diagram.svg",
-    "ET/ET框架结构.md",
     "ET/MMO战斗框架",
     "ET/代码分析器",
     "ET/代码生成器",
     "记录/工作/工作日程/2025年.md",
     "记录/工作/工作日程/2024年.md",
     "Excalidraw/Map.md",
-    "ET/attachments/（图解1）Fiber和Scene的层级关系.png",
+    "ET/attachments/（图解2）Fiber和Scene的层级关系.png",
     "数据结构/树/四叉树，场景管理/四叉树.md",
-    "ET/attachments/（图解2）ET8.0版本进程示例.png",
+    "ET/attachments/（图解3）ET8.0版本进程示例.png",
     "ET/attachments",
     "ET",
     "Slurped Pages/Quick Tip - Use Quadtrees to Detect Likely Collisions in 2D Space.md",
@@ -218,10 +243,8 @@
     "数据结构/树/四叉树，场景管理/QuadTree/QuadTree.cs",
     "数据结构/树/四叉树，场景管理/QuadTree/QT_SAS.cs",
     "数据结构/树/四叉树，场景管理/QuadTree/QTAABB.cs",
-    "数据结构/树/四叉树，场景管理/QuadTree/QTUtils.cs",
     "数据结构/树/树.md",
     "Unity/杂项/Git使用.md",
-    "数据结构/树/四叉树，场景管理/QuadTree/ListPool.cs",
     "Unity/杂项/简单的下载功能.md",
     "Building Quality Shaders for Unity/Building Quality Shaders for Unity.md",
     "记录/工作/Work Todo.md",
@@ -237,13 +260,10 @@
     "Unity/网络编程/未命名.md",
     "[.md",
     "Unity/网络编程/UDP可靠性封装/UDP可靠性封装.md",
-    "Unity/网络编程/移动端断线重连方案 - niep的博客.md",
-    "Unity/网络编程/谈谈Unity游戏TCP连接和网络重连.md",
     "数据结构/树/字典树/attachments/（图解1）字典树.png",
     "Excalidraw/四叉树.svg",
     "数据结构/树/四叉树，场景管理/attachments/（图解1）四叉树示意图.png",
     "Excalidraw/Scripts/Downloaded/Relative Font Size Cycle.svg",
-    "Unity/打包&SDK/attachments/Pasted image 20241124112151.png",
     "未命名.canvas",
     "C++/C++.canvas",
     "计算机图形学—从0开始构建一个OpenGL软光栅/从0开始构建OpenGL软光栅.canvas"
