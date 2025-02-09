@@ -234,7 +234,5 @@ if (GUILayout.Button("Start Mongo"))
 对于服务器而言，可以在`StartSceneConfig`配置中，按照业务逻辑，配置对应的`Scene`，比如，聊天服务就可以是一个单独的`Scene`。
 ## 登录流程
 ![[Pasted image 20250208222054.png]]
-## ProcessInnerSender
-`ProcessInnerSender`组件用于`Fiber`同一个进程内的`Fiber`发送消息
 # Entity
 # Unit
