@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ET/网络框架/网络协议.md",
+                "file": "ET/网络框架/网络协议收发.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "网络协议"
+              "title": "网络协议收发"
             }
           }
         ]
@@ -139,13 +139,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "ET/网络框架/网络协议.md",
+                "file": "ET/网络框架/网络协议收发.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "网络协议 的大纲"
+              "title": "网络协议收发 的大纲"
             }
           },
           {
@@ -220,12 +220,13 @@
   },
   "active": "0df3f7707cca0e34",
   "lastOpenFiles": [
-    "ET/ET框架结构.md",
+    "ET/网络框架/ProcessInnerSender.md",
+    "ET/网络框架/网络协议收发.md",
     "ET/网络框架/网络协议.md",
+    "ET/ET框架结构.md",
     "2025-02-09.md",
     "ET/重要组件/TimerComponent组件.md",
     "ET/重要组件/CoroutineLockComponent和ObjectWait组件.md",
-    "ET/网络框架/ProcessInnerSender.md",
     "ET/网络框架",
     "ET/重要组件",
     "ET/attachments/（图解2）Fiber和Scene的层级关系.png",
@@ -265,7 +266,6 @@
     "数据结构/树/字典树/字典树——匹配字符.md",
     "收藏夹/attachments/Pasted image 20240913091959.png",
     "收藏夹/杂项.md",
-    "Excalidraw/Drawing 2024-12-26 18.08.19.excalidraw.md",
     "未命名.canvas",
     "C++/C++.canvas",
     "计算机图形学—从0开始构建一个OpenGL软光栅/从0开始构建OpenGL软光栅.canvas"
