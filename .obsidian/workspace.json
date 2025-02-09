@@ -154,12 +154,32 @@
             "state": {
               "type": "todo",
               "state": {},
+              "icon": "lucide-file",
+              "title": "插件不再活动"
+            }
+          },
+          {
+            "id": "fa0c09358c6869c6",
+            "type": "leaf",
+            "state": {
+              "type": "reminder-list",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "插件不再活动"
+            }
+          },
+          {
+            "id": "6aa0f971182e6897",
+            "type": "leaf",
+            "state": {
+              "type": "todo",
+              "state": {},
               "icon": "checkmark",
               "title": "Todo List"
             }
           },
           {
-            "id": "fa0c09358c6869c6",
+            "id": "d03f1891d074ef49",
             "type": "leaf",
             "state": {
               "type": "reminder-list",
@@ -169,7 +189,7 @@
             }
           }
         ],
-        "currentTab": 4
+        "currentTab": 6
       }
     ],
     "direction": "horizontal",
@@ -178,25 +198,18 @@
   },
   "left-ribbon": {
     "hiddenItems": {
-      "obsidian-excalidraw-plugin:新建绘图文件": false,
+      "dbfolder:创建一个新数据库表": false,
       "switcher:打开快速切换": false,
       "graph:查看关系图谱": false,
       "canvas:新建白板": false,
       "daily-notes:打开/创建今天的日记": false,
       "templates:插入模板": false,
       "command-palette:打开命令面板": false,
-      "markdown-table-editor:Open Markdown Table Editor": false,
-      "pdf-plus:PDF++: Toggle auto-copy": false,
-      "pdf-plus:PDF++: Toggle auto-focus": false,
-      "pdf-plus:PDF++: Toggle auto-paste": false,
-      "vscode-editor:新建代码文件": false,
-      "timelines-revamped:Insert Timeline Event": false,
-      "timelines-revamped:Insert Timeline Event (Frontmatter)": false,
       "obsidian-git:Open Git source control": false,
-      "obsidian-memos:Thino": false
+      "markdown-table-editor:Open Markdown Table Editor": false
     }
   },
-  "active": "0df3f7707cca0e34",
+  "active": "6aa0f971182e6897",
   "lastOpenFiles": [
     "ET/代码生成器/Untitled.md",
     "ET/代码分析器/Untitled.md",
