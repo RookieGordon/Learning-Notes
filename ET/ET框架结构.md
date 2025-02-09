@@ -14,7 +14,8 @@ public void CreateCode()
 {  
     var hashSet = this.GetTypes(typeof (CodeAttribute));  
     foreach (Type type in hashSet)  
-    {        object obj = Activator.CreateInstance(type);  
+    {        
+        object obj = Activator.CreateInstance(type);  
         ((ISingletonAwake)obj).Awake();  
         World.Instance.AddSingleton((ASingleton)obj);  
     }

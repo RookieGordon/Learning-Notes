@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ET/ET框架结构.md",
+                "file": "ET/重要组件/CoroutineLockComponent组件.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "ET框架结构"
+              "title": "CoroutineLockComponent组件"
             }
           }
         ]
@@ -78,7 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 507.5
+    "width": 276.5
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -148,7 +148,17 @@
             }
           },
           {
-            "id": "2ae518fe69aa984f",
+            "id": "7544bf59cb924cfb",
+            "type": "leaf",
+            "state": {
+              "type": "reminder-list",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "插件不再活动"
+            }
+          },
+          {
+            "id": "be6f97da9da1b76f",
             "type": "leaf",
             "state": {
               "type": "todo",
@@ -158,17 +168,7 @@
             }
           },
           {
-            "id": "6aa0f971182e6897",
-            "type": "leaf",
-            "state": {
-              "type": "todo",
-              "state": {},
-              "icon": "checkmark",
-              "title": "Todo List"
-            }
-          },
-          {
-            "id": "7544bf59cb924cfb",
+            "id": "b25040d96aa9e882",
             "type": "leaf",
             "state": {
               "type": "reminder-list",
@@ -176,9 +176,19 @@
               "icon": "clock",
               "title": "Reminders"
             }
+          },
+          {
+            "id": "7f48bae3f7d89b9f",
+            "type": "leaf",
+            "state": {
+              "type": "todo",
+              "state": {},
+              "icon": "checkmark",
+              "title": "Todo List"
+            }
           }
         ],
-        "currentTab": 5
+        "currentTab": 7
       }
     ],
     "direction": "horizontal",
@@ -196,24 +206,27 @@
       "command-palette:打开命令面板": false,
       "obsidian-git:Open Git source control": false,
       "markdown-table-editor:Open Markdown Table Editor": false,
-      "pdf-plus:PDF++: Toggle auto-copy": false,
-      "pdf-plus:PDF++: Toggle auto-focus": false,
-      "pdf-plus:PDF++: Toggle auto-paste": false,
       "obsidian-excalidraw-plugin:新建绘图文件": false,
       "obsidian-importer:Open Importer": false,
+      "obsidian-memos:Thino": false,
       "timelines-revamped:Insert Timeline Event": false,
       "timelines-revamped:Insert Timeline Event (Frontmatter)": false,
       "vscode-editor:新建代码文件": false,
-      "obsidian-memos:Thino": false
+      "pdf-plus:PDF++: Toggle auto-copy": false,
+      "pdf-plus:PDF++: Toggle auto-focus": false,
+      "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
   "active": "0df3f7707cca0e34",
   "lastOpenFiles": [
+    "ET/重要组件/TimerComponent组件.md",
+    "ET/重要组件/CoroutineLockComponent组件.md",
+    "ET/ET框架结构.md",
+    "ET/重要组件",
     "ET/attachments/（图解2）Fiber和Scene的层级关系.png",
     "ET/attachments/（图解1）ET框架初始化流程.png",
     "ET/attachments/（图解1）ET框架初始化流程.png",
     "ET/attachments/Pasted image 20250208222054.png",
-    "ET/ET框架结构.md",
     "ET/代码生成器/Untitled.md",
     "ET/代码分析器/Untitled.md",
     "ET/attachments/（图解3）ET8.0版本进程示例.png",
@@ -239,7 +252,6 @@
     "数据结构/树/四叉树，场景管理/QuadTree/QTUtils.cs",
     "数据结构/树/树.md",
     "Unity/杂项/Git使用.md",
-    "数据结构/树/四叉树，场景管理/QuadTree/ListPool.cs",
     "Unity/杂项/简单的下载功能.md",
     "Building Quality Shaders for Unity/Building Quality Shaders for Unity.md",
     "记录/工作/Work Todo.md",
@@ -253,7 +265,6 @@
     "计算机图形学—从0开始构建一个OpenGL软光栅/高级渲染管线功能.md",
     "【Unity技术美术】URP Shader训练营/自定义漫反射URP-Shader.md",
     "Unity/网络编程/未命名.md",
-    "[.md",
     "未命名.canvas",
     "C++/C++.canvas",
     "计算机图形学—从0开始构建一个OpenGL软光栅/从0开始构建OpenGL软光栅.canvas"

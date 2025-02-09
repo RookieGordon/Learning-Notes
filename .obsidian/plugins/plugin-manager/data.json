@@ -2,37 +2,37 @@
   "pluginArr": {
     "obsidian-advanced-codeblock": {
       "id": "obsidian-advanced-codeblock",
-      "delay": 1000,
+      "delay": 3000,
       "enabled": true
     },
     "obsidian-annotator": {
       "id": "obsidian-annotator",
-      "delay": 1000,
+      "delay": 3000,
       "enabled": true
     },
     "any-block": {
       "id": "any-block",
-      "delay": 1000,
+      "delay": 3000,
       "enabled": false
     },
     "attachment-flow-plugin": {
       "id": "attachment-flow-plugin",
-      "delay": 0,
+      "delay": 1000,
       "enabled": true
     },
     "auto-card-link": {
       "id": "auto-card-link",
-      "delay": 1000,
+      "delay": 2000,
       "enabled": true
     },
     "obsidian-checklist-plugin": {
       "id": "obsidian-checklist-plugin",
-      "delay": 1000,
+      "delay": 2000,
       "enabled": true
     },
     "collapse-node": {
       "id": "collapse-node",
-      "delay": 1000,
+      "delay": 2000,
       "enabled": true
     },
     "dataview": {
@@ -47,7 +47,7 @@
     },
     "editing-toolbar": {
       "id": "editing-toolbar",
-      "delay": 0,
+      "delay": 3000,
       "enabled": true
     },
     "obsidian-excalidraw-plugin": {
@@ -57,7 +57,7 @@
     },
     "obsidian-git": {
       "id": "obsidian-git",
-      "delay": -1000,
+      "delay": 0,
       "enabled": true
     },
     "obsidian-importer": {
