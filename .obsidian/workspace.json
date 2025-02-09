@@ -14,7 +14,7 @@
               "type": "markdown",
               "state": {
                 "file": "ET/ET框架结构.md",
-                "mode": "preview",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
@@ -78,8 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 507.5,
-    "collapsed": true
+    "width": 507.5
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -206,19 +205,29 @@
       "templates:插入模板": false,
       "command-palette:打开命令面板": false,
       "obsidian-git:Open Git source control": false,
-      "markdown-table-editor:Open Markdown Table Editor": false
+      "markdown-table-editor:Open Markdown Table Editor": false,
+      "pdf-plus:PDF++: Toggle auto-copy": false,
+      "pdf-plus:PDF++: Toggle auto-focus": false,
+      "pdf-plus:PDF++: Toggle auto-paste": false,
+      "obsidian-excalidraw-plugin:新建绘图文件": false,
+      "obsidian-importer:Open Importer": false,
+      "timelines-revamped:Insert Timeline Event": false,
+      "timelines-revamped:Insert Timeline Event (Frontmatter)": false,
+      "vscode-editor:新建代码文件": false,
+      "obsidian-memos:Thino": false
     }
   },
-  "active": "6aa0f971182e6897",
+  "active": "0df3f7707cca0e34",
   "lastOpenFiles": [
+    "ET/attachments/（图解2）Fiber和Scene的层级关系.png",
+    "ET/attachments/（图解1）ET框架初始化流程.png",
+    "ET/attachments/（图解1）ET框架初始化流程.png",
+    "ET/attachments/Pasted image 20250208222054.png",
+    "ET/ET框架结构.md",
     "ET/代码生成器/Untitled.md",
     "ET/代码分析器/Untitled.md",
     "ET/attachments/（图解3）ET8.0版本进程示例.png",
-    "ET/attachments/（图解2）Fiber和Scene的层级关系.png",
-    "ET/attachments/Pasted image 20250208222054.png",
-    "ET/attachments/（图解1）ET框架初始化流程.png",
     "ET/Untitled Diagram.svg",
-    "ET/ET框架结构.md",
     "数据结构/树/红黑树/红黑树.md",
     "ET/attachments/（图解2）ET8.0版本进程示例.png",
     "ET/MMO战斗框架",
@@ -255,8 +264,6 @@
     "【Unity技术美术】URP Shader训练营/自定义漫反射URP-Shader.md",
     "Unity/网络编程/未命名.md",
     "[.md",
-    "Unity/网络编程/UDP可靠性封装/UDP可靠性封装.md",
-    "数据结构/树/字典树/attachments/（图解1）字典树.png",
     "未命名.canvas",
     "C++/C++.canvas",
     "计算机图形学—从0开始构建一个OpenGL软光栅/从0开始构建OpenGL软光栅.canvas"

@@ -199,7 +199,7 @@ internal Fiber(int id, int zone, SceneType sceneType, string name)
 每个`Fiber`都会配置一个`Scene`
 # 初始化和登录流程
 ## 初始化流程
-![[（图解1）ET框架初始化流程.png|700]]
+![[（图解1）ET框架初始化流程.png]]
 ### 启动参数
 客户端是没有启动参数的。服务器的启动参数如下：
 ```CSharp
