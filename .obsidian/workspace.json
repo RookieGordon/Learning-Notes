@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ET/重要组件/ProcessInnerSender.md",
+                "file": "ET/ET框架结构.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "ProcessInnerSender"
+              "title": "ET框架结构"
             }
           }
         ]
@@ -78,8 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 276.5,
-    "collapsed": true
+    "width": 276.5
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -220,10 +219,10 @@
   },
   "active": "0df3f7707cca0e34",
   "lastOpenFiles": [
-    "ET/ET框架结构.md",
-    "ET/重要组件/ProcessInnerSender.md",
     "ET/重要组件/CoroutineLockComponent和ObjectWait组件.md",
+    "ET/重要组件/ProcessInnerSender.md",
     "ET/重要组件/TimerComponent组件.md",
+    "ET/ET框架结构.md",
     "ET/重要组件",
     "ET/attachments/（图解2）Fiber和Scene的层级关系.png",
     "ET/attachments/（图解1）ET框架初始化流程.png",
