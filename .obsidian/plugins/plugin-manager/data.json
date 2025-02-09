@@ -72,7 +72,7 @@
     },
     "markdown-table-editor": {
       "id": "markdown-table-editor",
-      "delay": 2000,
+      "delay": 3000,
       "enabled": true
     },
     "obsidian-markmind": {
@@ -87,7 +87,7 @@
     },
     "pdf-plus": {
       "id": "pdf-plus",
-      "delay": 3000,
+      "delay": 6000,
       "enabled": true
     },
     "plugin-manager": {
@@ -97,7 +97,7 @@
     },
     "quickadd": {
       "id": "quickadd",
-      "delay": 3000,
+      "delay": 5000,
       "enabled": false
     },
     "obsidian-reminder-plugin": {
@@ -107,7 +107,7 @@
     },
     "slurp": {
       "id": "slurp",
-      "delay": 4000,
+      "delay": 8000,
       "enabled": true
     },
     "obsidian-style-settings": {
@@ -127,12 +127,12 @@
     },
     "timelines-revamped": {
       "id": "timelines-revamped",
-      "delay": 5000,
+      "delay": 6000,
       "enabled": true
     },
     "vscode-editor": {
       "id": "vscode-editor",
-      "delay": 5000,
+      "delay": 6000,
       "enabled": true
     },
     "google-calendar": {

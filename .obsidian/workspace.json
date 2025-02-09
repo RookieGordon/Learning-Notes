@@ -78,8 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 507.5,
-    "collapsed": true
+    "width": 507.5
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -159,16 +158,6 @@
             }
           },
           {
-            "id": "fa0c09358c6869c6",
-            "type": "leaf",
-            "state": {
-              "type": "reminder-list",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "插件不再活动"
-            }
-          },
-          {
             "id": "6aa0f971182e6897",
             "type": "leaf",
             "state": {
@@ -179,7 +168,7 @@
             }
           },
           {
-            "id": "d03f1891d074ef49",
+            "id": "7544bf59cb924cfb",
             "type": "leaf",
             "state": {
               "type": "reminder-list",
@@ -189,7 +178,7 @@
             }
           }
         ],
-        "currentTab": 6
+        "currentTab": 5
       }
     ],
     "direction": "horizontal",
