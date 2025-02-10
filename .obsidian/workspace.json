@@ -187,9 +187,29 @@
               "icon": "lucide-file",
               "title": "Plugin no longer active"
             }
+          },
+          {
+            "id": "45ba7f64a29495b7",
+            "type": "leaf",
+            "state": {
+              "type": "reminder-list",
+              "state": {},
+              "icon": "clock",
+              "title": "Reminders"
+            }
+          },
+          {
+            "id": "fbb00445840b96c9",
+            "type": "leaf",
+            "state": {
+              "type": "todo",
+              "state": {},
+              "icon": "checkmark",
+              "title": "Todo List"
+            }
           }
         ],
-        "currentTab": 3
+        "currentTab": 9
       }
     ],
     "direction": "horizontal",
@@ -208,7 +228,7 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "0df3f7707cca0e34",
+  "active": "fbb00445840b96c9",
   "lastOpenFiles": [
     "ET/网络框架/网络协议.md",
     "ET/网络框架/网络协议收发.md",
