@@ -194,12 +194,52 @@
             "state": {
               "type": "reminder-list",
               "state": {},
+              "icon": "lucide-file",
+              "title": "Plugin no longer active"
+            }
+          },
+          {
+            "id": "fbb00445840b96c9",
+            "type": "leaf",
+            "state": {
+              "type": "todo",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "Plugin no longer active"
+            }
+          },
+          {
+            "id": "b14ac805b54759c1",
+            "type": "leaf",
+            "state": {
+              "type": "reminder-list",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "Plugin no longer active"
+            }
+          },
+          {
+            "id": "848f07c2ddb06aa6",
+            "type": "leaf",
+            "state": {
+              "type": "todo",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "Plugin no longer active"
+            }
+          },
+          {
+            "id": "62ec800693b46974",
+            "type": "leaf",
+            "state": {
+              "type": "reminder-list",
+              "state": {},
               "icon": "clock",
               "title": "Reminders"
             }
           },
           {
-            "id": "fbb00445840b96c9",
+            "id": "42feb3742cdaaf6e",
             "type": "leaf",
             "state": {
               "type": "todo",
@@ -209,7 +249,7 @@
             }
           }
         ],
-        "currentTab": 9
+        "currentTab": 13
       }
     ],
     "direction": "horizontal",
@@ -228,7 +268,7 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "fbb00445840b96c9",
+  "active": "42feb3742cdaaf6e",
   "lastOpenFiles": [
     "ET/网络框架/网络协议.md",
     "ET/网络框架/网络协议收发.md",
