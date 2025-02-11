@@ -13,26 +13,26 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ET/网络框架/网络协议收发.md",
+                "file": "ET/网络框架/邮箱组件.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "网络协议收发"
+              "title": "邮箱组件"
             }
           },
           {
-            "id": "5f60914a174264b0",
+            "id": "6f69c37cad5a41e8",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ET/网络框架/网络协议.md",
+                "file": "ET/网络框架/网络协议收发.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "网络协议"
+              "title": "网络协议收发"
             }
           }
         ]
@@ -336,9 +336,11 @@
   },
   "active": "9f6eb88ae30051fd",
   "lastOpenFiles": [
-    "ET/网络框架/ProcessInnerSender.md",
     "ET/网络框架/网络协议收发.md",
+    "ET/网络框架/邮箱组件.md",
     "ET/网络框架/网络协议.md",
+    "ET/网络框架/未命名",
+    "ET/网络框架/ProcessInnerSender.md",
     "记录/工作/工作日程/2024年.md",
     "记录/工作/Work Todo.md",
     "ET/ET框架结构.md",
@@ -371,7 +373,6 @@
     "Slurped Pages/四叉树空间索引原理及其实现_4叉树-CSDN博客.md",
     "数据结构/树/四叉树，场景管理/QuadTree/QuadTree.cs",
     "数据结构/树/四叉树，场景管理/QuadTree/QT_SAS.cs",
-    "数据结构/树/四叉树，场景管理/QuadTree/QTAABB.cs",
     "数据结构/树/树.md",
     "Unity/杂项/Git使用.md",
     "Unity/杂项/简单的下载功能.md",
@@ -381,7 +382,6 @@
     "Unity/杂项/客户端同步服务器时间.md",
     "数据结构/树/字典树/字典树——匹配字符.md",
     "收藏夹/attachments/Pasted image 20240913091959.png",
-    "收藏夹/杂项.md",
     "未命名.canvas",
     "C++/C++.canvas",
     "计算机图形学—从0开始构建一个OpenGL软光栅/从0开始构建OpenGL软光栅.canvas"
