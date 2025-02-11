@@ -13,7 +13,6 @@ public class ProcessInnerSender: Entity, IAwake, IDestroy, IUpdate
     public readonly List<MessageInfo> list = new();
 }
 ```
-
 # ActorId和Adress结构体
 `Address`中只有两个字段——`Fiber`和`Process`。如果这两个字段都相等，那么两个`Address`相等
 ```CSharp
