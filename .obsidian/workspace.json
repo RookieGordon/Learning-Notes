@@ -14,25 +14,11 @@
               "type": "markdown",
               "state": {
                 "file": "ET/网络框架/网络协议收发.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "网络协议收发"
-            }
-          },
-          {
-            "id": "82756f8940fd296b",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "ET/网络框架/ProcessInnerSender.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "ProcessInnerSender"
+              "title": "网络协议收发"
             }
           }
         ]
