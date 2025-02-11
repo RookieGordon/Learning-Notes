@@ -155,7 +155,7 @@
               "type": "reminder-list",
               "state": {},
               "icon": "lucide-file",
-              "title": "Plugin no longer active"
+              "title": "插件不再活动"
             }
           },
           {
@@ -165,7 +165,7 @@
               "type": "todo",
               "state": {},
               "icon": "lucide-file",
-              "title": "Plugin no longer active"
+              "title": "插件不再活动"
             }
           },
           {
@@ -175,7 +175,7 @@
               "type": "reminder-list",
               "state": {},
               "icon": "lucide-file",
-              "title": "Plugin no longer active"
+              "title": "插件不再活动"
             }
           },
           {
@@ -185,7 +185,7 @@
               "type": "todo",
               "state": {},
               "icon": "lucide-file",
-              "title": "Plugin no longer active"
+              "title": "插件不再活动"
             }
           },
           {
@@ -195,7 +195,7 @@
               "type": "reminder-list",
               "state": {},
               "icon": "lucide-file",
-              "title": "Plugin no longer active"
+              "title": "插件不再活动"
             }
           },
           {
@@ -205,7 +205,7 @@
               "type": "todo",
               "state": {},
               "icon": "lucide-file",
-              "title": "Plugin no longer active"
+              "title": "插件不再活动"
             }
           },
           {
@@ -215,7 +215,7 @@
               "type": "reminder-list",
               "state": {},
               "icon": "lucide-file",
-              "title": "Plugin no longer active"
+              "title": "插件不再活动"
             }
           },
           {
@@ -225,11 +225,31 @@
               "type": "todo",
               "state": {},
               "icon": "lucide-file",
-              "title": "Plugin no longer active"
+              "title": "插件不再活动"
             }
           },
           {
             "id": "62ec800693b46974",
+            "type": "leaf",
+            "state": {
+              "type": "reminder-list",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "插件不再活动"
+            }
+          },
+          {
+            "id": "42feb3742cdaaf6e",
+            "type": "leaf",
+            "state": {
+              "type": "todo",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "插件不再活动"
+            }
+          },
+          {
+            "id": "230b04847dc26104",
             "type": "leaf",
             "state": {
               "type": "reminder-list",
@@ -239,7 +259,7 @@
             }
           },
           {
-            "id": "42feb3742cdaaf6e",
+            "id": "b604b68f7063adf7",
             "type": "leaf",
             "state": {
               "type": "todo",
@@ -249,7 +269,7 @@
             }
           }
         ],
-        "currentTab": 13
+        "currentTab": 15
       }
     ],
     "direction": "horizontal",
@@ -258,17 +278,17 @@
   },
   "left-ribbon": {
     "hiddenItems": {
-      "switcher:Open quick switcher": false,
-      "graph:Open graph view": false,
-      "canvas:Create new canvas": false,
-      "daily-notes:Open today's daily note": false,
-      "templates:Insert template": false,
-      "command-palette:Open command palette": false,
-      "dbfolder:Create a new database table": false,
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false,
+      "dbfolder:创建一个新数据库表": false,
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "42feb3742cdaaf6e",
+  "active": "b604b68f7063adf7",
   "lastOpenFiles": [
     "ET/网络框架/网络协议.md",
     "ET/网络框架/网络协议收发.md",
