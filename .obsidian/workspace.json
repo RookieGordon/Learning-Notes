@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ET/网络框架/网络协议收发.md",
+                "file": "ET/网络框架/邮箱组件.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "网络协议收发"
+              "title": "邮箱组件"
             }
           }
         ]
@@ -322,11 +322,11 @@
   },
   "active": "6f69c37cad5a41e8",
   "lastOpenFiles": [
+    "ET/网络框架/网络协议收发.md",
     "数据结构/树/四叉树，场景管理/四叉树.md",
     "ET/网络框架/邮箱组件.md",
     "记录/工作/工作日程/2024年.md",
     "ET/ET框架结构.md",
-    "ET/网络框架/网络协议收发.md",
     "ET/网络框架/网络协议.md",
     "ET/网络框架/未命名",
     "ET/网络框架/ProcessInnerSender.md",
