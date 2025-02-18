@@ -109,3 +109,13 @@ public static bool Notify(this CoroutineLockQueue self, int level)
     return false;
 }
 ```
+
+
+CoroutineLockComponent
+				Key -- coroutineLockType, Value -- CoroutineLockQueueType
+
+CoroutineLockQueueType 
+				Key -- coroutineLockType, Value -- CoroutineLockQueue
+
+CoroutineLockQueue
+				Key -- coroutineLockType, Value -- CoroutineLock
