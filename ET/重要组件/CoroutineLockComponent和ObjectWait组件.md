@@ -36,7 +36,7 @@ public class CoroutineLockQueue: Entity, IAwake<int>, IDestroy
     public int Count => this.queue.Count;
 }
 ```
-`Wait`方法，用于上锁
+`Wait`方法，用于上锁。如果该类型的锁，之前没有存在过，那么就直接解锁返回，否则就等待解锁
 ```CSharp
 public static async ETTask<CoroutineLock> Wait(this CoroutineLockQueue self, int time)
 {
@@ -44,7 +44,8 @@ public static async ETTask<CoroutineLock> Wait(this CoroutineLockQueue self, int
     if (!self.isStart)
     {
         self.isStart = true;
-        coroutineLock = self.AddChild<CoroutineLock, int, long, int>(self.type, self.Id, 1, true);
+        coroutineLock 
+            = self.AddChild<CoroutineLock, int, long, int>(self.type, self.Id, 1, true);
         return coroutineLock;
     }
 
@@ -52,10 +53,29 @@ public static async ETTask<CoroutineLock> Wait(this CoroutineLockQueue self, int
     self.queue.Enqueue(waitCoroutineLock);
     if (time > 0)
     {
-        long tillTime = TimeInfo.Instance.ClientFrameTime() + time;
-        self.Root().GetComponent<TimerComponent>().NewOnceTimer(tillTime, TimerCoreInvokeType.CoroutineTimeout, waitCoroutineLock);
+        // 超时设置
     }
     coroutineLock = await waitCoroutineLock.Wait();
     return coroutineLock;
+}
+```
+`Notify`方法用于解锁，
+```CSharp
+public static bool Notify(this CoroutineLockQueue self, int level)
+{
+    // 有可能WaitCoroutineLock已经超时抛出异常，所以要找到一个未处理的WaitCoroutineLock
+    while (self.queue.Count > 0)
+    {
+        WaitCoroutineLock waitCoroutineLock = self.queue.Dequeue();
+        if (waitCoroutineLock.IsDisposed())
+        {
+            continue;
+        }
+        CoroutineLock coroutineLock 
+                    = self.AddChild<CoroutineLock, int, long, int>(self.type, self.Id, level, true);
+        waitCoroutineLock.SetResult(coroutineLock);
+        return true;
+    }
+    return false;
 }
 ```
