@@ -75,6 +75,7 @@ public static async ETTask<CoroutineLock> Wait(this CoroutineLockQueue self, int
 ```
 ## 解锁
 解锁有两种情况，一种是超时解锁，一种是正常解锁。正常解锁，是通过`CoroutineLock.Destroy`方法实现的。`CoroutineLockComponent.Wait`外层使用`using`语句，语句执行完毕后，自动执行`CoroutineLock.Dispose`方法，`Dispose`中调用`Destroy`方法。
+`CoroutineLock.Destroy`方法会调用`CoroutineLockComponent.RunNextCoroutine`方法，该方法会将锁信息，添加到`nextFrameRun`队列中，等待下一帧执行。这里有个细节，在将锁信息添加到`nextFrameRun`队列中时，`level`的值增加了1
 ```CSharp
 public static void Update(this CoroutineLockComponent self)
 {
@@ -86,7 +87,7 @@ public static void Update(this CoroutineLockComponent self)
     }
 }
 ```
-
+`CoroutineLockComponent.Notify`方法，会
 ```CSharp
 `Notify`方法用于解锁，
 ```CSharp
