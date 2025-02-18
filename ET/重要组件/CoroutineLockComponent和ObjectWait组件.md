@@ -10,18 +10,8 @@ tags:
 >1、上锁和解锁的整个逻辑流程是反着的。上锁是`CoroutineLockComponent`->`CoroutineLockQueueType`->`CoroutineLock`。
 >2、一般是在外层上锁，使用`using`语句。语句结束，自动解锁。或者等待超时解锁。
 
-`Wait`方法用于锁住某个Key。该方法会根据锁的类型，添加一个`CoroutineLockQueueType`对象。
-```CSharp
-public static async ETTask<CoroutineLock> Wait(this CoroutineLockComponent self, int coroutineLockType, long key, int time = 60000)
-{
-    CoroutineLockQueueType coroutineLockQueueType 
-        = self.GetChild<CoroutineLockQueueType>(coroutineLockType) 
-        ?? self.AddChildWithId<CoroutineLockQueueType>(coroutineLockType);
-    return await coroutineLockQueueType.Wait(key, time);
-}
-```
 ## CoroutineLock、CoroutineLockQueue和CoroutineLockQueueType
-`CoroutineLock`是锁的信息，记录了锁的类型，锁的Key和该锁被锁了多少次
+`CoroutineLock`记录了锁的信息，包括锁的类型，锁的Key和该锁被锁了多少次
 ```CSharp
 public class CoroutineLock: Entity, IAwake<int, long, int>, IDestroy
 {
@@ -30,7 +20,7 @@ public class CoroutineLock: Entity, IAwake<int, long, int>, IDestroy
     public int level;
 }
 ```
-当锁被销毁时，会调用`CoroutineLockComponent.RunNextCoroutine`去通知解锁。`WaitCoroutineLock`将`CoroutineLock`封装成一个可等待的Task。
+还有一个`WaitCoroutineLock`类型，这个类将`CoroutineLock`封装成一个可以被等待的任务。
 `CoroutineLockQueue`中，将所有锁（`WaitCoroutineLock`）放到队列中。`CoroutineLockQueue`本身是按照锁类型（`type`字段）创建的。
 ```CSharp
 public class CoroutineLockQueue: Entity, IAwake<int>, IDestroy
@@ -39,6 +29,17 @@ public class CoroutineLockQueue: Entity, IAwake<int>, IDestroy
     public bool isStart;
     public Queue<WaitCoroutineLock> queue = new();
     public int Count => this.queue.Count;
+}
+```
+## 加锁
+`Wait`方法用于锁住某个Key。该方法会根据锁的类型`coroutineLockType`，添加一个`CoroutineLockQueueType`对象。
+```CSharp
+public static async ETTask<CoroutineLock> Wait(this CoroutineLockComponent self, int coroutineLockType, long key, int time = 60000)
+{
+    CoroutineLockQueueType coroutineLockQueueType 
+        = self.GetChild<CoroutineLockQueueType>(coroutineLockType) 
+        ?? self.AddChildWithId<CoroutineLockQueueType>(coroutineLockType);
+    return await coroutineLockQueueType.Wait(key, time);
 }
 ```
 `Wait`方法，用于上锁。如果该类型的锁，之前没有存在过，那么就直接解锁返回，否则就等待解锁
