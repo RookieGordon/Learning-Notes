@@ -25,9 +25,8 @@ public class CoroutineLock: Entity, IAwake<int, long, int>, IDestroy
     public int level;
 }
 ```
-当锁被销毁时，会调用`CoroutineLockComponent.RunNextCoroutine`去通知解锁。
-`WaitCoroutineLock`是对`CoroutineLock`的封装，用于
-`CoroutineLockQueue`中，存有锁的队列，
+当锁被销毁时，会调用`CoroutineLockComponent.RunNextCoroutine`去通知解锁。`WaitCoroutineLock`将`CoroutineLock`封装成一个可等待的Task。
+`CoroutineLockQueue`中，将所有锁（`WaitCoroutineLock`）放到队列中。`CoroutineLockQueue`本身是按照锁类型（`type`字段）创建的。
 ```CSharp
 public class CoroutineLockQueue: Entity, IAwake<int>, IDestroy
 {
@@ -37,4 +36,26 @@ public class CoroutineLockQueue: Entity, IAwake<int>, IDestroy
     public int Count => this.queue.Count;
 }
 ```
-`type`字段代表该锁队列的类型。
+`Wait`方法，用于上锁
+```CSharp
+public static async ETTask<CoroutineLock> Wait(this CoroutineLockQueue self, int time)
+{
+    CoroutineLock coroutineLock = null;
+    if (!self.isStart)
+    {
+        self.isStart = true;
+        coroutineLock = self.AddChild<CoroutineLock, int, long, int>(self.type, self.Id, 1, true);
+        return coroutineLock;
+    }
+
+    WaitCoroutineLock waitCoroutineLock = WaitCoroutineLock.Create();
+    self.queue.Enqueue(waitCoroutineLock);
+    if (time > 0)
+    {
+        long tillTime = TimeInfo.Instance.ClientFrameTime() + time;
+        self.Root().GetComponent<TimerComponent>().NewOnceTimer(tillTime, TimerCoreInvokeType.CoroutineTimeout, waitCoroutineLock);
+    }
+    coroutineLock = await waitCoroutineLock.Wait();
+    return coroutineLock;
+}
+```
