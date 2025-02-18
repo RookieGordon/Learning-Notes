@@ -32,7 +32,7 @@ public class CoroutineLockQueue: Entity, IAwake<int>, IDestroy
 }
 ```
 ## 加锁
-`Wait`方法用于锁住某个Key。该方法会根据锁的类型`coroutineLockType`，添加一个`CoroutineLockQueueType`对象。
+`CoroutineLockComponent.Wait`方法会根据锁的类型`coroutineLockType`，添加一个`CoroutineLockQueueType`对象。
 ```CSharp
 public static async ETTask<CoroutineLock> Wait(this CoroutineLockComponent self, int coroutineLockType, long key, int time = 60000)
 {
@@ -42,7 +42,15 @@ public static async ETTask<CoroutineLock> Wait(this CoroutineLockComponent self,
     return await coroutineLockQueueType.Wait(key, time);
 }
 ```
-`Wait`方法，用于上锁。如果该类型的锁，之前没有存在过，那么就直接解锁返回，否则就等待解锁
+`CoroutineLockQueueType.Wait`方法，会根据锁的类型，判断是否需要新增一个该种类型的锁队列（`CoroutineLockQueue`）
+```CSharp
+public static async ETTask<CoroutineLock> Wait(this CoroutineLockQueueType self, long key, int time)
+{
+    CoroutineLockQueue queue = self.Get(key) ?? self.New(key);
+    return await queue.Wait(time);
+}
+```
+`CoroutineLockQueue.Wait`方法中，如果是第一次加锁，那么就直接返回一个`CoroutineLock`对象。否则，将`WaitCoroutineLock`对象加入到队列中，等待唤醒。
 ```CSharp
 public static async ETTask<CoroutineLock> Wait(this CoroutineLockQueue self, int time)
 {
