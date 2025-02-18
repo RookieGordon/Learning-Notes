@@ -15,4 +15,15 @@ public static async ETTask<CoroutineLock> Wait(this CoroutineLockComponent self,
     return await coroutineLockQueueType.Wait(key, time);
 }
 ```
-## CoroutineLockQueueType类型锁对象
+## CoroutineLockQueueType和CoroutineLockQueue
+`CoroutineLockQueue`才是锁的核心对象。
+```CSharp
+public class CoroutineLockQueue: Entity, IAwake<int>, IDestroy
+{
+    public int type;
+    public bool isStart;
+    public Queue<WaitCoroutineLock> queue = new();
+    public int Count => this.queue.Count;
+}
+```
+`type`字段代表该锁队列的类型。
