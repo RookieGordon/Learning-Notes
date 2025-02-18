@@ -15,7 +15,17 @@ public static async ETTask<CoroutineLock> Wait(this CoroutineLockComponent self,
     return await coroutineLockQueueType.Wait(key, time);
 }
 ```
-## CoroutineLockQueueType和CoroutineLockQueue
+## CoroutineLock、CoroutineLockQueue和CoroutineLockQueueType
+`CoroutineLock`是锁的信息，记录了锁的类型，锁的Key和该锁被锁了多少次
+```CSharp
+public class CoroutineLock: Entity, IAwake<int, long, int>, IDestroy
+{
+    public int type;
+    public long key;
+    public int level;
+}
+```
+当锁被销毁是，会调用`CoroutineLockComponent.RunNextCoroutine`去通知解锁
 `CoroutineLockQueue`才是锁的核心对象。
 ```CSharp
 public class CoroutineLockQueue: Entity, IAwake<int>, IDestroy
