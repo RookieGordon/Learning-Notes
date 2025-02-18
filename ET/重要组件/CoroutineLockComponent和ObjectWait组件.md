@@ -42,7 +42,7 @@ public static async ETTask<CoroutineLock> Wait(this CoroutineLockComponent self,
     return await coroutineLockQueueType.Wait(key, time);
 }
 ```
-`CoroutineLockQueueType.Wait`方法，会根据锁的类型，判断是否需要新增一个该种类型的锁队列（`CoroutineLockQueue`）
+`CoroutineLockQueueType.Wait`方法，会根据锁的Key，判断是否需要新增一个该种Key的锁队列（`CoroutineLockQueue`）
 ```CSharp
 public static async ETTask<CoroutineLock> Wait(this CoroutineLockQueueType self, long key, int time)
 {
@@ -76,37 +76,17 @@ public static async ETTask<CoroutineLock> Wait(this CoroutineLockQueue self, int
 ## 解锁
 解锁有两种情况，一种是超时解锁，一种是正常解锁。正常解锁，是通过`CoroutineLock.Destroy`方法实现的。`CoroutineLockComponent.Wait`外层使用`using`语句，语句执行完毕后，自动执行`CoroutineLock.Dispose`方法，`Dispose`中调用`Destroy`方法。
 `CoroutineLock.Destroy`方法会调用`CoroutineLockComponent.RunNextCoroutine`方法，该方法会将锁信息，添加到`nextFrameRun`队列中，等待下一帧执行。这里有个细节，在将锁信息添加到`nextFrameRun`队列中时，`level`的值增加了1
+`CoroutineLockComponent.Update`每帧轮询`nextFrameRun`队列，如果有元素，那么就执行`CoroutineLockComponent.Notify`方法。
 ```CSharp
-public static void Update(this CoroutineLockComponent self)
+private static void Notify(this CoroutineLockComponent self, int coroutineLockType, long key, int level)
 {
-    // 循环过程中会有对象继续加入队列
-    while (self.nextFrameRun.Count > 0)
+    CoroutineLockQueueType coroutineLockQueueType 
+                                    = self.GetChild<CoroutineLockQueueType>(coroutineLockType);
+    if (coroutineLockQueueType == null)
     {
-        (int coroutineLockType, long key, int count) = self.nextFrameRun.Dequeue();
-        self.Notify(coroutineLockType, key, count);
+        return;
     }
-}
-```
-`CoroutineLockComponent.Notify`方法，会
-```CSharp
-`Notify`方法用于解锁，
-```CSharp
-public static bool Notify(this CoroutineLockQueue self, int level)
-{
-    // 有可能WaitCoroutineLock已经超时抛出异常，所以要找到一个未处理的WaitCoroutineLock
-    while (self.queue.Count > 0)
-    {
-        WaitCoroutineLock waitCoroutineLock = self.queue.Dequeue();
-        if (waitCoroutineLock.IsDisposed())
-        {
-            continue;
-        }
-        CoroutineLock coroutineLock 
-                    = self.AddChild<CoroutineLock, int, long, int>(self.type, self.Id, level, true);
-        waitCoroutineLock.SetResult(coroutineLock);
-        return true;
-    }
-    return false;
+    coroutineLockQueueType.Notify(key, level);
 }
 ```
 
@@ -115,7 +95,7 @@ CoroutineLockComponent
 				Key -- coroutineLockType, Value -- CoroutineLockQueueType
 
 CoroutineLockQueueType 
-				Key -- coroutineLockType, Value -- CoroutineLockQueue
+				Key --  key, Value -- CoroutineLockQueue
 
 CoroutineLockQueue
 				Key -- coroutineLockType, Value -- CoroutineLock
