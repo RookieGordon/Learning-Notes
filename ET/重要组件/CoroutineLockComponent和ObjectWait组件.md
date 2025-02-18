@@ -26,7 +26,7 @@ public class CoroutineLock: Entity, IAwake<int, long, int>, IDestroy
 }
 ```
 当锁被销毁时，会调用`CoroutineLockComponent.RunNextCoroutine`去通知解锁。
-`WaitCoroutineLock`是对`CoroutineLock`的封装，用于对
+`WaitCoroutineLock`是对`CoroutineLock`的封装，用于
 `CoroutineLockQueue`中，存有锁的队列，
 ```CSharp
 public class CoroutineLockQueue: Entity, IAwake<int>, IDestroy
