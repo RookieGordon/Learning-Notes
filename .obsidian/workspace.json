@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ET/重要组件/CoroutineLockComponent协程锁.md",
+                "file": "ET/重要组件/ObjectWait.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "CoroutineLockComponent协程锁"
+              "title": "ObjectWait"
             }
           }
         ]
@@ -78,7 +78,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 276.5
+    "width": 276.5,
+    "collapsed": true
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -140,13 +141,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "ET/重要组件/CoroutineLockComponent协程锁.md",
+                "file": "ET/重要组件/ObjectWait.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "CoroutineLockComponent协程锁 的大纲"
+              "title": "ObjectWait 的大纲"
             }
           },
           {
@@ -341,8 +342,8 @@
   },
   "active": "6f69c37cad5a41e8",
   "lastOpenFiles": [
-    "ET/重要组件/ObjectWait.md",
     "ET/重要组件/CoroutineLockComponent协程锁.md",
+    "ET/重要组件/ObjectWait.md",
     "ET/重要组件/CoroutineLockComponent和ObjectWait组件.md~",
     "ET/网络框架/邮箱组件.md",
     "Excalidraw/Map.md",
