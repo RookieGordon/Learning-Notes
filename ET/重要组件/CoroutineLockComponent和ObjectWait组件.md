@@ -32,8 +32,9 @@ public class CoroutineLockQueue: Entity, IAwake<int>, IDestroy
     public int Count => this.queue.Count;
 }
 ```
-`CoroutineLockQueueType`是`CoroutineLockComponent`子节点，以`coroutineLockType`为key，存储在`Entity.Children`
-```CSharp
+`CoroutineLockQueueType`是`CoroutineLockComponent`子节点，以`coroutineLockType`为key，存储在`CoroutineLockComponent.Children`字典中。`CoroutineLockQueueType.Id`是用户指定的锁的Key。
+`CoroutineLockQueue`是`CoroutineLockQueueType`的子节点，以锁的Key为Key，存在`CoroutineLockQueueType.Children`中
+
 ## 加锁
 `CoroutineLockComponent.Wait`方法会根据锁的类型`coroutineLockType`，添加一个`CoroutineLockQueueType`对象。
 ```CSharp
