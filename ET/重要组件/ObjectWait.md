@@ -38,4 +38,4 @@ public static async ETTask<T> Wait<T>(this ObjectWait self,
     return ret;
 }
 ```
-# 通知
+`ResultCallback`会将`T`封装成一个可以等待的任务。`Add`方法，会将该等待的任务，按照类型，添加到字典中去。`Notify`方法用于取消等待，即通知A，B已经完成了。
