@@ -2,7 +2,6 @@
 tags:
   - ET
 ---
-# CoroutineLockComponent协程锁
 协程锁是因为异步编程总会引起逻辑上一些先后关系给破坏掉了。为了保证逻辑上先后关系 引入协程锁。就跟线程的lock一样。
 协程锁原理很简单，同一个key只有一个协程能执行，其它同一个key的协程将队列，这个协程执行完会唤醒下一个协程。
 
@@ -11,7 +10,7 @@ tags:
 >1. 上锁和解锁的整个逻辑流程是反着的。上锁的顺序是`CoroutineLockComponent`->`CoroutineLockQueueType`->`CoroutineLock`。解锁的顺序则是`CoroutineLock`->`CoroutineLockComponent`->`CoroutineLockQueueType`->`CoroutineLockQueue`。
 >2. 一般是在外层上锁，使用`using`语句。语句结束，自动解锁。或者等待超时解锁。
 
-## CoroutineLock、CoroutineLockQueue和CoroutineLockQueueType
+# CoroutineLock、CoroutineLockQueue和CoroutineLockQueueType
 `CoroutineLock`记录了锁的信息，包括锁的类型，锁的Key和该锁被锁了多少次
 ```CSharp
 public class CoroutineLock: Entity, IAwake<int, long, int>, IDestroy
@@ -35,7 +34,7 @@ public class CoroutineLockQueue: Entity, IAwake<int>, IDestroy
 `CoroutineLockQueueType`是`CoroutineLockComponent`子节点，以`coroutineLockType`为Key，存储在`Children`字典中。`CoroutineLockQueueType.Id`是锁类型`coroutineLockType`
 `CoroutineLockQueue`是`CoroutineLockQueueType`的子节点，以锁的Key为Key，存在`Children`字典中。`CoroutineLockQueue.Id`是锁的Key
 `CoroutineLock`是`CoroutineLockQueue`的子节点，以锁的类型为Key，存在`Children`字典中
-## 加锁
+# 加锁
 `CoroutineLockComponent.Wait`方法会根据锁的类型`coroutineLockType`，添加一个`CoroutineLockQueueType`对象。
 ```CSharp
 public static async ETTask<CoroutineLock> Wait(this CoroutineLockComponent self, int coroutineLockType, long key, int time = 60000)
@@ -77,7 +76,7 @@ public static async ETTask<CoroutineLock> Wait(this CoroutineLockQueue self, int
     return coroutineLock;
 }
 ```
-## 解锁
+# 解锁
 解锁有两种情况，一种是超时解锁，一种是正常解锁。正常解锁，是通过`CoroutineLock.Destroy`方法实现的。`CoroutineLockComponent.Wait`外层使用`using`语句，语句执行完毕后，自动执行`CoroutineLock.Dispose`方法，`Dispose`中调用`Destroy`方法。
 `CoroutineLock.Destroy`方法会调用`CoroutineLockComponent.RunNextCoroutine`方法，该方法会将锁信息，添加到`nextFrameRun`队列中，等待下一帧执行。这里有个细节，在将锁信息添加到`nextFrameRun`队列中时，`level`的值增加了1
 `CoroutineLockComponent.Update`每帧轮询`nextFrameRun`队列，如果有元素，那么就执行`CoroutineLockComponent.Notify`方法。
@@ -114,5 +113,3 @@ public static bool Notify(this CoroutineLockQueue self, int level)
 }
 ```
 这里会创建一个新的`CoroutineLock`对象，设置为任务的结果。此时`CoroutineLockQueue`中是没有`CoroutineLock`节点的，因为第一个锁`CoroutineLock`已经在解锁的时候，已经销毁了
-
-# ObjectWait组件
