@@ -11,12 +11,14 @@
             "id": "6f69c37cad5a41e8",
             "type": "leaf",
             "state": {
-              "type": "excalidraw",
+              "type": "markdown",
               "state": {
-                "file": "Excalidraw/Map.md"
+                "file": "ET/重要组件/CoroutineLockComponent和ObjectWait组件.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "excalidraw-icon",
-              "title": "Map"
+              "icon": "lucide-file",
+              "title": "CoroutineLockComponent和ObjectWait组件"
             }
           }
         ]
@@ -340,10 +342,11 @@
   },
   "active": "6f69c37cad5a41e8",
   "lastOpenFiles": [
+    "ET/网络框架/邮箱组件.md",
+    "Excalidraw/Map.md",
     "ET/重要组件/CoroutineLockComponent和ObjectWait组件.md~",
     "ET/重要组件/CoroutineLockComponent和ObjectWait组件.md",
     "ET/ET框架结构.md",
-    "ET/网络框架/邮箱组件.md",
     "ET/网络框架/网络协议收发.md",
     "数据结构/树/四叉树，场景管理/四叉树.md",
     "数据结构/树/四叉树，场景管理/四叉树构建思路.md",
@@ -370,7 +373,6 @@
     "ET/MMO战斗框架",
     "ET/代码分析器",
     "ET/代码生成器",
-    "Excalidraw/Map.md",
     "ET/attachments/（图解1）Fiber和Scene的层级关系.png",
     "ET/attachments",
     "ET",
