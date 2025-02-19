@@ -89,15 +89,26 @@ private static void Notify(this CoroutineLockComponent self, int coroutineLockTy
     coroutineLockQueueType.Notify(key, level);
 }
 ```
+通过`CoroutineLockQueueType.Notify`方法，调用到`CoroutineLockQueue.Notify`方法
+```CSharp
+public static bool Notify(this CoroutineLockQueue self, int level)
+{
+    // 有可能WaitCoroutineLock已经超时抛出异常，所以要找到一个未处理的WaitCoroutineLock
+    while (self.queue.Count > 0)
+    {
+        WaitCoroutineLock waitCoroutineLock = self.queue.Dequeue();
+        if (waitCoroutineLock.IsDisposed())
+        {
+            continue;
+        }
 
-
-CoroutineLockComponent
-				Key -- coroutineLockType, Value -- CoroutineLockQueueType
-
-CoroutineLockQueueType 
-				Key --  key, Value -- CoroutineLockQueue
-
-CoroutineLockQueue
-				Key -- coroutineLockType, Value -- CoroutineLock
+        CoroutineLock coroutineLock = self.AddChild<CoroutineLock, int, long, int>(self.type, self.Id, level, true);
+        waitCoroutineLock.SetResult(coroutineLock);
+        return true;
+    }
+    return false;
+}
+```
+这里会创建一个新的`CoroutineLock`对象，设置为任务的结果。此时`CoroutineLockQueue`中是没有`CoroutineLock`节点的，因为第一个锁`CoroutineLock`已经被销毁了。
 
 
