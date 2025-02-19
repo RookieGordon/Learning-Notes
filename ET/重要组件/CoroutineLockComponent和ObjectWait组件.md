@@ -34,8 +34,7 @@ public class CoroutineLockQueue: Entity, IAwake<int>, IDestroy
 ```
 `CoroutineLockQueueType`是`CoroutineLockComponent`子节点，以`coroutineLockType`为Key，存储在`Children`字典中。`CoroutineLockQueueType.Id`是锁类型`coroutineLockType`
 `CoroutineLockQueue`是`CoroutineLockQueueType`的子节点，以锁的Key为Key，存在`Children`字典中。`CoroutineLockQueue.Id`是锁的Key
-`CoroutineLock`是`CoroutineLockQueue`的子节点，以锁的类型为Key，存在`CoroutineLockQueue.Children`字典中。
-
+`CoroutineLock`是`CoroutineLockQueue`的子节点，以锁的类型为Key，存在`Children`字典中
 ## 加锁
 `CoroutineLockComponent.Wait`方法会根据锁的类型`coroutineLockType`，添加一个`CoroutineLockQueueType`对象。
 ```CSharp
@@ -114,6 +113,6 @@ public static bool Notify(this CoroutineLockQueue self, int level)
     return false;
 }
 ```
-这里会创建一个新的`CoroutineLock`对象，设置为任务的结果。此时`CoroutineLockQueue`中是没有`CoroutineLock`节点的，因为第一个锁`CoroutineLock`已经被销毁了。
+这里会创建一个新的`CoroutineLock`对象，设置为任务的结果。此时`CoroutineLockQueue`中是没有`CoroutineLock`节点的，因为第一个锁`CoroutineLock`已经在解锁的时候，已经销毁了
 
-
+# ObjectWait组件

@@ -141,13 +141,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "ET/网络框架/网络协议收发.md",
-                "followCursor": false,
+                "file": "ET/重要组件/CoroutineLockComponent和ObjectWait组件.md",
+                "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "网络协议收发 的大纲"
+              "title": "CoroutineLockComponent和ObjectWait组件 的大纲"
             }
           },
           {
@@ -311,7 +311,7 @@
             }
           }
         ],
-        "currentTab": 19
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
