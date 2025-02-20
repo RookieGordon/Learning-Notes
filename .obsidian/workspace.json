@@ -78,7 +78,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 276.5
+    "width": 276.5,
+    "collapsed": true
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -341,6 +342,8 @@
   },
   "active": "6f69c37cad5a41e8",
   "lastOpenFiles": [
+    "记录/工作/Work Todo.md",
+    "ET/重要组件/ObjectWait.md",
     "ET/重要组件/CoroutineLockComponent协程锁.md",
     "ET/网络框架/网络协议.md",
     "ET/网络框架/网络协议收发.md",
@@ -348,7 +351,6 @@
     "数据结构/树/四叉树，场景管理/四叉树构建思路.md",
     "记录/工作/工作日程/2025年.md",
     "ET/重要组件/TimerComponent组件.md",
-    "ET/重要组件/ObjectWait.md",
     "ET/重要组件/CoroutineLockComponent和ObjectWait组件.md~",
     "Excalidraw/Map.md",
     "ET/ET框架结构.md",
@@ -356,7 +358,6 @@
     "记录/工作/工作日程/2024年.md",
     "ET/网络框架/未命名",
     "ET/网络框架/ProcessInnerSender.md",
-    "记录/工作/Work Todo.md",
     "2025-02-09.md",
     "ET/网络框架",
     "ET/重要组件",
