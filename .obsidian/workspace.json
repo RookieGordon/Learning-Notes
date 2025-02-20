@@ -11,14 +11,10 @@
             "id": "6f69c37cad5a41e8",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "ET/ET框架结构.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "ET框架结构"
+              "title": "新标签页"
             }
           }
         ]
@@ -78,7 +74,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 276.5
+    "width": 276.5,
+    "collapsed": true
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -295,12 +292,32 @@
             "state": {
               "type": "reminder-list",
               "state": {},
+              "icon": "lucide-file",
+              "title": "插件不再活动"
+            }
+          },
+          {
+            "id": "0194ee889c613962",
+            "type": "leaf",
+            "state": {
+              "type": "todo",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "插件不再活动"
+            }
+          },
+          {
+            "id": "e6180322981a5dfe",
+            "type": "leaf",
+            "state": {
+              "type": "reminder-list",
+              "state": {},
               "icon": "clock",
               "title": "Reminders"
             }
           },
           {
-            "id": "0194ee889c613962",
+            "id": "81d56a9529b2d8b9",
             "type": "leaf",
             "state": {
               "type": "todo",
@@ -310,7 +327,7 @@
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 21
       }
     ],
     "direction": "horizontal",
@@ -341,9 +358,9 @@
   },
   "active": "6f69c37cad5a41e8",
   "lastOpenFiles": [
+    "ET/ET框架结构.md",
     "ET/attachments/Pasted image 20250208222054.png",
     "ET/网络框架/网络协议收发.md",
-    "ET/ET框架结构.md",
     "ET/attachments/ET框架启动流程.drawio",
     "ET/网络框架/网络协议.md",
     "ET/重要组件/ObjectWait.md",
