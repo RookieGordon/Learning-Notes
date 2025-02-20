@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ET/网络框架/网络协议收发.md",
-                "mode": "preview",
+                "file": "ET/ET框架结构.md",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "网络协议收发"
+              "title": "ET框架结构"
             }
           }
         ]
@@ -140,13 +140,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "ET/网络框架/网络协议收发.md",
+                "file": "ET/ET框架结构.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "网络协议收发 的大纲"
+              "title": "ET框架结构 的大纲"
             }
           },
           {
@@ -341,9 +341,10 @@
   },
   "active": "6f69c37cad5a41e8",
   "lastOpenFiles": [
+    "ET/attachments/Pasted image 20250208222054.png",
+    "ET/网络框架/网络协议收发.md",
     "ET/ET框架结构.md",
     "ET/attachments/ET框架启动流程.drawio",
-    "ET/网络框架/网络协议收发.md",
     "ET/网络框架/网络协议.md",
     "ET/重要组件/ObjectWait.md",
     "记录/工作/Work Todo.md",
@@ -364,7 +365,6 @@
     "ET/attachments/（图解2）Fiber和Scene的层级关系.png",
     "ET/attachments/（图解1）ET框架初始化流程.png",
     "ET/attachments/（图解1）ET框架初始化流程.png",
-    "ET/attachments/Pasted image 20250208222054.png",
     "ET/代码生成器/Untitled.md",
     "ET/代码分析器/Untitled.md",
     "ET/attachments/（图解3）ET8.0版本进程示例.png",
