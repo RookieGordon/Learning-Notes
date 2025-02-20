@@ -74,8 +74,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 276.5,
-    "collapsed": true
+    "width": 276.5
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -312,12 +311,32 @@
             "state": {
               "type": "reminder-list",
               "state": {},
+              "icon": "lucide-file",
+              "title": "插件不再活动"
+            }
+          },
+          {
+            "id": "81d56a9529b2d8b9",
+            "type": "leaf",
+            "state": {
+              "type": "todo",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "插件不再活动"
+            }
+          },
+          {
+            "id": "9b7acba3954bc98b",
+            "type": "leaf",
+            "state": {
+              "type": "reminder-list",
+              "state": {},
               "icon": "clock",
               "title": "Reminders"
             }
           },
           {
-            "id": "81d56a9529b2d8b9",
+            "id": "865eb946f5c386ae",
             "type": "leaf",
             "state": {
               "type": "todo",
@@ -327,7 +346,7 @@
             }
           }
         ],
-        "currentTab": 21
+        "currentTab": 23
       }
     ],
     "direction": "horizontal",
@@ -343,20 +362,10 @@
       "templates:插入模板": false,
       "command-palette:打开命令面板": false,
       "dbfolder:创建一个新数据库表": false,
-      "obsidian-git:Open Git source control": false,
-      "markdown-table-editor:Open Markdown Table Editor": false,
-      "obsidian-excalidraw-plugin:新建绘图文件": false,
-      "obsidian-importer:Open Importer": false,
-      "obsidian-memos:Thino": false,
-      "timelines-revamped:Insert Timeline Event": false,
-      "timelines-revamped:Insert Timeline Event (Frontmatter)": false,
-      "vscode-editor:新建代码文件": false,
-      "pdf-plus:PDF++: Toggle auto-copy": false,
-      "pdf-plus:PDF++: Toggle auto-focus": false,
-      "pdf-plus:PDF++: Toggle auto-paste": false
+      "obsidian-git:Open Git source control": false
     }
   },
-  "active": "6f69c37cad5a41e8",
+  "active": "865eb946f5c386ae",
   "lastOpenFiles": [
     "ET/ET框架结构.md",
     "ET/attachments/Pasted image 20250208222054.png",
