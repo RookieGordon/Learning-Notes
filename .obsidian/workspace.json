@@ -11,10 +11,14 @@
             "id": "6f69c37cad5a41e8",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "收藏夹/UML时序图(Sequence Diagram)学习笔记_sequencediagram-CSDN博客.md",
+                "mode": "preview",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "新标签页"
+              "title": "UML时序图(Sequence Diagram)学习笔记_sequencediagram-CSDN博客"
             }
           }
         ]
@@ -74,7 +78,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 276.5
+    "width": 276.5,
+    "collapsed": true
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -344,9 +349,29 @@
               "icon": "lucide-file",
               "title": "插件不再活动"
             }
+          },
+          {
+            "id": "e3aa301eaba595e5",
+            "type": "leaf",
+            "state": {
+              "type": "reminder-list",
+              "state": {},
+              "icon": "clock",
+              "title": "Reminders"
+            }
+          },
+          {
+            "id": "a6040acc42cbd8e3",
+            "type": "leaf",
+            "state": {
+              "type": "todo",
+              "state": {},
+              "icon": "checkmark",
+              "title": "Todo List"
+            }
           }
         ],
-        "currentTab": 23
+        "currentTab": 25
       }
     ],
     "direction": "horizontal",
@@ -362,11 +387,24 @@
       "templates:插入模板": false,
       "command-palette:打开命令面板": false,
       "dbfolder:创建一个新数据库表": false,
-      "obsidian-git:Open Git source control": false
+      "obsidian-git:Open Git source control": false,
+      "markdown-table-editor:Open Markdown Table Editor": false,
+      "obsidian-excalidraw-plugin:新建绘图文件": false,
+      "obsidian-importer:Open Importer": false,
+      "obsidian-memos:Thino": false,
+      "timelines-revamped:Insert Timeline Event": false,
+      "timelines-revamped:Insert Timeline Event (Frontmatter)": false,
+      "vscode-editor:新建代码文件": false,
+      "pdf-plus:PDF++: Toggle auto-copy": false,
+      "pdf-plus:PDF++: Toggle auto-focus": false,
+      "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "865eb946f5c386ae",
+  "active": "6f69c37cad5a41e8",
   "lastOpenFiles": [
+    "收藏夹/杂项.md",
+    "收藏夹/UML时序图(Sequence Diagram)学习笔记_sequencediagram-CSDN博客.md",
+    "收藏夹/60个独立游戏的营销错误_60MistakesEbookV1.pdf",
     "ET/ET框架结构.md",
     "ET/attachments/Pasted image 20250208222054.png",
     "ET/网络框架/网络协议收发.md",
@@ -402,14 +440,12 @@
     "ET/代码生成器",
     "ET/attachments/（图解1）Fiber和Scene的层级关系.png",
     "ET/attachments",
-    "ET",
     "Slurped Pages/Quick Tip - Use Quadtrees to Detect Likely Collisions in 2D Space.md",
     "Slurped Pages/四叉树空间索引原理及其实现_4叉树-CSDN博客.md",
     "数据结构/树/树.md",
     "Unity/杂项/Git使用.md",
     "Unity/杂项/简单的下载功能.md",
     "Building Quality Shaders for Unity/Building Quality Shaders for Unity.md",
-    "Unity/战斗/如何设计技能系统.md",
     "Unity/战斗/attachments/_HandleTeamAttackTarget.png",
     "收藏夹/attachments/Pasted image 20240913091959.png",
     "未命名.canvas",
