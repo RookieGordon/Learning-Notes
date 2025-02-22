@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "项目/ET/重要组件/CoroutineLockComponent协程锁.md",
-                "mode": "preview",
+                "file": "项目/ET/网络框架/网络协议收发.md",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "CoroutineLockComponent协程锁"
+              "title": "网络协议收发"
             }
           }
         ]
@@ -78,7 +78,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 276.5
+    "width": 276.5,
+    "collapsed": true
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -140,13 +141,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "ET/ET框架结构.md",
+                "file": "项目/ET/网络框架/网络协议收发.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "ET框架结构 的大纲"
+              "title": "网络协议收发 的大纲"
             }
           },
           {
@@ -390,7 +391,7 @@
             }
           }
         ],
-        "currentTab": 27
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
@@ -406,23 +407,24 @@
       "templates:插入模板": false,
       "command-palette:打开命令面板": false,
       "dbfolder:创建一个新数据库表": false,
-      "obsidian-git:Open Git source control": false,
-      "markdown-table-editor:Open Markdown Table Editor": false,
-      "obsidian-excalidraw-plugin:新建绘图文件": false,
-      "obsidian-importer:Open Importer": false,
+      "obsidian-git:Open Git source control": true,
+      "markdown-table-editor:Open Markdown Table Editor": true,
+      "obsidian-excalidraw-plugin:新建绘图文件": true,
+      "obsidian-importer:Open Importer": true,
       "obsidian-memos:Thino": false,
       "timelines-revamped:Insert Timeline Event": false,
       "timelines-revamped:Insert Timeline Event (Frontmatter)": false,
-      "vscode-editor:新建代码文件": false,
-      "pdf-plus:PDF++: Toggle auto-copy": false,
-      "pdf-plus:PDF++: Toggle auto-focus": false,
-      "pdf-plus:PDF++: Toggle auto-paste": false
+      "vscode-editor:新建代码文件": true,
+      "pdf-plus:PDF++: Toggle auto-copy": true,
+      "pdf-plus:PDF++: Toggle auto-focus": true,
+      "pdf-plus:PDF++: Toggle auto-paste": true
     }
   },
   "active": "d21f7137f03d2ba2",
   "lastOpenFiles": [
-    "项目/ET/重要组件/ObjectWait.md",
     "项目/ET/重要组件/CoroutineLockComponent协程锁.md",
+    "项目/ET/重要组件/ObjectWait.md",
+    "项目/ET/重要组件/TimerComponent组件.md",
     "项目/ET/attachments/Pasted image 20250208222054.png",
     "项目/ET/网络框架/邮箱组件.md",
     "项目/ET/网络框架/网络协议收发.md",
@@ -437,7 +439,6 @@
     "记录/工作/工作日程/2025年.md",
     "项目/ET/ET框架结构.md",
     "收藏夹/UML时序图(Sequence Diagram)学习笔记_sequencediagram-CSDN博客.md",
-    "项目/ET/重要组件/TimerComponent组件.md",
     "项目/ET/网络框架/attachments",
     "项目/ET/代码生成器/Untitled.md",
     "项目/ET/代码分析器/Untitled.md",
