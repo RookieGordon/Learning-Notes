@@ -376,12 +376,32 @@
             "state": {
               "type": "reminder-list",
               "state": {},
+              "icon": "lucide-file",
+              "title": "插件不再活动"
+            }
+          },
+          {
+            "id": "e427c11980b4d432",
+            "type": "leaf",
+            "state": {
+              "type": "todo",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "插件不再活动"
+            }
+          },
+          {
+            "id": "ab5cd4b31cdaba93",
+            "type": "leaf",
+            "state": {
+              "type": "reminder-list",
+              "state": {},
               "icon": "clock",
               "title": "Reminders"
             }
           },
           {
-            "id": "e427c11980b4d432",
+            "id": "edf162c96435aee4",
             "type": "leaf",
             "state": {
               "type": "todo",
@@ -391,7 +411,7 @@
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 29
       }
     ],
     "direction": "horizontal",
@@ -408,8 +428,8 @@
       "command-palette:打开命令面板": false,
       "dbfolder:创建一个新数据库表": false,
       "obsidian-git:Open Git source control": true,
-      "markdown-table-editor:Open Markdown Table Editor": true,
-      "obsidian-excalidraw-plugin:新建绘图文件": true,
+      "markdown-table-editor:Open Markdown Table Editor": false,
+      "obsidian-excalidraw-plugin:新建绘图文件": false,
       "obsidian-importer:Open Importer": true,
       "obsidian-memos:Thino": false,
       "timelines-revamped:Insert Timeline Event": false,
