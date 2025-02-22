@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "项目/ET/网络框架/网络协议收发.md",
-                "mode": "source",
+                "file": "项目/ET/重要组件/CoroutineLockComponent协程锁.md",
+                "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "网络协议收发"
+              "title": "CoroutineLockComponent协程锁"
             }
           }
         ]
@@ -78,8 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 276.5,
-    "collapsed": true
+    "width": 276.5
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -422,9 +421,14 @@
   },
   "active": "d21f7137f03d2ba2",
   "lastOpenFiles": [
+    "项目/ET/重要组件/ObjectWait.md",
+    "项目/ET/重要组件/CoroutineLockComponent协程锁.md",
+    "项目/ET/attachments/Pasted image 20250208222054.png",
+    "项目/ET/网络框架/邮箱组件.md",
+    "项目/ET/网络框架/网络协议收发.md",
+    "项目/ET/网络框架/网络协议.md",
     "项目/ET/网络框架/attachments/消息流转.png",
     "项目/ET/网络框架/attachments/消息流转.svg",
-    "项目/ET/网络框架/网络协议收发.md",
     "项目/ET/网络框架/attachments/消息流转.svg.crswap",
     "Excalidraw/Map.md",
     "Excalidraw/Scripts/Downloaded/Relative Font Size Cycle.svg",
@@ -434,10 +438,6 @@
     "项目/ET/ET框架结构.md",
     "收藏夹/UML时序图(Sequence Diagram)学习笔记_sequencediagram-CSDN博客.md",
     "项目/ET/重要组件/TimerComponent组件.md",
-    "项目/ET/重要组件/ObjectWait.md",
-    "项目/ET/重要组件/CoroutineLockComponent协程锁.md",
-    "项目/ET/网络框架/邮箱组件.md",
-    "项目/ET/网络框架/网络协议.md",
     "项目/ET/网络框架/attachments",
     "项目/ET/代码生成器/Untitled.md",
     "项目/ET/代码分析器/Untitled.md",
@@ -445,7 +445,6 @@
     "项目/ET/attachments/（图解2）Fiber和Scene的层级关系.png",
     "项目/ET/attachments/（图解1）ET框架初始化流程.png",
     "项目/ET/attachments/消息流转.drawio",
-    "项目/ET/attachments/Pasted image 20250208222054.png",
     "项目/ET/attachments/ET框架启动流程.drawio",
     "项目/ET/重要组件",
     "项目/ET/网络框架",
@@ -457,7 +456,6 @@
     "项目/Unity/踩坑记录/attachments/Pasted image 20240928172317.png",
     "项目/Unity/踩坑记录/杂项.md",
     "项目/Unity/网络编程/attachments/（图解8）半连接和全连接队列.png",
-    "项目/Unity/网络编程/attachments/（图解7）TCP三次握手.png",
     "项目/Unity/网络编程/UDP可靠性封装/怎么让不可靠的UDP可靠_udp由不可靠传输变为可靠传输-CSDN博客.md",
     "项目/Unity/网络编程/UDP可靠性封装/UDP可靠性封装.md",
     "项目/Unity/网络编程/UDP可靠性封装/2.6 TCP与UDP的可靠性传输_tcp udp 可靠传输-CSDN博客.md",
