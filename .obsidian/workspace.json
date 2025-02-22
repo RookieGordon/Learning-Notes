@@ -95,7 +95,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "ET/网络框架/网络协议收发.md",
+                "file": "项目/ET/网络框架/网络协议收发.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -114,12 +114,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "ET/网络框架/网络协议收发.md",
+                "file": "项目/ET/网络框架/邮箱组件.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "网络协议收发 的出链列表"
+              "title": "邮箱组件 的出链列表"
             }
           },
           {
@@ -396,12 +396,72 @@
             "state": {
               "type": "reminder-list",
               "state": {},
+              "icon": "lucide-file",
+              "title": "插件不再活动"
+            }
+          },
+          {
+            "id": "edf162c96435aee4",
+            "type": "leaf",
+            "state": {
+              "type": "todo",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "插件不再活动"
+            }
+          },
+          {
+            "id": "8b439937e0ea78a4",
+            "type": "leaf",
+            "state": {
+              "type": "reminder-list",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "插件不再活动"
+            }
+          },
+          {
+            "id": "0e5c36f77821b46f",
+            "type": "leaf",
+            "state": {
+              "type": "todo",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "插件不再活动"
+            }
+          },
+          {
+            "id": "bb963b86a4f4a938",
+            "type": "leaf",
+            "state": {
+              "type": "reminder-list",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "插件不再活动"
+            }
+          },
+          {
+            "id": "2c8c731ea6486c4d",
+            "type": "leaf",
+            "state": {
+              "type": "todo",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "插件不再活动"
+            }
+          },
+          {
+            "id": "432b9d162aa81c7c",
+            "type": "leaf",
+            "state": {
+              "type": "reminder-list",
+              "state": {},
               "icon": "clock",
               "title": "Reminders"
             }
           },
           {
-            "id": "edf162c96435aee4",
+            "id": "d3b0fed891d1e56f",
             "type": "leaf",
             "state": {
               "type": "todo",
@@ -411,11 +471,11 @@
             }
           }
         ],
-        "currentTab": 29
+        "currentTab": 35
       }
     ],
     "direction": "horizontal",
-    "width": 438.5,
+    "width": 312.5,
     "collapsed": true
   },
   "left-ribbon": {
@@ -430,25 +490,25 @@
       "obsidian-git:Open Git source control": true,
       "markdown-table-editor:Open Markdown Table Editor": false,
       "obsidian-excalidraw-plugin:新建绘图文件": false,
-      "obsidian-importer:Open Importer": true,
+      "obsidian-importer:Open Importer": false,
       "obsidian-memos:Thino": false,
       "timelines-revamped:Insert Timeline Event": false,
       "timelines-revamped:Insert Timeline Event (Frontmatter)": false,
-      "vscode-editor:新建代码文件": true,
-      "pdf-plus:PDF++: Toggle auto-copy": true,
-      "pdf-plus:PDF++: Toggle auto-focus": true,
-      "pdf-plus:PDF++: Toggle auto-paste": true
+      "vscode-editor:新建代码文件": false,
+      "pdf-plus:PDF++: Toggle auto-copy": false,
+      "pdf-plus:PDF++: Toggle auto-focus": false,
+      "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
   "active": "d21f7137f03d2ba2",
   "lastOpenFiles": [
-    "项目/Unity/战斗/帧同步战斗.md",
+    "项目/ET/网络框架/邮箱组件.md",
     "项目/ET/网络框架/网络协议收发.md",
+    "项目/Unity/战斗/帧同步战斗.md",
     "项目/ET/重要组件/CoroutineLockComponent协程锁.md",
     "项目/ET/重要组件/ObjectWait.md",
     "项目/ET/重要组件/TimerComponent组件.md",
     "项目/ET/attachments/Pasted image 20250208222054.png",
-    "项目/ET/网络框架/邮箱组件.md",
     "项目/ET/网络框架/网络协议.md",
     "项目/ET/网络框架/attachments/消息流转.png",
     "项目/ET/网络框架/attachments/消息流转.svg",
