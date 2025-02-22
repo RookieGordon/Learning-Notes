@@ -4,19 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "64b95d4b4efeed34",
+        "id": "a2ec8005cb270ee9",
         "type": "tabs",
         "children": [
           {
-            "id": "6f69c37cad5a41e8",
+            "id": "d21f7137f03d2ba2",
             "type": "leaf",
             "state": {
-              "type": "excalidraw",
-              "state": {
-                "file": "Excalidraw/Map.md"
-              },
-              "icon": "excalidraw-icon",
-              "title": "Map"
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "新标签页"
             }
           }
         ]
@@ -76,7 +74,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 276.5
+    "width": 276.5,
+    "collapsed": true
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -417,15 +416,16 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "6f69c37cad5a41e8",
+  "active": "d21f7137f03d2ba2",
   "lastOpenFiles": [
+    "项目/ET/网络框架/attachments/消息流转.svg",
+    "Excalidraw/Map.md",
     "Excalidraw/Scripts/Downloaded/Relative Font Size Cycle.svg",
     "Excalidraw/Scripts/Downloaded/Relative Font Size Cycle.md",
     "记录/工作/Work Todo.md",
     "记录/工作/工作日程/2025年.md",
     "项目/ET/ET框架结构.md",
     "收藏夹/UML时序图(Sequence Diagram)学习笔记_sequencediagram-CSDN博客.md",
-    "项目/ET/网络框架/attachments/消息流转.svg",
     "项目/ET/重要组件/TimerComponent组件.md",
     "项目/ET/重要组件/ObjectWait.md",
     "项目/ET/重要组件/CoroutineLockComponent协程锁.md",
@@ -453,7 +453,6 @@
     "项目/Unity/踩坑记录/杂项.md",
     "项目/Unity/网络编程/attachments/（图解8）半连接和全连接队列.png",
     "项目/Unity/网络编程/attachments/（图解7）TCP三次握手.png",
-    "项目/Unity/网络编程/attachments/（图解6）网络分层类比图.png",
     "项目/Unity/网络编程/UDP可靠性封装/怎么让不可靠的UDP可靠_udp由不可靠传输变为可靠传输-CSDN博客.md",
     "项目/Unity/网络编程/UDP可靠性封装/UDP可靠性封装.md",
     "项目/Unity/网络编程/UDP可靠性封装/2.6 TCP与UDP的可靠性传输_tcp udp 可靠传输-CSDN博客.md",
@@ -464,7 +463,6 @@
     "项目/Unity/杂项/简单的下载功能.md",
     "项目/Unity/杂项/Git使用.md",
     "项目/Unity/插件/Unity Cinemachine.md",
-    "项目/Unity/插件/Timeline.md",
     "未命名.canvas",
     "课程和练习/C++/C++.canvas",
     "计算机图形学—从0开始构建一个OpenGL软光栅/从0开始构建OpenGL软光栅.canvas"
