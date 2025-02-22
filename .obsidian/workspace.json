@@ -78,8 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 276.5,
-    "collapsed": true
+    "width": 276.5
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -369,9 +368,29 @@
               "icon": "lucide-file",
               "title": "插件不再活动"
             }
+          },
+          {
+            "id": "32a29d1328137218",
+            "type": "leaf",
+            "state": {
+              "type": "reminder-list",
+              "state": {},
+              "icon": "clock",
+              "title": "Reminders"
+            }
+          },
+          {
+            "id": "e427c11980b4d432",
+            "type": "leaf",
+            "state": {
+              "type": "todo",
+              "state": {},
+              "icon": "checkmark",
+              "title": "Todo List"
+            }
           }
         ],
-        "currentTab": 25
+        "currentTab": 27
       }
     ],
     "direction": "horizontal",
@@ -387,11 +406,22 @@
       "templates:插入模板": false,
       "command-palette:打开命令面板": false,
       "dbfolder:创建一个新数据库表": false,
-      "obsidian-git:Open Git source control": false
+      "obsidian-git:Open Git source control": false,
+      "markdown-table-editor:Open Markdown Table Editor": false,
+      "obsidian-excalidraw-plugin:新建绘图文件": false,
+      "obsidian-importer:Open Importer": false,
+      "obsidian-memos:Thino": false,
+      "timelines-revamped:Insert Timeline Event": false,
+      "timelines-revamped:Insert Timeline Event (Frontmatter)": false,
+      "vscode-editor:新建代码文件": false,
+      "pdf-plus:PDF++: Toggle auto-copy": false,
+      "pdf-plus:PDF++: Toggle auto-focus": false,
+      "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "6f69c37cad5a41e8",
+  "active": "f8a7eda2a99735cf",
   "lastOpenFiles": [
+    "未命名",
     "收藏夹/杂项.md",
     "收藏夹/UML时序图(Sequence Diagram)学习笔记_sequencediagram-CSDN博客.md",
     "收藏夹/60个独立游戏的营销错误_60MistakesEbookV1.pdf",
@@ -435,7 +465,6 @@
     "数据结构/树/树.md",
     "Unity/杂项/Git使用.md",
     "Unity/杂项/简单的下载功能.md",
-    "Building Quality Shaders for Unity/Building Quality Shaders for Unity.md",
     "Unity/战斗/attachments/_HandleTeamAttackTarget.png",
     "收藏夹/attachments/Pasted image 20240913091959.png",
     "未命名.canvas",
