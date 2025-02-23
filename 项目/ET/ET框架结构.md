@@ -234,6 +234,12 @@ if (GUILayout.Button("Start Mongo"))
 对于服务器而言，可以在`StartSceneConfig`配置中，按照业务逻辑，配置对应的`Scene`，比如，聊天服务就可以是一个单独的`Scene`。
 ## 登录流程
 ![[Pasted image 20250208222054.png]]
+框架的登录流程如图所示，客户端采用`ClientSenderComponent`组件与后端进行[[网络协议收发|协议交互]]
+登录协议是`Main2NetClient_Login`，回包协议是`NetClient2Main_Login`。
+> [!IMPORTANT]
+> 1、
+> 2、
+
 # Entity
 
 # Unit
