@@ -235,7 +235,8 @@ if (GUILayout.Button("Start Mongo"))
 ## 登录流程
 ![[Pasted image 20250208222054.png]]
 框架的登录流程如图所示，客户端采用`ClientSenderComponent`组件与后端进行[[网络协议收发|协议交互]]
-登录协议是`Main2NetClient_Login`，回包协议是`NetClient2Main_Login`。
+登录协议是`Main2NetClient_Login`，回包协议是`NetClient2Main_Login`。详细的发送和接收处理逻辑在`Main2NetClient_LoginHandler`类中
+
 > [!IMPORTANT]
 > 1、
 > 2、
