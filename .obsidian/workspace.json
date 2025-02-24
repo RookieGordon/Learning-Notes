@@ -11,12 +11,14 @@
             "id": "d21f7137f03d2ba2",
             "type": "leaf",
             "state": {
-              "type": "image",
+              "type": "markdown",
               "state": {
-                "file": "项目/ET/网络框架/attachments/消息流转.png"
+                "file": "项目/ET/网络框架/网络协议收发.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-image",
-              "title": "消息流转"
+              "icon": "lucide-file",
+              "title": "网络协议收发"
             }
           }
         ]
@@ -76,7 +78,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 276.5
+    "width": 276.5,
+    "collapsed": true
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -92,7 +95,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "项目/ET/网络框架/attachments/消息流转.png",
+                "file": "项目/ET/网络框架/网络协议收发.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +105,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "消息流转 的反向链接列表"
+              "title": "网络协议收发 的反向链接列表"
             }
           },
           {
@@ -499,8 +502,9 @@
   },
   "active": "d21f7137f03d2ba2",
   "lastOpenFiles": [
+    "项目/ET/网络框架/网络协议.md",
+    "项目/ET/网络框架/attachments/（图解1）消息流转.png",
     "项目/ET/网络框架/attachments/消息流转.svg",
-    "项目/ET/网络框架/attachments/消息流转.png",
     "记录/工作/工作日程/2025年.md",
     "项目/ET/网络框架/网络协议收发.md",
     "项目/ET/网络框架/邮箱组件.md",
@@ -509,7 +513,6 @@
     "项目/ET/重要组件/ObjectWait.md",
     "项目/ET/重要组件/TimerComponent组件.md",
     "项目/ET/attachments/Pasted image 20250208222054.png",
-    "项目/ET/网络框架/网络协议.md",
     "项目/ET/网络框架/attachments/消息流转.svg.crswap",
     "Excalidraw/Map.md",
     "Excalidraw/Scripts/Downloaded/Relative Font Size Cycle.svg",
