@@ -157,7 +157,7 @@
               "type": "reminder-list",
               "state": {},
               "icon": "lucide-file",
-              "title": "插件不再活动"
+              "title": "Plugin no longer active"
             }
           },
           {
@@ -167,7 +167,7 @@
               "type": "todo",
               "state": {},
               "icon": "lucide-file",
-              "title": "插件不再活动"
+              "title": "Plugin no longer active"
             }
           },
           {
@@ -177,7 +177,7 @@
               "type": "reminder-list",
               "state": {},
               "icon": "lucide-file",
-              "title": "插件不再活动"
+              "title": "Plugin no longer active"
             }
           },
           {
@@ -187,7 +187,7 @@
               "type": "todo",
               "state": {},
               "icon": "lucide-file",
-              "title": "插件不再活动"
+              "title": "Plugin no longer active"
             }
           },
           {
@@ -197,7 +197,7 @@
               "type": "reminder-list",
               "state": {},
               "icon": "lucide-file",
-              "title": "插件不再活动"
+              "title": "Plugin no longer active"
             }
           },
           {
@@ -207,11 +207,31 @@
               "type": "todo",
               "state": {},
               "icon": "lucide-file",
-              "title": "插件不再活动"
+              "title": "Plugin no longer active"
             }
           },
           {
             "id": "bdaa2a06d791b63f",
+            "type": "leaf",
+            "state": {
+              "type": "reminder-list",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "Plugin no longer active"
+            }
+          },
+          {
+            "id": "f14367dc70acacc6",
+            "type": "leaf",
+            "state": {
+              "type": "todo",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "Plugin no longer active"
+            }
+          },
+          {
+            "id": "d325f00f933c8a10",
             "type": "leaf",
             "state": {
               "type": "reminder-list",
@@ -221,7 +241,7 @@
             }
           },
           {
-            "id": "f14367dc70acacc6",
+            "id": "0f6d99287be0d50c",
             "type": "leaf",
             "state": {
               "type": "todo",
@@ -231,7 +251,7 @@
             }
           }
         ],
-        "currentTab": 11
+        "currentTab": 13
       }
     ],
     "direction": "horizontal",
@@ -240,27 +260,27 @@
   },
   "left-ribbon": {
     "hiddenItems": {
-      "switcher:打开快速切换": false,
-      "graph:查看关系图谱": false,
-      "canvas:新建白板": false,
-      "daily-notes:打开/创建今天的日记": false,
-      "templates:插入模板": false,
-      "command-palette:打开命令面板": false,
-      "dbfolder:创建一个新数据库表": false,
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "dbfolder:Create a new database table": false,
       "obsidian-git:Open Git source control": true,
-      "markdown-table-editor:Open Markdown Table Editor": true,
-      "obsidian-excalidraw-plugin:新建绘图文件": false,
-      "obsidian-importer:Open Importer": true,
+      "markdown-table-editor:Open Markdown Table Editor": false,
+      "obsidian-excalidraw-plugin:New drawing": false,
+      "obsidian-importer:Open Importer": false,
       "obsidian-memos:Thino": false,
       "timelines-revamped:Insert Timeline Event": false,
       "timelines-revamped:Insert Timeline Event (Frontmatter)": false,
-      "vscode-editor:新建代码文件": true,
-      "pdf-plus:PDF++: Toggle auto-copy": true,
-      "pdf-plus:PDF++: Toggle auto-focus": true,
-      "pdf-plus:PDF++: Toggle auto-paste": true
+      "vscode-editor:Create Code File": false,
+      "pdf-plus:PDF++: Toggle auto-copy": false,
+      "pdf-plus:PDF++: Toggle auto-focus": false,
+      "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "f14367dc70acacc6",
+  "active": "0f6d99287be0d50c",
   "lastOpenFiles": [
     "项目/ET/网络框架/attachments/消息流转.svg.crswap",
     "项目/ET/网络框架/attachments/堆栈2.log",
