@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "记录/工作/工作日程/2025年.md",
+                "file": "项目/ET/网络框架/网络协议收发.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2025年"
+              "title": "网络协议收发"
             }
           }
         ]
@@ -78,8 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 276.5,
-    "collapsed": true
+    "width": 276.5
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -236,12 +235,32 @@
             "state": {
               "type": "reminder-list",
               "state": {},
+              "icon": "lucide-file",
+              "title": "Plugin no longer active"
+            }
+          },
+          {
+            "id": "78f5c00a01a06181",
+            "type": "leaf",
+            "state": {
+              "type": "todo",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "Plugin no longer active"
+            }
+          },
+          {
+            "id": "0b42273259bf90ff",
+            "type": "leaf",
+            "state": {
+              "type": "reminder-list",
+              "state": {},
               "icon": "clock",
               "title": "Reminders"
             }
           },
           {
-            "id": "78f5c00a01a06181",
+            "id": "a932b0d49137f1d4",
             "type": "leaf",
             "state": {
               "type": "todo",
@@ -251,7 +270,7 @@
             }
           }
         ],
-        "currentTab": 13
+        "currentTab": 15
       }
     ],
     "direction": "horizontal",
@@ -268,9 +287,9 @@
       "command-palette:Open command palette": false,
       "dbfolder:Create a new database table": false,
       "obsidian-git:Open Git source control": true,
+      "markdown-table-editor:Open Markdown Table Editor": false,
       "obsidian-excalidraw-plugin:New drawing": false,
       "obsidian-importer:Open Importer": false,
-      "markdown-table-editor:Open Markdown Table Editor": false,
       "obsidian-memos:Thino": false,
       "timelines-revamped:Insert Timeline Event": false,
       "timelines-revamped:Insert Timeline Event (Frontmatter)": false,
@@ -280,17 +299,17 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "78f5c00a01a06181",
+  "active": "d21f7137f03d2ba2",
   "lastOpenFiles": [
-    "项目/ET/网络框架/attachments/消息流转.drawio.svg",
+    "项目/ET/网络框架/attachments/（图解1）消息流转.png",
     "项目/ET/网络框架/网络协议收发.md",
+    "记录/工作/工作日程/2025年.md",
+    "项目/ET/网络框架/attachments/消息流转.drawio.svg",
     "项目/ET/网络框架/attachments/消息流转.svg.crswap",
     "项目/ET/网络框架/attachments/堆栈2.log",
     "项目/ET/网络框架/attachments/堆栈1 - 副本.log",
     "项目/ET/网络框架/attachments/堆栈1.log",
     "项目/ET/网络框架/attachments/新建 文本文档.txt",
-    "记录/工作/工作日程/2025年.md",
-    "项目/ET/网络框架/attachments/（图解1）消息流转.png",
     "项目/ET/网络框架/attachments/消息流转.svg",
     "项目/ET/重要组件/TimerComponent组件.md",
     "项目/ET/attachments/（图解1）ET框架初始化流程.png",
@@ -316,9 +335,7 @@
     "项目/ET/重要组件",
     "项目/ET/网络框架",
     "项目/Unity/踩坑记录/attachments/Pasted image 20240928173626.png",
-    "项目/Unity/踩坑记录/attachments/Pasted image 20240928172317.png",
     "项目/Unity/踩坑记录/杂项.md",
-    "项目/Unity/网络编程/attachments/（图解8）半连接和全连接队列.png",
     "项目/Unity/网络编程/UDP可靠性封装/怎么让不可靠的UDP可靠_udp由不可靠传输变为可靠传输-CSDN博客.md",
     "项目/Unity/网络编程/UDP可靠性封装/UDP可靠性封装.md",
     "项目/Unity/网络编程/UDP可靠性封装/2.6 TCP与UDP的可靠性传输_tcp udp 可靠传输-CSDN博客.md",
