@@ -78,7 +78,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 276.5
+    "width": 276.5,
+    "collapsed": true
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -301,6 +302,7 @@
   },
   "active": "d21f7137f03d2ba2",
   "lastOpenFiles": [
+    "项目/ET/网络框架/attachments/（图解1）消息流转.drawio.png",
     "项目/ET/网络框架/attachments/（图解1）消息流转.png",
     "项目/ET/网络框架/网络协议收发.md",
     "记录/工作/工作日程/2025年.md",
