@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "项目/ET/网络框架/网络协议收发.md",
+                "file": "记录/工作/工作日程/2025年.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "网络协议收发"
+              "title": "2025年"
             }
           }
         ]
@@ -44,7 +44,7 @@
                 "autoReveal": false
               },
               "icon": "lucide-folder-closed",
-              "title": "Files"
+              "title": "文件列表"
             }
           },
           {
@@ -78,8 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 276.5,
-    "collapsed": true
+    "width": 276.5
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -157,7 +156,7 @@
               "type": "reminder-list",
               "state": {},
               "icon": "lucide-file",
-              "title": "Plugin no longer active"
+              "title": "插件不再活动"
             }
           },
           {
@@ -167,7 +166,7 @@
               "type": "todo",
               "state": {},
               "icon": "lucide-file",
-              "title": "Plugin no longer active"
+              "title": "插件不再活动"
             }
           },
           {
@@ -177,7 +176,7 @@
               "type": "reminder-list",
               "state": {},
               "icon": "lucide-file",
-              "title": "Plugin no longer active"
+              "title": "插件不再活动"
             }
           },
           {
@@ -187,7 +186,7 @@
               "type": "todo",
               "state": {},
               "icon": "lucide-file",
-              "title": "Plugin no longer active"
+              "title": "插件不再活动"
             }
           },
           {
@@ -197,7 +196,7 @@
               "type": "reminder-list",
               "state": {},
               "icon": "lucide-file",
-              "title": "Plugin no longer active"
+              "title": "插件不再活动"
             }
           },
           {
@@ -207,51 +206,11 @@
               "type": "todo",
               "state": {},
               "icon": "lucide-file",
-              "title": "Plugin no longer active"
+              "title": "插件不再活动"
             }
           },
           {
             "id": "bdaa2a06d791b63f",
-            "type": "leaf",
-            "state": {
-              "type": "reminder-list",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "Plugin no longer active"
-            }
-          },
-          {
-            "id": "f14367dc70acacc6",
-            "type": "leaf",
-            "state": {
-              "type": "todo",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "Plugin no longer active"
-            }
-          },
-          {
-            "id": "53a70500a7228d9a",
-            "type": "leaf",
-            "state": {
-              "type": "reminder-list",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "Plugin no longer active"
-            }
-          },
-          {
-            "id": "78f5c00a01a06181",
-            "type": "leaf",
-            "state": {
-              "type": "todo",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "Plugin no longer active"
-            }
-          },
-          {
-            "id": "0b42273259bf90ff",
             "type": "leaf",
             "state": {
               "type": "reminder-list",
@@ -261,7 +220,7 @@
             }
           },
           {
-            "id": "a932b0d49137f1d4",
+            "id": "f14367dc70acacc6",
             "type": "leaf",
             "state": {
               "type": "todo",
@@ -271,7 +230,7 @@
             }
           }
         ],
-        "currentTab": 15
+        "currentTab": 11
       }
     ],
     "direction": "horizontal",
@@ -280,38 +239,38 @@
   },
   "left-ribbon": {
     "hiddenItems": {
-      "switcher:Open quick switcher": false,
-      "graph:Open graph view": false,
-      "canvas:Create new canvas": false,
-      "daily-notes:Open today's daily note": false,
-      "templates:Insert template": false,
-      "command-palette:Open command palette": false,
-      "dbfolder:Create a new database table": false,
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false,
+      "dbfolder:创建一个新数据库表": false,
       "obsidian-git:Open Git source control": true,
-      "markdown-table-editor:Open Markdown Table Editor": false,
-      "obsidian-excalidraw-plugin:New drawing": false,
-      "obsidian-importer:Open Importer": false,
+      "markdown-table-editor:Open Markdown Table Editor": true,
+      "obsidian-excalidraw-plugin:新建绘图文件": false,
+      "obsidian-importer:Open Importer": true,
       "obsidian-memos:Thino": false,
       "timelines-revamped:Insert Timeline Event": false,
       "timelines-revamped:Insert Timeline Event (Frontmatter)": false,
-      "vscode-editor:Create Code File": false,
-      "pdf-plus:PDF++: Toggle auto-copy": false,
-      "pdf-plus:PDF++: Toggle auto-focus": false,
-      "pdf-plus:PDF++: Toggle auto-paste": false
+      "vscode-editor:新建代码文件": true,
+      "pdf-plus:PDF++: Toggle auto-copy": true,
+      "pdf-plus:PDF++: Toggle auto-focus": true,
+      "pdf-plus:PDF++: Toggle auto-paste": true
     }
   },
   "active": "d21f7137f03d2ba2",
   "lastOpenFiles": [
     "项目/ET/网络框架/attachments/（图解1）消息流转.drawio.png",
-    "项目/ET/网络框架/attachments/（图解1）消息流转.png",
-    "项目/ET/网络框架/网络协议收发.md",
-    "记录/工作/工作日程/2025年.md",
     "项目/ET/网络框架/attachments/消息流转.drawio.svg",
+    "项目/ET/网络框架/网络协议收发.md",
     "项目/ET/网络框架/attachments/消息流转.svg.crswap",
     "项目/ET/网络框架/attachments/堆栈2.log",
     "项目/ET/网络框架/attachments/堆栈1 - 副本.log",
     "项目/ET/网络框架/attachments/堆栈1.log",
     "项目/ET/网络框架/attachments/新建 文本文档.txt",
+    "记录/工作/工作日程/2025年.md",
+    "项目/ET/网络框架/attachments/（图解1）消息流转.png",
     "项目/ET/网络框架/attachments/消息流转.svg",
     "项目/ET/重要组件/TimerComponent组件.md",
     "项目/ET/attachments/（图解1）ET框架初始化流程.png",
@@ -337,6 +296,7 @@
     "项目/ET/重要组件",
     "项目/ET/网络框架",
     "项目/Unity/踩坑记录/attachments/Pasted image 20240928173626.png",
+    "项目/Unity/踩坑记录/attachments/Pasted image 20240928172317.png",
     "项目/Unity/踩坑记录/杂项.md",
     "项目/Unity/网络编程/UDP可靠性封装/怎么让不可靠的UDP可靠_udp由不可靠传输变为可靠传输-CSDN博客.md",
     "项目/Unity/网络编程/UDP可靠性封装/UDP可靠性封装.md",
