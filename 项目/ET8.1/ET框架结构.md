@@ -66,7 +66,7 @@ public async ETTask<int> Create(SchedulerType schedulerType,
 }
 ```
 创建完`Fiber`后，使用委托，派发一个`FiberInit`事件。
-## Filber调度方式
+## Fiber调度方式
 `FiberManager`提供了三种调度方式，分别是：主线程调度，（指定）线程调度和线程池调度
 ```CSharp
 public enum SchedulerType
