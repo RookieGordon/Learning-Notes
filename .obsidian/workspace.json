@@ -151,30 +151,10 @@
             }
           },
           {
-            "id": "432b9d162aa81c7c",
-            "type": "leaf",
-            "state": {
-              "type": "reminder-list",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "插件不再活动"
-            }
-          },
-          {
             "id": "d3b0fed891d1e56f",
             "type": "leaf",
             "state": {
               "type": "todo",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "插件不再活动"
-            }
-          },
-          {
-            "id": "6cef1663aabdc2c4",
-            "type": "leaf",
-            "state": {
-              "type": "reminder-list",
               "state": {},
               "icon": "lucide-file",
               "title": "插件不再活动"
@@ -191,30 +171,10 @@
             }
           },
           {
-            "id": "6875ff65751a10c3",
-            "type": "leaf",
-            "state": {
-              "type": "reminder-list",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "插件不再活动"
-            }
-          },
-          {
             "id": "5a23fa6afb9b9a1c",
             "type": "leaf",
             "state": {
               "type": "todo",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "插件不再活动"
-            }
-          },
-          {
-            "id": "bdaa2a06d791b63f",
-            "type": "leaf",
-            "state": {
-              "type": "reminder-list",
               "state": {},
               "icon": "lucide-file",
               "title": "插件不再活动"
@@ -231,30 +191,10 @@
             }
           },
           {
-            "id": "53a70500a7228d9a",
-            "type": "leaf",
-            "state": {
-              "type": "reminder-list",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "插件不再活动"
-            }
-          },
-          {
             "id": "78f5c00a01a06181",
             "type": "leaf",
             "state": {
               "type": "todo",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "插件不再活动"
-            }
-          },
-          {
-            "id": "0b42273259bf90ff",
-            "type": "leaf",
-            "state": {
-              "type": "reminder-list",
               "state": {},
               "icon": "lucide-file",
               "title": "插件不再活动"
@@ -271,30 +211,10 @@
             }
           },
           {
-            "id": "b2c4a5396824e89a",
-            "type": "leaf",
-            "state": {
-              "type": "reminder-list",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "插件不再活动"
-            }
-          },
-          {
             "id": "4803e3b79c410801",
             "type": "leaf",
             "state": {
               "type": "todo",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "插件不再活动"
-            }
-          },
-          {
-            "id": "45d862cb781cb911",
-            "type": "leaf",
-            "state": {
-              "type": "reminder-list",
               "state": {},
               "icon": "lucide-file",
               "title": "插件不再活动"
@@ -311,17 +231,27 @@
             }
           },
           {
-            "id": "fca7859bee7c433e",
+            "id": "bfe83e971a237fe2",
+            "type": "leaf",
+            "state": {
+              "type": "todo",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "插件不再活动"
+            }
+          },
+          {
+            "id": "fd23a88ca274fc68",
             "type": "leaf",
             "state": {
               "type": "reminder-list",
               "state": {},
-              "icon": "clock",
-              "title": "Reminders"
+              "icon": "lucide-file",
+              "title": "插件不再活动"
             }
           },
           {
-            "id": "bfe83e971a237fe2",
+            "id": "528c1710a5d6d838",
             "type": "leaf",
             "state": {
               "type": "todo",
@@ -331,7 +261,7 @@
             }
           }
         ],
-        "currentTab": 21
+        "currentTab": 14
       }
     ],
     "direction": "horizontal",
@@ -360,7 +290,7 @@
       "pdf-plus:PDF++: Toggle auto-paste": true
     }
   },
-  "active": "d21f7137f03d2ba2",
+  "active": "528c1710a5d6d838",
   "lastOpenFiles": [
     "记录/工作/工作日程/2025年.md",
     "项目/ET8.1/网络框架/网络协议收发.md",
