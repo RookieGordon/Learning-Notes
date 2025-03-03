@@ -309,9 +309,29 @@
               "icon": "lucide-file",
               "title": "插件不再活动"
             }
+          },
+          {
+            "id": "fca7859bee7c433e",
+            "type": "leaf",
+            "state": {
+              "type": "reminder-list",
+              "state": {},
+              "icon": "clock",
+              "title": "Reminders"
+            }
+          },
+          {
+            "id": "bfe83e971a237fe2",
+            "type": "leaf",
+            "state": {
+              "type": "todo",
+              "state": {},
+              "icon": "checkmark",
+              "title": "Todo List"
+            }
           }
         ],
-        "currentTab": 19
+        "currentTab": 21
       }
     ],
     "direction": "horizontal",
@@ -327,21 +347,31 @@
       "templates:插入模板": false,
       "command-palette:打开命令面板": false,
       "dbfolder:创建一个新数据库表": false,
-      "obsidian-git:Open Git source control": true
+      "obsidian-git:Open Git source control": true,
+      "markdown-table-editor:Open Markdown Table Editor": false,
+      "obsidian-excalidraw-plugin:新建绘图文件": false,
+      "obsidian-importer:Open Importer": true,
+      "obsidian-memos:Thino": false,
+      "timelines-revamped:Insert Timeline Event": false,
+      "timelines-revamped:Insert Timeline Event (Frontmatter)": false,
+      "vscode-editor:新建代码文件": true,
+      "pdf-plus:PDF++: Toggle auto-copy": true,
+      "pdf-plus:PDF++: Toggle auto-focus": true,
+      "pdf-plus:PDF++: Toggle auto-paste": true
     }
   },
   "active": "d21f7137f03d2ba2",
   "lastOpenFiles": [
+    "记录/工作/工作日程/2025年.md",
+    "项目/ET8.1/网络框架/网络协议收发.md",
     "项目/ET8.1/网络框架/网络协议.md",
     "项目/ET8.1/ET框架结构.md",
-    "项目/ET8.1/网络框架/网络协议收发.md",
     "项目/ET8.1/网络框架/attachments/客户端消息流转.drawio.svg",
     "项目/ET8.1/网络框架/attachments/（图解1）客户端消息流转.drawio.png",
     "项目/ET8.1/网络框架/网络层.md",
     "项目/ET8.1/网络框架/邮箱组件.md",
     "项目/ET/网络框架/attachments/（图解1）消息流转.drawio.png",
     "项目/ET/网络框架/attachments/（图解1）消息流转.png",
-    "记录/工作/工作日程/2025年.md",
     "项目/ET/网络框架/attachments/消息流转.drawio.svg",
     "项目/ET/网络框架/attachments/消息流转.svg.crswap",
     "项目/ET/网络框架/attachments/堆栈2.log",
