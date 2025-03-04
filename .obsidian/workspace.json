@@ -265,7 +265,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 382.5
+    "width": 382.5,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -289,7 +290,7 @@
       "pdf-plus:PDF++: Toggle auto-paste": true
     }
   },
-  "active": "6490a2fd7323267e",
+  "active": "d21f7137f03d2ba2",
   "lastOpenFiles": [
     "项目/ET8.1/网络框架/网络协议收发.md",
     "项目/ET8.1/attachments/组件树状图.drawio.svg.crswap",
