@@ -151,106 +151,6 @@
             }
           },
           {
-            "id": "d3b0fed891d1e56f",
-            "type": "leaf",
-            "state": {
-              "type": "todo",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "插件不再活动"
-            }
-          },
-          {
-            "id": "8f71ea87312db1a6",
-            "type": "leaf",
-            "state": {
-              "type": "todo",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "插件不再活动"
-            }
-          },
-          {
-            "id": "5a23fa6afb9b9a1c",
-            "type": "leaf",
-            "state": {
-              "type": "todo",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "插件不再活动"
-            }
-          },
-          {
-            "id": "f14367dc70acacc6",
-            "type": "leaf",
-            "state": {
-              "type": "todo",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "插件不再活动"
-            }
-          },
-          {
-            "id": "78f5c00a01a06181",
-            "type": "leaf",
-            "state": {
-              "type": "todo",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "插件不再活动"
-            }
-          },
-          {
-            "id": "a932b0d49137f1d4",
-            "type": "leaf",
-            "state": {
-              "type": "todo",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "插件不再活动"
-            }
-          },
-          {
-            "id": "4803e3b79c410801",
-            "type": "leaf",
-            "state": {
-              "type": "todo",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "插件不再活动"
-            }
-          },
-          {
-            "id": "5b98b4449bd586d2",
-            "type": "leaf",
-            "state": {
-              "type": "todo",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "插件不再活动"
-            }
-          },
-          {
-            "id": "bfe83e971a237fe2",
-            "type": "leaf",
-            "state": {
-              "type": "todo",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "插件不再活动"
-            }
-          },
-          {
-            "id": "fd23a88ca274fc68",
-            "type": "leaf",
-            "state": {
-              "type": "reminder-list",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "插件不再活动"
-            }
-          },
-          {
             "id": "528c1710a5d6d838",
             "type": "leaf",
             "state": {
@@ -265,7 +165,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 382.5,
+    "width": 717.5,
     "collapsed": true
   },
   "left-ribbon": {
@@ -293,11 +193,11 @@
   "active": "d21f7137f03d2ba2",
   "lastOpenFiles": [
     "项目/ET8.1/网络框架/网络协议收发.md",
+    "项目/ET8.1/ET框架结构.md",
     "项目/ET8.1/attachments/组件树状图.drawio.svg.crswap",
     "项目/ET8.1/attachments/组件树状图.drawio.svg",
     "记录/工作/工作日程/2025年.md",
     "项目/ET8.1/网络框架/网络协议.md",
-    "项目/ET8.1/ET框架结构.md",
     "项目/ET8.1/网络框架/attachments/客户端消息流转.drawio.svg",
     "项目/ET8.1/网络框架/attachments/（图解1）客户端消息流转.drawio.png",
     "项目/ET8.1/网络框架/网络层.md",
