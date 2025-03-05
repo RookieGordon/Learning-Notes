@@ -232,16 +232,6 @@ if (GUILayout.Button("Start Mongo"))
 ![[（图解3）ET8.0版本进程示例.png|690]]
 对于`Scene`的使用没有非常硬性的要求，一般来说，客户端有两个`Fiber`，一个跑游戏业务逻辑，一个跑网络协议收发。业务`Fiber`拥有一个`Main Scene`，带有一个`CurrentScenesComponent`组件，可以再创建一个可变的`CurrentScene`，用于不同的场景。通常来说，可以将`CurrentScene`和Unity中的场景关联起来，其下的所有`Entity`会随着场景的变化动态加载和释放。
 对于服务器而言，可以在`StartSceneConfig`配置中，按照业务逻辑，配置对应的`Scene`，比如，聊天服务就可以是一个单独的`Scene`。
-
-```cardlink
-url: https://whimsical.com/world-mruay37nKXP4KbAAyEqXA
-title: "The Visual Workspace | Whimsical"
-description: "Whimsical combines whiteboards and docs in an all-in-one collaboration hub."
-host: whimsical.com
-favicon: https://whimsical.com/s/images/favicon-32_0bf25248ca6544a80f6af799d9b5be51.png
-image: https://whimsical.com/assets/cards/redesign-2025/default.png
-```
-
 ## 登录流程
 ![[Pasted image 20250208222054.png]]
 框架的登录流程如图所示，客户端采用`ClientSenderComponent`组件与后端进行[[网络协议收发|协议交互]]

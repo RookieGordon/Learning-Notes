@@ -25,11 +25,13 @@
             "id": "3a934babaf77068a",
             "type": "leaf",
             "state": {
-              "type": "excalidraw",
+              "type": "markdown",
               "state": {
-                "file": "项目/ET8.1/组件树状图.md"
+                "file": "项目/ET8.1/组件树状图.md",
+                "mode": "preview",
+                "source": false
               },
-              "icon": "excalidraw-icon",
+              "icon": "lucide-file",
               "title": "组件树状图"
             }
           },
@@ -103,8 +105,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 297.5,
-    "collapsed": true
+    "width": 297.5
   },
   "right": {
     "id": "abfee433681e25ee",
@@ -217,11 +218,11 @@
   },
   "active": "3a934babaf77068a",
   "lastOpenFiles": [
-    "项目/ET8.1/客户端组件树状图.md",
+    "项目/ET8.1/ET框架结构.md",
     "项目/ET8.1/组件树状图.md",
+    "项目/ET8.1/客户端组件树状图.md",
     "项目/ET8.1/网络框架/邮箱组件.md",
     "项目/ET8.1/网络框架/网络协议收发.md",
-    "项目/ET8.1/ET框架结构.md",
     "Excalidraw/Map.md",
     "项目/ET8.1/attachments/组件树状图.drawio.svg.crswap",
     "项目/ET8.1/attachments/组件树状图.drawio.svg",
