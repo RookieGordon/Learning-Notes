@@ -11,12 +11,14 @@
             "id": "89f54a15a86f3c90",
             "type": "leaf",
             "state": {
-              "type": "image",
+              "type": "markdown",
               "state": {
-                "file": "项目/ET8.1/网络框架/attachments/（图解1）客户端消息流转.drawio.png"
+                "file": "项目/ET8.1/网络框架/网络协议收发.md",
+                "mode": "preview",
+                "source": false
               },
-              "icon": "lucide-image",
-              "title": "（图解1）客户端消息流转.drawio"
+              "icon": "lucide-file",
+              "title": "网络协议收发"
             }
           }
         ]
@@ -76,7 +78,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "be1e91dfcb57ce3b",
@@ -178,9 +181,19 @@
               "icon": "lucide-file",
               "title": "插件不再活动"
             }
+          },
+          {
+            "id": "a30e1939ee7a2f70",
+            "type": "leaf",
+            "state": {
+              "type": "todo",
+              "state": {},
+              "icon": "checkmark",
+              "title": "Todo List"
+            }
           }
         ],
-        "currentTab": 6
+        "currentTab": 7
       }
     ],
     "direction": "horizontal",
@@ -196,18 +209,28 @@
       "templates:插入模板": false,
       "command-palette:打开命令面板": false,
       "dbfolder:创建一个新数据库表": false,
-      "obsidian-git:Open Git source control": false
+      "obsidian-git:Open Git source control": false,
+      "markdown-table-editor:Open Markdown Table Editor": false,
+      "obsidian-excalidraw-plugin:新建绘图文件": false,
+      "obsidian-importer:Open Importer": false,
+      "obsidian-memos:Thino": false,
+      "timelines-revamped:Insert Timeline Event": false,
+      "timelines-revamped:Insert Timeline Event (Frontmatter)": false,
+      "vscode-editor:新建代码文件": false,
+      "pdf-plus:PDF++: Toggle auto-copy": false,
+      "pdf-plus:PDF++: Toggle auto-focus": false,
+      "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "89a66892aa3b87ae",
+  "active": "89f54a15a86f3c90",
   "lastOpenFiles": [
-    "项目/ET8.1/网络框架/attachments/客户端消息流转.drawio.svg",
-    "项目/ET8.1/网络框架/attachments/（图解1）客户端消息流转.drawio.png",
-    "项目/ET8.1/网络框架/网络协议收发.md",
     "项目/ET8.1/ET框架结构.md",
-    "项目/ET8.1/重要组件/CoroutineLockComponent协程锁.md",
-    "项目/ET8.1/重要组件/TimerComponent组件.md",
+    "项目/ET8.1/服务端组件树状图.md",
     "项目/ET8.1/客户端组件树状图.md",
-    "项目/ET8.1/服务端组件树状图.md"
+    "项目/ET8.1/网络框架/attachments/（图解1）客户端消息流转.drawio.png",
+    "项目/ET8.1/网络框架/attachments/客户端消息流转.drawio.svg",
+    "项目/ET8.1/网络框架/网络协议收发.md",
+    "项目/ET8.1/重要组件/CoroutineLockComponent协程锁.md",
+    "项目/ET8.1/重要组件/TimerComponent组件.md"
   ]
 }
