@@ -8,13 +8,13 @@
         "type": "tabs",
         "children": [
           {
-            "id": "89f54a15a86f3c90",
+            "id": "57a291389fba59b9",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
                 "file": "项目/ET8.1/网络框架/网络协议收发.md",
-                "mode": "source",
+                "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
@@ -192,15 +192,20 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "89f54a15a86f3c90",
+  "active": "57a291389fba59b9",
   "lastOpenFiles": [
-    "项目/ET8.1/网络框架/attachments/服务器消息流转.drawio.svg",
     "项目/ET8.1/ET框架结构.md",
-    "项目/ET8.1/服务端组件树状图.md",
-    "项目/ET8.1/客户端组件树状图.md",
+    "项目/ET8.1/attachments/服务端组件树状图.md",
+    "项目/ET8.1/attachments/（图解1）ET8.0框架初始化流程.png",
+    "项目/ET8.1/attachments/（图解3）ET8.0进程示例.png",
+    "项目/ET8.1/attachments/客户端组件树状图.md",
+    "项目/ET8.1/attachments/（图解4）ET8.0登陆流程图.png",
+    "项目/ET8.1/attachments/组件树状图.drawio.svg",
+    "项目/ET8.1/attachments/（图解2）ET8.0中，Fiber和Scene的层级关系.png",
+    "项目/ET8.1/网络框架/网络协议收发.md",
+    "项目/ET8.1/网络框架/attachments/服务器消息流转.drawio.svg",
     "项目/ET8.1/网络框架/attachments/（图解1）客户端消息流转.drawio.png",
     "项目/ET8.1/网络框架/attachments/客户端消息流转.drawio.svg",
-    "项目/ET8.1/网络框架/网络协议收发.md",
     "项目/ET8.1/重要组件/CoroutineLockComponent协程锁.md",
     "项目/ET8.1/重要组件/TimerComponent组件.md"
   ]
