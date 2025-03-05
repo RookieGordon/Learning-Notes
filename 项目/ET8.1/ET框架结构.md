@@ -228,8 +228,10 @@ if (GUILayout.Button("Start Mongo"))
 `CodeTypes`主要是用来做热重载功能的类。`Hotfix`中的所有普通类，都能被热重载，对于单例对象，只有被`Code`特性修饰的，才能被热重载。
 ## Fiber和Scene
 创建`Fiber`的时候，会自动创建一个`Scene`并且关联起来。一般情况下，业务逻辑都是写在某个`Scene`当中的，`Scene`上会携带其所需的一些组件。整个`World`，`Fiber`，`Scene`呈现出一个标准的树状结构。
-![[（图解2）Fiber和Scene的层级关系.png|700]]
-![[（图解3）ET8.0版本进程示例.png|690]]
+[[组件树状图]]
+[[客户端组件树状图]]
+![[（图解2）Fiber和Scene的层级关系.png|660]]
+![[（图解3）ET8.0版本进程示例.png|660]]
 对于`Scene`的使用没有非常硬性的要求，一般来说，客户端有两个`Fiber`，一个跑游戏业务逻辑，一个跑网络协议收发。业务`Fiber`拥有一个`Main Scene`，带有一个`CurrentScenesComponent`组件，可以再创建一个可变的`CurrentScene`，用于不同的场景。通常来说，可以将`CurrentScene`和Unity中的场景关联起来，其下的所有`Entity`会随着场景的变化动态加载和释放。
 对于服务器而言，可以在`StartSceneConfig`配置中，按照业务逻辑，配置对应的`Scene`，比如，聊天服务就可以是一个单独的`Scene`。
 ## 登录流程
