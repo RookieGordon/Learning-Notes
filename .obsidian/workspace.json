@@ -14,7 +14,7 @@
               "type": "markdown",
               "state": {
                 "file": "项目/ET8.1/网络框架/网络协议收发.md",
-                "mode": "preview",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
@@ -143,43 +143,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "项目/ET8.1/ET框架结构.md",
+                "file": "项目/ET8.1/网络框架/网络协议收发.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "ET框架结构 的大纲"
-            }
-          },
-          {
-            "id": "72ea59b1c76af2ef",
-            "type": "leaf",
-            "state": {
-              "type": "todo",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "插件不再活动"
-            }
-          },
-          {
-            "id": "5c98b4f1f149529f",
-            "type": "leaf",
-            "state": {
-              "type": "reminder-list",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "插件不再活动"
-            }
-          },
-          {
-            "id": "9653a4071f5f99f6",
-            "type": "leaf",
-            "state": {
-              "type": "todo",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "插件不再活动"
+              "title": "网络协议收发 的大纲"
             }
           },
           {
@@ -193,7 +163,7 @@
             }
           }
         ],
-        "currentTab": 7
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
