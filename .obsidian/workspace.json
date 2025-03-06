@@ -11,12 +11,14 @@
             "id": "57a291389fba59b9",
             "type": "leaf",
             "state": {
-              "type": "excalidraw",
+              "type": "markdown",
               "state": {
-                "file": "项目/ET8.1/attachments/服务端组件树状图.md"
+                "file": "项目/ET8.1/网络框架/网络协议收发.md",
+                "mode": "preview",
+                "source": false
               },
-              "icon": "excalidraw-icon",
-              "title": "服务端组件树状图"
+              "icon": "lucide-file",
+              "title": "网络协议收发"
             }
           }
         ]
@@ -141,13 +143,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "项目/ET8.1/attachments/服务端组件树状图.md",
+                "file": "项目/ET8.1/网络框架/网络协议收发.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "服务端组件树状图 的大纲"
+              "title": "网络协议收发 的大纲"
             }
           },
           {
@@ -192,10 +194,10 @@
   },
   "active": "57a291389fba59b9",
   "lastOpenFiles": [
+    "项目/ET8.1/attachments/服务端组件树状图.md",
     "项目/ET8.1/网络框架/网络协议收发.md",
     "项目/ET8.1/网络框架/attachments/服务器消息流转.drawio.svg.crswap",
     "项目/ET8.1/ET框架结构.md",
-    "项目/ET8.1/attachments/服务端组件树状图.md",
     "项目/ET8.1/attachments/（图解1）ET8.0框架初始化流程.png",
     "项目/ET8.1/attachments/（图解3）ET8.0进程示例.png",
     "项目/ET8.1/attachments/客户端组件树状图.md",
