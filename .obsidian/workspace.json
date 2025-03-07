@@ -158,8 +158,8 @@
             "state": {
               "type": "todo",
               "state": {},
-              "icon": "checkmark",
-              "title": "Todo List"
+              "icon": "lucide-file",
+              "title": "插件不再活动"
             }
           }
         ],
@@ -179,17 +179,7 @@
       "templates:插入模板": false,
       "command-palette:打开命令面板": false,
       "dbfolder:创建一个新数据库表": false,
-      "obsidian-git:Open Git source control": false,
-      "markdown-table-editor:Open Markdown Table Editor": false,
-      "obsidian-excalidraw-plugin:新建绘图文件": false,
-      "obsidian-importer:Open Importer": false,
-      "obsidian-memos:Thino": false,
-      "timelines-revamped:Insert Timeline Event": false,
-      "timelines-revamped:Insert Timeline Event (Frontmatter)": false,
-      "vscode-editor:新建代码文件": false,
-      "pdf-plus:PDF++: Toggle auto-copy": false,
-      "pdf-plus:PDF++: Toggle auto-focus": false,
-      "pdf-plus:PDF++: Toggle auto-paste": false
+      "obsidian-git:Open Git source control": false
     }
   },
   "active": "57a291389fba59b9",
