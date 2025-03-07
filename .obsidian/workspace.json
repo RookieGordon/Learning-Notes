@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "项目/ET8.1/网络框架/网络协议收发.md",
+                "file": "项目/ET8.1/ET框架结构.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "网络协议收发"
+              "title": "ET框架结构"
             }
           }
         ]
@@ -78,8 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "be1e91dfcb57ce3b",
@@ -161,9 +160,29 @@
               "icon": "lucide-file",
               "title": "插件不再活动"
             }
+          },
+          {
+            "id": "5cc26969fd9d65ab",
+            "type": "leaf",
+            "state": {
+              "type": "todo",
+              "state": {},
+              "icon": "checkmark",
+              "title": "Todo List"
+            }
+          },
+          {
+            "id": "0019396af3e94400",
+            "type": "leaf",
+            "state": {
+              "type": "reminder-list",
+              "state": {},
+              "icon": "clock",
+              "title": "Reminders"
+            }
           }
         ],
-        "currentTab": 3
+        "currentTab": 5
       }
     ],
     "direction": "horizontal",
@@ -179,13 +198,28 @@
       "templates:插入模板": false,
       "command-palette:打开命令面板": false,
       "dbfolder:创建一个新数据库表": false,
-      "obsidian-git:Open Git source control": false
+      "obsidian-git:Open Git source control": false,
+      "markdown-table-editor:Open Markdown Table Editor": false,
+      "obsidian-excalidraw-plugin:新建绘图文件": false,
+      "obsidian-importer:Open Importer": false,
+      "obsidian-memos:Thino": false,
+      "timelines-revamped:Insert Timeline Event": false,
+      "timelines-revamped:Insert Timeline Event (Frontmatter)": false,
+      "vscode-editor:新建代码文件": false,
+      "pdf-plus:PDF++: Toggle auto-copy": false,
+      "pdf-plus:PDF++: Toggle auto-focus": false,
+      "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
   "active": "57a291389fba59b9",
   "lastOpenFiles": [
-    "项目/ET8.1/attachments/服务端组件树状图.md",
+    "项目/ET8.1/网络框架/attachments/服务器消息流转.drawio.svg",
+    "项目/ET8.1/网络框架/attachments/客户端消息流转.drawio.svg",
+    "项目/ET8.1/网络框架/attachments/（图解1）客户端消息流转.drawio.png",
+    "项目/ET8.1/网络框架/邮箱组件.md",
     "项目/ET8.1/网络框架/网络协议收发.md",
+    "项目/ET8.1/网络框架/网络协议.md",
+    "项目/ET8.1/attachments/服务端组件树状图.md",
     "项目/ET8.1/网络框架/attachments/服务器消息流转.drawio.svg.crswap",
     "项目/ET8.1/ET框架结构.md",
     "项目/ET8.1/attachments/（图解1）ET8.0框架初始化流程.png",
@@ -194,9 +228,6 @@
     "项目/ET8.1/attachments/（图解4）ET8.0登陆流程图.png",
     "项目/ET8.1/attachments/组件树状图.drawio.svg",
     "项目/ET8.1/attachments/（图解2）ET8.0中，Fiber和Scene的层级关系.png",
-    "项目/ET8.1/网络框架/attachments/服务器消息流转.drawio.svg",
-    "项目/ET8.1/网络框架/attachments/（图解1）客户端消息流转.drawio.png",
-    "项目/ET8.1/网络框架/attachments/客户端消息流转.drawio.svg",
     "项目/ET8.1/重要组件/CoroutineLockComponent协程锁.md",
     "项目/ET8.1/重要组件/TimerComponent组件.md"
   ]
