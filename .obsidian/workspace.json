@@ -4,19 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "31069812f7ef9f09",
+        "id": "d7b79346134d95bf",
         "type": "tabs",
         "children": [
           {
-            "id": "ca576a7fc673b899",
+            "id": "e9d38b7f8e0ae53f",
             "type": "leaf",
             "state": {
-              "type": "excalidraw",
-              "state": {
-                "file": "Excalidraw/Map.md"
-              },
-              "icon": "excalidraw-icon",
-              "title": "Map"
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "新标签页"
             }
           }
         ]
@@ -76,8 +74,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "be1e91dfcb57ce3b",
@@ -220,8 +217,10 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "ca576a7fc673b899",
+  "active": "e9d38b7f8e0ae53f",
   "lastOpenFiles": [
+    "Excalidraw/Map.md",
+    "Excalidraw/ScratchPaper.md",
     "课程和练习/数据结构/树/四叉树，场景管理/未命名.md",
     "课程和练习/数据结构/树/四叉树，场景管理/四叉树.md",
     "项目/ET8.1/ET框架结构.md",
