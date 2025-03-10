@@ -11,14 +11,12 @@
             "id": "ca576a7fc673b899",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "excalidraw",
               "state": {
-                "file": "课程和练习/数据结构/树/四叉树，场景管理/四叉树.md",
-                "mode": "preview",
-                "source": false
+                "file": "Excalidraw/Map.md"
               },
-              "icon": "lucide-file",
-              "title": "四叉树"
+              "icon": "excalidraw-icon",
+              "title": "Map"
             }
           }
         ]
@@ -78,7 +76,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "be1e91dfcb57ce3b",
@@ -221,10 +220,10 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "89a66892aa3b87ae",
+  "active": "ca576a7fc673b899",
   "lastOpenFiles": [
-    "课程和练习/数据结构/树/四叉树，场景管理/四叉树.md",
     "课程和练习/数据结构/树/四叉树，场景管理/未命名.md",
+    "课程和练习/数据结构/树/四叉树，场景管理/四叉树.md",
     "项目/ET8.1/ET框架结构.md",
     "项目/Unity/战斗/如何设计技能系统.md",
     "项目/Unity/战斗/帧同步战斗.md",
