@@ -167,8 +167,8 @@
             "state": {
               "type": "todo",
               "state": {},
-              "icon": "checkmark",
-              "title": "Todo List"
+              "icon": "lucide-file",
+              "title": "插件不再活动"
             }
           },
           {
@@ -177,12 +177,22 @@
             "state": {
               "type": "reminder-list",
               "state": {},
-              "icon": "clock",
-              "title": "Reminders"
+              "icon": "lucide-file",
+              "title": "插件不再活动"
+            }
+          },
+          {
+            "id": "2b4ae68e41a18b2d",
+            "type": "leaf",
+            "state": {
+              "type": "todo",
+              "state": {},
+              "icon": "checkmark",
+              "title": "Todo List"
             }
           }
         ],
-        "currentTab": 5
+        "currentTab": 7
       }
     ],
     "direction": "horizontal",
@@ -200,18 +210,10 @@
       "dbfolder:创建一个新数据库表": false,
       "obsidian-git:Open Git source control": false,
       "markdown-table-editor:Open Markdown Table Editor": false,
-      "obsidian-excalidraw-plugin:新建绘图文件": false,
-      "obsidian-importer:Open Importer": false,
-      "obsidian-memos:Thino": false,
-      "timelines-revamped:Insert Timeline Event": false,
-      "timelines-revamped:Insert Timeline Event (Frontmatter)": false,
-      "vscode-editor:新建代码文件": false,
-      "pdf-plus:PDF++: Toggle auto-copy": false,
-      "pdf-plus:PDF++: Toggle auto-focus": false,
-      "pdf-plus:PDF++: Toggle auto-paste": false
+      "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "57a291389fba59b9",
+  "active": "2b4ae68e41a18b2d",
   "lastOpenFiles": [
     "项目/ET8.1/网络框架/attachments/服务器消息流转.drawio.svg",
     "项目/ET8.1/网络框架/attachments/客户端消息流转.drawio.svg",
