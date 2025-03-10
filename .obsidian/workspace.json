@@ -11,10 +11,14 @@
             "id": "e9d38b7f8e0ae53f",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "记录/工作/工作日程/2025年.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "新标签页"
+              "title": "2025年"
             }
           }
         ]
@@ -219,6 +223,7 @@
   },
   "active": "e9d38b7f8e0ae53f",
   "lastOpenFiles": [
+    "记录/工作/Work Todo.md",
     "Excalidraw/Map.md",
     "Excalidraw/ScratchPaper.md",
     "课程和练习/数据结构/树/四叉树，场景管理/未命名.md",
