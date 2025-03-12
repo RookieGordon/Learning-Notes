@@ -11,17 +11,14 @@
             "id": "dda152668c2e2df8",
             "type": "leaf",
             "state": {
-              "type": "canvas",
+              "type": "markdown",
               "state": {
-                "file": "未命名.canvas",
-                "viewState": {
-                  "x": 0,
-                  "y": 0,
-                  "zoom": -1.5
-                }
+                "file": "课程和练习/数据结构/树/四叉树，场景管理/四叉树.md",
+                "mode": "preview",
+                "source": false
               },
-              "icon": "lucide-layout-dashboard",
-              "title": "未命名"
+              "icon": "lucide-file",
+              "title": "四叉树"
             }
           }
         ]
@@ -81,7 +78,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "be1e91dfcb57ce3b",
@@ -155,56 +153,6 @@
             }
           },
           {
-            "id": "a30e1939ee7a2f70",
-            "type": "leaf",
-            "state": {
-              "type": "todo",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "插件不再活动"
-            }
-          },
-          {
-            "id": "5cc26969fd9d65ab",
-            "type": "leaf",
-            "state": {
-              "type": "todo",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "插件不再活动"
-            }
-          },
-          {
-            "id": "0019396af3e94400",
-            "type": "leaf",
-            "state": {
-              "type": "reminder-list",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "插件不再活动"
-            }
-          },
-          {
-            "id": "2b4ae68e41a18b2d",
-            "type": "leaf",
-            "state": {
-              "type": "todo",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "插件不再活动"
-            }
-          },
-          {
-            "id": "79bc18e78ad57946",
-            "type": "leaf",
-            "state": {
-              "type": "todo",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "插件不再活动"
-            }
-          },
-          {
             "id": "9eb6ab84ec2a2128",
             "type": "leaf",
             "state": {
@@ -213,13 +161,23 @@
               "icon": "checkmark",
               "title": "Todo List"
             }
+          },
+          {
+            "id": "045bf2c613ce4261",
+            "type": "leaf",
+            "state": {
+              "type": "moredraw-iframe-view",
+              "state": {},
+              "icon": "moredraw-icon",
+              "title": "MoreDraw"
+            }
           }
         ],
-        "currentTab": 9
+        "currentTab": 5
       }
     ],
     "direction": "horizontal",
-    "width": 300,
+    "width": 1137.5,
     "collapsed": true
   },
   "left-ribbon": {
@@ -242,7 +200,8 @@
       "pdf-plus:PDF++: Toggle auto-copy": false,
       "pdf-plus:PDF++: Toggle auto-focus": false,
       "pdf-plus:PDF++: Toggle auto-paste": false,
-      "handwritten-notes:Create empty handwritten note": false
+      "handwritten-notes:Create empty handwritten note": false,
+      "moredraw:MoreDraw": false
     }
   },
   "active": "dda152668c2e2df8",
