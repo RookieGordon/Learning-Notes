@@ -4,19 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "d7b79346134d95bf",
+        "id": "9959db076208d7db",
         "type": "tabs",
         "children": [
           {
-            "id": "e9d38b7f8e0ae53f",
+            "id": "dda152668c2e2df8",
             "type": "leaf",
             "state": {
-              "type": "excalidraw",
+              "type": "markdown",
               "state": {
-                "file": "Excalidraw/ScratchPaper.md"
+                "file": "课程和练习/数据结构/树/四叉树，场景管理/四叉树.md",
+                "mode": "preview",
+                "source": false
               },
-              "icon": "excalidraw-icon",
-              "title": "ScratchPaper"
+              "icon": "lucide-file",
+              "title": "四叉树"
             }
           }
         ]
@@ -76,8 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "be1e91dfcb57ce3b",
@@ -240,14 +241,14 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "e9d38b7f8e0ae53f",
+  "active": "dda152668c2e2df8",
   "lastOpenFiles": [
+    "Excalidraw/ScratchPaper.md",
     "课程和练习/数据结构/树/四叉树，场景管理/四叉树.md",
     "课程和练习/数据结构/树/四叉树，场景管理/四叉树构建思路.md",
     "记录/工作/工作日程/2025年.md",
     "记录/工作/Work Todo.md",
     "Excalidraw/Map.md",
-    "Excalidraw/ScratchPaper.md",
     "课程和练习/数据结构/树/四叉树，场景管理/未命名.md",
     "项目/ET8.1/ET框架结构.md",
     "项目/Unity/战斗/如何设计技能系统.md",
