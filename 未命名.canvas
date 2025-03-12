@@ -1,0 +1,39 @@
+{
+  "edges": [
+    {
+      "fromNode": "f1b4a2a188cdc81b",
+      "fromSide": "right",
+      "id": "ae0695894ea84262",
+      "styleAttributes": {
+      },
+      "toNode": "24e507907707e19a",
+      "toSide": "left"
+    }
+  ],
+  "nodes": [
+    {
+      "height": 60,
+      "id": "24e507907707e19a",
+      "styleAttributes": {
+        "border": null
+      },
+      "text": "",
+      "type": "text",
+      "width": 260,
+      "x": 240,
+      "y": 0
+    },
+    {
+      "height": 160,
+      "id": "f1b4a2a188cdc81b",
+      "styleAttributes": {
+        "border": null
+      },
+      "text": "",
+      "type": "text",
+      "width": 280,
+      "x": -380,
+      "y": -80
+    }
+  ]
+}

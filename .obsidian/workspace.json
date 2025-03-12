@@ -11,14 +11,17 @@
             "id": "dda152668c2e2df8",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "canvas",
               "state": {
-                "file": "课程和练习/数据结构/树/四叉树，场景管理/四叉树.md",
-                "mode": "preview",
-                "source": false
+                "file": "未命名.canvas",
+                "viewState": {
+                  "x": 0,
+                  "y": 0,
+                  "zoom": -1.5
+                }
               },
-              "icon": "lucide-file",
-              "title": "四叉树"
+              "icon": "lucide-layout-dashboard",
+              "title": "未命名"
             }
           }
         ]
@@ -238,13 +241,15 @@
       "vscode-editor:新建代码文件": false,
       "pdf-plus:PDF++: Toggle auto-copy": false,
       "pdf-plus:PDF++: Toggle auto-focus": false,
-      "pdf-plus:PDF++: Toggle auto-paste": false
+      "pdf-plus:PDF++: Toggle auto-paste": false,
+      "handwritten-notes:Create empty handwritten note": false
     }
   },
   "active": "dda152668c2e2df8",
   "lastOpenFiles": [
-    "Excalidraw/ScratchPaper.md",
+    "未命名.canvas",
     "课程和练习/数据结构/树/四叉树，场景管理/四叉树.md",
+    "Excalidraw/ScratchPaper.md",
     "课程和练习/数据结构/树/四叉树，场景管理/四叉树构建思路.md",
     "记录/工作/工作日程/2025年.md",
     "记录/工作/Work Todo.md",
