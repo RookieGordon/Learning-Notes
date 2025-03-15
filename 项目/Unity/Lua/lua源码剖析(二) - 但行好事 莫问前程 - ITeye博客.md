@@ -12,51 +12,46 @@ title: lua源码剖析(二) - 但行好事 莫问前程 - ITeye博客
 ---
 
 这次紧接着上次的，将gc类型的数据分析完毕。
-
 谢谢[老朱](http://www.zhuzhaoyuan.com/)同学的指正,这里CClosure和LClosure理解有误.
-
-先来看闭包:
-
+先来看闭包：
 可以看到闭包也是会有两种类型，这是因为在lua中，函数不过是一种特殊的闭包而已。
-
-更新:这里CClosure表示是c函数,也就是和lua外部交互传递进来的c函数以及内部所使用的c函数.
-
-LClosure表示lua的函数,这些函数是由lua虚拟机进行管理的..
-
+<font color="#c00000">更新：这里CClosure表示是c函数,也就是和lua外部交互传递进来的c函数以及内部所使用的c函数.</font>
+<font color="#c00000">LClosure表示lua的函数,这些函数是由lua虚拟机进行管理的..</font>
+```java
 typedef union Closure {
   CClosure c;
   LClosure l;
 } Closure;
+```
 
 接下来来看这个两个结构。
-
-在看着两个结构之前，先来看宏ClosureHeader，这个也就是每个闭包(函数的头).它包括了一些全局的东西:
-
-更新 :  
-isC:如果是c函数这个值为1,为lua的函数则为0.  
+在看着两个结构之前，先来看宏ClosureHeader，这个也就是每个闭包(函数的头).它包括了一些全局的东西：
+<font color="#c00000">更新 :  </font>
+<font color="#c00000">isC:如果是c函数这个值为1,为lua的函数则为0.  </font>
 nupvalues:表示upvalue或者upvals的大小(闭包和函数里面的)。  
 gclist:链接到全局的gc链表。  
 env:环境，可以看到它是一个table类型的，他里面保存了一些全局变量等。
-
+```java
 #define ClosureHeader \
 	CommonHeader; lu_byte isC; lu_byte nupvalues; GCObject *gclist; \
 	struct Table *env
+```
 
 ok接下来先来看 CClosure的实现.他很简单,就是保存了一个函数原型,以及一个参数列表
 
-更新:  
-lua_CFunction f: 这个表示所要执行的c函数的原型.  
-TValue upvalue[1]:这个表示函数运行所需要的一些参数(比如string 的match函数,它所需要的几个参数都会保存在upvalue里面
-
+<font color="#c00000">更新:  </font>
+<font color="#c00000">lua_CFunction f: 这个表示所要执行的c函数的原型.  </font>
+<font color="#c00000">TValue upvalue[1]:这个表示函数运行所需要的一些参数(比如string 的match函数,它所需要的几个参数都会保存在upvalue里面</font>
+```java
 typedef struct CClosure {
   ClosureHeader;
   lua_CFunction f;
   TValue upvalue[1];
 } CClosure;
-
-更新:  
-这里我们只简要的介绍CClosure ,主要精力我们还是放在LClosure上.我来简要介绍下CClosure 的操作.一般当我们将CClosure 压栈,然后还有一些对应的调用函数f所需要的一些参数,此时我们会将参数都放到upvalue中,然后栈中只保存cclosure本身,这样当我们调用函数的时候(有一个全局的指针指向当前的调用函数),能够直接得到所需参数,然后调用函数.
-
+```
+<font color="#c00000">更新:  </font>
+<font color="#c00000">这里我们只简要的介绍CClosure，主要精力我们还是放在LClosure上。我来简要介绍下CClosure 的操作。一般当我们将CClosure 压栈，然后还有一些对应的调用函数f所需要的一些参数，此时我们会将参数都放到upvalue中，然后栈中只保存cclosure本身，这样当我们调用函数的时候（有一个全局的指针指向当前的调用函数），能够直接得到所需参数,然后调用函数。</font>
+```java
 LUA_API void lua_pushcclosure (lua_State *L, lua_CFunction fn, int n) {
   Closure *cl;
   lua_lock(L);
@@ -74,13 +69,12 @@ LUA_API void lua_pushcclosure (lua_State *L, lua_CFunction fn, int n) {
   api_incr_top(L);
   lua_unlock(L);
 }
+```
 
 然后来看LClosure 的实现。
-
 在lua中闭包和函数是原型是一样的,只不过函数的upvalue为空罢了,而闭包upvalue包含了它所需要的局部变量值.
-
 这里我们要知道在lua中闭包的实现。Lua 用一种称为upvalue 的结构来实现闭包。对任何外层局部变量的存取间接地通过upvalue来进行，也就是说当函数创建的时候会有一个局部变量表upvals（下面会介绍到).然后当闭包创建完毕，它就会复制upvals的值到upvalue。详细的描述可以看the implementation of lua 5.0(云风的blog上有提供下载).
-
+```java
 struct Proto *p：这个指针包含了很多的属性，比如变量，比如嵌套函数等等。  
 UpVal *upvals[1]：这个数组保存了指向外部的变量也就是我们闭包所需要的局部变量。
 

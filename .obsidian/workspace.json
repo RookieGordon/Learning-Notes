@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "项目/Unity/Lua/lua源码剖析(一) - 但行好事 莫问前程 - ITeye博客 (1).md",
+                "file": "项目/Unity/Lua/lua源码剖析(二) - 但行好事 莫问前程 - ITeye博客.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "lua源码剖析(一) - 但行好事 莫问前程 - ITeye博客 (1)"
+              "title": "lua源码剖析(二) - 但行好事 莫问前程 - ITeye博客"
             }
           }
         ]
@@ -78,8 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "be1e91dfcb57ce3b",
@@ -225,9 +224,9 @@
   },
   "active": "60123025cc7cc451",
   "lastOpenFiles": [
+    "项目/Unity/Lua/lua源码剖析(一) - 但行好事 莫问前程 - ITeye博客 (1).md",
     "项目/Unity/Lua/lua源码剖析(三) - 但行好事 莫问前程 - ITeye博客.md",
     "项目/Unity/Lua/lua源码剖析(二) - 但行好事 莫问前程 - ITeye博客.md",
-    "项目/Unity/Lua/lua源码剖析(一) - 但行好事 莫问前程 - ITeye博客 (1).md",
     "Slurped Pages/lua源码剖析(一) - 但行好事 莫问前程 - ITeye博客.md",
     "课程和练习/数据结构/树/四叉树，场景管理/四叉树.md",
     "项目/Unity/Lua",

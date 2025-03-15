@@ -55,7 +55,7 @@ LUALIB_API const char *luaL_checklstring (lua_State *L, int narg, size_t *len) {
 ```
 因此我们详细来看index2adr这个函数，这个函数目的很简单，就是通过索引得到对应的值的指针。第一个参数lua_state，第二个参数为索引值。
 
-我们首先要知道在lua中，索引值可以为负数也可以为正数，当为负数的话，top为-1，当为正数第一个压入栈的元素为1,依此类推.
+我们首先要知道在lua中，索引值可以为负数也可以为正数，当为负数的话，top为-1，当为正数第一个压入栈的元素为1，依此类推。
 
 而且有些类型的对象当转换时还需要一些特殊处理，比如闭包中的变量。
 
@@ -79,6 +79,7 @@ static TValue *index2adr (lua_State *L, int idx) {
 ..............................
 }
 ```
+
 而lmathlib.c中处理数字更简单，因为数字不需要转换，因此基本都是直接调用lua_pushnumber来压入栈。
 
 接下来就来看lua_pushXXX这些函数。这些函数都是用来从C->stack的。
@@ -89,7 +90,7 @@ static TValue *index2adr (lua_State *L, int idx) {
 ```
 可以看到很简单的实现，就是给value赋值，然后给类型也赋值。
 而这里我们要知道基本上每个类型都会有一个setXXvalue的宏来设置相应的值。  
-这里还要注意一个就是nil值，在lua中，nil有一个专门的类型就是LUA_TNIL,下面就是lua中的值的类型。
+这里还要注意一个就是nil值，在lua中，nil有一个专门的类型就是LUA_TNIL，下面就是lua中的值的类型
 ```java
 #define LUA_TNIL        0
 #define LUA_TBOOLEAN        1
@@ -193,12 +194,10 @@ size_t step = (l>>5)+1;
 for (l1=l; l1>=step; l1-=step)  /* compute hash */
     h = h ^ ((h<<5)+(h>>2)+cast(unsigned char, str[l1-1]));
 ```
-
 step表示要计算的次数，l为字符串的长度，这里主要是为了防止太长的字符串。因此右移5位并加一。
+这个hash算法叫做JS Hash Function，计算完后对桶的大小size取模然后插入到hash表。
 
-这个hash算法叫做JS Hash Function ,计算完后对桶的大小size取模然后插入到hash表。
-
-下面来看luaS_newlstr.
+下面来看luaS_newlstr：
 ```java
 TString *luaS_newlstr (lua_State *L, const char *str, size_t l) {
   GCObject *o;
@@ -222,10 +221,9 @@ TString *luaS_newlstr (lua_State *L, const char *str, size_t l) {
   return newlstr(L, str, l, h);  /* not found */
 }
 ```
-
 这里要注意lua每次都会memcpy传递进来的字符串的。而且在lua内部字符串也都是以0结尾的。
 
-接下来来看lua中最重要的一个结构Table.
+接下来来看lua中最重要的一个结构Table：
 ```java
 typedef union TKey {
   struct {
@@ -253,41 +251,31 @@ typedef struct Table {
   int sizearray;  /* size of `array' array */
 } Table;
 ```
-
-这里它的头和TSring是一样的，其实所有gc的类型的头都是相同的。在lua5.0中table表示为一种混合的数据结构，包含一个数组部分和一个散列表部分，当键为整数时，他不会保存这个键而是直接保存这个值到数组中。
-
-也就是数组保存在上面的array中，而散列表保存在node中。其中tkey保存了当前slot的下一个node的指针。
+这里它的头和TSring是一样的，其实所有gc的类型的头都是相同的。在lua5.0中table表示为一种混合的数据结构，包含一个数组部分和一个散列表部分，当键为整数时，他不会保存这个键而是直接保存这个值到数组中。也就是数组保存在上面的array中，而散列表保存在node中。其中tkey保存了当前slot的下一个node的指针。
 
 我们可以通过lapi.c来详细分析table的实现。
-
 比较核心的函数就是luaH_get。
-
+```java
 const TValue *luaH_get (Table *t, const TValue *key)
-
-这个函数就是用来从表t中查找key对应的值，从而返回。因此这里我们可以看到它会通过key的类型不同，从而进行不同的处理。
-
-1 如果是NIl 则直接返回luaO_nilobject。
-
-2 如果是string，则调用luaH_getstr进行处理(下面会介绍)
-
-3 如果是number，则调用luaH_getnum来处理。这里要注意如果是非int类型的话，它会跳过这里，进入default处理。
-
-4 然后就是default了。它会计算key的hash值，然后在hash表中查找到slot，然后遍历这个链表查找到对应的key，然后返回value。如果没有找到则返回nil。
-
+```
+这个函数就是用来从表t中查找key对应的值，从而返回。因此这里我们可以看到它会通过key的类型不同，从而进行不同的处理：
+1. 如果是NIl 则直接返回luaO_nilobject。
+2. 如果是string，则调用luaH_getstr进行处理(下面会介绍)
+3. 如果是number，则调用luaH_getnum来处理。这里要注意如果是非int类型的话，它会跳过这里，进入default处理。
+4. 然后就是default了。它会计算key的hash值，然后在hash表中查找到slot，然后遍历这个链表查找到对应的key，然后返回value。如果没有找到则返回nil。
 此时由于lua的lua_Number默认是double型的，而数组的下标是int的，因此这里有一个转换double到int的一个过程。在lua中是通过lua_number2int这个函数来实现的，它用了一个小技巧。
-
+```java
 union luai_Cast { double l_d; long l_l; };
 #define lua_number2int(i,d) \
   { volatile union luai_Cast u; u.l_d = (d) + 6755399441055744.0; (i) = u.l_l; }
-
+```
 可以看到lua是定义了一个联合，然后将要转换的d加上 6755399441055744.0。然后将l_l赋值给最终的值i。
-
 6755399441055744.0是一个magic number ，它也就是1.5*2^52 ，而在ia-32的架构中，fraction是52位。而在浮点数加法中，首先要做的就是小数点对齐，而对齐标准就是和幂大的对齐。并且小数点前的1是忽略的。因此当相加时，就会将小数点后的四舍五入掉了。而为什么是1.5呢，主要是为了处理负数。
 
 我这里只是简单的分析了下，详细的，自己动笔算一下就清楚了。
 
 ok，现在我们来看luaH_getstr的实现。这个函数的实现其实很简单，就是计算hash然后得到链表，并遍历，得到对应key的值。这里我们要知道当 key为字符串时，在table中的hash不等于string本身的hash(也就是全局字符串hash的那个hash).
-
+```java
 const TValue *luaH_getstr (Table *t, TString *key) {
 ///得到对应的节点。
   Node *n = hashstr(t, key);
@@ -299,9 +287,10 @@ const TValue *luaH_getstr (Table *t, TString *key) {
   } while (n);
   return luaO_nilobject;
 }
+```
 
 然后是luaH_getnum的实现。这个函数首先判断这个key，也就是数组下标是否在范围内。如果在则直接返回相应的值。否则将这个key计算hash然后在hash链表中查找相应的值。
-
+```java
 const TValue *luaH_getnum (Table *t, int key) {
   /* (1 <= key && key <= t->sizearray) */
 ///判断key的范围。
@@ -319,13 +308,13 @@ const TValue *luaH_getnum (Table *t, int key) {
     return luaO_nilobject;
   }
 }
-
+```
 看完get我们来看set方法。
-
+```java
 TValue *luaH_set (lua_State *L, Table *t, const TValue *key)
-
+```
 这个函数会判断是否key已经存在，如果已经存在则直接返回对应的值。否则会调用newkey来新建一个key，并返回对应的value。(这里主要并不是所有的数字的key都会加到数组里面，有一部分会加入到hash表中).可以说这个hash表中包含两个链表，一个是空的槽的链表，一个是已经填充了的槽的链表。
-
+```java
 TValue *luaH_set (lua_State *L, Table *t, const TValue *key) {
 ///调用get得到对应的值（也就是在表中查找是否存在这个key）
   const TValue *p = luaH_get(t, key);
@@ -341,25 +330,20 @@ TValue *luaH_set (lua_State *L, Table *t, const TValue *key) {
     return newkey(L, t, key);
   }
 }
+```
 
 然后来看newkey。
-
+```java
 static TValue *newkey (lua_State *L, Table *t, const TValue *key)
-
+```
 这里lua使用的是open-address hash。不过做了一些改良。这里它会有专门的一个free position的链表（也就是所有空闲槽的一个链表)，来保存所有冲突的node，换句话说就是如果有冲突，则从free position中取得位置，然后将冲突元素放进去，并从free position中删除。
-
 这个函数的具体流程是这样的：
-
-1 首先调用mainposition返回一个node，然后判断node的value是否为空，如果为空，则给value赋值,然后返回这个node的value。
-
-2 如果node的value非空，或者说这个node就是空的，则先通过getfreepo从空的槽的链表得到一个空的槽，如果没有空着的槽，则说明hash表已满，此时扩容hash表，然后继续调用luaH-set.
-
-3 如果此时有空着的槽，再次计算mainposition,通过key的value.(这是因为我们是开地址散列，每次冲突的元素都会放到free position中）。如果得到的node和第一步计算的node相同，则将空着的槽(也就是链表）n链接到第一步得到的node后面，这个也就是将当前要插入的key的node到free position，然后移动node指针到n的位置，然后赋值并返回。
-
-4 如果和第一步计算的node不同，则将新的node插入到这个node。然后将本身这个node移动到free position。
-
+1. 首先调用mainposition返回一个node，然后判断node的value是否为空，如果为空，则给value赋值,然后返回这个node的value。
+2. 如果node的value非空，或者说这个node就是空的，则先通过getfreepo从空的槽的链表得到一个空的槽，如果没有空着的槽，则说明hash表已满，此时扩容hash表，然后继续调用luaH-set.
+3. 如果此时有空着的槽，再次计算mainposition,通过key的value.(这是因为我们是开地址散列，每次冲突的元素都会放到free position中）。如果得到的node和第一步计算的node相同，则将空着的槽(也就是链表）n链接到第一步得到的node后面，这个也就是将当前要插入的key的node到free position，然后移动node指针到n的位置，然后赋值并返回。
+4. 如果和第一步计算的node不同，则将新的node插入到这个node。然后将本身这个node移动到free position。
 接下来来看源码。
-
+```java
 static TValue *newkey (lua_State *L, Table *t, const TValue *key) {
 ///得到主位置的值。
   Node *mp = mainposition(t, key);
@@ -399,16 +383,16 @@ static TValue *newkey (lua_State *L, Table *t, const TValue *key) {
 ///返回value
   return gval(mp);
 }
+```
 
-接下来来看rehash的实现。每次表满了之后，都会重新计算散列值。
-
-具体的函数是  
+接下来来看rehash的实现。每次表满了之后，都会重新计算散列值。具体的函数是  
+```java
 static void rehash (lua_State *L, Table *t, const TValue *ek)
-
+```
 再散列的流程很简单。第一步是确定新数组部分和新散列部分的尺寸。所以，Lua遍历所有条目，计数并分类它们，每次满的时候，都会是最接近数组当前大小的值的次幂(0->1,3->4,9->16等等)，它使得数组部分超过半数的元素被填充。然后散列尺寸是能容纳所有剩余条目的2的最小乘幂。
 
 lua为了提高效率，尽量不去做rehash，因为rehash非常非常耗时，因此看下面的代码：
-
+```java
 local a={}
 print("-----------\n")
 a.x=1
@@ -422,17 +406,14 @@ for i = 1, 1 do
     a[i]=1
     print("==============\n")
 end
-
+```
 当a.o之后表的散列部分大小为8,因此下面的a[i]=1,尽管属于数组部分，可是不会进行rehash，而是暂时放到hash部分中。而当必须要rehash表的时候，计算数组大小时，会将放到hash部分中的数组重新插入到数组部分。
 
 来看代码，这里注释很详细，我就简单的介绍下。
-
 我们知道在lua中，数组部分有个最大值（为2^26)，而这里它准备了一个数组，大小为26+1,然后数组每一个的值都表示了在某一个段的范围内的值得多少：
-
 nums[i] = number出表示了在  2^(i-1) 和 2^i之间的数组部分的有多少值。
-
 这样做的目的主要是为了防止数组部分过于稀疏，太过于稀疏的话，会将一些值放到hash部分中，我们下面分析computesizes时，会详细介绍这个。
-
+```java
 ///这里表示数组部分的最大容量为2^26
 #define MAXBITS		26
 static void rehash (lua_State *L, Table *t, const TValue *ek) {
@@ -456,10 +437,10 @@ static void rehash (lua_State *L, Table *t, const TValue *ek) {
 ///调用resize调整table的大小。
   resize(L, t, nasize, totaluse - na);
 }
-
+```
 这里比较关键就是上面几个计算函数，我们一个个来分析：  
 numusearray 计算当前的数组部分的元素个数，并且给num赋值。
-
+```java
 static int numusearray (const Table *t, int *nums) {
   int lg;
   int ttlg;  /* 2^lg */
@@ -481,9 +462,9 @@ static int numusearray (const Table *t, int *nums) {
   }
   return ause;
 }
-
+```
 然后是numusehash ，这个函数计算hash部分的元素个数。
-
+```java
 static int numusehash (const Table *t, int *nums, int *pnasize) {
   int totaluse = 0;  /* total number of elements */
   int ause = 0;  /* summation of `nums' */
@@ -503,13 +484,11 @@ static int numusehash (const Table *t, int *nums, int *pnasize) {
   *pnasize += ause;
   return totaluse;
 }
-
+```
 接下来是computesizes,它用来计算新的数组部分的大小。这里扩展的大小也就是最接近数组当前的大小的2的次幂。
-
 这里遍历也就是每次一个段的遍历。
-
 如果数组的利用率小于50%的话，大的元素就不会计算到数组部分，也就是会放到hash部分。
-
+```java
 static int computesizes (int nums[], int *narray) {
   int i;
   int twotoi;  /* 2^i */
@@ -533,15 +512,5 @@ static int computesizes (int nums[], int *narray) {
   lua_assert(*narray/2 <= na && na <= *narray);
   return na;
 }
-
+```
 resize就不介绍了，这个函数比较简单，就是重新分配数组部分和hash部分的大小，这里用realloc来调整大小，然后重新插入值。
-
-- [查看图片附件](https://www.iteye.com/blog/simohayha-517748#)
-
-分享到： ![](https://www.iteye.com/images/sina.jpg) ![](https://www.iteye.com/images/tec.jpg)
-
-- 2009-11-15 21:38
-- 浏览 24617
-- [评论(3)](https://www.iteye.com/blog/simohayha-517748#comments)
-- 分类:[编程语言](https://www.iteye.com/blogs/category/language)
-- [查看更多](https://www.iteye.com/wiki/blog/517748)
