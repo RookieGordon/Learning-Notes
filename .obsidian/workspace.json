@@ -157,8 +157,8 @@
             "state": {
               "type": "todo",
               "state": {},
-              "icon": "checkmark",
-              "title": "Todo List"
+              "icon": "lucide-file",
+              "title": "插件不再活动"
             }
           },
           {
@@ -170,9 +170,29 @@
               "icon": "moredraw-icon",
               "title": "MoreDraw"
             }
+          },
+          {
+            "id": "cfbb5a81e1c97fcd",
+            "type": "leaf",
+            "state": {
+              "type": "todo",
+              "state": {},
+              "icon": "checkmark",
+              "title": "Todo List"
+            }
+          },
+          {
+            "id": "ea0bb842ca90f788",
+            "type": "leaf",
+            "state": {
+              "type": "reminder-list",
+              "state": {},
+              "icon": "clock",
+              "title": "Reminders"
+            }
           }
         ],
-        "currentTab": 5
+        "currentTab": 6
       }
     ],
     "direction": "horizontal",
@@ -189,21 +209,10 @@
       "command-palette:打开命令面板": false,
       "dbfolder:创建一个新数据库表": false,
       "obsidian-git:Open Git source control": false,
-      "markdown-table-editor:Open Markdown Table Editor": false,
-      "obsidian-excalidraw-plugin:新建绘图文件": false,
-      "obsidian-importer:Open Importer": false,
-      "obsidian-memos:Thino": false,
-      "timelines-revamped:Insert Timeline Event": false,
-      "timelines-revamped:Insert Timeline Event (Frontmatter)": false,
-      "vscode-editor:新建代码文件": false,
-      "pdf-plus:PDF++: Toggle auto-copy": false,
-      "pdf-plus:PDF++: Toggle auto-focus": false,
-      "pdf-plus:PDF++: Toggle auto-paste": false,
-      "handwritten-notes:Create empty handwritten note": false,
       "moredraw:MoreDraw": false
     }
   },
-  "active": "dda152668c2e2df8",
+  "active": "cfbb5a81e1c97fcd",
   "lastOpenFiles": [
     "未命名.canvas",
     "课程和练习/数据结构/树/四叉树，场景管理/四叉树.md",
