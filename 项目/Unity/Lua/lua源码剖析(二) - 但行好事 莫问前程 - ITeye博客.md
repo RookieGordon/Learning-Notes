@@ -74,22 +74,21 @@ LUA_API void lua_pushcclosure (lua_State *L, lua_CFunction fn, int n) {
 然后来看LClosure 的实现。
 在lua中闭包和函数是原型是一样的,只不过函数的upvalue为空罢了,而闭包upvalue包含了它所需要的局部变量值.
 这里我们要知道在lua中闭包的实现。Lua 用一种称为upvalue 的结构来实现闭包。对任何外层局部变量的存取间接地通过upvalue来进行，也就是说当函数创建的时候会有一个局部变量表upvals（下面会介绍到).然后当闭包创建完毕，它就会复制upvals的值到upvalue。详细的描述可以看the implementation of lua 5.0(云风的blog上有提供下载).
-```java
 struct Proto *p：这个指针包含了很多的属性，比如变量，比如嵌套函数等等。  
 UpVal *upvals[1]：这个数组保存了指向外部的变量也就是我们闭包所需要的局部变量。
 
 下面会详细分析这个东西。
-
+```java
 typedef struct LClosure {
   ClosureHeader;
   struct Proto *p;
   UpVal *upvals[1];
 } LClosure;
+```
 
 这里我摘录一段the implementation of lua 5.0里面的描述：
 
-引用
-
+>引用
 通过为每个变量至少创建一个upvalue 并按所需情况进行重复利用，保证了未决状态（是否超过生存期）的局部变量（pending vars）能够在闭包间正确地  
 共享。为了保证这种唯一性，Lua 为整个运行栈保存了一个链接着所有正打开着  
 的upvalue（那些当前正指向栈内局部变量的upvalue）的链表（图4 中未决状态  
@@ -107,7 +106,7 @@ upvalue 不再被任何闭包所引用，那么它的存储空间就立刻被回
 这里的未决状态（是否超过生存期）的局部变量指的就是我们下面的UpVal，其中：  
 TValue *v:指向栈内的自己的位置或者自己(这里根据是否这个uvalue被关闭）。  
 union u:这里可以看到如果是被关闭则直接保存value。如果打开则为一个链表。
-
+```java
 typedef struct UpVal {
   CommonHeader;
   TValue *v;  /* points to stack or to its own value */
@@ -119,9 +118,10 @@ typedef struct UpVal {
     } l;
   } u;
 } UpVal;
+```
 
 然后来看luaF_newLclosure的实现，它与cclosure类似。
-
+```java
 Closure *luaF_newLclosure (lua_State *L, int nelems, Table *e) {
   Closure *c = cast(Closure *, luaM_malloc(L, sizeLclosure(nelems)));
   luaC_link(L, obj2gco(c), LUA_TFUNCTION);
@@ -132,13 +132,12 @@ Closure *luaF_newLclosure (lua_State *L, int nelems, Table *e) {
   while (nelems--) c->l.upvals[nelems] = NULL;
   return c;
 }
+```
 
 ok，接下来我们就通过一些函数来更详细的理解闭包的实现。
-
 先分析CClosure。我们来看luaF_newCclosure的实现，这个函数创建一个CClosure,也就是创建一个所需要执行的c函数.
-
 这个函数实现比较简单，就是malloc一个Closure，然后链接到全局gc，最后初始化Closure 。
-
+```java
 Closure *luaF_newCclosure (lua_State *L, int nelems, Table *e) {
 ///分配内存
   Closure *c = cast(Closure *, luaM_malloc(L, sizeCclosure(nelems)));
@@ -150,13 +149,13 @@ Closure *luaF_newCclosure (lua_State *L, int nelems, Table *e) {
   c->c.nupvalues = cast_byte(nelems);
   return c;
 }
-
+```
 在lua_State中它里面包含有GCObject 类型的域叫openupval，这个域也就是当前的栈上的所有open的uvalue。可以看到这里是gcobject类型的，这里我们就知道为什么gcobvject中为什么还要包含struct UpVal uv了。而在global_State中的UpVal uvhead则是整个lua虚拟机里面所有栈的upvalue链表的头。
 
 然后我们来看lua中如何new一个upval。
 
 它很简单就是malloc一个UpVal然后链接到gc链表里面。这边要注意，每次new的upval都是close的。
-
+```java
 UpVal *luaF_newupval (lua_State *L) {
 ///new一个upval
   UpVal *uv = luaM_new(L, UpVal);
@@ -167,14 +166,13 @@ UpVal *luaF_newupval (lua_State *L) {
   setnilvalue(uv->v);
   return uv;
 }
+```
 
 接下来我们来看闭包如何来查找到对应的upval，所有的实现就在函数luaF_findupval中。我们接下来来看这个函数的实现。  
-这个函数的流程是这样的。
-
-1 首先遍历lua_state的openupval，也就是当前栈的upval，然后如果能找到对应的值，则直接返回这个upval。
-
-2 否则新建一个upval（这里注意new的是open的)，然后链接到openupval以及uvhead中。而且每次新的upval的插入都是插入到链表头的。而且这里插入了两次。这里为什么要有两个链表，那是因为有可能会有多个栈，而uvhead就是用来管理多个栈的upvalue的（也就是多个openupval)。
-
+这个函数的流程是这样的：
+1. 首先遍历lua_state的openupval，也就是当前栈的upval，然后如果能找到对应的值，则直接返回这个upval。
+2. 否则新建一个upval（这里注意new的是open的)，然后链接到openupval以及uvhead中。而且每次新的upval的插入都是插入到链表头的。而且这里插入了两次。这里为什么要有两个链表，那是因为有可能会有多个栈，而uvhead就是用来管理多个栈的upvalue的（也就是多个openupval)。
+```java
 UpVal *luaF_findupval (lua_State *L, StkId level) {
   global_State *g = G(L);
 ///得到openupval链表
@@ -210,10 +208,10 @@ UpVal *luaF_findupval (lua_State *L, StkId level) {
   lua_assert(uv->u.l.next->u.l.prev == uv && uv->u.l.prev->u.l.next == uv);
   return uv;
 }
-
-更新:  
-上面可以看到我们new的upvalue是open的,那么什么时候我们关闭这个upvalue呢,当函数关闭的时候,我们就会unlink掉upvalue,从全局的open upvalue表中:
-
+```
+<font color="#c00000">更新:  </font>
+<font color="#c00000">上面可以看到我们new的upvalue是open的，那么什么时候我们关闭这个upvalue呢，当函数关闭的时候,我们就会unlink掉upvalue，从全局的open upvalue表中：</font>
+```java
 void luaF_close (lua_State *L, StkId level) {
   UpVal *uv;
   global_State *g = G(L);
@@ -239,9 +237,10 @@ static void unlinkupval (UpVal *uv) {
   uv->u.l.next->u.l.prev = uv->u.l.prev;  /* remove from `uvhead' list */
   uv->u.l.prev->u.l.next = uv->u.l.next;
 }
+```
 
 接下来来看user data。这里首先我们要知道，在lua中，创建一个userdata，其实也就是分配一块内存紧跟在Udata的后面。后面我们分析代码的时候就会看到。也就是说Udata相当于一个头。
-
+```java
 typedef union Udata {
   L_Umaxalign dummy;  
   struct {
@@ -255,11 +254,11 @@ typedef union Udata {
     size_t len;
   } uv;
 } Udata;
+```
 
 ok，接下来我们来看代码，我们知道调用lua_newuserdata能够根据指定大小分配一块内存，并将对应的userdata压入栈。
-
 这里跳过了一些代码，跳过的代码以后会分析到。
-
+```java
 LUA_API void *lua_newuserdata (lua_State *L, size_t size) {
   Udata *u;
   lua_lock(L);
@@ -274,11 +273,11 @@ LUA_API void *lua_newuserdata (lua_State *L, size_t size) {
 ///返回u+1,也就是去掉头(Udata)然后返回。
   return u + 1;
 }
-
+```
 我们可以看到具体的实现都包含在luaS_newudata中，这个函数也满简单的，malloc一个size+sizeof(Udata)的内存，然后初始化udata。
 
 我们还要知道在全局状态，也就是global_State中包含一个struct lua_State *mainthread，这个主要是用来管理userdata的。它也就是表示当前的栈，因此下面我们会将新建的udata链接到它上面。
-
+```java
 Udata *luaS_newudata (lua_State *L, size_t s, Table *e) {
   Udata *u;
 
@@ -304,6 +303,7 @@ Udata *luaS_newudata (lua_State *L, size_t s, Table *e) {
 ///然后返回。
   return u;
 }
+```
 
 还剩下两个gc类型，一个是proto(函数包含的一些东西)一个是lua_State（也就是协程).
 
@@ -312,7 +312,7 @@ Udata *luaS_newudata (lua_State *L, size_t s, Table *e) {
 并且每个协程也都有自己独立的栈。
 
 我们就来看下我们前面已经触及到的一些lua-state的域：
-
+```java
 struct lua_State {
   CommonHeader;
  
@@ -353,15 +353,7 @@ struct lua_State {
   struct lua_longjmp *errorJmp;  /* current error recover point */
   ptrdiff_t errfunc;  /* current error handling function (stack index) */
 };
-
+```
 而global_State主要就是包含了gc相关的东西。
 
 现在基本类型的分析就告一段落了，等到后面分析parse以及gc的时候会再回到这些类型。
-
-分享到： ![](https://www.iteye.com/images/sina.jpg) ![](https://www.iteye.com/images/tec.jpg)
-
-- 2009-12-04 00:22
-- 浏览 8133
-- [评论(1)](https://www.iteye.com/blog/simohayha-540546#comments)
-- 分类:[编程语言](https://www.iteye.com/blogs/category/language)
-- [查看更多](https://www.iteye.com/wiki/blog/540546)
