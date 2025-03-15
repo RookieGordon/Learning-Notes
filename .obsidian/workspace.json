@@ -11,12 +11,14 @@
             "id": "60123025cc7cc451",
             "type": "leaf",
             "state": {
-              "type": "excalidraw",
+              "type": "markdown",
               "state": {
-                "file": "Excalidraw/ScratchPaper.md"
+                "file": "课程和练习/数据结构/排序算法.md",
+                "mode": "preview",
+                "source": false
               },
-              "icon": "excalidraw-icon",
-              "title": "ScratchPaper"
+              "icon": "lucide-file",
+              "title": "排序算法"
             }
           }
         ]
@@ -140,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "项目/ET8.1/网络框架/网络协议收发.md",
+                "file": "课程和练习/数据结构/排序算法.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "网络协议收发 的大纲"
+              "title": "排序算法 的大纲"
             }
           },
           {
@@ -190,11 +192,11 @@
             }
           }
         ],
-        "currentTab": 6
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
-    "width": 1137.5,
+    "width": 425.5,
     "collapsed": true
   },
   "left-ribbon": {
@@ -222,18 +224,22 @@
   },
   "active": "60123025cc7cc451",
   "lastOpenFiles": [
+    "课程和练习/数据结构/查找与插入.md",
+    "课程和练习/数据结构/树/二叉树/二叉查找树.md",
+    "课程和练习/数据结构/树/红黑树/红黑树.md",
+    "课程和练习/数据结构/树/四叉树，场景管理/四叉树.md",
+    "课程和练习/数据结构/树/树.md",
+    "Excalidraw/Map.md",
+    "Excalidraw/ScratchPaper.md",
     "项目/Unity/Lua/lua源码剖析(三) - 但行好事 莫问前程 - ITeye博客.md",
     "项目/Unity/Lua/lua源码剖析(二) - 但行好事 莫问前程 - ITeye博客.md",
     "项目/Unity/Lua/lua源码剖析(一) - 但行好事 莫问前程 - ITeye博客 (1).md",
     "Slurped Pages/lua源码剖析(一) - 但行好事 莫问前程 - ITeye博客.md",
-    "课程和练习/数据结构/树/四叉树，场景管理/四叉树.md",
     "项目/Unity/Lua",
     "未命名.canvas",
-    "Excalidraw/ScratchPaper.md",
     "课程和练习/数据结构/树/四叉树，场景管理/四叉树构建思路.md",
     "记录/工作/工作日程/2025年.md",
     "记录/工作/Work Todo.md",
-    "Excalidraw/Map.md",
     "课程和练习/数据结构/树/四叉树，场景管理/未命名.md",
     "项目/ET8.1/ET框架结构.md",
     "项目/Unity/战斗/如何设计技能系统.md",
@@ -252,11 +258,8 @@
     "项目/ET8.1/网络框架/attachments/服务器消息流转.drawio.svg.crswap",
     "项目/ET8.1/attachments/（图解1）ET8.0框架初始化流程.png",
     "项目/ET8.1/attachments/（图解3）ET8.0进程示例.png",
-    "项目/ET8.1/attachments/客户端组件树状图.md",
     "项目/ET8.1/attachments/（图解4）ET8.0登陆流程图.png",
     "项目/ET8.1/attachments/组件树状图.drawio.svg",
-    "项目/ET8.1/attachments/（图解2）ET8.0中，Fiber和Scene的层级关系.png",
-    "项目/ET8.1/重要组件/CoroutineLockComponent协程锁.md",
-    "项目/ET8.1/重要组件/TimerComponent组件.md"
+    "项目/ET8.1/attachments/（图解2）ET8.0中，Fiber和Scene的层级关系.png"
   ]
 }
