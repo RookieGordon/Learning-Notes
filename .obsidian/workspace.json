@@ -78,7 +78,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "be1e91dfcb57ce3b",
@@ -224,6 +225,9 @@
   },
   "active": "60123025cc7cc451",
   "lastOpenFiles": [
+    "课程和练习/数据结构/数组、向量和链表.md",
+    "课程和练习/数据结构/数据结构.md",
+    "课程和练习/数据结构/排序算法.md",
     "课程和练习/数据结构/查找与插入.md",
     "课程和练习/数据结构/树/二叉树/二叉查找树.md",
     "课程和练习/数据结构/树/红黑树/红黑树.md",
@@ -252,9 +256,6 @@
     "项目/ET8.1/网络框架/attachments/客户端消息流转.drawio.svg",
     "项目/ET8.1/网络框架/attachments/（图解1）客户端消息流转.drawio.png",
     "项目/ET8.1/网络框架/邮箱组件.md",
-    "项目/ET8.1/网络框架/网络协议收发.md",
-    "项目/ET8.1/网络框架/网络协议.md",
-    "项目/ET8.1/attachments/服务端组件树状图.md",
     "项目/ET8.1/网络框架/attachments/服务器消息流转.drawio.svg.crswap",
     "项目/ET8.1/attachments/（图解1）ET8.0框架初始化流程.png",
     "项目/ET8.1/attachments/（图解3）ET8.0进程示例.png",
