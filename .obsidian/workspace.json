@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Slurped Pages/第9章 着色器编译、分支和变体.md",
+                "file": "记录/工作/面试题/Lua全知识点详细汇总（基础知识+面向对象+面试重点）_lua面试基础知识点-CSDN博客.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "第9章 着色器编译、分支和变体"
+              "title": "Lua全知识点详细汇总（基础知识+面向对象+面试重点）_lua面试基础知识点-CSDN博客"
             }
           }
         ]
@@ -143,13 +143,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "课程和练习/数据结构/排序算法.md",
+                "file": "记录/工作/面试题/Lua全知识点详细汇总（基础知识+面向对象+面试重点）_lua面试基础知识点-CSDN博客.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "排序算法 的大纲"
+              "title": "Lua全知识点详细汇总（基础知识+面向对象+面试重点）_lua面试基础知识点-CSDN博客 的大纲"
             }
           },
           {
@@ -203,7 +203,7 @@
             }
           }
         ],
-        "currentTab": 8
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
@@ -235,8 +235,8 @@
   },
   "active": "60123025cc7cc451",
   "lastOpenFiles": [
-    "Slurped Pages/查询 Git 仓库地址 - 豆包.md",
     "Slurped Pages/第9章 着色器编译、分支和变体.md",
+    "Slurped Pages/查询 Git 仓库地址 - 豆包.md",
     "课程和练习/数据结构/排序算法.md",
     "课程和练习/数据结构/数组、向量和链表.md",
     "课程和练习/数据结构/数据结构.md",
