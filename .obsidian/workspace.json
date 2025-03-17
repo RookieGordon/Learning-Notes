@@ -14,7 +14,7 @@
               "type": "markdown",
               "state": {
                 "file": "Template/项目模块模板.md",
-                "mode": "source",
+                "mode": "preview",
                 "source": true
               },
               "icon": "lucide-file",
@@ -194,9 +194,9 @@
   },
   "active": "2944663b1198292d",
   "lastOpenFiles": [
-    "Template/项目模板.md",
-    "Template/项目模块模板.md",
     "项目/未命名.md",
+    "Template/项目模块模板.md",
+    "Template/项目模板.md",
     "Template/项目任务模板.md",
     "项目/daily.md",
     "Template/模板1.md",
