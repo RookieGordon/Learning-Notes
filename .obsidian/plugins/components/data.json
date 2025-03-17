@@ -1,0 +1,8 @@
+{
+  "createComponentSilent": false,
+  "receiveBetaVersion": false,
+  "folder": "components/view",
+  "scriptFolder": "components/script",
+  "enableDebug": false,
+  "debugLogOutputFolder": "components/logs"
+}

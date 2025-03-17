@@ -6,5 +6,6 @@
   "moredraw",
   "templater-obsidian",
   "customjs",
-  "widgets"
+  "widgets",
+  "components"
 ]

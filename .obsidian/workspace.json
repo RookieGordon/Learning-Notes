@@ -160,8 +160,29 @@
               "icon": "moredraw-icon",
               "title": "MoreDraw"
             }
+          },
+          {
+            "id": "0e1d6bfae2b1a046",
+            "type": "leaf",
+            "state": {
+              "type": "todo",
+              "state": {},
+              "icon": "checkmark",
+              "title": "Todo List"
+            }
+          },
+          {
+            "id": "226fa1583cfbc27b",
+            "type": "leaf",
+            "state": {
+              "type": "reminder-list",
+              "state": {},
+              "icon": "clock",
+              "title": "Reminders"
+            }
           }
-        ]
+        ],
+        "currentTab": 5
       }
     ],
     "direction": "horizontal",
@@ -174,26 +195,15 @@
       "graph:查看关系图谱": false,
       "canvas:新建白板": false,
       "daily-notes:打开/创建今天的日记": false,
-      "templates:插入模板": false,
       "command-palette:打开命令面板": false,
       "dbfolder:创建一个新数据库表": false,
       "obsidian-git:Open Git source control": false,
       "moredraw:MoreDraw": false,
-      "markdown-table-editor:Open Markdown Table Editor": false,
-      "obsidian-excalidraw-plugin:新建绘图文件": false,
-      "obsidian-importer:Open Importer": false,
-      "obsidian-memos:Thino": false,
-      "timelines-revamped:Insert Timeline Event": false,
-      "timelines-revamped:Insert Timeline Event (Frontmatter)": false,
-      "vscode-editor:新建代码文件": false,
-      "pdf-plus:PDF++: Toggle auto-copy": false,
-      "pdf-plus:PDF++: Toggle auto-focus": false,
-      "pdf-plus:PDF++: Toggle auto-paste": false,
       "templater-obsidian:Templater": false,
       "widgets:Add widget": false
     }
   },
-  "active": "d1252a6ba2e5ee3c",
+  "active": "0e1d6bfae2b1a046",
   "lastOpenFiles": [
     "Template/Project Module.md",
     "Template/Project.md",
