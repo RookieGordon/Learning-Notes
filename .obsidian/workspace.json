@@ -14,7 +14,7 @@
               "type": "markdown",
               "state": {
                 "file": "Template/Project Module.md",
-                "mode": "source",
+                "mode": "preview",
                 "source": true
               },
               "icon": "lucide-file",
@@ -189,14 +189,16 @@
       "pdf-plus:PDF++: Toggle auto-copy": false,
       "pdf-plus:PDF++: Toggle auto-focus": false,
       "pdf-plus:PDF++: Toggle auto-paste": false,
-      "templater-obsidian:Templater": false
+      "templater-obsidian:Templater": false,
+      "widgets:Add widget": false
     }
   },
   "active": "94d760c8b8e5f577",
   "lastOpenFiles": [
-    "Template/Project Task.md",
+    "项目/Unity/踩坑记录/杂项.md",
     "Template/Project Module.md",
     "项目/战斗.md",
+    "Template/Project Task.md",
     "Excalidraw/ScratchPaper.md",
     "Untitled.md",
     "项目/aaa.md",
@@ -223,7 +225,6 @@
     "项目/Unity/网络编程/谈谈Unity游戏TCP连接和网络重连.md",
     "项目/Unity/网络编程/移动端断线重连方案 - niep的博客.md",
     "项目/Unity/网络编程/Unity Socket网络编程.md",
-    "项目/Unity/网络编程/UDP可靠性封装/2.6 TCP与UDP的可靠性传输_tcp udp 可靠传输-CSDN博客.md",
     "导航",
     "Template",
     "项目/Unity/Lua",
