@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "b41f805c87e01c29",
+        "id": "9b226ebca858e73f",
         "type": "tabs",
         "children": [
           {
-            "id": "41f3e42bbc922e9a",
+            "id": "1d10627e74204b70",
             "type": "leaf",
             "state": {
               "type": "components-file-view",
@@ -184,7 +184,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 209.5,
+    "width": 218.5,
     "collapsed": true
   },
   "left-ribbon": {
@@ -211,9 +211,11 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "41f3e42bbc922e9a",
+  "active": "1d10627e74204b70",
   "lastOpenFiles": [
+    "components/view/未命名.md",
     "components/view/Billboard.components",
+    "导航/未命名.md",
     "components/view/Varn.components",
     "components/view",
     "components",
@@ -244,11 +246,8 @@
     "收藏夹/杂项.md",
     "收藏夹/60个独立游戏的营销错误_60MistakesEbookV1.pdf",
     "项目/Unity/Lua/lua源码剖析(二) - 但行好事 莫问前程 - ITeye博客.md",
-    "项目/Unity/战斗/帧同步战斗.md",
-    "项目/Unity/战斗/如何设计技能系统.md",
     "导航",
     "Template",
-    "项目/Unity/Lua",
     "未命名.canvas",
     "项目/ET8.1/网络框架/attachments/服务器消息流转.drawio.svg",
     "项目/ET8.1/网络框架/attachments/客户端消息流转.drawio.svg",

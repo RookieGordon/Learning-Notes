@@ -29,7 +29,7 @@
       "showShadow": false,
       "createAt": "2025-03-17T14:28:17.482Z",
       "updateAt": "2025-03-17T14:28:17.482Z",
-      "viewType": "table",
+      "viewType": "gallary",
       "newPageNameFormat": "{{date:YYYYMMDDHHmmss}} ",
       "properties": [
         {
@@ -47,7 +47,17 @@
       "viewOptions": {
         "openPageIn": "tab",
         "openPageAfterCreate": true,
+        "itemSize": "components--page-card-large",
+        "showPropertyName": false,
+        "showAllProperties": false,
         "items": [],
+        "cover": {
+          "type": "textContent",
+          "source": "default",
+          "fit": "contains",
+          "layout": "components--page-card-cover-landscape",
+          "position": "top"
+        },
         "pinFiltersToMenuBar": false,
         "showGrid": false,
         "heightType": "auto",
