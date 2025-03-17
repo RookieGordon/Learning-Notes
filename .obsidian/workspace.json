@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Template/项目任务模板.md",
-                "mode": "source",
+                "file": "项目/未命名.md",
+                "mode": "preview",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "项目任务模板"
+              "title": "未命名"
             }
           }
         ]
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Template/项目任务模板.md",
+                "file": "项目/未命名.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "项目任务模板 的反向链接列表"
+              "title": "未命名 的反向链接列表"
             }
           },
           {
@@ -113,12 +113,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Template/项目任务模板.md",
+                "file": "项目/未命名.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "项目任务模板 的出链列表"
+              "title": "未命名 的出链列表"
             }
           },
           {
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Template/项目任务模板.md",
+                "file": "项目/未命名.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "项目任务模板 的大纲"
+              "title": "未命名 的大纲"
             }
           },
           {
@@ -192,10 +192,10 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "89a66892aa3b87ae",
+  "active": "2944663b1198292d",
   "lastOpenFiles": [
-    "项目/未命名.md",
     "Template/项目任务模板.md",
+    "项目/未命名.md",
     "未命名.md",
     "Slurped Pages/【游戏开发教程】Unity Cinemachine快速上手，详细案例讲解（虚拟相机系统 - 新发出品 - 良心教程）_cinemachine教程-CSDN博客.md",
     "Template",
