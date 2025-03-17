@@ -13,10 +13,10 @@
             "state": {
               "type": "components-file-view",
               "state": {
-                "file": "components/view/Billboard.components"
+                "file": "components/view/导航页.components"
               },
               "icon": "gantt-chart",
-              "title": "Billboard"
+              "title": "导航页"
             }
           }
         ]
@@ -213,8 +213,10 @@
   },
   "active": "1d10627e74204b70",
   "lastOpenFiles": [
-    "components/view/未命名.md",
+    "components/view/导航页.components",
     "components/view/Billboard.components",
+    "components/view/20250317234410.components",
+    "components/view/未命名.md",
     "导航/未命名.md",
     "components/view/Varn.components",
     "components/view",
@@ -247,7 +249,6 @@
     "收藏夹/60个独立游戏的营销错误_60MistakesEbookV1.pdf",
     "项目/Unity/Lua/lua源码剖析(二) - 但行好事 莫问前程 - ITeye博客.md",
     "导航",
-    "Template",
     "未命名.canvas",
     "项目/ET8.1/网络框架/attachments/服务器消息流转.drawio.svg",
     "项目/ET8.1/网络框架/attachments/客户端消息流转.drawio.svg",
