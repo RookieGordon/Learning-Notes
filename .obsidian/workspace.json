@@ -230,7 +230,17 @@
       "command-palette:打开命令面板": false,
       "dbfolder:创建一个新数据库表": false,
       "obsidian-git:Open Git source control": false,
-      "moredraw:MoreDraw": false
+      "moredraw:MoreDraw": false,
+      "markdown-table-editor:Open Markdown Table Editor": false,
+      "obsidian-excalidraw-plugin:新建绘图文件": false,
+      "obsidian-importer:Open Importer": false,
+      "obsidian-memos:Thino": false,
+      "timelines-revamped:Insert Timeline Event": false,
+      "timelines-revamped:Insert Timeline Event (Frontmatter)": false,
+      "vscode-editor:新建代码文件": false,
+      "pdf-plus:PDF++: Toggle auto-copy": false,
+      "pdf-plus:PDF++: Toggle auto-focus": false,
+      "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
   "active": "0e198e083bd56947",
