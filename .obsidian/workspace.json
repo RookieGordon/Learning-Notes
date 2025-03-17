@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "项目任务模板.md",
+                "file": "Template/项目任务模板.md",
                 "mode": "source",
                 "source": false
               },
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "项目任务模板.md",
+                "file": "Template/项目任务模板.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -113,7 +113,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "项目任务模板.md",
+                "file": "Template/项目任务模板.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
@@ -142,7 +142,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "项目任务模板.md",
+                "file": "Template/项目任务模板.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -192,10 +192,11 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "bf9454e47ce801c2",
+  "active": "89a66892aa3b87ae",
   "lastOpenFiles": [
+    "未命名.md",
+    "Template/项目任务模板.md",
     "Slurped Pages/【游戏开发教程】Unity Cinemachine快速上手，详细案例讲解（虚拟相机系统 - 新发出品 - 良心教程）_cinemachine教程-CSDN博客.md",
-    "项目任务模板.md",
     "Template",
     "Template/新建 文本文档.txt",
     "Template/任务模板.md",
@@ -222,7 +223,6 @@
     "项目/ET8.1/ET框架结构.md",
     "项目/ET8.1/重要组件/TimerComponent组件.md",
     "项目/ET8.1/重要组件/ObjectWait.md",
-    "项目/ET8.1/重要组件/CoroutineLockComponent协程锁.md",
     "导航",
     "Template",
     "项目/Unity/Lua",
