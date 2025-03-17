@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "项目/ET8.1/ET框架结构.md",
+                "file": "课程和练习/计算机图形学—从0开始构建一个OpenGL软光栅/高级渲染管线功能.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "ET框架结构"
+              "title": "高级渲染管线功能"
             }
           }
         ]
@@ -53,7 +53,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "tag:#slurp",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -78,7 +78,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 326.5
+    "width": 326.5,
+    "collapsed": true
   },
   "right": {
     "id": "be1e91dfcb57ce3b",
@@ -94,7 +95,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "项目/ET8.1/ET框架结构.md",
+                "file": "课程和练习/计算机图形学—从0开始构建一个OpenGL软光栅/高级渲染管线功能.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +105,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "ET框架结构 的反向链接列表"
+              "title": "高级渲染管线功能 的反向链接列表"
             }
           },
           {
@@ -113,12 +114,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "项目/ET8.1/ET框架结构.md",
+                "file": "课程和练习/计算机图形学—从0开始构建一个OpenGL软光栅/高级渲染管线功能.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "ET框架结构 的出链列表"
+              "title": "高级渲染管线功能 的出链列表"
             }
           },
           {
@@ -142,23 +143,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "记录/工作/面试题/60道计算机网络面试题(附答案，背诵版).md",
+                "file": "课程和练习/计算机图形学—从0开始构建一个OpenGL软光栅/高级渲染管线功能.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "60道计算机网络面试题(附答案，背诵版) 的大纲"
-            }
-          },
-          {
-            "id": "9eb6ab84ec2a2128",
-            "type": "leaf",
-            "state": {
-              "type": "todo",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "插件不再活动"
+              "title": "高级渲染管线功能 的大纲"
             }
           },
           {
@@ -170,53 +161,12 @@
               "icon": "moredraw-icon",
               "title": "MoreDraw"
             }
-          },
-          {
-            "id": "cfbb5a81e1c97fcd",
-            "type": "leaf",
-            "state": {
-              "type": "todo",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "插件不再活动"
-            }
-          },
-          {
-            "id": "ea0bb842ca90f788",
-            "type": "leaf",
-            "state": {
-              "type": "reminder-list",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "插件不再活动"
-            }
-          },
-          {
-            "id": "1cc210715984844a",
-            "type": "leaf",
-            "state": {
-              "type": "todo",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "插件不再活动"
-            }
-          },
-          {
-            "id": "0e198e083bd56947",
-            "type": "leaf",
-            "state": {
-              "type": "todo",
-              "state": {},
-              "icon": "checkmark",
-              "title": "Todo List"
-            }
           }
-        ],
-        "currentTab": 9
+        ]
       }
     ],
     "direction": "horizontal",
-    "width": 425.5,
+    "width": 903.5,
     "collapsed": true
   },
   "left-ribbon": {
@@ -244,6 +194,26 @@
   },
   "active": "8274f639c2f0e1e7",
   "lastOpenFiles": [
+    "课程和练习/计算机图形学—从0开始构建一个OpenGL软光栅/光照模型.md",
+    "课程和练习/计算机图形学—从0开始构建一个OpenGL软光栅/高级渲染管线功能.md",
+    "收藏夹/UML时序图(Sequence Diagram)学习笔记_sequencediagram-CSDN博客.md",
+    "收藏夹/杂项.md",
+    "收藏夹/60个独立游戏的营销错误_60MistakesEbookV1.pdf",
+    "项目/Unity/Lua/lua源码剖析(二) - 但行好事 莫问前程 - ITeye博客.md",
+    "项目/Unity/战斗/帧同步战斗.md",
+    "项目/Unity/战斗/如何设计技能系统.md",
+    "项目/Unity/网络编程/UDP可靠性封装/UDP可靠性封装.md",
+    "项目/Unity/网络编程/斗地主编程.md",
+    "项目/Unity/网络编程/谈谈Unity游戏TCP连接和网络重连.md",
+    "项目/Unity/网络编程/移动端断线重连方案 - niep的博客.md",
+    "项目/Unity/网络编程/Unity Socket网络编程.md",
+    "项目/Unity/网络编程/UDP可靠性封装/2.6 TCP与UDP的可靠性传输_tcp udp 可靠传输-CSDN博客.md",
+    "项目/Unity/打包&SDK/YooAsset/YooAsset-Space Shooter Example.md",
+    "项目/Unity/插件/Addressable.md",
+    "项目/Unity/插件/Unity Cinemachine.md",
+    "项目/Unity/插件/Timeline.md",
+    "项目/Unity/插件/AStar Pathing.md",
+    "项目/ET8.1/ET框架结构.md",
     "项目/ET8.1/重要组件/TimerComponent组件.md",
     "项目/ET8.1/重要组件/ObjectWait.md",
     "项目/ET8.1/重要组件/CoroutineLockComponent协程锁.md",
@@ -253,25 +223,6 @@
     "项目/ET8.1/网络框架/网络层.md",
     "导航",
     "Template",
-    "记录/工作/面试题/60道计算机网络面试题(附答案，背诵版).md",
-    "记录/工作/面试题/【面试题】C#面试常见基础知识点整理(附示例代码)-CSDN博客.md",
-    "记录/工作/面试题/Lua全知识点详细汇总（基础知识+面向对象+面试重点）_lua面试基础知识点-CSDN博客.md",
-    "Slurped Pages/第9章 着色器编译、分支和变体.md",
-    "Slurped Pages/查询 Git 仓库地址 - 豆包.md",
-    "课程和练习/数据结构/排序算法.md",
-    "课程和练习/数据结构/数组、向量和链表.md",
-    "课程和练习/数据结构/数据结构.md",
-    "课程和练习/数据结构/查找与插入.md",
-    "课程和练习/数据结构/树/二叉树/二叉查找树.md",
-    "课程和练习/数据结构/树/红黑树/红黑树.md",
-    "课程和练习/数据结构/树/四叉树，场景管理/四叉树.md",
-    "课程和练习/数据结构/树/树.md",
-    "Excalidraw/Map.md",
-    "Excalidraw/ScratchPaper.md",
-    "项目/Unity/Lua/lua源码剖析(三) - 但行好事 莫问前程 - ITeye博客.md",
-    "项目/Unity/Lua/lua源码剖析(二) - 但行好事 莫问前程 - ITeye博客.md",
-    "项目/Unity/Lua/lua源码剖析(一) - 但行好事 莫问前程 - ITeye博客 (1).md",
-    "Slurped Pages/lua源码剖析(一) - 但行好事 莫问前程 - ITeye博客.md",
     "项目/Unity/Lua",
     "未命名.canvas",
     "项目/ET8.1/网络框架/attachments/服务器消息流转.drawio.svg",
