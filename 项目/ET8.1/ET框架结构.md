@@ -1,6 +1,9 @@
 ---
 tags:
   - ET
+  - ET/CodeLoader
+  - ET/FiberManager
+  - ET/Fiber
 ---
 # World和Singleton抽象类
 `World`是游戏入口的单例对象，其他单例类都必须继承自`Singleton`抽象类，并且都被`World`所管理（`singletons`）

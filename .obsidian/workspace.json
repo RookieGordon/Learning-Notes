@@ -11,10 +11,14 @@
             "id": "8274f639c2f0e1e7",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "项目/ET8.1/ET框架结构.md",
+                "mode": "preview",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "新标签页"
+              "title": "ET框架结构"
             }
           }
         ]
@@ -74,7 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 382.5
+    "width": 326.5
   },
   "right": {
     "id": "be1e91dfcb57ce3b",
@@ -238,8 +242,15 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "89a66892aa3b87ae",
+  "active": "8274f639c2f0e1e7",
   "lastOpenFiles": [
+    "项目/ET8.1/重要组件/TimerComponent组件.md",
+    "项目/ET8.1/重要组件/ObjectWait.md",
+    "项目/ET8.1/重要组件/CoroutineLockComponent协程锁.md",
+    "项目/ET8.1/网络框架/邮箱组件.md",
+    "项目/ET8.1/网络框架/网络协议收发.md",
+    "项目/ET8.1/网络框架/网络协议.md",
+    "项目/ET8.1/网络框架/网络层.md",
     "导航",
     "Template",
     "记录/工作/面试题/60道计算机网络面试题(附答案，背诵版).md",
@@ -263,12 +274,6 @@
     "Slurped Pages/lua源码剖析(一) - 但行好事 莫问前程 - ITeye博客.md",
     "项目/Unity/Lua",
     "未命名.canvas",
-    "课程和练习/数据结构/树/四叉树，场景管理/四叉树构建思路.md",
-    "记录/工作/工作日程/2025年.md",
-    "记录/工作/Work Todo.md",
-    "课程和练习/数据结构/树/四叉树，场景管理/未命名.md",
-    "项目/ET8.1/ET框架结构.md",
-    "项目/Unity/战斗/如何设计技能系统.md",
     "项目/ET8.1/网络框架/attachments/服务器消息流转.drawio.svg",
     "项目/ET8.1/网络框架/attachments/客户端消息流转.drawio.svg",
     "项目/ET8.1/网络框架/attachments/（图解1）客户端消息流转.drawio.png",
