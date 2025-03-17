@@ -3,5 +3,6 @@
   "plugin-manager",
   "dbfolder",
   "obsidian-git",
-  "moredraw"
+  "moredraw",
+  "templater-obsidian"
 ]

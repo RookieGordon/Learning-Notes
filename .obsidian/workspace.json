@@ -186,6 +186,8 @@
   },
   "active": "f4b6ac381f663205",
   "lastOpenFiles": [
+    "未命名.md",
+    "Template/任务模板.md",
     "项目/ET8.1/网络框架/网络层.md",
     "课程和练习/计算机图形学—从0开始构建一个OpenGL软光栅/高级渲染管线功能.md",
     "课程和练习/计算机图形学—从0开始构建一个OpenGL软光栅/光照模型.md",
@@ -211,8 +213,6 @@
     "项目/ET8.1/重要组件/ObjectWait.md",
     "项目/ET8.1/重要组件/CoroutineLockComponent协程锁.md",
     "项目/ET8.1/网络框架/邮箱组件.md",
-    "项目/ET8.1/网络框架/网络协议收发.md",
-    "项目/ET8.1/网络框架/网络协议.md",
     "导航",
     "Template",
     "项目/Unity/Lua",
