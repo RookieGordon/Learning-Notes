@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "项目/ET8.1/战斗.md",
+                "file": "Template/Project Task.md",
                 "mode": "source",
-                "source": false
+                "source": true
               },
               "icon": "lucide-file",
-              "title": "战斗"
+              "title": "Project Task"
             }
           }
         ]
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "项目/ET8.1/战斗.md",
+                "file": "Template/Project Task.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "战斗 的反向链接列表"
+              "title": "Project Task 的反向链接列表"
             }
           },
           {
@@ -113,12 +113,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "项目/ET8.1/战斗.md",
+                "file": "Template/Project Task.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "战斗 的出链列表"
+              "title": "Project Task 的出链列表"
             }
           },
           {
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "项目/ET8.1/战斗.md",
+                "file": "Template/Project Task.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "战斗 的大纲"
+              "title": "Project Task 的大纲"
             }
           },
           {
@@ -195,10 +195,11 @@
   },
   "active": "d1252a6ba2e5ee3c",
   "lastOpenFiles": [
+    "Template/Project Module.md",
+    "Template/Project.md",
     "Template/Project Task.md",
     "项目/ET8.1/战斗.md",
-    "Template/Project.md",
-    "Template/Project Module.md",
+    "项目/ET8.1/未命名.md",
     "项目/ET8.1/重要组件/未命名.md",
     "2025-03-17.md",
     "项目/Unity/踩坑记录/杂项.md",
@@ -224,7 +225,6 @@
     "项目/Unity/战斗/帧同步战斗.md",
     "项目/Unity/战斗/如何设计技能系统.md",
     "项目/Unity/网络编程/UDP可靠性封装/UDP可靠性封装.md",
-    "项目/Unity/网络编程/斗地主编程.md",
     "导航",
     "Template",
     "项目/Unity/Lua",

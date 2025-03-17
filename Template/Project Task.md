@@ -8,10 +8,10 @@ let moduleName = tp.file.folder()
 let taskName = tp.file.title
 -%>
 ---
-tags: <%projectName%>/<% moduleName %>/<% fileName %>
-Project: <% projectName %>
-date_start: <% tp.date.now("YYYY-MM-DD")%>
-date_finish: <% tp.date.now("YYYY-MM-DD")%>
+tags: <%projectName%>/<%moduleName%>/<%fileName%>
+Project: <%projectName%>
+date_start: <%tp.date.now("YYYY-MM-DD")%>
+date_finish: <%tp.date.now("YYYY-MM-DD")%>
 
 ---
 
