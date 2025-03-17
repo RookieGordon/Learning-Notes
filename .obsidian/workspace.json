@@ -8,17 +8,13 @@
         "type": "tabs",
         "children": [
           {
-            "id": "60123025cc7cc451",
+            "id": "8274f639c2f0e1e7",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "记录/工作/面试题/60道计算机网络面试题(附答案，背诵版).md",
-                "mode": "preview",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "60道计算机网络面试题(附答案，背诵版)"
+              "title": "新标签页"
             }
           }
         ]
@@ -78,8 +74,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 382.5
   },
   "right": {
     "id": "be1e91dfcb57ce3b",
@@ -243,8 +238,11 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "0e198e083bd56947",
+  "active": "89a66892aa3b87ae",
   "lastOpenFiles": [
+    "导航",
+    "Template",
+    "记录/工作/面试题/60道计算机网络面试题(附答案，背诵版).md",
     "记录/工作/面试题/【面试题】C#面试常见基础知识点整理(附示例代码)-CSDN博客.md",
     "记录/工作/面试题/Lua全知识点详细汇总（基础知识+面向对象+面试重点）_lua面试基础知识点-CSDN博客.md",
     "Slurped Pages/第9章 着色器编译、分支和变体.md",
@@ -271,8 +269,6 @@
     "课程和练习/数据结构/树/四叉树，场景管理/未命名.md",
     "项目/ET8.1/ET框架结构.md",
     "项目/Unity/战斗/如何设计技能系统.md",
-    "项目/Unity/战斗/帧同步战斗.md",
-    "项目/Unity/插件/Unity Cinemachine.md",
     "项目/ET8.1/网络框架/attachments/服务器消息流转.drawio.svg",
     "项目/ET8.1/网络框架/attachments/客户端消息流转.drawio.svg",
     "项目/ET8.1/网络框架/attachments/（图解1）客户端消息流转.drawio.png",
