@@ -4,21 +4,19 @@
     "type": "split",
     "children": [
       {
-        "id": "6f143ff2c8601bc0",
+        "id": "b41f805c87e01c29",
         "type": "tabs",
         "children": [
           {
-            "id": "d1252a6ba2e5ee3c",
+            "id": "41f3e42bbc922e9a",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "components-file-view",
               "state": {
-                "file": "Template/Project Task.md",
-                "mode": "source",
-                "source": true
+                "file": "components/view/Billboard.components"
               },
-              "icon": "lucide-file",
-              "title": "Project Task"
+              "icon": "gantt-chart",
+              "title": "Billboard"
             }
           }
         ]
@@ -200,14 +198,28 @@
       "obsidian-git:Open Git source control": false,
       "moredraw:MoreDraw": false,
       "templater-obsidian:Templater": false,
-      "widgets:Add widget": false
+      "widgets:Add widget": false,
+      "markdown-table-editor:Open Markdown Table Editor": false,
+      "obsidian-excalidraw-plugin:新建绘图文件": false,
+      "obsidian-importer:Open Importer": false,
+      "obsidian-memos:Thino": false,
+      "timelines-revamped:Insert Timeline Event": false,
+      "timelines-revamped:Insert Timeline Event (Frontmatter)": false,
+      "vscode-editor:新建代码文件": false,
+      "pdf-plus:PDF++: Toggle auto-copy": false,
+      "pdf-plus:PDF++: Toggle auto-focus": false,
+      "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "0e1d6bfae2b1a046",
+  "active": "41f3e42bbc922e9a",
   "lastOpenFiles": [
+    "components/view/Billboard.components",
+    "components/view/Varn.components",
+    "components/view",
+    "components",
+    "Template/Project Task.md",
     "Template/Project Module.md",
     "Template/Project.md",
-    "Template/Project Task.md",
     "项目/ET8.1/战斗.md",
     "项目/ET8.1/未命名.md",
     "项目/ET8.1/重要组件/未命名.md",
@@ -234,7 +246,6 @@
     "项目/Unity/Lua/lua源码剖析(二) - 但行好事 莫问前程 - ITeye博客.md",
     "项目/Unity/战斗/帧同步战斗.md",
     "项目/Unity/战斗/如何设计技能系统.md",
-    "项目/Unity/网络编程/UDP可靠性封装/UDP可靠性封装.md",
     "导航",
     "Template",
     "项目/Unity/Lua",
@@ -242,7 +253,6 @@
     "项目/ET8.1/网络框架/attachments/服务器消息流转.drawio.svg",
     "项目/ET8.1/网络框架/attachments/客户端消息流转.drawio.svg",
     "项目/ET8.1/网络框架/attachments/（图解1）客户端消息流转.drawio.png",
-    "项目/ET8.1/网络框架/attachments/服务器消息流转.drawio.svg.crswap",
     "项目/ET8.1/attachments/（图解1）ET8.0框架初始化流程.png",
     "项目/ET8.1/attachments/（图解3）ET8.0进程示例.png",
     "项目/ET8.1/attachments/（图解4）ET8.0登陆流程图.png",
