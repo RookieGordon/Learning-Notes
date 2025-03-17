@@ -13,15 +13,30 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "项目/未命名.md",
+                "file": "Template/模板1.md",
                 "mode": "source",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "未命名"
+              "title": "模板1"
+            }
+          },
+          {
+            "id": "1680e2233e119d63",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Template/模板1.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "模板1"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -94,7 +109,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "项目/未命名.md",
+                "file": "Template/模板1.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +119,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "未命名 的反向链接列表"
+              "title": "模板1 的反向链接列表"
             }
           },
           {
@@ -113,12 +128,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "项目/未命名.md",
+                "file": "Template/模板1.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "未命名 的出链列表"
+              "title": "模板1 的出链列表"
             }
           },
           {
@@ -142,13 +157,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "项目/未命名.md",
+                "file": "Template/模板1.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "未命名 的大纲"
+              "title": "模板1 的大纲"
             }
           },
           {
@@ -192,10 +207,11 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "2944663b1198292d",
+  "active": "1680e2233e119d63",
   "lastOpenFiles": [
     "Template/项目任务模板.md",
     "项目/未命名.md",
+    "Template/模板1.md",
     "未命名.md",
     "Slurped Pages/【游戏开发教程】Unity Cinemachine快速上手，详细案例讲解（虚拟相机系统 - 新发出品 - 良心教程）_cinemachine教程-CSDN博客.md",
     "Template",
@@ -222,7 +238,6 @@
     "项目/Unity/插件/Timeline.md",
     "项目/Unity/插件/AStar Pathing.md",
     "项目/ET8.1/ET框架结构.md",
-    "项目/ET8.1/重要组件/TimerComponent组件.md",
     "导航",
     "Template",
     "项目/Unity/Lua",
