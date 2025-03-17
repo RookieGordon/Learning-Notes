@@ -11,10 +11,14 @@
             "id": "94d760c8b8e5f577",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "项目/未命名.md",
+                "mode": "source",
+                "source": true
+              },
               "icon": "lucide-file",
-              "title": "新标签页"
+              "title": "未命名"
             }
           }
         ]
@@ -74,7 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 326.5
+    "width": 214.5
   },
   "right": {
     "id": "be1e91dfcb57ce3b",
@@ -90,6 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "项目/未命名.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -99,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "反向链接"
+              "title": "未命名 的反向链接列表"
             }
           },
           {
@@ -108,11 +113,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "项目/未命名.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "出链"
+              "title": "未命名 的出链列表"
             }
           },
           {
@@ -136,12 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
+                "file": "项目/未命名.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "大纲"
+              "title": "未命名 的大纲"
             }
           },
           {
@@ -158,8 +165,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 903.5,
-    "collapsed": true
+    "width": 373.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -187,9 +193,10 @@
   },
   "active": "94d760c8b8e5f577",
   "lastOpenFiles": [
+    "Template/Project Module.md",
+    "项目/未命名.md",
     "Untitled.md",
     "项目/aaa.md",
-    "Template/Project Module.md",
     "Template/Project.md",
     "Template/Project Task.md",
     "未命名",
@@ -216,7 +223,6 @@
     "项目/Unity/网络编程/Unity Socket网络编程.md",
     "项目/Unity/网络编程/UDP可靠性封装/2.6 TCP与UDP的可靠性传输_tcp udp 可靠传输-CSDN博客.md",
     "项目/Unity/打包&SDK/YooAsset/YooAsset-Space Shooter Example.md",
-    "项目/Unity/插件/Addressable.md",
     "导航",
     "Template",
     "项目/Unity/Lua",
