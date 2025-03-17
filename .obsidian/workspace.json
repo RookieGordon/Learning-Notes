@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Template/Project Module.md",
-                "mode": "preview",
+                "file": "Template/Project Task.md",
+                "mode": "source",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "Project Module"
+              "title": "Project Task"
             }
           }
         ]
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Template/Project Module.md",
+                "file": "Template/Project Task.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Project Module 的反向链接列表"
+              "title": "Project Task 的反向链接列表"
             }
           },
           {
@@ -113,12 +113,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Template/Project Module.md",
+                "file": "Template/Project Task.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Project Module 的出链列表"
+              "title": "Project Task 的出链列表"
             }
           },
           {
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Template/Project Module.md",
+                "file": "Template/Project Task.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Project Module 的大纲"
+              "title": "Project Task 的大纲"
             }
           },
           {
@@ -195,10 +195,10 @@
   },
   "active": "94d760c8b8e5f577",
   "lastOpenFiles": [
-    "项目/Unity/踩坑记录/杂项.md",
     "Template/Project Module.md",
-    "项目/战斗.md",
     "Template/Project Task.md",
+    "项目/Unity/踩坑记录/杂项.md",
+    "项目/战斗.md",
     "Excalidraw/ScratchPaper.md",
     "Untitled.md",
     "项目/aaa.md",
