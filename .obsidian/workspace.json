@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "项目/未命名.md",
+                "file": "Template/Project Module.md",
                 "mode": "source",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "未命名"
+              "title": "Project Module"
             }
           }
         ]
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "项目/未命名.md",
+                "file": "Template/Project Module.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "未命名 的反向链接列表"
+              "title": "Project Module 的反向链接列表"
             }
           },
           {
@@ -113,12 +113,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "项目/未命名.md",
+                "file": "Template/Project Module.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "未命名 的出链列表"
+              "title": "Project Module 的出链列表"
             }
           },
           {
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "项目/未命名.md",
+                "file": "Template/Project Module.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "未命名 的大纲"
+              "title": "Project Module 的大纲"
             }
           },
           {
@@ -165,7 +165,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 373.5
+    "width": 209.5,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -193,8 +194,8 @@
   },
   "active": "94d760c8b8e5f577",
   "lastOpenFiles": [
-    "Template/Project Module.md",
     "项目/未命名.md",
+    "Template/Project Module.md",
     "Untitled.md",
     "项目/aaa.md",
     "Template/Project.md",
