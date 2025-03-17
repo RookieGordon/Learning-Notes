@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Template/Project Module.md",
-                "mode": "source",
+                "file": "项目/战斗.md",
+                "mode": "preview",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "Project Module"
+              "title": "战斗"
             }
           }
         ]
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Template/Project Module.md",
+                "file": "项目/战斗.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Project Module 的反向链接列表"
+              "title": "战斗 的反向链接列表"
             }
           },
           {
@@ -113,12 +113,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Template/Project Module.md",
+                "file": "项目/战斗.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Project Module 的出链列表"
+              "title": "战斗 的出链列表"
             }
           },
           {
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Template/Project Module.md",
+                "file": "项目/战斗.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Project Module 的大纲"
+              "title": "战斗 的大纲"
             }
           },
           {
@@ -194,12 +194,13 @@
   },
   "active": "94d760c8b8e5f577",
   "lastOpenFiles": [
-    "项目/未命名.md",
+    "Template/Project Task.md",
     "Template/Project Module.md",
+    "项目/战斗.md",
+    "Excalidraw/ScratchPaper.md",
     "Untitled.md",
     "项目/aaa.md",
     "Template/Project.md",
-    "Template/Project Task.md",
     "未命名",
     "项目/daily.md",
     "Template/模板1.md",
@@ -223,7 +224,6 @@
     "项目/Unity/网络编程/移动端断线重连方案 - niep的博客.md",
     "项目/Unity/网络编程/Unity Socket网络编程.md",
     "项目/Unity/网络编程/UDP可靠性封装/2.6 TCP与UDP的可靠性传输_tcp udp 可靠传输-CSDN博客.md",
-    "项目/Unity/打包&SDK/YooAsset/YooAsset-Space Shooter Example.md",
     "导航",
     "Template",
     "项目/Unity/Lua",

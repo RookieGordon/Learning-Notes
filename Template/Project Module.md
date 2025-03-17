@@ -1,13 +1,12 @@
 <%*
-await tp.file.create_new(tp.file.find_tfile("")
 let d = tp.date.now()
-let folderName = tp.file.folder
+let folderName = tp.file.folder()
+let fileName = tp.file.title
 -%>
+---
+tags:
+Project: <% folderName %>
 
 ---
-Project: <% folderName %> 
-type: <% %>
-create time : <% d %>
----
 
-# 
+# <% fileName %>设计思路
