@@ -7,5 +7,6 @@
   "templater-obsidian",
   "customjs",
   "widgets",
-  "components"
+  "components",
+  "obsidian-banners"
 ]
