@@ -80,6 +80,14 @@
             "property": "${file.tags}",
             "value": "$item.tags.includes($parentFile.tags[0])",
             "conditions": []
+          },
+          {
+            "id": "be076710-eb4b-48fe-ae36-29d1504d37dd",
+            "type": "jsQuery",
+            "operator": "contains",
+            "property": "${file.tags}",
+            "value": "item.fileName.startWith()",
+            "conditions": []
           }
         ]
       }
