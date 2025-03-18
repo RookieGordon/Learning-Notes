@@ -66,11 +66,11 @@
         "operator": "and",
         "conditions": [
           {
-            "id": "be076710-eb4b-48fe-ae36-29d1504d37dd",
+            "id": "619d011a-9b2e-4b38-b473-255031a8539a",
             "type": "jsQuery",
             "operator": "contains",
             "property": "${file.tags}",
-            "value": "item.fileName.startWith(parentFile.frontmatter?.fileDirPath)",
+            "value": "$item.frontmatter.fileDirPath.startWith($parentFile.frontmatter.fileDirPath)",
             "conditions": []
           }
         ]
