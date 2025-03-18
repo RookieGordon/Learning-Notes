@@ -6,7 +6,6 @@
       {
         "id": "d2bffb7d97bdd4f3",
         "type": "tabs",
-        "dimension": 24.691358024691358,
         "children": [
           {
             "id": "46824f007320a73a",
@@ -25,12 +24,11 @@
         ]
       },
       {
-        "id": "9653f6d81238fc33",
+        "id": "71719b0c1410e1a7",
         "type": "tabs",
-        "dimension": 75.30864197530865,
         "children": [
           {
-            "id": "b6951223994adc3d",
+            "id": "9b69816aa71b6dc9",
             "type": "leaf",
             "state": {
               "type": "markdown-table-editor-view",
@@ -232,7 +230,7 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "b6951223994adc3d",
+  "active": "9b69816aa71b6dc9",
   "lastOpenFiles": [
     "记录/日常/面试.md",
     "项目/ET8.1/ET框架结构.md",
