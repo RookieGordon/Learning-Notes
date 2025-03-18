@@ -42,16 +42,16 @@
         },
         {
           "id": "309a2f3e-df12-4d59-80d8-fa010d85d3c4",
-          "name": "date_start",
+          "name": "dateStart",
           "isShow": true,
-          "type": "date",
+          "type": "datetime",
           "options": {}
         },
         {
           "id": "5be1aebd-5eee-41e2-b0fd-6238620dcf14",
-          "name": "date_finish",
+          "name": "dateFinish",
           "isShow": true,
-          "type": "date",
+          "type": "datetime",
           "options": {}
         },
         {
@@ -65,8 +65,10 @@
           "id": "2e55c937-5919-4a3f-aa14-a45e9cf23655",
           "name": "remainTime",
           "isShow": true,
-          "type": "text",
-          "options": {}
+          "type": "formula",
+          "options": {
+            "formula": "ifElse(prop(finished), \"🚩已完成\", html(`<progress max=\"${duration(prop(dateStart), prop(dateFinish), day)}\" value=\"${duration(now(), prop(dateFinish), day)}\"></progress>`)) "
+          }
         }
       ],
       "templates": [],
