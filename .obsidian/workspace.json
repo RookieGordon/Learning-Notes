@@ -4,12 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "9b226ebca858e73f",
+        "id": "d2bffb7d97bdd4f3",
         "type": "tabs",
-        "dimension": 34.865470852017935,
         "children": [
           {
-            "id": "1d10627e74204b70",
+            "id": "46824f007320a73a",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -25,12 +24,11 @@
         ]
       },
       {
-        "id": "5db513bdd049b7a1",
+        "id": "73e62d783bb9a649",
         "type": "tabs",
-        "dimension": 65.13452914798206,
         "children": [
           {
-            "id": "b92fb8719a350b52",
+            "id": "2cc5653a68f37036",
             "type": "leaf",
             "state": {
               "type": "markdown-table-editor-view",
@@ -232,10 +230,10 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "b92fb8719a350b52",
+  "active": "46824f007320a73a",
   "lastOpenFiles": [
-    "项目/ET8.1/ET框架结构.md",
     "记录/日常/面试.md",
+    "项目/ET8.1/ET框架结构.md",
     "记录/日常",
     "项目/ET8.1/战斗.md",
     "components/view/导航页.components",
