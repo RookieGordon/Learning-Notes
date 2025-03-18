@@ -60,6 +60,13 @@
           "isShow": true,
           "type": "checkbox",
           "options": {}
+        },
+        {
+          "id": "2e55c937-5919-4a3f-aa14-a45e9cf23655",
+          "name": "remainTime",
+          "isShow": true,
+          "type": "text",
+          "options": {}
         }
       ],
       "templates": [],

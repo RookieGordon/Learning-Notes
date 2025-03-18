@@ -25,10 +25,10 @@
             "state": {
               "type": "components-file-view",
               "state": {
-                "file": "components/view/PrjectDataView.components"
+                "file": "components/view/ProjectDataView.components"
               },
               "icon": "gantt-chart",
-              "title": "PrjectDataView"
+              "title": "ProjectDataView"
             }
           }
         ],
@@ -226,8 +226,8 @@
   },
   "active": "c23582d8e6b520fd",
   "lastOpenFiles": [
-    "components/view/ProjectDataView.components",
     "components/view/PrjectDataView.components",
+    "components/view/ProjectDataView.components",
     "Template/Project.md",
     "Template/Project Module.md",
     "项目/ET8.1/未命名.md",
