@@ -11,8 +11,8 @@ let taskName = tp.file.title
 tags: <%projectName%>/<%moduleName%>/<%fileName%>
 project: <%projectName%>
 type: Project
-date_start: <%tp.date.now("YYYY-MM-DD")%>
-date_finish: <%tp.date.now("YYYY-MM-DD")%>
+dateStart: <%tp.date.now("YYYY-MM-DD")%>
+dateFinish: <%tp.date.now("YYYY-MM-DD")%>
 
 ---
 
