@@ -78,7 +78,7 @@
             "type": "jsQuery",
             "operator": "contains",
             "property": "${file.tags}",
-            "value": "$item.tags.includes($op)",
+            "value": "$item.tags.includes($parentFile.tags[0])",
             "conditions": []
           }
         ]

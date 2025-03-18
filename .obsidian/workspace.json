@@ -91,7 +91,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 214.5
+    "width": 409.5
   },
   "right": {
     "id": "be1e91dfcb57ce3b",
@@ -230,7 +230,7 @@
   "lastOpenFiles": [
     "Template/Project Module.md",
     "Template/Project.md",
-    "components/view/GalleryView.components",
+    "components/view/DataView.components",
     "components/view/导航页.components",
     "Template/Project Task.md",
     "项目/ET8.1/网络框架/网络层.md",
