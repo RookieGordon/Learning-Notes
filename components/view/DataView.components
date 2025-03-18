@@ -29,7 +29,7 @@
       "showShadow": false,
       "createAt": "2025-03-18T04:10:55.955Z",
       "updateAt": "2025-03-18T04:10:55.955Z",
-      "viewType": "kanban",
+      "viewType": "table",
       "newPageNameFormat": "{{date:YYYYMMDDHHmmss}} ",
       "properties": [
         {

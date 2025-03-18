@@ -6,6 +6,7 @@
       {
         "id": "9b226ebca858e73f",
         "type": "tabs",
+        "dimension": 34.865470852017935,
         "children": [
           {
             "id": "1d10627e74204b70",
@@ -13,12 +14,29 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "项目/ET8.1/ET框架结构.md",
-                "mode": "preview",
+                "file": "记录/日常/面试.md",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "ET框架结构"
+              "title": "面试"
+            }
+          }
+        ]
+      },
+      {
+        "id": "5db513bdd049b7a1",
+        "type": "tabs",
+        "dimension": 65.13452914798206,
+        "children": [
+          {
+            "id": "b92fb8719a350b52",
+            "type": "leaf",
+            "state": {
+              "type": "markdown-table-editor-view",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "Markdown Table Editor"
             }
           }
         ]
@@ -78,7 +96,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 409.5
+    "width": 409.5,
+    "collapsed": true
   },
   "right": {
     "id": "be1e91dfcb57ce3b",
@@ -213,10 +232,12 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "1d10627e74204b70",
+  "active": "b92fb8719a350b52",
   "lastOpenFiles": [
-    "项目/ET8.1/战斗.md",
     "项目/ET8.1/ET框架结构.md",
+    "记录/日常/面试.md",
+    "记录/日常",
+    "项目/ET8.1/战斗.md",
     "components/view/导航页.components",
     "项目/ET8.1/重要组件/ObjectWait.md",
     "Template/Project Module.md",
@@ -246,7 +267,6 @@
     "未命名.md",
     "Slurped Pages/【游戏开发教程】Unity Cinemachine快速上手，详细案例讲解（虚拟相机系统 - 新发出品 - 良心教程）_cinemachine教程-CSDN博客.md",
     "Template",
-    "Template/新建 文本文档.txt",
     "Template/任务模板.md",
     "课程和练习/计算机图形学—从0开始构建一个OpenGL软光栅/高级渲染管线功能.md",
     "课程和练习/计算机图形学—从0开始构建一个OpenGL软光栅/光照模型.md",
