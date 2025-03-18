@@ -66,35 +66,11 @@
         "operator": "and",
         "conditions": [
           {
-            "id": "0e48b3ef-884c-49f1-a252-c964f6e34952",
+            "id": "c5131aed-cfe1-4506-9cce-74d5fb16b228",
             "type": "jsQuery",
             "operator": "contains",
             "property": "${file.tags}",
-            "value": "$parentFile.frontmatter.project != \"\"",
-            "conditions": []
-          },
-          {
-            "id": "bd89be7e-ee74-404f-b611-749c53803b6b",
-            "type": "jsQuery",
-            "operator": "contains",
-            "property": "${file.tags}",
-            "value": "$item.frontmatter.project == $parentFile.frontmatter.project",
-            "conditions": []
-          },
-          {
-            "id": "619d011a-9b2e-4b38-b473-255031a8539a",
-            "type": "jsQuery",
-            "operator": "contains",
-            "property": "${file.tags}",
-            "value": "$item.filePath.startsWith($parentFile.frontmatter.fileDirPath)",
-            "conditions": []
-          },
-          {
-            "id": "29d1d5dd-80cf-428e-93a5-7e24d1966c00",
-            "type": "jsQuery",
-            "operator": "contains",
-            "property": "${file.tags}",
-            "value": "$item.filePath != $parentFile.filePath",
+            "value": "$item.frontmatter?.project != \"\"",
             "conditions": []
           }
         ]

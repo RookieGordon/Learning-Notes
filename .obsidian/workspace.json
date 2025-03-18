@@ -11,14 +11,12 @@
             "id": "fa267290b1940cdd",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "components-file-view",
               "state": {
-                "file": "项目/ET8.1/ET8.1.md",
-                "mode": "preview",
-                "source": false
+                "file": "components/view/ProjectDataView.components"
               },
-              "icon": "lucide-file",
-              "title": "ET8.1"
+              "icon": "gantt-chart",
+              "title": "ProjectDataView"
             }
           }
         ]
@@ -215,21 +213,23 @@
   },
   "active": "fa267290b1940cdd",
   "lastOpenFiles": [
-    "项目/ET8.1/ET框架结构.md",
-    "项目/ET8.1/ET8.1.md",
+    "Template/Project Module.md",
     "Template/Project.md",
+    "项目/ET8.1/ET8.1.md",
+    "项目/ET8.1/ET框架结构.md",
+    "components/logs/2025-03-18.components.log",
+    "components/logs",
+    "项目/ET8.1/网络框架/邮箱组件.md",
     "components/view/ProjectDataView.components",
     "components/view/ProjectDataView2.components",
     "Template/Project Task.md",
     "Template/ProjectDataView2.components",
     "components/ProjectDataView2.components",
     "Template/Course.md",
-    "Template/Project Module.md",
     "components/view/导航页.components",
     "未命名.md",
     "Template/Course Chapter.md",
     "Template/Course Task.md",
-    "项目/ET8.1/网络框架/邮箱组件.md",
     "项目/ET8.1/网络框架/未命名.md",
     "项目/ET8.1/代码分析器/Untitled.md",
     "项目/ET8.1/战斗.md",
@@ -244,8 +244,6 @@
     "components/view/20250317234410.components",
     "components/view/未命名.md",
     "导航/未命名.md",
-    "components/view/Varn.components",
-    "components/view",
     "项目/ET8.1/重要组件/未命名.md",
     "2025-03-17.md",
     "项目/Unity/踩坑记录/杂项.md",
