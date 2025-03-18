@@ -1,0 +1,132 @@
+{
+  "components": [
+    {
+      "id": "00ab6eb0-e3d9-49ee-8f0c-c36ce3063ce3",
+      "type": "multi",
+      "titleAlign": "center",
+      "tabTitle": "",
+      "maxWidthRatio": -1,
+      "showBorder": true,
+      "showShadow": false,
+      "createAt": "2025-03-18T13:53:20.272Z",
+      "updateAt": "2025-03-18T13:53:20.272Z",
+      "components": [
+        {
+          "componentId": "590ddad4-1844-4c7e-a11f-ed68e759279c",
+          "layout": {
+            "mobile": {
+              "x": 0,
+              "y": 0,
+              "w": 4,
+              "h": 4
+            },
+            "laptop": {
+              "x": 0,
+              "y": 0,
+              "w": 7,
+              "h": 22
+            }
+          }
+        },
+        {
+          "componentId": "49390633-27d0-4812-9d03-818d4b54b269",
+          "layout": {
+            "mobile": {
+              "x": 0,
+              "y": 0,
+              "w": 4,
+              "h": 4
+            },
+            "laptop": {
+              "x": 8,
+              "y": 0,
+              "w": 2,
+              "h": 10
+            }
+          }
+        }
+      ],
+      "layoutType": "grid",
+      "locked": false,
+      "layoutOptions": {}
+    },
+    {
+      "id": "590ddad4-1844-4c7e-a11f-ed68e759279c",
+      "type": "multi",
+      "titleAlign": "center",
+      "tabTitle": "",
+      "maxWidthRatio": -1,
+      "showBorder": true,
+      "showShadow": false,
+      "createAt": "2025-03-18T13:56:44.229Z",
+      "updateAt": "2025-03-18T13:56:44.229Z",
+      "components": [
+        {
+          "componentId": "294056f4-5fc0-482a-ba44-fb4782072b75"
+        }
+      ],
+      "layoutType": "tab",
+      "locked": false,
+      "layoutOptions": {}
+    },
+    {
+      "id": "294056f4-5fc0-482a-ba44-fb4782072b75",
+      "type": "dynamicDataView",
+      "titleAlign": "center",
+      "tabTitle": "",
+      "maxWidthRatio": -1,
+      "showBorder": false,
+      "showShadow": false,
+      "createAt": "2025-03-18T13:56:50.215Z",
+      "updateAt": "2025-03-18T13:56:50.215Z",
+      "viewType": "table",
+      "newPageNameFormat": "{{date:YYYYMMDDHHmmss}} ",
+      "properties": [
+        {
+          "id": "__componentsTitleProperty_0x7c00",
+          "name": "文件名",
+          "type": "text",
+          "isShow": true,
+          "wrap": false,
+          "options": {}
+        }
+      ],
+      "templates": [],
+      "groups": [],
+      "colorfulGroups": false,
+      "viewOptions": {
+        "openPageIn": "tab",
+        "openPageAfterCreate": true,
+        "items": [],
+        "pinFiltersToMenuBar": false,
+        "showGrid": false,
+        "heightType": "auto",
+        "heightValue": 600
+      },
+      "groupStates": {
+        "sort": "nameAsc",
+        "statics": [],
+        "orders": [],
+        "hiddens": [],
+        "collapseds": []
+      }
+    },
+    {
+      "id": "49390633-27d0-4812-9d03-818d4b54b269",
+      "type": "dateProgress",
+      "titleAlign": "center",
+      "tabTitle": "",
+      "maxWidthRatio": -1,
+      "showBorder": true,
+      "showShadow": false,
+      "createAt": "2025-03-18T13:57:17.809Z",
+      "updateAt": "2025-03-18T13:57:17.809Z",
+      "showDateIndicator": true,
+      "showProgressIndicator": true,
+      "startDateTimeType": "$specifiedDateTime",
+      "endDateTimeType": "$specifiedDateTime",
+      "uiType": "ring"
+    }
+  ],
+  "rootComponentId": "00ab6eb0-e3d9-49ee-8f0c-c36ce3063ce3"
+}

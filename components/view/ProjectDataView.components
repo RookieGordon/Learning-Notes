@@ -42,14 +42,14 @@
         },
         {
           "id": "309a2f3e-df12-4d59-80d8-fa010d85d3c4",
-          "name": "dateStart",
+          "name": "date_start",
           "isShow": true,
           "type": "date",
           "options": {}
         },
         {
           "id": "5be1aebd-5eee-41e2-b0fd-6238620dcf14",
-          "name": "dateFinish",
+          "name": "date_finish",
           "isShow": true,
           "type": "date",
           "options": {}

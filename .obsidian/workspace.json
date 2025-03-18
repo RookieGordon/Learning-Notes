@@ -11,17 +11,28 @@
             "id": "fa267290b1940cdd",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "components-file-view",
               "state": {
-                "file": "Template/Project.md",
-                "mode": "source",
-                "source": false
+                "file": "components/view/ProjectDataView.components"
               },
-              "icon": "lucide-file",
-              "title": "Project"
+              "icon": "gantt-chart",
+              "title": "ProjectDataView"
+            }
+          },
+          {
+            "id": "c23582d8e6b520fd",
+            "type": "leaf",
+            "state": {
+              "type": "components-file-view",
+              "state": {
+                "file": "components/view/ProjectDataView.components"
+              },
+              "icon": "gantt-chart",
+              "title": "ProjectDataView"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -213,17 +224,18 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "fa267290b1940cdd",
+  "active": "c23582d8e6b520fd",
   "lastOpenFiles": [
+    "components/view/PrjectDataView.components",
+    "components/view/ProjectDataView.components",
+    "Template/Project.md",
+    "Template/Project Module.md",
     "项目/ET8.1/未命名.md",
     "项目/ET8.1/网络框架/网络协议收发.md",
     "项目/ET8.1/ET框架结构.md",
-    "Template/Project.md",
-    "Template/Project Module.md",
     "项目/未命名.md",
     "项目/ET8.1/ET8.1.md",
     "components/view/ProjectModuleDataView.components",
-    "components/view/ProjectDataView.components",
     "components/view/导航页.components",
     "components/logs/2025-03-18.components.log",
     "components/logs",
@@ -250,7 +262,6 @@
     "components/view/未命名.md",
     "导航/未命名.md",
     "项目/ET8.1/重要组件/未命名.md",
-    "2025-03-17.md",
     "未命名.canvas",
     "项目/ET8.1/网络框架/attachments/服务器消息流转.drawio.svg",
     "项目/ET8.1/网络框架/attachments/客户端消息流转.drawio.svg",
