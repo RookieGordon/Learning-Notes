@@ -1,0 +1,89 @@
+{
+  "components": [
+    {
+      "id": "41dc3bda-6661-4f35-9f53-f852b4e362da",
+      "type": "multi",
+      "titleAlign": "center",
+      "tabTitle": "",
+      "maxWidthRatio": -1,
+      "showBorder": true,
+      "showShadow": false,
+      "createAt": "2025-03-18T04:10:51.713Z",
+      "updateAt": "2025-03-18T04:10:51.713Z",
+      "components": [
+        {
+          "componentId": "f509cdc3-5544-49c8-831a-54fb4ad47100"
+        }
+      ],
+      "layoutType": "tab",
+      "locked": false,
+      "layoutOptions": {}
+    },
+    {
+      "id": "f509cdc3-5544-49c8-831a-54fb4ad47100",
+      "type": "dynamicDataView",
+      "titleAlign": "center",
+      "tabTitle": "",
+      "maxWidthRatio": -1,
+      "showBorder": false,
+      "showShadow": false,
+      "createAt": "2025-03-18T04:10:55.955Z",
+      "updateAt": "2025-03-18T04:10:55.955Z",
+      "viewType": "kanban",
+      "newPageNameFormat": "{{date:YYYYMMDDHHmmss}} ",
+      "properties": [
+        {
+          "id": "__componentsTitleProperty_0x7c00",
+          "name": "文件名",
+          "type": "text",
+          "isShow": true,
+          "wrap": false,
+          "options": {}
+        }
+      ],
+      "templates": [],
+      "groups": [],
+      "colorfulGroups": false,
+      "viewOptions": {
+        "openPageIn": "tab",
+        "openPageAfterCreate": true,
+        "items": [],
+        "pinFiltersToMenuBar": false,
+        "showGrid": false,
+        "heightType": "auto",
+        "heightValue": 600
+      },
+      "groupStates": {
+        "sort": "nameAsc",
+        "statics": [],
+        "orders": [],
+        "hiddens": [],
+        "collapseds": []
+      },
+      "filter": {
+        "id": "a3715235-2d3f-462d-9b51-d1c63bd72e30",
+        "type": "group",
+        "operator": "and",
+        "conditions": [
+          {
+            "id": "8594dba4-ae1a-41c4-a1ad-ca6e1256893a",
+            "type": "jsQuery",
+            "operator": "contains",
+            "property": "${file.tags}",
+            "value": "$item.frontmatter?.Project == $parentFile.frontmatter?.Project",
+            "conditions": []
+          },
+          {
+            "id": "4a911e82-e273-4a78-a03d-777f2e8f9b36",
+            "type": "jsQuery",
+            "operator": "contains",
+            "property": "${file.tags}",
+            "value": "$item.tags.includes($op)",
+            "conditions": []
+          }
+        ]
+      }
+    }
+  ],
+  "rootComponentId": "41dc3bda-6661-4f35-9f53-f852b4e362da"
+}
