@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "记录/日常/面试.md",
-                "mode": "preview",
+                "file": "Template/Course.md",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "面试"
+              "title": "Course"
             }
           }
         ]
@@ -215,16 +215,18 @@
   },
   "active": "46824f007320a73a",
   "lastOpenFiles": [
-    "记录/日常/面试.md",
+    "Template/Project.md",
+    "Template/Course.md",
+    "Template/Project Task.md",
+    "Template/Project Module.md",
     "项目/ET8.1/ET框架结构.md",
+    "记录/日常/生活小记.md",
+    "记录/日常/面试.md",
     "记录/日常",
     "项目/ET8.1/战斗.md",
     "components/view/导航页.components",
     "项目/ET8.1/重要组件/ObjectWait.md",
-    "Template/Project Module.md",
-    "Template/Project.md",
     "components/view/DataView.components",
-    "Template/Project Task.md",
     "项目/ET8.1/网络框架/网络层.md",
     "Excalidraw/ScratchPaper.md",
     "Excalidraw/Map.md",
@@ -249,8 +251,6 @@
     "Slurped Pages/【游戏开发教程】Unity Cinemachine快速上手，详细案例讲解（虚拟相机系统 - 新发出品 - 良心教程）_cinemachine教程-CSDN博客.md",
     "Template",
     "Template/任务模板.md",
-    "课程和练习/计算机图形学—从0开始构建一个OpenGL软光栅/高级渲染管线功能.md",
-    "课程和练习/计算机图形学—从0开始构建一个OpenGL软光栅/光照模型.md",
     "未命名.canvas",
     "项目/ET8.1/网络框架/attachments/服务器消息流转.drawio.svg",
     "项目/ET8.1/网络框架/attachments/客户端消息流转.drawio.svg",
