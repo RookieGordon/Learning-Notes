@@ -11,12 +11,14 @@
             "id": "fa267290b1940cdd",
             "type": "leaf",
             "state": {
-              "type": "components-file-view",
+              "type": "markdown",
               "state": {
-                "file": "components/view/ProjectDataView.components"
+                "file": "项目/ET8.1/ET8.1.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "gantt-chart",
-              "title": "ProjectDataView"
+              "icon": "lucide-file",
+              "title": "ET8.1"
             }
           }
         ]
@@ -213,20 +215,21 @@
   },
   "active": "fa267290b1940cdd",
   "lastOpenFiles": [
-    "Template/Project Module.md",
-    "Template/Project.md",
-    "项目/ET8.1/ET8.1.md",
     "项目/ET8.1/ET框架结构.md",
+    "项目/ET8.1/ET8.1.md",
+    "Template/Project.md",
+    "Template/Project Module.md",
+    "components/view/ProjectModuleDataView.components",
+    "components/view/ProjectDataView.components",
+    "components/view/导航页.components",
     "components/logs/2025-03-18.components.log",
     "components/logs",
     "项目/ET8.1/网络框架/邮箱组件.md",
-    "components/view/ProjectDataView.components",
     "components/view/ProjectDataView2.components",
     "Template/Project Task.md",
     "Template/ProjectDataView2.components",
     "components/ProjectDataView2.components",
     "Template/Course.md",
-    "components/view/导航页.components",
     "未命名.md",
     "Template/Course Chapter.md",
     "Template/Course Task.md",
@@ -241,7 +244,6 @@
     "Excalidraw/ScratchPaper.md",
     "Excalidraw/Map.md",
     "components/view/Billboard.components",
-    "components/view/20250317234410.components",
     "components/view/未命名.md",
     "导航/未命名.md",
     "项目/ET8.1/重要组件/未命名.md",

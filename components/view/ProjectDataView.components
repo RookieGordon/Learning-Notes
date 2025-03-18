@@ -39,6 +39,20 @@
           "isShow": true,
           "wrap": false,
           "options": {}
+        },
+        {
+          "id": "309a2f3e-df12-4d59-80d8-fa010d85d3c4",
+          "name": "date_start",
+          "isShow": true,
+          "type": "date",
+          "options": {}
+        },
+        {
+          "id": "5be1aebd-5eee-41e2-b0fd-6238620dcf14",
+          "name": "date_finish",
+          "isShow": true,
+          "type": "date",
+          "options": {}
         }
       ],
       "templates": [],
@@ -70,7 +84,23 @@
             "type": "jsQuery",
             "operator": "contains",
             "property": "${file.tags}",
-            "value": "$item.frontmatter?.project != \"\"",
+            "value": "$item.frontmatter.project != null",
+            "conditions": []
+          },
+          {
+            "id": "7f4b9708-4d81-4cf6-9d51-8788c7849717",
+            "type": "jsQuery",
+            "operator": "contains",
+            "property": "${file.tags}",
+            "value": "$item.frontmatter?.project == $parentFile.frontmatter?.project",
+            "conditions": []
+          },
+          {
+            "id": "0111b88e-5d9f-4478-aa54-b7853561ea74",
+            "type": "jsQuery",
+            "operator": "contains",
+            "property": "${file.tags}",
+            "value": "$item.filePath != $parentFile.filePath",
             "conditions": []
           }
         ]
