@@ -25,10 +25,10 @@
             "state": {
               "type": "components-file-view",
               "state": {
-                "file": "components/view/ProjectDataView.components"
+                "file": "components/view/PrjectDataView.components"
               },
               "icon": "gantt-chart",
-              "title": "ProjectDataView"
+              "title": "PrjectDataView"
             }
           }
         ],
@@ -226,8 +226,8 @@
   },
   "active": "c23582d8e6b520fd",
   "lastOpenFiles": [
-    "components/view/PrjectDataView.components",
     "components/view/ProjectDataView.components",
+    "components/view/PrjectDataView.components",
     "Template/Project.md",
     "Template/Project Module.md",
     "项目/ET8.1/未命名.md",
@@ -258,7 +258,6 @@
     "项目/ET8.1/网络框架/网络层.md",
     "Excalidraw/ScratchPaper.md",
     "Excalidraw/Map.md",
-    "components/view/Billboard.components",
     "components/view/未命名.md",
     "导航/未命名.md",
     "项目/ET8.1/重要组件/未命名.md",
