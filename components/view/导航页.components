@@ -46,7 +46,7 @@
           }
         },
         {
-          "componentId": "2040dd56-4905-478c-9f46-02de86e1ded4",
+          "componentId": "124ac149-fece-4256-8abe-3f6e3ad92222",
           "layout": {
             "mobile": {
               "x": 0,
@@ -57,8 +57,8 @@
             "laptop": {
               "x": 0,
               "y": 21,
-              "w": 2,
-              "h": 10
+              "w": 4,
+              "h": 4
             }
           }
         }
@@ -117,6 +117,21 @@
         "orders": [],
         "hiddens": [],
         "collapseds": []
+      },
+      "filter": {
+        "id": "a3715235-2d3f-462d-9b51-d1c63bd72e30",
+        "type": "group",
+        "operator": "and",
+        "conditions": [
+          {
+            "id": "498cebbc-3148-470e-a11a-fd06eea22642",
+            "type": "filter",
+            "operator": "contains",
+            "property": "type",
+            "value": "Project",
+            "conditions": []
+          }
+        ]
       }
     },
     {
@@ -213,20 +228,33 @@
       }
     },
     {
-      "id": "2040dd56-4905-478c-9f46-02de86e1ded4",
-      "type": "dateProgress",
+      "id": "124ac149-fece-4256-8abe-3f6e3ad92222",
+      "type": "timeLine",
       "titleAlign": "center",
       "tabTitle": "",
       "maxWidthRatio": -1,
       "showBorder": true,
       "showShadow": false,
-      "createAt": "2025-03-18T03:57:26.748Z",
-      "updateAt": "2025-03-18T03:57:26.748Z",
-      "showDateIndicator": true,
-      "showProgressIndicator": true,
-      "startDateTimeType": "$specifiedDateTime",
-      "endDateTimeType": "$specifiedDateTime",
-      "uiType": "ring"
+      "createAt": "2025-03-18T03:59:04.214Z",
+      "updateAt": "2025-03-18T03:59:04.214Z",
+      "filter": {
+        "id": "f3ce38b5-d95f-41fa-ab31-07b0bfddcfbf",
+        "type": "group",
+        "operator": "and",
+        "conditions": []
+      },
+      "sort": {
+        "orders": []
+      },
+      "nodeCover": {
+        "type": "none"
+      },
+      "titleElement": {
+        "properties": []
+      },
+      "subtitleElement": {
+        "properties": []
+      }
     }
   ],
   "rootComponentId": "4ec972ca-be5b-41de-93b9-a9e32227fd6d"
