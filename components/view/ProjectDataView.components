@@ -66,6 +66,22 @@
         "operator": "and",
         "conditions": [
           {
+            "id": "0e48b3ef-884c-49f1-a252-c964f6e34952",
+            "type": "jsQuery",
+            "operator": "contains",
+            "property": "${file.tags}",
+            "value": "$parentFile.frontmatter.project != \"\"",
+            "conditions": []
+          },
+          {
+            "id": "bd89be7e-ee74-404f-b611-749c53803b6b",
+            "type": "jsQuery",
+            "operator": "contains",
+            "property": "${file.tags}",
+            "value": "$item.frontmatter.project == $parentFile.frontmatter.project",
+            "conditions": []
+          },
+          {
             "id": "619d011a-9b2e-4b38-b473-255031a8539a",
             "type": "jsQuery",
             "operator": "contains",

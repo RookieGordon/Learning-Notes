@@ -7,8 +7,8 @@ tags: <%projectName%>
 type: Project
 project: <%projectName%>
 fileDirPath: <%fileDirPath%>
-isRoot: true
 date_start: <%tp.date.now("YYYY-MM-DD")%>
 date_finish: <%tp.date.now("YYYY-MM-DD")%>
 
 ---
+![[ProjectDataView.components]]
