@@ -66,19 +66,19 @@
         "operator": "and",
         "conditions": [
           {
-            "id": "eacb41ff-5f53-4fca-ac99-98e4c1b11ce0",
-            "type": "jsQuery",
-            "operator": "contains",
-            "property": "${file.tags}",
-            "value": "$item.filePath.frontmatter['fileDirPath'] !== null",
-            "conditions": []
-          },
-          {
             "id": "619d011a-9b2e-4b38-b473-255031a8539a",
             "type": "jsQuery",
             "operator": "contains",
             "property": "${file.tags}",
             "value": "$item.filePath.startsWith($parentFile.frontmatter.fileDirPath)",
+            "conditions": []
+          },
+          {
+            "id": "29d1d5dd-80cf-428e-93a5-7e24d1966c00",
+            "type": "jsQuery",
+            "operator": "contains",
+            "property": "${file.tags}",
+            "value": "$item.filePath != $parentFile.filePath",
             "conditions": []
           }
         ]
