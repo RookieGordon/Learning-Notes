@@ -1,10 +1,11 @@
 <%*
 let courseName = tp.file.folder();
-let courseDirPath = tp.file.folder(true);
+let fileDirPath = tp.file.folder(true);
 -%>
 ---
 tags: <%courseName%>
-Course: <%courseName%>
+course: <%courseName%>
+fileDirPath: <%fileDirPath%>
 type: Study
 date_start: <%tp.date.now("YYYY-MM-DD")%>
 date_finish: <%tp.date.now("YYYY-MM-DD")%>

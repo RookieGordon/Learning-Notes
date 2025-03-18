@@ -9,7 +9,7 @@ let taskName = tp.file.title
 -%>
 ---
 tags: <%courseName%>/<%chapterName%>/<%fileName%>
-Course: <%courseName%>
+course: <%courseName%>
 type: Study
 date_start: <%tp.date.now("YYYY-MM-DD")%>
 date_finish: <%tp.date.now("YYYY-MM-DD")%>

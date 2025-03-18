@@ -86,7 +86,7 @@
             "type": "jsQuery",
             "operator": "contains",
             "property": "${file.tags}",
-            "value": "item.fileName.startWith()",
+            "value": "item.fileName.startWith(parentFile.frontmatter?.fileDirPath)",
             "conditions": []
           }
         ]
