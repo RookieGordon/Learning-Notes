@@ -9,6 +9,7 @@ project: <%projectName%>
 fileDirPath: <%fileDirPath%>
 date_start: <%tp.date.now("YYYY-MM-DD")%>
 date_finish: <%tp.date.now("YYYY-MM-DD")%>
+cssclasses: editor-full
 
 ---
 ![[ProjectDataView.components]]

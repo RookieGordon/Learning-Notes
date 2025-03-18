@@ -2,5 +2,8 @@
   "accentColor": "",
   "theme": "obsidian",
   "cssTheme": "Blue Topaz",
-  "baseFontSize": 15
+  "baseFontSize": 15,
+  "enabledCssSnippets": [
+    "editor-full"
+  ]
 }

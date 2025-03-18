@@ -53,6 +53,13 @@
           "isShow": true,
           "type": "date",
           "options": {}
+        },
+        {
+          "id": "a502b493-0ff0-497c-be05-3b5304104f3a",
+          "name": "finished",
+          "isShow": true,
+          "type": "checkbox",
+          "options": {}
         }
       ],
       "templates": [],

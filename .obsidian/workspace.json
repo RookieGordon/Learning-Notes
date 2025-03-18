@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "项目/ET8.1/ET8.1.md",
+                "file": "Template/Project.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "ET8.1"
+              "title": "Project"
             }
           }
         ]
@@ -215,10 +215,13 @@
   },
   "active": "fa267290b1940cdd",
   "lastOpenFiles": [
+    "项目/ET8.1/未命名.md",
+    "项目/ET8.1/网络框架/网络协议收发.md",
     "项目/ET8.1/ET框架结构.md",
-    "项目/ET8.1/ET8.1.md",
     "Template/Project.md",
     "Template/Project Module.md",
+    "项目/未命名.md",
+    "项目/ET8.1/ET8.1.md",
     "components/view/ProjectModuleDataView.components",
     "components/view/ProjectDataView.components",
     "components/view/导航页.components",
@@ -248,8 +251,6 @@
     "导航/未命名.md",
     "项目/ET8.1/重要组件/未命名.md",
     "2025-03-17.md",
-    "项目/Unity/踩坑记录/杂项.md",
-    "项目/战斗.md",
     "未命名.canvas",
     "项目/ET8.1/网络框架/attachments/服务器消息流转.drawio.svg",
     "项目/ET8.1/网络框架/attachments/客户端消息流转.drawio.svg",

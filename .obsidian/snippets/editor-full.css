@@ -1,0 +1,6 @@
+.editor-full {
+  --file-line-width: 95vw;
+  --line-width: 95vw;
+  --container-img-width: 100%;
+  --table-wrapper-width: 100%;
+}
