@@ -23,8 +23,8 @@
             "laptop": {
               "x": 0,
               "y": 0,
-              "w": 6,
-              "h": 12
+              "w": 7,
+              "h": 21
             }
           }
         },
@@ -38,10 +38,27 @@
               "h": 4
             },
             "laptop": {
-              "x": 7,
+              "x": 8,
               "y": 0,
-              "w": 5,
-              "h": 15
+              "w": 4,
+              "h": 16
+            }
+          }
+        },
+        {
+          "componentId": "2040dd56-4905-478c-9f46-02de86e1ded4",
+          "layout": {
+            "mobile": {
+              "x": 0,
+              "y": 0,
+              "w": 4,
+              "h": 4
+            },
+            "laptop": {
+              "x": 0,
+              "y": 21,
+              "w": 2,
+              "h": 10
             }
           }
         }
@@ -77,8 +94,18 @@
       "colorfulGroups": false,
       "viewOptions": {
         "openPageIn": "tab",
-        "openPageAfterCreate": true,
+        "openPageAfterCreate": false,
+        "itemSize": "components--page-card-medium",
+        "showPropertyName": false,
+        "showAllProperties": false,
         "items": [],
+        "cover": {
+          "type": "textContent",
+          "source": "default",
+          "fit": "contains",
+          "layout": "components--page-card-cover-landscape",
+          "position": "top"
+        },
         "pinFiltersToMenuBar": false,
         "showGrid": false,
         "heightType": "auto",
@@ -184,6 +211,22 @@
         "hiddens": [],
         "collapseds": []
       }
+    },
+    {
+      "id": "2040dd56-4905-478c-9f46-02de86e1ded4",
+      "type": "dateProgress",
+      "titleAlign": "center",
+      "tabTitle": "",
+      "maxWidthRatio": -1,
+      "showBorder": true,
+      "showShadow": false,
+      "createAt": "2025-03-18T03:57:26.748Z",
+      "updateAt": "2025-03-18T03:57:26.748Z",
+      "showDateIndicator": true,
+      "showProgressIndicator": true,
+      "startDateTimeType": "$specifiedDateTime",
+      "endDateTimeType": "$specifiedDateTime",
+      "uiType": "ring"
     }
   ],
   "rootComponentId": "4ec972ca-be5b-41de-93b9-a9e32227fd6d"
