@@ -122,16 +122,7 @@
         "id": "a3715235-2d3f-462d-9b51-d1c63bd72e30",
         "type": "group",
         "operator": "and",
-        "conditions": [
-          {
-            "id": "498cebbc-3148-470e-a11a-fd06eea22642",
-            "type": "filter",
-            "operator": "contains",
-            "property": "type",
-            "value": "Project",
-            "conditions": []
-          }
-        ]
+        "conditions": []
       }
     },
     {

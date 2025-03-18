@@ -1,10 +1,13 @@
 <%*
 let projectName = tp.file.folder();
+let fileDirPath = tp.file.folder(true);
 -%>
 ---
 tags: <%projectName%>
-project: <%projectName%>
 type: Project
+project: <%projectName%>
+fileDirPath: <%fileDirPath%>
+isRoot: true
 date_start: <%tp.date.now("YYYY-MM-DD")%>
 date_finish: <%tp.date.now("YYYY-MM-DD")%>
 

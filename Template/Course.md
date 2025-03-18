@@ -1,7 +1,6 @@
 <%*
 let courseName = tp.file.folder();
 let fileDirPath = tp.file.folder(true);
-console.log(fileDirPath)
 -%>
 ---
 tags: <%courseName%>
