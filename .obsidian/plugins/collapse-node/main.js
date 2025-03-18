@@ -21,13 +21,13 @@ var __copyProps = (to, from, except, desc) => {
 };
 var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
-// src/canvasCollapseIndex.ts
-var canvasCollapseIndex_exports = {};
-__export(canvasCollapseIndex_exports, {
+// src/index.ts
+var src_exports = {};
+__export(src_exports, {
   CollapseSettingTab: () => CollapseSettingTab,
   default: () => CanvasCollapsePlugin
 });
-module.exports = __toCommonJS(canvasCollapseIndex_exports);
+module.exports = __toCommonJS(src_exports);
 var import_obsidian4 = require("obsidian");
 
 // src/ControlHeader.ts
@@ -37,6 +37,8 @@ var CollapseControlHeader = class extends import_obsidian.Component {
     super();
     this.collapsed = false;
     this.content = "";
+    this.alias = "";
+    this.thumbnailUrl = "";
     this.refreshed = false;
     this.containingNodes = [];
     this.oldFilePath = "";
@@ -84,6 +86,12 @@ var CollapseControlHeader = class extends import_obsidian.Component {
     this.titleEl = this.headerEl.createEl("span", {
       cls: "canvas-node-collapse-control-title"
     });
+    this.thumbnailEl = this.node.nodeEl.createEl("img", {
+      cls: "canvas-node-collapse-control-thumbnail"
+    });
+    this.aliasEl = this.headerEl.createEl("span", {
+      cls: "canvas-node-collapse-control-alias"
+    });
   }
   checkNodeType() {
     return this.node.unknownData.type;
@@ -95,6 +103,91 @@ var CollapseControlHeader = class extends import_obsidian.Component {
     var _a;
     this.setIconOrContent("setContent");
     this.titleEl.setText((_a = this.content) == null ? void 0 : _a.replace(/^\#{1,} /g, ""));
+    this.initAlias();
+    this.initThumbnail();
+  }
+  initAlias() {
+    var _a;
+    if ((_a = this.node.unknownData) == null ? void 0 : _a.alias) {
+      this.alias = this.node.unknownData.alias;
+    } else {
+      const fileNode = this.node;
+      if (fileNode.file && this.plugin.app.metadataCache) {
+        try {
+          const meta = this.plugin.app.metadataCache.getFileCache(fileNode.file);
+          if (meta == null ? void 0 : meta.frontmatter) {
+            const aliases = (0, import_obsidian.parseFrontMatterAliases)(meta.frontmatter);
+            if (aliases && aliases.length > 0) {
+              this.alias = aliases[0];
+            }
+          }
+        } catch (e) {
+          console.debug("Error getting alias:", e);
+        }
+      }
+    }
+    if (this.alias) {
+      this.aliasEl.setText(this.alias);
+    } else {
+      this.aliasEl.detach();
+    }
+  }
+  updateNodeAlias(newAlias) {
+    this.alias = newAlias;
+    if (this.alias) {
+      if (!this.aliasEl.parentElement) {
+        this.headerEl.appendChild(this.aliasEl);
+      }
+      this.aliasEl.setText(this.alias);
+    } else {
+      this.aliasEl.detach();
+    }
+  }
+  initThumbnail() {
+    var _a, _b;
+    if ((_a = this.node.unknownData) == null ? void 0 : _a.thumbnail) {
+      this.thumbnailUrl = this.node.unknownData.thumbnail;
+    } else {
+      const fileNode = this.node;
+      if (fileNode.file && this.plugin.app.metadataCache) {
+        try {
+          const meta = this.plugin.app.metadataCache.getFileCache(fileNode.file);
+          if ((_b = meta == null ? void 0 : meta.frontmatter) == null ? void 0 : _b.thumbnail) {
+            this.thumbnailUrl = meta.frontmatter.thumbnail;
+          }
+        } catch (e) {
+          console.debug("Error getting thumbnail:", e);
+        }
+      }
+    }
+    if (this.thumbnailUrl) {
+      try {
+        const url = this.thumbnailUrl.startsWith("http") ? this.thumbnailUrl : this.plugin.app.vault.adapter.getResourcePath(this.thumbnailUrl);
+        this.thumbnailEl.src = url;
+      } catch (e) {
+        console.debug("Error setting thumbnail src:", e);
+        this.thumbnailEl.detach();
+      }
+    } else {
+      this.thumbnailEl.detach();
+    }
+  }
+  updateNodeThumbnail(newThumbnailUrl) {
+    this.thumbnailUrl = newThumbnailUrl;
+    if (this.thumbnailUrl) {
+      try {
+        if (!this.thumbnailEl.parentElement) {
+          this.headerEl.appendChild(this.thumbnailEl);
+        }
+        const url = this.thumbnailUrl.startsWith("http") ? this.thumbnailUrl : this.plugin.app.vault.adapter.getResourcePath(this.thumbnailUrl);
+        this.thumbnailEl.src = url;
+      } catch (e) {
+        console.debug("Error setting thumbnail src:", e);
+        this.thumbnailEl.detach();
+      }
+    } else {
+      this.thumbnailEl.detach();
+    }
   }
   setIconOrContent(action) {
     var _a, _b;
@@ -151,46 +244,85 @@ var CollapseControlHeader = class extends import_obsidian.Component {
     const history = this.node.canvas.history;
     if (!history || history.data.length === 0)
       return;
-    history.data.forEach((data) => {
-      data.nodes.forEach((node) => {
+    for (const data of history.data) {
+      for (const node of data.nodes) {
         if (node.id === this.node.id && (node == null ? void 0 : node.collapsed) === void 0) {
           node.collapsed = false;
         }
-      });
-    });
+      }
+    }
     this.refreshed = true;
   }
   async toggleCollapsed() {
     if (this.node.canvas.readonly)
       return;
+    const wasCollapsed = this.collapsed;
     this.collapsed = !this.collapsed;
     this.node.unknownData.collapsed = !this.collapsed;
+    this.updateNode();
+    setTimeout(() => {
+      this.updateNodesInGroup();
+      this.updateEdges();
+    }, 50);
     this.node.canvas.requestSave(false, true);
     const canvasCurrentData = this.node.canvas.getData();
     const nodeData = canvasCurrentData.nodes.find((node) => node.id === this.node.id);
     if (nodeData) {
       nodeData.collapsed = this.collapsed;
+      if (wasCollapsed && !this.collapsed) {
+        const nodeIndex = canvasCurrentData.nodes.findIndex((node) => node.id === this.node.id);
+        if (nodeIndex !== -1) {
+          const removedNode = canvasCurrentData.nodes.splice(nodeIndex, 1)[0];
+          canvasCurrentData.nodes.push(removedNode);
+        }
+      }
       this.refreshHistory();
     }
     setTimeout(() => {
       this.node.canvas.setData(canvasCurrentData);
       this.node.canvas.requestSave(true);
-    }, 0);
-    this.updateNodesInGroup();
-    this.updateNode();
-    this.updateEdges();
+    }, 300);
   }
   updateNode() {
     this.node.nodeEl.toggleClass("collapsed", this.collapsed);
-    (0, import_obsidian.setIcon)(this.collapsedIconEl, this.collapsed ? "chevron-right" : "chevron-down");
+    (0, import_obsidian.setIcon)(this.collapsedIconEl, "chevron-down");
+    this.collapsedIconEl.toggleClass(["collapsed", "collapse-handler"], this.collapsed);
+    this.updateThumbnailVisibility();
+    this.updateAliasVisibility();
+  }
+  updateThumbnailVisibility() {
+    if (this.collapsed || this.plugin.settings.showThumbnailsAlways) {
+      if (this.plugin.settings.showThumbnailsInCollapsedState && this.thumbnailUrl && this.thumbnailUrl !== this.node.unknownData.title) {
+        this.thumbnailEl.toggleClass("collapsed-node-hidden", false);
+        this.titleEl.toggleClass("collapsed-node-hidden", true);
+      } else {
+        this.thumbnailEl.toggleClass("collapsed-node-hidden", true);
+        this.titleEl.toggleClass("collapsed-node-hidden", false);
+      }
+    } else {
+      this.thumbnailEl.toggleClass("collapsed-node-hidden", true);
+    }
+  }
+  updateAliasVisibility() {
+    if (this.collapsed || this.plugin.settings.showAliasesAlways) {
+      if (this.plugin.settings.showAliasesInCollapsedState && this.alias && this.alias !== this.node.unknownData.title) {
+        this.aliasEl.toggleClass("collapsed-node-hidden", false);
+        this.titleEl.toggleClass("collapsed-node-hidden", true);
+      } else {
+        this.aliasEl.toggleClass("collapsed-node-hidden", true);
+        this.titleEl.toggleClass("collapsed-node-hidden", false);
+      }
+    } else {
+      this.aliasEl.toggleClass("collapsed-node-hidden", true);
+    }
   }
   updateEdges() {
     this.node.canvas.nodeInteractionLayer.interactionEl.detach();
     this.node.canvas.nodeInteractionLayer.render();
     const edges = this.node.canvas.getEdgesForNode(this.node);
-    edges.forEach((edge) => {
+    for (const edge of edges) {
       edge.render();
-    });
+    }
   }
   updateNodesInGroup(expandAll) {
     if (this.node.unknownData.type === "group" || this.node.label) {
@@ -198,45 +330,59 @@ var CollapseControlHeader = class extends import_obsidian.Component {
       if (expandAll) {
         this.collapsed = false;
       }
+      this.node.nodeEl.toggleClass("animating", true);
+      setTimeout(() => {
+        this.node.nodeEl.toggleClass("animating", false);
+      }, 300);
       if (this.collapsed) {
-        nodes.filter((node) => node.id !== this.node.id).forEach((node) => {
+        const filteredNodes = nodes.filter((node) => node.id !== this.node.id);
+        for (const node of filteredNodes) {
           this.containingNodes.push(node);
+          node.nodeEl.toggleClass("node-transitioning", true);
           node.nodeEl.toggleClass("group-nodes-collapsed", this.collapsed);
+          setTimeout(() => {
+            node.nodeEl.toggleClass("node-transitioning", false);
+          }, 300);
           this.updateEdgesInGroup(node);
-        });
+        }
       } else {
         const otherGroupNodes = nodes.filter((node) => node.id !== this.node.id && node.unknownData.type === "group" && node.unknownData.collapsed);
         const ignoreNodes = [];
         for (const groupNode of otherGroupNodes) {
           const bbox = groupNode.getBBox(true);
           const nodesInGroup = this.node.canvas.getContainingNodes(bbox);
-          nodesInGroup.forEach((childNode) => {
+          for (const childNode of nodesInGroup) {
             if (childNode.id !== groupNode.id) {
               ignoreNodes.push(childNode);
             }
-          });
+          }
         }
-        this.containingNodes.filter((t) => !ignoreNodes.find((k) => k.id === t.id)).forEach((node) => {
+        const filteredContainingNodes = this.containingNodes.filter((t) => !ignoreNodes.find((k) => k.id === t.id));
+        for (const node of filteredContainingNodes) {
+          node.nodeEl.toggleClass("node-transitioning", true);
           node.nodeEl.toggleClass("group-nodes-collapsed", this.collapsed);
-          this.updateEdgesInGroup(node);
-        });
-        ignoreNodes.forEach((node) => {
+          setTimeout(() => {
+            node.nodeEl.toggleClass("node-transitioning", false);
+          }, 300);
+          this.updateEdgesInGroup(node, true);
+        }
+        for (const node of ignoreNodes) {
           this.updateEdgesInGroup(node, node.unknownData.collapsed);
-        });
+        }
         this.containingNodes = [];
       }
       this.updateEdges();
     }
   }
   updateEdgesInGroup(node, triggerCollapsed) {
+    var _a, _b, _c, _d;
     const edges = this.node.canvas.getEdgesForNode(node);
-    edges.forEach((edge) => {
-      var _a, _b, _c, _d;
+    for (const edge of edges) {
       (_b = (_a = edge.labelElement) == null ? void 0 : _a.wrapperEl) == null ? void 0 : _b.classList.toggle("group-edges-collapsed", triggerCollapsed || this.collapsed);
       edge.lineGroupEl.classList.toggle("group-edges-collapsed", triggerCollapsed || this.collapsed);
       (_c = edge.lineEndGroupEl) == null ? void 0 : _c.classList.toggle("group-edges-collapsed", triggerCollapsed || this.collapsed);
       (_d = edge.lineStartGroupEl) == null ? void 0 : _d.classList.toggle("group-edges-collapsed", triggerCollapsed || this.collapsed);
-    });
+    }
   }
 };
 
@@ -361,6 +507,239 @@ var handleNodeContextMenu = (plugin, menu, node) => {
     handleSingleNode(node, isFold);
   };
   createHandleContextMenu("canvas", callback)(menu);
+  menu.addItem((item) => {
+    item.setSection("canvas").setTitle("Set Node Alias").setIcon("text-cursor-input").onClick(async () => {
+      await setNodeAlias(plugin, node);
+    });
+  });
+  menu.addItem((item) => {
+    item.setSection("canvas").setTitle("Set Node Thumbnail").setIcon("image").onClick(async () => {
+      await setNodeThumbnail(plugin, node);
+    });
+  });
+  if (node.unknownData.alias || node.unknownData.thumbnail) {
+    menu.addItem((item) => {
+      item.setSection("canvas").setTitle("Remove Node Customizations").setIcon("trash").onClick(async () => {
+        await removeNodeCustomizations(plugin, node);
+      });
+    });
+  }
+};
+var setNodeAlias = async (plugin, node) => {
+  const modal = new TextInputModal(plugin.app, "Enter alias for node", node.unknownData.alias || "", "Set Alias");
+  const alias = await modal.openAndGetValue();
+  if (alias !== null) {
+    node.unknownData.alias = alias;
+    if (node.headerComponent && node.headerComponent instanceof CollapseControlHeader) {
+      const header = node.headerComponent;
+      header.updateNodeAlias(alias);
+      header.updateNode();
+    }
+    node.canvas.requestSave(false, true);
+  }
+};
+var setNodeThumbnail = async (plugin, node) => {
+  const modal = new ThumbnailSelectionModal(plugin.app);
+  const thumbnailPath = await modal.openAndGetValue();
+  if (thumbnailPath) {
+    node.unknownData.thumbnail = thumbnailPath;
+    if (node.headerComponent && node.headerComponent instanceof CollapseControlHeader) {
+      const header = node.headerComponent;
+      header.updateNodeThumbnail(thumbnailPath);
+      header.updateNode();
+    }
+    node.canvas.requestSave(false, true);
+  }
+};
+var removeNodeCustomizations = async (plugin, node) => {
+  delete node.unknownData.alias;
+  delete node.unknownData.thumbnail;
+  if (node.headerComponent && node.headerComponent instanceof CollapseControlHeader) {
+    const header = node.headerComponent;
+    header.updateNodeAlias("");
+    header.updateNodeThumbnail("");
+    header.updateNode();
+  }
+  node.canvas.requestSave(false, true);
+};
+var TextInputModal = class extends import_obsidian2.Modal {
+  constructor(app, title, initialValue, buttonText) {
+    super(app);
+    this.title = title;
+    this.value = initialValue;
+    this.buttonText = buttonText;
+  }
+  onOpen() {
+    const { contentEl } = this;
+    contentEl.createEl("h2", { text: this.title });
+    this.inputEl = contentEl.createEl("input", {
+      type: "text",
+      value: this.value
+    });
+    this.inputEl.style.width = "100%";
+    this.inputEl.style.marginBottom = "1em";
+    setTimeout(() => this.inputEl.focus(), 10);
+    const buttonContainer = contentEl.createDiv();
+    buttonContainer.style.display = "flex";
+    buttonContainer.style.justifyContent = "flex-end";
+    buttonContainer.style.gap = "10px";
+    const cancelButton = buttonContainer.createEl("button", {
+      text: "Cancel"
+    });
+    const saveButton = buttonContainer.createEl("button", {
+      text: this.buttonText,
+      cls: "mod-cta"
+    });
+    cancelButton.addEventListener("click", () => {
+      this.resolvePromise(null);
+      this.close();
+    });
+    saveButton.addEventListener("click", () => {
+      this.resolvePromise(this.inputEl.value);
+      this.close();
+    });
+    this.inputEl.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") {
+        this.resolvePromise(this.inputEl.value);
+        this.close();
+      }
+    });
+  }
+  onClose() {
+    const { contentEl } = this;
+    contentEl.empty();
+  }
+  openAndGetValue() {
+    return new Promise((resolve) => {
+      this.resolvePromise = resolve;
+      this.open();
+    });
+  }
+};
+var ThumbnailSelectionModal = class extends import_obsidian2.Modal {
+  constructor(app) {
+    super(app);
+  }
+  onOpen() {
+    const { contentEl } = this;
+    contentEl.createEl("h2", { text: "Set Node Thumbnail" });
+    contentEl.createEl("p", {
+      text: "Enter image URL or path to an attachment:"
+    });
+    this.inputEl = contentEl.createEl("input", {
+      type: "text",
+      placeholder: "https://example.com/image.jpg or image.jpg"
+    });
+    this.inputEl.style.width = "100%";
+    this.inputEl.style.marginBottom = "1em";
+    contentEl.createEl("p", {
+      text: "Or select an image from your attachments:"
+    });
+    const selectFileButton = contentEl.createEl("button", {
+      text: "Browse vault files"
+    });
+    selectFileButton.addEventListener("click", () => {
+      this.openFilePicker();
+    });
+    contentEl.createEl("p", {
+      text: "Preview:",
+      cls: "thumbnail-preview-label"
+    });
+    this.preview = contentEl.createEl("img", { cls: "thumbnail-preview" });
+    this.preview.style.maxWidth = "100%";
+    this.preview.style.maxHeight = "150px";
+    this.preview.style.display = "none";
+    this.inputEl.addEventListener("input", () => {
+      this.updatePreview();
+    });
+    const buttonContainer = contentEl.createDiv();
+    buttonContainer.style.display = "flex";
+    buttonContainer.style.justifyContent = "flex-end";
+    buttonContainer.style.gap = "10px";
+    buttonContainer.style.marginTop = "1em";
+    const cancelButton = buttonContainer.createEl("button", {
+      text: "Cancel"
+    });
+    const saveButton = buttonContainer.createEl("button", {
+      text: "Set Thumbnail",
+      cls: "mod-cta"
+    });
+    cancelButton.addEventListener("click", () => {
+      this.resolvePromise(null);
+      this.close();
+    });
+    saveButton.addEventListener("click", () => {
+      this.resolvePromise(this.inputEl.value);
+      this.close();
+    });
+  }
+  openFilePicker() {
+    const fileSuggestModal = new FileSuggestModal(this.app, (file) => {
+      if (file) {
+        this.inputEl.value = file.path;
+        this.updatePreview();
+      }
+    });
+    fileSuggestModal.open();
+  }
+  updatePreview() {
+    const url = this.inputEl.value;
+    if (url) {
+      try {
+        if (url.startsWith("http")) {
+          this.preview.src = url;
+          this.preview.style.display = "block";
+        } else {
+          this.preview.src = this.app.vault.adapter.getResourcePath(url);
+          this.preview.style.display = "block";
+        }
+      } catch (e) {
+        this.preview.style.display = "none";
+      }
+    } else {
+      this.preview.style.display = "none";
+    }
+  }
+  onClose() {
+    const { contentEl } = this;
+    contentEl.empty();
+  }
+  openAndGetValue() {
+    return new Promise((resolve) => {
+      this.resolvePromise = resolve;
+      this.open();
+    });
+  }
+};
+var FileSuggestModal = class extends import_obsidian2.SuggestModal {
+  constructor(app, callback) {
+    super(app);
+    this.callback = callback;
+  }
+  getSuggestions(query) {
+    const imageExtensions = [
+      "png",
+      "jpg",
+      "jpeg",
+      "gif",
+      "bmp",
+      "svg",
+      "webp"
+    ];
+    const files = this.app.vault.getFiles().filter((file) => imageExtensions.includes(file.extension.toLowerCase()) && file.path.toLowerCase().includes(query.toLowerCase()));
+    return files;
+  }
+  renderSuggestion(file, el) {
+    el.createEl("div", { text: file.path });
+  }
+  onChooseSuggestion(file, evt) {
+    this.callback(file);
+  }
+  onClose() {
+    if (this.callback) {
+      this.callback(null);
+    }
+  }
 };
 var refreshAllCanvasView = (app) => {
   const cavasLeaves = app.workspace.getLeavesOfType("canvas");
@@ -390,7 +769,7 @@ var getSelectionCoords = (dom) => {
   }
 };
 
-// src/canvasCollapseIndex.ts
+// src/index.ts
 var import_view = require("@codemirror/view");
 
 // node_modules/monkey-around/mjs/index.js
@@ -570,9 +949,12 @@ var patchCanvasMenu = (plugin) => {
   const triggerPlugin = () => {
     plugin.triggerByPlugin = true;
   };
-  const patchMenu = () => {
-    var _a;
-    const canvasView = (_a = plugin.app.workspace.getLeavesOfType("canvas").first()) == null ? void 0 : _a.view;
+  const patchMenu = async () => {
+    const canvasLeaf = plugin.app.workspace.getLeavesOfType("canvas").first();
+    if (canvasLeaf == null ? void 0 : canvasLeaf.isDeferred) {
+      await canvasLeaf.loadIfDeferred();
+    }
+    const canvasView = canvasLeaf == null ? void 0 : canvasLeaf.view;
     if (!canvasView)
       return false;
     const menu = canvasView == null ? void 0 : canvasView.canvas.menu;
@@ -599,10 +981,10 @@ var patchCanvasMenu = (plugin) => {
             const menu2 = new import_obsidian3.Menu();
             const containingNodes = this.canvas.getContainingNodes(this.selection.bbox);
             handleCanvasMenu(menu2, async (isFold) => {
-              var _a2;
+              var _a;
               triggerPlugin();
               const currentSelection = this.canvas.selection;
-              containingNodes.length > 1 ? handleMultiNodesViaNodes(this.canvas, containingNodes, isFold) : currentSelection ? handleSingleNode((_a2 = Array.from(currentSelection)) == null ? void 0 : _a2.first(), isFold) : "";
+              containingNodes.length > 1 ? handleMultiNodesViaNodes(this.canvas, containingNodes, isFold) : currentSelection ? handleSingleNode((_a = Array.from(currentSelection)) == null ? void 0 : _a.first(), isFold) : "";
               buttonEl.toggleClass("has-active-menu", false);
             });
             menu2.setParentElement(this.menuEl).showAtPosition({
@@ -621,10 +1003,10 @@ var patchCanvasMenu = (plugin) => {
     console.log("Obsidian-Collapse-Node: canvas history patched");
     return true;
   };
-  plugin.app.workspace.onLayoutReady(() => {
-    if (!patchMenu()) {
-      const evt = plugin.app.workspace.on("layout-change", () => {
-        patchMenu() && plugin.app.workspace.offref(evt);
+  plugin.app.workspace.onLayoutReady(async () => {
+    if (!await patchMenu()) {
+      const evt = plugin.app.workspace.on("layout-change", async () => {
+        await patchMenu() && plugin.app.workspace.offref(evt);
       });
       plugin.registerEvent(evt);
     }
@@ -670,27 +1052,32 @@ var initControlHeader = (plugin, node) => {
   return new CollapseControlHeader(plugin, node);
 };
 var renderNodeWithHeader = (plugin, node) => {
-  var _a;
+  var _a, _b, _c, _d;
   if (node.headerComponent)
     return;
-  if (!plugin.settings.collapsableFileNode && node.unknownData.type === "file" && node.file.extension === "md")
+  const nodeType = node.unknownData.type;
+  if (nodeType === "file" && ((_a = node.file) == null ? void 0 : _a.extension) === "md" && !plugin.settings.collapsableFileNode)
     return;
-  if (!plugin.settings.collapsableAttachmentNode && node.unknownData.type === "file" && node.file.extension !== "md")
+  if (nodeType === "file" && ((_b = node.file) == null ? void 0 : _b.extension) !== "md" && !plugin.settings.collapsableAttachmentNode)
     return;
-  if (!plugin.settings.collapsableGroupNode && node.unknownData.type === "group")
+  if (nodeType === "group" && !plugin.settings.collapsableGroupNode)
     return;
-  if (!plugin.settings.collapsableLinkNode && node.unknownData.type === "link")
+  if (nodeType === "link" && !plugin.settings.collapsableLinkNode)
     return;
-  if (!plugin.settings.collapsableTextNode && node.unknownData.type === "text")
+  if (nodeType === "text" && !plugin.settings.collapsableTextNode)
     return;
-  if (plugin.settings.minLineAmount > 0 && (node.unknownData.type === "text" || node.unknownData.type === "file")) {
-    if (typeof node.text === "string" && node.text.split("\n").length < plugin.settings.minLineAmount)
-      return;
-    if (node.file && node.file.extension === "md" && node.child && ((_a = node.child.data) == null ? void 0 : _a.split("\n").length) < plugin.settings.minLineAmount)
+  if (plugin.settings.minLineAmount > 0 && (nodeType === "text" || nodeType === "file")) {
+    let lineCount = 0;
+    if (nodeType === "text" && typeof node.text === "string") {
+      lineCount = node.text.split("\n").length;
+    } else if (nodeType === "file" && ((_c = node.file) == null ? void 0 : _c.extension) === "md" && node.child) {
+      lineCount = ((_d = node.child.data) == null ? void 0 : _d.split("\n").length) || 0;
+    }
+    if (lineCount < plugin.settings.minLineAmount)
       return;
   }
   node.headerComponent = initControlHeader(plugin, node);
-  node.nodeEl.setAttribute("data-node-type", node.unknownData.type);
+  node.nodeEl.setAttribute("data-node-type", nodeType);
   const addHeader = () => {
     if (!node.containerEl) {
       setTimeout(addHeader, 0);
@@ -736,6 +1123,7 @@ var patchCanvasNode = (plugin) => {
         break;
       }
     }
+    console.log(prototype);
     if (!prototype)
       return false;
     const uninstaller = around(prototype, {
@@ -783,7 +1171,7 @@ var patchCanvasNode = (plugin) => {
   });
 };
 
-// src/canvasCollapseIndex.ts
+// src/index.ts
 var DEFAULT_SETTINGS = {
   collapsableFileNode: true,
   collapsableAttachmentNode: true,
@@ -791,7 +1179,12 @@ var DEFAULT_SETTINGS = {
   collapsableLinkNode: true,
   collapsableTextNode: true,
   minLineAmount: 0,
-  minimalControlHeader: false
+  minimalControlHeader: false,
+  showThumbnailsInCollapsedState: false,
+  showAliasesInCollapsedState: false,
+  showAliasesAlways: false,
+  showThumbnailsAlways: false,
+  hideDefaultNodeTitle: false
 };
 var DynamicUpdateControlHeader = (plugin) => {
   return import_view.EditorView.updateListener.of((v) => {
@@ -813,6 +1206,7 @@ var DynamicUpdateControlHeader = (plugin) => {
           } else if (!node.headerComponent && plugin.settings.minLineAmount > 0 && content.split("\n").length >= plugin.settings.minLineAmount) {
             node.headerComponent = new CollapseControlHeader(plugin, node);
             node.containerEl.prepend(node.headerComponent.onload());
+            node.headerComponent.updateNode();
           }
         }
       }
@@ -824,19 +1218,28 @@ var CanvasCollapsePlugin = class extends import_obsidian4.Plugin {
     super(...arguments);
     this.triggerByPlugin = false;
     this.patchSucceed = false;
+    this.headerComponents = {};
+    this.debounceReloadLeaves = (0, import_obsidian4.debounce)(() => {
+      const leaves = this.app.workspace.getLeavesOfType("canvas");
+      leaves.forEach((leaf) => {
+        leaf.rebuildView();
+      });
+    }, 1e3);
   }
   async onload() {
-    this.loadSettings();
+    await this.loadSettings();
     this.addSettingTab(new CollapseSettingTab(this.app, this));
     this.registerCommands();
     this.registerCanvasEvents();
     this.registerCustomIcons();
-    aroundCanvasMethods(this);
-    patchCanvasMenu(this);
-    patchCanvasInteraction(this);
-    patchCanvasNode(this);
     this.registerEditorExtension([DynamicUpdateControlHeader(this)]);
     this.initGlobalCss();
+    this.app.workspace.onLayoutReady(() => {
+      aroundCanvasMethods(this);
+      patchCanvasMenu(this);
+      patchCanvasInteraction(this);
+      patchCanvasNode(this);
+    });
   }
   onunload() {
     console.log("unloading plugin");
@@ -880,14 +1283,16 @@ var CanvasCollapsePlugin = class extends import_obsidian4.Plugin {
     (0, import_obsidian4.addIcon)("unfold-vertical", `<g id="surface1"><path style="fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:4;" d="M 12 22.000312 L 12 16.000312 " transform="matrix(4.166667,0,0,4.166667,0,0)"/><path style="fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:4;" d="M 12 7.999687 L 12 1.999687 " transform="matrix(4.166667,0,0,4.166667,0,0)"/><path style="fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:4;" d="M 4.000312 12 L 1.999687 12 " transform="matrix(4.166667,0,0,4.166667,0,0)"/><path style="fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:4;" d="M 10.000312 12 L 7.999687 12 " transform="matrix(4.166667,0,0,4.166667,0,0)"/><path style="fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:4;" d="M 16.000312 12 L 13.999688 12 " transform="matrix(4.166667,0,0,4.166667,0,0)"/><path style="fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:4;" d="M 22.000312 12 L 19.999688 12 " transform="matrix(4.166667,0,0,4.166667,0,0)"/><path style="fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:4;" d="M 15 19.000312 L 12 22.000312 L 9 19.000312 " transform="matrix(4.166667,0,0,4.166667,0,0)"/><path style="fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:4;" d="M 15 4.999687 L 12 1.999687 L 9 4.999687 " transform="matrix(4.166667,0,0,4.166667,0,0)"/></g>`);
   }
   initGlobalCss() {
-    var _a;
+    var _a, _b;
     document.body.toggleClass("minimal-control-header", (_a = this.settings) == null ? void 0 : _a.minimalControlHeader);
+    document.body.toggleClass("hide-default-node-title", (_b = this.settings) == null ? void 0 : _b.hideDefaultNodeTitle);
   }
   async loadSettings() {
     this.settings = Object.assign({}, DEFAULT_SETTINGS, await this.loadData());
   }
   async saveSettings() {
     await this.saveData(this.settings);
+    this.debounceReloadLeaves();
   }
 };
 var CollapseSettingTab = class extends import_obsidian4.PluginSettingTab {
@@ -917,6 +1322,37 @@ var CollapseSettingTab = class extends import_obsidian4.PluginSettingTab {
       toggle.setValue(this.plugin.settings.minimalControlHeader).onChange(async (value) => {
         this.plugin.settings.minimalControlHeader = value;
         document.body.toggleClass("minimal-control-header", value);
+        await this.plugin.saveSettings();
+      });
+    });
+    new import_obsidian4.Setting(containerEl).setName("Show thumbnails in collapsed state").setDesc("Show thumbnails in the collapsed state of the node").addToggle((toggle) => {
+      toggle.setValue(this.plugin.settings.showThumbnailsInCollapsedState).onChange(async (value) => {
+        this.plugin.settings.showThumbnailsInCollapsedState = value;
+        await this.plugin.saveSettings();
+      });
+    });
+    new import_obsidian4.Setting(containerEl).setName("Show aliases in collapsed state").setDesc("Show aliases in the collapsed state of the node").addToggle((toggle) => {
+      toggle.setValue(this.plugin.settings.showAliasesInCollapsedState).onChange(async (value) => {
+        this.plugin.settings.showAliasesInCollapsedState = value;
+        await this.plugin.saveSettings();
+      });
+    });
+    new import_obsidian4.Setting(containerEl).setName("Hide default node title").setDesc("Hide the default title of the node").addToggle((toggle) => {
+      toggle.setValue(this.plugin.settings.hideDefaultNodeTitle).onChange(async (value) => {
+        this.plugin.settings.hideDefaultNodeTitle = value;
+        document.body.toggleClass("hide-default-node-title", value);
+        await this.plugin.saveSettings();
+      });
+    });
+    new import_obsidian4.Setting(containerEl).setName("Show aliases always").setDesc("Show aliases always in the collapsed/expanded state of the node. Replace current title with alias.").addToggle((toggle) => {
+      toggle.setValue(this.plugin.settings.showAliasesAlways).onChange(async (value) => {
+        this.plugin.settings.showAliasesAlways = value;
+        await this.plugin.saveSettings();
+      });
+    });
+    new import_obsidian4.Setting(containerEl).setName("Show thumbnails always").setDesc("Show thumbnails always in the collapsed state of the node").addToggle((toggle) => {
+      toggle.setValue(this.plugin.settings.showThumbnailsAlways).onChange(async (value) => {
+        this.plugin.settings.showThumbnailsAlways = value;
         await this.plugin.saveSettings();
       });
     });

@@ -201,11 +201,20 @@
       "widgets:Add widget": false,
       "markdown-table-editor:Open Markdown Table Editor": false,
       "obsidian-excalidraw-plugin:新建绘图文件": false,
-      "obsidian-importer:Open Importer": false
+      "obsidian-importer:Open Importer": false,
+      "obsidian-memos:Thino": false,
+      "timelines-revamped:Insert Timeline Event": false,
+      "timelines-revamped:Insert Timeline Event (Frontmatter)": false,
+      "vscode-editor:新建代码文件": false,
+      "pdf-plus:PDF++: Toggle auto-copy": false,
+      "pdf-plus:PDF++: Toggle auto-focus": false,
+      "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
   "active": "1d10627e74204b70",
   "lastOpenFiles": [
+    "Excalidraw/ScratchPaper.md",
+    "Excalidraw/Map.md",
     "components/view/导航页.components",
     "components/view/Billboard.components",
     "components/view/20250317234410.components",
@@ -223,7 +232,6 @@
     "2025-03-17.md",
     "项目/Unity/踩坑记录/杂项.md",
     "项目/战斗.md",
-    "Excalidraw/ScratchPaper.md",
     "Untitled.md",
     "项目/aaa.md",
     "未命名",
@@ -241,7 +249,6 @@
     "收藏夹/杂项.md",
     "收藏夹/60个独立游戏的营销错误_60MistakesEbookV1.pdf",
     "项目/Unity/Lua/lua源码剖析(二) - 但行好事 莫问前程 - ITeye博客.md",
-    "导航",
     "未命名.canvas",
     "项目/ET8.1/网络框架/attachments/服务器消息流转.drawio.svg",
     "项目/ET8.1/网络框架/attachments/客户端消息流转.drawio.svg",

@@ -374,6 +374,10 @@
     border: 1px solid #000
 }
 
+.theme-dark .cm-structure-delete svg {
+    fill: #adabab;
+}
+
 .cm-structure-item {
     display: inline-flex;
     width: 120px;
