@@ -15,7 +15,7 @@
               "state": {
                 "file": "Template/Project.md",
                 "mode": "source",
-                "source": false
+                "source": true
               },
               "icon": "lucide-file",
               "title": "Project"
@@ -213,18 +213,18 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "89a66892aa3b87ae",
+  "active": "f91a47858348a020",
   "lastOpenFiles": [
-    "未命名.md",
-    "Template/Project.md",
-    "Template/Course.md",
     "Template/Project Module.md",
+    "Template/Project Task.md",
     "components/view/导航页.components",
+    "Template/Project.md",
+    "components/view/DataView.components",
+    "未命名.md",
+    "Template/Course.md",
     "项目/ET8.1/ET8.1.md",
     "Template/Course Chapter.md",
     "项目/ET8.1/ET框架结构.md",
-    "components/view/DataView.components",
-    "Template/Project Task.md",
     "Template/Course Task.md",
     "项目/ET8.1/网络框架/邮箱组件.md",
     "项目/ET8.1/网络框架/未命名.md",
@@ -248,7 +248,6 @@
     "2025-03-17.md",
     "项目/Unity/踩坑记录/杂项.md",
     "项目/战斗.md",
-    "Untitled.md",
     "未命名",
     "Template",
     "未命名.canvas",
