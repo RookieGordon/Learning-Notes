@@ -98,15 +98,15 @@
           "isShow": true,
           "type": "formula",
           "options": {
-            "formula": "ifElse(prop(\"finished\"), \"🚩已完成\", html(`<progress max=\"${duration(prop(\"dateStart\"), prop(\"dateFinish\"), day)}\" value=\"${duration(now(), prop(\"dateFinish\"), day)}\"></progress>`)) "
+            "formula": "ifElse(prop('finished'), \"🚩已完成\", html(`<progress max=\"${duration(prop('dateStart'), prop('dateFinish'), 'day')}\" value=\"${duration(now(), prop('dateFinish'), 'day')}\"></progress>`)) "
           }
         }
       ],
       "templates": [
         {
-          "id": "1593b69c-a279-4fae-af64-aacc6c3ad31a",
-          "path": "Template/Project Module.md",
-          "name": "Project Module.md",
+          "id": "b26d8ba8-9428-4218-afd4-7705ec9ead35",
+          "path": "Template/Project Task.md",
+          "name": "Project Task.md",
           "type": "normal"
         }
       ],
