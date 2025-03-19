@@ -1,0 +1,66 @@
+{
+  "components": [
+    {
+      "id": "81bc0bc8-10e0-4fe3-8769-3b83984b1785",
+      "type": "multi",
+      "titleAlign": "center",
+      "tabTitle": "",
+      "maxWidthRatio": -1,
+      "showBorder": true,
+      "showShadow": false,
+      "createAt": "2025-03-18T15:25:09.264Z",
+      "updateAt": "2025-03-18T15:25:09.264Z",
+      "components": [
+        {
+          "componentId": "b30d4c90-5547-4d5b-892d-9947a0a2c014"
+        }
+      ],
+      "layoutType": "tab",
+      "locked": false,
+      "layoutOptions": {}
+    },
+    {
+      "id": "b30d4c90-5547-4d5b-892d-9947a0a2c014",
+      "type": "dynamicDataView",
+      "titleAlign": "center",
+      "tabTitle": "",
+      "maxWidthRatio": -1,
+      "showBorder": false,
+      "showShadow": false,
+      "createAt": "2025-03-18T15:25:27.386Z",
+      "updateAt": "2025-03-18T15:25:27.386Z",
+      "viewType": "table",
+      "newPageNameFormat": "{{date:YYYYMMDDHHmmss}} ",
+      "properties": [
+        {
+          "id": "__componentsTitleProperty_0x7c00",
+          "name": "文件名",
+          "type": "text",
+          "isShow": true,
+          "wrap": false,
+          "options": {}
+        }
+      ],
+      "templates": [],
+      "groups": [],
+      "colorfulGroups": false,
+      "viewOptions": {
+        "openPageIn": "tab",
+        "openPageAfterCreate": true,
+        "items": [],
+        "pinFiltersToMenuBar": false,
+        "showGrid": false,
+        "heightType": "auto",
+        "heightValue": 600
+      },
+      "groupStates": {
+        "sort": "nameAsc",
+        "statics": [],
+        "orders": [],
+        "hiddens": [],
+        "collapseds": []
+      }
+    }
+  ],
+  "rootComponentId": "81bc0bc8-10e0-4fe3-8769-3b83984b1785"
+}

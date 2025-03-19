@@ -4,8 +4,8 @@ let moduleName = tp.file.title;
 -%>
 ---
 tags: <%projectName%>/<%moduleName%>
-project: <%projectName%>
 type: Project
+project: <%projectName%>
 dateStart: <%tp.date.now("YYYY-MM-DD")%>
 dateFinish: <%tp.date.now("YYYY-MM-DD")%>
 finished: false

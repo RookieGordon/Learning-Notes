@@ -67,7 +67,7 @@
           "isShow": true,
           "type": "formula",
           "options": {
-            "formula": "ifElse(prop(finished), \"🚩已完成\", html(`<progress max=\"${duration(prop(dateStart), prop(dateFinish), day)}\" value=\"${duration(now(), prop(dateFinish), day)}\"></progress>`)) "
+            "formula": "ifElse(prop(\"finished\"), \"🚩已完成\", html(`<progress max=\"${duration(prop(\"dateStart\"), prop(\"dateFinish\"), day)}\" value=\"${duration(now(), prop(\"dateFinish\"), day)}\"></progress>`)) "
           }
         }
       ],

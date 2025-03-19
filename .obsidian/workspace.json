@@ -8,31 +8,20 @@
         "type": "tabs",
         "children": [
           {
-            "id": "fa267290b1940cdd",
-            "type": "leaf",
-            "state": {
-              "type": "components-file-view",
-              "state": {
-                "file": "components/view/ProjectDataView.components"
-              },
-              "icon": "gantt-chart",
-              "title": "ProjectDataView"
-            }
-          },
-          {
             "id": "c23582d8e6b520fd",
             "type": "leaf",
             "state": {
-              "type": "components-file-view",
+              "type": "markdown",
               "state": {
-                "file": "components/view/ProjectDataView.components"
+                "file": "Template/Project Module.md",
+                "mode": "source",
+                "source": true
               },
-              "icon": "gantt-chart",
-              "title": "ProjectDataView"
+              "icon": "lucide-file",
+              "title": "Project Module"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -212,30 +201,27 @@
       "moredraw:MoreDraw": false,
       "templater-obsidian:Templater": false,
       "widgets:Add widget": false,
-      "markdown-table-editor:Open Markdown Table Editor": false,
       "obsidian-excalidraw-plugin:新建绘图文件": false,
       "obsidian-importer:Open Importer": false,
-      "obsidian-memos:Thino": false,
-      "timelines-revamped:Insert Timeline Event": false,
-      "timelines-revamped:Insert Timeline Event (Frontmatter)": false,
-      "vscode-editor:新建代码文件": false,
-      "pdf-plus:PDF++: Toggle auto-copy": false,
-      "pdf-plus:PDF++: Toggle auto-focus": false,
-      "pdf-plus:PDF++: Toggle auto-paste": false
+      "markdown-table-editor:Open Markdown Table Editor": false
     }
   },
   "active": "c23582d8e6b520fd",
   "lastOpenFiles": [
-    "components/view/PrjectDataView.components",
-    "components/view/ProjectDataView.components",
-    "Template/Project.md",
+    "项目/Test/TestModule1/Module1.md",
     "Template/Project Module.md",
+    "Template/Project.md",
+    "项目/Test/Test.md",
+    "项目/Test/TestModule1",
+    "项目/Test",
+    "components/view/ProjectModuleDataView.components",
+    "components/view/ProjectDataView.components",
+    "components/view/PrjectDataView.components",
     "项目/ET8.1/未命名.md",
     "项目/ET8.1/网络框架/网络协议收发.md",
     "项目/ET8.1/ET框架结构.md",
     "项目/未命名.md",
     "项目/ET8.1/ET8.1.md",
-    "components/view/ProjectModuleDataView.components",
     "components/view/导航页.components",
     "components/logs/2025-03-18.components.log",
     "components/logs",
@@ -243,7 +229,6 @@
     "components/view/ProjectDataView2.components",
     "Template/Project Task.md",
     "Template/ProjectDataView2.components",
-    "components/ProjectDataView2.components",
     "Template/Course.md",
     "未命名.md",
     "Template/Course Chapter.md",
@@ -253,14 +238,12 @@
     "项目/ET8.1/战斗.md",
     "记录/日常/生活小记.md",
     "记录/日常/面试.md",
-    "记录/日常",
     "项目/ET8.1/重要组件/ObjectWait.md",
     "项目/ET8.1/网络框架/网络层.md",
     "Excalidraw/ScratchPaper.md",
     "Excalidraw/Map.md",
     "components/view/未命名.md",
     "导航/未命名.md",
-    "项目/ET8.1/重要组件/未命名.md",
     "未命名.canvas",
     "项目/ET8.1/网络框架/attachments/服务器消息流转.drawio.svg",
     "项目/ET8.1/网络框架/attachments/客户端消息流转.drawio.svg",
