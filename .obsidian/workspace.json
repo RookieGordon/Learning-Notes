@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "项目/Test/Test.md",
+                "file": "项目/Test/TestModule1/Task1.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Test"
+              "title": "Task1"
             }
           }
         ]
@@ -216,9 +216,9 @@
   "active": "aa5f1bbbea62bade",
   "lastOpenFiles": [
     "项目/Test/TestModule1/Module1.md",
+    "项目/Test/TestModule1/Task1.md",
     "项目/Test/Test.md",
     "components/view/ProjectModuleDataView.components",
-    "项目/Test/TestModule1/Task1.md",
     "components/view/ProjectDataView.components",
     "Template/Project Task.md",
     "Template/Project Module.md",
