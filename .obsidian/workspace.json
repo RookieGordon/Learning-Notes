@@ -11,12 +11,14 @@
             "id": "7a0e2c76642b6474",
             "type": "leaf",
             "state": {
-              "type": "components-file-view",
+              "type": "markdown",
               "state": {
-                "file": "components/view/Test_DataView.components"
+                "file": "Template/Project.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "gantt-chart",
-              "title": "Test_DataView"
+              "icon": "lucide-file",
+              "title": "Project"
             }
           }
         ]
@@ -214,15 +216,15 @@
   "active": "7a0e2c76642b6474",
   "lastOpenFiles": [
     "项目/Test/Test.md",
-    "components/view/Test_DataView.components",
-    "components/view/Test_Module1_ModuleDataView.components",
-    "components/view/ProjectModuleDataView.components",
-    "项目/Test/TestModule1/Module1.md",
-    "Template/Project Module.md",
     "Template/Project.md",
-    "components/view/TestDataView.components",
+    "项目/Test/TestModule1/Module1.md",
+    "components/view/ProjectModuleDataView.components",
+    "Template/Project Module.md",
     "Template/Project Task.md",
     "components/view/ProjectDataView.components",
+    "components/view/Test_DataView.components",
+    "components/view/Test_Module1_ModuleDataView.components",
+    "components/view/TestDataView.components",
     "Template/scripts/getVaultPath.js",
     "Template/scripts/copyComponent - 副本.js",
     "Template/scripts/copyComponent.js",

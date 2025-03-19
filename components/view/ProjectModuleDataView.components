@@ -80,9 +80,9 @@
         },
         {
           "id": "42ff5bbe-a556-4f5a-8c17-64c21aea425c",
-          "name": "datef",
+          "name": "dateFinish",
           "isShow": true,
-          "type": "text",
+          "type": "date",
           "options": {}
         },
         {
@@ -98,7 +98,7 @@
           "isShow": true,
           "type": "formula",
           "options": {
-            "formula": "ifElse(prop(\"finished\"), \"🚩已完成\", html(`<progress max=\"${duration(prop(\"dateStart\"), prop(\"dateFinish\"), day)}\" value=\"${duration(now(), prop(\"dateFinish\"), day)}\"></progress>`)) "
+            "formula": "ifElse(prop('finished'), \"🚩已完成\", html(`<progress max=\"${duration(prop('dateStart'), prop('dateFinish'), 'day')}\" value=\"${duration(now(), prop('dateFinish'), 'day')}\"></progress>`)) "
           }
         }
       ],
