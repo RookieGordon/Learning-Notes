@@ -162,7 +162,7 @@
             "type": "jsQuery",
             "operator": "contains",
             "property": "${file.tags}",
-            "value": "$item.frontmatter?projectType == \"Task\"",
+            "value": "$item.frontmatter?.projectType == \"Task\"",
             "conditions": []
           }
         ]

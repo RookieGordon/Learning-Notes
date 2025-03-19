@@ -41,7 +41,7 @@
               "x": 9,
               "y": 0,
               "w": 1,
-              "h": 11
+              "h": 8
             }
           }
         }
@@ -162,7 +162,7 @@
             "type": "jsQuery",
             "operator": "contains",
             "property": "${file.tags}",
-            "value": "$item.frontmatter?projectType == \"Task\"",
+            "value": "$item.frontmatter?.projectType == \"Task\"",
             "conditions": []
           }
         ]
@@ -182,7 +182,8 @@
       "showProgressIndicator": true,
       "startDateTimeType": "$specifiedDateTime",
       "endDateTimeType": "$specifiedDateTime",
-      "uiType": "ring"
+      "uiType": "ring",
+      "title": "剩余时长"
     }
   ],
   "rootComponentId": "866bf390-cf35-42ee-a8e6-e68bf1da911a"
