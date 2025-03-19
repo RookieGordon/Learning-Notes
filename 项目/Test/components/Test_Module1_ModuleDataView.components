@@ -156,6 +156,14 @@
             "property": "${file.tags}",
             "value": "$item.filePath != $parentFile.filePath",
             "conditions": []
+          },
+          {
+            "id": "5622ade0-084a-4dc9-83f8-eee85bc2f335",
+            "type": "jsQuery",
+            "operator": "contains",
+            "property": "${file.tags}",
+            "value": "$item.frontmatter?.fileDirPath == $parentFile.frontmatter?.fileDirPath",
+            "conditions": []
           }
         ]
       }

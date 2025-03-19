@@ -102,14 +102,7 @@
           }
         }
       ],
-      "templates": [
-        {
-          "id": "1593b69c-a279-4fae-af64-aacc6c3ad31a",
-          "path": "Template/Project Module.md",
-          "name": "Project Module.md",
-          "type": "normal"
-        }
-      ],
+      "templates": [],
       "groups": [],
       "colorfulGroups": false,
       "viewOptions": {
