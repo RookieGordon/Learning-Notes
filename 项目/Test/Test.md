@@ -8,4 +8,4 @@ dateFinish: 2025-03-19
 cssclasses: editor-full
 
 ---
-![[{projectName}DataView.components]]
+![[TestDataView.components]]

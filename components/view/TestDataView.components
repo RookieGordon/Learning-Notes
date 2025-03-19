@@ -1,0 +1,144 @@
+{
+  "components": [
+    {
+      "id": "41dc3bda-6661-4f35-9f53-f852b4e362da",
+      "type": "multi",
+      "titleAlign": "center",
+      "tabTitle": "",
+      "maxWidthRatio": -1,
+      "showBorder": true,
+      "showShadow": false,
+      "createAt": "2025-03-18T04:10:51.713Z",
+      "updateAt": "2025-03-18T04:10:51.713Z",
+      "components": [
+        {
+          "componentId": "f509cdc3-5544-49c8-831a-54fb4ad47100"
+        }
+      ],
+      "layoutType": "tab",
+      "locked": false,
+      "layoutOptions": {}
+    },
+    {
+      "id": "f509cdc3-5544-49c8-831a-54fb4ad47100",
+      "type": "dynamicDataView",
+      "titleAlign": "center",
+      "tabTitle": "",
+      "maxWidthRatio": -1,
+      "showBorder": false,
+      "showShadow": false,
+      "createAt": "2025-03-18T04:10:55.955Z",
+      "updateAt": "2025-03-18T04:10:55.955Z",
+      "viewType": "table",
+      "newPageNameFormat": "{{date:YYYYMMDDHHmmss}} ",
+      "properties": [
+        {
+          "id": "__componentsTitleProperty_0x7c00",
+          "name": "文件名",
+          "type": "text",
+          "isShow": true,
+          "wrap": false,
+          "options": {}
+        },
+        {
+          "id": "309a2f3e-df12-4d59-80d8-fa010d85d3c4",
+          "name": "dateStart",
+          "isShow": true,
+          "type": "datetime",
+          "options": {}
+        },
+        {
+          "id": "5be1aebd-5eee-41e2-b0fd-6238620dcf14",
+          "name": "dateFinish",
+          "isShow": true,
+          "type": "datetime",
+          "options": {}
+        },
+        {
+          "id": "a502b493-0ff0-497c-be05-3b5304104f3a",
+          "name": "finished",
+          "isShow": true,
+          "type": "checkbox",
+          "options": {}
+        },
+        {
+          "id": "2e55c937-5919-4a3f-aa14-a45e9cf23655",
+          "name": "remainTime",
+          "isShow": true,
+          "type": "formula",
+          "options": {
+            "formula": "ifElse(prop(\"finished\"), \"🚩已完成\", html(`<progress max=\"${duration(prop(\"dateStart\"), prop(\"dateFinish\"), day)}\" value=\"${duration(now(), prop(\"dateFinish\"), day)}\"></progress>`)) "
+          }
+        }
+      ],
+      "templates": [
+        {
+          "id": "4c3c0426-f6ed-4b04-b6c6-70cd6f728f2d",
+          "path": "Template/Project Module.md",
+          "name": "Project Module.md",
+          "type": "normal"
+        }
+      ],
+      "groups": [],
+      "colorfulGroups": false,
+      "viewOptions": {
+        "openPageIn": "tab",
+        "openPageAfterCreate": true,
+        "items": [],
+        "pinFiltersToMenuBar": false,
+        "showGrid": false,
+        "heightType": "auto",
+        "heightValue": 600
+      },
+      "groupStates": {
+        "sort": "nameAsc",
+        "statics": [],
+        "orders": [],
+        "hiddens": [],
+        "collapseds": []
+      },
+      "filter": {
+        "id": "a3715235-2d3f-462d-9b51-d1c63bd72e30",
+        "type": "group",
+        "operator": "and",
+        "conditions": [
+          {
+            "id": "c5131aed-cfe1-4506-9cce-74d5fb16b228",
+            "type": "jsQuery",
+            "operator": "contains",
+            "property": "${file.tags}",
+            "value": "$item.frontmatter.project != null",
+            "conditions": []
+          },
+          {
+            "id": "7f4b9708-4d81-4cf6-9d51-8788c7849717",
+            "type": "jsQuery",
+            "operator": "contains",
+            "property": "${file.tags}",
+            "value": "$item.frontmatter?.project == $parentFile.frontmatter?.project",
+            "conditions": []
+          },
+          {
+            "id": "0111b88e-5d9f-4478-aa54-b7853561ea74",
+            "type": "jsQuery",
+            "operator": "contains",
+            "property": "${file.tags}",
+            "value": "$item.filePath != $parentFile.filePath",
+            "conditions": []
+          }
+        ]
+      },
+      "sort": {
+        "orders": [
+          {
+            "id": "4b6fb215-2d45-46e7-af0f-07bcfc658036",
+            "property": "dateFinish",
+            "direction": "desc",
+            "disabled": true
+          }
+        ]
+      }
+    }
+  ],
+  "rootComponentId": "41dc3bda-6661-4f35-9f53-f852b4e362da"
+}
