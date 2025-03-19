@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "课程和练习/CSharp异步编程/CSharp异步编程常见误区.md",
+                "file": "课程和练习/数据结构/树/四叉树，场景管理/四叉树.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "CSharp异步编程常见误区"
+              "title": "四叉树"
             }
           }
         ]
@@ -213,11 +213,12 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "89a66892aa3b87ae",
+  "active": "3b428e2412035e52",
   "lastOpenFiles": [
+    "课程和练习/数据结构/树/红黑树/红黑树.md",
+    "课程和练习/CSharp异步编程/CSharp异步编程常见误区.md",
     "课程和练习/CSharp异步编程",
     "项目/ET8.1/ET框架结构.md",
-    "课程和练习/CSharp异步编程/CSharp异步编程常见误区.md",
     "收藏夹/UML时序图(Sequence Diagram)学习笔记_sequencediagram-CSDN博客.md",
     "收藏夹/杂项.md",
     "Template/Project Module.md",
@@ -239,7 +240,6 @@
     "项目/ET8.1/网络框架/邮箱组件.md",
     "components/view/ProjectDataView2.components",
     "Template/Project Task.md",
-    "Template/ProjectDataView2.components",
     "Template/Course.md",
     "未命名.md",
     "Template/Course Chapter.md",
