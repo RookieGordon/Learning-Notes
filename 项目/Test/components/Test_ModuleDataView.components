@@ -146,7 +146,7 @@
             "type": "jsQuery",
             "operator": "contains",
             "property": "${file.tags}",
-            "value": "$item.frontmatter?.project == $parentFile.frontmatter?.project",
+            "value": "$item.filePath.startsWith($parentFile.fileParent)",
             "conditions": []
           },
           {
@@ -155,14 +155,6 @@
             "operator": "contains",
             "property": "${file.tags}",
             "value": "$item.filePath != $parentFile.filePath",
-            "conditions": []
-          },
-          {
-            "id": "1f92f863-0d3e-44fd-97e2-b9d96ffd8263",
-            "type": "jsQuery",
-            "operator": "contains",
-            "property": "${file.tags}",
-            "value": "$item.frontmatter?.fileDirPath == $parentFile.frontmatter?.fileDirPath",
             "conditions": []
           }
         ]
