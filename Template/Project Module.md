@@ -1,8 +1,6 @@
 <%*
-let filePath = tp.file.path(true)
-let paths = filePath.split('/')
-let projectName = paths[paths.length - 2]
-
+let fileDirPath = tp.file.folder(true);
+let projectName = fileDirPath.split('/')[paths.length - 2];
 let moduleName = tp.file.title;
 -%>
 ---

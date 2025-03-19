@@ -1,6 +1,7 @@
 <%*
 let projectName = tp.file.folder();
 let fileDirPath = tp.file.folder(true);
+tp.file.create_new();
 -%>
 ---
 tags: <%projectName%>

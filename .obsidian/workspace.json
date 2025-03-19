@@ -6,6 +6,7 @@
       {
         "id": "999d094597e501b6",
         "type": "tabs",
+        "dimension": 29.150390625,
         "children": [
           {
             "id": "8123f12806c94be2",
@@ -26,6 +27,7 @@
       {
         "id": "e5165c63d6750919",
         "type": "tabs",
+        "dimension": 70.849609375,
         "children": [
           {
             "id": "afdfd0af060663ff",
@@ -55,8 +57,7 @@
               "title": "Project Module"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -248,11 +249,14 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "62fc663e6b9446c8",
+  "active": "89a66892aa3b87ae",
   "lastOpenFiles": [
-    "Template/Project.md",
-    "Template/Project Module.md",
+    "Template/scripts/TempExtension.js",
+    "Template/scripts/新建 文本文档.txt",
+    "Template/scripts",
     "Template/Project Task.md",
+    "Template/Project Module.md",
+    "Template/Project.md",
     "项目/Test/TestModule1/Module1.md",
     "components/view/ProjectModuleDataView.components",
     "components/view/ProjectDataView.components",
@@ -273,9 +277,7 @@
     "项目/未命名.md",
     "项目/ET8.1/ET8.1.md",
     "components/logs/2025-03-18.components.log",
-    "components/logs",
     "项目/ET8.1/网络框架/邮箱组件.md",
-    "components/view/ProjectDataView2.components",
     "Template/Course.md",
     "未命名.md",
     "Template/Course Chapter.md",
