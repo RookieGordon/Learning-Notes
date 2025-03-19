@@ -9,6 +9,10 @@ function copyComponentFile(VaultPath, componentName, newDir, newName) {
     if (!fs.existsSync(newDirPath)) {
         fs.mkdirSync(newDirPath, { recursive: true });
     }
+    if (fs.existsSync(newFilePath)) {
+        console.log(`文件${newFilePath}已经存在，不进行拷贝`);
+        return;
+    }
     console.log(`Prepare copy ${oldFilePath} to ${newFilePath}`);
     fs.copyFile(oldFilePath, newFilePath, (err) => {
         if (err) {
