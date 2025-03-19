@@ -3,9 +3,11 @@ let projectName = tp.file.folder();
 let fileDirPath = tp.file.folder(true);
 
 let newComponentName = `{projectName}DataView`;
-let vaultPath = tp.app.vault.getRoot();
-console.log(`$路径是：{vaultPath}`);
-tp.user.copyComponent(vaultPath,"ProjectDataView", newComponentName);
+let vaultName = tp.app.vault.getName();
+let filePath = tp.file.path().replace(/\\/g, "/");
+let id = filePath.indexOf(vaultName);
+console.log(`路径是：${vaultPath}`);
+//tp.user.copyComponent(vaultPath,"ProjectDataView", newComponentName);
 -%>
 ---
 tags: <%projectName%>
