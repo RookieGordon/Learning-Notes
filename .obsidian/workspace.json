@@ -20,20 +20,19 @@
             }
           },
           {
-            "id": "fe4b51837be0f4a7",
+            "id": "25242320f974d358",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "components-file-view",
               "state": {
-                "file": "Template/Project Module.md",
-                "mode": "source",
-                "source": false
+                "file": "components/view/Test.components"
               },
-              "icon": "lucide-file",
-              "title": "Project Module"
+              "icon": "gantt-chart",
+              "title": "Test"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -225,11 +224,12 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "cf2ff03a7a60ffdc",
+  "active": "25242320f974d358",
   "lastOpenFiles": [
-    "Template/Project.md",
-    "Template/Project Module.md",
     "components/view/ProjectDataView.components",
+    "components/view/Test.components",
+    "Template/Project Module.md",
+    "Template/Project.md",
     "components/view/ProjectModuleDataView.components",
     "项目/Test/Test.md",
     "components/view/TestDataView.components",
