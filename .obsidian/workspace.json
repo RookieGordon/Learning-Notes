@@ -4,35 +4,24 @@
     "type": "split",
     "children": [
       {
-        "id": "b116754bf81da584",
+        "id": "da967c31d4d6f742",
         "type": "tabs",
         "children": [
           {
-            "id": "cf2ff03a7a60ffdc",
+            "id": "c14ea926cdf862d0",
             "type": "leaf",
             "state": {
-              "type": "components-file-view",
+              "type": "markdown",
               "state": {
-                "file": "components/view/ProjectDataView.components"
+                "file": "Template/Project Module.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "gantt-chart",
-              "title": "ProjectDataView"
-            }
-          },
-          {
-            "id": "25242320f974d358",
-            "type": "leaf",
-            "state": {
-              "type": "components-file-view",
-              "state": {
-                "file": "components/view/Test.components"
-              },
-              "icon": "gantt-chart",
-              "title": "Test"
+              "icon": "lucide-file",
+              "title": "Project Module"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -224,15 +213,16 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "25242320f974d358",
+  "active": "c14ea926cdf862d0",
   "lastOpenFiles": [
-    "components/view/ProjectDataView.components",
-    "components/view/Test.components",
+    "项目/Test/TestModule1/Module1.md",
+    "项目/Test/Test.md",
+    "components/view/TestDataView.components",
+    "Template/Project Task.md",
     "Template/Project Module.md",
     "Template/Project.md",
     "components/view/ProjectModuleDataView.components",
-    "项目/Test/Test.md",
-    "components/view/TestDataView.components",
+    "components/view/ProjectDataView.components",
     "Template/scripts/getVaultPath.js",
     "Template/scripts/copyComponent - 副本.js",
     "Template/scripts/copyComponent.js",
@@ -240,9 +230,6 @@
     "Template/scripts/TempExtension - 副本.js",
     "Template/scripts/TempExtension.js",
     "Untitled.md",
-    "Template/Project Task.md",
-    "Template/scripts/新建 文本文档.txt",
-    "项目/Test/TestModule1/Module1.md",
     "课程和练习/数据结构/树/四叉树，场景管理/四叉树.md",
     "课程和练习/数据结构/树/红黑树/红黑树.md",
     "课程和练习/CSharp异步编程/CSharp异步编程常见误区.md",

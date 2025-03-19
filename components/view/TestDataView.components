@@ -1,34 +1,65 @@
 {
   "components": [
     {
-      "id": "41dc3bda-6661-4f35-9f53-f852b4e362da",
+      "id": "866bf390-cf35-42ee-a8e6-e68bf1da911a",
       "type": "multi",
       "titleAlign": "center",
       "tabTitle": "",
       "maxWidthRatio": -1,
       "showBorder": true,
       "showShadow": false,
-      "createAt": "2025-03-18T04:10:51.713Z",
-      "updateAt": "2025-03-18T04:10:51.713Z",
+      "createAt": "2025-03-19T08:50:03.046Z",
+      "updateAt": "2025-03-19T08:50:03.046Z",
       "components": [
         {
-          "componentId": "f509cdc3-5544-49c8-831a-54fb4ad47100"
+          "componentId": "9d1cba2f-e30b-4551-a2a5-2cfc11a43456",
+          "layout": {
+            "mobile": {
+              "x": 0,
+              "y": 0,
+              "w": 4,
+              "h": 4
+            },
+            "laptop": {
+              "x": 0,
+              "y": 0,
+              "w": 8,
+              "h": 22
+            }
+          }
+        },
+        {
+          "componentId": "b8f04444-596e-4446-92b3-f4cacbe5f5e7",
+          "layout": {
+            "mobile": {
+              "x": 0,
+              "y": 0,
+              "w": 4,
+              "h": 4
+            },
+            "laptop": {
+              "x": 9,
+              "y": 0,
+              "w": 1,
+              "h": 11
+            }
+          }
         }
       ],
-      "layoutType": "tab",
+      "layoutType": "grid",
       "locked": false,
       "layoutOptions": {}
     },
     {
-      "id": "f509cdc3-5544-49c8-831a-54fb4ad47100",
+      "id": "9d1cba2f-e30b-4551-a2a5-2cfc11a43456",
       "type": "dynamicDataView",
       "titleAlign": "center",
       "tabTitle": "",
       "maxWidthRatio": -1,
       "showBorder": false,
       "showShadow": false,
-      "createAt": "2025-03-18T04:10:55.955Z",
-      "updateAt": "2025-03-18T04:10:55.955Z",
+      "createAt": "2025-03-19T08:50:16.735Z",
+      "updateAt": "2025-03-19T08:50:16.735Z",
       "viewType": "table",
       "newPageNameFormat": "{{date:YYYYMMDDHHmmss}} ",
       "properties": [
@@ -41,28 +72,28 @@
           "options": {}
         },
         {
-          "id": "309a2f3e-df12-4d59-80d8-fa010d85d3c4",
+          "id": "98b32128-3650-41a6-85a0-676efbd9ee27",
           "name": "dateStart",
           "isShow": true,
-          "type": "datetime",
+          "type": "date",
           "options": {}
         },
         {
-          "id": "5be1aebd-5eee-41e2-b0fd-6238620dcf14",
-          "name": "dateFinish",
+          "id": "42ff5bbe-a556-4f5a-8c17-64c21aea425c",
+          "name": "datef",
           "isShow": true,
-          "type": "datetime",
+          "type": "text",
           "options": {}
         },
         {
-          "id": "a502b493-0ff0-497c-be05-3b5304104f3a",
+          "id": "1af2025a-c772-424a-8f02-20cd3a6a8de3",
           "name": "finished",
           "isShow": true,
           "type": "checkbox",
           "options": {}
         },
         {
-          "id": "2e55c937-5919-4a3f-aa14-a45e9cf23655",
+          "id": "9a1d2684-c65e-4f7e-9a90-b262b26a84f7",
           "name": "remainTime",
           "isShow": true,
           "type": "formula",
@@ -73,7 +104,7 @@
       ],
       "templates": [
         {
-          "id": "4c3c0426-f6ed-4b04-b6c6-70cd6f728f2d",
+          "id": "1593b69c-a279-4fae-af64-aacc6c3ad31a",
           "path": "Template/Project Module.md",
           "name": "Project Module.md",
           "type": "normal"
@@ -98,12 +129,12 @@
         "collapseds": []
       },
       "filter": {
-        "id": "a3715235-2d3f-462d-9b51-d1c63bd72e30",
+        "id": "860e4ff9-1fc3-4595-8758-184e430100d7",
         "type": "group",
         "operator": "and",
         "conditions": [
           {
-            "id": "c5131aed-cfe1-4506-9cce-74d5fb16b228",
+            "id": "1d5f382e-541c-4fb5-b816-ea674de1d0d2",
             "type": "jsQuery",
             "operator": "contains",
             "property": "${file.tags}",
@@ -111,7 +142,7 @@
             "conditions": []
           },
           {
-            "id": "7f4b9708-4d81-4cf6-9d51-8788c7849717",
+            "id": "0989b147-d66c-4998-a4af-0521b333b5b8",
             "type": "jsQuery",
             "operator": "contains",
             "property": "${file.tags}",
@@ -119,7 +150,7 @@
             "conditions": []
           },
           {
-            "id": "0111b88e-5d9f-4478-aa54-b7853561ea74",
+            "id": "604c07f6-9e02-4fb0-86aa-7def8b4bd987",
             "type": "jsQuery",
             "operator": "contains",
             "property": "${file.tags}",
@@ -127,18 +158,24 @@
             "conditions": []
           }
         ]
-      },
-      "sort": {
-        "orders": [
-          {
-            "id": "4b6fb215-2d45-46e7-af0f-07bcfc658036",
-            "property": "dateFinish",
-            "direction": "desc",
-            "disabled": true
-          }
-        ]
       }
+    },
+    {
+      "id": "b8f04444-596e-4446-92b3-f4cacbe5f5e7",
+      "type": "dateProgress",
+      "titleAlign": "center",
+      "tabTitle": "",
+      "maxWidthRatio": -1,
+      "showBorder": true,
+      "showShadow": true,
+      "createAt": "2025-03-19T08:50:29.962Z",
+      "updateAt": "2025-03-19T08:50:29.962Z",
+      "showDateIndicator": true,
+      "showProgressIndicator": true,
+      "startDateTimeType": "$specifiedDateTime",
+      "endDateTimeType": "$specifiedDateTime",
+      "uiType": "ring"
     }
   ],
-  "rootComponentId": "41dc3bda-6661-4f35-9f53-f852b4e362da"
+  "rootComponentId": "866bf390-cf35-42ee-a8e6-e68bf1da911a"
 }
