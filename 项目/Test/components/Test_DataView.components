@@ -102,14 +102,7 @@
           }
         }
       ],
-      "templates": [
-        {
-          "id": "1593b69c-a279-4fae-af64-aacc6c3ad31a",
-          "path": "Template/Project Module.md",
-          "name": "Project Module.md",
-          "type": "normal"
-        }
-      ],
+      "templates": [],
       "groups": [],
       "colorfulGroups": false,
       "viewOptions": {
@@ -155,6 +148,14 @@
             "operator": "contains",
             "property": "${file.tags}",
             "value": "$item.filePath != $parentFile.filePath",
+            "conditions": []
+          },
+          {
+            "id": "e62ba7a1-a908-4c12-a996-b52921059445",
+            "type": "jsQuery",
+            "operator": "contains",
+            "property": "${file.tags}",
+            "value": "$item.frontmatter?.projectType == \"Module\"",
             "conditions": []
           }
         ]

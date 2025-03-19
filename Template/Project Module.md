@@ -16,6 +16,7 @@ tp.user.copyComponent(vaultPath, "ProjectModuleDataView", `${projDir}/components
 tags: <%projectName%>/<%moduleName%>
 type: Project
 project: <%projectName%>
+projectType: Module
 fileDirPath: <%fileDirPath%>
 dateStart: <%tp.date.now("YYYY-MM-DD")%>
 dateFinish: <%tp.date.now("YYYY-MM-DD")%>

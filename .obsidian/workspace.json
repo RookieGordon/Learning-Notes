@@ -11,29 +11,30 @@
             "id": "aa5f1bbbea62bade",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "components-file-view",
               "state": {
-                "file": "项目/Test/Test.md",
-                "mode": "source",
-                "source": false
+                "file": "components/view/ProjectDataView.components"
               },
-              "icon": "lucide-file",
-              "title": "Test"
+              "icon": "gantt-chart",
+              "title": "ProjectDataView"
             }
           },
           {
             "id": "f2e7d35581655e23",
             "type": "leaf",
             "state": {
-              "type": "components-file-view",
+              "type": "markdown",
               "state": {
-                "file": "components/view/ProjectModuleDataView.components"
+                "file": "项目/Test/TestModule1/Module1.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "gantt-chart",
-              "title": "ProjectModuleDataView"
+              "icon": "lucide-file",
+              "title": "Module1"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -225,28 +226,28 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "aa5f1bbbea62bade",
+  "active": "f2e7d35581655e23",
   "lastOpenFiles": [
-    "项目/Test/TestModule2/Module2.md",
+    "项目/Test/TestModule1/Task1.md",
     "项目/Test/TestModule1/Module1.md",
     "项目/Test/Test.md",
+    "项目/Test/components/Test_ModuleDataView.components",
+    "项目/Test/components/Test_DataView.components",
+    "项目/Test/components",
     "components/view/ProjectModuleDataView.components",
     "components/view/ProjectDataView.components",
-    "项目/Test/TestModule1/Task1.md",
+    "Template/Project Task.md",
     "Template/Project Module.md",
-    "项目/Test/TestModule2/Task2.md",
     "Template/Project.md",
+    "项目/Test/TestModule2/Task2.md",
+    "项目/Test/TestModule2/Module2.md",
     "Template/Course.md",
     "Template/Course Chapter.md",
     "Template/Course Task.md",
-    "Template/Project Task.md",
     "项目/Test/TestModule2",
-    "项目/Test/components/Test_ModuleDataView.components",
     "项目/Test/components/Test_Module1_ModuleDataView.components",
-    "项目/Test/components/Test_DataView.components",
     "项目/Test/componenst/Test_Module1_ModuleDataView.components",
     "项目/Test/componenst",
-    "项目/Test/components",
     "components/view/Test_DataView.components",
     "Untitled.md",
     "课程和练习/数据结构/树/四叉树，场景管理/四叉树.md",
@@ -261,7 +262,6 @@
     "项目/ET8.1/ET8.1.md",
     "项目/ET8.1/网络框架/邮箱组件.md",
     "未命名.md",
-    "项目/ET8.1/网络框架/未命名.md",
     "未命名.canvas",
     "项目/ET8.1/网络框架/attachments/服务器消息流转.drawio.svg",
     "项目/ET8.1/网络框架/attachments/客户端消息流转.drawio.svg",

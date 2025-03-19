@@ -156,6 +156,14 @@
             "property": "${file.tags}",
             "value": "$item.filePath != $parentFile.filePath",
             "conditions": []
+          },
+          {
+            "id": "94992584-bdc4-4555-abd4-8de7602b6d86",
+            "type": "jsQuery",
+            "operator": "contains",
+            "property": "${file.tags}",
+            "value": "$item.frontmatter?projectType == \"Task\"",
+            "conditions": []
           }
         ]
       }
