@@ -1,9 +1,9 @@
 <%*
 let projectName = tp.file.folder();
 let fileDirPath = tp.file.folder(true);
-tp.file.create_new();
 
 let newComponentName =  `{projectName}DataView`;
+console.log();
 tp.user.copyComponentFile(tp.app.vault.root,"ProjectDataView", newComponentName);
 -%>
 ---

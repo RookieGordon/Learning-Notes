@@ -11,5 +11,4 @@ function copyComponentFile(VaultPath, componentName, newName) {
         console.log('文件拷贝成功!');
     });
 }
-
 module.exports = copyComponentFile;
