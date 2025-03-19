@@ -2,6 +2,10 @@
 let fileDirPath = tp.file.folder(true);
 let projectName = fileDirPath.split('/')[paths.length - 2];
 let moduleName = tp.file.title;
+
+let newComponentName = `${projectName}ModuleDataView`;
+let vaultPath = tp.user.getVaultPath(tp.file.path(), tp.app.vault.getName());
+tp.user.copyComponent(vaultPath, "ProjectModuleDataView", newComponentName);
 -%>
 ---
 tags: <%projectName%>/<%moduleName%>
@@ -16,6 +20,7 @@ finished: false
 
 # <%moduleName%>模块设计思路
  *TODO*
-# 子任务列表
+ 
+![[<%newComponentName%>.components]]
 
 
