@@ -32,6 +32,8 @@ static Task<int> Foo2()
     return Task.Delay(1000).ContinueWith(_=> 1);  
 }
 ```
-以上两个方法是等价的，
+以上两个方法是等价的
+## 异步任务不是必须await的
+
 
 
