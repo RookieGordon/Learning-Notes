@@ -18,7 +18,20 @@ private static async Task<string> DelayTest()
     return "Delay Done";  
 }
 ```
-上面两个方法都能实现等待1秒的效果，但是区别在于，`Thread.Sleep`会阻塞主线程，但是`Task.Delay`则不会。
-
+上面两个方法都能实现等待1秒的效果，但是区别在于，`Thread.Sleep`会阻塞调用方所在的线程，但是`Task.Delay`则不会。
+## 异步方法不是必须要有async/await关键字的
+```C#
+static async Task<int> Foo1()  
+{  
+    await Task.Delay(1000);  
+    return 1;  
+}  
+  
+static Task<int> Foo2()  
+{  
+    return Task.Delay(1000).ContinueWith(_=> 1);  
+}
+```
+以上两个方法是等价的，
 
 
