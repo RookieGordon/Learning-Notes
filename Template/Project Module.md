@@ -1,11 +1,15 @@
 <%*
-let projectName = tp.file.folder();
+let filePath = tp.file.path(true)
+let paths = filePath.split('/')
+let projectName = paths[paths.length - 2]
+
 let moduleName = tp.file.title;
 -%>
 ---
 tags: <%projectName%>/<%moduleName%>
 type: Project
 project: <%projectName%>
+fileDirPath: <%fileDirPath%>
 dateStart: <%tp.date.now("YYYY-MM-DD")%>
 dateFinish: <%tp.date.now("YYYY-MM-DD")%>
 finished: false

@@ -71,7 +71,14 @@
           }
         }
       ],
-      "templates": [],
+      "templates": [
+        {
+          "id": "4c3c0426-f6ed-4b04-b6c6-70cd6f728f2d",
+          "path": "Template/Project Module.md",
+          "name": "Project Module.md",
+          "type": "normal"
+        }
+      ],
       "groups": [],
       "colorfulGroups": false,
       "viewOptions": {
@@ -118,6 +125,16 @@
             "property": "${file.tags}",
             "value": "$item.filePath != $parentFile.filePath",
             "conditions": []
+          }
+        ]
+      },
+      "sort": {
+        "orders": [
+          {
+            "id": "4b6fb215-2d45-46e7-af0f-07bcfc658036",
+            "property": "dateFinish",
+            "direction": "desc",
+            "disabled": true
           }
         ]
       }
