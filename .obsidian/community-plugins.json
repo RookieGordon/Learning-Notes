@@ -6,7 +6,8 @@
   "moredraw",
   "templater-obsidian",
   "customjs",
-  "components",
   "pexels-banner",
-  "metadata-hider"
+  "metadata-hider",
+  "components",
+  "obsidian-memos"
 ]
