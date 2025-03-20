@@ -1,7 +1,8 @@
 {
-  "todoPageName": "MyTodo",
+  "todoPageName": "myTodo",
   "showChecked": false,
   "showAllTodos": true,
+  "showOnlyActiveFile": false,
   "autoRefresh": true,
   "subGroups": false,
   "groupBy": "page",

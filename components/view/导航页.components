@@ -38,10 +38,10 @@
               "h": 4
             },
             "laptop": {
-              "x": 8,
+              "x": 7,
               "y": 0,
-              "w": 4,
-              "h": 22
+              "w": 5,
+              "h": 23
             }
           }
         },
@@ -203,7 +203,7 @@
       "showShadow": false,
       "createAt": "2025-03-17T15:53:41.007Z",
       "updateAt": "2025-03-17T15:53:41.007Z",
-      "viewType": "list",
+      "viewType": "kanban",
       "newPageNameFormat": "{{date:YYYYMMDDHHmmss}} ",
       "properties": [
         {
@@ -238,17 +238,33 @@
         "openPageIn": "tab",
         "openPageAfterCreate": true,
         "items": [],
-        "pinFiltersToMenuBar": false,
+        "pinFiltersToMenuBar": true,
         "showGrid": false,
         "heightType": "auto",
         "heightValue": 600
       },
       "groupStates": {
         "sort": "nameAsc",
+        "format": "none",
         "statics": [],
         "orders": [],
         "hiddens": [],
         "collapseds": []
+      },
+      "filter": {
+        "id": "3553cfa3-ee96-4310-9127-4513147d6b90",
+        "type": "group",
+        "operator": "and",
+        "conditions": [
+          {
+            "id": "6eea0cc3-4853-4cdb-bbaa-a96e5e0747a1",
+            "type": "filter",
+            "operator": "contains",
+            "property": "${file.tags}",
+            "value": "#mytodo",
+            "conditions": []
+          }
+        ]
       }
     },
     {

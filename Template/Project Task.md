@@ -7,7 +7,7 @@ let moduleName = tp.file.folder();
 let taskName = tp.file.title;
 -%>
 ---
-tags: <%projectName%>/<%moduleName%>/<%taskName%>
+tags: <%projectName%>/<%moduleName%>/<%taskName%> mytodo
 type: Project
 project: <%projectName%>
 projectType: Task
