@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "导航/主页.md",
+                "file": "记录/工作/Work Todo.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "主页"
+              "title": "Work Todo"
             }
           }
         ]
@@ -208,12 +208,12 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "226fa1583cfbc27b",
+  "active": "aa5f1bbbea62bade",
   "lastOpenFiles": [
+    "导航/主页.md",
     "components/view/导航页.components",
     "components/view/ProjectDataView.components",
     "components/view/ProjectModuleDataView.components",
-    "导航/主页.md",
     "Template/Course.md",
     "Template/Project.md",
     "Template/Project Module.md",
