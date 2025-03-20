@@ -41,7 +41,7 @@
               "x": 7,
               "y": 0,
               "w": 5,
-              "h": 23
+              "h": 34
             }
           }
         },
@@ -212,7 +212,9 @@
           "type": "text",
           "isShow": true,
           "wrap": false,
-          "options": {}
+          "options": {
+            "width": "476"
+          }
         },
         {
           "id": "654c7d63-8aaa-47cd-bfc8-8080e4157a4e",
@@ -220,24 +222,43 @@
           "isShow": true,
           "type": "taskList",
           "options": {
-            "showTaskList": false,
+            "showTaskList": true,
             "showAllTasks": false,
             "hideTaskFields": false,
             "timeRecordStyle": "none",
             "insertPosition": {
               "position": "BottomOfNote",
               "headingLine": ""
-            }
+            },
+            "width": "221"
           }
+        },
+        {
+          "id": "8432d860-fe6b-410f-94d2-d5a41877db74",
+          "name": "type",
+          "isShow": true,
+          "type": "text",
+          "options": {}
         }
       ],
       "templates": [],
       "groups": [],
-      "colorfulGroups": false,
+      "colorfulGroups": true,
       "viewOptions": {
         "openPageIn": "tab",
         "openPageAfterCreate": true,
+        "itemSize": "components--page-card-medium",
+        "showPropertyName": true,
+        "showAllProperties": false,
         "items": [],
+        "cover": {
+          "type": "image",
+          "source": "property",
+          "fit": "contains",
+          "layout": "components--page-card-cover-landscape",
+          "position": "top",
+          "sourceValue": "banner"
+        },
         "pinFiltersToMenuBar": true,
         "showGrid": false,
         "heightType": "auto",
@@ -248,7 +269,9 @@
         "format": "none",
         "statics": [],
         "orders": [],
-        "hiddens": [],
+        "hiddens": [
+          "__$uncategorizedGroup"
+        ],
         "collapseds": []
       },
       "filter": {
@@ -257,7 +280,7 @@
         "operator": "and",
         "conditions": [
           {
-            "id": "6eea0cc3-4853-4cdb-bbaa-a96e5e0747a1",
+            "id": "b086395c-d940-4903-84d5-76d6f141da27",
             "type": "filter",
             "operator": "contains",
             "property": "${file.tags}",
@@ -265,7 +288,8 @@
             "conditions": []
           }
         ]
-      }
+      },
+      "groupBy": "type"
     },
     {
       "id": "124ac149-fece-4256-8abe-3f6e3ad92222",
