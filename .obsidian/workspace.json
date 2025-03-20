@@ -218,14 +218,23 @@
               "icon": "checkmark",
               "title": "Todo List"
             }
+          },
+          {
+            "id": "05d147c0b041b98b",
+            "type": "leaf",
+            "state": {
+              "type": "git-view",
+              "state": {},
+              "icon": "git-pull-request",
+              "title": "Source Control"
+            }
           }
         ],
-        "currentTab": 10
+        "currentTab": 11
       }
     ],
     "direction": "horizontal",
-    "width": 218.5,
-    "collapsed": true
+    "width": 409.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -238,10 +247,16 @@
       "obsidian-git:Open Git source control": false,
       "moredraw:MoreDraw": false,
       "templater-obsidian:Templater": false,
-      "obsidian-memos:Thino": false
+      "obsidian-memos:Thino": false,
+      "obsidian-excalidraw-plugin:新建绘图文件": false,
+      "obsidian-importer:Open Importer": false,
+      "vscode-editor:新建代码文件": false,
+      "pdf-plus:PDF++: Toggle auto-copy": false,
+      "pdf-plus:PDF++: Toggle auto-focus": false,
+      "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "683819fb5be5071b",
+  "active": "89a66892aa3b87ae",
   "lastOpenFiles": [
     "components/view/ProjectDataView.components",
     "components/view/ProjectModuleDataView.components",
