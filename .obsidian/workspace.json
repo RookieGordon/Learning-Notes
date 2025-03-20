@@ -179,8 +179,8 @@
             "state": {
               "type": "todo",
               "state": {},
-              "icon": "checkmark",
-              "title": "Todo List"
+              "icon": "lucide-file",
+              "title": "插件不再活动"
             }
           },
           {
@@ -189,12 +189,22 @@
             "state": {
               "type": "reminder-list",
               "state": {},
-              "icon": "clock",
-              "title": "Reminders"
+              "icon": "lucide-file",
+              "title": "插件不再活动"
+            }
+          },
+          {
+            "id": "a77ee812a312dd42",
+            "type": "leaf",
+            "state": {
+              "type": "todo",
+              "state": {},
+              "icon": "checkmark",
+              "title": "Todo List"
             }
           }
         ],
-        "currentTab": 5
+        "currentTab": 7
       }
     ],
     "direction": "horizontal",
@@ -211,21 +221,10 @@
       "dbfolder:创建一个新数据库表": false,
       "obsidian-git:Open Git source control": false,
       "moredraw:MoreDraw": false,
-      "templater-obsidian:Templater": false,
-      "widgets:Add widget": false,
-      "obsidian-excalidraw-plugin:新建绘图文件": false,
-      "obsidian-importer:Open Importer": false,
-      "markdown-table-editor:Open Markdown Table Editor": false,
-      "obsidian-memos:Thino": false,
-      "timelines-revamped:Insert Timeline Event": false,
-      "timelines-revamped:Insert Timeline Event (Frontmatter)": false,
-      "vscode-editor:新建代码文件": false,
-      "pdf-plus:PDF++: Toggle auto-copy": false,
-      "pdf-plus:PDF++: Toggle auto-focus": false,
-      "pdf-plus:PDF++: Toggle auto-paste": false
+      "templater-obsidian:Templater": false
     }
   },
-  "active": "aa5f1bbbea62bade",
+  "active": "a77ee812a312dd42",
   "lastOpenFiles": [
     "components/view/导航页.components",
     "Template/Course.md",
