@@ -41,7 +41,7 @@
               "x": 8,
               "y": 0,
               "w": 4,
-              "h": 16
+              "h": 22
             }
           }
         },
@@ -213,6 +213,22 @@
           "isShow": true,
           "wrap": false,
           "options": {}
+        },
+        {
+          "id": "654c7d63-8aaa-47cd-bfc8-8080e4157a4e",
+          "name": "todoTask",
+          "isShow": true,
+          "type": "taskList",
+          "options": {
+            "showTaskList": false,
+            "showAllTasks": false,
+            "hideTaskFields": false,
+            "timeRecordStyle": "none",
+            "insertPosition": {
+              "position": "BottomOfNote",
+              "headingLine": ""
+            }
+          }
         }
       ],
       "templates": [],
