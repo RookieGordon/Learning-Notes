@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "收藏夹/面试题/面试集锦.md",
+                "file": "收藏夹/面试题/深入xLua实现原理之Lua如何调用C.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "面试集锦"
+              "title": "深入xLua实现原理之Lua如何调用C"
             }
           }
         ]
@@ -78,7 +78,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 321.5
+    "width": 395.5,
+    "collapsed": true
   },
   "right": {
     "id": "be1e91dfcb57ce3b",
@@ -142,13 +143,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "收藏夹/面试题/面试集锦.md",
+                "file": "收藏夹/面试题/深入xLua实现原理之Lua如何调用C.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "面试集锦 的大纲"
+              "title": "深入xLua实现原理之Lua如何调用C 的大纲"
             }
           },
           {
@@ -211,7 +212,8 @@
   },
   "active": "b27c636e0ddf5686",
   "lastOpenFiles": [
-    "Slurped Pages/深入xLua实现原理之Lua如何调用C.md",
+    "收藏夹/面试题/面试集锦.md",
+    "收藏夹/面试题/深入xLua实现原理之Lua如何调用C.md",
     "收藏夹/面试题/第四十篇，C++虚函数底层实现原理和多态的实现。_c++ 多个基类虚函数同名子类如何实现的问题-CSDN博客.md",
     "HTML import/深入xLua实现原理之Lua如何调用C - iwiniwin - 博客园.md",
     "HTML import",
@@ -252,7 +254,6 @@
     "Excalidraw/Map.md",
     "Template/Course Chapter.md",
     "Slurped Pages/URP源码阅读之GI.md",
-    "Slurped Pages/A星算法优化（一）启发函数_a算法启发式函数怎么设-CSDN博客.md",
     "components/view/ProjectModuleDataView.components",
     "项目/Test/components/Test_ModuleDataView.components",
     "项目/Test/components/Test_DataView.components",
