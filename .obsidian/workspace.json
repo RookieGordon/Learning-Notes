@@ -11,12 +11,14 @@
             "id": "a1dad99c495c882d",
             "type": "leaf",
             "state": {
-              "type": "components-file-view",
+              "type": "markdown",
               "state": {
-                "file": "components/view/导航页.components"
+                "file": "导航/说明.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "gantt-chart",
-              "title": "导航页"
+              "icon": "lucide-file",
+              "title": "说明"
             }
           }
         ]
@@ -140,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "components/view/导航页.components",
+                "file": "导航/说明.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "导航页 的大纲"
+              "title": "说明 的大纲"
             }
           },
           {
@@ -209,12 +211,16 @@
   },
   "active": "a1dad99c495c882d",
   "lastOpenFiles": [
-    "记录/工作/Work Todo.md",
+    "导航/主页.md",
+    "导航/说明.md",
     "components/view/导航页.components",
+    "项目/Test/Test.md",
+    "Template/Project.md",
+    "Template/Course Task.md",
+    "记录/工作/Work Todo.md",
     "components/view/ProjectDataView.components",
     "项目/Test/TestModule1/Task3.md",
     "Template/Project Task.md",
-    "Template/Course Task.md",
     "Template/Project Module.md",
     "项目/Test/TestModule1/Task1.md",
     "Excalidraw/Map.md",
@@ -225,12 +231,9 @@
     "记录/日常/生活小记.md",
     "记录/工作/面试题/面试集锦.md",
     "HTML import/XLua 中 Lua 与 C 交互 - 豆包.md",
-    "导航/主页.md",
     "HTML import",
     "components/view/ProjectModuleDataView.components",
     "Template/Course.md",
-    "Template/Project.md",
-    "项目/Test/Test.md",
     "项目/Test/TestModule2/Module2.md",
     "项目/Test/TestModule2/Task2.md",
     "项目/Test/TestModule1/Module1.md",

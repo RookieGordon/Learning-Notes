@@ -6,7 +6,7 @@ let vaultPath = tp.user.getVaultPath(tp.file.path(), tp.app.vault.getName());
 tp.user.copyComponent(vaultPath, "ProjectDataView", `${fileDirPath}/components`, newComponentName);
 -%>
 ---
-tags: <%projectName%>
+tags: <%projectName%> home
 type: Project
 project: <%projectName%>
 projectType: Project

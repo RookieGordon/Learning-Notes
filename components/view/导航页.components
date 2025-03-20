@@ -91,7 +91,7 @@
       ],
       "templates": [],
       "groups": [],
-      "colorfulGroups": false,
+      "colorfulGroups": true,
       "viewOptions": {
         "openPageIn": "tab",
         "openPageAfterCreate": false,
@@ -101,12 +101,13 @@
         "items": [],
         "cover": {
           "type": "image",
-          "source": "default",
+          "source": "property",
           "fit": "contains",
           "layout": "components--page-card-cover-landscape",
-          "position": "top"
+          "position": "top",
+          "sourceValue": "banner"
         },
-        "pinFiltersToMenuBar": false,
+        "pinFiltersToMenuBar": true,
         "showGrid": false,
         "heightType": "auto",
         "heightValue": 600
@@ -121,22 +122,53 @@
       "filter": {
         "id": "a3715235-2d3f-462d-9b51-d1c63bd72e30",
         "type": "group",
-        "operator": "or",
+        "operator": "and",
         "conditions": [
           {
-            "id": "0e8fc7e3-5389-469d-9ea7-8c5f991ccec2",
-            "type": "jsQuery",
-            "operator": "contains",
-            "property": "${file.tags}",
-            "value": "$item.frontmatter?.type == \"Project\" && $item.frontmatter?.projectType == \"Project\"",
-            "conditions": []
+            "id": "1fce0e88-afb1-4245-8935-529b2ec877fa",
+            "type": "group",
+            "operator": "or",
+            "conditions": [
+              {
+                "id": "9c34cf54-d5e7-4e56-904e-a972cbf4a2ff",
+                "type": "filter",
+                "operator": "contains",
+                "property": "type",
+                "value": "Daily",
+                "conditions": []
+              },
+              {
+                "id": "0c64adba-8d4b-48a2-94f9-c1d81c37f4fc",
+                "type": "filter",
+                "operator": "contains",
+                "property": "type",
+                "value": "Project",
+                "conditions": []
+              },
+              {
+                "id": "f874c19c-49be-4bcd-9593-5f52df85ab7d",
+                "type": "filter",
+                "operator": "contains",
+                "property": "type",
+                "value": "Study",
+                "conditions": []
+              },
+              {
+                "id": "88f6a96f-377d-4e51-b3a5-868d71636c2d",
+                "type": "filter",
+                "operator": "contains",
+                "property": "type",
+                "value": "Work",
+                "conditions": []
+              }
+            ]
           },
           {
-            "id": "b84d3250-5be1-4c14-8869-252c3f873878",
-            "type": "jsQuery",
+            "id": "af487db8-dc3e-47eb-a05f-5fd11b13758f",
+            "type": "filter",
             "operator": "contains",
             "property": "${file.tags}",
-            "value": "$item.frontmatter?.type == \"Study\" && $item.frontmatter?.projectType == \"Course\"",
+            "value": "#home",
             "conditions": []
           }
         ]
@@ -224,8 +256,8 @@
           "options": {
             "showTaskList": true,
             "showAllTasks": false,
-            "hideTaskFields": false,
-            "timeRecordStyle": "none",
+            "hideTaskFields": true,
+            "timeRecordStyle": "tasks",
             "insertPosition": {
               "position": "BottomOfNote",
               "headingLine": ""
