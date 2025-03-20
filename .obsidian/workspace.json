@@ -14,7 +14,7 @@
               "type": "markdown",
               "state": {
                 "file": "导航/主页.md",
-                "mode": "source",
+                "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
@@ -211,6 +211,7 @@
   },
   "active": "89a66892aa3b87ae",
   "lastOpenFiles": [
+    "components/images",
     "导航/说明.md",
     "导航/主页.md",
     "工作/工作排期和任务安排.md",
@@ -246,7 +247,6 @@
     "项目/Test/components/Test_DataView.components",
     "项目/Test/components",
     "项目/Test/TestModule2",
-    "Untitled.md",
     "未命名.canvas",
     "项目/ET8.1/网络框架/attachments/服务器消息流转.drawio.svg",
     "项目/ET8.1/网络框架/attachments/客户端消息流转.drawio.svg",

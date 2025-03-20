@@ -220,10 +220,14 @@
       "showShadow": true,
       "createAt": "2025-03-17T15:52:11.286Z",
       "updateAt": "2025-03-17T15:52:11.286Z",
-      "showLunar": false,
+      "showLunar": true,
       "hideDateInfo": false,
       "hideSeconds": false,
-      "hideProgress": false
+      "hideProgress": false,
+      "backgroundImage": {
+        "fit": "contains",
+        "blurDegree": 30
+      }
     },
     {
       "id": "3108cdb1-19a9-460b-a385-972e7f293fde",
