@@ -205,12 +205,22 @@
             "state": {
               "type": "todo",
               "state": {},
+              "icon": "lucide-file",
+              "title": "插件不再活动"
+            }
+          },
+          {
+            "id": "683819fb5be5071b",
+            "type": "leaf",
+            "state": {
+              "type": "todo",
+              "state": {},
               "icon": "checkmark",
               "title": "Todo List"
             }
           }
         ],
-        "currentTab": 9
+        "currentTab": 10
       }
     ],
     "direction": "horizontal",
@@ -228,16 +238,10 @@
       "obsidian-git:Open Git source control": false,
       "moredraw:MoreDraw": false,
       "templater-obsidian:Templater": false,
-      "obsidian-excalidraw-plugin:新建绘图文件": false,
-      "obsidian-importer:Open Importer": false,
-      "obsidian-memos:Thino": false,
-      "vscode-editor:新建代码文件": false,
-      "pdf-plus:PDF++: Toggle auto-copy": false,
-      "pdf-plus:PDF++: Toggle auto-focus": false,
-      "pdf-plus:PDF++: Toggle auto-paste": false
+      "obsidian-memos:Thino": false
     }
   },
-  "active": "aa5f1bbbea62bade",
+  "active": "683819fb5be5071b",
   "lastOpenFiles": [
     "components/view/ProjectDataView.components",
     "components/view/ProjectModuleDataView.components",
