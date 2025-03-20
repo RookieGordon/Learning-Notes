@@ -11,12 +11,14 @@
             "id": "aa5f1bbbea62bade",
             "type": "leaf",
             "state": {
-              "type": "components-file-view",
+              "type": "markdown",
               "state": {
-                "file": "components/view/导航页.components"
+                "file": "导航/主页.md",
+                "mode": "preview",
+                "source": false
               },
-              "icon": "gantt-chart",
-              "title": "导航页"
+              "icon": "lucide-file",
+              "title": "主页"
             }
           }
         ]
@@ -160,63 +162,13 @@
             }
           },
           {
-            "id": "0e1d6bfae2b1a046",
-            "type": "leaf",
-            "state": {
-              "type": "todo",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "插件不再活动"
-            }
-          },
-          {
             "id": "226fa1583cfbc27b",
             "type": "leaf",
             "state": {
               "type": "reminder-list",
               "state": {},
-              "icon": "lucide-file",
-              "title": "插件不再活动"
-            }
-          },
-          {
-            "id": "a77ee812a312dd42",
-            "type": "leaf",
-            "state": {
-              "type": "todo",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "插件不再活动"
-            }
-          },
-          {
-            "id": "dbf733b227e516b6",
-            "type": "leaf",
-            "state": {
-              "type": "todo",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "插件不再活动"
-            }
-          },
-          {
-            "id": "f2f2e73906da14b1",
-            "type": "leaf",
-            "state": {
-              "type": "todo",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "插件不再活动"
-            }
-          },
-          {
-            "id": "683819fb5be5071b",
-            "type": "leaf",
-            "state": {
-              "type": "todo",
-              "state": {},
-              "icon": "checkmark",
-              "title": "Todo List"
+              "icon": "clock",
+              "title": "Reminders"
             }
           },
           {
@@ -230,7 +182,7 @@
             }
           }
         ],
-        "currentTab": 11
+        "currentTab": 5
       }
     ],
     "direction": "horizontal",
@@ -256,12 +208,12 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "89a66892aa3b87ae",
+  "active": "226fa1583cfbc27b",
   "lastOpenFiles": [
+    "components/view/导航页.components",
     "components/view/ProjectDataView.components",
     "components/view/ProjectModuleDataView.components",
     "导航/主页.md",
-    "components/view/导航页.components",
     "Template/Course.md",
     "Template/Project.md",
     "Template/Project Module.md",
