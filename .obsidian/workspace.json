@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "导航/说明.md",
+                "file": "工作/未命名.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "说明"
+              "title": "未命名"
             }
           }
         ]
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "导航/说明.md",
+                "file": "工作/未命名.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "说明 的大纲"
+              "title": "未命名 的大纲"
             }
           },
           {
@@ -212,16 +212,19 @@
   "active": "a1dad99c495c882d",
   "lastOpenFiles": [
     "导航/主页.md",
+    "工作/未命名.md",
+    "工作",
     "导航/说明.md",
+    "Template/Project.md",
+    "Template/Project Module.md",
+    "Template/Project Task.md",
+    "Template/Course Task.md",
+    "Template/Course.md",
     "components/view/导航页.components",
     "项目/Test/Test.md",
-    "Template/Project.md",
-    "Template/Course Task.md",
     "记录/工作/Work Todo.md",
     "components/view/ProjectDataView.components",
     "项目/Test/TestModule1/Task3.md",
-    "Template/Project Task.md",
-    "Template/Project Module.md",
     "项目/Test/TestModule1/Task1.md",
     "Excalidraw/Map.md",
     "Template/Course Chapter.md",
@@ -233,7 +236,6 @@
     "HTML import/XLua 中 Lua 与 C 交互 - 豆包.md",
     "HTML import",
     "components/view/ProjectModuleDataView.components",
-    "Template/Course.md",
     "项目/Test/TestModule2/Module2.md",
     "项目/Test/TestModule2/Task2.md",
     "项目/Test/TestModule1/Module1.md",
@@ -242,11 +244,9 @@
     "项目/Test/components",
     "项目/Test/TestModule2",
     "项目/Test/components/Test_Module1_ModuleDataView.components",
-    "项目/Test/componenst/Test_Module1_ModuleDataView.components",
     "Untitled.md",
     "课程和练习/数据结构/树/四叉树，场景管理/四叉树.md",
     "课程和练习/数据结构/树/红黑树/红黑树.md",
-    "课程和练习/CSharp异步编程/CSharp异步编程常见误区.md",
     "未命名.canvas",
     "项目/ET8.1/网络框架/attachments/服务器消息流转.drawio.svg",
     "项目/ET8.1/网络框架/attachments/客户端消息流转.drawio.svg",
