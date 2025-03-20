@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "导航/主页.md",
-                "mode": "preview",
+                "file": "HTML import/XLua 中 Lua 与 C 交互 - 豆包.md",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "主页"
+              "title": "XLua 中 Lua 与 C 交互 - 豆包"
             }
           }
         ]
@@ -143,13 +143,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Template/Project Task.md",
+                "file": "HTML import/XLua 中 Lua 与 C 交互 - 豆包.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Project Task 的大纲"
+              "title": "XLua 中 Lua 与 C 交互 - 豆包 的大纲"
             }
           },
           {
@@ -183,11 +183,11 @@
             }
           }
         ],
-        "currentTab": 5
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
-    "width": 409.5,
+    "width": 589.5,
     "collapsed": true
   },
   "left-ribbon": {
@@ -212,8 +212,10 @@
   },
   "active": "aa5f1bbbea62bade",
   "lastOpenFiles": [
-    "components/view/ProjectDataView.components",
     "导航/主页.md",
+    "HTML import/XLua 中 Lua 与 C 交互 - 豆包.md",
+    "HTML import",
+    "components/view/ProjectDataView.components",
     "记录/工作/Work Todo.md",
     "components/view/导航页.components",
     "components/view/ProjectModuleDataView.components",
@@ -234,7 +236,6 @@
     "项目/Test/TestModule2",
     "项目/Test/components/Test_Module1_ModuleDataView.components",
     "项目/Test/componenst/Test_Module1_ModuleDataView.components",
-    "项目/Test/componenst",
     "Untitled.md",
     "课程和练习/数据结构/树/四叉树，场景管理/四叉树.md",
     "课程和练习/数据结构/树/红黑树/红黑树.md",
