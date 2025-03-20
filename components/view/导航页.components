@@ -225,8 +225,9 @@
       "hideSeconds": false,
       "hideProgress": false,
       "backgroundImage": {
-        "fit": "contains",
-        "blurDegree": 30
+        "fit": "cover",
+        "blurDegree": 5,
+        "url": "components/images/pexels-thales13-31159802.jpg"
       }
     },
     {
