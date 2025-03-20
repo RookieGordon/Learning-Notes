@@ -33,7 +33,7 @@
           "layout": {
             "mobile": {
               "x": 0,
-              "y": 0,
+              "y": 4,
               "w": 4,
               "h": 4
             },
@@ -41,7 +41,7 @@
               "x": 7,
               "y": 0,
               "w": 5,
-              "h": 34
+              "h": 32
             }
           }
         },
@@ -50,7 +50,7 @@
           "layout": {
             "mobile": {
               "x": 0,
-              "y": 0,
+              "y": 8,
               "w": 4,
               "h": 4
             },
@@ -217,7 +217,7 @@
       "tabTitle": "",
       "maxWidthRatio": -1,
       "showBorder": true,
-      "showShadow": false,
+      "showShadow": true,
       "createAt": "2025-03-17T15:52:11.286Z",
       "updateAt": "2025-03-17T15:52:11.286Z",
       "showLunar": false,
@@ -279,7 +279,7 @@
       "viewOptions": {
         "openPageIn": "tab",
         "openPageAfterCreate": true,
-        "itemSize": "components--page-card-medium",
+        "itemSize": "components--page-card-small",
         "showPropertyName": true,
         "showAllProperties": false,
         "items": [],

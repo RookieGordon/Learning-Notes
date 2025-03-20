@@ -78,7 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 571.5
+    "width": 210.5
   },
   "right": {
     "id": "be1e91dfcb57ce3b",
@@ -209,17 +209,17 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "a1dad99c495c882d",
+  "active": "89a66892aa3b87ae",
   "lastOpenFiles": [
+    "导航/说明.md",
+    "导航/主页.md",
     "工作/工作排期和任务安排.md",
     "记录/日常/生活小记.md",
     "记录/工作/工作日程/2025年.md",
     "记录/工作/工作日程/2024年.md",
     "记录/工作/Work Todo.md",
-    "导航/主页.md",
     "生活",
     "工作",
-    "导航/说明.md",
     "Template/Project.md",
     "Template/Project Module.md",
     "Template/Project Task.md",
