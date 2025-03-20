@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "HTML import/面试集锦.md",
+                "file": "记录/工作/面试题/面试集锦.md",
                 "mode": "preview",
                 "source": false
               },
@@ -78,7 +78,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 468.5
+    "width": 468.5,
+    "collapsed": true
   },
   "right": {
     "id": "be1e91dfcb57ce3b",
@@ -142,7 +143,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "HTML import/面试集锦.md",
+                "file": "记录/工作/面试题/面试集锦.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -212,7 +213,7 @@
   "active": "aa5f1bbbea62bade",
   "lastOpenFiles": [
     "HTML import/XLua 中 Lua 与 C 交互 - 豆包.md",
-    "HTML import/面试集锦.md",
+    "记录/工作/面试题/面试集锦.md",
     "导航/主页.md",
     "HTML import",
     "components/view/ProjectDataView.components",
