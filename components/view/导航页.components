@@ -290,11 +290,11 @@
         "items": [],
         "cover": {
           "type": "image",
-          "source": "url",
+          "source": "property",
           "fit": "contains",
           "layout": "components--page-card-cover-landscape",
           "position": "top",
-          "sourceValue": "obsidian://open?vault=LearningNotes&file=pixel-banner-images%2F%E7%AB%A0%E8%8A%82%E4%BB%BB%E5%8A%A1.png"
+          "sourceValue": "displayIcon"
         },
         "pinFiltersToMenuBar": true,
         "showGrid": false,

@@ -27,28 +27,29 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "游戏开发技术探索/Unity开发技术/Unity开发技术探索.md",
+                "file": "游戏开发技术探索/Unity开发技术/动画性能优化/阅读风暴小队相关代码.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Unity开发技术探索"
+              "title": "阅读风暴小队相关代码"
             }
           },
           {
-            "id": "ee9c7ecf7d7cab76",
+            "id": "4b2c38d154750b5c",
             "type": "leaf",
             "state": {
-              "type": "image",
+              "type": "markdown",
               "state": {
-                "file": "pixel-banner-images/章节任务.png"
+                "file": "游戏开发技术探索/Unity开发技术/动画性能优化/Unity动画性能优化.md",
+                "mode": "preview",
+                "source": false
               },
-              "icon": "lucide-image",
-              "title": "章节任务"
+              "icon": "lucide-file",
+              "title": "Unity动画性能优化"
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -257,14 +258,14 @@
       "pexels-banner:🚩 Pixel Banner Menu": false
     }
   },
-  "active": "89a66892aa3b87ae",
+  "active": "638ad4dc7790bfd5",
   "lastOpenFiles": [
     "游戏开发技术探索/Unity开发技术/动画性能优化/阅读风暴小队相关代码.md",
-    "游戏开发技术探索/Unity开发技术/Unity开发技术探索.md",
-    "导航/主页.md",
-    "导航/说明.md",
-    "pixel-banner-images/章节任务.png",
     "游戏开发技术探索/Unity开发技术/动画性能优化/Unity动画性能优化.md",
+    "导航/主页.md",
+    "游戏开发技术探索/Unity开发技术/Unity开发技术探索.md",
+    "pixel-banner-images/章节任务.png",
+    "导航/说明.md",
     "Template/Course Task.md",
     "Template/Project.md",
     "Template/Project Task.md",
