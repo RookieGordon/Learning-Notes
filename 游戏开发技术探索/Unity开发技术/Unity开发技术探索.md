@@ -11,5 +11,6 @@ dateFinish: 2026-07-01
 cssclasses:
   - editor-full
 banner: "[[pixel-banner-images/308568238c744272b7817bd860d9476c.jpeg]]"
+icon: 💻
 ---
 ![[Unity开发技术_CourseView.components]]

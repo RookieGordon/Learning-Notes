@@ -1,8 +1,8 @@
 {
   "pixelBannerPlusEmail": "1322144566@qq.com",
   "pixelBannerPlusApiKey": " 940e3bce-9f12-49e2-bde2-aa8951629bb7",
-  "apiProvider": "all",
-  "pexelsApiKey": "",
+  "apiProvider": "pexels",
+  "pexelsApiKey": "vXttukaBa3CfwL4QmWFd5qV5pLU0h7NReAstc6NXay2ksuyQCFgrOD6A",
   "pixabayApiKey": "",
   "flickrApiKey": "",
   "unsplashApiKey": "",
