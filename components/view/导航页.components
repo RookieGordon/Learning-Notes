@@ -291,7 +291,7 @@
         "cover": {
           "type": "image",
           "source": "property",
-          "fit": "contains",
+          "fit": "cover",
           "layout": "components--page-card-cover-landscape",
           "position": "top",
           "sourceValue": "displayIcon"

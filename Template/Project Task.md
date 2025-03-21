@@ -15,6 +15,7 @@ fileDirPath: <%fileDirPath%>
 dateStart: <%tp.date.now("YYYY-MM-DD")%>
 dateFinish: <%tp.date.now("YYYY-MM-DD")%>
 finished: false
+displayIcon: pixel-banner-images/项目任务.png
 
 ---
 

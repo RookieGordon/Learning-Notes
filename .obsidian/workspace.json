@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "导航/主页.md",
-                "mode": "preview",
+                "file": "Template/Project Task.md",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "主页"
+              "title": "Project Task"
             }
           },
           {
@@ -41,15 +41,16 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "游戏开发技术探索/Unity开发技术/动画性能优化/Unity动画性能优化.md",
+                "file": "导航/主页.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Unity动画性能优化"
+              "title": "主页"
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -258,17 +259,18 @@
       "pexels-banner:🚩 Pixel Banner Menu": false
     }
   },
-  "active": "638ad4dc7790bfd5",
+  "active": "4b2c38d154750b5c",
   "lastOpenFiles": [
-    "游戏开发技术探索/Unity开发技术/动画性能优化/阅读风暴小队相关代码.md",
     "游戏开发技术探索/Unity开发技术/动画性能优化/Unity动画性能优化.md",
-    "导航/主页.md",
-    "游戏开发技术探索/Unity开发技术/Unity开发技术探索.md",
-    "pixel-banner-images/章节任务.png",
-    "导航/说明.md",
-    "Template/Course Task.md",
-    "Template/Project.md",
     "Template/Project Task.md",
+    "Template/Course Task.md",
+    "游戏开发技术探索/Unity开发技术/动画性能优化/阅读风暴小队相关代码.md",
+    "导航/主页.md",
+    "pixel-banner-images/项目任务.png",
+    "pixel-banner-images/章节任务.png",
+    "游戏开发技术探索/Unity开发技术/Unity开发技术探索.md",
+    "导航/说明.md",
+    "Template/Project.md",
     "pixel-banner-images/performance-optimization.jpg",
     "pixel-banner-images/308568238c744272b7817bd860d9476c.jpeg",
     "未命名.md",
@@ -304,7 +306,6 @@
     "pixel-banner-images/pexels-eberhardgross-691668.jpg",
     "pixel-banner-images/pexels-sanaan-3052361.jpg",
     "pixel-banner-images/pexels-caleb-falkenhagen-216813613-29973779.jpg",
-    "pixel-banner-images/pexels-optical-chemist-340351297-31225245.jpg",
     "未命名.canvas"
   ]
 }

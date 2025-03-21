@@ -16,6 +16,7 @@ dateStart: <%tp.date.now("YYYY-MM-DD")%>
 dateFinish: <%tp.date.now("YYYY-MM-DD")%>
 finished: false
 banner: Study
+displayIcon: pixel-banner-images/章节任务.png
 
 ---
 
