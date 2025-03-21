@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "导航/主页.md",
+                "file": "游戏开发技术探索/Unity开发技术/Unity开发技术探索.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "主页"
+              "title": "Unity开发技术探索"
             }
           },
           {
@@ -35,8 +35,7 @@
               "title": "Unity动画性能优化"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -93,8 +92,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 395.5,
-    "collapsed": true
+    "width": 395.5
   },
   "right": {
     "id": "be1e91dfcb57ce3b",
@@ -158,13 +156,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "游戏开发技术探索/Unity开发技术/动画性能优化/Unity动画性能优化.md",
+                "file": "游戏开发技术探索/Unity开发技术/Unity开发技术探索.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Unity动画性能优化 的大纲"
+              "title": "Unity开发技术探索 的大纲"
             }
           },
           {
@@ -235,11 +233,13 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "cf46780183eadb4e",
+  "active": "638ad4dc7790bfd5",
   "lastOpenFiles": [
     "导航/主页.md",
-    "游戏开发技术探索/Unity开发技术/Unity开发技术探索.md",
+    "components/images/308568238c744272b7817bd860d9476c.jpeg",
     "游戏开发技术探索/Unity开发技术/动画性能优化/Unity动画性能优化.md",
+    "游戏开发技术探索/Unity开发技术/Unity开发技术探索.md",
+    "components/images/308568238c744272b7817bd860d9476c.jpeg.crdownload",
     "components/view/ProjectModuleDataView.components",
     "components/view/ProjectDataView.components",
     "components/view/CourseView.components",
@@ -252,7 +252,6 @@
     "游戏开发技术探索/Unity/Unity开发技术探索.md",
     "Template/Project.md",
     "游戏开发技术探索/Unity/components/Unity_CourseView.components",
-    "游戏开发技术探索/Unity/components",
     "导航/说明.md",
     "游戏开发技术探索/Unity/动画性能优化/Unity动画性能优化.md",
     "Template/Course Task.md",
@@ -281,7 +280,6 @@
     "components/images/pexels-optical-chemist-340351297-31225243.jpg",
     "components/images/pexels-optical-chemist-340351297-31225230.jpg",
     "components/images/pexels-optical-chemist-340351297-31225263.jpg",
-    "components/images/pexels-lichtblick800-31230540.jpg",
     "未命名.canvas"
   ]
 }

@@ -76,7 +76,24 @@
   "customBannerIconVeritalOffsetField": [
     "icon-y"
   ],
-  "folderImages": [],
+  "folderImages": [
+    {
+      "folder": "components/images",
+      "image": "",
+      "imageDisplay": "cover",
+      "imageRepeat": false,
+      "yPosition": 50,
+      "xPosition": 50,
+      "contentStartPosition": 150,
+      "bannerHeight": 350,
+      "fade": -75,
+      "borderRadius": 17,
+      "titleColor": "var(--inline-title-color)",
+      "directChildrenOnly": false,
+      "enableImageShuffle": false,
+      "shuffleFolder": ""
+    }
+  ],
   "contentStartPosition": 150,
   "imageDisplay": "cover",
   "imageRepeat": false,
