@@ -181,9 +181,19 @@
               "icon": "git-pull-request",
               "title": "Source Control"
             }
+          },
+          {
+            "id": "4008a392529d0bb4",
+            "type": "leaf",
+            "state": {
+              "type": "todo",
+              "state": {},
+              "icon": "checkmark",
+              "title": "Todo List"
+            }
           }
         ],
-        "currentTab": 3
+        "currentTab": 7
       }
     ],
     "direction": "horizontal",
@@ -210,7 +220,7 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "b27c636e0ddf5686",
+  "active": "4008a392529d0bb4",
   "lastOpenFiles": [
     "收藏夹/面试题/面试集锦.md",
     "收藏夹/面试题/深入xLua实现原理之Lua如何调用C.md",
