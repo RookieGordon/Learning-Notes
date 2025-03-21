@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "游戏开发技术探索/Unity开发技术/动画性能优化/Unity动画性能优化.md",
+                "file": "导航/主页.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Unity动画性能优化"
+              "title": "主页"
             }
           }
         ]
@@ -78,7 +78,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 395.5
+    "width": 395.5,
+    "collapsed": true
   },
   "right": {
     "id": "be1e91dfcb57ce3b",
@@ -232,10 +233,10 @@
   },
   "active": "638ad4dc7790bfd5",
   "lastOpenFiles": [
-    "导航/主页.md",
     "导航/说明.md",
-    "游戏开发技术探索/Unity开发技术/Unity开发技术探索.md",
     "游戏开发技术探索/Unity开发技术/动画性能优化/Unity动画性能优化.md",
+    "导航/主页.md",
+    "游戏开发技术探索/Unity开发技术/Unity开发技术探索.md",
     "Template/Course Task.md",
     "Template/Project.md",
     "Template/Project Task.md",
