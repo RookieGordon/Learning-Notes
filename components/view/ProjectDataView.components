@@ -176,7 +176,7 @@
       "startDateTimeType": "$specifiedDateTime",
       "endDateTimeType": "$specifiedDateTime",
       "uiType": "ring",
-      "title": "剩余时长"
+      "title": "项目进度"
     }
   ],
   "rootComponentId": "866bf390-cf35-42ee-a8e6-e68bf1da911a"
