@@ -4,21 +4,19 @@
     "type": "split",
     "children": [
       {
-        "id": "56ebf6ba917b3893",
+        "id": "4f2edcadb9d7d01b",
         "type": "tabs",
         "children": [
           {
-            "id": "5f753c9baecc7b1e",
+            "id": "638ad4dc7790bfd5",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "components-file-view",
               "state": {
-                "file": "收藏夹/面试题/面试集锦.md",
-                "mode": "source",
-                "source": false
+                "file": "components/view/ProjectDataView.components"
               },
-              "icon": "lucide-file",
-              "title": "面试集锦"
+              "icon": "gantt-chart",
+              "title": "ProjectDataView"
             }
           }
         ]
@@ -143,13 +141,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "收藏夹/面试题/面试集锦.md",
+                "file": "components/view/ProjectDataView.components",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "面试集锦 的大纲"
+              "title": "ProjectDataView 的大纲"
             }
           },
           {
@@ -220,12 +218,17 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "5f753c9baecc7b1e",
+  "active": "638ad4dc7790bfd5",
   "lastOpenFiles": [
+    "Template/Project.md",
+    "项目/Test/Test.md",
+    "Template/Project Module.md",
+    "Template/Project Task.md",
+    "收藏夹/60个独立游戏的营销错误_60MistakesEbookV1.pdf",
+    "收藏夹/面试题/面试集锦.md",
     "收藏夹/面试题/60道计算机网络面试题(附答案，背诵版).md",
     "收藏夹/面试题/聊聊TCP协议的粘包、拆包以及http是如何解决的？_什么是tcp粘包,拆包。解决方式是什么-CSDN博客.md",
     "收藏夹/面试题/深入xLua实现原理之Lua如何调用C.md",
-    "收藏夹/面试题/面试集锦.md",
     "收藏夹/面试题/第四十篇，C++虚函数底层实现原理和多态的实现。_c++ 多个基类虚函数同名子类如何实现的问题-CSDN博客.md",
     "HTML import/深入xLua实现原理之Lua如何调用C - iwiniwin - 博客园.md",
     "HTML import",
@@ -237,8 +240,6 @@
     "导航/说明.md",
     "components/view/导航页.components",
     "components/view/ProjectDataView.components",
-    "Template/Project Module.md",
-    "Template/Project.md",
     "components/images/pexels-pok-rie-33563-2049422.jpg",
     "components/images/pexels-maoriginalphotography-1485894.jpg",
     "components/images/pexels-eberhardgross-691668.jpg",
@@ -257,17 +258,13 @@
     "记录/工作/Work Todo.md",
     "生活",
     "工作",
-    "Template/Project Task.md",
     "Template/Course Task.md",
     "Template/Course.md",
-    "项目/Test/Test.md",
     "项目/Test/TestModule1/Task3.md",
     "项目/Test/TestModule1/Task1.md",
-    "Excalidraw/Map.md",
     "components/view/ProjectModuleDataView.components",
     "项目/Test/components/Test_ModuleDataView.components",
     "项目/Test/components/Test_DataView.components",
-    "项目/Test/components",
     "未命名.canvas"
   ]
 }
