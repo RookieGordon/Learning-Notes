@@ -11,12 +11,14 @@
             "id": "638ad4dc7790bfd5",
             "type": "leaf",
             "state": {
-              "type": "components-file-view",
+              "type": "markdown",
               "state": {
-                "file": "components/view/ProjectDataView.components"
+                "file": "项目/Unity/踩坑记录/杂项.md",
+                "mode": "preview",
+                "source": false
               },
-              "icon": "gantt-chart",
-              "title": "ProjectDataView"
+              "icon": "lucide-file",
+              "title": "杂项"
             }
           }
         ]
@@ -76,8 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 395.5,
-    "collapsed": true
+    "width": 395.5
   },
   "right": {
     "id": "be1e91dfcb57ce3b",
@@ -141,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "components/view/ProjectDataView.components",
+                "file": "项目/Unity/踩坑记录/杂项.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "ProjectDataView 的大纲"
+              "title": "杂项 的大纲"
             }
           },
           {
@@ -218,8 +219,14 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "638ad4dc7790bfd5",
+  "active": "89a66892aa3b87ae",
   "lastOpenFiles": [
+    "未命名",
+    "项目/技术探索",
+    "工作/工作排期和任务安排.md",
+    "项目/WOW",
+    "components/view/导航页.components",
+    "components/view/ProjectDataView.components",
     "Template/Project.md",
     "项目/Test/Test.md",
     "Template/Project Module.md",
@@ -238,8 +245,6 @@
     "收藏夹/面试题/Lua全知识点详细汇总（基础知识+面向对象+面试重点）_lua面试基础知识点-CSDN博客.md",
     "导航/主页.md",
     "导航/说明.md",
-    "components/view/导航页.components",
-    "components/view/ProjectDataView.components",
     "components/images/pexels-pok-rie-33563-2049422.jpg",
     "components/images/pexels-maoriginalphotography-1485894.jpg",
     "components/images/pexels-eberhardgross-691668.jpg",
@@ -251,7 +256,6 @@
     "components/images/pexels-optical-chemist-340351297-31225263.jpg",
     "components/images/pexels-lichtblick800-31230540.jpg",
     "components/images",
-    "工作/工作排期和任务安排.md",
     "记录/日常/生活小记.md",
     "记录/工作/工作日程/2025年.md",
     "记录/工作/工作日程/2024年.md",
@@ -263,8 +267,6 @@
     "项目/Test/TestModule1/Task3.md",
     "项目/Test/TestModule1/Task1.md",
     "components/view/ProjectModuleDataView.components",
-    "项目/Test/components/Test_ModuleDataView.components",
-    "项目/Test/components/Test_DataView.components",
     "未命名.canvas"
   ]
 }
