@@ -14,14 +14,41 @@
               "type": "markdown",
               "state": {
                 "file": "导航/主页.md",
-                "mode": "source",
+                "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
               "title": "主页"
             }
+          },
+          {
+            "id": "d7cd261b5e97f84b",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "游戏开发技术探索/Unity开发技术/Unity开发技术探索.md",
+                "mode": "preview",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Unity开发技术探索"
+            }
+          },
+          {
+            "id": "ee9c7ecf7d7cab76",
+            "type": "leaf",
+            "state": {
+              "type": "image",
+              "state": {
+                "file": "pixel-banner-images/章节任务.png"
+              },
+              "icon": "lucide-image",
+              "title": "章节任务"
+            }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -78,8 +105,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 395.5,
-    "collapsed": true
+    "width": 395.5
   },
   "right": {
     "id": "be1e91dfcb57ce3b",
@@ -231,16 +257,17 @@
       "pexels-banner:🚩 Pixel Banner Menu": false
     }
   },
-  "active": "638ad4dc7790bfd5",
+  "active": "89a66892aa3b87ae",
   "lastOpenFiles": [
-    "导航/说明.md",
-    "游戏开发技术探索/Unity开发技术/动画性能优化/Unity动画性能优化.md",
-    "导航/主页.md",
+    "游戏开发技术探索/Unity开发技术/动画性能优化/阅读风暴小队相关代码.md",
     "游戏开发技术探索/Unity开发技术/Unity开发技术探索.md",
+    "导航/主页.md",
+    "导航/说明.md",
+    "pixel-banner-images/章节任务.png",
+    "游戏开发技术探索/Unity开发技术/动画性能优化/Unity动画性能优化.md",
     "Template/Course Task.md",
     "Template/Project.md",
     "Template/Project Task.md",
-    "游戏开发技术探索/Unity开发技术/动画性能优化/阅读风暴小队相关代码.md",
     "pixel-banner-images/performance-optimization.jpg",
     "pixel-banner-images/308568238c744272b7817bd860d9476c.jpeg",
     "未命名.md",
@@ -271,14 +298,12 @@
     "收藏夹/面试题/60道计算机网络面试题(附答案，背诵版).md",
     "收藏夹/面试题/聊聊TCP协议的粘包、拆包以及http是如何解决的？_什么是tcp粘包,拆包。解决方式是什么-CSDN博客.md",
     "收藏夹/面试题/深入xLua实现原理之Lua如何调用C.md",
-    "收藏夹/面试题/第四十篇，C++虚函数底层实现原理和多态的实现。_c++ 多个基类虚函数同名子类如何实现的问题-CSDN博客.md",
     "pixel-banner-images/pexels-pok-rie-33563-2049422.jpg",
     "pixel-banner-images/pexels-maoriginalphotography-1485894.jpg",
     "pixel-banner-images/pexels-eberhardgross-691668.jpg",
     "pixel-banner-images/pexels-sanaan-3052361.jpg",
     "pixel-banner-images/pexels-caleb-falkenhagen-216813613-29973779.jpg",
     "pixel-banner-images/pexels-optical-chemist-340351297-31225245.jpg",
-    "pixel-banner-images/pexels-optical-chemist-340351297-31225243.jpg",
     "未命名.canvas"
   ]
 }
