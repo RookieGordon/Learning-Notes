@@ -1,6 +1,6 @@
 {
-  "pixelBannerPlusEmail": "",
-  "pixelBannerPlusApiKey": "",
+  "pixelBannerPlusEmail": "1322144566@qq.com",
+  "pixelBannerPlusApiKey": " 940e3bce-9f12-49e2-bde2-aa8951629bb7",
   "apiProvider": "all",
   "pexelsApiKey": "",
   "pixabayApiKey": "",
@@ -81,7 +81,24 @@
   "customFlagColorField": [
     "pixel-banner-flag-color"
   ],
-  "folderImages": [],
+  "folderImages": [
+    {
+      "folder": "pixel-banner-images",
+      "image": "",
+      "imageDisplay": "cover",
+      "imageRepeat": false,
+      "yPosition": 50,
+      "xPosition": 50,
+      "contentStartPosition": 150,
+      "bannerHeight": 350,
+      "fade": -75,
+      "borderRadius": 17,
+      "titleColor": "var(--inline-title-color)",
+      "directChildrenOnly": false,
+      "enableImageShuffle": false,
+      "shuffleFolder": ""
+    }
+  ],
   "contentStartPosition": 355,
   "imageDisplay": "cover",
   "imageRepeat": false,
