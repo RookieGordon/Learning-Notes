@@ -13,30 +13,15 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Template/Project.md",
-                "mode": "preview",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Project"
-            }
-          },
-          {
-            "id": "dd0a30145aa0c989",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Template/Course.md",
+                "file": "游戏开发技术探索/Unity开发技术/Unity开发技术探索.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Course"
+              "title": "Unity开发技术探索"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -157,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Template/Course.md",
+                "file": "游戏开发技术探索/Unity开发技术/Unity开发技术探索.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Course 的大纲"
+              "title": "Unity开发技术探索 的大纲"
             }
           },
           {
@@ -234,32 +219,36 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "dd0a30145aa0c989",
+  "active": "638ad4dc7790bfd5",
   "lastOpenFiles": [
-    "Template/Course Task.md",
-    "Template/Course Module.md",
+    "游戏开发技术探索/Unity开发技术/动画性能优化/Unity动画性能优化.md",
+    "游戏开发技术探索/Unity开发技术/components/Unity开发技术_ChapterView.components",
+    "游戏开发技术探索/Unity开发技术/Unity开发技术探索.md",
+    "游戏开发技术探索/Unity开发技术/动画性能优化",
+    "游戏开发技术探索/Unity开发技术/components/Unity开发技术_CourseView.components",
+    "游戏开发技术探索/Unity开发技术/components",
+    "游戏开发技术探索/Unity/Unity开发技术探索.md",
+    "Template/Project.md",
     "Template/Course.md",
     "components/view/ChapterView.components",
     "components/view/CourseView.components",
-    "components/view/ProjectModuleDataView - 副本.components",
-    "components/view/ProjectDataView - 副本.components",
+    "游戏开发技术探索/Unity/components/Unity_CourseView.components",
+    "游戏开发技术探索/Unity/components",
     "导航/说明.md",
     "导航/主页.md",
+    "游戏开发技术探索/Unity/动画性能优化/Unity动画性能优化.md",
+    "游戏开发技术探索/Unity/components/Unity_ChapterView.components",
+    "游戏开发技术探索/Unity/动画性能优化",
+    "Template/Course Task.md",
+    "Template/Course Module.md",
     "Template/Project Module.md",
     "Template/Course Module - 副本.md",
     "Template/Project - 副本.md",
     "Template/Project Task - 副本.md",
     "Template/Project Module - 副本.md",
-    "Template/Project.md",
     "Template/Project Task.md",
     "项目/Unity/踩坑记录/杂项.md",
-    "游戏开发技术探索/CSharp",
-    "游戏开发技术探索/Unity",
-    "游戏开发技术探索",
-    "项目/技术探索",
     "工作/工作排期和任务安排.md",
-    "项目/WOW",
-    "components/view/导航页.components",
     "项目/Test/Test.md",
     "收藏夹/面试题/面试集锦.md",
     "收藏夹/面试题/60道计算机网络面试题(附答案，背诵版).md",
@@ -267,10 +256,6 @@
     "收藏夹/面试题/深入xLua实现原理之Lua如何调用C.md",
     "收藏夹/面试题/第四十篇，C++虚函数底层实现原理和多态的实现。_c++ 多个基类虚函数同名子类如何实现的问题-CSDN博客.md",
     "HTML import/深入xLua实现原理之Lua如何调用C - iwiniwin - 博客园.md",
-    "收藏夹/面试题/面向对象的三大特性-CSDN博客.md",
-    "收藏夹/面试题/面向对象编程三大特性------封装、继承、多态-CSDN博客.md",
-    "收藏夹/面试题/C#面试宝典 2022年 60个常见的C#面试问题和答案.md",
-    "收藏夹/面试题/Lua全知识点详细汇总（基础知识+面向对象+面试重点）_lua面试基础知识点-CSDN博客.md",
     "components/images/pexels-pok-rie-33563-2049422.jpg",
     "components/images/pexels-maoriginalphotography-1485894.jpg",
     "components/images/pexels-eberhardgross-691668.jpg",

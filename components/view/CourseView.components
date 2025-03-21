@@ -131,7 +131,7 @@
             "type": "jsQuery",
             "operator": "contains",
             "property": "${file.tags}",
-            "value": "$item.frontmatter.project != null",
+            "value": "$item.frontmatter.course != null",
             "conditions": []
           },
           {
@@ -139,7 +139,7 @@
             "type": "jsQuery",
             "operator": "contains",
             "property": "${file.tags}",
-            "value": "$item.frontmatter?.project == $parentFile.frontmatter?.project",
+            "value": "$item.frontmatter?.course == $parentFile.frontmatter?.course",
             "conditions": []
           },
           {
@@ -155,7 +155,7 @@
             "type": "jsQuery",
             "operator": "contains",
             "property": "${file.tags}",
-            "value": "$item.frontmatter?.projectType == \"Module\"",
+            "value": "$item.frontmatter?.courseType == \"Chapter\"",
             "conditions": []
           }
         ]

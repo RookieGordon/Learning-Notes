@@ -41,7 +41,7 @@
               "x": 9,
               "y": 0,
               "w": 1,
-              "h": 8
+              "h": 9
             }
           }
         }
@@ -102,14 +102,7 @@
           }
         }
       ],
-      "templates": [
-        {
-          "id": "b26d8ba8-9428-4218-afd4-7705ec9ead35",
-          "path": "Template/Project Task.md",
-          "name": "Project Task.md",
-          "type": "normal"
-        }
-      ],
+      "templates": [],
       "groups": [],
       "colorfulGroups": false,
       "viewOptions": {
@@ -146,7 +139,7 @@
             "type": "jsQuery",
             "operator": "contains",
             "property": "${file.tags}",
-            "value": "$item.filePath.startsWith($parentFile.fileParent)",
+            "value": "$item.frontmatter?.course == $parentFile.frontmatter?.course",
             "conditions": []
           },
           {
@@ -158,11 +151,11 @@
             "conditions": []
           },
           {
-            "id": "94992584-bdc4-4555-abd4-8de7602b6d86",
+            "id": "e62ba7a1-a908-4c12-a996-b52921059445",
             "type": "jsQuery",
             "operator": "contains",
             "property": "${file.tags}",
-            "value": "$item.frontmatter?.courseType == \"Section\"",
+            "value": "$item.frontmatter?.courseType == \"Chapter\"",
             "conditions": []
           }
         ]
@@ -183,7 +176,7 @@
       "startDateTimeType": "$specifiedDateTime",
       "endDateTimeType": "$specifiedDateTime",
       "uiType": "ring",
-      "title": "剩余时长"
+      "title": ""
     }
   ],
   "rootComponentId": "866bf390-cf35-42ee-a8e6-e68bf1da911a"
