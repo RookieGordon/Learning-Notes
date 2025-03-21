@@ -13,20 +13,6 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "游戏开发技术探索/Unity开发技术/Unity开发技术探索.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Unity开发技术探索"
-            }
-          },
-          {
-            "id": "cd176cab257636bb",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
                 "file": "游戏开发技术探索/Unity开发技术/动画性能优化/Unity动画性能优化.md",
                 "mode": "source",
                 "source": false
@@ -34,23 +20,8 @@
               "icon": "lucide-file",
               "title": "Unity动画性能优化"
             }
-          },
-          {
-            "id": "809912ba4cb6969a",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Template/Course Task.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Course Task"
-            }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -259,14 +230,16 @@
       "pexels-banner:🚩 Pixel Banner Menu": false
     }
   },
-  "active": "809912ba4cb6969a",
+  "active": "638ad4dc7790bfd5",
   "lastOpenFiles": [
+    "导航/主页.md",
+    "导航/说明.md",
+    "游戏开发技术探索/Unity开发技术/Unity开发技术探索.md",
+    "游戏开发技术探索/Unity开发技术/动画性能优化/Unity动画性能优化.md",
+    "Template/Course Task.md",
     "Template/Project.md",
     "Template/Project Task.md",
-    "导航/主页.md",
-    "游戏开发技术探索/Unity开发技术/动画性能优化/Unity动画性能优化.md",
     "游戏开发技术探索/Unity开发技术/动画性能优化/阅读风暴小队相关代码.md",
-    "游戏开发技术探索/Unity开发技术/Unity开发技术探索.md",
     "pixel-banner-images/performance-optimization.jpg",
     "pixel-banner-images/308568238c744272b7817bd860d9476c.jpeg",
     "未命名.md",
@@ -283,9 +256,7 @@
     "游戏开发技术探索/Unity开发技术/components/Unity开发技术_CourseView.components",
     "游戏开发技术探索/Unity开发技术/components",
     "游戏开发技术探索/Unity/Unity开发技术探索.md",
-    "导航/说明.md",
     "游戏开发技术探索/Unity/动画性能优化/Unity动画性能优化.md",
-    "Template/Course Task.md",
     "Template/Course Module.md",
     "Template/Project Module.md",
     "Template/Course Module - 副本.md",

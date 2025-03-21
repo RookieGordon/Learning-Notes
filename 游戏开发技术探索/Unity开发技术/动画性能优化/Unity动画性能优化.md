@@ -13,7 +13,9 @@ icon: 🤺
 ---
 # Unity动画性能优化模块设计思路
  *TODO*
- 
+ 现有一个UI平面设计要求：
+1、主题是章节学习小结；
+2、主题是涂鸦风格；
 # 任务列表
 ![[Unity开发技术_ChapterView.components]]
 
