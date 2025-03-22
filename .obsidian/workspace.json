@@ -200,13 +200,24 @@
               "icon": "git-pull-request",
               "title": "Source Control"
             }
+          },
+          {
+            "id": "d0494b47d80afa02",
+            "type": "leaf",
+            "state": {
+              "type": "moredraw-iframe-view",
+              "state": {},
+              "icon": "moredraw-icon",
+              "title": "MoreDraw"
+            }
           }
         ],
-        "currentTab": 3
+        "currentTab": 6
       }
     ],
     "direction": "horizontal",
-    "width": 505.5
+    "width": 505.5,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
