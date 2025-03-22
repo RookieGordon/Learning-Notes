@@ -323,6 +323,14 @@
             "property": "${file.tags}",
             "value": "#mytodo",
             "conditions": []
+          },
+          {
+            "id": "97080de8-8872-42a4-ad5f-99d417e5d30a",
+            "type": "filter",
+            "operator": "contains",
+            "property": "${file.tags}",
+            "value": "",
+            "conditions": []
           }
         ]
       },
