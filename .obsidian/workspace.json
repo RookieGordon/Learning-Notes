@@ -172,13 +172,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "未命名.md",
+                "file": "收藏夹/面试题/面试集锦.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "未命名 的大纲"
+              "title": "面试集锦 的大纲"
             }
           },
           {
@@ -187,8 +187,8 @@
             "state": {
               "type": "reminder-list",
               "state": {},
-              "icon": "lucide-file",
-              "title": "插件不再活动"
+              "icon": "clock",
+              "title": "Reminders"
             }
           },
           {
@@ -200,54 +200,13 @@
               "icon": "git-pull-request",
               "title": "Source Control"
             }
-          },
-          {
-            "id": "4008a392529d0bb4",
-            "type": "leaf",
-            "state": {
-              "type": "todo",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "插件不再活动"
-            }
-          },
-          {
-            "id": "c4e827dbc060f425",
-            "type": "leaf",
-            "state": {
-              "type": "todo",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "插件不再活动"
-            }
-          },
-          {
-            "id": "389bac5a1a0a3624",
-            "type": "leaf",
-            "state": {
-              "type": "todo",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "插件不再活动"
-            }
-          },
-          {
-            "id": "22980117f6182987",
-            "type": "leaf",
-            "state": {
-              "type": "todo",
-              "state": {},
-              "icon": "checkmark",
-              "title": "Todo List"
-            }
           }
         ],
-        "currentTab": 9
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
-    "width": 589.5,
-    "collapsed": true
+    "width": 505.5
   },
   "left-ribbon": {
     "hiddenItems": {
