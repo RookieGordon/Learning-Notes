@@ -1,13 +1,12 @@
 [
   "obsidian-style-settings",
   "plugin-manager",
-  "dbfolder",
   "obsidian-git",
-  "moredraw",
-  "templater-obsidian",
   "customjs",
   "metadata-hider",
   "components",
-  "obsidian-memos",
+  "obsidian-reminder-plugin",
+  "editing-toolbar",
+  "obsidian-advanced-codeblock",
   "pexels-banner"
 ]

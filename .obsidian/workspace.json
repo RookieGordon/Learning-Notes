@@ -181,16 +181,6 @@
             }
           },
           {
-            "id": "045bf2c613ce4261",
-            "type": "leaf",
-            "state": {
-              "type": "moredraw-iframe-view",
-              "state": {},
-              "icon": "moredraw-icon",
-              "title": "MoreDraw"
-            }
-          },
-          {
             "id": "226fa1583cfbc27b",
             "type": "leaf",
             "state": {
@@ -226,12 +216,32 @@
             "state": {
               "type": "todo",
               "state": {},
+              "icon": "lucide-file",
+              "title": "插件不再活动"
+            }
+          },
+          {
+            "id": "389bac5a1a0a3624",
+            "type": "leaf",
+            "state": {
+              "type": "todo",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "插件不再活动"
+            }
+          },
+          {
+            "id": "22980117f6182987",
+            "type": "leaf",
+            "state": {
+              "type": "todo",
+              "state": {},
               "icon": "checkmark",
               "title": "Todo List"
             }
           }
         ],
-        "currentTab": 8
+        "currentTab": 9
       }
     ],
     "direction": "horizontal",
@@ -240,26 +250,18 @@
   },
   "left-ribbon": {
     "hiddenItems": {
+      "pexels-banner:🚩 Pixel Banner Menu": false,
       "switcher:打开快速切换": false,
       "graph:查看关系图谱": false,
       "canvas:新建白板": false,
       "daily-notes:打开/创建今天的日记": false,
       "command-palette:打开命令面板": false,
-      "dbfolder:创建一个新数据库表": false,
       "obsidian-git:Open Git source control": false,
-      "moredraw:MoreDraw": false,
-      "templater-obsidian:Templater": false,
-      "obsidian-memos:Thino": false,
       "obsidian-excalidraw-plugin:新建绘图文件": false,
-      "obsidian-importer:Open Importer": false,
-      "vscode-editor:新建代码文件": false,
-      "pdf-plus:PDF++: Toggle auto-copy": false,
-      "pdf-plus:PDF++: Toggle auto-focus": false,
-      "pdf-plus:PDF++: Toggle auto-paste": false,
-      "pexels-banner:🚩 Pixel Banner Menu": false
+      "moredraw:MoreDraw": false
     }
   },
-  "active": "4b2c38d154750b5c",
+  "active": "22980117f6182987",
   "lastOpenFiles": [
     "游戏开发技术探索/Unity开发技术/动画性能优化/Unity动画性能优化.md",
     "Template/Project Task.md",

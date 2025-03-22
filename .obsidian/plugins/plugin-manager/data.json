@@ -2,12 +2,12 @@
   "pluginArr": {
     "obsidian-advanced-codeblock": {
       "id": "obsidian-advanced-codeblock",
-      "delay": 3000,
+      "delay": 0,
       "enabled": true
     },
     "obsidian-annotator": {
       "id": "obsidian-annotator",
-      "delay": 3000,
+      "delay": 8000,
       "enabled": true
     },
     "any-block": {
@@ -17,22 +17,22 @@
     },
     "attachment-flow-plugin": {
       "id": "attachment-flow-plugin",
-      "delay": 1000,
+      "delay": 8000,
       "enabled": true
     },
     "auto-card-link": {
       "id": "auto-card-link",
-      "delay": 2000,
+      "delay": 8000,
       "enabled": true
     },
     "obsidian-checklist-plugin": {
       "id": "obsidian-checklist-plugin",
-      "delay": 2000,
+      "delay": 8000,
       "enabled": true
     },
     "collapse-node": {
       "id": "collapse-node",
-      "delay": 2000,
+      "delay": 8000,
       "enabled": true
     },
     "dataview": {
@@ -42,17 +42,17 @@
     },
     "dbfolder": {
       "id": "dbfolder",
-      "delay": 2000,
-      "enabled": true
+      "delay": 0,
+      "enabled": false
     },
     "editing-toolbar": {
       "id": "editing-toolbar",
-      "delay": 3000,
+      "delay": 0,
       "enabled": true
     },
     "obsidian-excalidraw-plugin": {
       "id": "obsidian-excalidraw-plugin",
-      "delay": 5000,
+      "delay": 8000,
       "enabled": true
     },
     "obsidian-git": {
@@ -63,7 +63,7 @@
     "obsidian-importer": {
       "id": "obsidian-importer",
       "delay": 5000,
-      "enabled": true
+      "enabled": false
     },
     "link-favicon": {
       "id": "link-favicon",
@@ -77,7 +77,7 @@
     },
     "obsidian-markmind": {
       "id": "obsidian-markmind",
-      "delay": 2000,
+      "delay": 3000,
       "enabled": false
     },
     "note-gallery": {
@@ -87,7 +87,7 @@
     },
     "pdf-plus": {
       "id": "pdf-plus",
-      "delay": 6000,
+      "delay": 8000,
       "enabled": true
     },
     "plugin-manager": {
@@ -97,12 +97,12 @@
     },
     "quickadd": {
       "id": "quickadd",
-      "delay": 5000,
+      "delay": 8000,
       "enabled": false
     },
     "obsidian-reminder-plugin": {
       "id": "obsidian-reminder-plugin",
-      "delay": 2000,
+      "delay": 0,
       "enabled": true
     },
     "slurp": {
@@ -117,12 +117,12 @@
     },
     "tag-wrangler": {
       "id": "tag-wrangler",
-      "delay": 4000,
+      "delay": 8000,
       "enabled": true
     },
     "templater-obsidian": {
       "id": "templater-obsidian",
-      "delay": 0,
+      "delay": 8000,
       "enabled": false
     },
     "timelines-revamped": {
@@ -132,7 +132,7 @@
     },
     "vscode-editor": {
       "id": "vscode-editor",
-      "delay": 6000,
+      "delay": 8000,
       "enabled": true
     },
     "google-calendar": {
@@ -142,7 +142,37 @@
     },
     "obsidian-memos": {
       "id": "obsidian-memos",
-      "delay": 5000,
+      "delay": 8000,
+      "enabled": true
+    },
+    "components": {
+      "id": "components",
+      "delay": 0,
+      "enabled": true
+    },
+    "customjs": {
+      "id": "customjs",
+      "delay": 0,
+      "enabled": true
+    },
+    "obsidian-kanban": {
+      "id": "obsidian-kanban",
+      "delay": 0,
+      "enabled": false
+    },
+    "metadata-hider": {
+      "id": "metadata-hider",
+      "delay": 0,
+      "enabled": true
+    },
+    "moredraw": {
+      "id": "moredraw",
+      "delay": 8000,
+      "enabled": true
+    },
+    "pexels-banner": {
+      "id": "pexels-banner",
+      "delay": 0,
       "enabled": true
     }
   }
