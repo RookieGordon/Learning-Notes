@@ -317,7 +317,7 @@
         "operator": "and",
         "conditions": [
           {
-            "id": "b086395c-d940-4903-84d5-76d6f141da27",
+            "id": "b74adbdf-02c7-4a05-840b-49dda941d469",
             "type": "filter",
             "operator": "contains",
             "property": "${file.tags}",
@@ -325,10 +325,10 @@
             "conditions": []
           },
           {
-            "id": "97080de8-8872-42a4-ad5f-99d417e5d30a",
+            "id": "f8937e8b-3e5f-4e6e-b677-eca667981767",
             "type": "filter",
-            "operator": "contains",
-            "property": "${file.tags}",
+            "operator": "unchecked",
+            "property": "finished",
             "value": "",
             "conditions": []
           }
