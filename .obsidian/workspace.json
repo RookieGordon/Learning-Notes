@@ -106,8 +106,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 395.5,
-    "collapsed": true
+    "width": 395.5
   },
   "right": {
     "id": "be1e91dfcb57ce3b",
@@ -206,8 +205,8 @@
             "state": {
               "type": "moredraw-iframe-view",
               "state": {},
-              "icon": "moredraw-icon",
-              "title": "MoreDraw"
+              "icon": "lucide-file",
+              "title": "插件不再活动"
             }
           }
         ],
@@ -226,14 +225,7 @@
       "canvas:新建白板": false,
       "daily-notes:打开/创建今天的日记": false,
       "command-palette:打开命令面板": false,
-      "obsidian-git:Open Git source control": false,
-      "obsidian-excalidraw-plugin:新建绘图文件": false,
-      "moredraw:MoreDraw": false,
-      "vscode-editor:新建代码文件": false,
-      "obsidian-memos:Thino": false,
-      "pdf-plus:PDF++: Toggle auto-copy": false,
-      "pdf-plus:PDF++: Toggle auto-focus": false,
-      "pdf-plus:PDF++: Toggle auto-paste": false
+      "obsidian-git:Open Git source control": false
     }
   },
   "active": "4b2c38d154750b5c",
