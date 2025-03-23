@@ -11,12 +11,14 @@
             "id": "75ba927bb67b3d00",
             "type": "leaf",
             "state": {
-              "type": "image",
+              "type": "markdown",
               "state": {
-                "file": "HTML import/Attachments/v2-1cdbfcf07644a98948a0daa8b96977f5_l(1).jpg"
+                "file": "Clippings/关于静态批处理动态批处理GPU Instancing SRP Batcher的详细剖析.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-image",
-              "title": "v2-1cdbfcf07644a98948a0daa8b96977f5_l(1)"
+              "icon": "lucide-file",
+              "title": "关于静态批处理动态批处理GPU Instancing SRP Batcher的详细剖析"
             }
           }
         ]
@@ -240,6 +242,12 @@
   },
   "active": "75ba927bb67b3d00",
   "lastOpenFiles": [
+    "游戏开发技术探索/Unity开发技术/动画性能优化/未命名.md",
+    "Clippings/关于静态批处理动态批处理GPU Instancing SRP Batcher的详细剖析.md",
+    "Clippings",
+    "游戏开发技术探索/Unity开发技术/动画性能优化/gpu instancing animation代替骨骼动画的做法_urp gpu animation 烘焙骨骼信息-CSDN博客.md",
+    "游戏开发技术探索/Unity开发技术/Unity开发技术探索.md",
+    "HTML import/Attachments/v2-1cdbfcf07644a98948a0daa8b96977f5_l(1).jpg",
     "HTML import/Attachments/v2-0dde54b930bef9c768c10d3c79126e16_1440w.jpg",
     "HTML import/Attachments/liukanshan-peek.a71ecf3e.png",
     "HTML import/Attachments/v2-0a018307970f9cc3182d8ceda62e6a65_l.jpg",
@@ -251,8 +259,6 @@
     "HTML import/Attachments/v2-4812630bc27d642f7cafcd6cdeca3d7a(1).jpg",
     "HTML import/Attachments/v2-abed1a8c04700ba7d72b45195223e0ff_l.jpg",
     "HTML import/Attachments/v2-eddff773f01e3d407ee25d1b2175b685_l.jpg",
-    "HTML import/Attachments/v2-ae8dcdc8d1ba393b3a42e0ca182e89e8_l.jpg",
-    "HTML import/Attachments/v2-f0a7d7b67349aadbd7a98025c917c561_l(1).jpg",
     "HTML import/Attachments/v2-59aa202bf84300c9b6218a73869b5abe_1440w.image",
     "HTML import/Attachments",
     "HTML import",
@@ -263,7 +269,6 @@
     "components/view/ProjectModuleDataView.components",
     "游戏开发技术探索/Unity开发技术/动画性能优化/阅读风暴小队相关代码.md",
     "游戏开发技术探索/Unity开发技术/动画性能优化/整理学习动画烘焙代码.md",
-    "游戏开发技术探索/Unity开发技术/动画性能优化/gpu instancing animation代替骨骼动画的做法_urp gpu animation 烘焙骨骼信息-CSDN博客.md",
     "HTML import/Unity3d杂记骨骼蒙皮动画 - 知乎.md",
     "导航/主页.md",
     "Template/Course Task.md",
@@ -279,13 +284,10 @@
     "收藏夹/面试题/聊聊TCP协议的粘包、拆包以及http是如何解决的？_什么是tcp粘包,拆包。解决方式是什么-CSDN博客.md",
     "收藏夹/面试题/C#高级语法之泛型、泛型约束，类型安全、逆变和协变（思想原理）-腾讯云开发者社区-腾讯云.md",
     "Template/Project Task.md",
-    "游戏开发技术探索/Unity开发技术/Unity开发技术探索.md",
     "Template/Project.md",
     "未命名.md",
     "pixel-banner-images",
     "components/images/308568238c744272b7817bd860d9476c.jpeg.crdownload",
-    "components/view/ProjectDataView.components",
-    "Template/Course.md",
     "未命名.canvas"
   ]
 }
