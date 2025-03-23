@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "导航/说明.md",
-                "mode": "preview",
-                "source": true
+                "file": "游戏开发技术探索/Unity开发技术/动画性能优化/Unity中的GPU动画.md",
+                "mode": "source",
+                "source": false
               },
               "icon": "lucide-file",
-              "title": "说明"
+              "title": "Unity中的GPU动画"
             }
           }
         ]
@@ -78,8 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 395.5,
-    "collapsed": true
+    "width": 395.5
   },
   "right": {
     "id": "be1e91dfcb57ce3b",
@@ -242,10 +241,11 @@
   },
   "active": "75ba927bb67b3d00",
   "lastOpenFiles": [
+    "游戏开发技术探索/Unity开发技术/动画性能优化/Unity动画性能优化.md",
+    "导航/说明.md",
     "Template/Project Module.md",
     "Template/Course Module.md",
     "components/view/ProjectModuleDataView.components",
-    "游戏开发技术探索/Unity开发技术/动画性能优化/Unity动画性能优化.md",
     "游戏开发技术探索/Unity开发技术/动画性能优化/Unity中的GPU动画.md",
     "游戏开发技术探索/Unity开发技术/动画性能优化/阅读风暴小队相关代码.md",
     "游戏开发技术探索/Unity开发技术/动画性能优化/整理学习动画烘焙代码.md",
@@ -266,7 +266,6 @@
     "导航/主页.md",
     "Template/Course Task.md",
     "components/view/导航页.components",
-    "导航/说明.md",
     "工作/工作排期和任务安排.md",
     "收藏夹/杂项.md",
     "components/view/导航页 1.components",
