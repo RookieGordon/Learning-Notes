@@ -44,23 +44,6 @@
               "h": 32
             }
           }
-        },
-        {
-          "componentId": "124ac149-fece-4256-8abe-3f6e3ad92222",
-          "layout": {
-            "mobile": {
-              "x": 0,
-              "y": 8,
-              "w": 4,
-              "h": 4
-            },
-            "laptop": {
-              "x": 0,
-              "y": 21,
-              "w": 6,
-              "h": 7
-            }
-          }
         }
       ],
       "layoutType": "grid",
@@ -335,35 +318,6 @@
         ]
       },
       "groupBy": "type"
-    },
-    {
-      "id": "124ac149-fece-4256-8abe-3f6e3ad92222",
-      "type": "timeLine",
-      "titleAlign": "center",
-      "tabTitle": "",
-      "maxWidthRatio": -1,
-      "showBorder": true,
-      "showShadow": false,
-      "createAt": "2025-03-18T03:59:04.214Z",
-      "updateAt": "2025-03-18T03:59:04.214Z",
-      "filter": {
-        "id": "f3ce38b5-d95f-41fa-ab31-07b0bfddcfbf",
-        "type": "group",
-        "operator": "and",
-        "conditions": []
-      },
-      "sort": {
-        "orders": []
-      },
-      "nodeCover": {
-        "type": "none"
-      },
-      "titleElement": {
-        "properties": []
-      },
-      "subtitleElement": {
-        "properties": []
-      }
     }
   ],
   "rootComponentId": "4ec972ca-be5b-41de-93b9-a9e32227fd6d"
