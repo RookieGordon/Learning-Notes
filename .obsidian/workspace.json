@@ -13,30 +13,15 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "导航/主页.md",
+                "file": "游戏开发技术探索/Unity开发技术/动画性能优化/阅读风暴小队相关代码.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "主页"
-            }
-          },
-          {
-            "id": "2af429e5f36168f4",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Template/Course Task.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Course Task"
+              "title": "阅读风暴小队相关代码"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -253,13 +238,15 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "2af429e5f36168f4",
+  "active": "75ba927bb67b3d00",
   "lastOpenFiles": [
-    "游戏开发技术探索/Unity开发技术/动画性能优化/阅读风暴小队相关代码.md",
-    "导航/主页.md",
-    "components/view/导航页.components",
     "游戏开发技术探索/Unity开发技术/动画性能优化/整理学习动画烘焙代码.md",
+    "导航/主页.md",
+    "Template/Course Task.md",
+    "游戏开发技术探索/Unity开发技术/动画性能优化/阅读风暴小队相关代码.md",
     "游戏开发技术探索/Unity开发技术/动画性能优化/Unity动画性能优化.md",
+    "Template/Course Module.md",
+    "components/view/导航页.components",
     "导航/说明.md",
     "工作/工作排期和任务安排.md",
     "收藏夹/杂项.md",
@@ -272,7 +259,6 @@
     "收藏夹/面试题/聊聊TCP协议的粘包、拆包以及http是如何解决的？_什么是tcp粘包,拆包。解决方式是什么-CSDN博客.md",
     "收藏夹/面试题/C#高级语法之泛型、泛型约束，类型安全、逆变和协变（思想原理）-腾讯云开发者社区-腾讯云.md",
     "Template/Project Task.md",
-    "Template/Course Task.md",
     "pixel-banner-images/项目任务.png",
     "pixel-banner-images/章节任务.png",
     "游戏开发技术探索/Unity开发技术/Unity开发技术探索.md",
@@ -291,7 +277,6 @@
     "游戏开发技术探索/Unity开发技术/动画性能优化",
     "游戏开发技术探索/Unity/Unity开发技术探索.md",
     "游戏开发技术探索/Unity/动画性能优化/Unity动画性能优化.md",
-    "Template/Course Module.md",
     "Template/Project Module.md",
     "Template/Course Module - 副本.md",
     "Template/Project - 副本.md",
