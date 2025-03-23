@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "4f2edcadb9d7d01b",
+        "id": "a8016d6dd0c17f0a",
         "type": "tabs",
         "children": [
           {
-            "id": "8f3627a549264fa8",
+            "id": "75ba927bb67b3d00",
             "type": "leaf",
             "state": {
               "type": "components-file-view",
@@ -236,12 +236,13 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "8f3627a549264fa8",
+  "active": "75ba927bb67b3d00",
   "lastOpenFiles": [
-    "components/view/导航页 1.components",
-    "components/view/导航页.components",
-    "components/view/ChapterView.components",
     "导航/主页.md",
+    "收藏夹/杂项.md",
+    "components/view/导航页.components",
+    "components/view/导航页 1.components",
+    "components/view/ChapterView.components",
     "收藏夹/面试题/面试集锦.md",
     "项目/Test/TestModule1/Task3.md",
     "收藏夹/UML时序图(Sequence Diagram)学习笔记_sequencediagram-CSDN博客.md",
@@ -269,7 +270,6 @@
     "Template/Course.md",
     "游戏开发技术探索/Unity开发技术/components/Unity开发技术_ChapterView.components",
     "游戏开发技术探索/Unity开发技术/动画性能优化",
-    "游戏开发技术探索/Unity开发技术/components/Unity开发技术_CourseView.components",
     "游戏开发技术探索/Unity/Unity开发技术探索.md",
     "游戏开发技术探索/Unity/动画性能优化/Unity动画性能优化.md",
     "Template/Course Module.md",
@@ -278,7 +278,6 @@
     "Template/Project - 副本.md",
     "Template/Project Task - 副本.md",
     "Template/Project Module - 副本.md",
-    "项目/Unity/踩坑记录/杂项.md",
     "pixel-banner-images/pexels-pok-rie-33563-2049422.jpg",
     "pixel-banner-images/pexels-maoriginalphotography-1485894.jpg",
     "pixel-banner-images/pexels-eberhardgross-691668.jpg",
