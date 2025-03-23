@@ -12,19 +12,36 @@
       "updateAt": "2025-03-17T15:46:49.320Z",
       "components": [
         {
+          "componentId": "20b031f9-f9bc-45ee-ab64-1c1fa9068289",
+          "layout": {
+            "mobile": {
+              "x": 0,
+              "y": 23,
+              "w": 4,
+              "h": 4
+            },
+            "laptop": {
+              "x": 0,
+              "y": 0,
+              "w": 6,
+              "h": 17
+            }
+          }
+        },
+        {
           "componentId": "e1ed544b-279f-40fa-ac1b-b006fdd347ec",
           "layout": {
             "mobile": {
               "x": 0,
               "y": 0,
               "w": 4,
-              "h": 4
+              "h": 9
             },
             "laptop": {
               "x": 6,
               "y": 0,
               "w": 5,
-              "h": 8
+              "h": 7
             }
           }
         },
@@ -33,38 +50,21 @@
           "layout": {
             "mobile": {
               "x": 0,
-              "y": 4,
+              "y": 9,
               "w": 4,
-              "h": 4
+              "h": 14
             },
             "laptop": {
               "x": 6,
-              "y": 8,
+              "y": 7,
               "w": 5,
               "h": 19
-            }
-          }
-        },
-        {
-          "componentId": "20b031f9-f9bc-45ee-ab64-1c1fa9068289",
-          "layout": {
-            "mobile": {
-              "x": 0,
-              "y": 8,
-              "w": 4,
-              "h": 4
-            },
-            "laptop": {
-              "x": 0,
-              "y": 0,
-              "w": 6,
-              "h": 25
             }
           }
         }
       ],
       "layoutType": "grid",
-      "locked": true,
+      "locked": false,
       "layoutOptions": {}
     },
     {
