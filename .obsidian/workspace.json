@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "游戏开发技术探索/Unity开发技术/动画性能优化/Unity中的GPU动画.md",
-                "mode": "source",
-                "source": false
+                "file": "导航/说明.md",
+                "mode": "preview",
+                "source": true
               },
               "icon": "lucide-file",
-              "title": "Unity中的GPU动画"
+              "title": "说明"
             }
           }
         ]
@@ -78,7 +78,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 395.5
+    "width": 395.5,
+    "collapsed": true
   },
   "right": {
     "id": "be1e91dfcb57ce3b",
@@ -241,8 +242,15 @@
   },
   "active": "75ba927bb67b3d00",
   "lastOpenFiles": [
-    "HTML import/Unity3d杂记骨骼蒙皮动画 - 知乎.md",
+    "Template/Project Module.md",
+    "Template/Course Module.md",
+    "components/view/ProjectModuleDataView.components",
+    "游戏开发技术探索/Unity开发技术/动画性能优化/Unity动画性能优化.md",
     "游戏开发技术探索/Unity开发技术/动画性能优化/Unity中的GPU动画.md",
+    "游戏开发技术探索/Unity开发技术/动画性能优化/阅读风暴小队相关代码.md",
+    "游戏开发技术探索/Unity开发技术/动画性能优化/整理学习动画烘焙代码.md",
+    "游戏开发技术探索/Unity开发技术/动画性能优化/gpu instancing animation代替骨骼动画的做法_urp gpu animation 烘焙骨骼信息-CSDN博客.md",
+    "HTML import/Unity3d杂记骨骼蒙皮动画 - 知乎.md",
     "HTML import/Attachments/v2-7b95f4a1fda1a7eba70fe7f722564fad_250x0.jpg",
     "HTML import/Attachments/v2-77cf97c80d752d84a58399a304382034_250x0.jpg",
     "HTML import/Attachments/v2-4b89c7f708add938b9e046b176eed036_250x0.jpg",
@@ -255,13 +263,8 @@
     "HTML import/Attachments/a1906858a372381349ea079424de57a7_l.jpg",
     "HTML import/Attachments",
     "HTML import",
-    "游戏开发技术探索/Unity开发技术/动画性能优化/gpu instancing animation代替骨骼动画的做法_urp gpu animation 烘焙骨骼信息-CSDN博客.md",
-    "游戏开发技术探索/Unity开发技术/动画性能优化/阅读风暴小队相关代码.md",
-    "游戏开发技术探索/Unity开发技术/动画性能优化/整理学习动画烘焙代码.md",
     "导航/主页.md",
     "Template/Course Task.md",
-    "游戏开发技术探索/Unity开发技术/动画性能优化/Unity动画性能优化.md",
-    "Template/Course Module.md",
     "components/view/导航页.components",
     "导航/说明.md",
     "工作/工作排期和任务安排.md",
@@ -280,13 +283,11 @@
     "未命名.md",
     "pixel-banner-images",
     "components/images/308568238c744272b7817bd860d9476c.jpeg.crdownload",
-    "components/view/ProjectModuleDataView.components",
     "components/view/ProjectDataView.components",
     "components/view/CourseView.components",
     "Template/Course.md",
     "游戏开发技术探索/Unity/Unity开发技术探索.md",
     "游戏开发技术探索/Unity/动画性能优化/Unity动画性能优化.md",
-    "Template/Project Module.md",
     "未命名.canvas"
   ]
 }
