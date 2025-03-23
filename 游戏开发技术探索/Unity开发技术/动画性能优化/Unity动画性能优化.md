@@ -12,7 +12,7 @@ finished: false
 icon: 🤺
 ---
 # Unity动画性能优化模块设计思路
- *TODO*
+将动画烘焙到贴图，使用GUP进行计算播放
 
 # 任务列表
 ![[Unity开发技术_ChapterView.components]]
