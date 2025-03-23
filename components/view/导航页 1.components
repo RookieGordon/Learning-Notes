@@ -12,24 +12,7 @@
       "updateAt": "2025-03-17T15:46:49.320Z",
       "components": [
         {
-          "componentId": "e1ed544b-279f-40fa-ac1b-b006fdd347ec",
-          "layout": {
-            "mobile": {
-              "x": 0,
-              "y": 0,
-              "w": 4,
-              "h": 4
-            },
-            "laptop": {
-              "x": 6,
-              "y": 0,
-              "w": 5,
-              "h": 8
-            }
-          }
-        },
-        {
-          "componentId": "3108cdb1-19a9-460b-a385-972e7f293fde",
+          "componentId": "59e14ee0-7995-4b37-957d-158f4ea6d19b",
           "layout": {
             "mobile": {
               "x": 0,
@@ -38,26 +21,26 @@
               "h": 4
             },
             "laptop": {
-              "x": 6,
-              "y": 8,
+              "x": 7,
+              "y": 0,
               "w": 5,
-              "h": 19
+              "h": 28
             }
           }
         },
         {
-          "componentId": "20b031f9-f9bc-45ee-ab64-1c1fa9068289",
+          "componentId": "31d55edf-c96b-4376-b038-85fe1303e63e",
           "layout": {
             "mobile": {
               "x": 0,
-              "y": 8,
+              "y": 0,
               "w": 4,
               "h": 4
             },
             "laptop": {
               "x": 0,
               "y": 0,
-              "w": 6,
+              "w": 7,
               "h": 25
             }
           }
@@ -173,6 +156,56 @@
           }
         ]
       }
+    },
+    {
+      "id": "59e14ee0-7995-4b37-957d-158f4ea6d19b",
+      "type": "multi",
+      "titleAlign": "center",
+      "tabTitle": "",
+      "maxWidthRatio": -1,
+      "showBorder": true,
+      "showShadow": false,
+      "createAt": "2025-03-17T15:50:13.938Z",
+      "updateAt": "2025-03-17T15:50:13.938Z",
+      "components": [
+        {
+          "componentId": "e1ed544b-279f-40fa-ac1b-b006fdd347ec",
+          "layout": {
+            "mobile": {
+              "x": 0,
+              "y": 0,
+              "w": 4,
+              "h": 9
+            },
+            "laptop": {
+              "x": 0,
+              "y": 0,
+              "w": 4,
+              "h": 4
+            }
+          }
+        },
+        {
+          "componentId": "3108cdb1-19a9-460b-a385-972e7f293fde",
+          "layout": {
+            "mobile": {
+              "x": 0,
+              "y": 9,
+              "w": 4,
+              "h": 23
+            },
+            "laptop": {
+              "x": 0,
+              "y": 0,
+              "w": 4,
+              "h": 4
+            }
+          }
+        }
+      ],
+      "layoutType": "grid",
+      "locked": true,
+      "layoutOptions": {}
     },
     {
       "id": "e1ed544b-279f-40fa-ac1b-b006fdd347ec",
@@ -299,6 +332,39 @@
         ]
       },
       "groupBy": "type"
+    },
+    {
+      "id": "31d55edf-c96b-4376-b038-85fe1303e63e",
+      "type": "multi",
+      "titleAlign": "center",
+      "tabTitle": "",
+      "maxWidthRatio": -1,
+      "showBorder": true,
+      "showShadow": false,
+      "createAt": "2025-03-23T07:53:15.827Z",
+      "updateAt": "2025-03-23T07:53:15.827Z",
+      "components": [
+        {
+          "componentId": "20b031f9-f9bc-45ee-ab64-1c1fa9068289",
+          "layout": {
+            "mobile": {
+              "x": 0,
+              "y": 0,
+              "w": 4,
+              "h": 4
+            },
+            "laptop": {
+              "x": 0,
+              "y": 0,
+              "w": 12,
+              "h": 23
+            }
+          }
+        }
+      ],
+      "layoutType": "grid",
+      "locked": true,
+      "layoutOptions": {}
     }
   ],
   "rootComponentId": "4ec972ca-be5b-41de-93b9-a9e32227fd6d"
