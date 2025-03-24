@@ -1,21 +1,19 @@
 ---
-title: "关于静态批处理/动态批处理/GPU Instancing /SRP Batcher的详细剖析"
-source: "https://zhuanlan.zhihu.com/p/98642798"
-author:
-  - "[[知乎专栏]]"
-published:
-created: 2025-03-23
-description: "静态批处理[1]定义标明为 Static 的静态物件，如果在使用 相同材质球的条件下，在Build（项目打包）的时候Unity会自动地提取这些共享材质的静态模型的Vertex buffer和Index buffer。根据其摆放在场景中的位置等最…"
 tags:
-  - "clippings"
+  - StaticBatching
+  - DrawCall
+  - Unity
+  - 合批
+source: https://zhuanlan.zhihu.com/p/98642798
 ---
 # 静态批处理<sup>[1]</sup>
 ## **定义**
-标明为 Static 的静态物件，如果在使用 **相同材质球** 的条件下，在 **Build（项目打包）** 的时候Unity会自动地提取这些共享材质的静态模型的 Vertex buffer和 Index buffer 。根据其摆放在场景中的位置等最终状态信息，将这些模型的顶点数据变换到世界空间下，存储在新构建的大Vertex buffer和Index buffer中。并且记录每一个子模型的Index buffer数据在构建的大Index buffer中的起始及结束位置。
+标明为 Static 的静态物件，如果在使用 **相同材质球** 的条件下，在 **Build（项目打包）** 的时候Unity会自动地提取这些共享材质的静态模型的`Vertex buffer`和`Index buffer`。根据其摆放在场景中的位置等最终状态信息，将这些模型的顶点数据变换到世界空间下，存储在新构建的大`Vertex buffer`和I`ndex buffer`中。并且记录每一个子模型的`Index buffer`数据在构建的大`Index buffer`中的起始及结束位置。
 ![在这里插入图片描述|500](https://pic2.zhimg.com/v2-48b948e088a2310817c67c6530637a95_r.jpg)
-在后续的绘制过程中，一次性提交整个合并模型的顶点数据，根据引擎的场景管理系统判断各个子模型的可见性。然后设置一次渲染状态，调用多次 Draw call 分别绘制每一个子模型。
+在后续的绘制过程中，一次性提交整个合并模型的顶点数据，根据引擎的场景管理系统判断各个子模型的可见性。然后设置一次渲染状态，调用多次`Draw call`分别绘制每一个子模型。
 ![图片描述|420](https://picx.zhimg.com/v2-9e2e1e5df3ad1b37ebe0dc1af4712005_r.jpg)
-Static batching 并 **不减少Draw call的数量（** 但是在编辑器时由于计算方法区别Draw call数量是会显示减少了的 <sup><a href="https://zhuanlan.zhihu.com/p/#ref_2">[2]</a></sup> ），但是由于我们预先把所有的子模型的顶点变换到了世界空间下，所以在运行时cpu不需要再次执行顶点变换操作，节约了少量的计算资源，并且这些子模型共享材质，所以在多次Draw call调用之间并没有渲染状态的切换，渲染API（ Command Buffer ）会缓存绘制命令，起到了渲染优化的目的 。
+>[!IMPORTANT]
+`Static batching并不减少Draw call的数量`（但是在编辑器时由于计算方法区别，`Draw call`数量是会显示减少了的 <sup><a href="https://zhuanlan.zhihu.com/p/#ref_2">[2]</a></sup> ），但是由于我们预先把所有的子模型的顶点变换到了世界空间下，所以在运行时cpu不需要再次执行顶点变换操作，节约了少量的计算资源，并且这些子模型共享材质，所以在多次Draw call调用之间并没有渲染状态的切换，渲染API（ Command Buffer ）会缓存绘制命令，起到了渲染优化的目的 。
 
 但Static batching也会带来一些性能的负面影响。Static batching会导致应用打包之后体积增大，应用运行时所占用的内存体积也会增大。
 
