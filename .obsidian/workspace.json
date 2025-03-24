@@ -10,15 +10,17 @@
           {
             "id": "75ba927bb67b3d00",
             "type": "leaf",
+            "pinned": true,
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Slurped Pages/移动游戏的性能优化  贴图压缩篇.md",
+                "file": "导航/主页.md",
                 "mode": "source",
                 "source": false
               },
+              "pinned": true,
               "icon": "lucide-file",
-              "title": "移动游戏的性能优化  贴图压缩篇"
+              "title": "主页"
             }
           }
         ]
@@ -78,7 +80,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 461.5
+    "width": 461.5,
+    "collapsed": true
   },
   "right": {
     "id": "be1e91dfcb57ce3b",
@@ -142,13 +145,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Slurped Pages/移动游戏的性能优化  贴图压缩篇.md",
+                "file": "导航/主页.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "移动游戏的性能优化  贴图压缩篇 的大纲"
+              "title": "主页 的大纲"
             }
           },
           {
@@ -249,8 +252,9 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "89a66892aa3b87ae",
+  "active": "75ba927bb67b3d00",
   "lastOpenFiles": [
+    "Slurped Pages/移动游戏的性能优化  贴图压缩篇.md",
     "收藏夹/面试题/面试集锦.md",
     "收藏夹/未命名.md",
     "游戏开发技术探索/Unity开发技术/动画性能优化/Unity中的GPU动画.md",
@@ -261,7 +265,6 @@
     "游戏开发技术探索/Unity开发技术/动画性能优化/gpu instancing animation代替骨骼动画的做法_urp gpu animation 烘焙骨骼信息-CSDN博客.md",
     "游戏开发技术探索/Unity开发技术/动画性能优化/整理学习动画烘焙代码.md",
     "Slurped Pages/Unity-GPU Animation.md",
-    "Slurped Pages/移动游戏的性能优化  贴图压缩篇.md",
     "Slurped Pages/游戏开发中常用的设计模式 - 养诚 - 博客园.md",
     "Slurped Pages/移动游戏的性能优化 - 贴图压缩篇.md",
     "Slurped Pages/Unity中使用GPU Instancing优化SkinnedMesh渲染-腾讯云开发者社区-腾讯云.md",
