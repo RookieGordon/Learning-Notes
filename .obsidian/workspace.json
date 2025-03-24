@@ -53,7 +53,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:StaticBatch",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -74,13 +74,11 @@
               "title": "书签"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
-    "width": 395.5,
-    "collapsed": true
+    "width": 461.5
   },
   "right": {
     "id": "be1e91dfcb57ce3b",
@@ -251,7 +249,7 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "75ba927bb67b3d00",
+  "active": "89a66892aa3b87ae",
   "lastOpenFiles": [
     "游戏开发技术探索/Unity开发技术/动画性能优化/阅读风暴小队相关代码.md",
     "游戏开发技术探索/Unity开发技术/动画性能优化/未命名.md",
