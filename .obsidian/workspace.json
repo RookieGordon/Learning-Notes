@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Slurped Pages/Unity中使用GPU Instancing优化SkinnedMesh渲染-腾讯云开发者社区-腾讯云.md",
+                "file": "游戏开发技术探索/Unity开发技术/动画性能优化/Unity中的GPU动画.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Unity中使用GPU Instancing优化SkinnedMesh渲染-腾讯云开发者社区-腾讯云"
+              "title": "Unity中的GPU动画"
             }
           }
         ]
@@ -251,8 +251,8 @@
   },
   "active": "75ba927bb67b3d00",
   "lastOpenFiles": [
-    "Slurped Pages/Unity-GPU Animation.md",
     "Slurped Pages/Unity中使用GPU Instancing优化SkinnedMesh渲染-腾讯云开发者社区-腾讯云.md",
+    "Slurped Pages/Unity-GPU Animation.md",
     "Slurped Pages/Unity大规模角色的GPU蒙皮动画表达方式.md",
     "Slurped Pages/Unity3d杂记骨骼蒙皮动画.md",
     "Slurped Pages/关于静态批处理动态批处理GPU Instancing SRP Batcher的详细剖析.md",

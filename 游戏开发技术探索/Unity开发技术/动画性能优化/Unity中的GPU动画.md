@@ -13,9 +13,6 @@ host: github.com
 favicon: https://github.githubassets.com/favicons/favicon.svg
 image: https://opengraph.githubassets.com/64e520d8b6d786a60182652025baca40459258722588c688d11c7315de65a71f/benthroop/GPUAnimator
 ```
-[Fetching Data#r3b9](https://zhuanlan.zhihu.com/p/413815001)
-[Fetching Data#iuzk](https://zhuanlan.zhihu.com/p/108725072)
-[Fetching Data#v63f](https://zhuanlan.zhihu.com/p/87583171)
 
 ```cardlink
 url: https://github.com/mkrebser/GPUInstance
@@ -24,14 +21,6 @@ description: "Instancing & Animation library for Unity3D. Contribute to mkrebser
 host: github.com
 favicon: https://github.githubassets.com/favicons/favicon.svg
 image: https://opengraph.githubassets.com/70de9b9695de3be40e5d881a74a2f5b3402cd9f2f15cad8af45c780f8cb894aa/mkrebser/GPUInstance
-```
-
-```cardlink
-url: https://cloud.tencent.com/developer/article/1393261
-title: "Unity中使用GPU Instancing优化SkinnedMesh渲染-腾讯云开发者社区-腾讯云"
-description: "有这么个需求: 一堆不会动的SkinnedMesh, 通过物理模拟出死亡姿势后, 需要优化性能, 不然才10FPS"
-host: cloud.tencent.com
-image: https://cloudcache.tencentcs.com/open_proj/proj_qcloud_v2/gateway/shareicons/cloud.png
 ```
 
 ```cardlink

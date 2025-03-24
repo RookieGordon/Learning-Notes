@@ -10,9 +10,6 @@ tags:
 slurped: 2025-03-24T14:12
 title: Unity中使用GPU Instancing优化SkinnedMesh渲染-腾讯云开发者社区-腾讯云
 ---
-
-[社区首页](https://cloud.tencent.com/developer) >[专栏](https://cloud.tencent.com/developer/column) >Unity中使用GPU Instancing优化SkinnedMesh渲染
-
 有这么个需求: 一堆不会动的SkinnedMesh, 通过物理模拟出死亡姿势后, 需要优化性能, 不然才10FPS
 
 ![](https://ask.qcloudimg.com/http-save/yehe-1128068/i0ove9ig89.png)
