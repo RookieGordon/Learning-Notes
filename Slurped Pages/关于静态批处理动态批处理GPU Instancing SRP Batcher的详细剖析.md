@@ -58,14 +58,30 @@ source: https://zhuanlan.zhihu.com/p/98642798
 2. 代码动态改变材质变量后不算同一个材质，会不参与加速，但可以通过将颜色变化等变量加入常量缓冲器中实现 <sup><a href="https://zhuanlan.zhihu.com/p/#ref_7">[7]</a></sup> 。
 3. 受限于常量缓冲区在不同设备上的大小的上限，移动端支持的个数可能较低。
 4. 只支持一盏实时光，要在多个光源的情况下使用实例化，我们别无选择，只能切换到延迟渲染路径。为了能够让这套机制运作起来，请将所需的编译器指令添加到我们着色器的延迟渲染通道中。
-![当在多个光源开启GPU Instancing|560](https://pica.zhimg.com/v2-5c97567b099e9d98ca9d957282b1922e_r.jpg)
+![当在多个光源开启GPU Instancing|930](https://pica.zhimg.com/v2-5c97567b099e9d98ca9d957282b1922e_r.jpg)
 ## **批处理中断情况**
 1. 位置不相邻且中间夹杂着不同材质的其他物体，不会进行同批处理，这种情况比较特殊，涉及到批处理的顺序，我的另一篇文章有详解。
 2. 一个批次超过125个物体（受限于常量缓冲区在不同设备上的大小的上限，移动端数量有浮动）的时候会新建另一个加速流程。
 3. 物体如果都符合条件会优先参与静态批处理，然后才到GPU Instancing，假如物体符合前者，此次加速都会被打断。
 ## **流程原理**
-![图片描述|1020](https://pic3.zhimg.com/v2-0dde54b930bef9c768c10d3c79126e16_r.jpg)
-# **总结**
+![图片描述|2050](https://pic3.zhimg.com/v2-0dde54b930bef9c768c10d3c79126e16_r.jpg)
+## **总结**
+**GPU Instancing与Dynamic Batching的区别**
+- **GPU Instancing** 更适合处理**大量重复且可能具有差异化属性**的物体，尤其是顶点数较高时。
+- **Dynamic Batching** 适用于**少量小型动态物体且材质完全一致**的场景。
+- 两者条件独立，支持GPU Instancing的物体能否进行Dynamic Batching需额外检查Dynamic Batching的条件（顶点数、材质一致性等）。
+
+| **特性**       | **GPU Instancing**                        | **Dynamic Batching**           |
+| ------------ | ----------------------------------------- | ------------------------------ |
+| **核心原理**     | 通过一次Draw Call渲染多个相同网格的实例，传递实例属性（如位置、颜色等）。 | 运行时将多个小网格合并为单个大网格，减少Draw Call。 |
+| **适用对象**     | 相同材质和网格的大量物体（如植被、子弹等）。                    | 顶点数较少的动态物体（如移动的小型物体）。          |
+| **顶点限制**     | 无严格顶点数限制（由GPU性能决定）。                       | 每个网格顶点数通常不超过300（受Unity设置影响）。   |
+| **材质属性变化**   | 支持通过实例化属性传递不同参数（如颜色、偏移等）。                 | 材质必须完全一致，无法处理逐实例属性差异。          |
+| **CPU开销**    | 较低（仅需传递实例数据，无需合并网格）。                      | 较高（需在CPU合并网格，可能影响性能）。          |
+| **Shader要求** | 需Shader支持实例化（启用`Enable GPU Instancing`）。  | 无特殊Shader要求。                   |
+| **适用场景优先级**  | 更适合大量重复物体（尤其是顶点数较多的情况）。                   | 适用于少量小型动态物体（顶点数少且材质一致）。        |
+|              |                                           |                                |
+
 # SRP Batcher<sup>[8]</sup>
 ## **定义**
 在使用LWRP或者HWRP时，开启SRP Batcher的情况下，只要物体的 **Shader中变体** 一致，就可以启用SRP Batcher加速。它与上文GPU Instancing实现的原理相近，Unity会在运行时对于正在视野中的符合要求的所有对象使用 **“Per Object” GPU BUFFER（一个独立的Buffer）** 将其位置、缩放、uv偏移、 *lightmapindex* 等相关信息保存在GPU内存中，同时也会将正在视野中的符合要求的所有对象使用 **Constant Buffer** <sup><a href="https://zhuanlan.zhihu.com/p/#ref_5">[5]</a></sup> 将材质信息保存在保存在显存中的 **“统一/常量缓冲器”** <sup><a href="https://zhuanlan.zhihu.com/p/#ref_6">[6]</a></sup> 中。与GPU Instancing相比，因为数据不再每帧被重新创建，而且需要保存进“统一/常量缓冲区”的数据排除了各自的位置、缩放、uv偏移、 *lightmapindex* 等相关信息，所以缓冲区内有更多的空间可以 **动态地** 存储场景中所有渲染物体的材质信息。由于数据不再每帧被重新创建，而是动态更新，所以SRP Batcher的本质并不会降低Draw Calls的数量，它只会降低Draw Calls之间的GPU设置成本。
@@ -77,7 +93,7 @@ source: https://zhuanlan.zhihu.com/p/98642798
 ## **批处理中断情况**
 1. 位置不相邻且中间夹杂着 **不同Shader** ，或者 **不同变体** 的其他物体，不会进行同批处理，这种情况比较特殊，涉及到批处理的顺序，我的另一篇文章有详解。
 ## **流程原理**
-![图片描述|860](https://pic3.zhimg.com/v2-6125b513800939912bb07853ae0a1f90_r.jpg)
+![图片描述|2090](https://pic3.zhimg.com/v2-6125b513800939912bb07853ae0a1f90_r.jpg)
 ## 2020年2月13日-更新： 更改对”统一/常量缓冲器“的描述，对SRP Batcher与GPU Instancing的实现原理进行了比较大的修改。
 # 参考
 1. [https://gameinstitute.qq.com/community/detail/114323](https://gameinstitute.qq.com/community/detail/114323)
