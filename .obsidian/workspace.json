@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "收藏夹/未命名.md",
-                "mode": "preview",
+                "file": "收藏夹/面试题/面试集锦.md",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "未命名"
+              "title": "面试集锦"
             }
           }
         ]
@@ -143,13 +143,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "收藏夹/未命名.md",
+                "file": "收藏夹/面试题/面试集锦.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "未命名 的大纲"
+              "title": "面试集锦 的大纲"
             }
           },
           {
@@ -252,8 +252,8 @@
   },
   "active": "75ba927bb67b3d00",
   "lastOpenFiles": [
-    "游戏开发技术探索/Unity开发技术/动画性能优化/Unity中的GPU动画.md",
     "收藏夹/未命名.md",
+    "游戏开发技术探索/Unity开发技术/动画性能优化/Unity中的GPU动画.md",
     "收藏夹/60个独立游戏的营销错误_60MistakesEbookV1.pdf",
     "收藏夹/杂项.md",
     "Slurped Pages/Unity3d杂记骨骼蒙皮动画.md",
