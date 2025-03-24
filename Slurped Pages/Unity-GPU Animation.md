@@ -7,22 +7,18 @@ tags:
 ---
 目录收起序言原理数据构建动画采样播放驱动拓展
 
-## 序言
-
-> 项目有遇到由大量角色的组合,依此情况由Animation导致的CPU骨骼计算以及GPU 的Batch数量 带来了不可忽视的性能压力.于是总结并整理了一套GPU Animation框架,在动画需求不复杂的情况下由离线计算的贴图数据驱动并在 vertex shader采样,通过降低复杂度与时间换空间的方法降低计算量,同时支持GPU Instance降低Batch压力.
+# 序言
+> 项目有遇到由大量角色的组合,依此情况由Animation导致的CPU骨骼计算以及GPU 的Batch数量，带来了不可忽视的性能压力。于是总结并整理了一套GPU Animation框架，在动画需求不复杂的情况下由离线计算的贴图数据驱动并在 vertex shader采样，通过降低复杂度与时间换空间的方法降低计算量，同时支持GPU Instance降低Batch压力。
 
 ![2位动画角色 1152个实例 实时阴影 各自播放不同的动画 GPU Instance开启](https://picx.zhimg.com/v2-a59bcfd87d4e497db3818e2da9862159_r.jpg)
 
-整个系统工程量较大,重新实现了一套简单的Animation系统,同时有其他方向的细节( EditorWindow,Shader Keywords等)没有在本文列出，若有需求可以在本人持续维护的开源工具库进行调整与测试。也可直接私信作者：
+整个系统工程量较大，重新实现了一套简单的Animation系统，同时有其他方向的细节( EditorWindow，Shader Keywords等)没有在本文列出，若有需求可以在本人持续维护的开源工具库进行调整与测试。也可直接私信作者：
 [https://github.com/striter/Unity3D-ToolChain\_StriteR github.com/striter/Unity3D-ToolChain\_StriteR](https://link.zhihu.com/?target=https%3A//github.com/striter/Unity3D-ToolChain_StriteR)
 - 参考场景:GPUAnimationSample
-
----
-## 原理
-**动画数据与采样:**
-
-通常由一个二维数据组成,第一维度为时间 第二维度为当前帧的数据
-采样则由时间换算到的帧数(float) 换算到前后帧索引 并把获取的数据进行插值
+# 原理
+## **动画数据与采样：**
+通常由一个二维数据组成，第一维度为时间，第二维度为当前帧的数据。
+采样则由时间换算到的帧数（float）换算到前后帧索引，并把获取的数据进行插值
 
 - **顶点动画 (Vertex)**
 

@@ -31,3 +31,7 @@ host: github.com
 favicon: https://github.githubassets.com/favicons/favicon.svg
 image: https://opengraph.githubassets.com/a121038a9bfb68756ce1604cd97dfcc67dd47175465de4a31b1389c45e422c44/piti6/UnityGpuInstancedAnimation
 ```
+[[Unity-GPU Animation]]
+[[Unity3d杂记骨骼蒙皮动画]]
+[[Unity大规模角色的GPU蒙皮动画表达方式]]
+[[Unity中使用GPU Instancing优化SkinnedMesh渲染-腾讯云开发者社区-腾讯云]]
