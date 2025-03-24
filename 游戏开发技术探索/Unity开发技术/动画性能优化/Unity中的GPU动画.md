@@ -44,3 +44,4 @@ image: https://opengraph.githubassets.com/2e391913f1abfd0c0ec7b59429370c88789d2c
 [[Unity3d杂记骨骼蒙皮动画]]
 [[Unity大规模角色的GPU蒙皮动画表达方式]]
 [[Unity中使用GPU Instancing优化SkinnedMesh渲染-腾讯云开发者社区-腾讯云]]
+[[gpu instancing animation代替骨骼动画的做法_urp gpu animation 烘焙骨骼信息-CSDN博客]]
