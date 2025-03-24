@@ -1,9 +1,11 @@
 ---
 link: https://blog.csdn.net/lzhq1982/article/details/88121451
 tags:
-  - slurp/urp-gpu-animation
+  - Unity
+  - 骨骼动画
+  - GPU-Animation
+  - GPU-Instancing
 ---
-
 文章转自：[https://blog.csdn.net/yxriyin/article/details/83018985](https://blog.csdn.net/yxriyin/article/details/83018985)
 最早是在Unity推出gpuinstancing后，马上有人做了一个顶点动画代替骨骼动画的方案，当时自己也测试了一下，红米2一千人可以跑60帧，确实非常不错。后来发现UWA群里也有人在讨论这个东西的做法，当时M神说可以用烘焙骨骼的方式代替烘焙顶点，这样子烘焙出来的贴图大小只和骨骼数相关。而小米超神也说是通过烘焙顶点，不过为了减少烘焙文件的大小，使用了类似RGBM的方式存储数据。
 我整合了主流的几种做法，做了一个插件。
@@ -44,89 +46,81 @@ for (int j = 0; j < bones.Length; j++)
             Matrix4x4 mat = Matrix4x4.TRS(currentBone.transform.localPosition, currentBone.transform.localRotation, currentBone.transform.localScale);  
             if(rootBone.transform != go.transform)  
             {
-
                 mat = Matrix4x4.TRS(Vector3.zero, Quaternion.identity, go.transform.localScale) * mat;  
             }
-
             lastMat = mat * lastMat;  
             break;  
         }  
         else  
         {
-
             Matrix4x4 mat = Matrix4x4.TRS(currentBone.transform.localPosition, currentBone.transform.localRotation, currentBone.transform.localScale);  
             lastMat = mat * lastMat;  
             currentBone = bones[currentBone.parentBoneIndex];  
-                        }  
-                    }
+         }  
+     }
 
-                      animMap.SetPixel(j * 3, k + 1, new Color(lastMat.m00, lastMat.m01, lastMat.m02, lastMat.m03));  
-                    animMap.SetPixel(j * 3 + 1, k + 1, new Color(lastMat.m10, lastMat.m11, lastMat.m12, lastMat.m13));  
-                    animMap.SetPixel(j * 3 + 2, k + 1, new Color(lastMat.m20, lastMat.m21, lastMat.m22, lastMat.m23));
+     animMap.SetPixel(j * 3, k + 1, new Color(lastMat.m00, lastMat.m01, lastMat.m02, lastMat.m03));  
+     animMap.SetPixel(j * 3 + 1, k + 1, new Color(lastMat.m10, lastMat.m11, lastMat.m12, lastMat.m13));  
+     animMap.SetPixel(j * 3 + 2, k + 1, new Color(lastMat.m20, lastMat.m21, lastMat.m22, lastMat.m23));
 
-                      if (k == startFrame)  
-                    {
-
-                        animMap.SetPixel(j * 3, k, new Color(lastMat.m00, lastMat.m01, lastMat.m02, lastMat.m03));  
-                        animMap.SetPixel(j * 3 + 1, k, new Color(lastMat.m10, lastMat.m11, lastMat.m12, lastMat.m13));  
-                        animMap.SetPixel(j * 3 + 2, k, new Color(lastMat.m20, lastMat.m21, lastMat.m22, lastMat.m23));  
-                    }  
-                    else if(k == curClipFrame1 + startFrame - 3)  
-                    {
-
-                        animMap.SetPixel(j * 3, k + 2, new Color(lastMat.m00, lastMat.m01, lastMat.m02, lastMat.m03));  
-                        animMap.SetPixel(j * 3 + 1, k + 2, new Color(lastMat.m10, lastMat.m11, lastMat.m12, lastMat.m13));  
-                        animMap.SetPixel(j * 3 + 2, k + 2, new Color(lastMat.m20, lastMat.m21, lastMat.m22, lastMat.m23));  
-                    }
-
-                                    }  
+     if (k == startFrame)  
+     {
+         animMap.SetPixel(j * 3, k, new Color(lastMat.m00, lastMat.m01, lastMat.m02, lastMat.m03));  
+         animMap.SetPixel(j * 3 + 1, k, new Color(lastMat.m10, lastMat.m11, lastMat.m12, lastMat.m13));  
+         animMap.SetPixel(j * 3 + 2, k, new Color(lastMat.m20, lastMat.m21, lastMat.m22, lastMat.m23));  
+     }  
+     else if(k == curClipFrame1 + startFrame - 3)  
+     {
+         animMap.SetPixel(j * 3, k + 2, new Color(lastMat.m00, lastMat.m01, lastMat.m02, lastMat.m03));  
+         animMap.SetPixel(j * 3 + 1, k + 2, new Color(lastMat.m10, lastMat.m11, lastMat.m12, lastMat.m13));  
+         animMap.SetPixel(j * 3 + 2, k + 2, new Color(lastMat.m20, lastMat.m21, lastMat.m22, lastMat.m23));  
+     }
+}  
 ```
- 
 最重要的部分就是生成矩阵的那里。这里有几个注意点，一个是根骨骼可能有多个，那么你只需要将他们共同的父亲放到根节点，把这个其实没有骨骼的节点处理成默认矩阵的情况就可以。第二个是因为贴图采样有可能采样到边缘，为了防止精确度不够引起动画抖动，我前后各多增加了一帧，防止抖动。
-
 然后是shader部分：
-
+```c
 v2f vert(appdata v)  
-            {
+{
+     UNITY_SETUP_INSTANCE_ID(v);  
+     float start = UNITY_ACCESS_INSTANCED_PROP(Props, _AnimStart);  
+     float end = UNITY_ACCESS_INSTANCED_PROP(Props, _AnimEnd);  
+     float off = UNITY_ACCESS_INSTANCED_PROP(Props, _AnimOff);
 
-                UNITY_SETUP_INSTANCE_ID(v);  
-                float start = UNITY_ACCESS_INSTANCED_PROP(Props, _AnimStart);  
-                float end = UNITY_ACCESS_INSTANCED_PROP(Props, _AnimEnd);  
-                float off = UNITY_ACCESS_INSTANCED_PROP(Props, _AnimOff);
+     float speed = UNITY_ACCESS_INSTANCED_PROP(Props, _Speed);  
+     float _AnimLen = (end - start);  
+     float f = (off + _Time.y * speed) / _AnimLen;
 
-                     float speed = UNITY_ACCESS_INSTANCED_PROP(Props, _Speed);  
-                float _AnimLen = (end - start);  
-                float f = (off + _Time.y * speed) / _AnimLen;
+     f = fmod(f, 1.0);
 
-                  f = fmod(f, 1.0);
+     float animMap_x1 = (v.uv2.x * 3 + 0.5) * _AnimMap_TexelSize.x;  
+     float animMap_x2 = (v.uv2.x * 3 + 1.5) * _AnimMap_TexelSize.x;  
+     float animMap_x3 = (v.uv2.x * 3 + 2.5) * _AnimMap_TexelSize.x;  
+     float animMap_y = (f * _AnimLen + start) / _AnimAll;  
+     float4 row0 = tex2Dlod(_AnimMap, float4(animMap_x1, animMap_y, 0, 0));  
+     float4 row1 = tex2Dlod(_AnimMap, float4(animMap_x2, animMap_y, 0, 0));  
+     float4 row2 = tex2Dlod(_AnimMap, float4(animMap_x3, animMap_y, 0, 0));  
+     float4 row3 = float4(0, 0, 0, 1);  
+     float4x4 mat = float4x4(row0, row1, row2, row3);  
+     float4 pos = mul(mat, v.vertex);  
+     float3 normal = mul(mat, float4(v.normal, 0)).xyz;  
+     v2f o;  
+     UNITY_TRANSFER_INSTANCE_ID(v, o);  
+     o.uv = TRANSFORM_TEX(v.uv, _MainTex);  
+     o.vertex = UnityObjectToClipPos(pos);  
+     o.color = float4(0, 0, 0, 0);  
+     o.worldNormal = UnityObjectToWorldNormal(normal);
 
-                  float animMap_x1 = (v.uv2.x * 3 + 0.5) * _AnimMap_TexelSize.x;  
-                float animMap_x2 = (v.uv2.x * 3 + 1.5) * _AnimMap_TexelSize.x;  
-                float animMap_x3 = (v.uv2.x * 3 + 2.5) * _AnimMap_TexelSize.x;  
-                float animMap_y = (f * _AnimLen + start) / _AnimAll;  
-                float4 row0 = tex2Dlod(_AnimMap, float4(animMap_x1, animMap_y, 0, 0));  
-                float4 row1 = tex2Dlod(_AnimMap, float4(animMap_x2, animMap_y, 0, 0));  
-                float4 row2 = tex2Dlod(_AnimMap, float4(animMap_x3, animMap_y, 0, 0));  
-                float4 row3 = float4(0, 0, 0, 1);  
-                float4x4 mat = float4x4(row0, row1, row2, row3);  
-                float4 pos = mul(mat, v.vertex);  
-                float3 normal = mul(mat, float4(v.normal, 0)).xyz;  
-                v2f o;  
-                UNITY_TRANSFER_INSTANCE_ID(v, o);  
-                o.uv = TRANSFORM_TEX(v.uv, _MainTex);  
-                o.vertex = UnityObjectToClipPos(pos);  
-                o.color = float4(0, 0, 0, 0);  
-                o.worldNormal = UnityObjectToWorldNormal(normal);
+     float3 normalDir = normalize(mul(float4(normal, 0.0), unity_WorldToObject).xyz);
 
-                    float3 normalDir = normalize(mul(float4(normal, 0.0), unity_WorldToObject).xyz);
-
-                  float frezz = UNITY_ACCESS_INSTANCED_PROP(Props, _Frezz);  
-                float3 normalWorld = o.worldNormal;  
-                fixed dotProduct = dot(normalWorld, fixed3(0, 1, 0)) / 2;  
-                dotProduct = max(0, dotProduct);  
-                o.color = dotProduct.xxxx * frezz;  
-                return o;  
-            }  
+     float frezz = UNITY_ACCESS_INSTANCED_PROP(Props, _Frezz);  
+     float3 normalWorld = o.worldNormal;  
+     fixed dotProduct = dot(normalWorld, fixed3(0, 1, 0)) / 2;  
+     dotProduct = max(0, dotProduct);  
+     o.color = dotProduct.xxxx * frezz;  
+     return o;  
+}  
+```
 主要就是顶点着色器部分，我们把4x4的骨骼旋转偏移矩阵存在贴图里，因为最后一行是flaot4(0,0,0,1)，为了节省空间，我们只存了3x4大小的矩阵，最后一行在shader里补上。然后直接将矩阵和顶点相乘，就可以得到蒙皮后的顶点位置。而且我们看到，法线也可以这么处理，就可以得到蒙皮后正确的法线。这里还有一个我没有做的功能，就是骨骼权重，其实我将骨骼权重存进了顶点的uv2中，uv2.xy是第一根骨骼的索引和权重，uv2.zw是第二根骨骼的索引和权重，理论上需要将两个骨骼结算的结果加权平均一下，但因为我测试发现精度够了，就少采样一次，节省点消耗。如果有需要，可以自己加上这个加权平均。
 
 还有一个未来需要做的，就是动画之间的blend，需要额外增加一个变量控制blend的程度，对两个时刻的动作分别采样计算，然后lerp一下就可以了。
@@ -134,5 +128,4 @@ v2f vert(appdata v)
 我们看看用贴图存储骨骼需要的大小，假设一个小兵有25个骨骼，那么一个骨骼需要4x3个浮点数，也就是3个像素，那么需要75个像素，一个1s的动画，也只需要75*64,大概4800字节而已。而且重要的是我们不受到顶点数的限制，而一个小兵的骨骼正常情况下就是30以内，我们得到了一个可控的合理的结果。
 
 最后献上商店地址：
-
 https://www.assetstore.unity3d.com/en/?stay#!/content/130516

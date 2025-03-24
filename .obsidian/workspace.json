@@ -29,16 +29,15 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Slurped Pages/gpu instancing animation代替骨骼动画的做法_urp gpu animation 烘焙骨骼信息-CSDN博客.md",
+                "file": "Slurped Pages/GPU Instancing Animation代替骨骼动画的做法.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "gpu instancing animation代替骨骼动画的做法_urp gpu animation 烘焙骨骼信息-CSDN博客"
+              "title": "GPU Instancing Animation代替骨骼动画的做法"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -95,8 +94,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 461.5,
-    "collapsed": true
+    "width": 461.5
   },
   "right": {
     "id": "be1e91dfcb57ce3b",
@@ -160,13 +158,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Slurped Pages/gpu instancing animation代替骨骼动画的做法_urp gpu animation 烘焙骨骼信息-CSDN博客.md",
+                "file": "导航/主页.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "gpu instancing animation代替骨骼动画的做法_urp gpu animation 烘焙骨骼信息-CSDN博客 的大纲"
+              "title": "主页 的大纲"
             }
           },
           {
@@ -267,11 +265,11 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "706c1e49c986fd90",
+  "active": "75ba927bb67b3d00",
   "lastOpenFiles": [
+    "Slurped Pages/GPU Instancing Animation代替骨骼动画的做法.md",
     "游戏开发技术探索/Unity开发技术/动画性能优化/Unity中的GPU动画.md",
     "游戏开发技术探索/Unity开发技术/动画性能优化/Unity动画性能优化.md",
-    "Slurped Pages/gpu instancing animation代替骨骼动画的做法_urp gpu animation 烘焙骨骼信息-CSDN博客.md",
     "游戏开发技术探索/Unity开发技术/动画性能优化/阅读风暴小队相关代码.md",
     "游戏开发技术探索/Unity开发技术/动画性能优化/整理学习动画烘焙代码.md",
     "导航/主页.md",
