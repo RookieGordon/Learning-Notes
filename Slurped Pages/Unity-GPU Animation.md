@@ -170,54 +170,33 @@ public void TickAnimation(float _deltaTime)
 而所有必要的数据信息则可以通过这两个API获取.
 - ***AnimationClip.SampleAnimation*** 采样每帧的动画骨骼.
 - ***SkinnedMeshRenderer.BakeMesh*** 构建当前帧Mesh信息.
-## 顶点动画
+### 顶点动画
 1. 对于贴图：只需要获取到对应帧Mesh的所有vertices/normals/tangents等，并按照索引格式写入贴图即可.
 2. 对于模型：要做的是把所有normals/tangents数据清除(节省体积)，只保留vertices与indexes,uvs以及bounds.
 ![1720个顶点,135个关键帧,有位置以及法线信息](https://pic3.zhimg.com/v2-768d22d72c8cacf45ff700ffe4ccc794_1440w.png)
 
 ![对应的输入Mesh, 由于Mesh构建必要Position.否则体积可以更小.](https://pica.zhimg.com/v2-5e049b291927c9a7f0ae557c88a7b9e2_1440w.jpg)
 
-**矩阵动画:**
-1.对于贴图:在采样骨骼后获取的所有Transform转换矩阵并记录,需要初始位置( **bindPoses** )
-
-对应index的转换矩阵计算( **bones\[index\].localToWorldMatrix\*bindPoses\[index\])**
-
-计算出转换矩阵后依照索引将列内容填入贴图即可.
-
-2.对于模型:需要记录原模型的Position/Normal/Tangents,以及索引TransformIndexes,权重TransformWeights,目前放在了uv1与uv2内,可以根据需求动态调整.
-
-TransformIndexes即Mesh.BoneIndexes,TransformWeights即Mesh.BoneWeights.
-
+### 矩阵动画
+1. 对于贴图：在采样骨骼后获取的所有Transform转换矩阵并记录，需要初始位置( **bindPoses** )。对应index的转换矩阵计算( **bones\[index\].localToWorldMatrix\*bindPoses\[index\])**。计算出转换矩阵后依照索引将列内容填入贴图即可.
+2. 对于模型：需要记录原模型的Position/Normal/Tangents，以及索引TransformIndexes（即Mesh.BoneIndexes），权重TransformWeights（即Mesh.BoneWeights），目前放在了uv1与uv2内。可以根据需求动态调整.
 ![矩阵动画贴图,体积显著降低](https://pic1.zhimg.com/v2-abd56ef5a53bdda7599c4d5abe30b3be_1440w.jpg)
 
 ![矩阵动画模型,多了UV1与UV2 用于矩阵动画采样](https://pic3.zhimg.com/v2-e64cf78d79396eaf2cfd37fbeafbf534_1440w.jpg)
 
-**\*数据存储形式**
-
+### 数据存储形式
 个人的做法是把Data做成了MainAsset, Mesh和Texture做成了SubAsset的形式,也可以做成纯数据然后Runtime调用构建的方式.
-
-**\*包围盒判定**
-
-由于GPU端采样模型,所以在构建数据时包围盒将采样所有动画顶点.亦或者根据不同的动画设置不同的包围盒.
-
-**相关脚本:**
-
+### 包围盒判定
+由于GPU端采样模型，所以在构建数据时包围盒将采样所有动画顶点，亦或者根据不同的动画设置不同的包围盒
+### 相关脚本
 - EWGPUAnimationBaker (数据编辑窗口)
 - GPUAnimationData (数据格式)
 - Window 对应的MenuItem入口：Work Flow/Art/(Optimize) GPU Animation Baker
-
----
-
 ## 动画采样
-
-通过Tex2Dlod (Built-in管线)或 SAMPLE\_TEXTURE2D\_LOD(URP管线)即可在vertex阶段采样贴图数据,同时对于特定uint2数据位置可以通过乘xxxx\_TexelSize.xy的方式对应贴图uv.
-
-对应需要数据驱动\_FrameStart,\_FrameEnd*,\_* FrameInterpolate由cpu端计算与发送,同时为了方便测试/检视逻辑在Properties栏填上对应的栏目.
-
-- **顶点动画**
-
-通过SV\_VertexID,即可知道对应的顶点索引(需要target 3.5及以上)或者可以把顶点id写入顶点数据(uv1等).
-
+通过Tex2Dlod (Built-in管线)或SAMPLE_TEXTURE2D_LOD(URP管线)即可在vertex阶段采样贴图数据，同时对于特定uint2数据位置可以通过乘xxxx_TexelSize.xy的方式对应贴图uv
+对应需要数据驱动\_FrameStart，\_FrameEnd，\_FrameInterpolate由cpu端计算与发送，同时为了方便测试/检视逻辑在Properties栏填上对应的栏目.
+### 顶点动画
+通过SV\_VertexID，即可知道对应的顶点索引（需要target 3.5及以上）或者可以把顶点id写入顶点数据（uv1等）
 ```
 float3 SamplePosition(uint vertexID,uint frame)
 {
@@ -235,10 +214,8 @@ void SampleVertex(uint vertexID,inout float3 positionOS,inout float3 normalOS)
     normalOS = lerp(SampleNormal(vertexID, _FrameBegin), SampleNormal(vertexID, _FrameEnd), _FrameInterpolate);
 }
 ```
-- **矩阵动画**
-
-通过传入的transformIndexes与transformWeights即可插值出对应的矩阵,并与原向量数据做一次矩阵乘法即为当前帧动画的向量.
-
+### 矩阵动画
+通过传入的transformIndexes与transformWeights即可插值出对应的矩阵，并与原向量数据做一次矩阵乘法即为当前帧动画的向量
 ```
 float4x4 SampleTransformMatrix(uint sampleFrame,uint transformIndex)
 {
@@ -264,28 +241,14 @@ void SampleTransform(uint4 transformIndexes,float4 transformWeights,inout float3
     positionOS=mul(sampleMatrix,float4(positionOS,1)).xyz;
 }
 ```
-
-**GPU接入后:**
-
+### GPU接入后
 **相关脚本**
-
 - GPUAnimation.hlsl (GPU采样的函数库)
 - GPUAnimation\_Example.shader (GPU采样的示例)
-
----
-
 ## 播放驱动
-
-在基于上文构建的GPU动画基类播放完数据后,在Monobehaviour通过实现生命周期与驱动.
-
-通过 **Material.SetPropertyBlock** 设置数据,可以避免材质实例化,同时支持GPU Instance.
-
-  
-
-**\*动画事件**
-
-在原生Animation窗口设置的关键帧可以通过AnimationClip.events直接访问,在动画关键帧数据的基础上记录所有事件信息每帧累计时间时检查是否超过
-
+在基于上文构建的GPU动画基类播放完数据后，在Monobehaviour通过实现生命周期与驱动。通过 **Material.SetPropertyBlock** 设置数据，可以避免材质实例化，同时支持GPU Instance。
+### 动画事件
+在原生Animation窗口设置的关键帧可以通过AnimationClip.events直接访问，在动画关键帧数据的基础上记录所有事件信息每帧累计时间时检查是否超过
 ```
 public struct AnimationTickerEvent
 {
@@ -307,11 +270,8 @@ void TickEvents(AnimationTickerClip _tickerClip, float _timeElapsed, float _delt
     }
 }
 ```
-
-**\*Transform暴露**
-
-记录需要构建的骨骼与起始位置旋转.
-
+### Transform暴露
+记录需要构建的骨骼与起始位置旋转
 ```
 public struct GPUAnimationExposeBone
 {
@@ -321,9 +281,7 @@ public struct GPUAnimationExposeBone
     public Vector3 direction;
 }
 ```
-
-CPU端同步构建一个Transform,并通过Texture.ReadPixel函数采样贴图并设置Transform.
-
+CPU端同步构建一个Transform，并通过Texture.ReadPixel函数采样贴图并设置Transform.
 ```
 Vector4 ReadAnimationTexture(int boneIndex, int row, int frame)
 {
@@ -347,25 +305,16 @@ void TickExposeBones(AnimationTickerOutput _output)
     }
 }
 ```
-
-**相关脚本**
-
+### 相关脚本
 - AnimationTicker (动画驱动类)
 - AnimationTickData (帧动画数据)
 - GPUAnimationController (动画驱动类引擎交互,对应数据设置,Transform暴露,动画事件等)
 - GPUAnimationInstanceSample(通过Graphics.DrawMeshInstanced绘制的示例)
-
----
-
 ## 拓展
-
-**\*数据压缩**
-
-在顶点动画的坐标处理上,可以加一些新的数据来帮助压缩纹理大小.比如将必须传入的POSITION处理成动画内坐标最大值,同时动画记录0-1的归一化值 **\[0,1\]-\[-1,1\]区间转换**.或者通过 **RGBM** 方式处理贴图,将纹理格式控制到RGBA32内.
-
-**\*矩阵计算精度**
-
-在矩阵计算这块,由于GPU的计算导致多个顶点需要多次采样,则可以通过Keyword对采样范围限制.例如最高精度需要采样所有矩阵并插值,则最低精度只采样第一个矩阵且不插值.
+### 数据压缩
+在顶点动画的坐标处理上，可以加一些新的数据来帮助压缩纹理大小。比如将必须传入的POSITION处理成动画内坐标最大值，同时动画记录0-1的归一化值 \[0,1\]-\[-1,1\]区间转换，或者通过 **RGBM** 方式处理贴图，将纹理格式控制到RGBA32内
+### 矩阵计算精度
+在矩阵计算这块，由于GPU的计算导致多个顶点需要多次采样，则可以通过Keyword对采样范围限制。例如最高精度需要采样所有矩阵并插值,则最低精度只采样第一个矩阵且不插值.
 
 \* **CPU端动画**
 
