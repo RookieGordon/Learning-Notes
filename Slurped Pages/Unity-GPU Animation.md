@@ -16,16 +16,11 @@ tags:
 [https://github.com/striter/Unity3D-ToolChain\_StriteR github.com/striter/Unity3D-ToolChain\_StriteR](https://link.zhihu.com/?target=https%3A//github.com/striter/Unity3D-ToolChain_StriteR)
 - 参考场景:GPUAnimationSample
 # 原理
-## **动画数据与采样：**
-通常由一个二维数据组成，第一维度为时间，第二维度为当前帧的数据。
-采样则由时间换算到的帧数（float）换算到前后帧索引，并把获取的数据进行插值
-
-- **顶点动画 (Vertex)**
-
-每帧采样前后帧的所有数据(positionOS,normalOS,tangentOS等),进行插值.
-
-最原始的做法,只需要顶点索引(index)即可获取需要的所有信息,效率最高同时体积最大.
-
+## 动画数据与采样
+通常由一个二维数据组成，第一维度为时间，第二维度为当前帧的数据。采样则由时间换算到的帧数（float）换算到前后帧索引，并把获取的数据进行插值
+### 顶点动画 (Vertex)
+每帧采样前后帧的所有数据（positionOS，normalOS，tangentOS等），进行插值。
+最原始的做法，只需要顶点索引（index）即可获取需要的所有信息，效率最高同时体积最大
 ```
 //伪代码
 struct FrameData
@@ -49,14 +44,10 @@ void SampleAnimation(int _vertIndex)
    //ETC
 }
 ```
-- **矩阵动画 (Transform)**
-
-基于骨骼动画数据重建.
-
-顶点数据新加矩阵索引( transformIndexes)以及矩阵权重(transformWeights),根据每帧前后的插值构建对应顶点的矩阵,并对顶点数据进行矩阵操作处理.
-
-相较于顶点动画更为复杂,同时离散的计算并会增加GPU计算量,可以很大程度降低数据体积.
-
+### 矩阵动画 (Transform)
+基于骨骼动画数据重建
+顶点数据新加矩阵索引（transform Indexes）以及矩阵权重（transform Weights），根据每帧前后的插值构建对应顶点的矩阵，并对顶点数据进行矩阵操作处理。
+相较于顶点动画更为复杂，同时离散的计算并会增加GPU计算量，可以很大程度降低数据体积。
 ```
 //伪代码
 float m_Frame;
@@ -84,18 +75,11 @@ void SampleAnimation(uint4 _transformIndexes,float4 _transformWeights,
 }
 ```
 
-**数据索引:**
-
-通常涉及到GPU顶点数据读取时,常用的做法是将数据制作成一张贴图,通过texture2d\_lod的方式读取数据.所以把所有动画数据烘在一张图内,并指定前后关键帧与插值,即可在vertex shader阶段采样动画.
-
-同时由于图片是二维格式,所以在vertex阶段需要换算来获取真正的数据位置.
-
-- **顶点动画**
-
-顶点输入:顶点索引
-
-索引方式：X轴: 顶点索引与对应数据 Y轴:关键帧
-
+## 数据索引
+通常涉及到GPU顶点数据读取时，常用的做法是将数据制作成一张贴图，通过`texture2d.load`的方式读取数据。所以把所有动画数据烘在一张图内，并指定前后关键帧与插值，即可在vertex shader阶段采样动画。同时由于图片是二维格式，所以在vertex阶段需要换算来获取真正的数据位置。
+### 顶点动画
+- 顶点输入：顶点索引
+- 索引方式：X轴——顶点索引与对应数据，Y轴——关键帧
 ```
 //索引关系的伪代码
 uint2 PositionIndex(uint _vertexID,uint _frame){
@@ -110,12 +94,9 @@ uint2 TangentIndex(uint _vertexID,uint _frame){
     return  uint2 ((_vertexID * 3 + 2), _frame);
 }
 ```
-- **矩阵动画**
-
-顶点输入:矩阵索引
-
-索引方式: X轴骨骼索引与对应矩阵的3列,Y轴:关键帧
-
+### 矩阵动画
+- 顶点输入：矩阵索引
+- 索引方式：X轴——骨骼索引与对应矩阵的3列，Y轴——关键帧
 ```
 //索引关系的伪代码
 uint2 Row0Index(uint _transformIndex,uint _frame){
@@ -137,11 +118,7 @@ float3x3 GetMatrix(uint _transformIndex,uint _frame)
                     Row2Index(_transformIndex,_frame));
 }
 ```
-
-动画驱动:
-
-记录每个动画的起始帧,帧长度以及帧率.
-
+- 动画驱动：记录每个动画的起始帧,帧长度以及帧率
 ```
 public struct AnimationTickerClip
 {
@@ -152,9 +129,7 @@ public struct AnimationTickerClip
     public float frameRate;
 }
 ```
-
-累计时间,并通过换算获取对应的动画起始帧/结束帧以及插值
-
+累计时间，并通过换算获取对应的动画起始帧/结束帧以及插值
 ```
 float m_TimeElapsed;
 AnimationTickerClip m_Clip;
@@ -183,38 +158,26 @@ public void TickAnimation(float _deltaTime)
       framePassed %= 1;
 }
 ```
-
----
-
 ## 数据构建
-
-在编辑器窗口设置,通过原数据生成新数据.
-
-- 模型需要打开Read/Write,如果是矩阵动画需要关闭Optimize GameObject勾选
-- 在新系统内不会对原模型及动画进行引用.
+在编辑器窗口设置，通过原数据生成新数据：
+- 模型需要打开`Read/Write`，如果是矩阵动画需要关闭`Optimize GameObject`勾选
+- 在新系统内不会对原模型及动画进行引用
 ![GPU动画烘焙窗口,需要设置原FBX,动画数据以及数据类型](https://picx.zhimg.com/v2-731a42fe38ea73e5bab2c12b8f251e2d_r.jpg)
 
 ![生成的数据集合(Scriptable Object),包含烘焙模型,动画贴图及动画驱动数据](https://pic3.zhimg.com/v2-66f49e321fe1cca430ffe41351d03a7c_1440w.jpg)
 
 通过 ***Texture2D*** 与 ***Mesh*** 两个内置库构建模型贴图.
-
 而所有必要的数据信息则可以通过这两个API获取.
-
 - ***AnimationClip.SampleAnimation*** 采样每帧的动画骨骼.
-- ***[SkinnedMeshRenderer](https://zhida.zhihu.com/search?content_id=180089362&content_type=Article&match_order=1&q=SkinnedMeshRenderer&zhida_source=entity).BakeMesh*** 构建当前帧Mesh信息.
-
-**顶点动画**
-
-1.对于贴图:只需要获取到对应帧Mesh的所有vertices/normals/tangents等,并按照索引格式写入贴图即可.
-
-2.对于模型:要做的是把所有normals/tangents数据清除(节省体积),只保留vertices与indexes,uvs以及bounds.
-
+- ***SkinnedMeshRenderer.BakeMesh*** 构建当前帧Mesh信息.
+## 顶点动画
+1. 对于贴图：只需要获取到对应帧Mesh的所有vertices/normals/tangents等，并按照索引格式写入贴图即可.
+2. 对于模型：要做的是把所有normals/tangents数据清除(节省体积)，只保留vertices与indexes,uvs以及bounds.
 ![1720个顶点,135个关键帧,有位置以及法线信息](https://pic3.zhimg.com/v2-768d22d72c8cacf45ff700ffe4ccc794_1440w.png)
 
 ![对应的输入Mesh, 由于Mesh构建必要Position.否则体积可以更小.](https://pica.zhimg.com/v2-5e049b291927c9a7f0ae557c88a7b9e2_1440w.jpg)
 
 **矩阵动画:**
-
 1.对于贴图:在采样骨骼后获取的所有Transform转换矩阵并记录,需要初始位置( **bindPoses** )
 
 对应index的转换矩阵计算( **bones\[index\].localToWorldMatrix\*bindPoses\[index\])**

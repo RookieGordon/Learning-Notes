@@ -143,13 +143,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "导航/主页.md",
+                "file": "Slurped Pages/Unity-GPU Animation.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "主页 的大纲"
+              "title": "Unity-GPU Animation 的大纲"
             }
           },
           {
@@ -223,12 +223,11 @@
             }
           }
         ],
-        "currentTab": 10
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
-    "width": 505.5,
-    "collapsed": true
+    "width": 505.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -250,7 +249,7 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "75ba927bb67b3d00",
+  "active": "f0e6bbe378999eb1",
   "lastOpenFiles": [
     "游戏开发技术探索/Unity开发技术/动画性能优化/Unity中的GPU动画.md",
     "Clippings/移动游戏的性能优化  贴图压缩篇.md",
