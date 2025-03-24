@@ -65,6 +65,7 @@ source: https://zhuanlan.zhihu.com/p/98642798
 3. 物体如果都符合条件会优先参与静态批处理，然后才到GPU Instancing，假如物体符合前者，此次加速都会被打断。
 ## **流程原理**
 ![图片描述|1020](https://pic3.zhimg.com/v2-0dde54b930bef9c768c10d3c79126e16_r.jpg)
+# **总结**
 # SRP Batcher<sup>[8]</sup>
 ## **定义**
 在使用LWRP或者HWRP时，开启SRP Batcher的情况下，只要物体的 **Shader中变体** 一致，就可以启用SRP Batcher加速。它与上文GPU Instancing实现的原理相近，Unity会在运行时对于正在视野中的符合要求的所有对象使用 **“Per Object” GPU BUFFER（一个独立的Buffer）** 将其位置、缩放、uv偏移、 *lightmapindex* 等相关信息保存在GPU内存中，同时也会将正在视野中的符合要求的所有对象使用 **Constant Buffer** <sup><a href="https://zhuanlan.zhihu.com/p/#ref_5">[5]</a></sup> 将材质信息保存在保存在显存中的 **“统一/常量缓冲器”** <sup><a href="https://zhuanlan.zhihu.com/p/#ref_6">[6]</a></sup> 中。与GPU Instancing相比，因为数据不再每帧被重新创建，而且需要保存进“统一/常量缓冲区”的数据排除了各自的位置、缩放、uv偏移、 *lightmapindex* 等相关信息，所以缓冲区内有更多的空间可以 **动态地** 存储场景中所有渲染物体的材质信息。由于数据不再每帧被重新创建，而是动态更新，所以SRP Batcher的本质并不会降低Draw Calls的数量，它只会降低Draw Calls之间的GPU设置成本。
