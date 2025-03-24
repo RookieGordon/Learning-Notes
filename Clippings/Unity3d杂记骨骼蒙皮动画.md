@@ -1,26 +1,9 @@
 ---
-title: "[Unity3d杂记]骨骼蒙皮动画"
-source: "https://zhuanlan.zhihu.com/p/87583171"
-author:
-  - "[[知乎专栏]]"
-published:
-created: 2025-03-24
-description: "目前游戏开发中常用的两种动画：顶点动画和蒙皮动画 1. 顶点动画通过在动画帧中直接修改mesh顶点的位置来实现，通常在mesh顶点数目较少，动画简单的情况下使用，如草的摆动，树的摆动，水的波动等 2. 蒙皮动画通过…"
+source: https://zhuanlan.zhihu.com/p/87583171
 tags:
-  - "clippings"
+  - clippings
 ---
-首发于[Unity3d杂记](https://www.zhihu.com/column/c_1362512995579400192)
-
-# \[Unity3d杂记\]骨骼蒙皮动画
-
-[![old张](https://pic1.zhimg.com/v2-357a0ef1f48ad1bd72f349a0893fae0f_l.jpg?source=172ae18b)](https://www.zhihu.com/people/helioser)
-
-[old张](https://www.zhihu.com/people/helioser)
-
-106 人赞同了该文章
-
-目前游戏开发中常用的两种动画：[顶点动画](https://zhida.zhihu.com/search?content_id=107592287&content_type=Article&match_order=1&q=%E9%A1%B6%E7%82%B9%E5%8A%A8%E7%94%BB&zhida_source=entity)和[蒙皮动画](https://zhida.zhihu.com/search?content_id=107592287&content_type=Article&match_order=1&q=%E8%92%99%E7%9A%AE%E5%8A%A8%E7%94%BB&zhida_source=entity)
-
+目前游戏开发中常用的两种动画：顶点动画和蒙皮动画
 ## **1\. 顶点动画**
 
 通过在动画帧中直接修改mesh顶点的位置来实现，通常在mesh顶点数目较少，动画简单的情况下使用，如草的摆动，树的摆动，水的波动等
@@ -41,14 +24,13 @@ tags:
 
 ### **2\. 蒙皮需要的数据**
 
-在unity中主要是通过[SkinnedMeshRenderer](https://zhida.zhihu.com/search?content_id=107592287&content_type=Article&match_order=1&q=SkinnedMeshRenderer&zhida_source=entity)组件来实现蒙皮动画的计算
+在unity中主要是通过`SkinnedMeshRenderer`组件来实现蒙皮动画的计算
 
 计算蒙皮动画所需要的数据：
-
-1. SkinnedMeshRenderer.bones：所有引用到bone的列表，注意顺序是确定的，后续顶点的[BoneWeight](https://zhida.zhihu.com/search?content_id=107592287&content_type=Article&match_order=1&q=BoneWeight&zhida_source=entity)中bone的索引，就是基于这个数组顺序的索引
-2. SkinnedMeshRenderer.sharedMesh：渲染所需的mesh数据，注意相比普通的MeshRender所需的顶点和面数据，还会有一些额外的计算蒙皮相关的数据
-3. Mesh.boneWeights：每个顶点受到哪几根bone的影响的索引和权重（每个顶点最多受到四根骨骼的影响，详见结构体BoneWeight的定义）
-4. Mesh.[bindposes](https://zhida.zhihu.com/search?content_id=107592287&content_type=Article&match_order=1&q=bindposes&zhida_source=entity)：每根bone从mesh空间到自己的bone空间的变换矩阵，也就是预定义的bone的bone空间到mesh空间的变换矩阵的逆矩阵，注意顶点受到bone影响所做的变换都是基于在bone空间做的变换
+1. `SkinnedMeshRenderer.bones`：所有引用到bone的列表，注意顺序是确定的，后续顶点的BoneWeight中bone的索引，就是基于这个数组顺序的索引
+2. `SkinnedMeshRenderer.sharedMesh`：渲染所需的mesh数据，注意相比普通的MeshRender所需的顶点和面数据，还会有一些额外的计算蒙皮相关的数据
+3. `Mesh.boneWeights`：每个顶点受到哪几根bone的影响的索引和权重（每个顶点最多受到四根骨骼的影响，详见结构体BoneWeight的定义）
+4. `Mesh.bindposes`：每根bone从mesh空间到自己的bone空间的变换矩阵，也就是预定义的bone的bone空间到mesh空间的变换矩阵的逆矩阵，注意顶点受到bone影响所做的变换都是基于在bone空间做的变换
 
 根据Unity文档, Unity中BindPose的算法如下:
 
@@ -62,7 +44,7 @@ OneBoneBindPose = bone.worldToLocalMatrix * transform.localToWorldMatrix;
 
 ### **3\. 蒙皮的计算过程**
 
-我们通常将计算Mesh的顶点受bone影响而产生的变化的过程称之为蒙皮，如果在代码中计算的话，称之为[cpu蒙皮](https://zhida.zhihu.com/search?content_id=107592287&content_type=Article&match_order=1&q=cpu%E8%92%99%E7%9A%AE&zhida_source=entity)，如果在gpu也就是顶点着色器中计算的话，称之为[gpu蒙皮](https://zhida.zhihu.com/search?content_id=107592287&content_type=Article&match_order=1&q=gpu%E8%92%99%E7%9A%AE&zhida_source=entity)。
+我们通常将计算Mesh的顶点受bone影响而产生的变化的过程称之为蒙皮，如果在代码中计算的话，称之为cpu蒙皮，如果在gpu也就是顶点着色器中计算的话，称之为gpu蒙皮。
 
 注意：所有的计算并不包括世界坐标的变换，都是在mesh空间下进行的，Mesh中原始的顶点坐标也是定义在Mesh空间下的
 
@@ -93,7 +75,6 @@ v_out = v_out0 * weight0 + v_out1 * weight1 + v_out2 * weight2 + v_out3 * weight
 在代码中实现蒙皮的计算也是cpu蒙皮
 
 1: 通过一个编辑器工具，对动画按照一定帧数采样，把每一帧的骨骼的localToWorldMatrix矩阵存储下来
-
 ![](https://pic2.zhimg.com/v2-0e780cd7b2c96b46c5bf46573d3eb165_1440w.jpg)
 
 对于Animation组件来说采样很简单，通过修改 AnimationState.time，然后调用Animation.Sample()即可将动画固定在确定的时间，然后直接获取bone的transform的数据就可以了
@@ -119,9 +100,6 @@ private AnimData.FrameData GetFrameData(AnimationState animationState, float tim
 ```
 
 2: 用MeshRender替换SkinnedMeshRenderer构造一个新的GameObject
-
-  
-
 ![](https://pica.zhimg.com/v2-e5706d65a8b73875204db1a6f1a49fba_1440w.jpg)
 
 3: 代码中实现通过每一帧的骨骼数据计算顶点位置来实现动画
@@ -179,7 +157,6 @@ void Update()
 
 ![动图封面](https://pic1.zhimg.com/v2-0243270b5608a29e68ba4897c9d16308_b.jpg)
 
-  
 
 6: \[示例工程的地址\] [https://github.com/oldzhang227/UnityDemos/tree/master/SkinAnimDemo](https://link.zhihu.com/?target=https%3A//github.com/oldzhang227/UnityDemos/tree/master/SkinAnimDemo)， 如有疑问，请评论留言，愿与你一起交流， 关注公众号 **old张** ，持续分享技术干活
 
