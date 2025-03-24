@@ -1,19 +1,23 @@
 ---
 source: https://zhuanlan.zhihu.com/p/413815001
 tags:
-  - clippings
   - Unity
   - GPU-Instancing
 ---
-目录收起序言原理数据构建动画采样播放驱动拓展
-
 # 序言
 > 项目有遇到由大量角色的组合,依此情况由Animation导致的CPU骨骼计算以及GPU 的Batch数量，带来了不可忽视的性能压力。于是总结并整理了一套GPU Animation框架，在动画需求不复杂的情况下由离线计算的贴图数据驱动并在 vertex shader采样，通过降低复杂度与时间换空间的方法降低计算量，同时支持GPU Instance降低Batch压力。
 
 ![2位动画角色 1152个实例 实时阴影 各自播放不同的动画 GPU Instance开启](https://picx.zhimg.com/v2-a59bcfd87d4e497db3818e2da9862159_r.jpg)
 
 整个系统工程量较大，重新实现了一套简单的Animation系统，同时有其他方向的细节( EditorWindow，Shader Keywords等)没有在本文列出，若有需求可以在本人持续维护的开源工具库进行调整与测试。也可直接私信作者：
-[https://github.com/striter/Unity3D-ToolChain\_StriteR github.com/striter/Unity3D-ToolChain\_StriteR](https://link.zhihu.com/?target=https%3A//github.com/striter/Unity3D-ToolChain_StriteR)
+```cardlink
+url: https://github.com/striter/Unity3D-ToolChain_StriteR
+title: "GitHub - striter/Unity3D-ToolChain_StriteR"
+description: "Contribute to striter/Unity3D-ToolChain_StriteR development by creating an account on GitHub."
+host: github.com
+favicon: https://github.githubassets.com/favicons/favicon.svg
+image: https://opengraph.githubassets.com/071e226dc46660d0b140dd9896ed1c75088571369af26ccea17eb8e1b06cdf13/striter/Unity3D-ToolChain_StriteR
+```
 - 参考场景:GPUAnimationSample
 # 原理
 ## 动画数据与采样
@@ -21,13 +25,13 @@ tags:
 ### 顶点动画 (Vertex)
 每帧采样前后帧的所有数据（positionOS，normalOS，tangentOS等），进行插值。
 最原始的做法，只需要顶点索引（index）即可获取需要的所有信息，效率最高同时体积最大
-```
+```C#
 //伪代码
 struct FrameData
 {
     float3 positionOS;
     float3 normalOS;
-    //ETC
+    // etc.
 }
 
 float m_Frame;
@@ -41,14 +45,14 @@ void SampleAnimation(int _vertIndex)
    var nextData=m_Frames[nextFrame];
    float3 positionOS=lerp(curData.positionOS,nextData.positionOS,interpolate);
    float3 normalOS=lerp(curData.normalOS,nextData.normalOS,interpolate);
-   //ETC
+   // etc.
 }
 ```
 ### 矩阵动画 (Transform)
 基于骨骼动画数据重建
 顶点数据新加矩阵索引（transform Indexes）以及矩阵权重（transform Weights），根据每帧前后的插值构建对应顶点的矩阵，并对顶点数据进行矩阵操作处理。
 相较于顶点动画更为复杂，同时离散的计算并会增加GPU计算量，可以很大程度降低数据体积。
-```
+```C#
 //伪代码
 float m_Frame;
 float3x3[][] m_FrameData;   //第一维度:动画帧 第二维:骨骼索引
@@ -71,7 +75,7 @@ void SampleAnimation(uint4 _transformIndexes,float4 _transformWeights,
     interpolate );
    float3 postitionOS=transformMatrix*_positionOS;
    float3 normalOS=transformMatrix*_normalOS;
-    //ETC
+    // etc.
 }
 ```
 
@@ -83,7 +87,7 @@ void SampleAnimation(uint4 _transformIndexes,float4 _transformWeights,
 ```
 //索引关系的伪代码
 uint2 PositionIndex(uint _vertexID,uint _frame){
-    return uint2 ((_vertexID * 3) _frame);
+    return uint2 ((_vertexID * 3), _frame);
 }
 
 uint2 NormalIndex(uint _vertexID,uint _frame){
@@ -100,7 +104,7 @@ uint2 TangentIndex(uint _vertexID,uint _frame){
 ```
 //索引关系的伪代码
 uint2 Row0Index(uint _transformIndex,uint _frame){
-    return uint2 ((_transformIndex* 3) _frame);
+    return uint2 ((_transformIndex* 3), _frame);
 }
 
 uint2 Row1Index(uint _transformIndex,uint _frame){
@@ -118,8 +122,8 @@ float3x3 GetMatrix(uint _transformIndex,uint _frame)
                     Row2Index(_transformIndex,_frame));
 }
 ```
-- 动画驱动：记录每个动画的起始帧,帧长度以及帧率
-```
+- 动画驱动：记录每个动画的起始帧，帧长度以及帧率
+```C#
 public struct AnimationTickerClip
 {
     public string name;
@@ -130,7 +134,7 @@ public struct AnimationTickerClip
 }
 ```
 累计时间，并通过换算获取对应的动画起始帧/结束帧以及插值
-```
+```C#
 float m_TimeElapsed;
 AnimationTickerClip m_Clip;
 public void TickAnimation(float _deltaTime)
@@ -314,10 +318,6 @@ void TickExposeBones(AnimationTickerOutput _output)
 ### 数据压缩
 在顶点动画的坐标处理上，可以加一些新的数据来帮助压缩纹理大小。比如将必须传入的POSITION处理成动画内坐标最大值，同时动画记录0-1的归一化值 \[0,1\]-\[-1,1\]区间转换，或者通过 **RGBM** 方式处理贴图，将纹理格式控制到RGBA32内
 ### 矩阵计算精度
-在矩阵计算这块，由于GPU的计算导致多个顶点需要多次采样，则可以通过Keyword对采样范围限制。例如最高精度需要采样所有矩阵并插值,则最低精度只采样第一个矩阵且不插值.
-
-\* **CPU端动画**
-
-渲染压力较大的情况下可以考虑使用顶点动画,借助Mesh函数在CPU端动态构建.
-
-编辑于 2022-11-27 16:09・IP 属地上海 [Unity（游戏引擎）](https://www.zhihu.com/topic/19568806)
+在矩阵计算这块，由于GPU的计算导致多个顶点需要多次采样，则可以通过Keyword对采样范围限制。例如最高精度需要采样所有矩阵并插值，则最低精度只采样第一个矩阵且不插值
+### CPU端动画
+渲染压力较大的情况下可以考虑使用顶点动画，借助Mesh函数在CPU端动态构建

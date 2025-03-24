@@ -227,7 +227,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 505.5
+    "width": 505.5,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -249,7 +250,7 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "f0e6bbe378999eb1",
+  "active": "75ba927bb67b3d00",
   "lastOpenFiles": [
     "游戏开发技术探索/Unity开发技术/动画性能优化/Unity中的GPU动画.md",
     "Clippings/移动游戏的性能优化  贴图压缩篇.md",
