@@ -78,7 +78,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 395.5
+    "width": 395.5,
+    "collapsed": true
   },
   "right": {
     "id": "be1e91dfcb57ce3b",
@@ -210,9 +211,19 @@
               "icon": "lucide-file",
               "title": "插件不再活动"
             }
+          },
+          {
+            "id": "e9b9d7149d4fda3c",
+            "type": "leaf",
+            "state": {
+              "type": "todo",
+              "state": {},
+              "icon": "checkmark",
+              "title": "Todo List"
+            }
           }
         ],
-        "currentTab": 9
+        "currentTab": 10
       }
     ],
     "direction": "horizontal",
@@ -228,13 +239,23 @@
       "daily-notes:打开/创建今天的日记": false,
       "command-palette:打开命令面板": false,
       "obsidian-git:Open Git source control": false,
-      "obsidian-importer:Open Importer": false
+      "obsidian-importer:Open Importer": false,
+      "obsidian-excalidraw-plugin:新建绘图文件": false,
+      "moredraw:MoreDraw": false,
+      "templater-obsidian:Templater": false,
+      "vscode-editor:新建代码文件": false,
+      "obsidian-memos:Thino": false,
+      "pdf-plus:PDF++: Toggle auto-copy": false,
+      "pdf-plus:PDF++: Toggle auto-focus": false,
+      "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
   "active": "75ba927bb67b3d00",
   "lastOpenFiles": [
-    "游戏开发技术探索/Unity开发技术/动画性能优化/未命名.md",
+    "Slurped Pages/深入解析OSI七层模型及各层工作原理（我只能帮你到这了）-腾讯云开发者社区-腾讯云.md",
     "Clippings/关于静态批处理动态批处理GPU Instancing SRP Batcher的详细剖析.md",
+    "收藏夹/60个独立游戏的营销错误_60MistakesEbookV1.pdf",
+    "游戏开发技术探索/Unity开发技术/动画性能优化/未命名.md",
     "Clippings",
     "游戏开发技术探索/Unity开发技术/动画性能优化/gpu instancing animation代替骨骼动画的做法_urp gpu animation 烘焙骨骼信息-CSDN博客.md",
     "游戏开发技术探索/Unity开发技术/Unity开发技术探索.md",
@@ -276,9 +297,7 @@
     "收藏夹/面试题/C#高级语法之泛型、泛型约束，类型安全、逆变和协变（思想原理）-腾讯云开发者社区-腾讯云.md",
     "Template/Project Task.md",
     "Template/Project.md",
-    "未命名.md",
     "pixel-banner-images",
-    "components/images/308568238c744272b7817bd860d9476c.jpeg.crdownload",
     "未命名.canvas"
   ]
 }

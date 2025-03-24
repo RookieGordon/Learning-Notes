@@ -13,11 +13,11 @@ tags:
 
 - **定义**
 
-标明为 Static 的静态物件，如果在使用 **相同材质球** 的条件下，在 **Build（项目打包）** 的时候Unity会自动地提取这些共享材质的静态模型的 [Vertex buffer](https://zhida.zhihu.com/search?content_id=110051712&content_type=Article&match_order=1&q=Vertex+buffer&zhida_source=entity) 和 [Index buffer](https://zhida.zhihu.com/search?content_id=110051712&content_type=Article&match_order=1&q=Index+buffer&zhida_source=entity) 。根据其摆放在场景中的位置等最终状态信息，将这些模型的顶点数据变换到世界空间下，存储在新构建的大Vertex buffer和Index buffer中。并且记录每一个子模型的Index buffer数据在构建的大Index buffer中的起始及结束位置。
-
+标明为 Static 的静态物件，如果在使用 **相同材质球** 的条件下，在 **Build（项目打包）** 的时候Unity会自动地提取这些共享材质的静态模型的 Vertex buffer和 Index buffer 。根据其摆放在场景中的位置等最终状态信息，将这些模型的顶点数据变换到世界空间下，存储在新构建的大Vertex buffer和Index buffer中。并且记录每一个子模型的Index buffer数据在构建的大Index buffer中的起始及结束位置。
+![在这里插入图片描述](https://pic2.zhimg.com/v2-48b948e088a2310817c67c6530637a95_r.jpg)
 在后续的绘制过程中，一次性提交整个合并模型的顶点数据，根据引擎的场景管理系统判断各个子模型的可见性。然后设置一次渲染状态，调用多次 [Draw call](https://zhida.zhihu.com/search?content_id=110051712&content_type=Article&match_order=1&q=Draw+call&zhida_source=entity) 分别绘制每一个子模型。
-
-[Static batching](https://zhida.zhihu.com/search?content_id=110051712&content_type=Article&match_order=1&q=Static+batching&zhida_source=entity) 并 **不减少Draw call的数量（** 但是在编辑器时由于计算方法区别Draw call数量是会显示减少了的 <sup><a href="https://zhuanlan.zhihu.com/p/#ref_2">[2]</a></sup> ），但是由于我们预先把所有的子模型的顶点变换到了世界空间下，所以在运行时cpu不需要再次执行顶点变换操作，节约了少量的计算资源，并且这些子模型共享材质，所以在多次Draw call调用之间并没有渲染状态的切换，渲染API（ [Command Buffer](https://zhida.zhihu.com/search?content_id=110051712&content_type=Article&match_order=1&q=Command+Buffer&zhida_source=entity) ）会缓存绘制命令，起到了渲染优化的目的 。
+![图片描述](https://picx.zhimg.com/v2-9e2e1e5df3ad1b37ebe0dc1af4712005_r.jpg)
+Static batching 并 **不减少Draw call的数量（** 但是在编辑器时由于计算方法区别Draw call数量是会显示减少了的 <sup><a href="https://zhuanlan.zhihu.com/p/#ref_2">[2]</a></sup> ），但是由于我们预先把所有的子模型的顶点变换到了世界空间下，所以在运行时cpu不需要再次执行顶点变换操作，节约了少量的计算资源，并且这些子模型共享材质，所以在多次Draw call调用之间并没有渲染状态的切换，渲染API（ Command Buffer ）会缓存绘制命令，起到了渲染优化的目的 。
 
 但Static batching也会带来一些性能的负面影响。Static batching会导致应用打包之后体积增大，应用运行时所占用的内存体积也会增大。
 
@@ -27,9 +27,9 @@ tags:
 1. 改变Renderer.material将会造成一份材质的拷贝，因此会打断批处理，你应该使用Renderer.sharedMaterial来保证材质的共享状态。
 - **相同材质批处理断开情况**
 1. 位置不相邻且中间夹杂着不同材质的其他物体，不会进行同批处理，这种情况比较特殊，涉及到批处理的顺序，我的另一篇文章有详解。
-2. 拥有 [lightmap](https://zhida.zhihu.com/search?content_id=110051712&content_type=Article&match_order=1&q=lightmap&zhida_source=entity) 的物体含有额外（隐藏）的材质属性，比如：lightmap的偏移和缩放系数等。所以，拥有lightmap的物体将不会进行同批处理（除非他们指向lightmap的同一部分）。
+2. 拥有 lightmap的物体含有额外（隐藏）的材质属性，比如：lightmap的偏移和缩放系数等。所以，拥有lightmap的物体将不会进行同批处理（除非他们指向lightmap的同一部分）。
 - **流程原理**
-
+![图片描述](https://pica.zhimg.com/v2-37b225e02afe6dca369647e4a3bf3bd4_r.jpg)
 ---
 
 ## 动态批处理
@@ -52,9 +52,10 @@ Dynamic batching在降低Draw call的同时会导致额外的CPU性能消耗，�
 2. 物体如果都符合条件会优先参与静态批处理，再是GPU Instancing，然后才到动态批处理，假如物体符合前两者，此次批处理都会被打断。
 3. GameObject之间如果有镜像变换不能进行合批，例如，"GameObject A with +1 scale and GameObject B with –1 scale cannot be batched together"。
 4. 拥有lightmap的物体含有额外（隐藏）的材质属性，比如：lightmap的偏移和缩放系数等。所以，拥有lightmap的物体将不会进行批处理（除非他们指向lightmap的同一部分）。
-5. 使用 [Multi-pass Shader](https://zhida.zhihu.com/search?content_id=110051712&content_type=Article&match_order=1&q=Multi-pass+Shader&zhida_source=entity) 的物体会禁用Dynamic batching，因为Multi-pass Shader通常会导致一个物体要连续绘制多次，并切换渲染状态。这会打破其跟其他物体进行Dynamic batching的机会。
-6. 我们知道能够进行合批的前提是多个GameObject共享同一材质，但是对于 [Shadow casters](https://zhida.zhihu.com/search?content_id=110051712&content_type=Article&match_order=1&q=Shadow+casters&zhida_source=entity) 的渲染是个例外。仅管Shadow casters使用不同的材质，但是只要它们的材质中给Shadow Caster Pass使用的参数是相同的，他们也能够进行Dynamic batching。
-7. Unity的 [Forward Rendering Path](https://zhida.zhihu.com/search?content_id=110051712&content_type=Article&match_order=1&q=Forward+Rendering+Path&zhida_source=entity) 中如果一个GameObject接受多个光照会为每一个per-pixel light产生多余的模型提交和绘制，从而附加了多个Pass导致无法合批，如下图:
+5. 使用 Multi-pass Shader的物体会禁用Dynamic batching，因为Multi-pass Shader通常会导致一个物体要连续绘制多次，并切换渲染状态。这会打破其跟其他物体进行Dynamic batching的机会。
+6. 我们知道能够进行合批的前提是多个GameObject共享同一材质，但是对于 Shadow casters的渲染是个例外。仅管Shadow casters使用不同的材质，但是只要它们的材质中给Shadow Caster Pass使用的参数是相同的，他们也能够进行Dynamic batching。
+7. Unity的 Forward Rendering Path中如果一个GameObject接受多个光照会为每一个per-pixel light产生多余的模型提交和绘制，从而附加了多个Pass导致无法合批，如下图：
+8.
 
 可以接收多个光源的shader，在受到多个光源是无法合批
 
