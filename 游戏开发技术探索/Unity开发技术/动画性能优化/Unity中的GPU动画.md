@@ -31,6 +31,15 @@ host: github.com
 favicon: https://github.githubassets.com/favicons/favicon.svg
 image: https://opengraph.githubassets.com/a121038a9bfb68756ce1604cd97dfcc67dd47175465de4a31b1389c45e422c44/piti6/UnityGpuInstancedAnimation
 ```
+
+```cardlink
+url: https://github.com/oldzhang227/UnityDemos/tree/master/SkinAnimDemo
+title: "UnityDemos/SkinAnimDemo at master · oldzhang227/UnityDemos"
+description: "Contribute to oldzhang227/UnityDemos development by creating an account on GitHub."
+host: github.com
+favicon: https://github.githubassets.com/favicons/favicon.svg
+image: https://opengraph.githubassets.com/2e391913f1abfd0c0ec7b59429370c88789d2c6c5352daf214f3abe45cb882ba/oldzhang227/UnityDemos
+```
 [[Unity-GPU Animation]]
 [[Unity3d杂记骨骼蒙皮动画]]
 [[Unity大规模角色的GPU蒙皮动画表达方式]]
