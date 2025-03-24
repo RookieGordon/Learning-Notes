@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Slurped Pages/关于静态批处理动态批处理GPU Instancing SRP Batcher的详细剖析.md",
+                "file": "Clippings/Unity3d杂记骨骼蒙皮动画.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "关于静态批处理动态批处理GPU Instancing SRP Batcher的详细剖析"
+              "title": "Unity3d杂记骨骼蒙皮动画"
             }
           }
         ]
@@ -249,14 +249,16 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "89a66892aa3b87ae",
+  "active": "75ba927bb67b3d00",
   "lastOpenFiles": [
+    "Slurped Pages/Unity-GPU Animation.md",
+    "Clippings/Unity3d杂记骨骼蒙皮动画.md",
+    "Slurped Pages/关于静态批处理动态批处理GPU Instancing SRP Batcher的详细剖析.md",
+    "Clippings",
     "游戏开发技术探索/Unity开发技术/动画性能优化/阅读风暴小队相关代码.md",
     "游戏开发技术探索/Unity开发技术/动画性能优化/未命名.md",
-    "Slurped Pages/关于静态批处理动态批处理GPU Instancing SRP Batcher的详细剖析.md",
     "Slurped Pages/深入解析OSI七层模型及各层工作原理（我只能帮你到这了）-腾讯云开发者社区-腾讯云.md",
     "收藏夹/60个独立游戏的营销错误_60MistakesEbookV1.pdf",
-    "Clippings",
     "游戏开发技术探索/Unity开发技术/动画性能优化/gpu instancing animation代替骨骼动画的做法_urp gpu animation 烘焙骨骼信息-CSDN博客.md",
     "游戏开发技术探索/Unity开发技术/Unity开发技术探索.md",
     "HTML import/Attachments/v2-1cdbfcf07644a98948a0daa8b96977f5_l(1).jpg",
@@ -294,8 +296,6 @@
     "收藏夹/Test.md",
     "收藏夹/面试题/聊聊TCP协议的粘包、拆包以及http是如何解决的？_什么是tcp粘包,拆包。解决方式是什么-CSDN博客.md",
     "收藏夹/面试题/C#高级语法之泛型、泛型约束，类型安全、逆变和协变（思想原理）-腾讯云开发者社区-腾讯云.md",
-    "Template/Project Task.md",
-    "Template/Project.md",
     "pixel-banner-images",
     "未命名.canvas"
   ]
