@@ -1,7 +1,10 @@
 ---
 source: https://zhuanlan.zhihu.com/p/87583171
 tags:
-  - clippings
+  - Unity
+  - GPU-Animation
+  - 动画烘焙
+  - 动画蒙皮
 ---
 目前游戏开发中常用的两种动画：顶点动画和蒙皮动画
 ## **1\. 顶点动画**

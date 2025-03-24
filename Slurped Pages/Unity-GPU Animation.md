@@ -170,26 +170,26 @@ public void TickAnimation(float _deltaTime)
 
 ![生成的数据集合(Scriptable Object),包含烘焙模型,动画贴图及动画驱动数据](https://pic3.zhimg.com/v2-66f49e321fe1cca430ffe41351d03a7c_1440w.jpg)
 
-通过 ***Texture2D*** 与 ***Mesh*** 两个内置库构建模型贴图.
-而所有必要的数据信息则可以通过这两个API获取.
+通过 ***Texture2D*** 与 ***Mesh*** 两个内置库构建模型贴图
+而所有必要的数据信息则可以通过这两个API获取
 - ***AnimationClip.SampleAnimation*** 采样每帧的动画骨骼.
 - ***SkinnedMeshRenderer.BakeMesh*** 构建当前帧Mesh信息.
 ### 顶点动画
 1. 对于贴图：只需要获取到对应帧Mesh的所有vertices/normals/tangents等，并按照索引格式写入贴图即可.
-2. 对于模型：要做的是把所有normals/tangents数据清除(节省体积)，只保留vertices与indexes,uvs以及bounds.
+2. 对于模型：要做的是把所有normals/tangents数据清除(节省体积)，只保留vertices与indexes，uvs以及bounds.
 ![1720个顶点,135个关键帧,有位置以及法线信息](https://pic3.zhimg.com/v2-768d22d72c8cacf45ff700ffe4ccc794_1440w.png)
 
-![对应的输入Mesh, 由于Mesh构建必要Position.否则体积可以更小.](https://pica.zhimg.com/v2-5e049b291927c9a7f0ae557c88a7b9e2_1440w.jpg)
+![对应的输入Mesh, 由于Mesh构建必要Position，否则体积可以更小.](https://pica.zhimg.com/v2-5e049b291927c9a7f0ae557c88a7b9e2_1440w.jpg)
 
 ### 矩阵动画
-1. 对于贴图：在采样骨骼后获取的所有Transform转换矩阵并记录，需要初始位置( **bindPoses** )。对应index的转换矩阵计算( **bones\[index\].localToWorldMatrix\*bindPoses\[index\])**。计算出转换矩阵后依照索引将列内容填入贴图即可.
-2. 对于模型：需要记录原模型的Position/Normal/Tangents，以及索引TransformIndexes（即Mesh.BoneIndexes），权重TransformWeights（即Mesh.BoneWeights），目前放在了uv1与uv2内。可以根据需求动态调整.
+1. 对于贴图：在采样骨骼后获取的所有Transform转换矩阵并记录，需要初始位置( **bindPoses** )。对应index的转换矩阵计算( `bones[index].localToWorldMatrix*bindPoses[index]`)。计算出转换矩阵后依照索引将列内容填入贴图即可.
+2. 对于模型：需要记录原模型的Position/Normal/Tangents，以及索引TransformIndexes（即`Mesh.BoneIndexes`），权重TransformWeights（即`Mesh.BoneWeights`），目前放在了uv1与uv2内。可以根据需求动态调整.
 ![矩阵动画贴图,体积显著降低](https://pic1.zhimg.com/v2-abd56ef5a53bdda7599c4d5abe30b3be_1440w.jpg)
 
 ![矩阵动画模型,多了UV1与UV2 用于矩阵动画采样](https://pic3.zhimg.com/v2-e64cf78d79396eaf2cfd37fbeafbf534_1440w.jpg)
 
 ### 数据存储形式
-个人的做法是把Data做成了MainAsset, Mesh和Texture做成了SubAsset的形式,也可以做成纯数据然后Runtime调用构建的方式.
+个人的做法是把Data做成了MainAsset, Mesh和Texture做成了SubAsset的形式，也可以做成纯数据然后Runtime调用构建的方式.
 ### 包围盒判定
 由于GPU端采样模型，所以在构建数据时包围盒将采样所有动画顶点，亦或者根据不同的动画设置不同的包围盒
 ### 相关脚本
@@ -276,7 +276,7 @@ void TickEvents(AnimationTickerClip _tickerClip, float _timeElapsed, float _delt
 ```
 ### Transform暴露
 记录需要构建的骨骼与起始位置旋转
-```
+```C#
 public struct GPUAnimationExposeBone
 {
     public string name;
@@ -286,7 +286,7 @@ public struct GPUAnimationExposeBone
 }
 ```
 CPU端同步构建一个Transform，并通过Texture.ReadPixel函数采样贴图并设置Transform.
-```
+```C#
 Vector4 ReadAnimationTexture(int boneIndex, int row, int frame)
 {
      return m_Data.m_BakeTexture.GetPixel(boneIndex * 3 + row, frame);
