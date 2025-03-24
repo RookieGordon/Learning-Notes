@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Clippings/移动游戏的性能优化  贴图压缩篇.md",
+                "file": "Slurped Pages/移动游戏的性能优化  贴图压缩篇.md",
                 "mode": "source",
                 "source": false
               },
@@ -78,8 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 461.5,
-    "collapsed": true
+    "width": 461.5
   },
   "right": {
     "id": "be1e91dfcb57ce3b",
@@ -143,7 +142,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Clippings/移动游戏的性能优化  贴图压缩篇.md",
+                "file": "Slurped Pages/移动游戏的性能优化  贴图压缩篇.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -250,7 +249,7 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "75ba927bb67b3d00",
+  "active": "89a66892aa3b87ae",
   "lastOpenFiles": [
     "收藏夹/面试题/面试集锦.md",
     "收藏夹/未命名.md",
@@ -262,7 +261,7 @@
     "游戏开发技术探索/Unity开发技术/动画性能优化/gpu instancing animation代替骨骼动画的做法_urp gpu animation 烘焙骨骼信息-CSDN博客.md",
     "游戏开发技术探索/Unity开发技术/动画性能优化/整理学习动画烘焙代码.md",
     "Slurped Pages/Unity-GPU Animation.md",
-    "Clippings/移动游戏的性能优化  贴图压缩篇.md",
+    "Slurped Pages/移动游戏的性能优化  贴图压缩篇.md",
     "Slurped Pages/游戏开发中常用的设计模式 - 养诚 - 博客园.md",
     "Slurped Pages/移动游戏的性能优化 - 贴图压缩篇.md",
     "Slurped Pages/Unity中使用GPU Instancing优化SkinnedMesh渲染-腾讯云开发者社区-腾讯云.md",
