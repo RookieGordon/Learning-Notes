@@ -249,12 +249,11 @@
             }
           }
         ],
-        "currentTab": 11
+        "currentTab": 5
       }
     ],
     "direction": "horizontal",
-    "width": 505.5,
-    "collapsed": true
+    "width": 505.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -276,8 +275,10 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "89a66892aa3b87ae",
+  "active": "05d147c0b041b98b",
   "lastOpenFiles": [
+    "收藏夹/未命名.md",
+    "Slurped Pages/游戏开发中常用的设计模式 - 养诚 - 博客园.md",
     "导航/主页.md",
     "Slurped Pages/GPU Instancing Animation代替骨骼动画的做法.md",
     "游戏开发技术探索/Unity开发技术/动画性能优化/Unity中的GPU动画.md",
@@ -286,12 +287,10 @@
     "游戏开发技术探索/Unity开发技术/动画性能优化/整理学习动画烘焙代码.md",
     "Slurped Pages/移动游戏的性能优化  贴图压缩篇.md",
     "收藏夹/面试题/面试集锦.md",
-    "收藏夹/未命名.md",
     "收藏夹/60个独立游戏的营销错误_60MistakesEbookV1.pdf",
     "收藏夹/杂项.md",
     "Slurped Pages/Unity3d杂记骨骼蒙皮动画.md",
     "Slurped Pages/Unity-GPU Animation.md",
-    "Slurped Pages/游戏开发中常用的设计模式 - 养诚 - 博客园.md",
     "Slurped Pages/移动游戏的性能优化 - 贴图压缩篇.md",
     "Slurped Pages/Unity中使用GPU Instancing优化SkinnedMesh渲染-腾讯云开发者社区-腾讯云.md",
     "Slurped Pages/Unity大规模角色的GPU蒙皮动画表达方式.md",
