@@ -29,12 +29,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Slurped Pages/游戏开发中常用的设计模式 - 养诚 - 博客园.md",
-                "mode": "preview",
+                "file": "收藏夹/面试题/面试集锦.md",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "游戏开发中常用的设计模式 - 养诚 - 博客园"
+              "title": "面试集锦"
             }
           }
         ],
@@ -95,7 +95,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 461.5
+    "width": 461.5,
+    "collapsed": true
   },
   "right": {
     "id": "be1e91dfcb57ce3b",
@@ -193,7 +194,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 505.5
+    "width": 505.5,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -215,10 +217,10 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "05d147c0b041b98b",
+  "active": "af8aa355af0973b9",
   "lastOpenFiles": [
-    "未命名.md",
     "Slurped Pages/游戏开发中常用的设计模式 - 养诚 - 博客园.md",
+    "未命名.md",
     "收藏夹/未命名.md",
     "导航/主页.md",
     "Slurped Pages/GPU Instancing Animation代替骨骼动画的做法.md",
