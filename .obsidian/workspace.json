@@ -51,8 +51,7 @@
               "title": "Unity中的GPU动画"
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -174,13 +173,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "游戏开发技术探索/Unity开发技术/动画性能优化/Unity中的GPU动画.md",
+                "file": "导航/主页.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Unity中的GPU动画 的大纲"
+              "title": "主页 的大纲"
             }
           },
           {
@@ -220,26 +219,18 @@
       "daily-notes:打开/创建今天的日记": false,
       "command-palette:打开命令面板": false,
       "obsidian-git:Open Git source control": false,
-      "obsidian-importer:Open Importer": false,
-      "obsidian-excalidraw-plugin:新建绘图文件": false,
-      "moredraw:MoreDraw": false,
-      "templater-obsidian:Templater": false,
-      "vscode-editor:新建代码文件": false,
-      "obsidian-memos:Thino": false,
-      "pdf-plus:PDF++: Toggle auto-copy": false,
-      "pdf-plus:PDF++: Toggle auto-focus": false,
-      "pdf-plus:PDF++: Toggle auto-paste": false
+      "obsidian-importer:Open Importer": false
     }
   },
-  "active": "e28e9571ab3a6529",
+  "active": "75ba927bb67b3d00",
   "lastOpenFiles": [
-    "导航/主页.md",
     "收藏夹/面试题/面试集锦.md",
+    "游戏开发技术探索/Unity开发技术/动画性能优化/Unity中的GPU动画.md",
+    "导航/主页.md",
     "Slurped Pages/游戏开发中常用的设计模式 - 养诚 - 博客园.md",
     "未命名.md",
     "收藏夹/未命名.md",
     "Slurped Pages/GPU Instancing Animation代替骨骼动画的做法.md",
-    "游戏开发技术探索/Unity开发技术/动画性能优化/Unity中的GPU动画.md",
     "游戏开发技术探索/Unity开发技术/动画性能优化/Unity动画性能优化.md",
     "游戏开发技术探索/Unity开发技术/动画性能优化/阅读风暴小队相关代码.md",
     "游戏开发技术探索/Unity开发技术/动画性能优化/整理学习动画烘焙代码.md",
