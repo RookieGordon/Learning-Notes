@@ -30,7 +30,7 @@
               "type": "markdown",
               "state": {
                 "file": "收藏夹/面试题/面试集锦.md",
-                "mode": "source",
+                "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
@@ -160,13 +160,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "导航/主页.md",
+                "file": "收藏夹/面试题/面试集锦.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "主页 的大纲"
+              "title": "面试集锦 的大纲"
             }
           },
           {
@@ -190,12 +190,11 @@
             }
           }
         ],
-        "currentTab": 5
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
-    "width": 505.5,
-    "collapsed": true
+    "width": 505.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -217,7 +216,7 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "af8aa355af0973b9",
+  "active": "f0e6bbe378999eb1",
   "lastOpenFiles": [
     "Slurped Pages/游戏开发中常用的设计模式 - 养诚 - 博客园.md",
     "未命名.md",
