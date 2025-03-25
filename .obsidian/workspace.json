@@ -194,7 +194,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 505.5
+    "width": 505.5,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -216,7 +217,7 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "f0e6bbe378999eb1",
+  "active": "af8aa355af0973b9",
   "lastOpenFiles": [
     "Slurped Pages/游戏开发中常用的设计模式 - 养诚 - 博客园.md",
     "未命名.md",
