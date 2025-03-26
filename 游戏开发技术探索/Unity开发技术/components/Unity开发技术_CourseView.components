@@ -47,7 +47,7 @@
         }
       ],
       "layoutType": "grid",
-      "locked": false,
+      "locked": true,
       "layoutOptions": {}
     },
     {

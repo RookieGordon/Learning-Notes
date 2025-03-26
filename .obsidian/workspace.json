@@ -24,20 +24,6 @@
             }
           },
           {
-            "id": "ee2ef761100086cd",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "游戏开发技术探索/Unity开发技术/动画性能优化/整理学习动画烘焙代码.md",
-                "mode": "preview",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "整理学习动画烘焙代码"
-            }
-          },
-          {
             "id": "71651b9c72c1b35d",
             "type": "leaf",
             "state": {
@@ -50,9 +36,35 @@
               "icon": "lucide-file",
               "title": "Unity-GPU Animation"
             }
+          },
+          {
+            "id": "64f50c6d5a24b5dd",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "游戏开发技术探索/Unity开发技术/Unity开发技术探索.md",
+                "mode": "preview",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Unity开发技术探索"
+            }
+          },
+          {
+            "id": "5c5e1e8bb3c9fe9a",
+            "type": "leaf",
+            "state": {
+              "type": "components-file-view",
+              "state": {
+                "file": "components/view/CourseView.components"
+              },
+              "icon": "gantt-chart",
+              "title": "CourseView"
+            }
           }
         ],
-        "currentTab": 2
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -144,7 +156,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Slurped Pages/Unity-GPU Animation.md",
+                "file": "components/view/CourseView.components",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -154,7 +166,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Unity-GPU Animation 的反向链接列表"
+              "title": "CourseView 的反向链接列表"
             }
           },
           {
@@ -163,12 +175,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Slurped Pages/Unity-GPU Animation.md",
+                "file": "components/view/CourseView.components",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Unity-GPU Animation 的出链列表"
+              "title": "CourseView 的出链列表"
             }
           },
           {
@@ -192,13 +204,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Slurped Pages/Unity-GPU Animation.md",
+                "file": "components/view/CourseView.components",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Unity-GPU Animation 的大纲"
+              "title": "CourseView 的大纲"
             }
           },
           {
@@ -255,24 +267,24 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "71651b9c72c1b35d",
+  "active": "5c5e1e8bb3c9fe9a",
   "lastOpenFiles": [
+    "components/view/ChapterView.components",
+    "导航/主页.md",
+    "游戏开发技术探索/Unity开发技术/Unity开发技术探索.md",
+    "游戏开发技术探索/Unity开发技术/动画性能优化/Unity动画性能优化.md",
+    "Slurped Pages/Unity-GPU Animation.md",
+    "游戏开发技术探索/Unity开发技术/动画性能优化/整理学习动画烘焙代码.md",
+    "生活/未命名.md",
     "游戏开发技术探索/Unity开发技术/动画性能优化/Unity中的GPU动画.md",
     "游戏开发技术探索/Unity开发技术/动画性能优化/阅读风暴小队相关代码.md",
-    "导航/主页.md",
-    "游戏开发技术探索/Unity开发技术/动画性能优化/整理学习动画烘焙代码.md",
     "生活/日常代办.md",
-    "生活/未命名.md",
     "components/view/日常.components",
-    "游戏开发技术探索/Unity开发技术/Unity开发技术探索.md",
     "pixel-banner-images/e69eca2219f7027be1d9ffe7b8f0291b.jpg",
     "pixel-banner-images/68a9bae16240779f849ffc8e0af7d2d2.jpg",
     "pixel-banner-images/ff7c74d09cd5212fbcd02fc155825420.jpeg",
     "pixel-banner-images/0792b73ccc8689a6e6a5bb46315b1a09.jpeg",
-    "Slurped Pages/Unity-GPU Animation.md",
-    "游戏开发技术探索/Unity开发技术/动画性能优化/Unity动画性能优化.md",
     "Slurped Pages/GPU Instancing Animation代替骨骼动画的做法.md",
-    "components/view/ChapterView.components",
     "components/view/导航页.components",
     "components/view/ProjectModuleDataView.components",
     "components/view/ProjectDataView.components",
