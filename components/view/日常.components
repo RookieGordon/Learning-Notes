@@ -47,7 +47,17 @@
       "viewOptions": {
         "openPageIn": "tab",
         "openPageAfterCreate": true,
+        "itemSize": "components--page-card-medium",
+        "showPropertyName": false,
+        "showAllProperties": false,
         "items": [],
+        "cover": {
+          "type": "textContent",
+          "source": "default",
+          "fit": "contains",
+          "layout": "components--page-card-cover-landscape",
+          "position": "top"
+        },
         "pinFiltersToMenuBar": false,
         "showGrid": false,
         "heightType": "auto",
@@ -59,6 +69,21 @@
         "orders": [],
         "hiddens": [],
         "collapseds": []
+      },
+      "filter": {
+        "id": "867e1e4f-3674-4941-8b92-0ad2b15ce4f3",
+        "type": "group",
+        "operator": "and",
+        "conditions": [
+          {
+            "id": "4fb01a83-d569-4078-99eb-83f1ee210335",
+            "type": "filter",
+            "operator": "contains",
+            "property": "${file.tags}",
+            "value": "#Life",
+            "conditions": []
+          }
+        ]
       }
     }
   ],

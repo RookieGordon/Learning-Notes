@@ -223,7 +223,7 @@
           "isShow": true,
           "type": "taskList",
           "options": {
-            "showTaskList": true,
+            "showTaskList": false,
             "showAllTasks": false,
             "hideTaskFields": true,
             "timeRecordStyle": "tasks",
