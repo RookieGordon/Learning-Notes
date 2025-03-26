@@ -29,12 +29,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Slurped Pages/Unity-GPU Animation.md",
+                "file": "生活/未命名.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Unity-GPU Animation"
+              "title": "未命名"
             }
           }
         ],
@@ -104,7 +104,7 @@
       {
         "id": "097afe0ab4f5beab",
         "type": "tabs",
-        "dimension": 75.86206896551724,
+        "dimension": 72.70114942528735,
         "children": [
           {
             "id": "cd8777f4dc8a79e3",
@@ -160,13 +160,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Slurped Pages/Unity-GPU Animation.md",
+                "file": "生活/未命名.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Unity-GPU Animation 的大纲"
+              "title": "未命名 的大纲"
             }
           },
           {
@@ -190,12 +190,12 @@
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 4
       },
       {
         "id": "2b93e129490ca5f4",
         "type": "tabs",
-        "dimension": 24.137931034482758,
+        "dimension": 27.298850574712645,
         "children": [
           {
             "id": "fc4270e1df633b3a",
@@ -235,12 +235,14 @@
   },
   "active": "a633477602103305",
   "lastOpenFiles": [
+    "导航/主页.md",
+    "生活/未命名.md",
+    "Slurped Pages/Unity-GPU Animation.md",
     "游戏开发技术探索/Unity开发技术/动画性能优化/Unity中的GPU动画.md",
     "游戏开发技术探索/Unity开发技术/动画性能优化/整理学习动画烘焙代码.md",
     "游戏开发技术探索/Unity开发技术/动画性能优化/Unity动画性能优化.md",
     "游戏开发技术探索/Unity开发技术/动画性能优化/阅读风暴小队相关代码.md",
     "Slurped Pages/GPU Instancing Animation代替骨骼动画的做法.md",
-    "导航/主页.md",
     "components/view/ChapterView.components",
     "游戏开发技术探索/Unity开发技术/Unity开发技术探索.md",
     "components/view/导航页.components",
@@ -256,7 +258,6 @@
     "收藏夹/60个独立游戏的营销错误_60MistakesEbookV1.pdf",
     "收藏夹/杂项.md",
     "Slurped Pages/Unity3d杂记骨骼蒙皮动画.md",
-    "Slurped Pages/Unity-GPU Animation.md",
     "Slurped Pages/移动游戏的性能优化 - 贴图压缩篇.md",
     "Slurped Pages/Unity中使用GPU Instancing优化SkinnedMesh渲染-腾讯云开发者社区-腾讯云.md",
     "Slurped Pages/Unity大规模角色的GPU蒙皮动画表达方式.md",

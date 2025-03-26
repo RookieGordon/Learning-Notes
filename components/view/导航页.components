@@ -134,7 +134,7 @@
                 "type": "filter",
                 "operator": "contains",
                 "property": "type",
-                "value": "Daily",
+                "value": "Life",
                 "conditions": []
               },
               {
