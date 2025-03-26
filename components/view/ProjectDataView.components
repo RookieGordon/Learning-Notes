@@ -23,7 +23,7 @@
             "laptop": {
               "x": 0,
               "y": 0,
-              "w": 7,
+              "w": 9,
               "h": 19
             }
           }
@@ -38,7 +38,7 @@
               "h": 8
             },
             "laptop": {
-              "x": 7,
+              "x": 9,
               "y": 0,
               "w": 2,
               "h": 9
@@ -47,7 +47,7 @@
         }
       ],
       "layoutType": "grid",
-      "locked": false,
+      "locked": true,
       "layoutOptions": {}
     },
     {
