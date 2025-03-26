@@ -24,7 +24,7 @@
             }
           },
           {
-            "id": "a633477602103305",
+            "id": "a4de75886c6029b3",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -233,10 +233,15 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "a633477602103305",
+  "active": "a4de75886c6029b3",
   "lastOpenFiles": [
     "导航/主页.md",
+    "游戏开发技术探索/Unity开发技术/Unity开发技术探索.md",
     "生活/未命名.md",
+    "pixel-banner-images/e69eca2219f7027be1d9ffe7b8f0291b.jpg",
+    "pixel-banner-images/68a9bae16240779f849ffc8e0af7d2d2.jpg",
+    "pixel-banner-images/ff7c74d09cd5212fbcd02fc155825420.jpeg",
+    "pixel-banner-images/0792b73ccc8689a6e6a5bb46315b1a09.jpeg",
     "Slurped Pages/Unity-GPU Animation.md",
     "游戏开发技术探索/Unity开发技术/动画性能优化/Unity中的GPU动画.md",
     "游戏开发技术探索/Unity开发技术/动画性能优化/整理学习动画烘焙代码.md",
@@ -244,7 +249,6 @@
     "游戏开发技术探索/Unity开发技术/动画性能优化/阅读风暴小队相关代码.md",
     "Slurped Pages/GPU Instancing Animation代替骨骼动画的做法.md",
     "components/view/ChapterView.components",
-    "游戏开发技术探索/Unity开发技术/Unity开发技术探索.md",
     "components/view/导航页.components",
     "components/view/ProjectModuleDataView.components",
     "components/view/ProjectDataView.components",
@@ -272,15 +276,10 @@
     "HTML import/关于静态批处理_动态批处理_GPU Instancing _SRP Batcher的详细剖析 - 知乎.md",
     "HTML import/Attachments/v2-6f8de0bda992d4fe1bc38ef6a54da10d_250x0.jpg",
     "HTML import/Attachments/v2-c42b81314b82b3240459f3e82539cb48_l(1).jpg",
-    "HTML import/Attachments/0acde4acd_l.jpg",
-    "HTML import/Attachments/v2-4812630bc27d642f7cafcd6cdeca3d7a(1).jpg",
-    "HTML import/Attachments/v2-abed1a8c04700ba7d72b45195223e0ff_l.jpg",
-    "HTML import/Attachments/v2-eddff773f01e3d407ee25d1b2175b685_l.jpg",
     "HTML import/Attachments/v2-59aa202bf84300c9b6218a73869b5abe_1440w.image",
     "HTML import/Attachments",
     "HTML import",
     "导航/说明.md",
-    "Template/Project Module.md",
     "未命名.canvas"
   ]
 }
