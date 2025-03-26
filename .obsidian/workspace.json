@@ -27,14 +27,12 @@
             "id": "cc9969416531d353",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "components-file-view",
               "state": {
-                "file": "收藏夹/面试题/面试集锦.md",
-                "mode": "preview",
-                "source": false
+                "file": "components/view/ProjectModuleDataView.components"
               },
-              "icon": "lucide-file",
-              "title": "面试集锦"
+              "icon": "gantt-chart",
+              "title": "ProjectModuleDataView"
             }
           }
         ],
@@ -160,13 +158,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "收藏夹/面试题/面试集锦.md",
+                "file": "components/view/ProjectModuleDataView.components",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "面试集锦 的大纲"
+              "title": "ProjectModuleDataView 的大纲"
             }
           },
           {
@@ -249,9 +247,12 @@
   },
   "active": "cc9969416531d353",
   "lastOpenFiles": [
+    "components/view/ProjectDataView.components",
+    "components/view/CourseView.components",
+    "components/view/ChapterView.components",
+    "收藏夹/面试题/面试集锦.md",
     "导航/主页.md",
     "游戏开发技术探索/Unity开发技术/动画性能优化/整理学习动画烘焙代码.md",
-    "收藏夹/面试题/面试集锦.md",
     "王者技术一面.md",
     "游戏开发技术探索/Unity开发技术/动画性能优化/Unity中的GPU动画.md",
     "Slurped Pages/游戏开发中常用的设计模式 - 养诚 - 博客园.md",
@@ -289,12 +290,9 @@
     "HTML import",
     "导航/说明.md",
     "Template/Project Module.md",
-    "Template/Course Module.md",
     "components/view/ProjectModuleDataView.components",
     "components/view/导航页.components",
     "components/view/导航页 1.components",
-    "components/view/ChapterView.components",
-    "pixel-banner-images",
     "未命名.canvas"
   ]
 }
