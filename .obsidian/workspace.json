@@ -98,7 +98,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 395
+    "width": 267.99999618530273,
+    "collapsed": true
   },
   "right": {
     "id": "be1e91dfcb57ce3b",
@@ -107,8 +108,23 @@
       {
         "id": "097afe0ab4f5beab",
         "type": "tabs",
-        "dimension": 58.83620689655172,
+        "dimension": 58.0952380952381,
         "children": [
+          {
+            "id": "f0e6bbe378999eb1",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "导航/主页.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "主页 的大纲"
+            }
+          },
           {
             "id": "cd8777f4dc8a79e3",
             "type": "leaf",
@@ -158,21 +174,6 @@
             }
           },
           {
-            "id": "f0e6bbe378999eb1",
-            "type": "leaf",
-            "state": {
-              "type": "outline",
-              "state": {
-                "file": "导航/主页.md",
-                "followCursor": false,
-                "showSearch": false,
-                "searchQuery": ""
-              },
-              "icon": "lucide-list",
-              "title": "主页 的大纲"
-            }
-          },
-          {
             "id": "05d147c0b041b98b",
             "type": "leaf",
             "state": {
@@ -182,13 +183,12 @@
               "title": "Source Control"
             }
           }
-        ],
-        "currentTab": 3
+        ]
       },
       {
         "id": "d3469bcf3b4ce2dc",
         "type": "tabs",
-        "dimension": 41.16379310344828,
+        "dimension": 41.904761904761905,
         "children": [
           {
             "id": "fc4270e1df633b3a",
@@ -204,7 +204,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 267
+    "width": 200
   },
   "left-ribbon": {
     "hiddenItems": {
