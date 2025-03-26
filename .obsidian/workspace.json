@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "a8016d6dd0c17f0a",
+        "id": "da34dc8961e47e6a",
         "type": "tabs",
         "children": [
           {
-            "id": "75ba927bb67b3d00",
+            "id": "d50b0efc19fd837a",
             "type": "leaf",
             "pinned": true,
             "state": {
@@ -22,21 +22,8 @@
               "icon": "lucide-file",
               "title": "主页"
             }
-          },
-          {
-            "id": "cc9969416531d353",
-            "type": "leaf",
-            "state": {
-              "type": "components-file-view",
-              "state": {
-                "file": "components/view/ProjectModuleDataView.components"
-              },
-              "icon": "gantt-chart",
-              "title": "ProjectModuleDataView"
-            }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -93,8 +80,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 461.5,
-    "collapsed": true
+    "width": 461.5
   },
   "right": {
     "id": "be1e91dfcb57ce3b",
@@ -158,13 +144,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "components/view/ProjectModuleDataView.components",
+                "file": "components/view/ChapterView.components",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "ProjectModuleDataView 的大纲"
+              "title": "ChapterView 的大纲"
             }
           },
           {
@@ -213,12 +199,22 @@
             "state": {
               "type": "todo",
               "state": {},
+              "icon": "lucide-file",
+              "title": "插件不再活动"
+            }
+          },
+          {
+            "id": "fc4270e1df633b3a",
+            "type": "leaf",
+            "state": {
+              "type": "todo",
+              "state": {},
               "icon": "checkmark",
               "title": "Todo List"
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 9
       }
     ],
     "direction": "horizontal",
@@ -245,22 +241,25 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "cc9969416531d353",
+  "active": "d50b0efc19fd837a",
   "lastOpenFiles": [
+    "components/view/ChapterView.components",
+    "导航/主页.md",
+    "游戏开发技术探索/Unity开发技术/动画性能优化/Unity动画性能优化.md",
+    "游戏开发技术探索/Unity开发技术/动画性能优化/整理学习动画烘焙代码.md",
+    "游戏开发技术探索/Unity开发技术/动画性能优化/阅读风暴小队相关代码.md",
+    "游戏开发技术探索/Unity开发技术/Unity开发技术探索.md",
+    "components/view/导航页.components",
+    "components/view/ProjectModuleDataView.components",
     "components/view/ProjectDataView.components",
     "components/view/CourseView.components",
-    "components/view/ChapterView.components",
     "收藏夹/面试题/面试集锦.md",
-    "导航/主页.md",
-    "游戏开发技术探索/Unity开发技术/动画性能优化/整理学习动画烘焙代码.md",
     "王者技术一面.md",
     "游戏开发技术探索/Unity开发技术/动画性能优化/Unity中的GPU动画.md",
     "Slurped Pages/游戏开发中常用的设计模式 - 养诚 - 博客园.md",
     "未命名.md",
     "收藏夹/未命名.md",
     "Slurped Pages/GPU Instancing Animation代替骨骼动画的做法.md",
-    "游戏开发技术探索/Unity开发技术/动画性能优化/Unity动画性能优化.md",
-    "游戏开发技术探索/Unity开发技术/动画性能优化/阅读风暴小队相关代码.md",
     "Slurped Pages/移动游戏的性能优化  贴图压缩篇.md",
     "收藏夹/60个独立游戏的营销错误_60MistakesEbookV1.pdf",
     "收藏夹/杂项.md",
@@ -273,7 +272,6 @@
     "Clippings",
     "游戏开发技术探索/Unity开发技术/动画性能优化/未命名.md",
     "Slurped Pages/深入解析OSI七层模型及各层工作原理（我只能帮你到这了）-腾讯云开发者社区-腾讯云.md",
-    "游戏开发技术探索/Unity开发技术/Unity开发技术探索.md",
     "HTML import/Attachments/v2-1cdbfcf07644a98948a0daa8b96977f5_l(1).jpg",
     "HTML import/Attachments/v2-0dde54b930bef9c768c10d3c79126e16_1440w.jpg",
     "HTML import/Attachments/liukanshan-peek.a71ecf3e.png",
@@ -290,9 +288,6 @@
     "HTML import",
     "导航/说明.md",
     "Template/Project Module.md",
-    "components/view/ProjectModuleDataView.components",
-    "components/view/导航页.components",
-    "components/view/导航页 1.components",
     "未命名.canvas"
   ]
 }
