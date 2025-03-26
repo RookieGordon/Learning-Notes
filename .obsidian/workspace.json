@@ -194,13 +194,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "导航/主页.md",
+                "file": "收藏夹/面试题/面试集锦.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "主页 的大纲"
+              "title": "面试集锦 的大纲"
             }
           },
           {
@@ -254,7 +254,7 @@
             }
           }
         ],
-        "currentTab": 8
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
@@ -281,10 +281,10 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "25add0fe3af9b493",
+  "active": "08fe77020ddd270d",
   "lastOpenFiles": [
-    "收藏夹/面试题/面试集锦.md",
     "王者技术一面.md",
+    "收藏夹/面试题/面试集锦.md",
     "导航/主页.md",
     "游戏开发技术探索/Unity开发技术/动画性能优化/Unity中的GPU动画.md",
     "Slurped Pages/游戏开发中常用的设计模式 - 养诚 - 博客园.md",
