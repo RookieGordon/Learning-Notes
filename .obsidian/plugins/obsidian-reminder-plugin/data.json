@@ -1,6 +1,19 @@
 {
-  "scanned": false,
-  "reminders": {},
+  "scanned": true,
+  "reminders": {
+    "生活/日常代办.md": [
+      {
+        "title": "11点心流文化面试",
+        "time": "2025-03-27 11:00",
+        "rowNumber": 7
+      },
+      {
+        "title": "方宇宙面试",
+        "time": "2025-03-27 17:00",
+        "rowNumber": 8
+      }
+    ]
+  },
   "debug": false,
   "settings": {
     "reminderTime": "09:00",
