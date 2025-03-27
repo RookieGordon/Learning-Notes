@@ -24,63 +24,35 @@
             }
           },
           {
-            "id": "0273896f9cc65949",
+            "id": "5af6b4e291b2ef4e",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "游戏开发技术探索/Unity开发技术/Unity开发技术探索.md",
+                "file": "游戏开发技术探索/Unity开发技术/动画性能优化/动画烘焙，GPU动画.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Unity开发技术探索"
+              "title": "动画烘焙，GPU动画"
             }
           },
           {
-            "id": "892782645a8e65af",
+            "id": "5e40b61249ca8c73",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "游戏开发技术探索/Unity开发技术/动画性能优化/Unity动画性能优化.md",
-                "mode": "preview",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Unity动画性能优化"
-            }
-          },
-          {
-            "id": "395c024b5055e67e",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "游戏开发技术探索/Unity开发技术/动画性能优化/阅读风暴小队相关代码.md",
+                "file": "游戏开发技术探索/Unity开发技术/动画性能优化/动画烘焙，GPU动画.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "阅读风暴小队相关代码"
-            }
-          },
-          {
-            "id": "3d24a3e6d0f9a5d3",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "游戏开发技术探索/Unity开发技术/动画性能优化/整理学习动画烘焙代码.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "整理学习动画烘焙代码"
+              "title": "动画烘焙，GPU动画"
             }
           }
         ],
-        "currentTab": 4
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -92,7 +64,7 @@
       {
         "id": "76c2459110a478bf",
         "type": "tabs",
-        "dimension": 61.201780415430264,
+        "dimension": 66.69980119284294,
         "children": [
           {
             "id": "89a66892aa3b87ae",
@@ -139,7 +111,7 @@
       {
         "id": "c76240c32fdf2f2f",
         "type": "tabs",
-        "dimension": 38.79821958456973,
+        "dimension": 33.30019880715705,
         "children": [
           {
             "id": "226fa1583cfbc27b",
@@ -155,7 +127,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 249.99999618530273
+    "width": 308.99999618530273,
+    "collapsed": true
   },
   "right": {
     "id": "be1e91dfcb57ce3b",
@@ -172,13 +145,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "游戏开发技术探索/Unity开发技术/动画性能优化/整理学习动画烘焙代码.md",
+                "file": "游戏开发技术探索/Unity开发技术/动画性能优化/动画烘焙，GPU动画.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "整理学习动画烘焙代码 的大纲"
+              "title": "动画烘焙，GPU动画 的大纲"
             }
           },
           {
@@ -283,13 +256,15 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "3d24a3e6d0f9a5d3",
+  "active": "5e40b61249ca8c73",
   "lastOpenFiles": [
-    "游戏开发技术探索/Unity开发技术/动画性能优化/阅读风暴小队相关代码.md",
-    "游戏开发技术探索/Unity开发技术/动画性能优化/整理学习动画烘焙代码.md",
+    "导航/主页.md",
+    "游戏开发技术探索/Unity开发技术/动画性能优化/动画烘焙，GPU动画.md",
     "游戏开发技术探索/Unity开发技术/动画性能优化/Unity动画性能优化.md",
     "游戏开发技术探索/Unity开发技术/Unity开发技术探索.md",
-    "导航/主页.md",
+    "游戏开发技术探索/Unity开发技术/动画性能优化/整理学习动画烘焙代码.md",
+    "游戏开发技术探索/Unity开发技术/动画性能优化/Unity中的GPU动画.md",
+    "游戏开发技术探索/Unity开发技术/动画性能优化/阅读风暴小队相关代码.md",
     "收藏夹/面试题/面试集锦.md",
     "生活/未命名.md",
     "生活/日常代办.md",
@@ -298,7 +273,6 @@
     "components/view/ProjectDataView.components",
     "components/view/CourseView.components",
     "components/view/ChapterView.components",
-    "游戏开发技术探索/Unity开发技术/动画性能优化/Unity中的GPU动画.md",
     "components/view/日常.components",
     "pixel-banner-images/e69eca2219f7027be1d9ffe7b8f0291b.jpg",
     "pixel-banner-images/68a9bae16240779f849ffc8e0af7d2d2.jpg",
@@ -319,7 +293,6 @@
     "Slurped Pages/Unity大规模角色的GPU蒙皮动画表达方式.md",
     "Slurped Pages/关于静态批处理动态批处理GPU Instancing SRP Batcher的详细剖析.md",
     "Clippings",
-    "游戏开发技术探索/Unity开发技术/动画性能优化/未命名.md",
     "Slurped Pages/深入解析OSI七层模型及各层工作原理（我只能帮你到这了）-腾讯云开发者社区-腾讯云.md",
     "HTML import/Attachments/v2-1cdbfcf07644a98948a0daa8b96977f5_l(1).jpg",
     "HTML import/Attachments/v2-0dde54b930bef9c768c10d3c79126e16_1440w.jpg",
