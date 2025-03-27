@@ -338,38 +338,53 @@ StructuredBuffer<float4x4> _BoneMatricesBuffer;
 
 struct appdata {
     float4 vertex : POSITION;
+    float2 uv : TEXCOORD0;
     float4 boneWeights : WEIGHTS;
     uint4 boneIndices : BONES;
     UNITY_VERTEX_INPUT_INSTANCE_ID // 实例ID
 };
 
 v2f vert(appdata v) {
-    UNITY_SETUP_INSTANCE_ID(v); // 初始化实例ID
+    UNITY_SETUP_INSTANCE_ID(v);
     int instanceID = unity_InstanceID;
 
-    // 从缓冲区中读取当前实例的骨骼矩阵
-    float4x4 bone0 = _BoneMatricesBuffer[instanceID * 64 + v.boneIndices.x]; 
+    // 获取当前实例的骨骼矩阵（假设每实例64骨骼）
+    float4x4 bone0 = _BoneMatricesBuffer[instanceID * 64 + v.boneIndices.x];
     float4x4 bone1 = _BoneMatricesBuffer[instanceID * 64 + v.boneIndices.y];
-    // 混合权重并计算顶点位置...
+    float4x4 bone2 = _BoneMatricesBuffer[instanceID * 64 + v.boneIndices.z];
+    float4x4 bone3 = _BoneMatricesBuffer[instanceID * 64 + v.boneIndices.w];
+
+    // 混合骨骼权重
+    float4x4 skinMatrix = 
+        bone0 * v.boneWeights.x +
+        bone1 * v.boneWeights.y +
+        bone2 * v.boneWeights.z +
+        bone3 * v.boneWeights.w;
+
+    // 应用蒙皮变换
+    float4 pos = mul(skinMatrix, v.vertex);
+    o.pos = UnityObjectToClipPos(pos);
+    return o;
 }
 ```
-#### **2. 骨骼矩阵数据传递**
+#### **3. 骨骼矩阵数据传递**
 **关键技术点**：在C#脚本中提取骨骼矩阵，通过`ComputeBuffer`传递给Shader。
 ```C#
 public class InstancedSkinning : MonoBehaviour {
     public SkinnedMeshRenderer skinnedMeshRenderer;
     private ComputeBuffer boneBuffer;
+    public int instanceCount = 100;
 
     void Start() {
-        // 初始化骨骼矩阵缓冲区（假设每个实例64个骨骼，20个实例）
-        boneBuffer = new ComputeBuffer(64 * 20, 64); // 64字节（一个float4x4）
+        // 初始化骨骼矩阵缓冲区（假设每个实例64个骨骼，100个实例）
+        boneBuffer = new ComputeBuffer(64 * instanceCount, 64); // 64字节（一个float4x4）
         skinnedMeshRenderer.material.SetBuffer("_BoneMatricesBuffer", boneBuffer);
     }
 
     void Update() {
         // 每帧更新骨骼矩阵
         Matrix4x4[] bones = new Matrix4x4[64];
-        for (int instanceID = 0; instanceID < 20; instanceID++) {
+        for (int instanceID = 0; instanceID < instanceCount; instanceID++) {
             // 获取当前实例的骨骼矩阵（需自定义逻辑）
             bones = GetBoneMatricesForInstance(instanceID); 
             // 将数据写入缓冲区偏移位置
@@ -378,7 +393,7 @@ public class InstancedSkinning : MonoBehaviour {
     }
 }
 ```
-#### **3. 动画数据提取**
+#### **4. 动画数据提取**
 **关键技术点**：从`SkinnedMeshRenderer`中提取骨骼矩阵。
 - **方法1：BakeMesh**  
     通过`SkinnedMeshRenderer.BakeMesh`将当前骨骼影响的顶点数据烘焙到Mesh，再反向计算骨骼矩阵（需复杂数学推导）。
