@@ -109,35 +109,35 @@ StructuredBuffer<float4x4> _BoneMatricesBuffer; // 每个实例的骨骼矩阵�
 - **方法1：MaterialPropertyBlock + ComputeBuffer**
     1. **在C#中计算骨骼矩阵**：  
         使用`SkinnedMeshRenderer.BakeMesh`在每帧获取当前实例的顶点数据（需在CPU端计算骨骼动画）。
-```C#
-Mesh bakedMesh = new Mesh();
-skinnedRenderer.BakeMesh(bakedMesh);
-Matrix4x4[] boneMatrices = skinnedRenderer.bones.Select(b => b.localToWorldMatrix).ToArray();
-```
-    1. **将骨骼矩阵存入ComputeBuffer**：
-```C#
-ComputeBuffer boneMatrixBuffer = new ComputeBuffer(boneMatrices.Length, sizeof(float) * 16);
-boneMatrixBuffer.SetData(boneMatrices);
-MaterialPropertyBlock props = new MaterialPropertyBlock();
-props.SetBuffer("_BoneMatricesBuffer", boneMatrixBuffer);
-meshRenderer.SetPropertyBlock(props);
-```
-    2. **释放Buffer**：  
+	```C#
+	Mesh bakedMesh = new Mesh();
+	skinnedRenderer.BakeMesh(bakedMesh);
+	Matrix4x4[] boneMatrices = skinnedRenderer.bones.Select(b => b.localToWorldMatrix).ToArray();
+	```
+    2. **将骨骼矩阵存入ComputeBuffer**：
+	```C#
+	ComputeBuffer boneMatrixBuffer = new ComputeBuffer(boneMatrices.Length, sizeof(float) * 16);
+	boneMatrixBuffer.SetData(boneMatrices);
+	MaterialPropertyBlock props = new MaterialPropertyBlock();
+	props.SetBuffer("_BoneMatricesBuffer", boneMatrixBuffer);
+	meshRenderer.SetPropertyBlock(props);
+	```
+    3. **释放Buffer**：  
         在对象销毁时释放资源，避免内存泄漏：
-```C#
-boneMatrixBuffer.Release();
-```
+	```C#
+	boneMatrixBuffer.Release();
+	```
 - **方法2：自定义动画系统（性能更高）**  
     直接通过脚本控制骨骼变换，跳过`Animator`组件，例如：
-```C#
-// 在Update中手动更新骨骼矩阵
-void Update() {
-    foreach (var instance in instances) {
-        Matrix4x4[] bones = instance.CalculateBoneMatrices();
-        Graphics.SetRandomWriteTarget(1, instance.boneMatrixBuffer); // 写入GPU Buffer
-    }
-}
-```
+	```C#
+	// 在Update中手动更新骨骼矩阵
+	void Update() {
+	    foreach (var instance in instances) {
+	        Matrix4x4[] bones = instance.CalculateBoneMatrices();
+	        Graphics.SetRandomWriteTarget(1, instance.boneMatrixBuffer); // 写入GPU Buffer
+	    }
+	}
+	```
 ### **3. 为什么骨骼数据需要手动更新？**
 - **Unity的默认动画系统不兼容Instancing**：  
     `Animator`组件和Skinned Mesh Renderer的设计目标是单实例动画，无法直接为每个实例生成独立的骨骼矩阵。
@@ -147,24 +147,24 @@ void Update() {
 ### **实现步骤**
 1. **创建Instancing Shader**  
     修改支持骨骼动画的Shader，添加实例化ID和骨骼矩阵缓冲区：
-```c
-struct appdata {
-    float4 vertex : POSITION;
-    float2 uv : TEXCOORD0;
-    float4 boneWeights : WEIGHTS;
-    uint4 boneIndices : BONES;
-    UNITY_VERTEX_INPUT_INSTANCE_ID // 实例ID
-};
-
-v2f vert(appdata v) {
-    UNITY_SETUP_INSTANCE_ID(v);
-    int instanceID = unity_InstanceID;
-    // 从_BoneMatricesBuffer中读取当前实例的骨骼矩阵
-    float4x4 bone0 = _BoneMatricesBuffer[instanceID * 64 + v.boneIndices.x]; // 假设每实例64个骨骼
-    float4x4 bone1 = _BoneMatricesBuffer[instanceID * 64 + v.boneIndices.y];
-    // 混合骨骼权重...
-}
-```
+	```c
+	struct appdata {
+	    float4 vertex : POSITION;
+	    float2 uv : TEXCOORD0;
+	    float4 boneWeights : WEIGHTS;
+	    uint4 boneIndices : BONES;
+	    UNITY_VERTEX_INPUT_INSTANCE_ID // 实例ID
+	};
+	
+	v2f vert(appdata v) {
+	    UNITY_SETUP_INSTANCE_ID(v);
+	    int instanceID = unity_InstanceID;
+	    // 从_BoneMatricesBuffer中读取当前实例的骨骼矩阵
+	    float4x4 bone0 = _BoneMatricesBuffer[instanceID * 64 + v.boneIndices.x]; // 假设每实例64个骨骼
+	    float4x4 bone1 = _BoneMatricesBuffer[instanceID * 64 + v.boneIndices.y];
+	    // 混合骨骼权重...
+	}
+	```
 2. **脚本中管理骨骼矩阵**
 ```C#
 public class InstancedSkinnedRenderer : MonoBehaviour {
