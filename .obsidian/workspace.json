@@ -37,8 +37,7 @@
               "title": "面试集锦"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -263,8 +262,9 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "76731f7d5fe01bb2",
+  "active": "d50b0efc19fd837a",
   "lastOpenFiles": [
+    "收藏夹/面试题/面试集锦.md",
     "导航/主页.md",
     "生活/日常代办.md",
     "Slurped Pages/Unity-GPU Animation.md",
@@ -285,7 +285,6 @@
     "pixel-banner-images/0792b73ccc8689a6e6a5bb46315b1a09.jpeg",
     "Slurped Pages/GPU Instancing Animation代替骨骼动画的做法.md",
     "components/view/导航页.components",
-    "收藏夹/面试题/面试集锦.md",
     "王者技术一面.md",
     "Slurped Pages/游戏开发中常用的设计模式 - 养诚 - 博客园.md",
     "未命名.md",
