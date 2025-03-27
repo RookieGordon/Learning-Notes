@@ -409,12 +409,28 @@ public class InstancedSkinning : MonoBehaviour {
     }
     ```
 #### **4. 批量渲染**
-使用`Graphics.DrawMeshInstanced`或`GPU Instancing`自动合并：
+使用`Graphics.DrawMeshInstanced`或`CommandBuffer`批量提交渲染指令：
 ```C#
-
-Graphics.DrawMeshInstanced(mesh, submeshIndex, material, matrices, count, properties);
+Mesh staticMesh = GetStaticMeshFromSkinnedRenderer();
+Material instancedMaterial = skinnedRenderer.material;
+Matrix4x4[] matrices = GenerateInstanceTransforms(); // 实例的Transform矩阵
+Graphics.DrawMeshInstanced(staticMesh, 0, instancedMaterial, matrices);
 ```
 ---
+### **关键技术点总结**
+1. **骨骼矩阵压缩**
+    - 将骨骼矩阵从`Matrix4x4`压缩为`float3x4`，减少显存占用（从64字节/矩阵降至48字节）。
+2. **实例化ID的分段管理**
+    - 若单次Draw Call实例数超过GPU限制（通常1023），需分段提交数据：
+	```C#
+	for (int i=0; i<totalInstances; i+=1023) {
+	    int batchSize = Mathf.Min(1023, totalInstances - i);
+	    Graphics.DrawMeshInstanced(mesh, 0, material, matrices, batchSize);
+	}
+	```
+3. **避免CPU端骨骼计算**
+    - 若使用`SkinnedMeshRenderer.BakeMesh`，需在CPU端计算骨骼，可能导致性能瓶颈。
+    - **替代方案**：将动画逻辑移至GPU（如通过顶点纹理或ComputeShader）。
 ### **方案1优缺点**
 
 |**优点**|**缺点**|
