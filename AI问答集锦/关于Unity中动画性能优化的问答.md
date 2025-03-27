@@ -1,6 +1,8 @@
 ---
 tags:
   - AI/Unity/动画性能优化
+sourceLink: https://chat.deepseek.com/a/chat/s/aa1fb74b-c963-40ec-8095-46ab4794f043
+banner: AI
 ---
 # Unity中，简单的，低面数的骨骼动画是否可以采用动态合批进行性能优化，比如场景中同时实例化20个相同的模型进行动画播放？
 在Unity中，**动态合批（Dynamic Batching）对骨骼动画（Skinned Mesh Renderer）的支持非常有限**，但针对低面数模型的优化仍有其他可行方案。以下是详细技术分析和解决方案：
@@ -619,11 +621,7 @@ float4x4 GetDecompressedMatrix(int boneIndex) {
 |1|Row0|4|
 |...|...|...|
 ### **2. 采样与重建代码详解**
-
-hlsl
-
-复制
-
+```C
 // 动画纹理参数
 sampler2D _AnimationTex;
 float4 _AnimationTex_TexelSize; // 纹理尺寸信息（1/width, 1/height, width, height）
@@ -647,75 +645,35 @@ float4x4 GetBoneMatrix(int boneIndex) {
 
     return float4x4(row0, row1, row2, row3);
 }
-
-#### **3. 关键细节解释**
-
+```
+### **3. 关键细节解释**
 - **纹理坐标计算**
-    
     - `_AnimationTex_TexelSize.x` = `1/纹理宽度`，用于横向偏移到下一个矩阵行。
-        
     - `+0.5` 的纵向偏移：避免纹理过滤时采样到相邻帧（确保精确对齐像素中心）。
-        
 - **帧间插值（平滑动画）**  
     若需要帧间插值，可采样相邻两帧并混合：
-    
-    hlsl
-    
-    复制
-    
-    float frame = _AnimTime * totalFrames;
-    float frameFloor = floor(frame);
-    float frameFrac = frame - frameFloor;
-    
-    // 采样当前帧和下一帧
-    float4x4 matrix0 = GetBoneMatrix(boneIndex, frameFloor);
-    float4x4 matrix1 = GetBoneMatrix(boneIndex, frameFloor + 1);
-    
-    // 线性插值
-    return lerp(matrix0, matrix1, frameFrac);
-    
-
-#### **4. 优化技巧**
-
+	```C
+	float frame = _AnimTime * totalFrames;
+	float frameFloor = floor(frame);
+	float frameFrac = frame - frameFloor;
+	
+	// 采样当前帧和下一帧
+	float4x4 matrix0 = GetBoneMatrix(boneIndex, frameFloor);
+	float4x4 matrix1 = GetBoneMatrix(boneIndex, frameFloor + 1);
+	
+	// 线性插值
+	return lerp(matrix0, matrix1, frameFrac);
+	```
+### **4. 优化技巧**
 - **纹理分块（Tile）**  
     若角色有多个动画（走、跑、跳），可将不同动画存储在纹理的不同区域（Tile），通过UV偏移切换：
-    
-    hlsl
-    
-    复制
-    
-    float2 uvOffset = _AnimType * float2(4.0 / _AnimationTex_TexelSize.z, 0); // 横向偏移
-    float u = (boneIndex * 4) / _AnimationTex_TexelSize.z + uvOffset.x;
-    float v = (frame + 0.5) / _AnimationTex_TexelSize.w + uvOffset.y;
-    
+```C
+float2 uvOffset = _AnimType * float2(4.0 / _AnimationTex_TexelSize.z, 0); // 横向偏移
+float u = (boneIndex * 4) / _AnimationTex_TexelSize.z + uvOffset.x;
+float v = (frame + 0.5) / _AnimationTex_TexelSize.w + uvOffset.y;
+```
 - **BC6H压缩**  
     在支持DX11的平台上，使用BC6H压缩动画纹理（需测试数据精度）：
-    
-    csharp
-    
-    复制
-    
-    Texture2D animTex = new Texture2D(..., TextureFormat.BC6H);
-    
-
----
-
-### **三、两种方案对比总结**
-
-|**特性**|**方案1（GPU蒙皮）**|**方案2（动画纹理）**|
-|---|---|---|
-|**显存占用**|高（每实例独立骨骼数据）|中（纹理可压缩）|
-|**CPU计算量**|中（需每帧更新骨骼矩阵）|低（仅传递时间参数）|
-|**动画灵活性**|高（支持实时骨骼变换、物理交互）|低（仅支持预烘焙动画）|
-|**适用场景**|动态角色（如玩家、BOSS）|大规模静态动画（如背景人群）|
-|**开发复杂度**|高（需处理实时数据同步）|中（需离线烘焙工具）|
-
----
-
-### **四、选择建议**
-
-- **追求极致性能**：方案2（动画纹理）更适合万人同屏场景。
-    
-- **需要动态交互**：方案1（GPU蒙皮）支持实时骨骼变化。
-    
-- **混合使用**：对主角使用方案1，对背景角色使用方案2。
+```C#
+Texture2D animTex = new Texture2D(..., TextureFormat.BC6H);
+```
