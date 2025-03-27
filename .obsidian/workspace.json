@@ -207,9 +207,19 @@
               "icon": "lucide-file",
               "title": "插件不再活动"
             }
+          },
+          {
+            "id": "f3ec560f29b05b3f",
+            "type": "leaf",
+            "state": {
+              "type": "todo",
+              "state": {},
+              "icon": "checkmark",
+              "title": "Todo List"
+            }
           }
         ],
-        "currentTab": 5
+        "currentTab": 6
       },
       {
         "id": "d3469bcf3b4ce2dc",
@@ -242,7 +252,15 @@
       "command-palette:打开命令面板": false,
       "obsidian-git:Open Git source control": false,
       "pexels-banner:🚩 Pixel Banner Menu": false,
-      "obsidian-importer:Open Importer": false
+      "obsidian-importer:Open Importer": false,
+      "obsidian-excalidraw-plugin:新建绘图文件": false,
+      "moredraw:MoreDraw": false,
+      "templater-obsidian:Templater": false,
+      "vscode-editor:新建代码文件": false,
+      "obsidian-memos:Thino": false,
+      "pdf-plus:PDF++: Toggle auto-copy": false,
+      "pdf-plus:PDF++: Toggle auto-focus": false,
+      "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
   "active": "76731f7d5fe01bb2",
