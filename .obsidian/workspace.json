@@ -43,12 +43,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "游戏开发技术探索/Unity开发技术/动画性能优化/动画烘焙，GPU动画.md",
-                "mode": "source",
+                "file": "Slurped Pages/关于静态批处理动态批处理GPU Instancing SRP Batcher的详细剖析.md",
+                "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "动画烘焙，GPU动画"
+              "title": "关于静态批处理动态批处理GPU Instancing SRP Batcher的详细剖析"
             }
           }
         ],
@@ -73,7 +73,7 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical",
-                "autoReveal": false
+                "autoReveal": true
               },
               "icon": "lucide-folder-closed",
               "title": "文件列表"
@@ -127,8 +127,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 308.99999618530273,
-    "collapsed": true
+    "width": 386.99999618530273
   },
   "right": {
     "id": "be1e91dfcb57ce3b",
@@ -145,13 +144,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "游戏开发技术探索/Unity开发技术/动画性能优化/动画烘焙，GPU动画.md",
+                "file": "Slurped Pages/关于静态批处理动态批处理GPU Instancing SRP Batcher的详细剖析.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "动画烘焙，GPU动画 的大纲"
+              "title": "关于静态批处理动态批处理GPU Instancing SRP Batcher的详细剖析 的大纲"
             }
           },
           {
@@ -256,11 +255,14 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "825621b744ab0b4d",
+  "active": "89a66892aa3b87ae",
   "lastOpenFiles": [
-    "Slurped Pages/Unity大规模角色的GPU顶点动画表达方式.md",
-    "游戏开发技术探索/Unity开发技术/动画性能优化/动画烘焙，GPU动画.md",
     "导航/主页.md",
+    "Slurped Pages/Unity大规模角色的GPU顶点动画表达方式.md",
+    "Slurped Pages/关于静态批处理动态批处理GPU Instancing SRP Batcher的详细剖析.md",
+    "游戏开发技术探索/Unity开发技术/动画性能优化/动画烘焙，GPU动画.md",
+    "课程和练习/Custom SRP/Draw Calls.md",
+    "收藏夹/面试题/面试集锦.md",
     "游戏开发技术探索/Unity开发技术/动画性能优化/整理学习动画烘焙代码.md",
     "Slurped Pages/Unity大规模角色的GPU蒙皮动画表达方式.md",
     "Clippings",
@@ -270,7 +272,6 @@
     "游戏开发技术探索/Unity开发技术/Unity开发技术探索.md",
     "游戏开发技术探索/Unity开发技术/动画性能优化/Unity中的GPU动画.md",
     "游戏开发技术探索/Unity开发技术/动画性能优化/阅读风暴小队相关代码.md",
-    "收藏夹/面试题/面试集锦.md",
     "生活/未命名.md",
     "生活/日常代办.md",
     "components/view/ProjectModuleDataView.components",
@@ -293,13 +294,11 @@
     "收藏夹/杂项.md",
     "Slurped Pages/移动游戏的性能优化 - 贴图压缩篇.md",
     "Slurped Pages/Unity中使用GPU Instancing优化SkinnedMesh渲染-腾讯云开发者社区-腾讯云.md",
-    "Slurped Pages/关于静态批处理动态批处理GPU Instancing SRP Batcher的详细剖析.md",
     "Slurped Pages/深入解析OSI七层模型及各层工作原理（我只能帮你到这了）-腾讯云开发者社区-腾讯云.md",
     "HTML import/Attachments/v2-1cdbfcf07644a98948a0daa8b96977f5_l(1).jpg",
     "HTML import/Attachments/v2-0dde54b930bef9c768c10d3c79126e16_1440w.jpg",
     "HTML import/Attachments/liukanshan-peek.a71ecf3e.png",
     "HTML import/Attachments/v2-0a018307970f9cc3182d8ceda62e6a65_l.jpg",
-    "HTML import/关于静态批处理_动态批处理_GPU Instancing _SRP Batcher的详细剖析 - 知乎.md",
     "HTML import/Attachments/v2-6f8de0bda992d4fe1bc38ef6a54da10d_250x0.jpg",
     "HTML import/Attachments/v2-c42b81314b82b3240459f3e82539cb48_l(1).jpg",
     "HTML import/Attachments/v2-59aa202bf84300c9b6218a73869b5abe_1440w.image",

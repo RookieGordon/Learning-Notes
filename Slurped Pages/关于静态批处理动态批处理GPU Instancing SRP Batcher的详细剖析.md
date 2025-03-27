@@ -6,6 +6,8 @@ tags:
   - 合批
   - Dynamic-Batching
   - GPU-Instancing
+  - 静态合批
+  - 动态合批
 source: https://zhuanlan.zhihu.com/p/98642798
 ---
 # 静态批处理<sup>[1]</sup>
