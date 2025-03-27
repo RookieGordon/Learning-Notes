@@ -449,17 +449,18 @@ Graphics.DrawMeshInstanced(staticMesh, 0, instancedMaterial, matrices);
 // 示例：将50根骨骼的100帧动画烘焙到纹理
 Texture2D BakeAnimationToTexture(AnimationClip clip, int boneCount, int frameRate) {
     int width = boneCount * 4; // 每骨骼4行矩阵
-    int height = Mathf.CeilToInt(clip.length * frameRate);
+    int height = Mathf.CeilToInt(clip.length * frameRate);  // frameRate采样频率
     Texture2D tex = new Texture2D(width, height, TextureFormat.RGBAHalf, false);
 
     for (int frame = 0; frame < height; frame++) {
         clip.SampleAnimation(gameObject, frame / frameRate);
-        Matrix4x4[] bones = GetBoneMatrices();
+        Matrix4x4[] bones = skinnedRenderer.bones.Select(b => b.localToWorldMatrix).ToArray();
         for (int bone = 0; bone < boneCount; bone++) {
+		    Matrix4x4 matrix = bones[b];
             // 将矩阵的每一行写入纹理
-            tex.SetPixel(bone*4 + 0, frame, MatrixToColor(bones[bone].GetRow(0)));
-            tex.SetPixel(bone*4 + 1, frame, MatrixToColor(bones[bone].GetRow(1)));
-            // ...写入剩余行
+            tex.SetPixel(bone*4 + 0, frame, MatrixToColor(matrix.GetRow(0)));
+            tex.SetPixel(bone*4 + 1, frame, MatrixToColor(matrix.GetRow(1)));
+            tex.SetPixel(bone*4 + 2, frame, MatrixToColor(matrix.GetRow(2)));
         }
     }
     tex.Apply();
@@ -470,7 +471,22 @@ Texture2D BakeAnimationToTexture(AnimationClip clip, int boneCount, int frameRat
 **关键技术点**：根据实例ID和动画时间计算UV坐标，解码骨骼矩阵。
 ```C
 sampler2D _AnimationTex;
-float _AnimTime; // 全局动画时间
+float _AnimTime; // 当前动画时间（0~1）
+float _AnimLength; // 动画总时长（秒）
+
+// 采样并重建骨骼矩阵
+float4x4 GetBoneMatrix(int boneIndex, int instanceID) {
+    // 计算UV：横坐标=骨骼索引*4 + 行号，纵坐标=当前帧
+    float frame = _AnimTime * _AnimLength * 30.0; // 假设30FPS
+    float2 uv = float2(
+        (boneIndex * 4 + row) / (64.0 * 4.0), 
+        (frame + 0.5) / _AnimationTex_TexelSize.w // 避免采样缝隙
+    );
+    float4 row0 = tex2Dlod(_AnimationTex, float4(uv.x, uv.y, 0, 0));
+    float4 row1 = tex2Dlod(_AnimationTex, float4(uv.x + 1.0/256.0, uv.y, 0, 0));
+    float4 row2 = tex2Dlod(_AnimationTex, float4(uv.x + 2.0/256.0, uv.y, 0, 0));
+    return float4x4(row0, row1, row2, float4(0,0,0,1));
+}
 
 v2f vert(appdata v) {
     // 计算UV：x轴根据骨骼索引，y轴根据时间
@@ -483,6 +499,7 @@ v2f vert(appdata v) {
     // 重构矩阵...
 }
 ```
+
 #### **3. 结合GPU Instancing**
 通过`MaterialPropertyBlock`传递每实例的动画参数（如起始时间、速度）：
 ```C#
