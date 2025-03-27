@@ -324,9 +324,12 @@ public class InstancedSkinnedRenderer : MonoBehaviour {
 # 详细描述一下方案1和方案2的实现思路，具体的实现流程，关键技术点
 ## **方案1：GPU蒙皮与骨骼矩阵传递**
 ### **核心思想**
-通过 **GPU Instancing** 将骨骼动画的骨骼矩阵数据批量传递给GPU，每个实例独立计算蒙皮，从而合并Draw Call。
+通过GPU Instancing批量渲染多个骨骼动画角色，将每实例的骨骼矩阵数据通过ComputeBuffer传递至Shader，在GPU端完成顶点蒙皮计算，从而减少CPU与GPU间的数据交互和Draw Call数量。
 ### **实现流程**
-#### **1. Shader改造**
+#### **1. 模型与动画准备**
+- 确保角色使用**Skinned Mesh Renderer**且骨骼层级已优化（合并冗余骨骼）。
+- 导出角色T-Pose的静态网格（用于合并顶点数据）。
+#### **2. Shader改造**
 **关键技术点**：在Shader中声明骨骼矩阵的实例化缓冲区，并基于实例ID索引数据。
 ```C
 // 声明支持实例化的骨骼矩阵缓冲区（每个实例的骨骼矩阵数组）
