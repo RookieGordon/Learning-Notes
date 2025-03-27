@@ -206,3 +206,4 @@ public class InstancedSkinnedRenderer : MonoBehaviour {
 - **动态合批的静态限制**源于其设计原理，无法绕过。
 - **GPU Instancing的灵活性**需要开发者手动管理数据流，但能实现极致的性能优化。
 - **推荐工具**：使用Unity的ECS + Jobs System或第三方插件（如GPU Animation）简化开发流程。
+# 使用GPU Instancing来进行动画优化的方案有哪些？方案的具体实施流程是怎么样的？有何优缺点？
