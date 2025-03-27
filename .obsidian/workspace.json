@@ -218,7 +218,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 309
+    "width": 309,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -243,8 +244,8 @@
   "active": "d50b0efc19fd837a",
   "lastOpenFiles": [
     "收藏夹/面试题/面试集锦.md",
-    "生活/日常代办.md",
     "生活/未命名.md",
+    "生活/日常代办.md",
     "导航/主页.md",
     "Slurped Pages/Unity-GPU Animation.md",
     "游戏开发技术探索/Unity开发技术/Unity开发技术探索.md",
