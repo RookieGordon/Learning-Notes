@@ -130,13 +130,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "收藏夹/面试题/面试集锦.md",
+                "file": "导航/主页.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "面试集锦 的大纲"
+              "title": "主页 的大纲"
             }
           },
           {
@@ -196,29 +196,8 @@
               "icon": "git-pull-request",
               "title": "Source Control"
             }
-          },
-          {
-            "id": "f0e53bbe0cab1bfd",
-            "type": "leaf",
-            "state": {
-              "type": "todo",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "插件不再活动"
-            }
-          },
-          {
-            "id": "f3ec560f29b05b3f",
-            "type": "leaf",
-            "state": {
-              "type": "todo",
-              "state": {},
-              "icon": "checkmark",
-              "title": "Todo List"
-            }
           }
-        ],
-        "currentTab": 6
+        ]
       },
       {
         "id": "d3469bcf3b4ce2dc",
@@ -231,16 +210,15 @@
             "state": {
               "type": "todo",
               "state": {},
-              "icon": "lucide-file",
-              "title": "插件不再活动"
+              "icon": "checkmark",
+              "title": "Todo List"
             }
           }
         ]
       }
     ],
     "direction": "horizontal",
-    "width": 324,
-    "collapsed": true
+    "width": 309
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -265,8 +243,9 @@
   "active": "d50b0efc19fd837a",
   "lastOpenFiles": [
     "收藏夹/面试题/面试集锦.md",
-    "导航/主页.md",
     "生活/日常代办.md",
+    "生活/未命名.md",
+    "导航/主页.md",
     "Slurped Pages/Unity-GPU Animation.md",
     "游戏开发技术探索/Unity开发技术/Unity开发技术探索.md",
     "components/view/ProjectModuleDataView.components",
@@ -275,7 +254,6 @@
     "components/view/ChapterView.components",
     "游戏开发技术探索/Unity开发技术/动画性能优化/Unity动画性能优化.md",
     "游戏开发技术探索/Unity开发技术/动画性能优化/整理学习动画烘焙代码.md",
-    "生活/未命名.md",
     "游戏开发技术探索/Unity开发技术/动画性能优化/Unity中的GPU动画.md",
     "游戏开发技术探索/Unity开发技术/动画性能优化/阅读风暴小队相关代码.md",
     "components/view/日常.components",
