@@ -18,7 +18,7 @@ banner: Study
 displayIcon: pixel-banner-images/章节任务.png
 ---
 # 动画烘焙
-GPU
+动画烘焙分为顶点烘焙和骨骼烘焙，顶点烘焙相对简单，但是烘焙出来的纹理贴图尺寸很大，骨骼烘焙就相对复杂，但是资源量比较小。
 
 
 
