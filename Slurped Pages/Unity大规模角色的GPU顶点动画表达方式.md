@@ -1,7 +1,9 @@
 ---
 source: https://zhuanlan.zhihu.com/p/108367119
-author:
-  - "[[知乎专栏]]"
+tags:
+  - Slurp/Unity/GPU-Animation
+  - Slurp/Unity/GPU-Instancing
+  - Slurp/Unity/动画烘焙
 ---
 项目中要求某场景中实现数十人奔跑，如果用 骨骼动画，那CPU计算蒙皮的开销可太大了。依稀记得 [@陈嘉栋](https://www.zhihu.com/people/2a771414e440d398c4fb925948e5e830) 之前实现过一版，不过当时没细看。于是就拿这个思路继续写了。
 # 思路

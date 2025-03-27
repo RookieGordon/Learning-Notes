@@ -1,10 +1,11 @@
 ---
 source: https://zhuanlan.zhihu.com/p/87583171
 tags:
-  - Unity
-  - GPU-Animation
-  - 动画烘焙
-  - 动画蒙皮
+  - Slurp/Unity/GPU-Animation
+  - Slurp/Unity/GPU-Instancing
+  - Slurp/Unity/动画烘焙
+  - Slurp/Unity/骨骼动画
+  - Slurp/Unity/动画蒙皮
 ---
 目前游戏开发中常用的两种动画：顶点动画和蒙皮动画
 1. 顶点动画：通过在动画帧中直接修改mesh顶点的位置来实现，通常在mesh顶点数目较少，动画简单的情况下使用，如草的摆动，树的摆动，水的波动等

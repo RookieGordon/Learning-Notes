@@ -1,7 +1,11 @@
 ---
 source: https://zhuanlan.zhihu.com/p/108725072
 tags:
-  - clippings
+  - Slurp/Unity/GPU-Animation
+  - Slurp/Unity/GPU-Instancing
+  - Slurp/Unity/动画烘焙
+  - Slurp/Unity/骨骼动画
+  - Slurp/Unity/动画蒙皮
 ---
 书接上文，上回说道， 烘焙顶点的方法存在着两个缺陷以及一个致命弱点：
 

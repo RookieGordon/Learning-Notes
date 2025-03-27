@@ -1,14 +1,9 @@
 ---
 link: https://cloud.tencent.com/developer/article/1393261
-excerpt: 有这么个需求: 一堆不会动的SkinnedMesh, 通过物理模拟出死亡姿势后, 需要优化性能, 不然才10FPS
 tags:
-  - slurp/github
-  - slurp/unity
-  - slurp/https
-  - slurp/git
-  - slurp/
-slurped: 2025-03-24T14:12
-title: Unity中使用GPU Instancing优化SkinnedMesh渲染-腾讯云开发者社区-腾讯云
+  - Slurp/Unity/SkinnedMesh
+  - Slurp/Unity/GPU-Animation
+  - Slurp/Unity/GPU-Instancing
 ---
 有这么个需求: 一堆不会动的SkinnedMesh, 通过物理模拟出死亡姿势后, 需要优化性能, 不然才10FPS
 

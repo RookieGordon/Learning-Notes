@@ -1,10 +1,11 @@
 ---
 link: https://blog.csdn.net/lzhq1982/article/details/88121451
 tags:
-  - Unity
-  - 骨骼动画
-  - GPU-Animation
-  - GPU-Instancing
+  - Slurp/Unity/GPU-Animation
+  - Slurp/Unity/GPU-Instancing
+  - Slurp/Unity/动画烘焙
+  - Slurp/Unity/骨骼动画
+  - Slurp/Unity/动画蒙皮
 ---
 文章转自：[https://blog.csdn.net/yxriyin/article/details/83018985](https://blog.csdn.net/yxriyin/article/details/83018985)
 最早是在Unity推出gpuinstancing后，马上有人做了一个顶点动画代替骨骼动画的方案，当时自己也测试了一下，红米2一千人可以跑60帧，确实非常不错。后来发现UWA群里也有人在讨论这个东西的做法，当时M神说可以用烘焙骨骼的方式代替烘焙顶点，这样子烘焙出来的贴图大小只和骨骼数相关。而小米超神也说是通过烘焙顶点，不过为了减少烘焙文件的大小，使用了类似RGBM的方式存储数据。

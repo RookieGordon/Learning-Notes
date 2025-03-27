@@ -1,8 +1,11 @@
 ---
 source: https://zhuanlan.zhihu.com/p/413815001
 tags:
-  - Unity
-  - GPU-Instancing
+  - Slurp/Unity/GPU-Animation
+  - Slurp/Unity/GPU-Instancing
+  - Slurp/Unity/动画烘焙
+  - Slurp/Unity/骨骼动画
+  - Slurp/Unity/动画蒙皮
 ---
 # 序言
 > 项目有遇到由大量角色的组合,依此情况由Animation导致的CPU骨骼计算以及GPU 的Batch数量，带来了不可忽视的性能压力。于是总结并整理了一套GPU Animation框架，在动画需求不复杂的情况下由离线计算的贴图数据驱动并在 vertex shader采样，通过降低复杂度与时间换空间的方法降低计算量，同时支持GPU Instance降低Batch压力。
