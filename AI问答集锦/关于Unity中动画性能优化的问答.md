@@ -488,18 +488,17 @@ float4x4 GetBoneMatrix(int boneIndex, int instanceID) {
     return float4x4(row0, row1, row2, float4(0,0,0,1));
 }
 
-v2f vert(appdata v) {
-    // 计算UV：x轴根据骨骼索引，y轴根据时间
-    float2 uv = float2(
-        (v.boneIndices.x * 4 + 0) / _AnimationTex_TexelSize.z, 
-        _AnimTime * _AnimationTex_TexelSize.w
-    );
-    float4 row0 = tex2Dlod(_AnimationTex, float4(uv, 0, 0));
-    float4 row1 = tex2Dlod(_AnimationTex, float4(uv + float2(1,0)*_AnimationTex_TexelSize.x, 0, 0));
-    // 重构矩阵...
-}
+// v2f vert(appdata v) {
+//     // 计算UV：x轴根据骨骼索引，y轴根据时间
+//     float2 uv = float2(
+//         (v.boneIndices.x * 4 + 0) / _AnimationTex_TexelSize.z, 
+//         _AnimTime * _AnimationTex_TexelSize.w
+//     );
+//     float4 row0 = tex2Dlod(_AnimationTex, float4(uv, 0, 0));
+//     float4 row1 = tex2Dlod(_AnimationTex, float4(uv + float2(1,0)*_AnimationTex_TexelSize.x, // 0, 0));
+//     // 重构矩阵...
+// }
 ```
-
 #### **3. 结合GPU Instancing**
 通过`MaterialPropertyBlock`传递每实例的动画参数（如起始时间、速度）：
 ```C#
@@ -507,7 +506,24 @@ MaterialPropertyBlock props = new MaterialPropertyBlock();
 props.SetFloat("_AnimStartTime", Time.time);
 renderer.SetPropertyBlock(props);
 ```
-
+### **关键技术点**
+1. **纹理格式选择**
+    - **RGBAHalf**：每个通道16位浮点，精度足够存储矩阵分量。
+    - **BC6H压缩**（DX11+）：高动态范围压缩格式，减少显存占用（需测试精度损失）。
+2. **纹理寻址优化**
+    - **分块存储**：将多个角色的动画数据打包到同一纹理，通过UV偏移区分不同角色。
+    - **Mipmap禁用**：避免插值导致骨骼矩阵数据错误。
+3. **动画混合支持**
+    - **双帧插值**：采样相邻两帧纹理数据，在Shader中进行线性插值：
+```C
+float frame = _AnimTime * 30.0;
+int frame0 = floor(frame);
+int frame1 = frame0 + 1;
+float t = frame - frame0;
+float4x4 bone0 = GetBoneMatrix(boneIndex, frame0);
+float4x4 bone1 = GetBoneMatrix(boneIndex, frame1);
+float4x4 boneMatrix = lerp(bone0, bone1, t);
+```
 ### **方案2优缺点**
 
 |**优点**|**缺点**|
@@ -530,3 +546,176 @@ renderer.SetPropertyBlock(props);
 - 选择 **方案1** 若需支持动态动画（如战斗中的角色），且有足够开发资源。
 - 选择 **方案2** 若需渲染万人同屏且动画固定（如观众席），或目标平台为移动端（减少CPU计算）。
 - **混合方案**：对主要角色使用方案1，对背景人群使用方案2。
+# 有几点疑问：1、方案1中，如何将骨骼矩阵从Matrix4x4压缩为float3x4；2、方案2中，采样并重建骨骼矩阵部分，示例代码解释不是很清晰；
+## **一、方案1：骨骼矩阵压缩（Matrix4x4 → float3x4）**
+### **1. 压缩原理**
+骨骼动画的变换矩阵通常是**仿射变换矩阵**（Affine Transformation Matrix），其第四行固定为 `[0, 0, 0, 1]`。因此，可以将 `Matrix4x4` 简化为 `float3x4`，仅存储前三行数据，显存占用从 **64字节**（16个float）降至 **48字节**（12个float），节省25%显存。
+### **2. 实现步骤**
+#### **(1) CPU端压缩**
+在脚本中将 `Matrix4x4` 转换为 `float3x4` 并存入ComputeBuffer：
+```C#
+// 将骨骼矩阵前三行存入数组
+List<float> compressedData = new List<float>();
+foreach (Matrix4x4 matrix in boneMatrices) {
+    // 提取前三行数据（每行4个float）
+    for (int row = 0; row < 3; row++) {
+        Vector4 rowData = matrix.GetRow(row);
+        compressedData.Add(rowData.x);
+        compressedData.Add(rowData.y);
+        compressedData.Add(rowData.z);
+        compressedData.Add(rowData.w);
+    }
+}
+
+// 创建ComputeBuffer（每个骨骼占12个float）
+ComputeBuffer boneBuffer = new ComputeBuffer(compressedData.Count / 12, 12 * sizeof(float));
+boneBuffer.SetData(compressedData.ToArray());
+```
+#### **(2) Shader端解压**
+在Shader中重建 `float4x4` 矩阵：
+```C
+// 定义骨骼矩阵缓冲区
+StructuredBuffer<float> _CompressedBoneBuffer; // 每骨骼占12个float
+
+float4x4 GetDecompressedMatrix(int boneIndex) {
+    int baseIndex = boneIndex * 12; // 每骨骼12个float
+    float4 row0 = float4(
+        _CompressedBoneBuffer[baseIndex], 
+        _CompressedBoneBuffer[baseIndex+1],
+        _CompressedBoneBuffer[baseIndex+2],
+        _CompressedBoneBuffer[baseIndex+3]
+    );
+    float4 row1 = float4(
+        _CompressedBoneBuffer[baseIndex+4],
+        _CompressedBoneBuffer[baseIndex+5],
+        _CompressedBoneBuffer[baseIndex+6],
+        _CompressedBoneBuffer[baseIndex+7]
+    );
+    float4 row2 = float4(
+        _CompressedBoneBuffer[baseIndex+8],
+        _CompressedBoneBuffer[baseIndex+9],
+        _CompressedBoneBuffer[baseIndex+10],
+        _CompressedBoneBuffer[baseIndex+11]
+    );
+    float4 row3 = float4(0, 0, 0, 1); // 固定第四行
+    return float4x4(row0, row1, row2, row3);
+}
+```
+### **3. 性能优化**
+- **数据对齐**：确保ComputeBuffer的Stride为48字节（12 * 4 bytes）。
+- **避免分支**：在Shader中直接通过索引计算，无需条件判断。
+## **二、方案2：动画纹理采样与骨骼矩阵重建**
+### **1. 纹理存储规则**
+假设动画纹理尺寸为 `Width x Height`：
+- **横向（U轴）**：每个骨骼的矩阵占用4个像素（每行存储一个矩阵的4个分量）。
+- **纵向（V轴）**：每行对应一帧动画数据。
+
+|骨骼索引|矩阵行|像素位置 (U)|
+|---|---|---|
+|0|Row0|0|
+|0|Row1|1|
+|0|Row2|2|
+|0|Row3|3|
+|1|Row0|4|
+|...|...|...|
+### **2. 采样与重建代码详解**
+
+hlsl
+
+复制
+
+// 动画纹理参数
+sampler2D _AnimationTex;
+float4 _AnimationTex_TexelSize; // 纹理尺寸信息（1/width, 1/height, width, height）
+float _AnimTime; // 归一化时间 [0,1]
+
+// 从纹理中重建骨骼矩阵
+float4x4 GetBoneMatrix(int boneIndex) {
+    // 计算当前帧（假设动画30FPS，总时长10秒）
+    float totalFrames = 10.0 * 30.0;
+    float frame = _AnimTime * totalFrames;
+    
+    // 计算UV坐标
+    float u = (boneIndex * 4) / _AnimationTex_TexelSize.z; // 横向：骨骼索引*4
+    float v = (frame + 0.5) / _AnimationTex_TexelSize.w;    // 纵向：当前帧（+0.5避免采样缝隙）
+
+    // 采样四行数据
+    float4 row0 = tex2Dlod(_AnimationTex, float4(u + 0 * _AnimationTex_TexelSize.x, v, 0, 0));
+    float4 row1 = tex2Dlod(_AnimationTex, float4(u + 1 * _AnimationTex_TexelSize.x, v, 0, 0));
+    float4 row2 = tex2Dlod(_AnimationTex, float4(u + 2 * _AnimationTex_TexelSize.x, v, 0, 0));
+    float4 row3 = float4(0, 0, 0, 1); // 固定第四行
+
+    return float4x4(row0, row1, row2, row3);
+}
+
+#### **3. 关键细节解释**
+
+- **纹理坐标计算**
+    
+    - `_AnimationTex_TexelSize.x` = `1/纹理宽度`，用于横向偏移到下一个矩阵行。
+        
+    - `+0.5` 的纵向偏移：避免纹理过滤时采样到相邻帧（确保精确对齐像素中心）。
+        
+- **帧间插值（平滑动画）**  
+    若需要帧间插值，可采样相邻两帧并混合：
+    
+    hlsl
+    
+    复制
+    
+    float frame = _AnimTime * totalFrames;
+    float frameFloor = floor(frame);
+    float frameFrac = frame - frameFloor;
+    
+    // 采样当前帧和下一帧
+    float4x4 matrix0 = GetBoneMatrix(boneIndex, frameFloor);
+    float4x4 matrix1 = GetBoneMatrix(boneIndex, frameFloor + 1);
+    
+    // 线性插值
+    return lerp(matrix0, matrix1, frameFrac);
+    
+
+#### **4. 优化技巧**
+
+- **纹理分块（Tile）**  
+    若角色有多个动画（走、跑、跳），可将不同动画存储在纹理的不同区域（Tile），通过UV偏移切换：
+    
+    hlsl
+    
+    复制
+    
+    float2 uvOffset = _AnimType * float2(4.0 / _AnimationTex_TexelSize.z, 0); // 横向偏移
+    float u = (boneIndex * 4) / _AnimationTex_TexelSize.z + uvOffset.x;
+    float v = (frame + 0.5) / _AnimationTex_TexelSize.w + uvOffset.y;
+    
+- **BC6H压缩**  
+    在支持DX11的平台上，使用BC6H压缩动画纹理（需测试数据精度）：
+    
+    csharp
+    
+    复制
+    
+    Texture2D animTex = new Texture2D(..., TextureFormat.BC6H);
+    
+
+---
+
+### **三、两种方案对比总结**
+
+|**特性**|**方案1（GPU蒙皮）**|**方案2（动画纹理）**|
+|---|---|---|
+|**显存占用**|高（每实例独立骨骼数据）|中（纹理可压缩）|
+|**CPU计算量**|中（需每帧更新骨骼矩阵）|低（仅传递时间参数）|
+|**动画灵活性**|高（支持实时骨骼变换、物理交互）|低（仅支持预烘焙动画）|
+|**适用场景**|动态角色（如玩家、BOSS）|大规模静态动画（如背景人群）|
+|**开发复杂度**|高（需处理实时数据同步）|中（需离线烘焙工具）|
+
+---
+
+### **四、选择建议**
+
+- **追求极致性能**：方案2（动画纹理）更适合万人同屏场景。
+    
+- **需要动态交互**：方案1（GPU蒙皮）支持实时骨骼变化。
+    
+- **混合使用**：对主角使用方案1，对背景角色使用方案2。
