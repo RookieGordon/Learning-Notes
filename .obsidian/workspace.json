@@ -38,6 +38,20 @@
             }
           },
           {
+            "id": "ae62510fca2620f2",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "AI问答集锦/关于Unity中动画性能优化的问答.md",
+                "mode": "preview",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "关于Unity中动画性能优化的问答"
+            }
+          },
+          {
             "id": "ac5a7407b055549d",
             "type": "leaf",
             "state": {
@@ -94,14 +108,14 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       },
       {
-        "id": "f604333df727c070",
+        "id": "69c414f0af20f2ad",
         "type": "tabs",
         "children": [
           {
-            "id": "7b1d30e3f41a179e",
+            "id": "10a37f7db60dbe67",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -189,8 +203,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 386.99999618530273,
-    "collapsed": true
+    "width": 386.99999618530273
   },
   "right": {
     "id": "be1e91dfcb57ce3b",
@@ -207,13 +220,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "游戏开发技术探索/Unity开发技术/动画性能优化/动画烘焙，GPU动画.md",
+                "file": "AI问答集锦/关于Unity中动画性能优化的问答.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "动画烘焙，GPU动画 的大纲"
+              "title": "关于Unity中动画性能优化的问答 的大纲"
             }
           },
           {
@@ -328,10 +341,10 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "5871eae06c2019d2",
+  "active": "10a37f7db60dbe67",
   "lastOpenFiles": [
-    "AI问答集锦/关于Unity中动画性能优化的问答.md",
     "游戏开发技术探索/Unity开发技术/动画性能优化/动画烘焙，GPU动画.md",
+    "AI问答集锦/关于Unity中动画性能优化的问答.md",
     "Slurped Pages/关于静态批处理动态批处理GPU Instancing SRP Batcher的详细剖析.md",
     "生活/未命名.md",
     "生活/日常代办.md",

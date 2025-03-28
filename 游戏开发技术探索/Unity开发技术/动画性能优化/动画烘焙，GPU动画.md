@@ -21,9 +21,10 @@ displayIcon: pixel-banner-images/章节任务.png
 CPU端播放大量的动画是一个非常巨大的消耗，究其原因在于，无法使用常规的性能优化手段（[[关于静态批处理动态批处理GPU Instancing SRP Batcher的详细剖析|静态合批，动态合批]]）来进行优化，具体原因，参考：[[关于Unity中动画性能优化的问答#Unity中，简单的，低面数的骨骼动画是否可以采用动态合批进行性能优化，比如场景中同时实例化20个相同的模型进行动画播放？]]
 因此，对于动画的性能优化，目前三种常规的解决方案：
 1. [[关于Unity中动画性能优化的问答#**一、GPU蒙皮与骨骼矩阵传递**|GPU蒙皮+骨骼矩阵]]；
-
-2. [[关于Unity中动画性能优化的问答#**二、预生成动画纹理（Animation Texture）**10|预生成动画纹理]]；
-3. [[关于Unity中动画性能优化的问答#**五、ECS + GPU Instancing**|ECS+GPU Instancing]]
+- 适用于大规模成群的动画
+- 核心思想：[[关于Unity中动画性能优化的问答#^2d5863]]
+1. [[关于Unity中动画性能优化的问答#**二、预生成动画纹理（Animation Texture）**10|预生成动画纹理]]；
+2. [[关于Unity中动画性能优化的问答#**五、ECS + GPU Instancing**|ECS+GPU Instancing]]
 
 ## 烘焙顶点
 
