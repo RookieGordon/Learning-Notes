@@ -107,7 +107,7 @@
               "type": "markdown",
               "state": {
                 "file": "AI问答集锦/关于Unity中动画性能优化的问答.md",
-                "mode": "source",
+                "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
@@ -207,13 +207,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "游戏开发技术探索/Unity开发技术/动画性能优化/动画烘焙，GPU动画.md",
+                "file": "AI问答集锦/关于Unity中动画性能优化的问答.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "动画烘焙，GPU动画 的大纲"
+              "title": "关于Unity中动画性能优化的问答 的大纲"
             }
           },
           {
@@ -284,8 +284,7 @@
               "title": "Todo List"
             }
           }
-        ],
-        "currentTab": 5
+        ]
       },
       {
         "id": "d3469bcf3b4ce2dc",
@@ -298,8 +297,8 @@
             "state": {
               "type": "todo",
               "state": {},
-              "icon": "lucide-file",
-              "title": "插件不再活动"
+              "icon": "checkmark",
+              "title": "Todo List"
             }
           }
         ]
@@ -329,10 +328,10 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "5871eae06c2019d2",
+  "active": "7b1d30e3f41a179e",
   "lastOpenFiles": [
-    "AI问答集锦/关于Unity中动画性能优化的问答.md",
     "游戏开发技术探索/Unity开发技术/动画性能优化/动画烘焙，GPU动画.md",
+    "AI问答集锦/关于Unity中动画性能优化的问答.md",
     "Slurped Pages/关于静态批处理动态批处理GPU Instancing SRP Batcher的详细剖析.md",
     "生活/未命名.md",
     "生活/日常代办.md",

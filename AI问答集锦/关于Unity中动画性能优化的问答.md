@@ -22,25 +22,25 @@ banner: AI
         在材质中勾选 `Enable GPU Instancing`。
     2. **Shader修改**  
         使用支持骨骼动画的Instancing Shader，例如：
-```c
-#pragma multi_compile_instancing
-#pragma instancing_options assumeuniformscaling maxcount:50 // 调整最大实例数
-
-struct appdata {
-    float4 vertex : POSITION;
-    float2 uv : TEXCOORD0;
-    float4 boneWeights : WEIGHTS;
-    uint4 boneIndices : BONES;
-    UNITY_VERTEX_INPUT_INSTANCE_ID // 关键：添加实例ID
-};
-
-v2f vert(appdata v, uint instanceID : SV_InstanceID) {
-    UNITY_SETUP_INSTANCE_ID(v);
-    // 从实例化的缓冲中读取骨骼矩阵
-    float4x4 boneMatrix = _BoneMatricesBuffer[instanceID][v.boneIndices.x];
-    // 应用骨骼变换...
-}
-```
+		```c
+		#pragma multi_compile_instancing
+		#pragma instancing_options assumeuniformscaling maxcount:50 // 调整最大实例数
+		
+		struct appdata {
+		    float4 vertex : POSITION;
+		    float2 uv : TEXCOORD0;
+		    float4 boneWeights : WEIGHTS;
+		    uint4 boneIndices : BONES;
+		    UNITY_VERTEX_INPUT_INSTANCE_ID // 关键：添加实例ID
+		};
+		
+		v2f vert(appdata v, uint instanceID : SV_InstanceID) {
+		    UNITY_SETUP_INSTANCE_ID(v);
+		    // 从实例化的缓冲中读取骨骼矩阵
+		    float4x4 boneMatrix = _BoneMatricesBuffer[instanceID][v.boneIndices.x];
+		    // 应用骨骼变换...
+		}
+		```
     3. **脚本传递骨骼数据**  
         通过`MaterialPropertyBlock`或ComputeBuffer传递每实例的骨骼矩阵。
 - **注意事项**
