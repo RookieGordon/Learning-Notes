@@ -64,9 +64,37 @@
               "icon": "lucide-file",
               "title": "关于静态批处理动态批处理GPU Instancing SRP Batcher的详细剖析"
             }
+          },
+          {
+            "id": "0ab23d05a7d0cacd",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "生活/未命名.md",
+                "mode": "preview",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "未命名"
+            }
+          },
+          {
+            "id": "ea8b200b8b5d02d5",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "生活/日常代办.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "日常代办"
+            }
           }
         ],
-        "currentTab": 2
+        "currentTab": 5
       }
     ],
     "direction": "vertical"
@@ -225,8 +253,19 @@
               "icon": "git-pull-request",
               "title": "Source Control"
             }
+          },
+          {
+            "id": "8b02f708de73f828",
+            "type": "leaf",
+            "state": {
+              "type": "todo",
+              "state": {},
+              "icon": "checkmark",
+              "title": "Todo List"
+            }
           }
-        ]
+        ],
+        "currentTab": 5
       },
       {
         "id": "d3469bcf3b4ce2dc",
@@ -260,18 +299,26 @@
       "obsidian-git:Open Git source control": false,
       "pexels-banner:🚩 Pixel Banner Menu": false,
       "obsidian-importer:Open Importer": false,
-      "obsidian-excalidraw-plugin:新建绘图文件": false
+      "obsidian-excalidraw-plugin:新建绘图文件": false,
+      "moredraw:MoreDraw": false,
+      "templater-obsidian:Templater": false,
+      "vscode-editor:新建代码文件": false,
+      "obsidian-memos:Thino": false,
+      "pdf-plus:PDF++: Toggle auto-copy": false,
+      "pdf-plus:PDF++: Toggle auto-focus": false,
+      "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "ac5a7407b055549d",
+  "active": "ea8b200b8b5d02d5",
   "lastOpenFiles": [
+    "生活/未命名.md",
+    "导航/主页.md",
+    "AI问答集锦/关于Unity中动画性能优化的问答.md",
     "游戏开发技术探索/Unity开发技术/动画性能优化/动画烘焙，GPU动画.md",
     "Slurped Pages/关于静态批处理动态批处理GPU Instancing SRP Batcher的详细剖析.md",
-    "AI问答集锦/关于Unity中动画性能优化的问答.md",
     "游戏开发技术探索/Unity开发技术/动画性能优化/Unity动画性能优化.md",
     "AI问答集锦",
     "Slurped Pages/Unity大规模角色的GPU顶点动画表达方式.md",
-    "导航/主页.md",
     "课程和练习/Custom SRP/Draw Calls.md",
     "收藏夹/面试题/面试集锦.md",
     "游戏开发技术探索/Unity开发技术/动画性能优化/整理学习动画烘焙代码.md",
@@ -282,7 +329,6 @@
     "游戏开发技术探索/Unity开发技术/Unity开发技术探索.md",
     "游戏开发技术探索/Unity开发技术/动画性能优化/Unity中的GPU动画.md",
     "游戏开发技术探索/Unity开发技术/动画性能优化/阅读风暴小队相关代码.md",
-    "生活/未命名.md",
     "生活/日常代办.md",
     "components/view/ProjectModuleDataView.components",
     "components/view/ProjectDataView.components",
