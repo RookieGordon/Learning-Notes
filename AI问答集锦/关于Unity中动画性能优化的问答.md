@@ -443,7 +443,7 @@ Graphics.DrawMeshInstanced(staticMesh, 0, instancedMaterial, matrices);
 
 ## **方案2：预生成动画纹理（Animation Texture Baking）**
 ### **核心思想**
-将动画的骨骼矩阵序列 **离线烘焙到纹理**，运行时通过 **采样纹理** 获取骨骼矩阵，结合GPU Instancing批量渲染。
+将动画的骨骼矩阵序列 **离线烘焙到纹理**，运行时通过 **采样纹理** 获取骨骼矩阵，结合GPU Instancing批量渲染。 ^98902c
 ### **实现流程**
 #### **1. 离线烘焙动画纹理**
 **关键技术点**：将骨骼矩阵编码为纹理像素（RGBA32/RGBAHalf格式）。

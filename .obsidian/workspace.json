@@ -108,14 +108,14 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       },
       {
-        "id": "69c414f0af20f2ad",
+        "id": "f282b978e86a035d",
         "type": "tabs",
         "children": [
           {
-            "id": "10a37f7db60dbe67",
+            "id": "163edfb98def9c51",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -203,7 +203,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 386.99999618530273
+    "width": 386.99999618530273,
+    "collapsed": true
   },
   "right": {
     "id": "be1e91dfcb57ce3b",
@@ -341,7 +342,7 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "10a37f7db60dbe67",
+  "active": "163edfb98def9c51",
   "lastOpenFiles": [
     "游戏开发技术探索/Unity开发技术/动画性能优化/动画烘焙，GPU动画.md",
     "AI问答集锦/关于Unity中动画性能优化的问答.md",
