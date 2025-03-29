@@ -203,7 +203,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 386.99999618530273
+    "width": 386.99999618530273,
+    "collapsed": true
   },
   "right": {
     "id": "be1e91dfcb57ce3b",
@@ -343,13 +344,19 @@
       "pexels-banner:🚩 Pixel Banner Menu": false,
       "obsidian-importer:Open Importer": false,
       "obsidian-excalidraw-plugin:新建绘图文件": false,
-      "moredraw:MoreDraw": false
+      "moredraw:MoreDraw": false,
+      "templater-obsidian:Templater": false,
+      "vscode-editor:新建代码文件": false,
+      "obsidian-memos:Thino": false,
+      "pdf-plus:PDF++: Toggle auto-copy": false,
+      "pdf-plus:PDF++: Toggle auto-focus": false,
+      "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "770b01ad52d97bee",
+  "active": "5871eae06c2019d2",
   "lastOpenFiles": [
-    "游戏开发技术探索/Unity开发技术/动画性能优化/动画烘焙，GPU动画.md",
     "AI问答集锦/关于Unity中动画性能优化的问答.md",
+    "游戏开发技术探索/Unity开发技术/动画性能优化/动画烘焙，GPU动画.md",
     "Slurped Pages/关于静态批处理动态批处理GPU Instancing SRP Batcher的详细剖析.md",
     "生活/未命名.md",
     "生活/日常代办.md",
