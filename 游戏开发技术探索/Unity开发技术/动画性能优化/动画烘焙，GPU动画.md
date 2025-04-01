@@ -40,12 +40,26 @@ Unity中，编辑器开发需要注意Unity的刷新和编译过程，会导致�
 在Window中，声明`_serializedWindow`字段，然后将数据序列化的结果保存到某个地方，在Unity的运行，编译，资源导入等事件中，重新反序列化窗口即可。
 ```C#
 private SerializedObject _serializedWindow;
+private string _serializedPath;
+
+private static void _InitOrResetWindow()
+{
+	// 本地没有数据
+	if (File.Exist(_serializedPath))
+	{
+		// 反序列化窗口
+	}
+	else
+	{
+		_serializedWindow = new SerializedObject(this);
+	}
+}
 
 // 脚本重载
 [UnityEditor.Callbacks.DidReloadScripts]
-static void OnScriptReload()
+private static void OnScriptReload()
 {
-	// 反序列化窗口
+	_InitOrResetWindow();
 }
 
 // 资源导入
