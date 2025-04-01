@@ -37,24 +37,20 @@ CPU端播放大量的动画是一个非常巨大的消耗，究其原因在于�
 ## 烘焙骨骼
 # 编辑器界面开发
 Unity中，编辑器开发需要注意Unity的刷新和编译过程，会导致界面因为运行环境的改变而产生报错。因此需要对界面进行保存（序列化）操作，在运行环境产生变化后，及时还原数据，从而避免报错。
-在Window中，声明`_serializedWindow`字段，然后将数据序列化的结果保存到某个地方，在Unity的运行，编译，资源导入等事件中，重新fan
+在Window中，声明`_serializedWindow`字段，然后将数据序列化的结果保存到某个地方，在Unity的运行，编译，资源导入等事件中，重新反序列化窗口即可。
 ```C#
-private SerializedObject _serializedWindow;  
-private SerializedProperty _serializedProperty;
-```
-在`OnEnable`方法中，初始化，在`OnDisable`中释放，在`OnGUI`中，记录数据
-```C#
-private void OnEnable()  
-{  
-    _serializedWindow = new SerializedObject(this);  
-    // etc.
+private SerializedObject _serializedWindow;
+
+// 脚本重载
+[UnityEditor.Callbacks.DidReloadScripts]
+static void OnScriptReload()
+{
+	// 反序列化窗口
 }
 
-private void OnDisable()  
-{  
-    m_SerializedWindow.Dispose();   
-    // etc.
-}
+// 资源导入
+
+// 运行或停止运行
 
 ```
 
