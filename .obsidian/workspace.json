@@ -314,8 +314,8 @@
             "state": {
               "type": "todo",
               "state": {},
-              "icon": "checkmark",
-              "title": "Todo List"
+              "icon": "lucide-file",
+              "title": "插件不再活动"
             }
           }
         ],
@@ -352,9 +352,7 @@
       "command-palette:打开命令面板": false,
       "obsidian-git:Open Git source control": false,
       "pexels-banner:🚩 Pixel Banner Menu": false,
-      "obsidian-importer:Open Importer": false,
-      "obsidian-excalidraw-plugin:新建绘图文件": false,
-      "moredraw:MoreDraw": false
+      "obsidian-importer:Open Importer": false
     }
   },
   "active": "c10f415cb8293791",
