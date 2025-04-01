@@ -32,7 +32,7 @@ CPU端播放大量的动画是一个非常巨大的消耗，究其原因在于�
 # 预生成动画
 将动画离线烘焙到纹理贴图，有两种方法：1、直接烘焙顶点数据；2、烘焙骨骼数据；
 ## 烘焙顶点
- 
+
 
 ## 烘焙骨骼
 # 编辑器界面开发
@@ -55,17 +55,23 @@ private static void _InitOrResetWindow()
 	}
 }
 
-// 脚本重载
+// 编译完成（无报错），重新加载到运行时环境后调用
 [UnityEditor.Callbacks.DidReloadScripts]
 private static void OnScriptReload()
 {
 	_InitOrResetWindow();
 }
 
-// 资源导入
-
-// 运行或停止运行
-
+private void OnEnable()
+{
+	// 监听资源导入事件
+    AssetDatabase.importPackageCompleted += OnPackageImported;
+    // 监听Editor的运行和停止事件
+    EditorApplication.playModeStateChanged += OnPlayModeStateChanged;
+    // 监听脚本编译事件
+    CompilationPipeline.compilationStarted += OnCompilationStarted;
+	CompilationPipeline.compilationFinished += OnCompilationFinished;
+}
 ```
 
 
