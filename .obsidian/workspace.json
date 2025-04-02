@@ -43,16 +43,15 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "生活/记事本.md",
-                "mode": "preview",
+                "file": "生活/日常代办.md",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "记事本"
+              "title": "日常代办"
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -127,7 +126,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 386.99999618530273
+    "width": 386.99999618530273,
+    "collapsed": true
   },
   "right": {
     "id": "be1e91dfcb57ce3b",
@@ -275,8 +275,8 @@
             "state": {
               "type": "todo",
               "state": {},
-              "icon": "lucide-file",
-              "title": "插件不再活动"
+              "icon": "checkmark",
+              "title": "Todo List"
             }
           }
         ]
@@ -306,11 +306,12 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "4c93e40e50295b3e",
+  "active": "d50b0efc19fd837a",
   "lastOpenFiles": [
-    "生活/未命名.md",
     "生活/日常代办.md",
+    "生活/记事本.md",
     "工作/工作排期和任务安排.md",
+    "生活/未命名.md",
     "导航/主页.md",
     "游戏开发技术探索/Unity开发技术/动画性能优化/动画烘焙，GPU动画.md",
     "游戏开发技术探索/Unity开发技术/动画性能优化/Unity动画性能优化.md",
@@ -320,7 +321,6 @@
     "Slurped Pages/Unity-GPU Animation.md",
     "Slurped Pages/Unity大规模角色的GPU顶点动画表达方式.md",
     "Clippings",
-    "生活/记事本.md",
     "AI问答集锦/关于Unity中动画性能优化的问答.md",
     "Slurped Pages/关于静态批处理动态批处理GPU Instancing SRP Batcher的详细剖析.md",
     "AI问答集锦",
