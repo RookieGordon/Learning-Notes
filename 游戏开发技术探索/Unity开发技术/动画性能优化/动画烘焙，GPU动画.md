@@ -53,7 +53,7 @@ private Texture2D _CreateTexture(SkinnedMeshRenderer render, AnimationClip[] cli
 纹理贴图的宽高由顶点数和动画片段的时长决定。纹理的宽高遵循POT规则，`Mathf.NextPowerOfTwo`方法，会返回一个比参数大的最小POT的值。
 纹理的宽和两倍的蒙皮顶点数量有关，高和动画片段的时长有关。为什么宽需要顶点数乘以2呢？因为需要存储顶点位置和顶点法向量，一共六个值，因此最少需要两个像素才行。
 ### 将顶点数据写入纹理贴图
-使用Unity提供的API——#[AnimationClip.SampleAnimation](https://docs.unity3d.com/ScriptReference/AnimationClip.html)可以将
+使用Unity提供的API——[AnimationClip.SampleAnimation](https://docs.unity3d.com/ScriptReference/AnimationClip.html)和[SkinnedMeshRenderer.BakeMesh](https://docs.unity3d.com/ScriptReference/SkinnedMeshRenderer.html)可以对动画片段进行采样。
 
 ## 烘焙骨骼
 # 编辑器界面开发
