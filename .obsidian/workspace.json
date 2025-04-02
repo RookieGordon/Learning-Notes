@@ -29,30 +29,30 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "游戏开发技术探索/Unity开发技术/动画性能优化/动画烘焙，GPU动画.md",
+                "file": "游戏开发技术探索/Unity开发技术/动画性能优化/Unity动画性能优化.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "动画烘焙，GPU动画"
+              "title": "Unity动画性能优化"
             }
           },
           {
-            "id": "4fe7b28bd337d073",
+            "id": "4c93e40e50295b3e",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Slurped Pages/利用GPU实现大规模动画角色的渲染 - 慕容小匹夫 - 博客园.md",
-                "mode": "source",
+                "file": "生活/记事本.md",
+                "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "利用GPU实现大规模动画角色的渲染 - 慕容小匹夫 - 博客园"
+              "title": "记事本"
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -127,8 +127,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 386.99999618530273,
-    "collapsed": true
+    "width": 386.99999618530273
   },
   "right": {
     "id": "be1e91dfcb57ce3b",
@@ -307,20 +306,21 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "5871eae06c2019d2",
+  "active": "4c93e40e50295b3e",
   "lastOpenFiles": [
+    "生活/未命名.md",
+    "生活/日常代办.md",
+    "工作/工作排期和任务安排.md",
     "导航/主页.md",
-    "Slurped Pages/利用GPU实现大规模动画角色的渲染 - 慕容小匹夫 - 博客园.md",
     "游戏开发技术探索/Unity开发技术/动画性能优化/动画烘焙，GPU动画.md",
-    "游戏开发技术探索/Unity开发技术/动画性能优化/整理学习动画烘焙代码.md",
-    "Slurped Pages/Unity-GPU Animation.md",
-    "游戏开发技术探索/Unity开发技术/Unity开发技术探索.md",
     "游戏开发技术探索/Unity开发技术/动画性能优化/Unity动画性能优化.md",
+    "游戏开发技术探索/Unity开发技术/动画性能优化/整理学习动画烘焙代码.md",
+    "游戏开发技术探索/Unity开发技术/Unity开发技术探索.md",
+    "Slurped Pages/利用GPU实现大规模动画角色的渲染 - 慕容小匹夫 - 博客园.md",
+    "Slurped Pages/Unity-GPU Animation.md",
     "Slurped Pages/Unity大规模角色的GPU顶点动画表达方式.md",
     "Clippings",
     "生活/记事本.md",
-    "生活/未命名.md",
-    "生活/日常代办.md",
     "AI问答集锦/关于Unity中动画性能优化的问答.md",
     "Slurped Pages/关于静态批处理动态批处理GPU Instancing SRP Batcher的详细剖析.md",
     "AI问答集锦",
@@ -347,7 +347,6 @@
     "收藏夹/未命名.md",
     "Slurped Pages/移动游戏的性能优化  贴图压缩篇.md",
     "收藏夹/60个独立游戏的营销错误_60MistakesEbookV1.pdf",
-    "收藏夹/杂项.md",
     "HTML import/Attachments/v2-1cdbfcf07644a98948a0daa8b96977f5_l(1).jpg",
     "HTML import/Attachments/v2-0dde54b930bef9c768c10d3c79126e16_1440w.jpg",
     "HTML import/Attachments/liukanshan-peek.a71ecf3e.png",

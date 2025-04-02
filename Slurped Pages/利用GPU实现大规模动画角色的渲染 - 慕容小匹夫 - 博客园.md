@@ -15,7 +15,7 @@ tags:
 我想很多开发游戏的小伙伴都希望自己的场景内能渲染越多物体越好，甚至是能同时渲染成千上万个有自己动作的游戏角色就更好了。  
 但不幸的是，渲染和管理大量的游戏对象是以牺牲CPU和GPU性能为代价的，因为有太多Draw Call的问题，如果游戏对象有动画的话还会涉及到cpu的蒙皮开销，最后我们必须找到其他的解决方案。那么本文就来聊聊利用GPU实现角色的动画效果，减少CPU端的蒙皮开销；同时将渲染10，000个带动画的模型的Draw Call从10，000+减少到22个。（模型来自： [RTS Mini Legion Footman Handpainted](https://www.assetstore.unity3d.com/en/#!/content/86576) ）
 
-![|1160](https://images2017.cnblogs.com/blog/686199/201707/686199-20170730134701115-179265843.gif)
+![|640](https://images2017.cnblogs.com/blog/686199/201707/686199-20170730134701115-179265843.gif)
 
 # 0x01 Animator和SkinnedMeshRender的问题
 
