@@ -318,10 +318,16 @@
       "pexels-banner:🚩 Pixel Banner Menu": false,
       "obsidian-importer:Open Importer": false,
       "obsidian-excalidraw-plugin:新建绘图文件": false,
-      "moredraw:MoreDraw": false
+      "moredraw:MoreDraw": false,
+      "templater-obsidian:Templater": false,
+      "vscode-editor:新建代码文件": false,
+      "obsidian-memos:Thino": false,
+      "pdf-plus:PDF++: Toggle auto-copy": false,
+      "pdf-plus:PDF++: Toggle auto-focus": false,
+      "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "950eedb5f24e5746",
+  "active": "5871eae06c2019d2",
   "lastOpenFiles": [
     "AI问答集锦/关于Unity中动画性能优化的问答.md",
     "游戏开发技术探索/Unity开发技术/动画性能优化/动画烘焙，GPU动画.md",
