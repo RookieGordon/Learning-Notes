@@ -88,6 +88,7 @@ private static void _WriteVertexData(GameObject fbxObj,
 }
 ```
 `length * j / frameCount`代表动画播放的的时间点，将当前时间点的蒙皮快照到`vertexBakedMesh`中，获取其中的顶点和法线数据。
+因为顶点和法线占用两个像素，因此`GetVertexPositionPixel`方法中，顶点的位置需要乘以2。
 ```CSharp
 public static int2 GetVertexPositionPixel(int vertexIndex, int frame)  
 {  
@@ -99,6 +100,7 @@ public static int2 GetVertexNormalPixel(int vertexIndex, int frame)
     return new int2(vertexIndex * 2 + 1, frame);  
 }
 ```
+
 ## 烘焙骨骼
 # 编辑器界面开发
 Unity中，编辑器开发需要注意Unity的刷新和编译过程，会导致界面因为运行环境的改变而产生报错。因此需要对界面进行保存（序列化）操作，在运行环境产生变化后，及时还原数据，从而避免报错。

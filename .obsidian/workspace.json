@@ -44,7 +44,7 @@
               "type": "markdown",
               "state": {
                 "file": "游戏开发技术探索/Unity开发技术/动画性能优化/动画烘焙，GPU动画.md",
-                "mode": "preview",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
@@ -127,7 +127,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 386.99999618530273
+    "width": 386.99999618530273,
+    "collapsed": true
   },
   "right": {
     "id": "be1e91dfcb57ce3b",
