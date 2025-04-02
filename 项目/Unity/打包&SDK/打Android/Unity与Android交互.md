@@ -113,7 +113,7 @@ public class Test{
 
 通过`AndroidJavaClass`获取到类后，就可以通过类来调用静态方法和静态变量。创建`AndroidJavaClass`对象，需要提供包名和类名。
 
-```C#
+```CSharp
 AndroidJavaClass javaClass = new AndroidJavaClass("com.example.testunity.Test");
 ```
 
@@ -127,7 +127,7 @@ Android工程调用Unity工程，需要Unity提供相关的库文件。该库文
 ![[（图解2）Unity库文件.png|370]]
 在Android工程中，可以通过Unity提供的`UnitySendMessage`方法来调用Unity中的方法：
 ![[（图解3）Unity Player库文件.png|480]]
-```C#
+```CSharp
 UnitySendMessage("GameObjectName1", "MethodName1", "Message to send");
 ```
 参数1为绑定了脚本的GameObject名字。

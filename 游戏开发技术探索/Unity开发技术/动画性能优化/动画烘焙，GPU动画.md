@@ -33,7 +33,7 @@ CPU端播放大量的动画是一个非常巨大的消耗，究其原因在于�
 将动画离线烘焙到纹理贴图，有两种方法：1、直接烘焙顶点数据；2、烘焙骨骼数据；
 ## 烘焙顶点
 ### 创建纹理贴图
-```C#
+```CSharp
 /// <summary>  
 /// 根据SkinnedMeshRenderer和动画，创建一张纹理贴图  
 /// </summary>  
@@ -50,13 +50,13 @@ private Texture2D _CreateTexture(SkinnedMeshRenderer render, AnimationClip[] cli
     };  
 }
 ```
-纹理贴图的
+纹理贴图的宽高由顶点数和动画片段的时长决定。
 ### 将顶点数据写入纹理贴图
 ## 烘焙骨骼
 # 编辑器界面开发
 Unity中，编辑器开发需要注意Unity的刷新和编译过程，会导致界面因为运行环境的改变而产生报错。因此需要对界面进行保存（序列化）操作，在运行环境产生变化后，及时还原数据，从而避免报错。
 在Window中，声明`_serializedWindow`字段，然后将数据序列化的结果保存到某个地方，在Unity的运行，编译，资源导入等事件中，重新反序列化窗口即可。
-```C#
+```CSharp
 private SerializedObject _serializedWindow;
 private string _serializedPath;
 

@@ -22,7 +22,7 @@ tags:
 3. `Mesh.boneWeights`：每个顶点受到哪几根bone的影响的索引和权重（每个顶点最多受到四根骨骼的影响，详见结构体BoneWeight的定义）
 4. `Mesh.bindposes`：每根bone从mesh空间到自己的bone空间的变换矩阵，也就是预定义的bone的bone空间到mesh空间的变换矩阵的逆矩阵，注意顶点受到bone影响所做的变换都是基于在bone空间做的变换
 根据Unity文档, Unity中BindPose的算法如下:
-```C#
+```CSharp
 OneBoneBindPose = bone.worldToLocalMatrix * transform.localToWorldMatrix;
 ```
 骨骼的世界转局部坐标系矩阵乘上Mesh的局部转世界矩阵
@@ -31,11 +31,11 @@ OneBoneBindPose = bone.worldToLocalMatrix * transform.localToWorldMatrix;
 我们通常将计算Mesh的顶点受bone影响而产生的变化的过程称之为蒙皮，如果在代码中计算的话，称之为cpu蒙皮，如果在gpu也就是顶点着色器中计算的话，称之为gpu蒙皮。
 注意：所有的计算并不包括世界坐标的变换，都是在mesh空间下进行的，Mesh中原始的顶点坐标也是定义在Mesh空间下的
 1. 首先我们将顶点从mesh空间变换到bone空间：
-```C#
+```CSharp
 v_bone = v_mesh * bindpose
 ```
 2. 然后将bone空间下的顶点经过当前bone的变换矩阵，从bone空间变换到mesh空间
-```C#
+```CSharp
 v_out = v_bone * boneToMeshMatrix
 ```
 3. 当然一个顶点可能受到多根骨骼的影响，所以最终是对受影响的几根骨骼进行变换，乘以boneWeights中的权重相加混合得到
@@ -51,7 +51,7 @@ v_out = v_out0 * weight0 + v_out1 * weight1 + v_out2 * weight2 + v_out3 * weight
 1. 通过一个编辑器工具，对动画按照一定帧数采样，把每一帧的骨骼的localToWorldMatrix矩阵存储下来
 ![](https://pic2.zhimg.com/v2-0e780cd7b2c96b46c5bf46573d3eb165_1440w.jpg)
 对于Animation组件来说采样很简单，通过修改 AnimationState.time，然后调用Animation.Sample()即可将动画固定在确定的时间，然后直接获取bone的transform的数据就可以了
-```C#
+```CSharp
 private AnimData.FrameData GetFrameData(AnimationState animationState, float time)
 {
     animationState.enabled = true;
@@ -74,7 +74,7 @@ private AnimData.FrameData GetFrameData(AnimationState animationState, float tim
 ![](https://pica.zhimg.com/v2-e5706d65a8b73875204db1a6f1a49fba_1440w.jpg)
 
 3. 代码中实现通过每一帧的骨骼数据计算顶点位置来实现动画
-```C#
+```CSharp
 void ApplyFrame(int f)
 {
     _frame = f;
@@ -101,7 +101,7 @@ void ApplyFrame(int f)
 }
 ```
 4. 在update中根据时间计算当前动画应到哪一帧了，应用当前帧的骨骼数据修改顶点的数据，就实现动画的效果了
-```C#
+```CSharp
 void Update()
 {
     if (_animData == null) return;

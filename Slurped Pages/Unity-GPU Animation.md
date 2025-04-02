@@ -28,7 +28,7 @@ image: https://opengraph.githubassets.com/071e226dc46660d0b140dd9896ed1c75088571
 ### 顶点动画 (Vertex)
 每帧采样前后帧的所有数据（positionOS，normalOS，tangentOS等），进行插值。
 最原始的做法，只需要顶点索引（index）即可获取需要的所有信息，效率最高同时体积最大
-```C#
+```CSharp
 //伪代码
 struct FrameData
 {
@@ -55,7 +55,7 @@ void SampleAnimation(int _vertIndex)
 基于骨骼动画数据重建
 顶点数据新加矩阵索引（transform Indexes）以及矩阵权重（transform Weights），根据每帧前后的插值构建对应顶点的矩阵，并对顶点数据进行矩阵操作处理。
 相较于顶点动画更为复杂，同时离散的计算并会增加GPU计算量，可以很大程度降低数据体积。
-```C#
+```CSharp
 //伪代码
 float m_Frame;
 float3x3[][] m_FrameData;   //第一维度:动画帧 第二维:骨骼索引
@@ -126,7 +126,7 @@ float3x3 GetMatrix(uint _transformIndex,uint _frame)
 }
 ```
 - 动画驱动：记录每个动画的起始帧，帧长度以及帧率
-```C#
+```CSharp
 public struct AnimationTickerClip
 {
     public string name;
@@ -137,7 +137,7 @@ public struct AnimationTickerClip
 }
 ```
 累计时间，并通过换算获取对应的动画起始帧/结束帧以及插值
-```C#
+```CSharp
 float m_TimeElapsed;
 AnimationTickerClip m_Clip;
 public void TickAnimation(float _deltaTime)
@@ -279,7 +279,7 @@ void TickEvents(AnimationTickerClip _tickerClip, float _timeElapsed, float _delt
 ```
 ### Transform暴露
 记录需要构建的骨骼与起始位置旋转
-```C#
+```CSharp
 public struct GPUAnimationExposeBone
 {
     public string name;
@@ -289,7 +289,7 @@ public struct GPUAnimationExposeBone
 }
 ```
 CPU端同步构建一个Transform，并通过Texture.ReadPixel函数采样贴图并设置Transform.
-```C#
+```CSharp
 Vector4 ReadAnimationTexture(int boneIndex, int row, int frame)
 {
      return m_Data.m_BakeTexture.GetPixel(boneIndex * 3 + row, frame);

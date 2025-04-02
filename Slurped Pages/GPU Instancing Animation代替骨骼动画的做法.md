@@ -35,7 +35,7 @@ favicon: https://assets.cnblogs.com/favicon_v3_2.ico
  综上所述，我最终还是采纳了M神的建议，使用了烘焙骨骼信息的方案。
  来看看原理，烘焙顶点很好理解，就是把位置的值存到贴图中。那么如何烘焙骨骼信息，然后得到顶点位置呢？首先我们要理解骨骼动画的原理，这里引用UWA博客里面的一段话：![](https://i-blog.csdnimg.cn/blog_migrate/24e2275c5ee828be8d45f4f842abf3fa.png)当然上面的描述很简单，如果想要了解更加详细的推倒过程，可以看Milo大神的书《游戏引擎架构xxx》里面的蒙皮的数学这一章。
 总之，结论就是`从当前骨骼的bindpos一直左乘到根骨骼`。代码也非常简单：
-```C#
+```CSharp
 for (int j = 0; j < bones.Length; j++)  
 {
     GPUSkinningBone currentBone = bones[j];  

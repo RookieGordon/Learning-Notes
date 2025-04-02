@@ -111,13 +111,13 @@ StructuredBuffer<float4x4> _BoneMatricesBuffer; // 每个实例的骨骼矩阵�
 - **方法1：MaterialPropertyBlock + ComputeBuffer**
     1. **在C#中计算骨骼矩阵**：  
         使用`SkinnedMeshRenderer.BakeMesh`在每帧获取当前实例的顶点数据（需在CPU端计算骨骼动画）。
-	```C#
+	```CSharp
 	Mesh bakedMesh = new Mesh();
 	skinnedRenderer.BakeMesh(bakedMesh);
 	Matrix4x4[] boneMatrices = skinnedRenderer.bones.Select(b => b.localToWorldMatrix).ToArray();
 	```
     2. **将骨骼矩阵存入ComputeBuffer**：
-	```C#
+	```CSharp
 	ComputeBuffer boneMatrixBuffer = new ComputeBuffer(boneMatrices.Length, sizeof(float) * 16);
 	boneMatrixBuffer.SetData(boneMatrices);
 	MaterialPropertyBlock props = new MaterialPropertyBlock();
@@ -126,12 +126,12 @@ StructuredBuffer<float4x4> _BoneMatricesBuffer; // 每个实例的骨骼矩阵�
 	```
     3. **释放Buffer**：  
         在对象销毁时释放资源，避免内存泄漏：
-	```C#
+	```CSharp
 	boneMatrixBuffer.Release();
 	```
 - **方法2：自定义动画系统（性能更高）**  
     直接通过脚本控制骨骼变换，跳过`Animator`组件，例如：
-	```C#
+	```CSharp
 	// 在Update中手动更新骨骼矩阵
 	void Update() {
 	    foreach (var instance in instances) {
@@ -168,7 +168,7 @@ StructuredBuffer<float4x4> _BoneMatricesBuffer; // 每个实例的骨骼矩阵�
 	}
 	```
 2. **脚本中管理骨骼矩阵**
-```C#
+```CSharp
 public class InstancedSkinnedRenderer : MonoBehaviour {
     public SkinnedMeshRenderer skinnedMeshRenderer;
     private ComputeBuffer boneMatrixBuffer;
@@ -225,7 +225,7 @@ public class InstancedSkinnedRenderer : MonoBehaviour {
 	```
 2. **脚本传递骨骼数据**
     - 使用`ComputeBuffer`或`MaterialPropertyBlock`传递每实例的骨骼矩阵：
-	```C#
+	```CSharp
 	ComputeBuffer boneBuffer = new ComputeBuffer(boneCount * instanceCount, 64);
 	boneBuffer.SetData(boneMatrices);
 	MaterialPropertyBlock props = new MaterialPropertyBlock();
@@ -371,7 +371,7 @@ v2f vert(appdata v) {
 ```
 #### **3. 骨骼矩阵数据传递**
 **关键技术点**：在C#脚本中提取骨骼矩阵，通过`ComputeBuffer`传递给Shader。
-```C#
+```CSharp
 public class InstancedSkinning : MonoBehaviour {
     public SkinnedMeshRenderer skinnedMeshRenderer;
     private ComputeBuffer boneBuffer;
@@ -401,7 +401,7 @@ public class InstancedSkinning : MonoBehaviour {
     通过`SkinnedMeshRenderer.BakeMesh`将当前骨骼影响的顶点数据烘焙到Mesh，再反向计算骨骼矩阵（需复杂数学推导）。
 - **方法2：直接访问骨骼Transform**  
     手动遍历骨骼层级，计算每根骨骼的`localToWorldMatrix`：
-    ```C#
+    ```CSharp
     Matrix4x4[] GetBoneMatrices(SkinnedMeshRenderer renderer) {
         Matrix4x4[] matrices = new Matrix4x4[renderer.bones.Length];
         for (int i = 0; i < renderer.bones.Length; i++) {
@@ -412,7 +412,7 @@ public class InstancedSkinning : MonoBehaviour {
     ```
 #### **4. 批量渲染**
 使用`Graphics.DrawMeshInstanced`或`CommandBuffer`批量提交渲染指令：
-```C#
+```CSharp
 Mesh staticMesh = GetStaticMeshFromSkinnedRenderer();
 Material instancedMaterial = skinnedRenderer.material;
 Matrix4x4[] matrices = GenerateInstanceTransforms(); // 实例的Transform矩阵
@@ -424,7 +424,7 @@ Graphics.DrawMeshInstanced(staticMesh, 0, instancedMaterial, matrices);
     - 将骨骼矩阵从`Matrix4x4`压缩为`float3x4`，减少显存占用（从64字节/矩阵降至48字节）。
 2. **实例化ID的分段管理**
     - 若单次Draw Call实例数超过GPU限制（通常1023），需分段提交数据：
-	```C#
+	```CSharp
 	for (int i=0; i<totalInstances; i+=1023) {
 	    int batchSize = Mathf.Min(1023, totalInstances - i);
 	    Graphics.DrawMeshInstanced(mesh, 0, material, matrices, batchSize);
@@ -447,7 +447,7 @@ Graphics.DrawMeshInstanced(staticMesh, 0, instancedMaterial, matrices);
 ### **实现流程**
 #### **1. 离线烘焙动画纹理**
 **关键技术点**：将骨骼矩阵编码为纹理像素（RGBA32/RGBAHalf格式）。
-```C#
+```CSharp
 // 示例：将50根骨骼的100帧动画烘焙到纹理
 Texture2D BakeAnimationToTexture(AnimationClip clip, int boneCount, int frameRate) {
     int width = boneCount * 4; // 每骨骼4行矩阵
@@ -503,7 +503,7 @@ float4x4 GetBoneMatrix(int boneIndex, int instanceID) {
 ```
 #### **3. 结合GPU Instancing**
 通过`MaterialPropertyBlock`传递每实例的动画参数（如起始时间、速度）：
-```C#
+```CSharp
 MaterialPropertyBlock props = new MaterialPropertyBlock();
 props.SetFloat("_AnimStartTime", Time.time);
 renderer.SetPropertyBlock(props);
@@ -555,7 +555,7 @@ float4x4 boneMatrix = lerp(bone0, bone1, t);
 ### **2. 实现步骤**
 #### **(1) CPU端压缩**
 在脚本中将 `Matrix4x4` 转换为 `float3x4` 并存入ComputeBuffer：
-```C#
+```CSharp
 // 将骨骼矩阵前三行存入数组
 List<float> compressedData = new List<float>();
 foreach (Matrix4x4 matrix in boneMatrices) {
@@ -674,6 +674,6 @@ float v = (frame + 0.5) / _AnimationTex_TexelSize.w + uvOffset.y;
 ```
 - **BC6H压缩**  
     在支持DX11的平台上，使用BC6H压缩动画纹理（需测试数据精度）：
-```C#
+```CSharp
 Texture2D animTex = new Texture2D(..., TextureFormat.BC6H);
 ```

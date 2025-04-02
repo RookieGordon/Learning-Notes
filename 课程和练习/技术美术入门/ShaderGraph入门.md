@@ -87,7 +87,7 @@ Shader Graph 中和新元素是 Node 节点，每种节点功能各不相同。
 
 该节点是 Shader Graph 中，实现动态效果的不二之选。
 ![|140](https://gitee.com/chutianshu1981/AwesomeUnityTutorial/raw/main/imgs/sg_time_node.png)
-```c#
+```CSharp
 float Time_Time = _Time.y; // 随时间增大的浮点值
 float Time_SineTime = _SinTime.w;//正弦时间，随时间在（-1，1）之间变化
 float Time_CosineTime = _CosTime.w;//余弦时间

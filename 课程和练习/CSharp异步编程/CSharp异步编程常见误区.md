@@ -13,7 +13,7 @@ image: https://i0.hdslb.com/bfs/archive/b6cdb59cd67ea4baf9a318b18e3d28dcd70be19e
 ```
 
 # Thread.Sleep和Task.Delay的异同
-```C#
+```CSharp
 private static string SleepTest()  
 {  
     Thread.Sleep(1000);  
@@ -28,7 +28,7 @@ private static async Task<string> DelayTest()
 ```
 上面两个方法都能实现等待1秒的效果，但是区别在于，`Thread.Sleep`会阻塞调用方所在的线程，但是`Task.Delay`则不会。
 # 异步方法不是必须要有async/await关键字的
-```C#
+```CSharp
 static async Task<int> Foo1()  
 {  
     await Task.Delay(1000);  

@@ -12,7 +12,7 @@ tags:
 当我们要使用纹理的时候，就从纹理中读出某顶点对应像素的颜色值，并转换成空间位置。如何确定顶点和像素的对应关系呢？这就要用到SV\_VertexID这个语义了。
 # 实现
 这里我做了一个小小的改进，假如动画长度很短，而模型顶点数又多的话，就会烘出3000\*30这样的图，委实不美。因此只要在Shader中稍加改进，便可以指定烘出的纹理的尺寸了。
-```C#
+```CSharp
 using UnityEngine;
 using UnityEditor;
 using Sirenix.OdinInspector;
@@ -237,7 +237,7 @@ Shader "Unlit/VertexAnim_Improved"
 ![](https://pica.zhimg.com/v2-a156dee3b36ae4a7bd900f9f714f7858_1440w.jpg)
 
 为了弥补8位分量精度带来的损失，有必要使用多个分量来进行表达。已知float类型有23位用于有效数字，则我们可以使用两个8位分量或者3个8位分量来进一步修正。一般情况下，两个8位分量已经足够了。
-```C#
+```CSharp
 using UnityEngine;
 using UnityEditor;
 using Sirenix.OdinInspector;
