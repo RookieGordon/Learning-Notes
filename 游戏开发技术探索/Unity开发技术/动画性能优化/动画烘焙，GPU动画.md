@@ -54,6 +54,38 @@ private Texture2D _CreateTexture(SkinnedMeshRenderer render, AnimationClip[] cli
 纹理的宽和两倍的蒙皮顶点数量有关，高和动画片段的时长有关。为什么宽需要顶点数乘以2呢？因为需要存储顶点位置和顶点法向量，一共六个值，因此最少需要两个像素才行。
 ### 将顶点数据写入纹理贴图
 使用Unity提供的API——[AnimationClip.SampleAnimation](https://docs.unity3d.com/ScriptReference/AnimationClip.html)和[SkinnedMeshRenderer.BakeMesh](https://docs.unity3d.com/ScriptReference/SkinnedMeshRenderer.html)可以对动画片段进行采样。
+```CSharp
+private static void _WriteVertexData(GameObject fbxObj, 
+                                    SkinnedMeshRenderer render, 
+                                    AnimationClip[] clips,  
+                                    AnimationTickerClip[] clipParams, 
+                                    Texture2D texture)  
+{  
+    for (int i = 0; i < clips.Length; i++)  
+    {        
+        var clip = clips[i];  
+        var vertexBakedMesh = new Mesh();  
+        var length = clip.length;  
+        var frameRate = clip.frameRate;  
+        var frameCount = (int)(length * frameRate);  
+        var startFrame = clipParams[i].FrameBegin;  
+        for (int j = 0; j < frameCount; j++)  
+        {            
+            clip.SampleAnimation(fbxObj, length * j / frameCount);  
+            render.BakeMesh(vertexBakedMesh);  
+            var vertices = vertexBakedMesh.vertices;  
+            var normals = vertexBakedMesh.normals;  
+            for (int k = 0; k < vertices.Length; k++)  
+            {                var frame = startFrame + j;  
+                var pixel = GPUAniUtil.GetVertexPositionPixel(k, frame);  
+                texture.SetPixel(pixel.x, pixel.y, ColorUtil.ToColor(vertices[k]));  
+                pixel = GPUAniUtil.GetVertexNormalPixel(k, frame);  
+                texture.SetPixel(pixel.x, pixel.y, ColorUtil.ToColor(normals[k]));  
+            }        
+        }    
+    }
+}
+```
 
 ## 烘焙骨骼
 # 编辑器界面开发
