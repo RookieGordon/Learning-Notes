@@ -53,7 +53,7 @@ private Texture2D _CreateTexture(SkinnedMeshRenderer render, AnimationClip[] cli
 纹理贴图的宽高由顶点数和动画片段的时长决定。纹理的宽高遵循POT规则，`Mathf.NextPowerOfTwo`方法，会返回一个比参数大的最小POT的值。
 纹理的宽和两倍的蒙皮顶点数量有关，高和动画片段的时长有关。为什么宽需要顶点数乘以2呢？因为需要存储顶点位置和顶点法向量，一共六个值，因此最少需要两个像素才行。
 ### 将顶点数据写入纹理贴图
-使用Unity提供的API——[Unity - Scripting API: AnimationClip.SampleAnimation](https://docs.unity3d.com/ScriptReference/AnimationClip.SampleAnimation.html)和[Unity - Scripting API: SkinnedMeshRenderer.BakeMesh](https://docs.unity3d.com/ScriptReference/SkinnedMeshRenderer.BakeMesh.html)可以对动画片段进行采样。
+使用Unity提供的API——[Unity - Scripting API: AnimationClip.SampleAnimation](https://docs.unity3d.com/ScriptReference/AnimationClip.SampleAnimation.html)和[Unity - Scripting API: SkinnedMeshRenderer.BakeMesh](https://docs.unity3d.com/ScriptReference/SkinnedMeshRenderer.BakeMesh.html)可以对动画片段进行采样。`AnimationClip.SampleAnimation`可以实现在非运行状态下播放动画，`SkinnedMeshRenderer.BakeMesh`可以将动画蒙皮的状态进行快照，保存成一个mesh。
 ```CSharp
 private static void _WriteVertexData(GameObject fbxObj, 
                                     SkinnedMeshRenderer render, 
@@ -76,7 +76,8 @@ private static void _WriteVertexData(GameObject fbxObj,
             var vertices = vertexBakedMesh.vertices;  
             var normals = vertexBakedMesh.normals;  
             for (int k = 0; k < vertices.Length; k++)  
-            {                var frame = startFrame + j;  
+            {                
+	            var frame = startFrame + j;  
                 var pixel = GPUAniUtil.GetVertexPositionPixel(k, frame);  
                 texture.SetPixel(pixel.x, pixel.y, ColorUtil.ToColor(vertices[k]));  
                 pixel = GPUAniUtil.GetVertexNormalPixel(k, frame);  
@@ -86,7 +87,18 @@ private static void _WriteVertexData(GameObject fbxObj,
     }
 }
 ```
-`length * j / frameCount`代表采样的时间点，
+`length * j / frameCount`代表动画播放的的时间点，将当前时间点的蒙皮快照到`vertexBakedMesh`中，获取其中的顶点和法线数据。
+```CSharp
+public static int2 GetVertexPositionPixel(int vertexIndex, int frame)  
+{  
+    return new int2(vertexIndex * 2, frame);  
+}  
+  
+public static int2 GetVertexNormalPixel(int vertexIndex, int frame)  
+{  
+    return new int2(vertexIndex * 2 + 1, frame);  
+}
+```
 ## 烘焙骨骼
 # 编辑器界面开发
 Unity中，编辑器开发需要注意Unity的刷新和编译过程，会导致界面因为运行环境的改变而产生报错。因此需要对界面进行保存（序列化）操作，在运行环境产生变化后，及时还原数据，从而避免报错。
