@@ -1,6 +1,14 @@
 {
   "scanned": true,
-  "reminders": {},
+  "reminders": {
+    "生活/日常代办.md": [
+      {
+        "title": "瑜伽课",
+        "time": "2025-04-02 20:00",
+        "rowNumber": 11
+      }
+    ]
+  },
   "debug": false,
   "settings": {
     "reminderTime": "09:00",
