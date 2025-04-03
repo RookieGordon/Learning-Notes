@@ -551,7 +551,7 @@ float4x4 boneMatrix = lerp(bone0, bone1, t);
 # 有几点疑问：1、方案1中，如何将骨骼矩阵从Matrix4x4压缩为float3x4；2、方案2中，采样并重建骨骼矩阵部分，示例代码解释不是很清晰；
 ## **一、方案1：骨骼矩阵压缩（Matrix4x4 → float3x4）**
 ### **1. 压缩原理**
-骨骼动画的变换矩阵通常是**仿射变换矩阵**（Affine Transformation Matrix），其第四行固定为 `[0, 0, 0, 1]`。因此，可以将 `Matrix4x4` 简化为 `float3x4`，仅存储前三行数据，显存占用从 **64字节**（16个float）降至 **48字节**（12个float），节省25%显存。
+骨骼动画的变换矩阵通常是**仿射变换矩阵**（Affine Transformation Matrix），其第四行固定为 `[0, 0, 0, 1]`。因此，可以将 `Matrix4x4` 简化为 `float3x4`，仅存储前三行数据，显存占用从 **64字节**（16个float）降至 **48字节**（12个float），节省25%显存。 ^744006
 ### **2. 实现步骤**
 #### **(1) CPU端压缩**
 在脚本中将 `Matrix4x4` 转换为 `float3x4` 并存入ComputeBuffer：

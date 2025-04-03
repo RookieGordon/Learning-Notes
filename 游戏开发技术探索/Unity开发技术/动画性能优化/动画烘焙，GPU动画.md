@@ -103,6 +103,20 @@ public static int2 GetVertexNormalPixel(int vertexIndex, int frame)
 ```
 
 ## 烘焙骨骼
+### 创建纹理贴图
+```CSharp
+private static Texture2D _CreateBoneTexture(SkinnedMeshRenderer render, 
+                                            AnimationClip[] clips,  
+                                            out AnimationTickerClip[] clipParams)  
+{  
+    var transformCount = render.sharedMesh.bindposes.Length;  
+    var totalWidth = transformCount * 3;  
+    var totalFrame = _GetClipParams(clips, out clipParams);  
+    return _CreateTexture(Mathf.NextPowerOfTwo(totalWidth), 
+                        Mathf.NextPowerOfTwo(totalFrame));  
+}
+```
+和创建顶点的纹理贴图类似，不过贴图的宽度是和骨骼数量相关的，乘以3，是因为需要记录的$4*4$方阵只需要记录12个参数（[[关于Unity中动画性能优化的问答#^744006|方阵的最后一行不需要记录]]）
 
 # 编辑器界面开发
 Unity中，编辑器开发需要注意Unity的刷新和编译过程，会导致界面因为运行环境的改变而产生报错。因此需要对界面进行保存（序列化）操作，在运行环境产生变化后，及时还原数据，从而避免报错。
