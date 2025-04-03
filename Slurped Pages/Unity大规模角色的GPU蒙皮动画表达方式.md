@@ -46,7 +46,7 @@ BindPose这个说法，可能来源于美术绑定骨骼的时候摆成了 T-Pos
 
 所以使用这个矩阵变换顶点，相当于先把模型空间下的顶点转到世界空间，然后再从世界坐标空间转到骨骼空间。
 
-```
+```CSharp
 bones[1] = new GameObject("Upper").transform;
         bones[1].parent = transform;
         // Set the position relative to the parent
@@ -71,7 +71,7 @@ bones[1] = new GameObject("Upper").transform;
 
 所以这一部分的代码如下：
 
-```
+```CSharp
 Texture2D result = new Texture2D(width, lines, TextureFormat.RGBAFloat, false);
         result.filterMode = FilterMode.Point;
         result.wrapMode = TextureWrapMode.Clamp;
@@ -130,7 +130,7 @@ Texture2D result = new Texture2D(width, lines, TextureFormat.RGBAFloat, false);
 
 划掉，Tangent还是不能改的。TANGENT\_SPACE\_ROTATION宏要用到它。
 
-```
+```csharp
 private static bool MappingBoneWeightToMeshUV(Mesh mesh, UVChannel weightChannel, UVChannel indexChannel, bool overwrite)
     {
         var boneWeights = mesh.boneWeights;
@@ -159,7 +159,7 @@ private static bool MappingBoneWeightToMeshUV(Mesh mesh, UVChannel weightChannel
 
 剩下的就是在Shader中完成了。先从预存数据的uv中拿出该顶点对应的骨骼和权重；随后在纹理中读出矩阵；最后拿蒙皮顶点做变换即可。
 
-```
+```c
 float total = (y * _BoneCount + (int)(index.x)) * 3 * acc;
 float4 line0 = readInBoneTex(total);
 float4 line1 = readInBoneTex(total + acc);
@@ -196,19 +196,19 @@ o.vertex = UnityObjectToClipPos(pos);
 
 第二个，因为只支持两个骨骼，所以不能老老实实的按权重UV里得到的值来写，原本Unity支持的是一个顶点受4个骨骼影响，所以得出的uv值不能这么用：
 
-```
+```c
 mul(mat1, v.vertex) * weight.x + mul(mat2, v.vertex) * weight.y;
 ```
 
 而是应该：
 
-```
+```c
 mul(mat1, v.vertex) * weight.x + mul(mat2, v.vertex) * (1 - weight.x);
 ```
 
 第三个，搞这个东西，肯定要上移动端，移动端肯定还是用RGBA32这类的更加合适。UnityCG.cginc中提供了两个代码，可以把\[0,1)内的浮点数映射到8位颜色分量上：
 
-```
+```csharp
 // Encoding/decoding [0..1) floats into 8 bit/channel RGBA. Note that 1.0 will not be encoded properly.
 inline float4 EncodeFloatRGBA( float v )
 {
@@ -228,7 +228,7 @@ inline float DecodeFloatRGBA( float4 enc )
 
 我选择在C#里Encode，Shader里Decode。因此烘焙相关的代码改成如下形式：
 
-```
+```csharp
 private static Vector4 EncodeFloatRGBA(float v)
     {
         v = v * 0.01f + 0.5f;
