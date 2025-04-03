@@ -52,7 +52,7 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       },
       {
         "id": "28c64f327d272759",
@@ -367,10 +367,11 @@
   },
   "active": "08ada3375199324f",
   "lastOpenFiles": [
+    "游戏开发技术探索/Unity开发技术/动画性能优化/动画烘焙，GPU动画.md",
+    "Slurped Pages/Unity-GPU Animation.md",
+    "AI问答集锦/关于Unity中动画性能优化的问答.md",
     "Slurped Pages/Unity大规模角色的GPU蒙皮动画表达方式.md",
     "游戏开发技术探索/Unity开发技术/动画性能优化/整理学习动画烘焙代码.md",
-    "Slurped Pages/Unity-GPU Animation.md",
-    "游戏开发技术探索/Unity开发技术/动画性能优化/动画烘焙，GPU动画.md",
     "游戏开发技术探索/Unity开发技术/动画性能优化/Unity动画性能优化.md",
     "导航/主页.md",
     "课程和练习/【Unity技术美术】URP Shader训练营/Shader基础操作.md",
@@ -382,7 +383,6 @@
     "游戏开发技术探索/Unity开发技术/Unity开发技术探索.md",
     "Slurped Pages/利用GPU实现大规模动画角色的渲染 - 慕容小匹夫 - 博客园.md",
     "Clippings",
-    "AI问答集锦/关于Unity中动画性能优化的问答.md",
     "Slurped Pages/关于静态批处理动态批处理GPU Instancing SRP Batcher的详细剖析.md",
     "AI问答集锦",
     "课程和练习/Custom SRP/Draw Calls.md",
