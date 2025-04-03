@@ -87,7 +87,7 @@
             }
           },
           {
-            "id": "08ada3375199324f",
+            "id": "2507ca353e30d15d",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -194,13 +194,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "游戏开发技术探索/Unity开发技术/动画性能优化/动画烘焙，GPU动画.md",
+                "file": "AI问答集锦/关于Unity中动画性能优化的问答.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "动画烘焙，GPU动画 的大纲"
+              "title": "关于Unity中动画性能优化的问答 的大纲"
             }
           },
           {
@@ -317,11 +317,22 @@
             "state": {
               "type": "todo",
               "state": {},
+              "icon": "lucide-file",
+              "title": "插件不再活动"
+            }
+          },
+          {
+            "id": "495012d6e7a69ffc",
+            "type": "leaf",
+            "state": {
+              "type": "todo",
+              "state": {},
               "icon": "checkmark",
               "title": "Todo List"
             }
           }
-        ]
+        ],
+        "currentTab": 11
       },
       {
         "id": "d3469bcf3b4ce2dc",
@@ -334,8 +345,8 @@
             "state": {
               "type": "todo",
               "state": {},
-              "icon": "checkmark",
-              "title": "Todo List"
+              "icon": "lucide-file",
+              "title": "插件不再活动"
             }
           }
         ]
@@ -365,11 +376,11 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "909dece725f9c791",
+  "active": "2507ca353e30d15d",
   "lastOpenFiles": [
-    "AI问答集锦/关于Unity中动画性能优化的问答.md",
     "游戏开发技术探索/Unity开发技术/动画性能优化/动画烘焙，GPU动画.md",
     "游戏开发技术探索/Unity开发技术/动画性能优化/整理学习动画烘焙代码.md",
+    "AI问答集锦/关于Unity中动画性能优化的问答.md",
     "Slurped Pages/Unity-GPU Animation.md",
     "Slurped Pages/Unity大规模角色的GPU蒙皮动画表达方式.md",
     "游戏开发技术探索/Unity开发技术/动画性能优化/Unity动画性能优化.md",
