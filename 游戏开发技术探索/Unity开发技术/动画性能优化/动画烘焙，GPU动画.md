@@ -103,6 +103,7 @@ public static int2 GetVertexNormalPixel(int vertexIndex, int frame)
 ```
 
 ## 烘焙骨骼
+
 # 编辑器界面开发
 Unity中，编辑器开发需要注意Unity的刷新和编译过程，会导致界面因为运行环境的改变而产生报错。因此需要对界面进行保存（序列化）操作，在运行环境产生变化后，及时还原数据，从而避免报错。
 在Window中，声明`_serializedWindow`字段，然后将数据序列化的结果保存到某个地方，在Unity的运行，编译，资源导入等事件中，重新反序列化窗口即可。
@@ -141,5 +142,5 @@ private void OnEnable()
 	CompilationPipeline.compilationFinished += OnCompilationFinished;
 }
 ```
-
-
+# 参考
+[[Unity-GPU Animation]]
