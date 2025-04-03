@@ -259,12 +259,22 @@
             "state": {
               "type": "todo",
               "state": {},
+              "icon": "lucide-file",
+              "title": "插件不再活动"
+            }
+          },
+          {
+            "id": "357ad194f4beedf0",
+            "type": "leaf",
+            "state": {
+              "type": "todo",
+              "state": {},
               "icon": "checkmark",
               "title": "Todo List"
             }
           }
         ],
-        "currentTab": 9
+        "currentTab": 10
       },
       {
         "id": "d3469bcf3b4ce2dc",
@@ -277,8 +287,8 @@
             "state": {
               "type": "todo",
               "state": {},
-              "icon": "checkmark",
-              "title": "Todo List"
+              "icon": "lucide-file",
+              "title": "插件不再活动"
             }
           }
         ]
@@ -299,16 +309,10 @@
       "pexels-banner:🚩 Pixel Banner Menu": false,
       "obsidian-importer:Open Importer": false,
       "obsidian-excalidraw-plugin:新建绘图文件": false,
-      "moredraw:MoreDraw": false,
-      "templater-obsidian:Templater": false,
-      "vscode-editor:新建代码文件": false,
-      "obsidian-memos:Thino": false,
-      "pdf-plus:PDF++: Toggle auto-copy": false,
-      "pdf-plus:PDF++: Toggle auto-focus": false,
-      "pdf-plus:PDF++: Toggle auto-paste": false
+      "moredraw:MoreDraw": false
     }
   },
-  "active": "909dece725f9c791",
+  "active": "357ad194f4beedf0",
   "lastOpenFiles": [
     "课程和练习/【Unity技术美术】URP Shader训练营/Shader基础操作.md",
     "Slurped Pages/Unity大规模角色的GPU蒙皮动画表达方式.md",
