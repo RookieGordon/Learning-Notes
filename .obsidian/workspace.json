@@ -176,8 +176,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 386.99999618530273,
-    "collapsed": true
+    "width": 386.99999618530273
   },
   "right": {
     "id": "be1e91dfcb57ce3b",
@@ -262,67 +261,17 @@
             }
           },
           {
-            "id": "8b02f708de73f828",
-            "type": "leaf",
-            "state": {
-              "type": "todo",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "插件不再活动"
-            }
-          },
-          {
-            "id": "770b01ad52d97bee",
-            "type": "leaf",
-            "state": {
-              "type": "todo",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "插件不再活动"
-            }
-          },
-          {
-            "id": "c10f415cb8293791",
-            "type": "leaf",
-            "state": {
-              "type": "todo",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "插件不再活动"
-            }
-          },
-          {
-            "id": "fa6b562701fa90c6",
-            "type": "leaf",
-            "state": {
-              "type": "todo",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "插件不再活动"
-            }
-          },
-          {
-            "id": "950eedb5f24e5746",
-            "type": "leaf",
-            "state": {
-              "type": "todo",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "插件不再活动"
-            }
-          },
-          {
-            "id": "357ad194f4beedf0",
-            "type": "leaf",
-            "state": {
-              "type": "todo",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "插件不再活动"
-            }
-          },
-          {
             "id": "495012d6e7a69ffc",
+            "type": "leaf",
+            "state": {
+              "type": "todo",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "插件不再活动"
+            }
+          },
+          {
+            "id": "2cbe0b60200905bc",
             "type": "leaf",
             "state": {
               "type": "todo",
@@ -331,8 +280,7 @@
               "title": "Todo List"
             }
           }
-        ],
-        "currentTab": 11
+        ]
       },
       {
         "id": "d3469bcf3b4ce2dc",
@@ -345,8 +293,8 @@
             "state": {
               "type": "todo",
               "state": {},
-              "icon": "lucide-file",
-              "title": "插件不再活动"
+              "icon": "checkmark",
+              "title": "Todo List"
             }
           }
         ]
@@ -379,8 +327,8 @@
   "active": "2507ca353e30d15d",
   "lastOpenFiles": [
     "游戏开发技术探索/Unity开发技术/动画性能优化/动画烘焙，GPU动画.md",
-    "游戏开发技术探索/Unity开发技术/动画性能优化/整理学习动画烘焙代码.md",
     "AI问答集锦/关于Unity中动画性能优化的问答.md",
+    "游戏开发技术探索/Unity开发技术/动画性能优化/整理学习动画烘焙代码.md",
     "Slurped Pages/Unity-GPU Animation.md",
     "Slurped Pages/Unity大规模角色的GPU蒙皮动画表达方式.md",
     "游戏开发技术探索/Unity开发技术/动画性能优化/Unity动画性能优化.md",
