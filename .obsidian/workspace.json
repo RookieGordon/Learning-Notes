@@ -72,8 +72,7 @@
               "title": "关于Unity中动画性能优化的问答"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -318,13 +317,13 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "909dece725f9c791",
+  "active": "2f5ece1097519db8",
   "lastOpenFiles": [
+    "游戏开发技术探索/Unity开发技术/动画性能优化/动画烘焙，GPU动画.md",
     "AI问答集锦/关于Unity中动画性能优化的问答.md",
     "生活/未命名.md",
     "生活/日常代办.md",
     "导航/主页.md",
-    "游戏开发技术探索/Unity开发技术/动画性能优化/动画烘焙，GPU动画.md",
     "Slurped Pages/Unity-GPU Animation.md",
     "Slurped Pages/Unity大规模角色的GPU蒙皮动画表达方式.md",
     "游戏开发技术探索/Unity开发技术/动画性能优化/整理学习动画烘焙代码.md",
