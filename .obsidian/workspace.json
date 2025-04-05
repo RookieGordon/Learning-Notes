@@ -84,7 +84,7 @@
       {
         "id": "76c2459110a478bf",
         "type": "tabs",
-        "dimension": 66.69980119284294,
+        "dimension": 61.33333333333333,
         "children": [
           {
             "id": "89a66892aa3b87ae",
@@ -129,9 +129,9 @@
         ]
       },
       {
-        "id": "c76240c32fdf2f2f",
+        "id": "4d6b3f74d9efb221",
         "type": "tabs",
-        "dimension": 33.30019880715705,
+        "dimension": 38.666666666666664,
         "children": [
           {
             "id": "226fa1583cfbc27b",
@@ -301,9 +301,19 @@
               "icon": "lucide-file",
               "title": "插件不再活动"
             }
+          },
+          {
+            "id": "0aa94a0a3edf8a29",
+            "type": "leaf",
+            "state": {
+              "type": "todo",
+              "state": {},
+              "icon": "checkmark",
+              "title": "Todo List"
+            }
           }
         ],
-        "currentTab": 11
+        "currentTab": 12
       },
       {
         "id": "d3469bcf3b4ce2dc",
@@ -336,7 +346,15 @@
       "command-palette:打开命令面板": false,
       "obsidian-git:Open Git source control": false,
       "pexels-banner:🚩 Pixel Banner Menu": false,
-      "obsidian-importer:Open Importer": false
+      "obsidian-importer:Open Importer": false,
+      "obsidian-excalidraw-plugin:新建绘图文件": false,
+      "moredraw:MoreDraw": false,
+      "templater-obsidian:Templater": false,
+      "vscode-editor:新建代码文件": false,
+      "obsidian-memos:Thino": false,
+      "pdf-plus:PDF++: Toggle auto-copy": false,
+      "pdf-plus:PDF++: Toggle auto-focus": false,
+      "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
   "active": "909dece725f9c791",

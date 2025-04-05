@@ -1,3 +1,11 @@
 {
-  "obsidian-prism-theme@@file-line-width": 715
+  "obsidian-prism-theme@@file-line-width": 715,
+  "glass-theme-settings@@disable_fonts_settings": false,
+  "glass-theme-settings@@disable_stars_settings": false,
+  "glass-theme-settings@@callout_center_settings": false,
+  "glass-theme-settings@@themes-setting": "gruvbox",
+  "glass-theme-settings@@Ribbon-autohide": false,
+  "glass-theme-settings@@headers-settin": "glass-robo-style-headers",
+  "glass-theme-settings@@one_row_mobile_toolbar_settings": false,
+  "glass-theme-settings@@headers-color-settin": "glass-robo-color-headers"
 }
