@@ -32,11 +32,8 @@ CPU端播放大量的动画是一个非常巨大的消耗，究其原因在于�
 # 预生成动画
 将动画离线烘焙到纹理贴图，有两种方法：1、直接烘焙顶点数据；2、烘焙骨骼数据；运行时，通过shader从纹理中获取动画数据，进而播放动画。
 ## 预生成
-
-## 运行时
-
-## 烘焙顶点
-### 创建纹理贴图
+### 烘焙顶点
+#### 创建纹理贴图
 ```CSharp
 /// <summary>  
 /// 根据SkinnedMeshRenderer和动画，创建一张纹理贴图  
@@ -61,8 +58,71 @@ private Texture2D _CreateTexture(SkinnedMeshRenderer render,
 纹理贴图的宽高由顶点数和动画片段的时长决定。纹理的宽高遵循POT规则，`Mathf.NextPowerOfTwo`方法，会返回一个比参数大的最小POT的值。
 纹理的宽和两倍的蒙皮顶点数量有关，高和动画片段的时长有关。为什么宽需要顶点数乘以2呢？因为需要存储顶点位置和顶点法向量，一共六个值，因此最少需要两个像素才行。
 U方向就是宽度方向，记录的是顶点序号，因此wrapMode需要设为Clamp（没有多余的数据可以读取）。而V方向是帧率方向，Repeat模式可以重复读取。
-#### 动画参数和动画事件
-`_GetClipParams`用于计算纹理贴图的高度，并且提取动画片段的设置参数到`AnimationTickerClip`中
+#### 读取顶点数据，写入纹理
+使用Unity提供的API——[Unity - Scripting API: AnimationClip.SampleAnimation](https://docs.unity3d.com/ScriptReference/AnimationClip.SampleAnimation.html)和[Unity - Scripting API: SkinnedMeshRenderer.BakeMesh](https://docs.unity3d.com/ScriptReference/SkinnedMeshRenderer.BakeMesh.html)可以对动画片段进行采样。`AnimationClip.SampleAnimation`可以实现在非运行状态下播放动画，`SkinnedMeshRenderer.BakeMesh`可以将动画蒙皮的状态进行快照，保存成一个mesh。
+```CSharp
+private static void _WriteVertexData(GameObject fbxObj, 
+                                    SkinnedMeshRenderer render, 
+                                    AnimationClip[] clips,  
+                                    AnimationTickerClip[] clipParams, 
+                                    Texture2D texture)  
+{  
+    for (int i = 0; i < clips.Length; i++)  
+    {        
+        var clip = clips[i];  
+        var vertexBakedMesh = new Mesh();  
+        var length = clip.length;  
+        var frameRate = clip.frameRate;  
+        var frameCount = (int)(length * frameRate);  
+        var startFrame = clipParams[i].FrameBegin;  
+        for (int j = 0; j < frameCount; j++)  
+        {            
+            clip.SampleAnimation(fbxObj, length * j / frameCount);  
+            render.BakeMesh(vertexBakedMesh);  
+            var vertices = vertexBakedMesh.vertices;  
+            var normals = vertexBakedMesh.normals;  
+            for (int k = 0; k < vertices.Length; k++)  
+            {                
+	            var frame = startFrame + j;  
+                var pixel = GPUAniUtil.GetVertexPositionPixel(k, frame);  
+                texture.SetPixel(pixel.x, pixel.y, ColorUtil.ToColor(vertices[k]));  
+                pixel = GPUAniUtil.GetVertexNormalPixel(k, frame);  
+                texture.SetPixel(pixel.x, pixel.y, ColorUtil.ToColor(normals[k]));  
+            }        
+        }    
+    }
+}
+```
+`length * j / frameCount`代表动画播放的的时间点，将当前时间点的蒙皮快照到`vertexBakedMesh`中，获取其中的顶点和法线数据。
+因为顶点和法线占用两个像素，因此`GetVertexPositionPixel`方法中，顶点的位置需要乘以2。
+```CSharp
+public static int2 GetVertexPositionPixel(int vertexIndex, int frame)  
+{  
+    return new int2(vertexIndex * 2, frame);  
+}  
+  
+public static int2 GetVertexNormalPixel(int vertexIndex, int frame)  
+{  
+    return new int2(vertexIndex * 2 + 1, frame);  
+}
+```
+### 烘焙骨骼
+#### 创建纹理贴图
+```CSharp
+private static Texture2D _CreateBoneTexture(SkinnedMeshRenderer render, 
+                                            AnimationClip[] clips,  
+                                            out AnimationTickerClip[] clipParams)  
+{  
+    var transformCount = render.sharedMesh.bindposes.Length;  
+    var totalWidth = transformCount * 3;  
+    var totalFrame = _GetClipParams(clips, out clipParams);  
+    return _CreateTexture(Mathf.NextPowerOfTwo(totalWidth), 
+                        Mathf.NextPowerOfTwo(totalFrame));  
+}
+```
+和创建顶点的纹理贴图类似，不过贴图的宽度是和骨骼数量相关的，乘以3，是因为需要记录的$4*4$方阵只需要记录12个参数（[[关于Unity中动画性能优化的问答#^744006|方阵的最后一行不需要记录]]）
+### 动画参数和动画事件
+`_GetClipParams`方法，用于计算纹理贴图的高度，并且提取动画片段的设置参数到`AnimationTickerClip`中
 ```CSharp
 private static int _GetClipParams(AnimationClip[] clips, out AnimationTickerClip[] clipParams)  
 {  
@@ -117,70 +177,8 @@ public struct AnimationTickEvent
     public string identity;
 }
 ```
-### 读取顶点数据，写入纹理
-使用Unity提供的API——[Unity - Scripting API: AnimationClip.SampleAnimation](https://docs.unity3d.com/ScriptReference/AnimationClip.SampleAnimation.html)和[Unity - Scripting API: SkinnedMeshRenderer.BakeMesh](https://docs.unity3d.com/ScriptReference/SkinnedMeshRenderer.BakeMesh.html)可以对动画片段进行采样。`AnimationClip.SampleAnimation`可以实现在非运行状态下播放动画，`SkinnedMeshRenderer.BakeMesh`可以将动画蒙皮的状态进行快照，保存成一个mesh。
-```CSharp
-private static void _WriteVertexData(GameObject fbxObj, 
-                                    SkinnedMeshRenderer render, 
-                                    AnimationClip[] clips,  
-                                    AnimationTickerClip[] clipParams, 
-                                    Texture2D texture)  
-{  
-    for (int i = 0; i < clips.Length; i++)  
-    {        
-        var clip = clips[i];  
-        var vertexBakedMesh = new Mesh();  
-        var length = clip.length;  
-        var frameRate = clip.frameRate;  
-        var frameCount = (int)(length * frameRate);  
-        var startFrame = clipParams[i].FrameBegin;  
-        for (int j = 0; j < frameCount; j++)  
-        {            
-            clip.SampleAnimation(fbxObj, length * j / frameCount);  
-            render.BakeMesh(vertexBakedMesh);  
-            var vertices = vertexBakedMesh.vertices;  
-            var normals = vertexBakedMesh.normals;  
-            for (int k = 0; k < vertices.Length; k++)  
-            {                
-	            var frame = startFrame + j;  
-                var pixel = GPUAniUtil.GetVertexPositionPixel(k, frame);  
-                texture.SetPixel(pixel.x, pixel.y, ColorUtil.ToColor(vertices[k]));  
-                pixel = GPUAniUtil.GetVertexNormalPixel(k, frame);  
-                texture.SetPixel(pixel.x, pixel.y, ColorUtil.ToColor(normals[k]));  
-            }        
-        }    
-    }
-}
-```
-`length * j / frameCount`代表动画播放的的时间点，将当前时间点的蒙皮快照到`vertexBakedMesh`中，获取其中的顶点和法线数据。
-因为顶点和法线占用两个像素，因此`GetVertexPositionPixel`方法中，顶点的位置需要乘以2。
-```CSharp
-public static int2 GetVertexPositionPixel(int vertexIndex, int frame)  
-{  
-    return new int2(vertexIndex * 2, frame);  
-}  
-  
-public static int2 GetVertexNormalPixel(int vertexIndex, int frame)  
-{  
-    return new int2(vertexIndex * 2 + 1, frame);  
-}
-```
+## 运行时
 
-## 烘焙骨骼
-### 创建纹理贴图
-```CSharp
-private static Texture2D _CreateBoneTexture(SkinnedMeshRenderer render, 
-                                            AnimationClip[] clips,  
-                                            out AnimationTickerClip[] clipParams)  
-{  
-    var transformCount = render.sharedMesh.bindposes.Length;  
-    var totalWidth = transformCount * 3;  
-    var totalFrame = _GetClipParams(clips, out clipParams);  
-    return _CreateTexture(Mathf.NextPowerOfTwo(totalWidth), 
-                        Mathf.NextPowerOfTwo(totalFrame));  
-}
-```
-和创建顶点的纹理贴图类似，不过贴图的宽度是和骨骼数量相关的，乘以3，是因为需要记录的$4*4$方阵只需要记录12个参数（[[关于Unity中动画性能优化的问答#^744006|方阵的最后一行不需要记录]]）
 ## 运行时
 ### 自定义动画控制器
 ### 自定义动画

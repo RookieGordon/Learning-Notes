@@ -39,40 +39,6 @@
           }
         ],
         "currentTab": 1
-      },
-      {
-        "id": "28c64f327d272759",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "2f5ece1097519db8",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Slurped Pages/Unity大规模角色的GPU蒙皮动画表达方式.md",
-                "mode": "preview",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Unity大规模角色的GPU蒙皮动画表达方式"
-            }
-          },
-          {
-            "id": "2507ca353e30d15d",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "AI问答集锦/关于Unity中动画性能优化的问答.md",
-                "mode": "preview",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "关于Unity中动画性能优化的问答"
-            }
-          }
-        ]
       }
     ],
     "direction": "vertical"
@@ -165,13 +131,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "AI问答集锦/关于Unity中动画性能优化的问答.md",
-                "followCursor": false,
+                "file": "游戏开发技术探索/Unity开发技术/动画性能优化/动画烘焙，GPU动画.md",
+                "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "关于Unity中动画性能优化的问答 的大纲"
+              "title": "动画烘焙，GPU动画 的大纲"
             }
           },
           {
@@ -238,82 +204,11 @@
             "state": {
               "type": "todo",
               "state": {},
-              "icon": "lucide-file",
-              "title": "插件不再活动"
-            }
-          },
-          {
-            "id": "2cbe0b60200905bc",
-            "type": "leaf",
-            "state": {
-              "type": "todo",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "插件不再活动"
-            }
-          },
-          {
-            "id": "e8ef67ee88445c4c",
-            "type": "leaf",
-            "state": {
-              "type": "todo",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "插件不再活动"
-            }
-          },
-          {
-            "id": "d51f7e8e3e491d8f",
-            "type": "leaf",
-            "state": {
-              "type": "todo",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "插件不再活动"
-            }
-          },
-          {
-            "id": "986312a59f8d6b01",
-            "type": "leaf",
-            "state": {
-              "type": "todo",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "插件不再活动"
-            }
-          },
-          {
-            "id": "844d5e939b4c8846",
-            "type": "leaf",
-            "state": {
-              "type": "todo",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "插件不再活动"
-            }
-          },
-          {
-            "id": "d8c0941f292066c9",
-            "type": "leaf",
-            "state": {
-              "type": "todo",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "插件不再活动"
-            }
-          },
-          {
-            "id": "0aa94a0a3edf8a29",
-            "type": "leaf",
-            "state": {
-              "type": "todo",
-              "state": {},
               "icon": "checkmark",
               "title": "Todo List"
             }
           }
-        ],
-        "currentTab": 12
+        ]
       },
       {
         "id": "d3469bcf3b4ce2dc",
@@ -326,15 +221,15 @@
             "state": {
               "type": "todo",
               "state": {},
-              "icon": "lucide-file",
-              "title": "插件不再活动"
+              "icon": "checkmark",
+              "title": "Todo List"
             }
           }
         ]
       }
     ],
     "direction": "horizontal",
-    "width": 359,
+    "width": 648.5,
     "collapsed": true
   },
   "left-ribbon": {
