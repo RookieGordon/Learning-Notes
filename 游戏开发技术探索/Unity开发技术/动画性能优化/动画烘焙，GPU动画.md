@@ -38,9 +38,9 @@ CPU端播放大量的动画是一个非常巨大的消耗，究其原因在于�
 /// <summary>  
 /// 根据SkinnedMeshRenderer和动画，创建一张纹理贴图  
 /// </summary>  
-private Texture2D _CreateTexture(SkinnedMeshRenderer render, 
-								AnimationClip[] clips, 
-								out AnimationEvent[] events)  
+private Texture2D _CreateVertexTexture(SkinnedMeshRenderer render, 
+									  AnimationClip[] clips, 
+									  out AnimationEvent[] events)  
 {  
     var vertexCount = render.sharedMesh.vertexCount;  
     var totalVertexRecord = vertexCount * 2;  
@@ -55,7 +55,7 @@ private Texture2D _CreateTexture(SkinnedMeshRenderer render,
     };  
 }
 ```
-纹理贴图的宽高由顶点数和动画片段的时长决定。纹理的宽高遵循POT规则，`Mathf.NextPowerOfTwo`方法，会返回一个比参数大的最小POT的值。
+纹理贴图的宽高由顶点数和[[#动画参数和动画事件|动画片段的时长]]决定。纹理的宽高遵循POT规则，`Mathf.NextPowerOfTwo`方法，会返回一个比参数大的最小POT的值。
 纹理的宽和两倍的蒙皮顶点数量有关，高和动画片段的时长有关。为什么宽需要顶点数乘以2呢？因为需要存储顶点位置和顶点法向量，一共六个值，因此最少需要两个像素才行。
 U方向就是宽度方向，记录的是顶点序号，因此wrapMode需要设为Clamp（没有多余的数据可以读取）。而V方向是帧率方向，Repeat模式可以重复读取。
 #### 读取顶点数据，写入纹理
