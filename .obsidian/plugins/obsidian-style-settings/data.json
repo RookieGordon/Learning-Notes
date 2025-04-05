@@ -7,5 +7,8 @@
   "glass-theme-settings@@Ribbon-autohide": false,
   "glass-theme-settings@@headers-settin": "glass-robo-style-headers",
   "glass-theme-settings@@one_row_mobile_toolbar_settings": false,
-  "glass-theme-settings@@headers-color-settin": "glass-robo-color-headers"
+  "glass-theme-settings@@headers-color-settin": "glass-robo-color-headers",
+  "underwater-theme@@underwater-colors-dark": "everforest-dark",
+  "underwater-theme@@underwater-colors-light": "rose-pine-dawn",
+  "underwater-theme@@callout": "callout-outlined"
 }
