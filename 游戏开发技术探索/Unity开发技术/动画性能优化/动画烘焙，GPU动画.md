@@ -97,7 +97,16 @@ public struct AnimationTickerClip
     public AnimationTickEvent[] Events;  
 }
 ```
-`FrameBegin`用于记录当前片段在纹理贴图中，高度所在的起始位置。纹理贴图的宽记录的是帧率，高记录的是所有片段的动画数据
+`FrameBegin`用于记录当前片段在纹理贴图中，高度所在的起始位置。纹理贴图的宽记录的是帧率，高记录的是所有片段的动画数据。
+`AnimationTickEvent`对象，用于记录动画片段中的事件
+```CSharp
+public struct AnimationTickEvent  
+{  
+    public float keyFrame;  
+    public string identity;
+}
+```
+
 ### 读取顶点数据，写入纹理
 使用Unity提供的API——[Unity - Scripting API: AnimationClip.SampleAnimation](https://docs.unity3d.com/ScriptReference/AnimationClip.SampleAnimation.html)和[Unity - Scripting API: SkinnedMeshRenderer.BakeMesh](https://docs.unity3d.com/ScriptReference/SkinnedMeshRenderer.BakeMesh.html)可以对动画片段进行采样。`AnimationClip.SampleAnimation`可以实现在非运行状态下播放动画，`SkinnedMeshRenderer.BakeMesh`可以将动画蒙皮的状态进行快照，保存成一个mesh。
 ```CSharp
