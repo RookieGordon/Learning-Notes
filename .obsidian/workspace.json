@@ -147,8 +147,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 386.99999618530273,
-    "collapsed": true
+    "width": 386.99999618530273
   },
   "right": {
     "id": "be1e91dfcb57ce3b",
@@ -278,12 +277,22 @@
             "state": {
               "type": "todo",
               "state": {},
-              "icon": "checkmark",
-              "title": "Todo List"
+              "icon": "lucide-file",
+              "title": "插件不再活动"
+            }
+          },
+          {
+            "id": "844d5e939b4c8846",
+            "type": "leaf",
+            "state": {
+              "type": "todo",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "插件不再活动"
             }
           }
         ],
-        "currentTab": 9
+        "currentTab": 10
       },
       {
         "id": "d3469bcf3b4ce2dc",
@@ -316,28 +325,20 @@
       "command-palette:打开命令面板": false,
       "obsidian-git:Open Git source control": false,
       "pexels-banner:🚩 Pixel Banner Menu": false,
-      "obsidian-importer:Open Importer": false,
-      "obsidian-excalidraw-plugin:新建绘图文件": false,
-      "moredraw:MoreDraw": false,
-      "templater-obsidian:Templater": false,
-      "vscode-editor:新建代码文件": false,
-      "obsidian-memos:Thino": false,
-      "pdf-plus:PDF++: Toggle auto-copy": false,
-      "pdf-plus:PDF++: Toggle auto-focus": false,
-      "pdf-plus:PDF++: Toggle auto-paste": false
+      "obsidian-importer:Open Importer": false
     }
   },
   "active": "909dece725f9c791",
   "lastOpenFiles": [
-    "Slurped Pages/Unity大规模角色的GPU蒙皮动画表达方式.md",
+    "游戏开发技术探索/Unity开发技术/动画性能优化/整理学习动画烘焙代码.md",
+    "游戏开发技术探索/Unity开发技术/动画性能优化/Unity动画性能优化.md",
     "游戏开发技术探索/Unity开发技术/动画性能优化/动画烘焙，GPU动画.md",
+    "Slurped Pages/Unity大规模角色的GPU蒙皮动画表达方式.md",
     "导航/主页.md",
     "AI问答集锦/关于Unity中动画性能优化的问答.md",
     "生活/未命名.md",
     "生活/日常代办.md",
     "Slurped Pages/Unity-GPU Animation.md",
-    "游戏开发技术探索/Unity开发技术/动画性能优化/整理学习动画烘焙代码.md",
-    "游戏开发技术探索/Unity开发技术/动画性能优化/Unity动画性能优化.md",
     "课程和练习/【Unity技术美术】URP Shader训练营/Shader基础操作.md",
     "Slurped Pages/Unity大规模角色的GPU顶点动画表达方式.md",
     "生活/记事本.md",

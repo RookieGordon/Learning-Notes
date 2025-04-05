@@ -1,9 +1,12 @@
 {
   "accentColor": "",
   "theme": "obsidian",
-  "cssTheme": "Simply Colorful",
+  "cssTheme": "Glass Robo",
   "baseFontSize": 15,
   "enabledCssSnippets": [
     "editor-full"
-  ]
+  ],
+  "baseFontSizeAction": false,
+  "monospaceFontFamily": "Consolas",
+  "interfaceFontFamily": "Big Caslon"
 }
