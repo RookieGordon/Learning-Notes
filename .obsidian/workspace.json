@@ -52,6 +52,20 @@
             }
           },
           {
+            "id": "26d3da71c66b7900",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "生活/记事本.md",
+                "mode": "preview",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "记事本"
+            }
+          },
+          {
             "id": "6f2f01d0c3e243a0",
             "type": "leaf",
             "state": {
@@ -66,7 +80,7 @@
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -282,16 +296,23 @@
       "pexels-banner:🚩 Pixel Banner Menu": false,
       "obsidian-importer:Open Importer": false,
       "obsidian-excalidraw-plugin:新建绘图文件": false,
-      "moredraw:MoreDraw": false
+      "moredraw:MoreDraw": false,
+      "templater-obsidian:Templater": false,
+      "vscode-editor:新建代码文件": false,
+      "obsidian-memos:Thino": false,
+      "pdf-plus:PDF++: Toggle auto-copy": false,
+      "pdf-plus:PDF++: Toggle auto-focus": false,
+      "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "6f2f01d0c3e243a0",
+  "active": "909dece725f9c791",
   "lastOpenFiles": [
+    "生活/记事本.md",
     "生活/未命名.md",
+    "生活/日常代办.md",
     "导航/主页.md",
     "游戏开发技术探索/Unity开发技术/动画性能优化/动画烘焙，GPU动画.md",
     "项目/Unity/踩坑记录/杂项.md",
-    "生活/日常代办.md",
     "Slurped Pages/Unity大规模角色的GPU蒙皮动画表达方式.md",
     "游戏开发技术探索/Unity开发技术/动画性能优化/整理学习动画烘焙代码.md",
     "游戏开发技术探索/Unity开发技术/动画性能优化/Unity动画性能优化.md",
@@ -299,7 +320,6 @@
     "Slurped Pages/Unity-GPU Animation.md",
     "课程和练习/【Unity技术美术】URP Shader训练营/Shader基础操作.md",
     "Slurped Pages/Unity大规模角色的GPU顶点动画表达方式.md",
-    "生活/记事本.md",
     "工作/工作排期和任务安排.md",
     "游戏开发技术探索/Unity开发技术/Unity开发技术探索.md",
     "Slurped Pages/利用GPU实现大规模动画角色的渲染 - 慕容小匹夫 - 博客园.md",
