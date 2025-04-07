@@ -258,7 +258,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 648.5
+    "width": 648.5,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -283,9 +284,9 @@
   "active": "106ab2b4b967546e",
   "lastOpenFiles": [
     "项目/SeaWar/资源加载与热更/资源加载和热更优化.md",
+    "项目/SeaWar/资源加载与热更/资源目录划分规则整理.md",
     "项目/SeaWar/SeaWar.md",
     "2025-04-07.md",
-    "项目/SeaWar/资源加载与热更/资源目录划分规则整理.md",
     "导航/主页.md",
     "pixel-banner-images/seawar.png",
     "项目/SeaWar/components/SeaWar_ModuleDataView.components",
