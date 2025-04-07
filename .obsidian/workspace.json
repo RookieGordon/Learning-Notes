@@ -43,12 +43,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "项目/SeaWar/资源加载与热更/资源加载和热更优化.md",
+                "file": "项目/SeaWar/资源加载与热更/寻址规则.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "资源加载和热更优化"
+              "title": "寻址规则"
             }
           },
           {
@@ -283,6 +283,7 @@
   },
   "active": "106ab2b4b967546e",
   "lastOpenFiles": [
+    "项目/SeaWar/资源加载与热更/寻址规则.md",
     "项目/SeaWar/资源加载与热更/资源加载和热更优化.md",
     "项目/SeaWar/资源加载与热更/资源目录划分规则整理.md",
     "项目/SeaWar/SeaWar.md",
@@ -316,7 +317,6 @@
     "收藏夹/面试题/面试集锦.md",
     "Slurped Pages/Unity3d杂记骨骼蒙皮动画.md",
     "游戏开发技术探索/Unity开发技术/动画性能优化/Unity中的GPU动画.md",
-    "游戏开发技术探索/Unity开发技术/动画性能优化/阅读风暴小队相关代码.md",
     "components/view/ProjectModuleDataView.components",
     "components/view/ProjectDataView.components",
     "components/view/CourseView.components",
