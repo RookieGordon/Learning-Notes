@@ -66,7 +66,7 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -280,10 +280,15 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "92987eeb5c6ae8cb",
+  "active": "a365fa90fd25970b",
   "lastOpenFiles": [
-    "项目/SeaWar/资源加载与热更/资源加载和热更优化.md",
+    "Slurped Pages/Unity-GPU Animation.md",
+    "游戏开发技术探索/Unity开发技术/动画性能优化/整理学习动画烘焙代码.md",
+    "游戏开发技术探索/Unity开发技术/动画性能优化/Unity动画性能优化.md",
+    "游戏开发技术探索/Unity开发技术/Unity开发技术探索.md",
+    "导航/主页.md",
     "项目/SeaWar/资源加载与热更/资源自动导入Yooasset Collect.md",
+    "项目/SeaWar/资源加载与热更/资源加载和热更优化.md",
     "项目/SeaWar/资源加载与热更/寻址规则和Inspector显示.md",
     "项目/SeaWar/SeaWar.md",
     "项目/SeaWar/资源加载与热更/attachments/（图解1）Inspector显示自定义内容.png",
@@ -291,7 +296,6 @@
     "项目/SeaWar/资源加载与热更/资源目录划分规则整理.md",
     "项目/SeaWar/资源加载与热更/寻址规则.md",
     "2025-04-07.md",
-    "导航/主页.md",
     "pixel-banner-images/seawar.png",
     "项目/SeaWar/components/SeaWar_ModuleDataView.components",
     "项目/SeaWar/资源加载与热更",
@@ -304,14 +308,10 @@
     "游戏开发技术探索/Unity开发技术/动画性能优化/动画烘焙，GPU动画.md",
     "项目/Unity/踩坑记录/杂项.md",
     "Slurped Pages/Unity大规模角色的GPU蒙皮动画表达方式.md",
-    "游戏开发技术探索/Unity开发技术/动画性能优化/整理学习动画烘焙代码.md",
-    "游戏开发技术探索/Unity开发技术/动画性能优化/Unity动画性能优化.md",
     "AI问答集锦/关于Unity中动画性能优化的问答.md",
-    "Slurped Pages/Unity-GPU Animation.md",
     "课程和练习/【Unity技术美术】URP Shader训练营/Shader基础操作.md",
     "Slurped Pages/Unity大规模角色的GPU顶点动画表达方式.md",
     "工作/工作排期和任务安排.md",
-    "游戏开发技术探索/Unity开发技术/Unity开发技术探索.md",
     "Slurped Pages/利用GPU实现大规模动画角色的渲染 - 慕容小匹夫 - 博客园.md",
     "Clippings",
     "Slurped Pages/关于静态批处理动态批处理GPU Instancing SRP Batcher的详细剖析.md",
