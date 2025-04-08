@@ -76,21 +76,27 @@
           "name": "dateStart",
           "isShow": true,
           "type": "date",
-          "options": {}
+          "options": {
+            "width": "129"
+          }
         },
         {
           "id": "42ff5bbe-a556-4f5a-8c17-64c21aea425c",
           "name": "dateFinish",
           "isShow": true,
           "type": "date",
-          "options": {}
+          "options": {
+            "width": "109"
+          }
         },
         {
           "id": "1af2025a-c772-424a-8f02-20cd3a6a8de3",
           "name": "finished",
           "isShow": true,
           "type": "checkbox",
-          "options": {}
+          "options": {
+            "width": "149"
+          }
         },
         {
           "id": "9a1d2684-c65e-4f7e-9a90-b262b26a84f7",
@@ -183,7 +189,9 @@
       "startDateTimeType": "$specifiedDateTime",
       "endDateTimeType": "$specifiedDateTime",
       "uiType": "ring",
-      "title": "模块进度"
+      "title": "模块进度",
+      "startDateTime": "2025-04-07 09:00:31",
+      "endDateTime": "2025-04-10 21:30:53"
     }
   ],
   "rootComponentId": "866bf390-cf35-42ee-a8e6-e68bf1da911a"
