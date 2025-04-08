@@ -43,12 +43,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "项目/SeaWar/资源加载与热更/资源加载和热更优化.md",
-                "mode": "preview",
+                "file": "项目/SeaWar/资源加载与热更/寻址规则和Inspector显示.md",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "资源加载和热更优化"
+              "title": "寻址规则和Inspector显示"
             }
           }
         ],
@@ -127,7 +127,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 386.99999618530273
+    "width": 386.99999618530273,
+    "collapsed": true
   },
   "right": {
     "id": "be1e91dfcb57ce3b",
@@ -268,8 +269,9 @@
   },
   "active": "36222e6ec9ee8b61",
   "lastOpenFiles": [
-    "项目/SeaWar/SeaWar.md",
     "项目/SeaWar/资源加载与热更/资源加载和热更优化.md",
+    "项目/SeaWar/资源加载与热更/寻址规则和Inspector显示.md",
+    "项目/SeaWar/SeaWar.md",
     "项目/SeaWar/资源加载与热更/资源目录划分规则整理.md",
     "项目/SeaWar/资源加载与热更/寻址规则.md",
     "2025-04-07.md",
@@ -301,7 +303,6 @@
     "课程和练习/Custom SRP/Draw Calls.md",
     "收藏夹/面试题/面试集锦.md",
     "Slurped Pages/Unity3d杂记骨骼蒙皮动画.md",
-    "游戏开发技术探索/Unity开发技术/动画性能优化/Unity中的GPU动画.md",
     "components/view/ProjectModuleDataView.components",
     "components/view/ProjectDataView.components",
     "components/view/CourseView.components",
