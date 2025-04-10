@@ -9,7 +9,7 @@ projectType: Task
 fileDirPath: 项目/SeaWar/资源加载与热更
 dateStart: 2025-04-08
 dateFinish: 2025-04-10
-finished: false
+finished: true
 displayIcon: pixel-banner-images/项目任务.png
 ---
 # 资源后处理框架
@@ -198,6 +198,7 @@ public static string GetAssetSignature(string assetPath)
 - 在1秒内多次保存文件可能无法检测（文件系统时间精度限制）
 - 极特殊情况可能误判（文件大小和时间戳同时相同但内容不同）
 
-另外还有一点，
+>[!ATTENTION]
+>后处理脚本，在资源修改后需要主动刷新资源，否则会导致计算文件修改时间失败。但是`AssetDatabase.Refresh()`方法会滞后刷新，`AssetDatabase.ImportAsset`方法，可以立刻刷新资源。
 
 
