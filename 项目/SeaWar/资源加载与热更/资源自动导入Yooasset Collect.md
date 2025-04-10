@@ -170,7 +170,34 @@ public class AssetProcessManager : AssetPostprocessor
     }
 }
 ```
-添加，移动和删除部分都很容易。修改逻辑会相对复杂。修改部分，会容易造成死循环，
+添加，移动和删除部分都很容易。修改逻辑会相对复杂。修改部分，会容易造成死循环，因此需要通过某种方式标记资源是否已经经过后处理修改过，`Dictionary<string, string> _processedObjDic`字典标记已修改。
 
+>[!ATTENTION]
+>这种标记，不是标记某个路径已经修改，而是，资源有无变动，可以使用MD5来记录文件有无变动。例如，资源A经过后处理后，记录MD5。因为后处理脚本同样修改了A资源，因此会再次触发`OnPostprocessAllAssets`回调，此时再次计算A的MD5，如果和之前的一致，那么就不需要再次调用后处理脚本了。
+  
+考虑到计算MD5的消耗比较大，因此改用计算文件的修改时间戳
+```CSharp
+public static string GetAssetSignature(string assetPath)  
+{  
+    try  
+    {  
+        var path = Path.GetFullPath(assetPath);  
+        if (File.Exists(path))  
+        {            
+	        var fi = new FileInfo(path);  
+            return $"{fi.LastWriteTimeUtc.Ticks}_{fi.Length}";  
+        }  
+        return string.Empty;  
+    }    catch  
+    {  
+        return string.Empty;  
+    }
+}
+```
+不过，文件签名机制具有局限性：
+- 在1秒内多次保存文件可能无法检测（文件系统时间精度限制）
+- 极特殊情况可能误判（文件大小和时间戳同时相同但内容不同）
+
+另外还有一点，
 
 
