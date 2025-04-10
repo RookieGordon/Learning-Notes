@@ -1,8 +1,8 @@
 ---
 tags:
   - SeaWar/资源加载与热更/资源自动导入Yooasset
-  - Collect
   - mytodo
+  - Unity/资源后处理
 type: Project
 project: SeaWar
 projectType: Task
@@ -34,8 +34,143 @@ public abstract class AAssetPostProcessor
 }
 ```
 `AAssetPostProcessor`抽象类，包含了所有的类型的处理方法，子类只需要继承该类，就可以选择某些方法重写，进而实现后处理的逻辑。
-接下来就是实现一个后处理的管理类，所有的后处理对象都需要被注册进去，然后该类会监听`OnPostprocessAllAsset`方法，在方法中，遍历调用处理对象。
+接下来就是实现一个后处理的管理类，所有的后处理对象都需要被注册进去，然后该类会监听`OnPostprocessAllAsset`方法，派发处理事件
+```CSharp
+public class AssetProcessManager : AssetPostprocessor  
+{  
+    private static HashSet<string> _objSet = new HashSet<string>();  
+  
+    private static List<AAssetPostProcessor> _processHandlers = new List<AAssetPostProcessor>();  
+  
+    private static Dictionary<string, string> _processedObjDic = new Dictionary<string, string>();  
+  
+    public static void Register(AAssetPostProcessor processHandler)  
+    {        
+        _processHandlers.Add(processHandler);  
+    }  
 
+    private static void OnPostprocessAllAssets(string[] importedAssets, 
+                                                string[] deletedAssets, 
+                                                string[] movedAssets,  
+                                                string[] movedFromAssetPaths, 
+                                                bool didDomainReload)  
+    {        
+        var passAll = true;  
+        foreach (var assetPath in importedAssets)  
+        {            
+            if (_objSet.Add(assetPath))  
+            {                
+                passAll = passAll && _CreateOrModifyProcess(EAssetProcessType.Add, assetPath);  
+            }            
+            else  
+            {  
+                passAll = passAll && _CreateOrModifyProcess(EAssetProcessType.Modify, assetPath);  
+            }        
+        }  
+        foreach (var assetPath in deletedAssets)  
+        {           
+             _UpdateCache(assetPath);  
+            passAll = passAll && _DeleteOrMoveProcess(EAssetProcessType.Deleted, assetPath);  
+        }  
+        for (int i = 0; i < movedAssets.Length; i++)  
+        {            
+            var oldPath = movedFromAssetPaths[i];  
+            var newPath = movedAssets[i];  
+            _UpdateCache(oldPath, newPath);  
+            passAll = passAll && _DeleteOrMoveProcess(EAssetProcessType.Move, newPath, oldPath);  
+        }  
+        AssetDatabase.Refresh();  
+  
+        if (!passAll)  
+        {            
+            EditorUtility.DisplayDialog("Post Process Error", 
+                                        "Some post process failed, please check the console.",  
+                                        "OK");  
+        }    
+    }  
+
+    private static bool _DeleteOrMoveProcess(EAssetProcessType processType, 
+                                            string assetPath, 
+                                            string oldPath = "")  
+    {        
+        return _OnProcess(processType, assetPath, oldPath);  
+    }  
+    private static bool _CreateOrModifyProcess(EAssetProcessType processType, string assetPath)  
+    {        
+        if (processType == EAssetProcessType.Modify)  
+        {            
+            var newMd5 = AssetUtil.GetAssetSignature(assetPath);  
+            if (_processedObjDic.TryGetValue(assetPath, out var oldMd5) && oldMd5 == newMd5)
+            {  
+                return true;  
+            }        
+        }  
+        var passAll = _OnProcess(processType, assetPath);  
+        AssetDatabase.ImportAsset(assetPath);  
+        _processedObjDic[assetPath] = AssetUtil.GetAssetSignature(assetPath);  
+        return passAll;  
+    }  
+
+    private static bool _OnProcess(EAssetProcessType processType, 
+                                    string assetPath, 
+                                    string oldPath = "")  
+    {        
+        var passAll = true;  
+        foreach (var handler in _processHandlers)  
+        {            
+            var result = false;  
+            try  
+            {  
+                switch (processType)  
+                {                    
+                    case EAssetProcessType.Add:  
+                        result = handler.OnCreateProcess(assetPath);  
+                        break;  
+                    case EAssetProcessType.Modify:  
+                        result = handler.OnModifyProcess(assetPath);  
+                        break;  
+                    case EAssetProcessType.WillDeleted:  
+                        result = handler.OnWillDeletedProcess(assetPath);  
+                        break;  
+                    case EAssetProcessType.Deleted:  
+                        result = handler.OnDeletedProcess(assetPath);  
+                        break;  
+                    case EAssetProcessType.Move:  
+                        result = handler.OnMoveProcess(assetPath, oldPath);  
+                        break;  
+                }  
+                if (!result)  
+                {                    
+                    Debug.LogError(  
+                        $"{handler.GetType().Name} post process failed. processType: {processType}, assetPath: {assetPath}, oldPath: {oldPath}");  
+                }            
+            }            
+            catch (System.Exception e)  
+            {                
+                Debug.LogError(  
+                    $"{handler.GetType().Name} post process error. processType: {processType}, assetPath: {assetPath}, oldPath: {oldPath}, error: {e}");  
+            }  
+            passAll = passAll && result;        
+        }  
+        return passAll;  
+    } 
+     
+    private static void _UpdateCache(string oldPath, string newPath = "")  
+    {        
+        _objSet.Remove(oldPath);  
+        if (!string.IsNullOrEmpty(newPath))  
+        {            
+            _objSet.Add(newPath);  
+            if (_processedObjDic.TryGetValue(oldPath, out var md5))  
+            {                
+                _processedObjDic[newPath] = md5;  
+            }        
+        }  
+        _processedObjDic.Remove(oldPath);  
+    }
+}
+```
+添加，移动和删除部分都很容易。修改逻辑会相对复杂。修改部分，会容易造成死循环，
 
 
 
