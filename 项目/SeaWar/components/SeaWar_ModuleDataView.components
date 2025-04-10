@@ -69,7 +69,9 @@
           "type": "text",
           "isShow": true,
           "wrap": false,
-          "options": {}
+          "options": {
+            "width": "206"
+          }
         },
         {
           "id": "98b32128-3650-41a6-85a0-676efbd9ee27",
@@ -95,7 +97,7 @@
           "isShow": true,
           "type": "checkbox",
           "options": {
-            "width": "149"
+            "width": "54"
           }
         },
         {

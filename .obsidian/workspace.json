@@ -43,12 +43,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "项目/SeaWar/资源加载与热更/资源加载和热更优化.md",
+                "file": "项目/SeaWar/SeaWar.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "资源加载和热更优化"
+              "title": "SeaWar"
             }
           }
         ],
@@ -253,7 +253,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 351.5
+    "width": 351.5,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -277,14 +278,14 @@
   },
   "active": "209cd83418733de3",
   "lastOpenFiles": [
-    "项目/SeaWar/components/SeaWar_ModuleDataView - 副本.components",
-    "项目/SeaWar/资源加载与热更/资源加载和热更优化.md",
     "项目/SeaWar/资源加载与热更/寻址规则和Inspector显示.md",
-    "项目/SeaWar/SeaWar.md",
+    "项目/SeaWar/资源加载与热更/资源加载和热更优化.md",
+    "项目/SeaWar/资源加载与热更/资源目录划分规则整理.md",
     "项目/SeaWar/资源加载与热更/资源自动导入Yooasset Collect.md",
+    "项目/SeaWar/components/SeaWar_ModuleDataView - 副本.components",
+    "项目/SeaWar/SeaWar.md",
     "导航/主页.md",
     "项目/SeaWar/components/SeaWar_ModuleDataView.components",
-    "项目/SeaWar/资源加载与热更/资源目录划分规则整理.md",
     "项目/SeaWar/Test/TestModule.md",
     "项目/SeaWar/Test",
     "项目/SeaWar/components/SeaWar_DataView.components",
