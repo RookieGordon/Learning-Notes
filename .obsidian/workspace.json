@@ -38,17 +38,17 @@
             }
           },
           {
-            "id": "92987eeb5c6ae8cb",
+            "id": "4cb470b5821a3f72",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "项目/SeaWar/资源加载与热更/资源自动导入Yooasset Collect.md",
-                "mode": "source",
+                "file": "项目/SeaWar/资源加载与热更/资源加载和热更优化.md",
+                "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "资源自动导入Yooasset Collect"
+              "title": "资源加载和热更优化"
             }
           },
           {
@@ -58,7 +58,7 @@
               "type": "markdown",
               "state": {
                 "file": "项目/SeaWar/资源加载与热更/资源加载和热更优化.md",
-                "mode": "source",
+                "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
@@ -66,7 +66,7 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -301,18 +301,18 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "92987eeb5c6ae8cb",
+  "active": "a365fa90fd25970b",
   "lastOpenFiles": [
-    "项目/SeaWar/资源加载与热更/资源目录划分规则整理.md",
     "项目/SeaWar/资源加载与热更/资源自动导入Yooasset Collect.md",
     "项目/SeaWar/资源加载与热更/资源加载和热更优化.md",
+    "项目/SeaWar/SeaWar.md",
+    "项目/SeaWar/资源加载与热更/资源目录划分规则整理.md",
     "Slurped Pages/Unity-GPU Animation.md",
     "游戏开发技术探索/Unity开发技术/动画性能优化/整理学习动画烘焙代码.md",
     "游戏开发技术探索/Unity开发技术/动画性能优化/Unity动画性能优化.md",
     "游戏开发技术探索/Unity开发技术/Unity开发技术探索.md",
     "导航/主页.md",
     "项目/SeaWar/资源加载与热更/寻址规则和Inspector显示.md",
-    "项目/SeaWar/SeaWar.md",
     "项目/SeaWar/资源加载与热更/attachments/（图解1）Inspector显示自定义内容.png",
     "项目/SeaWar/资源加载与热更/attachments",
     "项目/SeaWar/资源加载与热更/寻址规则.md",
