@@ -127,7 +127,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 386.99999618530273
+    "width": 323.5
   },
   "right": {
     "id": "be1e91dfcb57ce3b",
@@ -222,16 +222,6 @@
             }
           },
           {
-            "id": "4cbea5b156208c3b",
-            "type": "leaf",
-            "state": {
-              "type": "todo",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "Plugin no longer active"
-            }
-          },
-          {
             "id": "595a1ae9a68e766a",
             "type": "leaf",
             "state": {
@@ -263,7 +253,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 648.5
+    "width": 351.5
   },
   "left-ribbon": {
     "hiddenItems": {
