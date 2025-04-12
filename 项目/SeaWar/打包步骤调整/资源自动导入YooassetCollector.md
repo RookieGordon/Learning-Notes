@@ -1,6 +1,6 @@
 ---
 tags:
-  - SeaWar/资源加载与热更/资源自动导入Yooasset
+  - SeaWar/打包步骤调整/资源自动导入YooassetCollector
   - mytodo
   - Unity/资源后处理
 type: Project

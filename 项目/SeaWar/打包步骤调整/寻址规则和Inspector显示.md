@@ -1,6 +1,6 @@
 ---
 tags:
-  - SeaWar/资源加载与热更/寻址规则和Inspector显示
+  - SeaWar/打包步骤调整/寻址规则和Inspector显示
   - mytodo
   - Unity/Inspector扩展/Inspector页眉
 type: Project
