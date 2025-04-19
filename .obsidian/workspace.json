@@ -284,18 +284,24 @@
       "pexels-banner:🚩 Pixel Banner Menu": false,
       "obsidian-importer:Open Importer": false,
       "obsidian-excalidraw-plugin:New drawing": false,
-      "moredraw:MoreDraw": false
+      "moredraw:MoreDraw": false,
+      "templater-obsidian:Templater": false,
+      "vscode-editor:Create Code File": false,
+      "obsidian-memos:Thino": false,
+      "pdf-plus:PDF++: Toggle auto-copy": false,
+      "pdf-plus:PDF++: Toggle auto-focus": false,
+      "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "a831dc920d3b8b1b",
+  "active": "c4cdf576214ded53",
   "lastOpenFiles": [
+    "项目/SeaWar/打包步骤调整/打包步骤调整.md",
+    "项目/SeaWar/热更步骤调整/热更步骤调整.md",
     "项目/SeaWar/热更步骤调整/版本对比和资源下载.md",
     "项目/SeaWar/热更步骤调整/接入热更后台.md",
     "项目/SeaWar/热更步骤调整/打热更和Assetbundle差异包.md",
-    "项目/SeaWar/热更步骤调整/热更步骤调整.md",
     "项目/SeaWar/打包步骤调整/多线程并行处理框架.md",
     "项目/SeaWar/SeaWar.md",
-    "项目/SeaWar/打包步骤调整/打包步骤调整.md",
     "项目/SeaWar/打包步骤调整/资源目录划分规则整理.md",
     "项目/SeaWar/打包步骤调整/寻址规则和Inspector显示.md",
     "项目/SeaWar/打包步骤调整/资源自动导入YooassetCollector.md",
