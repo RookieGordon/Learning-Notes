@@ -29,12 +29,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "项目/SeaWar/热更步骤调整/版本对比和资源下载.md",
+                "file": "项目/SeaWar/热更步骤调整/热更步骤调整.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "版本对比和资源下载"
+              "title": "热更步骤调整"
             }
           },
           {
@@ -172,13 +172,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "项目/SeaWar/热更步骤调整/版本对比和资源下载.md",
+                "file": "项目/SeaWar/热更步骤调整/热更步骤调整.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of 版本对比和资源下载"
+              "title": "Outline of 热更步骤调整"
             }
           },
           {
@@ -238,8 +238,19 @@
               "icon": "git-pull-request",
               "title": "Source Control"
             }
+          },
+          {
+            "id": "a831dc920d3b8b1b",
+            "type": "leaf",
+            "state": {
+              "type": "todo",
+              "state": {},
+              "icon": "checkmark",
+              "title": "Todo List"
+            }
           }
-        ]
+        ],
+        "currentTab": 5
       },
       {
         "id": "d3469bcf3b4ce2dc",
@@ -273,20 +284,14 @@
       "pexels-banner:🚩 Pixel Banner Menu": false,
       "obsidian-importer:Open Importer": false,
       "obsidian-excalidraw-plugin:New drawing": false,
-      "moredraw:MoreDraw": false,
-      "templater-obsidian:Templater": false,
-      "vscode-editor:Create Code File": false,
-      "obsidian-memos:Thino": false,
-      "pdf-plus:PDF++: Toggle auto-copy": false,
-      "pdf-plus:PDF++: Toggle auto-focus": false,
-      "pdf-plus:PDF++: Toggle auto-paste": false
+      "moredraw:MoreDraw": false
     }
   },
-  "active": "c4cdf576214ded53",
+  "active": "a831dc920d3b8b1b",
   "lastOpenFiles": [
+    "项目/SeaWar/热更步骤调整/版本对比和资源下载.md",
     "项目/SeaWar/热更步骤调整/接入热更后台.md",
     "项目/SeaWar/热更步骤调整/打热更和Assetbundle差异包.md",
-    "项目/SeaWar/热更步骤调整/版本对比和资源下载.md",
     "项目/SeaWar/热更步骤调整/热更步骤调整.md",
     "项目/SeaWar/打包步骤调整/多线程并行处理框架.md",
     "项目/SeaWar/SeaWar.md",
