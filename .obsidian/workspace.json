@@ -113,7 +113,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "AssetDatabase.ImportAsset",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -121,7 +121,7 @@
                 "sortOrder": "alphabetical"
               },
               "icon": "lucide-search",
-              "title": "搜索"
+              "title": "Search"
             }
           },
           {
@@ -134,7 +134,8 @@
               "title": "书签"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       },
       {
         "id": "4d6b3f74d9efb221",
@@ -293,7 +294,7 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "c4cdf576214ded53",
+  "active": "5ac1d3d0eeefec0e",
   "lastOpenFiles": [
     "项目/SeaWar/打包步骤调整/打包步骤调整.md",
     "项目/SeaWar/热更步骤调整/热更步骤调整.md",
