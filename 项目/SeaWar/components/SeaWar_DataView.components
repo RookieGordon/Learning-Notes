@@ -176,7 +176,9 @@
       "startDateTimeType": "$specifiedDateTime",
       "endDateTimeType": "$specifiedDateTime",
       "uiType": "ring",
-      "title": "项目进度"
+      "title": "项目进度",
+      "startDateTime": "2025-04-07 09:00:47",
+      "endDateTime": "2026-04-07 09:00:41"
     }
   ],
   "rootComponentId": "866bf390-cf35-42ee-a8e6-e68bf1da911a"
