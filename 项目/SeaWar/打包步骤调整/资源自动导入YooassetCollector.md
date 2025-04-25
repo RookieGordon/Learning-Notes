@@ -3,6 +3,7 @@ tags:
   - SeaWar/打包步骤调整/资源自动导入YooassetCollector
   - mytodo
   - Unity/资源后处理
+  - Unity/编辑器/资源变更回调
 type: Project
 project: SeaWar
 projectType: Task

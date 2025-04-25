@@ -7,6 +7,8 @@ tags:
   - GPU-Instancing
   - 动画蒙皮
   - 骨骼动画
+  - Unity/编辑器/脚本编译回调
+  - Unity/编辑器/资源导入回调
 type: Study
 course: Unity开发技术
 courseType: Section
