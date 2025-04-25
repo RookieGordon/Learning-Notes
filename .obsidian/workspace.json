@@ -78,9 +78,21 @@
               "icon": "lucide-file",
               "title": "多线程并行处理框架"
             }
+          },
+          {
+            "id": "06877f896f5380a4",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.8.10"
+              },
+              "icon": "lucide-book-up",
+              "title": "Release Notes 1.8.10"
+            }
           }
         ],
-        "currentTab": 4
+        "currentTab": 5
       }
     ],
     "direction": "vertical"
@@ -246,8 +258,8 @@
             "state": {
               "type": "todo",
               "state": {},
-              "icon": "checkmark",
-              "title": "Todo List"
+              "icon": "lucide-file",
+              "title": "Plugin no longer active"
             }
           }
         ],
@@ -264,8 +276,8 @@
             "state": {
               "type": "todo",
               "state": {},
-              "icon": "checkmark",
-              "title": "Todo List"
+              "icon": "lucide-file",
+              "title": "Plugin no longer active"
             }
           }
         ]
@@ -284,18 +296,10 @@
       "command-palette:Open command palette": false,
       "obsidian-git:Open Git source control": false,
       "pexels-banner:🚩 Pixel Banner Menu": false,
-      "obsidian-importer:Open Importer": false,
-      "obsidian-excalidraw-plugin:New drawing": false,
-      "moredraw:MoreDraw": false,
-      "templater-obsidian:Templater": false,
-      "vscode-editor:Create Code File": false,
-      "obsidian-memos:Thino": false,
-      "pdf-plus:PDF++: Toggle auto-copy": false,
-      "pdf-plus:PDF++: Toggle auto-focus": false,
-      "pdf-plus:PDF++: Toggle auto-paste": false
+      "obsidian-importer:Open Importer": false
     }
   },
-  "active": "ce06ff0871413e60",
+  "active": "06877f896f5380a4",
   "lastOpenFiles": [
     "项目/SeaWar/SeaWar.md",
     "项目/SeaWar/热更步骤调整/热更步骤调整.md",
