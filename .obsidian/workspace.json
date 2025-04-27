@@ -66,7 +66,7 @@
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -291,11 +291,11 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "54f9f0d07c9eca51",
+  "active": "f9faee326cab4dfd",
   "lastOpenFiles": [
     "项目/SeaWar/SeaWar.md",
-    "项目/SeaWar/打包步骤调整/多线程并行处理框架.md",
     "项目/SeaWar/热更步骤调整/热更步骤调整.md",
+    "项目/SeaWar/打包步骤调整/多线程并行处理框架.md",
     "导航/主页.md",
     "项目/SeaWar/打包步骤调整/寻址规则和Inspector显示.md",
     "项目/SeaWar/打包步骤调整/资源目录划分规则整理.md",
