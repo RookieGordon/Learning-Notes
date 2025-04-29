@@ -52,6 +52,34 @@
             }
           },
           {
+            "id": "8c50ba62fb3341bb",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "项目/SeaWar/打包步骤调整/打包步骤调整.md",
+                "mode": "preview",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "打包步骤调整"
+            }
+          },
+          {
+            "id": "a5010484c3150a1f",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "项目/SeaWar/打包步骤调整/资源目录划分规则整理.md",
+                "mode": "preview",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "资源目录划分规则整理"
+            }
+          },
+          {
             "id": "54f9f0d07c9eca51",
             "type": "leaf",
             "state": {
@@ -66,7 +94,7 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 4
       }
     ],
     "direction": "vertical"
@@ -242,12 +270,22 @@
             "state": {
               "type": "todo",
               "state": {},
+              "icon": "lucide-file",
+              "title": "Plugin no longer active"
+            }
+          },
+          {
+            "id": "d90f5c9c27551c3d",
+            "type": "leaf",
+            "state": {
+              "type": "todo",
+              "state": {},
               "icon": "checkmark",
               "title": "Todo List"
             }
           }
         ],
-        "currentTab": 6
+        "currentTab": 7
       },
       {
         "id": "d3469bcf3b4ce2dc",
@@ -291,8 +329,9 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "f9faee326cab4dfd",
+  "active": "a5010484c3150a1f",
   "lastOpenFiles": [
+    "项目/SeaWar/打包步骤调整/打包步骤调整.md",
     "项目/SeaWar/SeaWar.md",
     "项目/SeaWar/热更步骤调整/热更步骤调整.md",
     "项目/SeaWar/打包步骤调整/多线程并行处理框架.md",
@@ -308,7 +347,6 @@
     "项目/SeaWar/热更步骤调整/接入热更后台.md",
     "项目/SeaWar/热更步骤调整/打热更和Assetbundle差异包.md",
     "项目/SeaWar/热更步骤调整/版本对比和资源下载.md",
-    "项目/SeaWar/打包步骤调整/打包步骤调整.md",
     "工作/工作排期和任务安排.md",
     "工作/attachments/Pasted image 20250423102332.png",
     "工作/attachments",
