@@ -94,7 +94,7 @@
             }
           }
         ],
-        "currentTab": 4
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -329,15 +329,15 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "a5010484c3150a1f",
+  "active": "f9faee326cab4dfd",
   "lastOpenFiles": [
+    "项目/SeaWar/打包步骤调整/资源目录划分规则整理.md",
     "项目/SeaWar/打包步骤调整/打包步骤调整.md",
     "项目/SeaWar/SeaWar.md",
     "项目/SeaWar/热更步骤调整/热更步骤调整.md",
     "项目/SeaWar/打包步骤调整/多线程并行处理框架.md",
     "导航/主页.md",
     "项目/SeaWar/打包步骤调整/寻址规则和Inspector显示.md",
-    "项目/SeaWar/打包步骤调整/资源目录划分规则整理.md",
     "项目/SeaWar/打包步骤调整/资源自动导入YooassetCollector.md",
     "游戏开发技术探索/Unity开发技术/动画性能优化/动画烘焙，GPU动画.md",
     "游戏开发技术探索/Unity开发技术/动画性能优化/整理学习动画烘焙代码.md",
