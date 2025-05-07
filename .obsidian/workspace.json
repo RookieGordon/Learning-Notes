@@ -85,16 +85,16 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "项目/SeaWar/热更步骤调整/热更步骤调整.md",
+                "file": "项目/SeaWar/打包步骤调整/资源目录划分规则整理.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "热更步骤调整"
+              "title": "资源目录划分规则整理"
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 5
       }
     ],
     "direction": "vertical"
@@ -283,9 +283,19 @@
               "icon": "lucide-file",
               "title": "Plugin no longer active"
             }
+          },
+          {
+            "id": "8ca75207bd2468a9",
+            "type": "leaf",
+            "state": {
+              "type": "todo",
+              "state": {},
+              "icon": "checkmark",
+              "title": "Todo List"
+            }
           }
         ],
-        "currentTab": 7
+        "currentTab": 8
       },
       {
         "id": "d3469bcf3b4ce2dc",
@@ -318,27 +328,35 @@
       "command-palette:Open command palette": false,
       "obsidian-git:Open Git source control": false,
       "pexels-banner:🚩 Pixel Banner Menu": false,
-      "obsidian-importer:Open Importer": false
+      "obsidian-importer:Open Importer": false,
+      "obsidian-excalidraw-plugin:New drawing": false,
+      "moredraw:MoreDraw": false,
+      "templater-obsidian:Templater": false,
+      "vscode-editor:Create Code File": false,
+      "obsidian-memos:Thino": false,
+      "pdf-plus:PDF++: Toggle auto-copy": false,
+      "pdf-plus:PDF++: Toggle auto-focus": false,
+      "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "12f6a7f29d1bab09",
+  "active": "54f9f0d07c9eca51",
   "lastOpenFiles": [
-    "项目/SeaWar/打包步骤调整/多线程并行处理框架.md",
-    "项目/SeaWar/打包步骤调整/资源目录划分规则整理.md",
-    "项目/SeaWar/打包步骤调整/打包步骤调整.md",
-    "项目/SeaWar/SeaWar.md",
-    "项目/SeaWar/热更步骤调整/热更步骤调整.md",
-    "导航/主页.md",
-    "项目/SeaWar/打包步骤调整/寻址规则和Inspector显示.md",
     "项目/SeaWar/打包步骤调整/资源自动导入YooassetCollector.md",
+    "项目/SeaWar/打包步骤调整/资源目录划分规则整理.md",
+    "项目/SeaWar/打包步骤调整/寻址规则和Inspector显示.md",
+    "项目/SeaWar/打包步骤调整/多线程并行处理框架.md",
+    "项目/SeaWar/打包步骤调整/打包步骤调整.md",
+    "项目/SeaWar/热更步骤调整/版本对比和资源下载.md",
+    "项目/SeaWar/热更步骤调整/打热更和Assetbundle差异包.md",
+    "项目/SeaWar/热更步骤调整/接入热更后台.md",
+    "项目/SeaWar/热更步骤调整/热更步骤调整.md",
+    "项目/SeaWar/SeaWar.md",
+    "导航/主页.md",
     "游戏开发技术探索/Unity开发技术/动画性能优化/动画烘焙，GPU动画.md",
     "游戏开发技术探索/Unity开发技术/动画性能优化/整理学习动画烘焙代码.md",
     "游戏开发技术探索/Unity开发技术/动画性能优化/Unity动画性能优化.md",
     "游戏开发技术探索/Unity开发技术/components/Unity开发技术_CourseView.components",
     "游戏开发技术探索/Unity开发技术/components/Unity开发技术_ChapterView.components",
-    "项目/SeaWar/热更步骤调整/接入热更后台.md",
-    "项目/SeaWar/热更步骤调整/打热更和Assetbundle差异包.md",
-    "项目/SeaWar/热更步骤调整/版本对比和资源下载.md",
     "工作/工作排期和任务安排.md",
     "工作/attachments/Pasted image 20250423102332.png",
     "工作/attachments",
