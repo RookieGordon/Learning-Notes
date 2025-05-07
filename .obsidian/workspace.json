@@ -94,7 +94,7 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -280,8 +280,8 @@
             "state": {
               "type": "todo",
               "state": {},
-              "icon": "checkmark",
-              "title": "Todo List"
+              "icon": "lucide-file",
+              "title": "Plugin no longer active"
             }
           }
         ],
@@ -318,24 +318,16 @@
       "command-palette:Open command palette": false,
       "obsidian-git:Open Git source control": false,
       "pexels-banner:🚩 Pixel Banner Menu": false,
-      "obsidian-importer:Open Importer": false,
-      "obsidian-excalidraw-plugin:New drawing": false,
-      "moredraw:MoreDraw": false,
-      "templater-obsidian:Templater": false,
-      "vscode-editor:Create Code File": false,
-      "obsidian-memos:Thino": false,
-      "pdf-plus:PDF++: Toggle auto-copy": false,
-      "pdf-plus:PDF++: Toggle auto-focus": false,
-      "pdf-plus:PDF++: Toggle auto-paste": false
+      "obsidian-importer:Open Importer": false
     }
   },
-  "active": "f9faee326cab4dfd",
+  "active": "12f6a7f29d1bab09",
   "lastOpenFiles": [
+    "项目/SeaWar/打包步骤调整/多线程并行处理框架.md",
     "项目/SeaWar/打包步骤调整/资源目录划分规则整理.md",
     "项目/SeaWar/打包步骤调整/打包步骤调整.md",
     "项目/SeaWar/SeaWar.md",
     "项目/SeaWar/热更步骤调整/热更步骤调整.md",
-    "项目/SeaWar/打包步骤调整/多线程并行处理框架.md",
     "导航/主页.md",
     "项目/SeaWar/打包步骤调整/寻址规则和Inspector显示.md",
     "项目/SeaWar/打包步骤调整/资源自动导入YooassetCollector.md",
