@@ -290,12 +290,22 @@
             "state": {
               "type": "todo",
               "state": {},
+              "icon": "lucide-file",
+              "title": "Plugin no longer active"
+            }
+          },
+          {
+            "id": "ac67b03070e8b744",
+            "type": "leaf",
+            "state": {
+              "type": "todo",
+              "state": {},
               "icon": "checkmark",
               "title": "Todo List"
             }
           }
         ],
-        "currentTab": 8
+        "currentTab": 9
       },
       {
         "id": "d3469bcf3b4ce2dc",
@@ -333,13 +343,10 @@
       "moredraw:MoreDraw": false,
       "templater-obsidian:Templater": false,
       "vscode-editor:Create Code File": false,
-      "obsidian-memos:Thino": false,
-      "pdf-plus:PDF++: Toggle auto-copy": false,
-      "pdf-plus:PDF++: Toggle auto-focus": false,
-      "pdf-plus:PDF++: Toggle auto-paste": false
+      "obsidian-memos:Thino": false
     }
   },
-  "active": "54f9f0d07c9eca51",
+  "active": "ac67b03070e8b744",
   "lastOpenFiles": [
     "项目/SeaWar/打包步骤调整/资源自动导入YooassetCollector.md",
     "项目/SeaWar/打包步骤调整/资源目录划分规则整理.md",
