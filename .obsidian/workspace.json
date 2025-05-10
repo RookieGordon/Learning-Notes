@@ -113,8 +113,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 336.5,
-    "collapsed": true
+    "width": 336.5
   },
   "right": {
     "id": "be1e91dfcb57ce3b",
@@ -244,12 +243,22 @@
             "state": {
               "type": "todo",
               "state": {},
+              "icon": "lucide-file",
+              "title": "Plugin no longer active"
+            }
+          },
+          {
+            "id": "b64ffa6dae0b1146",
+            "type": "leaf",
+            "state": {
+              "type": "todo",
+              "state": {},
               "icon": "checkmark",
               "title": "Todo List"
             }
           }
         ],
-        "currentTab": 9
+        "currentTab": 10
       },
       {
         "id": "d3469bcf3b4ce2dc",
@@ -262,8 +271,8 @@
             "state": {
               "type": "todo",
               "state": {},
-              "icon": "checkmark",
-              "title": "Todo List"
+              "icon": "lucide-file",
+              "title": "Plugin no longer active"
             }
           }
         ]
@@ -287,13 +296,10 @@
       "moredraw:MoreDraw": false,
       "templater-obsidian:Templater": false,
       "vscode-editor:Create Code File": false,
-      "obsidian-memos:Thino": false,
-      "pdf-plus:PDF++: Toggle auto-copy": false,
-      "pdf-plus:PDF++: Toggle auto-focus": false,
-      "pdf-plus:PDF++: Toggle auto-paste": false
+      "obsidian-memos:Thino": false
     }
   },
-  "active": "12f6a7f29d1bab09",
+  "active": "b64ffa6dae0b1146",
   "lastOpenFiles": [
     "项目/SeaWar/SeaWar.md",
     "项目/SeaWar/热更功能合并/热更功能合并.md",
