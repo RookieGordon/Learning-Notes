@@ -24,15 +24,17 @@
             }
           },
           {
-            "id": "12f6a7f29d1bab09",
+            "id": "6b1115cc30202d20",
             "type": "leaf",
             "state": {
-              "type": "components-file-view",
+              "type": "markdown",
               "state": {
-                "file": "项目/SeaWar/components/SeaWar_热更步骤调整DataView.components"
+                "file": "项目/SeaWar/最佳网址选择/最佳网址选择.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "gantt-chart",
-              "title": "SeaWar_热更步骤调整DataView"
+              "icon": "lucide-file",
+              "title": "最佳网址选择"
             }
           }
         ],
@@ -111,8 +113,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 442.5,
-    "collapsed": true
+    "width": 442.5
   },
   "right": {
     "id": "be1e91dfcb57ce3b",
@@ -311,17 +312,22 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "12f6a7f29d1bab09",
+  "active": "6b1115cc30202d20",
   "lastOpenFiles": [
+    "项目/SeaWar/最佳网址选择/网址延迟选择.md",
+    "项目/SeaWar/最佳网址选择/最佳网址选择.md",
+    "项目/SeaWar/Unity中的小坑/Unity中的小坑.md",
+    "项目/SeaWar/Unity中的小坑/编辑器内存泄露.md",
+    "项目/SeaWar/components/Unity中的小坑_View.components",
+    "项目/SeaWar/Unity中的小坑/Unity编辑器下的内存泄露.md",
+    "Template/Project Module.md",
+    "Template/Course Module.md",
+    "Template/Course.md",
+    "项目/SeaWar/components/SeaWar_热更步骤调整DataView.components",
     "项目/SeaWar/components/SeaWar_资源加载与热更DataView.components",
     "项目/SeaWar/components/SeaWar_ChapterView.components",
     "项目/SeaWar/components/SeaWar_DataView.components",
     "项目/SeaWar/components/SeaWar_ModuleDataView.components",
-    "项目/SeaWar/components/SeaWar_热更步骤调整DataView.components",
-    "项目/SeaWar/Unity中的小坑/Unity中的小坑.md",
-    "项目/SeaWar/Unity中的小坑/Unity编辑器下的内存泄露.md",
-    "项目/SeaWar/最佳网址选择/最佳网址选择.md",
-    "项目/SeaWar/最佳网址选择/网址延迟选择.md",
     "项目/SeaWar/最佳网址选择",
     "项目/SeaWar/热更功能合并/热更功能合并.md",
     "项目/SeaWar/Unity中的小坑",
@@ -343,13 +349,7 @@
     "游戏开发技术探索/Unity开发技术/动画性能优化/整理学习动画烘焙代码.md",
     "游戏开发技术探索/Unity开发技术/动画性能优化/Unity动画性能优化.md",
     "游戏开发技术探索/Unity开发技术/components/Unity开发技术_CourseView.components",
-    "游戏开发技术探索/Unity开发技术/components/Unity开发技术_ChapterView.components",
-    "工作/工作排期和任务安排.md",
     "工作/attachments/Pasted image 20250423102332.png",
-    "工作/attachments",
-    "项目/SeaWar/热更步骤调整/资源目录划分规则整理.md",
-    "项目/SeaWar/Test/TestModule.md",
-    "Slurped Pages/Unity-GPU Animation.md",
     "项目/SeaWar/打包步骤调整/attachments/（图解1）Inspector显示自定义内容.png",
     "pixel-banner-images/seawar.png",
     "pixel-banner-images/e69eca2219f7027be1d9ffe7b8f0291b.jpg",
