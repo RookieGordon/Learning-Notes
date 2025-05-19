@@ -29,12 +29,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "项目/SeaWar/热更功能合并/CSharp继承的小坑.md",
+                "file": "项目/SeaWar/最佳网址选择/最佳网址选择.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "CSharp继承的小坑"
+              "title": "最佳网址选择"
             }
           }
         ],
@@ -113,7 +113,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 336.5
+    "width": 336.5,
+    "collapsed": true
   },
   "right": {
     "id": "be1e91dfcb57ce3b",
@@ -256,9 +257,19 @@
               "icon": "lucide-file",
               "title": "Plugin no longer active"
             }
+          },
+          {
+            "id": "75cbedae575c65d7",
+            "type": "leaf",
+            "state": {
+              "type": "todo",
+              "state": {},
+              "icon": "checkmark",
+              "title": "Todo List"
+            }
           }
         ],
-        "currentTab": 10
+        "currentTab": 11
       },
       {
         "id": "d3469bcf3b4ce2dc",
@@ -291,12 +302,26 @@
       "command-palette:Open command palette": false,
       "obsidian-git:Open Git source control": false,
       "pexels-banner:🚩 Pixel Banner Menu": false,
-      "obsidian-importer:Open Importer": false
+      "obsidian-importer:Open Importer": false,
+      "obsidian-excalidraw-plugin:New drawing": false,
+      "moredraw:MoreDraw": false,
+      "templater-obsidian:Templater": false,
+      "vscode-editor:Create Code File": false,
+      "obsidian-memos:Thino": false,
+      "pdf-plus:PDF++: Toggle auto-copy": false,
+      "pdf-plus:PDF++: Toggle auto-focus": false,
+      "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
   "active": "12f6a7f29d1bab09",
   "lastOpenFiles": [
+    "项目/SeaWar/components/SeaWar_ChapterView.components",
+    "项目/SeaWar/Unity中的小坑/Unity编辑器下的内存泄露.md",
+    "项目/SeaWar/最佳网址选择/最佳网址选择.md",
+    "项目/SeaWar/最佳网址选择",
+    "项目/SeaWar/Unity中的小坑/Unity中的小坑.md",
     "项目/SeaWar/热更功能合并/热更功能合并.md",
+    "项目/SeaWar/Unity中的小坑",
     "项目/SeaWar/热更功能合并/CSharp继承的小坑.md",
     "项目/Unity/杂项/Git使用.md",
     "项目/SeaWar/SeaWar.md",
@@ -324,17 +349,11 @@
     "项目/SeaWar/components/SeaWar_资源加载与热更DataView.components",
     "项目/SeaWar/components/SeaWar_热更步骤调整DataView.components",
     "项目/SeaWar/components/SeaWar_DataView.components",
-    "项目/SeaWar/热更步骤调整",
-    "项目/SeaWar/components/SeaWar_ModuleDataView - 副本.components",
     "项目/SeaWar/Test/TestModule.md",
     "Slurped Pages/Unity-GPU Animation.md",
     "游戏开发技术探索/Unity开发技术/Unity开发技术探索.md",
     "项目/SeaWar/打包步骤调整/attachments/（图解1）Inspector显示自定义内容.png",
-    "项目/SeaWar/资源加载与热更/寻址规则.md",
-    "2025-04-07.md",
     "pixel-banner-images/seawar.png",
-    "生活/未命名.md",
-    "生活/记事本.md",
     "pixel-banner-images/e69eca2219f7027be1d9ffe7b8f0291b.jpg",
     "pixel-banner-images/68a9bae16240779f849ffc8e0af7d2d2.jpg",
     "pixel-banner-images/ff7c74d09cd5212fbcd02fc155825420.jpeg",
