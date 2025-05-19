@@ -1,0 +1,190 @@
+{
+  "components": [
+    {
+      "id": "866bf390-cf35-42ee-a8e6-e68bf1da911a",
+      "type": "multi",
+      "titleAlign": "center",
+      "tabTitle": "",
+      "maxWidthRatio": -1,
+      "showBorder": true,
+      "showShadow": false,
+      "createAt": "2025-03-19T08:50:03.046Z",
+      "updateAt": "2025-03-19T08:50:03.046Z",
+      "components": [
+        {
+          "componentId": "9d1cba2f-e30b-4551-a2a5-2cfc11a43456",
+          "layout": {
+            "mobile": {
+              "x": 0,
+              "y": 8,
+              "w": 4,
+              "h": 14
+            },
+            "laptop": {
+              "x": 0,
+              "y": 0,
+              "w": 9,
+              "h": 22
+            }
+          }
+        },
+        {
+          "componentId": "b8f04444-596e-4446-92b3-f4cacbe5f5e7",
+          "layout": {
+            "mobile": {
+              "x": 0,
+              "y": 0,
+              "w": 4,
+              "h": 8
+            },
+            "laptop": {
+              "x": 9,
+              "y": 0,
+              "w": 3,
+              "h": 10
+            }
+          }
+        }
+      ],
+      "layoutType": "grid",
+      "locked": true,
+      "layoutOptions": {}
+    },
+    {
+      "id": "9d1cba2f-e30b-4551-a2a5-2cfc11a43456",
+      "type": "dynamicDataView",
+      "titleAlign": "center",
+      "tabTitle": "",
+      "maxWidthRatio": -1,
+      "showBorder": false,
+      "showShadow": false,
+      "createAt": "2025-03-19T08:50:16.735Z",
+      "updateAt": "2025-03-19T08:50:16.735Z",
+      "viewType": "table",
+      "newPageNameFormat": "{{date:YYYYMMDDHHmmss}} ",
+      "properties": [
+        {
+          "id": "__componentsTitleProperty_0x7c00",
+          "name": "文件名",
+          "type": "text",
+          "isShow": true,
+          "wrap": false,
+          "options": {}
+        },
+        {
+          "id": "98b32128-3650-41a6-85a0-676efbd9ee27",
+          "name": "dateStart",
+          "isShow": true,
+          "type": "date",
+          "options": {}
+        },
+        {
+          "id": "42ff5bbe-a556-4f5a-8c17-64c21aea425c",
+          "name": "dateFinish",
+          "isShow": true,
+          "type": "date",
+          "options": {}
+        },
+        {
+          "id": "1af2025a-c772-424a-8f02-20cd3a6a8de3",
+          "name": "finished",
+          "isShow": true,
+          "type": "checkbox",
+          "options": {}
+        },
+        {
+          "id": "9a1d2684-c65e-4f7e-9a90-b262b26a84f7",
+          "name": "remainTime",
+          "isShow": true,
+          "type": "formula",
+          "options": {
+            "formula": "ifElse(prop('finished'), \"🚩已完成\", html(`<progress max=\"${duration(prop('dateStart'), prop('dateFinish'), 'day')}\" value=\"${duration(now(), prop('dateFinish'), 'day')}\"></progress>`)) "
+          }
+        }
+      ],
+      "templates": [
+        {
+          "id": "b26d8ba8-9428-4218-afd4-7705ec9ead35",
+          "path": "Template/Project Task.md",
+          "name": "Project Task.md",
+          "type": "normal"
+        }
+      ],
+      "groups": [],
+      "colorfulGroups": false,
+      "viewOptions": {
+        "openPageIn": "tab",
+        "openPageAfterCreate": true,
+        "items": [],
+        "pinFiltersToMenuBar": false,
+        "showGrid": false,
+        "heightType": "auto",
+        "heightValue": 600
+      },
+      "groupStates": {
+        "sort": "nameAsc",
+        "statics": [],
+        "orders": [],
+        "hiddens": [],
+        "collapseds": []
+      },
+      "filter": {
+        "id": "860e4ff9-1fc3-4595-8758-184e430100d7",
+        "type": "group",
+        "operator": "and",
+        "conditions": [
+          {
+            "id": "1d5f382e-541c-4fb5-b816-ea674de1d0d2",
+            "type": "jsQuery",
+            "operator": "contains",
+            "property": "${file.tags}",
+            "value": "$item.frontmatter.course != null",
+            "conditions": []
+          },
+          {
+            "id": "0989b147-d66c-4998-a4af-0521b333b5b8",
+            "type": "jsQuery",
+            "operator": "contains",
+            "property": "${file.tags}",
+            "value": "$item.filePath.startsWith($parentFile.fileParent)",
+            "conditions": []
+          },
+          {
+            "id": "604c07f6-9e02-4fb0-86aa-7def8b4bd987",
+            "type": "jsQuery",
+            "operator": "contains",
+            "property": "${file.tags}",
+            "value": "$item.filePath != $parentFile.filePath",
+            "conditions": []
+          },
+          {
+            "id": "94992584-bdc4-4555-abd4-8de7602b6d86",
+            "type": "jsQuery",
+            "operator": "contains",
+            "property": "${file.tags}",
+            "value": "$item.frontmatter?.courseType == \"Section\"",
+            "conditions": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "b8f04444-596e-4446-92b3-f4cacbe5f5e7",
+      "type": "dateProgress",
+      "titleAlign": "center",
+      "tabTitle": "",
+      "maxWidthRatio": -1,
+      "showBorder": true,
+      "showShadow": true,
+      "createAt": "2025-03-19T08:50:29.962Z",
+      "updateAt": "2025-03-19T08:50:29.962Z",
+      "showDateIndicator": true,
+      "showProgressIndicator": true,
+      "startDateTimeType": "$specifiedDateTime",
+      "endDateTimeType": "$specifiedDateTime",
+      "uiType": "ring",
+      "title": "课程进度"
+    }
+  ],
+  "rootComponentId": "866bf390-cf35-42ee-a8e6-e68bf1da911a"
+}
