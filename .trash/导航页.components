@@ -1,0 +1,305 @@
+{
+  "components": [
+    {
+      "id": "4ec972ca-be5b-41de-93b9-a9e32227fd6d",
+      "type": "multi",
+      "titleAlign": "center",
+      "tabTitle": "",
+      "maxWidthRatio": -1,
+      "showBorder": true,
+      "showShadow": false,
+      "createAt": "2025-03-17T15:46:49.320Z",
+      "updateAt": "2025-03-17T15:46:49.320Z",
+      "components": [
+        {
+          "componentId": "e1ed544b-279f-40fa-ac1b-b006fdd347ec",
+          "layout": {
+            "mobile": {
+              "x": 0,
+              "y": 0,
+              "w": 4,
+              "h": 8
+            },
+            "laptop": {
+              "x": 6,
+              "y": 0,
+              "w": 5,
+              "h": 9
+            }
+          }
+        },
+        {
+          "componentId": "20b031f9-f9bc-45ee-ab64-1c1fa9068289",
+          "layout": {
+            "mobile": {
+              "x": 0,
+              "y": 8,
+              "w": 4,
+              "h": 16
+            },
+            "laptop": {
+              "x": 0,
+              "y": 0,
+              "w": 6,
+              "h": 31
+            }
+          }
+        },
+        {
+          "componentId": "3108cdb1-19a9-460b-a385-972e7f293fde",
+          "layout": {
+            "mobile": {
+              "x": 0,
+              "y": 24,
+              "w": 4,
+              "h": 21
+            },
+            "laptop": {
+              "x": 6,
+              "y": 9,
+              "w": 5,
+              "h": 30
+            }
+          }
+        }
+      ],
+      "layoutType": "grid",
+      "locked": true,
+      "layoutOptions": {}
+    },
+    {
+      "id": "20b031f9-f9bc-45ee-ab64-1c1fa9068289",
+      "type": "dynamicDataView",
+      "titleAlign": "center",
+      "tabTitle": "",
+      "maxWidthRatio": -1,
+      "showBorder": false,
+      "showShadow": false,
+      "createAt": "2025-03-17T15:49:41.434Z",
+      "updateAt": "2025-03-17T15:49:41.434Z",
+      "viewType": "gallary",
+      "newPageNameFormat": "{{date:YYYYMMDDHHmmss}} ",
+      "properties": [
+        {
+          "id": "__componentsTitleProperty_0x7c00",
+          "name": "文件名",
+          "type": "text",
+          "isShow": true,
+          "wrap": false,
+          "options": {}
+        }
+      ],
+      "templates": [],
+      "groups": [],
+      "colorfulGroups": true,
+      "viewOptions": {
+        "openPageIn": "tab",
+        "openPageAfterCreate": false,
+        "itemSize": "components--page-card-medium",
+        "showPropertyName": false,
+        "showAllProperties": false,
+        "items": [],
+        "cover": {
+          "type": "image",
+          "source": "property",
+          "fit": "contains",
+          "layout": "components--page-card-cover-landscape",
+          "position": "top",
+          "sourceValue": "banner"
+        },
+        "pinFiltersToMenuBar": true,
+        "showGrid": false,
+        "heightType": "auto",
+        "heightValue": 600
+      },
+      "groupStates": {
+        "sort": "nameAsc",
+        "statics": [],
+        "orders": [],
+        "hiddens": [],
+        "collapseds": []
+      },
+      "filter": {
+        "id": "a3715235-2d3f-462d-9b51-d1c63bd72e30",
+        "type": "group",
+        "operator": "and",
+        "conditions": [
+          {
+            "id": "1fce0e88-afb1-4245-8935-529b2ec877fa",
+            "type": "group",
+            "operator": "or",
+            "conditions": [
+              {
+                "id": "9c34cf54-d5e7-4e56-904e-a972cbf4a2ff",
+                "type": "filter",
+                "operator": "contains",
+                "property": "type",
+                "value": "Life",
+                "conditions": []
+              },
+              {
+                "id": "0c64adba-8d4b-48a2-94f9-c1d81c37f4fc",
+                "type": "filter",
+                "operator": "contains",
+                "property": "type",
+                "value": "Project",
+                "conditions": []
+              },
+              {
+                "id": "f874c19c-49be-4bcd-9593-5f52df85ab7d",
+                "type": "filter",
+                "operator": "contains",
+                "property": "type",
+                "value": "Study",
+                "conditions": []
+              },
+              {
+                "id": "88f6a96f-377d-4e51-b3a5-868d71636c2d",
+                "type": "filter",
+                "operator": "contains",
+                "property": "type",
+                "value": "Work",
+                "conditions": []
+              }
+            ]
+          },
+          {
+            "id": "af487db8-dc3e-47eb-a05f-5fd11b13758f",
+            "type": "filter",
+            "operator": "contains",
+            "property": "${file.tags}",
+            "value": "#home",
+            "conditions": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "e1ed544b-279f-40fa-ac1b-b006fdd347ec",
+      "type": "time",
+      "titleAlign": "center",
+      "tabTitle": "",
+      "maxWidthRatio": -1,
+      "showBorder": true,
+      "showShadow": true,
+      "createAt": "2025-03-17T15:52:11.286Z",
+      "updateAt": "2025-03-17T15:52:11.286Z",
+      "showLunar": true,
+      "hideDateInfo": false,
+      "hideSeconds": false,
+      "hideProgress": false,
+      "backgroundImage": {
+        "fit": "cover",
+        "blurDegree": 3,
+        "url": "pixel-banner-images/pexels-thales13-31159802.jpg"
+      }
+    },
+    {
+      "id": "3108cdb1-19a9-460b-a385-972e7f293fde",
+      "type": "dynamicDataView",
+      "titleAlign": "center",
+      "tabTitle": "",
+      "maxWidthRatio": -1,
+      "showBorder": false,
+      "showShadow": false,
+      "createAt": "2025-03-17T15:53:41.007Z",
+      "updateAt": "2025-03-17T15:53:41.007Z",
+      "viewType": "kanban",
+      "newPageNameFormat": "{{date:YYYYMMDDHHmmss}} ",
+      "properties": [
+        {
+          "id": "__componentsTitleProperty_0x7c00",
+          "name": "文件名",
+          "type": "text",
+          "isShow": true,
+          "wrap": false,
+          "options": {
+            "width": "476"
+          }
+        },
+        {
+          "id": "654c7d63-8aaa-47cd-bfc8-8080e4157a4e",
+          "name": "todoTask",
+          "isShow": true,
+          "type": "taskList",
+          "options": {
+            "showTaskList": false,
+            "showAllTasks": false,
+            "hideTaskFields": true,
+            "timeRecordStyle": "tasks",
+            "insertPosition": {
+              "position": "BottomOfNote",
+              "headingLine": ""
+            },
+            "width": "221"
+          }
+        },
+        {
+          "id": "8432d860-fe6b-410f-94d2-d5a41877db74",
+          "name": "type",
+          "isShow": true,
+          "type": "text",
+          "options": {}
+        }
+      ],
+      "templates": [],
+      "groups": [],
+      "colorfulGroups": true,
+      "viewOptions": {
+        "openPageIn": "tab",
+        "openPageAfterCreate": true,
+        "itemSize": "components--page-card-small",
+        "showPropertyName": true,
+        "showAllProperties": false,
+        "items": [],
+        "cover": {
+          "type": "image",
+          "source": "property",
+          "fit": "cover",
+          "layout": "components--page-card-cover-landscape",
+          "position": "top",
+          "sourceValue": "displayIcon"
+        },
+        "pinFiltersToMenuBar": true,
+        "showGrid": false,
+        "heightType": "auto",
+        "heightValue": 600
+      },
+      "groupStates": {
+        "sort": "nameAsc",
+        "format": "none",
+        "statics": [],
+        "orders": [],
+        "hiddens": [
+          "__$uncategorizedGroup"
+        ],
+        "collapseds": []
+      },
+      "filter": {
+        "id": "3553cfa3-ee96-4310-9127-4513147d6b90",
+        "type": "group",
+        "operator": "and",
+        "conditions": [
+          {
+            "id": "b74adbdf-02c7-4a05-840b-49dda941d469",
+            "type": "filter",
+            "operator": "contains",
+            "property": "${file.tags}",
+            "value": "#mytodo",
+            "conditions": []
+          },
+          {
+            "id": "f8937e8b-3e5f-4e6e-b677-eca667981767",
+            "type": "filter",
+            "operator": "unchecked",
+            "property": "finished",
+            "value": "",
+            "conditions": []
+          }
+        ]
+      },
+      "groupBy": "type"
+    }
+  ],
+  "rootComponentId": "4ec972ca-be5b-41de-93b9-a9e32227fd6d"
+}
