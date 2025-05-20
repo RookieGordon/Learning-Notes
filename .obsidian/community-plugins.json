@@ -4,10 +4,10 @@
   "obsidian-git",
   "customjs",
   "metadata-hider",
-  "components",
   "obsidian-reminder-plugin",
   "editing-toolbar",
   "obsidian-advanced-codeblock",
   "pexels-banner",
-  "obsidian-importer"
+  "obsidian-importer",
+  "components"
 ]
