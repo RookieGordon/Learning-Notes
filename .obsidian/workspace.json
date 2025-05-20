@@ -65,8 +65,7 @@
               "title": "Unity中的小坑"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -361,11 +360,12 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "6183b580edf331a4",
+  "active": "d50b0efc19fd837a",
   "lastOpenFiles": [
-    "项目/SeaWar/Unity中的小坑/编辑器内存泄露.md",
     "项目/SeaWar/Unity中的小坑/Unity中的小坑.md",
+    "项目/SeaWar/Unity中的小坑/编辑器内存泄露.md",
     "项目/SeaWar/网络延迟测试/基于UnityHttps的网络延迟测试.md",
+    "250520_1322144566@qq.com_components_license.md",
     "项目/SeaWar/SeaWar.md",
     "导航/主页.md",
     "项目/SeaWar/网络延迟测试/网络延迟测试.md",
@@ -398,7 +398,6 @@
     "项目/SeaWar/打包步骤调整/多线程并行处理框架.md",
     "项目/SeaWar/热更步骤调整/版本对比和资源下载.md",
     "项目/SeaWar/热更步骤调整/打热更和Assetbundle差异包.md",
-    "项目/SeaWar/热更步骤调整/接入热更后台.md",
     "工作/attachments/Pasted image 20250423102332.png",
     "项目/SeaWar/打包步骤调整/attachments/（图解1）Inspector显示自定义内容.png",
     "pixel-banner-images/seawar.png",
