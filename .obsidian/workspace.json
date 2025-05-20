@@ -297,7 +297,7 @@
             }
           }
         ],
-        "currentTab": 11
+        "currentTab": 4
       },
       {
         "id": "d3469bcf3b4ce2dc",
@@ -310,16 +310,15 @@
             "state": {
               "type": "todo",
               "state": {},
-              "icon": "lucide-file",
-              "title": "Plugin no longer active"
+              "icon": "checkmark",
+              "title": "Todo List"
             }
           }
         ]
       }
     ],
     "direction": "horizontal",
-    "width": 351.5,
-    "collapsed": true
+    "width": 351.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -341,7 +340,7 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "6183b580edf331a4",
+  "active": "ecb137817ae8abd6",
   "lastOpenFiles": [
     "项目/SeaWar/Unity中的小坑/编辑器内存泄露.md",
     "项目/SeaWar/Unity中的小坑/Unity中的小坑.md",
