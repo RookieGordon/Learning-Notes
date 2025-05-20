@@ -29,16 +29,28 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "导航/主页.md",
+                "file": "项目/Test/Test.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "主页"
+              "title": "Test"
+            }
+          },
+          {
+            "id": "2f51f8f684b913b0",
+            "type": "leaf",
+            "state": {
+              "type": "components-file-view",
+              "state": {
+                "file": "components/view/ChapterView.components"
+              },
+              "icon": "gantt-chart",
+              "title": "ChapterView"
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -113,8 +125,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 442.5,
-    "collapsed": true
+    "width": 442.5
   },
   "right": {
     "id": "be1e91dfcb57ce3b",
@@ -131,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "项目/SeaWar/打包步骤调整/多线程并行处理框架.md",
+                "file": "components/view/ChapterView.components",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of 多线程并行处理框架"
+              "title": "ChapterView 的大纲"
             }
           },
           {
@@ -146,7 +157,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "项目/SeaWar/热更步骤调整/版本对比和资源下载.md",
+                "file": "components/view/ChapterView.components",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -156,7 +167,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for 版本对比和资源下载"
+              "title": "ChapterView 的反向链接列表"
             }
           },
           {
@@ -165,12 +176,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "项目/SeaWar/热更步骤调整/版本对比和资源下载.md",
+                "file": "components/view/ChapterView.components",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from 版本对比和资源下载"
+              "title": "ChapterView 的出链列表"
             }
           },
           {
@@ -199,86 +210,6 @@
             }
           },
           {
-            "id": "a831dc920d3b8b1b",
-            "type": "leaf",
-            "state": {
-              "type": "todo",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "插件不再活动"
-            }
-          },
-          {
-            "id": "a881c6470ee17eec",
-            "type": "leaf",
-            "state": {
-              "type": "todo",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "插件不再活动"
-            }
-          },
-          {
-            "id": "d90f5c9c27551c3d",
-            "type": "leaf",
-            "state": {
-              "type": "todo",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "插件不再活动"
-            }
-          },
-          {
-            "id": "8ca75207bd2468a9",
-            "type": "leaf",
-            "state": {
-              "type": "todo",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "插件不再活动"
-            }
-          },
-          {
-            "id": "ac67b03070e8b744",
-            "type": "leaf",
-            "state": {
-              "type": "todo",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "插件不再活动"
-            }
-          },
-          {
-            "id": "b64ffa6dae0b1146",
-            "type": "leaf",
-            "state": {
-              "type": "todo",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "插件不再活动"
-            }
-          },
-          {
-            "id": "75cbedae575c65d7",
-            "type": "leaf",
-            "state": {
-              "type": "todo",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "插件不再活动"
-            }
-          },
-          {
-            "id": "14bd1dffa234dcd8",
-            "type": "leaf",
-            "state": {
-              "type": "todo",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "插件不再活动"
-            }
-          },
-          {
             "id": "8b3ae385b97d6a19",
             "type": "leaf",
             "state": {
@@ -288,8 +219,7 @@
               "title": "Todo List"
             }
           }
-        ],
-        "currentTab": 13
+        ]
       },
       {
         "id": "d3469bcf3b4ce2dc",
@@ -302,16 +232,15 @@
             "state": {
               "type": "todo",
               "state": {},
-              "icon": "lucide-file",
-              "title": "插件不再活动"
+              "icon": "checkmark",
+              "title": "Todo List"
             }
           }
         ]
       }
     ],
     "direction": "horizontal",
-    "width": 351.5,
-    "collapsed": true
+    "width": 482.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -333,23 +262,24 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "45d0b7cce22ca023",
+  "active": "2f51f8f684b913b0",
   "lastOpenFiles": [
+    "components/view/20250410133707.components",
+    "components/view/导航页.components",
+    "项目/Test/TestModule1/Task1.md",
+    "项目/Test/TestModule1/Module1.md",
+    "项目/Test/Test.md",
+    "导航/主页.md",
     "项目/Test/TestModule2/Task2.md",
     "项目/Test/TestModule2/Module2.md",
     "项目/Test/components/Test_ModuleDataView.components",
     "项目/Test/components/Test_DataView.components",
     "项目/Test/TestModule1/Task3.md",
-    "项目/Test/TestModule1/Task1.md",
-    "项目/Test/TestModule1/Module1.md",
     "项目/Test/TestModule2",
     "项目/Test/components",
     "项目/Test/TestModule1",
-    "项目/Test/Test.md",
     "项目/Test",
-    "components/view/导航页.components",
     "游戏开发技术探索/Unity开发技术/Unity开发技术探索.md",
-    "导航/主页.md",
     "导航/说明.md",
     "项目/SeaWar/Unity中的小坑/编辑器内存泄露.md",
     "项目/SeaWar/Unity中的小坑/Unity中的小坑.md",
@@ -370,7 +300,6 @@
     "Template/Course Module.md",
     "Template/Course.md",
     "项目/SeaWar/热更功能合并/热更功能合并.md",
-    "项目/SeaWar/热更功能合并/CSharp继承的小坑.md",
     "工作/attachments/Pasted image 20250423102332.png",
     "项目/SeaWar/打包步骤调整/attachments/（图解1）Inspector显示自定义内容.png",
     "pixel-banner-images/seawar.png",
