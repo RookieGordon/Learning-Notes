@@ -141,7 +141,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 442.5
+    "width": 442.5,
+    "collapsed": true
   },
   "right": {
     "id": "be1e91dfcb57ce3b",
@@ -360,13 +361,13 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "8b3ae385b97d6a19",
+  "active": "6183b580edf331a4",
   "lastOpenFiles": [
     "项目/SeaWar/Unity中的小坑/编辑器内存泄露.md",
     "项目/SeaWar/Unity中的小坑/Unity中的小坑.md",
+    "项目/SeaWar/网络延迟测试/基于UnityHttps的网络延迟测试.md",
     "项目/SeaWar/SeaWar.md",
     "导航/主页.md",
-    "项目/SeaWar/网络延迟测试/基于UnityHttps的网络延迟测试.md",
     "项目/SeaWar/网络延迟测试/网络延迟测试.md",
     "项目/SeaWar/components/网络延迟测试_View.components",
     "项目/SeaWar/最佳网址选择/基于UntiyHttps的网络延迟测试.md",
