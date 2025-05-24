@@ -246,11 +246,22 @@
             "state": {
               "type": "todo",
               "state": {},
+              "icon": "lucide-file",
+              "title": "插件不再活动"
+            }
+          },
+          {
+            "id": "2ac8b688a3788e9e",
+            "type": "leaf",
+            "state": {
+              "type": "todo",
+              "state": {},
               "icon": "checkmark",
               "title": "Todo List"
             }
           }
-        ]
+        ],
+        "currentTab": 6
       },
       {
         "id": "d3469bcf3b4ce2dc",
@@ -263,8 +274,8 @@
             "state": {
               "type": "todo",
               "state": {},
-              "icon": "checkmark",
-              "title": "Todo List"
+              "icon": "lucide-file",
+              "title": "插件不再活动"
             }
           }
         ]
@@ -294,7 +305,7 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "9bae3fe74e253f59",
+  "active": "2ac8b688a3788e9e",
   "lastOpenFiles": [
     "项目/SeaWar/下载功能/下载功能.md",
     "项目/SeaWar/SeaWar.md",
