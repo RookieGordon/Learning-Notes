@@ -24,77 +24,21 @@
             }
           },
           {
-            "id": "cc994616c4e3a632",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "导航/主页.md",
-                "mode": "preview",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "主页"
-            }
-          },
-          {
-            "id": "a2a45675551242fd",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "项目/SeaWar/下载功能/下载和断点续传.md",
-                "mode": "preview",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "下载和断点续传"
-            }
-          },
-          {
             "id": "f4432fd5da2bf297",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "项目/SeaWar/SeaWar.md",
-                "mode": "preview",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "SeaWar"
-            }
-          },
-          {
-            "id": "a26352cf7080560f",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "项目/SeaWar/下载功能/下载功能.md",
-                "mode": "preview",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "下载功能"
-            }
-          },
-          {
-            "id": "9bae3fe74e253f59",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "项目/SeaWar/下载功能/下载和断点续传.md",
+                "file": "项目/SeaWar/杂项代办/杂项代办.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "下载和断点续传"
+              "title": "杂项代办"
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -273,9 +217,19 @@
               "icon": "lucide-file",
               "title": "插件不再活动"
             }
+          },
+          {
+            "id": "e0af82fc04f76bff",
+            "type": "leaf",
+            "state": {
+              "type": "todo",
+              "state": {},
+              "icon": "checkmark",
+              "title": "Todo List"
+            }
           }
         ],
-        "currentTab": 6
+        "currentTab": 7
       },
       {
         "id": "d3469bcf3b4ce2dc",
@@ -308,15 +262,37 @@
       "command-palette:打开命令面板": false,
       "obsidian-git:Open Git source control": false,
       "pexels-banner:🚩 Pixel Banner Menu": false,
-      "obsidian-importer:Open Importer": false
+      "obsidian-importer:Open Importer": false,
+      "obsidian-excalidraw-plugin:新建绘图文件": false,
+      "moredraw:MoreDraw": false,
+      "templater-obsidian:Templater": false,
+      "vscode-editor:新建代码文件": false,
+      "obsidian-memos:Thino": false,
+      "pdf-plus:PDF++: Toggle auto-copy": false,
+      "pdf-plus:PDF++: Toggle auto-focus": false,
+      "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "a2a45675551242fd",
+  "active": "f4432fd5da2bf297",
   "lastOpenFiles": [
+    "项目/SeaWar/components/杂项代办_View.components",
     "项目/SeaWar/SeaWar.md",
+    "项目/SeaWar/杂项代办/杂项代办.md",
+    "项目/SeaWar/杂项代办",
+    "项目/SeaWar/工具/工具包.md",
+    "项目/SeaWar/Unity中的小坑/Unity中的小坑.md",
+    "项目/SeaWar/App强更流程/App强更流程.md",
+    "项目/SeaWar/App强更流程/未命名.md",
+    "项目/SeaWar/components/App强更流程_View.components",
     "导航/主页.md",
-    "项目/SeaWar/下载功能/下载功能.md",
+    "项目/SeaWar/App强更流程",
+    "conflict-files-obsidian-git.md",
     "项目/SeaWar/下载功能/下载和断点续传.md",
+    "项目/SeaWar/工具/Http下载工具.md",
+    "项目/SeaWar/工具/Http网址检测.md",
+    "项目/SeaWar/工具",
+    "项目/SeaWar/components/工具包_View.components",
+    "项目/SeaWar/下载功能/下载功能.md",
     "项目/SeaWar/components/下载功能_View.components",
     "项目/SeaWar/下载功能",
     "导航/说明.md",
@@ -325,30 +301,16 @@
     "项目/Test/components/Test_ModuleDataView.components",
     "项目/Test/Test.md",
     "components/view/ChapterView.components",
-    "components/view/20250410133707.components",
-    "components/view/导航页.components",
     "项目/Test/TestModule1/Task1.md",
     "项目/Test/TestModule1/Module1.md",
     "项目/Test/TestModule2/Task2.md",
     "项目/Test/TestModule2/Module2.md",
     "项目/Test/TestModule1/Task3.md",
-    "项目/Test/TestModule2",
-    "项目/Test/components",
-    "项目/Test/TestModule1",
     "游戏开发技术探索/Unity开发技术/Unity开发技术探索.md",
     "项目/SeaWar/Unity中的小坑/编辑器内存泄露.md",
-    "项目/SeaWar/Unity中的小坑/Unity中的小坑.md",
     "项目/SeaWar/网络延迟测试/基于UnityHttps的网络延迟测试.md",
     "250520_1322144566@qq.com_components_license.md",
     "项目/SeaWar/网络延迟测试/网络延迟测试.md",
-    "项目/SeaWar/最佳网址选择/基于UntiyHttps的网络延迟测试.md",
-    "项目/SeaWar/最佳网址选择/网络延迟测试.md",
-    "Template/Course Task.md",
-    "项目/SeaWar/最佳网址选择/网址延迟选择.md",
-    "项目/SeaWar/最佳网址选择/最佳网址选择.md",
-    "项目/SeaWar/Unity中的小坑/Unity编辑器下的内存泄露.md",
-    "Template/Project Module.md",
-    "Template/Course Module.md",
     "工作/attachments/Pasted image 20250423102332.png",
     "项目/SeaWar/打包步骤调整/attachments/（图解1）Inspector显示自定义内容.png",
     "pixel-banner-images/seawar.png",
