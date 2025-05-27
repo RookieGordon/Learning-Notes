@@ -37,7 +37,8 @@
               "title": "SeaWar"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -272,14 +273,14 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "d50b0efc19fd837a",
+  "active": "ce5d6ce2062b21bf",
   "lastOpenFiles": [
+    "导航/主页.md",
     "项目/SeaWar/SeaWar.md",
     "项目/SeaWar/杂项代办/杂项代办.md",
     "项目/SeaWar/杂项代办/6月代办杂项.md",
     "项目/SeaWar/杂项代办/6月杂项代办.md",
     "项目/SeaWar/components/杂项代办_View.components",
-    "导航/主页.md",
     "项目/SeaWar/components/6月杂项代办_View.components",
     "项目/SeaWar/杂项代办",
     "项目/SeaWar/工具/工具包.md",
