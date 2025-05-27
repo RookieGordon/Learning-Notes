@@ -183,9 +183,7 @@
       "startDateTimeType": "$specifiedDateTime",
       "endDateTimeType": "$specifiedDateTime",
       "uiType": "ring",
-      "title": "模块进度",
-      "startDateTime": "2025-05-27 11:08:49",
-      "endDateTime": "2026-04-07 11:08:52"
+      "title": "模块进度"
     }
   ],
   "rootComponentId": "866bf390-cf35-42ee-a8e6-e68bf1da911a"
