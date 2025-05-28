@@ -211,19 +211,9 @@
               "icon": "git-pull-request",
               "title": "Source Control"
             }
-          },
-          {
-            "id": "e0af82fc04f76bff",
-            "type": "leaf",
-            "state": {
-              "type": "todo",
-              "state": {},
-              "icon": "checkmark",
-              "title": "Todo List"
-            }
           }
         ],
-        "currentTab": 5
+        "currentTab": 4
       },
       {
         "id": "d3469bcf3b4ce2dc",
@@ -244,7 +234,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 482.5
+    "width": 482.5,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -266,12 +257,12 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "e0af82fc04f76bff",
+  "active": "8cc95ee7cccb7524",
   "lastOpenFiles": [
     "项目/SeaWar/SeaWar.md",
-    "项目/SeaWar/工具/工具包.md",
-    "项目/SeaWar/工具/多线程并行处理框架.md",
     "导航/主页.md",
+    "项目/SeaWar/工具/多线程并行处理框架.md",
+    "项目/SeaWar/工具/工具包.md",
     "项目/SeaWar/Unity中的小坑/资源导入.md",
     "项目/SeaWar/attachments/ParallelTaskProcessor.cs",
     "项目/SeaWar/工具/Http下载工具.md",
