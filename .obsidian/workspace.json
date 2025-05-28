@@ -271,7 +271,7 @@
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 4
       },
       {
         "id": "d3469bcf3b4ce2dc",
@@ -292,8 +292,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 482.5,
-    "collapsed": true
+    "width": 482.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -315,7 +314,7 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "cfb99fae577d24b7",
+  "active": "ecb137817ae8abd6",
   "lastOpenFiles": [
     "项目/SeaWar/工具/工具包.md",
     "项目/SeaWar/SeaWar.md",
