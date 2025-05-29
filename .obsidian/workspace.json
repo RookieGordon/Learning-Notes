@@ -51,8 +51,7 @@
               "title": "杂项代办"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -145,13 +144,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "项目/SeaWar/SeaWar.md",
+                "file": "导航/主页.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "SeaWar 的大纲"
+              "title": "主页 的大纲"
             }
           },
           {
@@ -258,13 +257,16 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "ec22c2e425592b20",
+  "active": "d50b0efc19fd837a",
   "lastOpenFiles": [
-    "项目/SeaWar/杂项代办/杂项代办.md",
-    "项目/SeaWar/杂项代办/6月代办杂项.md",
     "项目/SeaWar/SeaWar.md",
-    "项目/SeaWar/工具/多线程并行处理框架.md",
+    "项目/SeaWar/杂项代办/杂项代办.md",
     "导航/主页.md",
+    "wallpapers/S-1.紫灵 凡人修仙传.jpg",
+    "wallpapers",
+    "新建文件夹",
+    "项目/SeaWar/杂项代办/6月代办杂项.md",
+    "项目/SeaWar/工具/多线程并行处理框架.md",
     "项目/SeaWar/工具/工具包.md",
     "项目/SeaWar/Unity中的小坑/资源导入.md",
     "项目/SeaWar/attachments/ParallelTaskProcessor.cs",
@@ -290,22 +292,18 @@
     "conflict-files-obsidian-git.md",
     "项目/SeaWar/下载功能/下载和断点续传.md",
     "项目/SeaWar/工具",
-    "项目/SeaWar/components/工具包_View.components",
     "项目/SeaWar/下载功能/下载功能.md",
-    "项目/SeaWar/components/下载功能_View.components",
     "导航/说明.md",
     "生活/未命名.md",
     "项目/Test/Test.md",
     "项目/Test/TestModule1/Task1.md",
     "项目/Test/TestModule1/Module1.md",
-    "项目/Test/TestModule2/Task2.md",
     "工作/attachments/Pasted image 20250423102332.png",
     "pixel-banner-images/seawar.png",
     "pixel-banner-images/e69eca2219f7027be1d9ffe7b8f0291b.jpg",
     "pixel-banner-images/68a9bae16240779f849ffc8e0af7d2d2.jpg",
     "pixel-banner-images/ff7c74d09cd5212fbcd02fc155825420.jpeg",
     "pixel-banner-images/0792b73ccc8689a6e6a5bb46315b1a09.jpeg",
-    "HTML import/Attachments/v2-1cdbfcf07644a98948a0daa8b96977f5_l(1).jpg",
     "未命名.canvas"
   ]
 }
