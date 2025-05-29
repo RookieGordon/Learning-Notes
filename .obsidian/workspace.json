@@ -37,7 +37,8 @@
               "title": "SeaWar"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -196,8 +197,19 @@
               "icon": "git-pull-request",
               "title": "Source Control"
             }
+          },
+          {
+            "id": "ebe32b75f9ebe449",
+            "type": "leaf",
+            "state": {
+              "type": "todo",
+              "state": {},
+              "icon": "checkmark",
+              "title": "Todo List"
+            }
           }
-        ]
+        ],
+        "currentTab": 5
       },
       {
         "id": "d3469bcf3b4ce2dc",
@@ -212,8 +224,8 @@
               "type": "todo",
               "state": {},
               "pinned": true,
-              "icon": "checkmark",
-              "title": "Todo List"
+              "icon": "lucide-file",
+              "title": "插件不再活动"
             }
           }
         ]
@@ -243,15 +255,16 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "d50b0efc19fd837a",
+  "active": "ec22c2e425592b20",
   "lastOpenFiles": [
+    "项目/SeaWar/App强更流程/App强更流程.md",
     "项目/SeaWar/SeaWar.md",
+    "导航/主页.md",
     "项目/SeaWar/工具/工具包.md",
     "项目/SeaWar/工具/多线程并行处理框架.md",
     "项目/SeaWar/杂项代办/杂项代办.md",
     "项目/SeaWar/打包步骤调整/寻址规则和Inspector显示.md",
     "项目/SeaWar/打包步骤调整/打包步骤调整.md",
-    "导航/主页.md",
     "wallpapers/S-1.紫灵 凡人修仙传.jpg",
     "wallpapers",
     "新建文件夹",
@@ -269,7 +282,6 @@
     "项目/SeaWar/网络延迟测试/网络延迟测试.md",
     "项目/SeaWar/网络延迟测试/基于UnityHttps的网络延迟测试.md",
     "项目/SeaWar/Unity中的小坑/Unity中的小坑.md",
-    "项目/SeaWar/App强更流程/App强更流程.md",
     "项目/SeaWar/杂项代办/6月杂项代办.md",
     "项目/SeaWar/components/杂项代办_View.components",
     "项目/SeaWar/components/6月杂项代办_View.components",
