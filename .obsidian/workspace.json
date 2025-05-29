@@ -36,9 +36,37 @@
               "icon": "lucide-file",
               "title": "SeaWar"
             }
+          },
+          {
+            "id": "3c6991c1945f130a",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "项目/SeaWar/杂项代办/杂项代办.md",
+                "mode": "preview",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "杂项代办"
+            }
+          },
+          {
+            "id": "57dc5cf62fda471c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "项目/SeaWar/杂项代办/6月代办杂项.md",
+                "mode": "preview",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "6月代办杂项"
+            }
           }
         ],
-        "currentTab": 1
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -255,14 +283,15 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "ec22c2e425592b20",
+  "active": "57dc5cf62fda471c",
   "lastOpenFiles": [
-    "项目/SeaWar/App强更流程/App强更流程.md",
-    "项目/SeaWar/SeaWar.md",
-    "导航/主页.md",
-    "项目/SeaWar/工具/工具包.md",
-    "项目/SeaWar/工具/多线程并行处理框架.md",
     "项目/SeaWar/杂项代办/杂项代办.md",
+    "项目/SeaWar/SeaWar.md",
+    "项目/SeaWar/工具/工具包.md",
+    "项目/SeaWar/Unity中的小坑/Unity中的小坑.md",
+    "项目/SeaWar/App强更流程/App强更流程.md",
+    "导航/主页.md",
+    "项目/SeaWar/工具/多线程并行处理框架.md",
     "项目/SeaWar/打包步骤调整/寻址规则和Inspector显示.md",
     "项目/SeaWar/打包步骤调整/打包步骤调整.md",
     "wallpapers/S-1.紫灵 凡人修仙传.jpg",
@@ -281,7 +310,6 @@
     "项目/SeaWar/工具/Http网址检测.md",
     "项目/SeaWar/网络延迟测试/网络延迟测试.md",
     "项目/SeaWar/网络延迟测试/基于UnityHttps的网络延迟测试.md",
-    "项目/SeaWar/Unity中的小坑/Unity中的小坑.md",
     "项目/SeaWar/杂项代办/6月杂项代办.md",
     "项目/SeaWar/components/杂项代办_View.components",
     "项目/SeaWar/components/6月杂项代办_View.components",
