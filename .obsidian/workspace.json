@@ -52,7 +52,7 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -127,8 +127,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 442.5,
-    "collapsed": true
+    "width": 442.5
   },
   "right": {
     "id": "be1e91dfcb57ce3b",
@@ -211,19 +210,9 @@
               "icon": "git-pull-request",
               "title": "Source Control"
             }
-          },
-          {
-            "id": "797b9a767ab8d5df",
-            "type": "leaf",
-            "state": {
-              "type": "todo",
-              "state": {},
-              "icon": "checkmark",
-              "title": "Todo List"
-            }
           }
         ],
-        "currentTab": 5
+        "currentTab": 4
       },
       {
         "id": "d3469bcf3b4ce2dc",
@@ -233,11 +222,13 @@
           {
             "id": "fc4270e1df633b3a",
             "type": "leaf",
+            "pinned": true,
             "state": {
               "type": "todo",
               "state": {},
-              "icon": "lucide-file",
-              "title": "插件不再活动"
+              "pinned": true,
+              "icon": "checkmark",
+              "title": "Todo List"
             }
           }
         ]
@@ -267,10 +258,10 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "50979894953e84c1",
+  "active": "ec22c2e425592b20",
   "lastOpenFiles": [
-    "项目/SeaWar/杂项代办/6月代办杂项.md",
     "项目/SeaWar/杂项代办/杂项代办.md",
+    "项目/SeaWar/杂项代办/6月代办杂项.md",
     "项目/SeaWar/SeaWar.md",
     "项目/SeaWar/工具/多线程并行处理框架.md",
     "导航/主页.md",
