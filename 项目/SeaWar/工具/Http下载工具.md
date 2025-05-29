@@ -9,7 +9,7 @@ projectType: Task
 fileDirPath: 项目/SeaWar/工具
 dateStart: 2025-05-25
 dateFinish: 2025-05-25
-finished: false
+finished: true
 displayIcon: pixel-banner-images/项目任务.png
 ---
 断点续传功能，是一个很简单和普遍的功能，但是该功能，需要资源服和客户端一起支持才可以，具体原因如下：
@@ -37,6 +37,7 @@ var request = new HttpRequestMessage(HttpMethod.Get, fileUrl);
 request.Headers.Range = new RangeHeaderValue(startByte, null);
 
 // 使用ETag或Last-Modified作为条件
+// 优先使用ETag（因为Last-Modified可能存在时间同步问题）。
 if (!string.IsNullOrEmpty(initialEtag))
 {
     request.Headers.IfRange = new RangeConditionHeaderValue(new EntityTagHeaderValue(initialEtag));
