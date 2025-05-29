@@ -38,20 +38,6 @@
             }
           },
           {
-            "id": "3c6991c1945f130a",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "项目/SeaWar/杂项代办/杂项代办.md",
-                "mode": "preview",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "杂项代办"
-            }
-          },
-          {
             "id": "57dc5cf62fda471c",
             "type": "leaf",
             "state": {
@@ -66,7 +52,7 @@
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -283,8 +269,9 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "57dc5cf62fda471c",
+  "active": "ec22c2e425592b20",
   "lastOpenFiles": [
+    "项目/SeaWar/杂项代办/6月代办杂项.md",
     "项目/SeaWar/杂项代办/杂项代办.md",
     "项目/SeaWar/SeaWar.md",
     "项目/SeaWar/工具/工具包.md",
@@ -297,7 +284,6 @@
     "wallpapers/S-1.紫灵 凡人修仙传.jpg",
     "wallpapers",
     "新建文件夹",
-    "项目/SeaWar/杂项代办/6月代办杂项.md",
     "项目/SeaWar/Unity中的小坑/资源导入.md",
     "项目/SeaWar/attachments/ParallelTaskProcessor.cs",
     "项目/SeaWar/工具/Http下载工具.md",
