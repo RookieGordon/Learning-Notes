@@ -197,9 +197,19 @@
               "icon": "git-pull-request",
               "title": "Source Control"
             }
+          },
+          {
+            "id": "797b9a767ab8d5df",
+            "type": "leaf",
+            "state": {
+              "type": "todo",
+              "state": {},
+              "icon": "checkmark",
+              "title": "Todo List"
+            }
           }
         ],
-        "currentTab": 4
+        "currentTab": 5
       },
       {
         "id": "d3469bcf3b4ce2dc",
@@ -212,8 +222,8 @@
             "state": {
               "type": "todo",
               "state": {},
-              "icon": "checkmark",
-              "title": "Todo List"
+              "icon": "lucide-file",
+              "title": "插件不再活动"
             }
           }
         ]
@@ -243,7 +253,7 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "ec22c2e425592b20",
+  "active": "797b9a767ab8d5df",
   "lastOpenFiles": [
     "项目/SeaWar/杂项代办/杂项代办.md",
     "项目/SeaWar/杂项代办/6月代办杂项.md",
