@@ -22,8 +22,23 @@
               "icon": "lucide-file",
               "title": "主页"
             }
+          },
+          {
+            "id": "f0fadd6902316435",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "项目/ET8.1/ET框架结构.md",
+                "mode": "preview",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "ET框架结构"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -98,8 +113,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 442.5,
-    "collapsed": true
+    "width": 442.5
   },
   "right": {
     "id": "be1e91dfcb57ce3b",
@@ -240,10 +254,13 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "4719768e372023f3",
+  "active": "f0fadd6902316435",
   "lastOpenFiles": [
-    "项目/SeaWar/SeaWar.md",
+    "AI问答集锦/关于Unity中动画性能优化的问答.md",
     "导航/主页.md",
+    "游戏开发技术探索/Unity开发技术/动画性能优化/Unity动画性能优化.md",
+    "游戏开发技术探索/Unity开发技术/Unity开发技术探索.md",
+    "项目/SeaWar/SeaWar.md",
     "项目/SeaWar/工具/工具包.md",
     "项目/SeaWar/工具/Http下载工具.md",
     "项目/SeaWar/杂项代办/6月代办杂项.md",
@@ -279,9 +296,6 @@
     "项目/SeaWar/工具",
     "项目/SeaWar/下载功能/下载功能.md",
     "导航/说明.md",
-    "生活/未命名.md",
-    "项目/Test/Test.md",
-    "项目/Test/TestModule1/Task1.md",
     "工作/attachments/Pasted image 20250423102332.png",
     "pixel-banner-images/seawar.png",
     "pixel-banner-images/e69eca2219f7027be1d9ffe7b8f0291b.jpg",
