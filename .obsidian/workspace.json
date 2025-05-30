@@ -51,8 +51,7 @@
               "title": "ET8.1"
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -269,10 +268,11 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "07bfb89e9f6128ae",
+  "active": "4719768e372023f3",
   "lastOpenFiles": [
-    "导航/主页.md",
     "项目/ET8.1/框架介绍/ET框架结构.md",
+    "项目/ET8.1/ET8.1.md",
+    "导航/主页.md",
     "项目/ET8.1/框架介绍/ET框架介绍.md",
     "项目/ET8.1/网络框架/网络框架.md",
     "项目/ET8.1/网络框架/网络层.md",
@@ -289,7 +289,6 @@
     "项目/ET8.1/重要组件",
     "项目/ET8.1/框架介绍/AAA.md",
     "项目/ET8.1/components/ET8.1_View.components",
-    "项目/ET8.1/ET8.1.md",
     "项目/ET8.1/框架介绍",
     "项目/ET8.1/components/ET8.1_CourseView.components",
     "项目/ET8.1/components",
