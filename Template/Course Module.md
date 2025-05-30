@@ -8,7 +8,7 @@ for (let index = 0; index < paths.length - 1; index++) {
 }
 let projectName = paths[paths.length - 2];
 let moduleName = tp.file.title;
-let newComponentName = `${projectName}_ChapterView`;
+let newComponentName = `${projectName}_View`;
 let vaultPath = tp.user.getVaultPath(tp.file.path(), tp.app.vault.getName());
 tp.user.copyComponent(vaultPath, "ChapterView", `${projDir}/components`, newComponentName);
 -%>
@@ -25,7 +25,7 @@ cssclasses: editor-full
 
 ---
 
-# <%moduleName%>模块设计思路
+# <%moduleName%>章节学习目标
  *TODO*
  
 # 任务列表
