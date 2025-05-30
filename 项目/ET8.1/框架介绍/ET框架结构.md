@@ -1,16 +1,16 @@
 ---
 tags:
-  - ET
-  - ET/CodeLoader
-  - ET/FiberManager
-  - ET/Fiber
-  - ET/MainThreadScheduler
-  - ET/ThreadScheduler
-  - ET/ThreadPoolScheduler
-  - ET/Entity
-  - ET/Unit
-  - ET/启动流程
-  - ET/登录流程
+  - ET8.1
+  - ET8.1/CodeLoader
+  - ET8.1/FiberManager
+  - ET8.1/Fiber
+  - ET8.1/MainThreadScheduler
+  - ET8.1/ThreadScheduler
+  - ET8.1/ThreadPoolScheduler
+  - ET8.1/Entity
+  - ET8.1/Unit
+  - ET8.1/启动流程
+  - ET8.1/登录流程
 course: ET8.1
 type: Study
 fileDirPath: 项目/ET8.1
