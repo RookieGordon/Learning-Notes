@@ -22,8 +22,23 @@
               "icon": "lucide-file",
               "title": "主页"
             }
+          },
+          {
+            "id": "054b92b3289da117",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "项目/ET8.1/未命名.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "未命名"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -239,17 +254,19 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "226fa1583cfbc27b",
+  "active": "054b92b3289da117",
   "lastOpenFiles": [
+    "导航/主页.md",
+    "项目/ET8.1/未命名.md",
+    "项目/ET8.1",
     "项目/ET/框架结构/ET框架结构.md",
     "项目/ET/components/ET_View.components",
     "项目/ET/ET8.1课程.md",
     "项目/ET/框架结构",
     "项目/ET/components/ET_CourseView.components",
     "项目/ET/components",
-    "导航/主页.md",
     "项目/ET/ET8.1.md",
-    "项目/ET8.1/ET框架结构.md",
+    "项目/ET8.1框架/ET框架结构.md",
     "项目/ET",
     "AI问答集锦/关于Unity中动画性能优化的问答.md",
     "游戏开发技术探索/Unity开发技术/动画性能优化/Unity动画性能优化.md",
@@ -279,7 +296,6 @@
     "项目/SeaWar/网络延迟测试/网络延迟测试.md",
     "项目/SeaWar/网络延迟测试/基于UnityHttps的网络延迟测试.md",
     "项目/SeaWar/杂项代办/6月杂项代办.md",
-    "项目/SeaWar/components/杂项代办_View.components",
     "工作/attachments/Pasted image 20250423102332.png",
     "pixel-banner-images/seawar.png",
     "pixel-banner-images/e69eca2219f7027be1d9ffe7b8f0291b.jpg",
