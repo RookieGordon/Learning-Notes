@@ -1,5 +1,7 @@
 ---
 tags:
+  - ET8.1/框架介绍/框架结构
+  - mytodo
   - ET8.1
   - ET8.1/CodeLoader
   - ET8.1/FiberManager
@@ -11,9 +13,15 @@ tags:
   - ET8.1/Unit
   - ET8.1/启动流程
   - ET8.1/登录流程
-course: ET8.1
 type: Study
-fileDirPath: 项目/ET8.1
+course: ET8.1
+courseType: Section
+fileDirPath: 项目/ET8.1/框架介绍
+dateStart: 2025-05-30
+dateFinish: 2025-05-30
+finished: true
+banner: Study
+displayIcon: pixel-banner-images/章节任务.png
 ---
 # World和Singleton抽象类
 `World`是游戏入口的单例对象，其他单例类都必须继承自`Singleton`抽象类，并且都被`World`所管理（`singletons`）

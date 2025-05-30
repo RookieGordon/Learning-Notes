@@ -1,5 +1,0 @@
----
-tags:
-  - ET
-  - ET/TimerComponent
----

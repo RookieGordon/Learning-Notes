@@ -29,12 +29,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "项目/ET8.1/框架介绍/AAA.md",
+                "file": "项目/ET8.1框架/网络框架/网络层.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "AAA"
+              "title": "网络层"
             }
           }
         ],
@@ -254,11 +254,20 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "df177eef7e36556d",
+  "active": "89a66892aa3b87ae",
   "lastOpenFiles": [
-    "项目/ET8.1/框架介绍/ET框架结构.md",
-    "项目/ET8.1/框架介绍/AAA.md",
+    "项目/ET8.1/网络框架/框架.md",
+    "项目/ET8.1/网络框架/网络框架.md",
+    "项目/ET8.1/重要组件/重要组件.md",
+    "项目/ET8.1/网络框架",
+    "项目/ET8.1/重要组件/CoroutineLockComponent协程锁.md",
+    "项目/ET8.1/重要组件/TimerComponent组件.md",
+    "项目/ET8.1/重要组件/ObjectWait.md",
+    "项目/ET8.1/重要组件/组件.md",
     "项目/ET8.1/框架介绍/ET框架介绍.md",
+    "项目/ET8.1/框架介绍/ET框架结构.md",
+    "项目/ET8.1/重要组件",
+    "项目/ET8.1/框架介绍/AAA.md",
     "导航/主页.md",
     "项目/ET8.1/components/ET8.1_View.components",
     "项目/ET8.1/ET8.1.md",
@@ -271,9 +280,7 @@
     "项目/ET/ET8.1课程.md",
     "项目/ET/框架结构",
     "项目/ET/components/ET_CourseView.components",
-    "项目/ET/components",
     "项目/ET/ET8.1.md",
-    "项目/ET",
     "AI问答集锦/关于Unity中动画性能优化的问答.md",
     "游戏开发技术探索/Unity开发技术/动画性能优化/Unity动画性能优化.md",
     "游戏开发技术探索/Unity开发技术/Unity开发技术探索.md",
@@ -284,18 +291,10 @@
     "项目/SeaWar/杂项代办/杂项代办.md",
     "项目/SeaWar/Unity中的小坑/Unity中的小坑.md",
     "项目/SeaWar/App强更流程/App强更流程.md",
-    "项目/SeaWar/工具/多线程并行处理框架.md",
-    "项目/SeaWar/打包步骤调整/寻址规则和Inspector显示.md",
-    "项目/SeaWar/打包步骤调整/打包步骤调整.md",
     "wallpapers/S-1.紫灵 凡人修仙传.jpg",
-    "项目/SeaWar/Unity中的小坑/资源导入.md",
     "项目/SeaWar/打包步骤调整/attachments/（图解1）Inspector显示自定义内容.png",
-    "项目/SeaWar/打包步骤调整/多线程并行处理框架.md",
     "项目/SeaWar/attachments/Pasted image 20250527145149.png",
     "项目/SeaWar/工具/attachments/Pasted image 20250527145129.png",
-    "项目/SeaWar/Unity中的小坑/编辑器内存泄露.md",
-    "项目/SeaWar/工具/Http网址检测.md",
-    "项目/SeaWar/网络延迟测试/网络延迟测试.md",
     "工作/attachments/Pasted image 20250423102332.png",
     "pixel-banner-images/seawar.png",
     "pixel-banner-images/e69eca2219f7027be1d9ffe7b8f0291b.jpg",
