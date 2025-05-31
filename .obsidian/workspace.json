@@ -123,7 +123,7 @@
       {
         "id": "097afe0ab4f5beab",
         "type": "tabs",
-        "dimension": 58.0952380952381,
+        "dimension": 56.0672514619883,
         "children": [
           {
             "id": "f0e6bbe378999eb1",
@@ -197,44 +197,14 @@
               "icon": "git-pull-request",
               "title": "Source Control"
             }
-          },
-          {
-            "id": "ebe32b75f9ebe449",
-            "type": "leaf",
-            "state": {
-              "type": "todo",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "插件不再活动"
-            }
-          },
-          {
-            "id": "38f0c7c903146292",
-            "type": "leaf",
-            "state": {
-              "type": "todo",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "插件不再活动"
-            }
-          },
-          {
-            "id": "6a60d705253172b6",
-            "type": "leaf",
-            "state": {
-              "type": "todo",
-              "state": {},
-              "icon": "checkmark",
-              "title": "Todo List"
-            }
           }
         ],
-        "currentTab": 7
+        "currentTab": 4
       },
       {
         "id": "d3469bcf3b4ce2dc",
         "type": "tabs",
-        "dimension": 41.904761904761905,
+        "dimension": 43.932748538011694,
         "children": [
           {
             "id": "fc4270e1df633b3a",
@@ -244,8 +214,8 @@
               "type": "todo",
               "state": {},
               "pinned": true,
-              "icon": "lucide-file",
-              "title": "插件不再活动"
+              "icon": "checkmark",
+              "title": "Todo List"
             }
           }
         ]
@@ -277,14 +247,15 @@
   },
   "active": "271b414527e37e7c",
   "lastOpenFiles": [
-    "项目/SeaWar/attachments/ParallelTaskProcessor.cs",
     "导航/主页.md",
-    "项目/SeaWar/工具/多线程并行处理框架.md",
     "项目/SeaWar/工具/Http下载工具.md",
+    "生活/未命名.md",
+    "生活/记事本.md",
+    "生活/日常代办.md",
+    "项目/SeaWar/attachments/ParallelTaskProcessor.cs",
+    "项目/SeaWar/工具/多线程并行处理框架.md",
     "游戏开发技术探索/ET8.1/ET8.1.md",
     "游戏开发技术探索/Unity开发技术/Unity开发技术探索.md",
-    "生活/未命名.md",
-    "生活/日常代办.md",
     "游戏开发技术探索/ET8.1/框架介绍/ET框架结构.md",
     "游戏开发技术探索/ET8.1/框架介绍/ET框架介绍.md",
     "游戏开发技术探索/ET8.1/网络框架/网络框架.md",
