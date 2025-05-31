@@ -1,6 +1,34 @@
 {
   "scanned": true,
-  "reminders": {},
+  "reminders": {
+    "生活/日常代办.md": [
+      {
+        "title": "瑜伽课",
+        "time": "2025-05-31 19:30",
+        "rowNumber": 14
+      },
+      {
+        "title": "保养车子",
+        "time": "2025-06-01 14:00",
+        "rowNumber": 15
+      },
+      {
+        "title": "洗车",
+        "time": "2025-05-31 16:00",
+        "rowNumber": 16
+      },
+      {
+        "title": "体检",
+        "time": "2025-06-02 08:00",
+        "rowNumber": 17
+      },
+      {
+        "title": "瑜伽课",
+        "time": "2025-06-02 19:30",
+        "rowNumber": 18
+      }
+    ]
+  },
   "debug": false,
   "settings": {
     "reminderTime": "09:00",
