@@ -196,9 +196,19 @@
               "icon": "git-pull-request",
               "title": "Source Control"
             }
+          },
+          {
+            "id": "ac4d64c56698187f",
+            "type": "leaf",
+            "state": {
+              "type": "todo",
+              "state": {},
+              "icon": "checkmark",
+              "title": "Todo List"
+            }
           }
         ],
-        "currentTab": 4
+        "currentTab": 5
       },
       {
         "id": "d3469bcf3b4ce2dc",
@@ -233,10 +243,12 @@
       "command-palette:打开命令面板": false,
       "obsidian-git:Open Git source control": false,
       "pexels-banner:🚩 Pixel Banner Menu": false,
-      "obsidian-importer:Open Importer": false
+      "obsidian-importer:Open Importer": false,
+      "obsidian-excalidraw-plugin:新建绘图文件": false,
+      "moredraw:MoreDraw": false
     }
   },
-  "active": "4719768e372023f3",
+  "active": "ac4d64c56698187f",
   "lastOpenFiles": [
     "项目/SeaWar/工具/Http下载工具.md",
     "导航/主页.md",
