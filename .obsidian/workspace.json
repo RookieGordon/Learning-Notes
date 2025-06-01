@@ -37,8 +37,7 @@
               "title": "Http下载工具"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -214,8 +213,8 @@
               "type": "todo",
               "state": {},
               "pinned": true,
-              "icon": "checkmark",
-              "title": "Todo List"
+              "icon": "lucide-file",
+              "title": "插件不再活动"
             }
           }
         ]
@@ -234,21 +233,13 @@
       "command-palette:打开命令面板": false,
       "obsidian-git:Open Git source control": false,
       "pexels-banner:🚩 Pixel Banner Menu": false,
-      "obsidian-importer:Open Importer": false,
-      "obsidian-excalidraw-plugin:新建绘图文件": false,
-      "moredraw:MoreDraw": false,
-      "templater-obsidian:Templater": false,
-      "vscode-editor:新建代码文件": false,
-      "obsidian-memos:Thino": false,
-      "pdf-plus:PDF++: Toggle auto-copy": false,
-      "pdf-plus:PDF++: Toggle auto-focus": false,
-      "pdf-plus:PDF++: Toggle auto-paste": false
+      "obsidian-importer:Open Importer": false
     }
   },
-  "active": "271b414527e37e7c",
+  "active": "4719768e372023f3",
   "lastOpenFiles": [
-    "导航/主页.md",
     "项目/SeaWar/工具/Http下载工具.md",
+    "导航/主页.md",
     "生活/未命名.md",
     "生活/记事本.md",
     "生活/日常代办.md",
