@@ -7,7 +7,7 @@
     },
     "obsidian-annotator": {
       "id": "obsidian-annotator",
-      "delay": 8000,
+      "delay": 12000,
       "enabled": true
     },
     "any-block": {
@@ -17,7 +17,7 @@
     },
     "attachment-flow-plugin": {
       "id": "attachment-flow-plugin",
-      "delay": 8000,
+      "delay": 14000,
       "enabled": true
     },
     "auto-card-link": {
@@ -27,12 +27,12 @@
     },
     "obsidian-checklist-plugin": {
       "id": "obsidian-checklist-plugin",
-      "delay": 8000,
+      "delay": 2000,
       "enabled": true
     },
     "collapse-node": {
       "id": "collapse-node",
-      "delay": 8000,
+      "delay": 15000,
       "enabled": true
     },
     "dataview": {
@@ -52,7 +52,7 @@
     },
     "obsidian-excalidraw-plugin": {
       "id": "obsidian-excalidraw-plugin",
-      "delay": 8000,
+      "delay": 10000,
       "enabled": true
     },
     "obsidian-git": {
@@ -87,7 +87,7 @@
     },
     "pdf-plus": {
       "id": "pdf-plus",
-      "delay": 8000,
+      "delay": 10000,
       "enabled": true
     },
     "plugin-manager": {
@@ -107,7 +107,7 @@
     },
     "slurp": {
       "id": "slurp",
-      "delay": 8000,
+      "delay": 10000,
       "enabled": true
     },
     "obsidian-style-settings": {
@@ -132,7 +132,7 @@
     },
     "vscode-editor": {
       "id": "vscode-editor",
-      "delay": 8000,
+      "delay": 20000,
       "enabled": true
     },
     "google-calendar": {
@@ -142,7 +142,7 @@
     },
     "obsidian-memos": {
       "id": "obsidian-memos",
-      "delay": 8000,
+      "delay": 10000,
       "enabled": true
     },
     "components": {
@@ -167,13 +167,28 @@
     },
     "moredraw": {
       "id": "moredraw",
-      "delay": 8000,
+      "delay": 10000,
       "enabled": true
     },
     "pexels-banner": {
       "id": "pexels-banner",
       "delay": 0,
       "enabled": true
+    },
+    "obsidian-dynamic-background": {
+      "id": "obsidian-dynamic-background",
+      "delay": 5000,
+      "enabled": false
+    },
+    "live-wallpaper": {
+      "id": "live-wallpaper",
+      "delay": 5000,
+      "enabled": false
+    },
+    "supercharged-links-obsidian": {
+      "id": "supercharged-links-obsidian",
+      "delay": 0,
+      "enabled": false
     }
   }
 }
