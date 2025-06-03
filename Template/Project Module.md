@@ -13,7 +13,7 @@ let vaultPath = tp.user.getVaultPath(tp.file.path(), tp.app.vault.getName());
 tp.user.copyComponent(vaultPath, "ProjectModuleDataView", `${projDir}/components`, newComponentName);
 -%>
 ---
-tags: <%projectName%>/<%moduleName%>
+tags: <%projectName%>/<%moduleName%> mytodo
 type: Project
 project: <%projectName%>
 projectType: Module
