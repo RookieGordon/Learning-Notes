@@ -21,5 +21,13 @@ host: www.cnblogs.com
 favicon: https://assets.cnblogs.com/favicon_v3_2.ico
 ```
 
+```cardlink
+url: https://www.cnblogs.com/lindexi/p/18786647
+title: "dotnet 源代码生成器分析器入门 - lindexi - 博客园"
+description: "本文将带领大家入门 dotnet 的 SourceGenerator 源代码生成器技术，期待大家阅读完本文能够看懂理解和编写源代码生成器和分析器"
+host: www.cnblogs.com
+favicon: https://assets.cnblogs.com/favicon_v3_2.ico
+```
 
+[Fetching Data#x0p9](https://zhuanlan.zhihu.com/p/565941295)
 
