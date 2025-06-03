@@ -13,10 +13,11 @@ banner: Study
 displayIcon: pixel-banner-images/章节任务.png
 ---
 
+
 ```cardlink
-url: https://www.cnblogs.com/InCerry/p/writing-a-net-profiler-in-c-sharp-part-1.html
-title: "使用C#编写一个.NET分析器（一） - InCerry - 博客园"
-description: "译者注 这是在Datadog公司任职的Kevin Gosse大佬使用C#编写.NET分析器的系列文章之一，在国内只有很少很少的人了解和研究.NET分析器，它常被用于APM（应用性能诊断）、IDE、诊断工具中，比如Datadog的APM，Visual Studio的分析器以及Rider和Reshape"
+url: https://www.cnblogs.com/InCerry/p/writing-a-net-profiler-in-c-sharp-part-4.html
+title: "使用C#编写.NET分析器（完结） - InCerry - 博客园"
+description: "## 译者注 这是在Datadog公司任职的Kevin Gosse大佬使用C#编写.NET分析器的系列文章之一，在国内只有很少很少的人了解和研究.NET分析器，它常被用于APM（应用性能诊断）、IDE、诊断工具中，比如Datadog的APM，Visual Studio的分析器以及Rider和Resh"
 host: www.cnblogs.com
 favicon: https://assets.cnblogs.com/favicon_v3_2.ico
 ```
@@ -28,6 +29,4 @@ description: "本文将带领大家入门 dotnet 的 SourceGenerator 源代码�
 host: www.cnblogs.com
 favicon: https://assets.cnblogs.com/favicon_v3_2.ico
 ```
-
-[Fetching Data#x0p9](https://zhuanlan.zhihu.com/p/565941295)
 
