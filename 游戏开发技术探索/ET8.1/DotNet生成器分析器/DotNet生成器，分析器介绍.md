@@ -14,7 +14,6 @@ banner: Study
 displayIcon: pixel-banner-images/章节任务.png
 ---
 
-
 ```cardlink
 url: https://www.cnblogs.com/InCerry/p/writing-a-net-profiler-in-c-sharp-part-4.html
 title: "使用C#编写.NET分析器（完结） - InCerry - 博客园"
@@ -31,3 +30,9 @@ host: www.cnblogs.com
 favicon: https://assets.cnblogs.com/favicon_v3_2.ico
 ```
 
+```cardlink
+url: https://hlog.cc/archives/201/
+title: "c#的源代码生成器SourceGenerator - 沉迷于学习，无法自拔^_^"
+description: "简介微软在 .NET 5 中引入了 Source Generator 的新特性，利用 Source Generator 我们可以在应用编译期间根据当前编译信息动态生成代码，而且可以在我们的 C#..."
+host: hlog.cc
+```
