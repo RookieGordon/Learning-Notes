@@ -183,7 +183,9 @@
       "startDateTimeType": "$specifiedDateTime",
       "endDateTimeType": "$specifiedDateTime",
       "uiType": "ring",
-      "title": "课程进度"
+      "title": "课程进度",
+      "startDateTime": "2025-06-03 14:46:53",
+      "endDateTime": "2025-06-20 14:46:56"
     }
   ],
   "rootComponentId": "866bf390-cf35-42ee-a8e6-e68bf1da911a"
