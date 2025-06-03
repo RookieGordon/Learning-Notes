@@ -10,8 +10,8 @@ finished: false
 displayIcon: pixel-banner-images/项目任务.png
 
 ---
-# ECompressOption和BuildAssetBundleOptions
-[BuildAssetBundleOptions](https://docs.unity3d.com/cn/2023.2/ScriptReference/BuildAssetBundleOptions.html)是Unity中的资源构建选项。
+# # BuildCompression和BuildAssetBundleOptions
+[BuildAssetBundleOptions](https://docs.unity3d.com/cn/2023.2/ScriptReference/BuildAssetBundleOptions.html)是Unity中的资源构建选项。[BuildCompression](https://docs.unity3d.com/6000.0/Documentation/ScriptReference/BuildCompression.html)是AB资源的压缩选项
 
 
 
