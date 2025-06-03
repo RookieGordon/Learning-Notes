@@ -98,7 +98,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 442.5
+    "width": 442.5,
+    "collapsed": true
   },
   "right": {
     "id": "be1e91dfcb57ce3b",
@@ -107,7 +108,7 @@
       {
         "id": "097afe0ab4f5beab",
         "type": "tabs",
-        "dimension": 56.0672514619883,
+        "dimension": 58.0952380952381,
         "children": [
           {
             "id": "f0e6bbe378999eb1",
@@ -183,7 +184,7 @@
             }
           },
           {
-            "id": "ac4d64c56698187f",
+            "id": "ebe32b75f9ebe449",
             "type": "leaf",
             "state": {
               "type": "todo",
@@ -193,7 +194,7 @@
             }
           },
           {
-            "id": "1b813c21b5978afb",
+            "id": "ca02d6f0bc822c73",
             "type": "leaf",
             "state": {
               "type": "todo",
@@ -208,7 +209,7 @@
       {
         "id": "d3469bcf3b4ce2dc",
         "type": "tabs",
-        "dimension": 43.932748538011694,
+        "dimension": 41.904761904761905,
         "children": [
           {
             "id": "fc4270e1df633b3a",
@@ -248,54 +249,54 @@
       "vscode-editor:新建代码文件": false
     }
   },
-  "active": "89a66892aa3b87ae",
+  "active": "4719768e372023f3",
   "lastOpenFiles": [
     "项目/SeaWar/工具/Http网址检测.md",
-    "项目/SeaWar/工具/Http下载工具.md",
-    "项目/SeaWar/网络延迟测试/基于UnityHttps的网络延迟测试.md",
     "导航/主页.md",
-    "生活/未命名.md",
-    "生活/日常代办.md",
-    "生活/记事本.md",
-    "项目/SeaWar/attachments/ParallelTaskProcessor.cs",
-    "项目/SeaWar/工具/多线程并行处理框架.md",
-    "游戏开发技术探索/ET8.1/ET8.1.md",
-    "游戏开发技术探索/Unity开发技术/Unity开发技术探索.md",
-    "游戏开发技术探索/ET8.1/框架介绍/ET框架结构.md",
-    "游戏开发技术探索/ET8.1/框架介绍/ET框架介绍.md",
+    "游戏开发技术探索/ET8.1/重要组件/TimerComponent组件.md",
+    "游戏开发技术探索/ET8.1/重要组件/重要组件.md",
+    "游戏开发技术探索/ET8.1/重要组件/ObjectWait.md",
+    "游戏开发技术探索/ET8.1/重要组件/CoroutineLockComponent协程锁.md",
+    "游戏开发技术探索/ET8.1/重要组件",
+    "游戏开发技术探索/ET8.1/网络框架/attachments/服务器消息流转.drawio.svg",
+    "游戏开发技术探索/ET8.1/网络框架/attachments/（图解1）客户端消息流转.drawio.png",
+    "游戏开发技术探索/ET8.1/网络框架/attachments/客户端消息流转.drawio.svg",
+    "游戏开发技术探索/ET8.1/网络框架/邮箱组件.md",
     "游戏开发技术探索/ET8.1/网络框架/网络框架.md",
     "游戏开发技术探索/ET8.1/网络框架/网络层.md",
-    "游戏开发技术探索/ET8.1/网络框架/网络协议.md",
     "游戏开发技术探索/ET8.1/网络框架/网络协议收发.md",
-    "游戏开发技术探索/ET8.1/网络框架/邮箱组件.md",
-    "项目/ET8.1/网络框架/框架.md",
-    "游戏开发技术探索/ET8.1/重要组件/重要组件.md",
+    "游戏开发技术探索/ET8.1/网络框架/attachments",
+    "游戏开发技术探索/ET8.1/网络框架/网络协议.md",
     "游戏开发技术探索/ET8.1/网络框架",
-    "游戏开发技术探索/ET8.1/重要组件/CoroutineLockComponent协程锁.md",
-    "游戏开发技术探索/ET8.1/重要组件/TimerComponent组件.md",
-    "游戏开发技术探索/ET8.1/重要组件/ObjectWait.md",
-    "项目/ET8.1/重要组件/组件.md",
-    "游戏开发技术探索/ET8.1/重要组件",
-    "项目/ET8.1/框架介绍/AAA.md",
+    "游戏开发技术探索/ET8.1/框架介绍/attachments/（图解2）ET8.0中，Fiber和Scene的层级关系.png",
+    "游戏开发技术探索/ET8.1/框架介绍/attachments/（图解4）ET8.0登陆流程图.png",
+    "游戏开发技术探索/ET8.1/框架介绍/attachments/（图解3）ET8.0进程示例.png",
+    "游戏开发技术探索/ET8.1/框架介绍/attachments/客户端组件树状图.md",
+    "游戏开发技术探索/ET8.1/框架介绍/attachments/服务端组件树状图.md",
+    "游戏开发技术探索/ET8.1/框架介绍/attachments/（图解1）ET8.0框架初始化流程.png",
+    "游戏开发技术探索/ET8.1/框架介绍/attachments/ET框架启动流程.drawio",
+    "游戏开发技术探索/ET8.1/框架介绍/ET框架介绍.md",
+    "游戏开发技术探索/ET8.1/框架介绍/ET框架结构.md",
+    "游戏开发技术探索/ET8.1/框架介绍/attachments",
     "游戏开发技术探索/ET8.1/components/ET8.1_View.components",
-    "游戏开发技术探索/ET8.1/框架介绍",
     "游戏开发技术探索/ET8.1/components/ET8.1_CourseView.components",
+    "游戏开发技术探索/ET8.1/框架介绍",
+    "游戏开发技术探索/ET8.1/ET8.1.md",
     "游戏开发技术探索/ET8.1/components",
     "游戏开发技术探索/ET8.1",
-    "项目/ET/框架结构/ET框架结构.md",
-    "项目/ET/components/ET_View.components",
-    "项目/ET/ET8.1课程.md",
-    "项目/ET/框架结构",
+    "项目/ET8.1/框架介绍/ET框架结构.md",
+    "项目/ET8.1/ET8.1.md",
+    "项目/ET8.1/框架介绍/ET框架介绍.md",
+    "项目/ET8.1/网络框架/网络框架.md",
+    "项目/ET8.1/网络框架/网络层.md",
+    "项目/ET8.1/网络框架/网络协议.md",
+    "项目/ET8.1/网络框架/网络协议收发.md",
+    "项目/ET8.1/网络框架/邮箱组件.md",
+    "项目/ET8.1/网络框架/框架.md",
+    "项目/ET8.1/重要组件/重要组件.md",
     "wallpapers/S-1.紫灵 凡人修仙传.jpg",
     "项目/SeaWar/打包步骤调整/attachments/（图解1）Inspector显示自定义内容.png",
     "项目/SeaWar/attachments/Pasted image 20250527145149.png",
-    "项目/SeaWar/工具/attachments/Pasted image 20250527145129.png",
-    "工作/attachments/Pasted image 20250423102332.png",
-    "pixel-banner-images/seawar.png",
-    "pixel-banner-images/e69eca2219f7027be1d9ffe7b8f0291b.jpg",
-    "pixel-banner-images/68a9bae16240779f849ffc8e0af7d2d2.jpg",
-    "pixel-banner-images/ff7c74d09cd5212fbcd02fc155825420.jpeg",
-    "pixel-banner-images/0792b73ccc8689a6e6a5bb46315b1a09.jpeg",
     "未命名.canvas"
   ]
 }
