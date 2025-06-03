@@ -1,11 +1,12 @@
 ---
 tags:
-  - ET8.1/DotNet分析器/DotNet分析器介绍
+  - ET8.1/.Net分析器 
+  - ET8.1/.Net源码生成器
   - mytodo
 type: Study
 course: ET8.1
 courseType: Section
-fileDirPath: 游戏开发技术探索/ET8.1/DotNet分析器
+fileDirPath: 游戏开发技术探索/ET8.1/DotNet生成器分析器
 dateStart: 2025-06-03
 dateFinish: 2025-06-06
 finished: false
