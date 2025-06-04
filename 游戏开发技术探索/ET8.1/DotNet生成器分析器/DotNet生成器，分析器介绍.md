@@ -179,7 +179,7 @@ namespace ConsoleApp
                 productionContext.AddSource("GeneratedCode.cs",  
                     $$"""  
                       using System;                      
-                      namespace NinahajawhuLairfoheahurcee                      
+                      namespace ConsoleApp                      
                       {                          
                         public static class GeneratedCode                          
                         {                              
@@ -208,5 +208,6 @@ namespace ConsoleApp
 3. 使用给出的数据进行处理源代码生成逻辑
 	- 这一步的逻辑和普通的 Source Generator 是相同的，只是输入的参数不同
 ## 使用`context.SyntaxProvider.CreateSyntaxProvider`
-第一步的语法判断是判断当前传入的是否类型定义。如果是类型定义，则读取其标记的特性，判断特性满足 `Lindexi.FooAttribute` 的特征时，则算语法判断通过，让数据走到下面的语义判断处理上。
+第一步的语法判断是判断当前传入的是否类型定义。如果是类型定义，则读取其标记的特性，判断特性满足 `ConsoleApp.FooAttribute` 的特征时，则算语法判断通过，让数据走到下面的语义判断处理上。
+
 
