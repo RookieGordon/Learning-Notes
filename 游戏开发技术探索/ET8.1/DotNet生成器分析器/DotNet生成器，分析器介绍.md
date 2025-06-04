@@ -207,3 +207,5 @@ namespace ConsoleApp
 	- 其中第一步和第二步可以合在一起
 3. 使用给出的数据进行处理源代码生成逻辑
 	- 这一步的逻辑和普通的 Source Generator 是相同的，只是输入的参数不同
+## 使用`context.SyntaxProvider.CreateSyntaxProvider`
+
