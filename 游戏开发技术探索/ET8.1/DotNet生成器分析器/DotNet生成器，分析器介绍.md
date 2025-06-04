@@ -124,4 +124,4 @@ var provider =
             (SyntaxNode node, CancellationToken token) => node.IsKind(SyntaxKind.ClassDeclaration),
             (GeneratorAttributeSyntaxContext syntaxContext, CancellationToken token) => syntaxContext.TargetSymbol.Name);
 ```
-``
+`node.IsKind(SyntaxKind.ClassDeclaration)`表明，找到的代码是否是类声明
