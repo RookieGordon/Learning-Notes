@@ -38,3 +38,35 @@ host: hlog.cc
 ```
 
 # 搭建分析器
+## 创建分析器工程
+在当前工程上，新建一个类库工程Analyzer，在Analyzer.csproj中，配置如下：
+```XML
+<PropertyGroup>  
+	<TargetFramework>netstandard2.0</TargetFramework> 
+    <LangVersion>latest</LangVersion>
+    <!-- 强制执行扩展分析器规则 -->  
+    <EnforceExtendedAnalyzerRules>true</EnforceExtendedAnalyzerRules>  
+</PropertyGroup>
+
+<ItemGroup>  
+    <!-- 分析器的基础组件 -->  
+    <PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="3.11.0" PrivateAssets="all"/>  
+    <!-- C# 的基础组件 -->  
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.12.0" PrivateAssets="all"/>  
+</ItemGroup>
+```
+为什么需要降级为 netstandard2.0 版本？这是为了让此分析器项目能够同时在 dotnet CLI 和 Visual Studio 2022 里面使用。在 Visual Studio 2022 里，当前依然使用的是 .NET Framework 的版本。于是求最小公倍数，选择了 netstandard2.0 版本。预计后续版本才能使用到最新的 dotnet 框架版本。
+以上的 `<EnforceExtendedAnalyzerRules>true</EnforceExtendedAnalyzerRules>` 的作用是强制执行扩展分析器规则。这个属性是为了让我们在编写分析器的时候能够更加严格，让我们的代码更加规范。这里大家不需要细致了解，如有兴趣，请参阅 [Roslyn 分析器 EnforceExtendedAnalyzerRules 属性的作用](https://blog.lindexi.com/post/Roslyn-%E5%88%86%E6%9E%90%E5%99%A8-EnforceExtendedAnalyzerRules-%E5%B1%9E%E6%80%A7%E7%9A%84%E4%BD%9C%E7%94%A8.html)
+## 设置主工程
+在主工程的csproj中，添加如下设置：
+```XML
+<ItemGroup>  
+    <!-- OutputItemType="Analyzer" 是告诉 dotnet 这个引用项目是一个分析器项目 -->  
+    <!-- ReferenceOutputAssembly="false" 是告诉 dotnet 不要引用这个项目的输出程序集 -->  
+    <ProjectReference Include=".\Analyzer\Analyzer.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false"/>  
+</ItemGroup>
+```
+可以看到以上的 csproj 项目文件和正常的控制台项目的差别仅仅只有在对 `Analyzer.csproj` 的引用上。且和正常的引用项目的方式不同的是，这里额外添加了 `OutputItemType="Analyzer" ReferenceOutputAssembly="false"` 两个配置。这两个配置的作用如下：
+- 以上的 `OutputItemType="Analyzer"` 是告诉 dotnet 这个引用项目是一个分析器项目。这个配置是必须的，没有这个配置，dotnet 就不知道这个项目是一个分析器项目。通过这个配置是告诉 dotnet 这个项目是一个分析器项目，才能让 dotnet 在编译的时候能够正确地当成分析器处理这个项目
+- 以上的 `ReferenceOutputAssembly="false"` 是告诉 dotnet 不要引用这个项目的输出程序集。正常的项目是不应该引用分析器项目的程序集的，分析器项目的作用仅仅只是作为分析器，而不是提供程序集给其他项目引用。这个配置是为了让 dotnet 在编译的时候不要引用这个项目的输出程序集，避免引用错误或导致不小心用了不应该使用的类型
+对于正常的项目引用来说，一旦存在项目引用，那被引用的项目的输出程序集就会被引用。此时项目上就可以使用被引用项目的公开类型，以及获取 NuGet 包依赖传递等。但是对于分析器项目来说，这些都是不应该的，正常就不能让项目引用分析器项目的输出程序集。这就是为什么会额外添加 `ReferenceOutputAssembly="false"` 配置的原因
