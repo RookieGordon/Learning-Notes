@@ -36,3 +36,5 @@ title: "c#的源代码生成器SourceGenerator - 沉迷于学习，无法自拔^
 description: "简介微软在 .NET 5 中引入了 Source Generator 的新特性，利用 Source Generator 我们可以在应用编译期间根据当前编译信息动态生成代码，而且可以在我们的 C#..."
 host: hlog.cc
 ```
+
+# 搭建分析器
