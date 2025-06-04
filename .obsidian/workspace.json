@@ -44,7 +44,7 @@
               "type": "markdown",
               "state": {
                 "file": "游戏开发技术探索/ET8.1/DotNet生成器分析器/DotNet生成器，分析器介绍.md",
-                "mode": "source",
+                "mode": "preview",
                 "source": true
               },
               "icon": "lucide-file",
@@ -111,8 +111,8 @@
             "state": {
               "type": "todo",
               "state": {},
-              "icon": "checkmark",
-              "title": "Todo List"
+              "icon": "lucide-file",
+              "title": "插件不再活动"
             }
           },
           {
@@ -129,8 +129,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 299,
-    "collapsed": true
+    "width": 299
   },
   "right": {
     "id": "be1e91dfcb57ce3b",
@@ -212,8 +211,19 @@
               "icon": "git-pull-request",
               "title": "Source Control"
             }
+          },
+          {
+            "id": "5b6ea9a5a635c75a",
+            "type": "leaf",
+            "state": {
+              "type": "todo",
+              "state": {},
+              "icon": "checkmark",
+              "title": "Todo List"
+            }
           }
-        ]
+        ],
+        "currentTab": 5
       }
     ],
     "direction": "horizontal",
