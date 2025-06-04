@@ -209,5 +209,33 @@ namespace ConsoleApp
 	- 这一步的逻辑和普通的 Source Generator 是相同的，只是输入的参数不同
 ## 使用`context.SyntaxProvider.CreateSyntaxProvider`
 第一步的语法判断是判断当前传入的是否类型定义。如果是类型定义，则读取其标记的特性，判断特性满足 `ConsoleApp.FooAttribute` 的特征时，则算语法判断通过，让数据走到下面的语义判断处理上。
+语法分析部分代码如下：
+```CSharp
+(node, _) =>  
+{  
+    if (node is not ClassDeclarationSyntax classDeclarationSyntax)  
+	    return false;  
 
+    foreach (var listSyntax in classDeclarationSyntax.AttributeLists)  
+    {        
+	    foreach (var attributeSyntax in listSyntax.Attributes)  
+        {            
+	        var name = attributeSyntax.Name.ToFullString();  
+            if (name == "Foo")  
+	            return true;  
+            
+            if (name == "FooAttribute")  
+	            return true;  
+            
+            // 可能还有 global::ConsoleApp.FooAttribute 的情况  
+            if (name.EndsWith("ConsoleApp.FooAttribute"))  
+	            return true;  
 
+            if (name.EndsWith("ConsoleApp.Foo"))  
+	            return true;         
+        }    
+    }  
+    return false;  
+}
+```
+`node is not ClassDeclarationSyntax`过滤掉不是类的代码。代码使用了对 `NameSyntax` 调用 `ToFullString` 方法获取到所标记的名（请参阅 [Roslyn NameSyntax 的 ToString 和 ToFullString 的区别](https://blog.lindexi.com/post/Roslyn-NameSyntax-%E7%9A%84-ToString-%E5%92%8C-ToFullString-%E7%9A%84%E5%8C%BA%E5%88%AB.html)）
