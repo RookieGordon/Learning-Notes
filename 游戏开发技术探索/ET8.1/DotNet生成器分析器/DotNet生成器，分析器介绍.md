@@ -133,4 +133,59 @@ var provider =
             .Collect();
 ```
 `ImmutableArray<string>`表明不可变数组。在整个Roslyn设计里面，大量采用不可变思想，这里的返回值就是不可变思想的一个体现。细心的伙伴可以看到 `IncrementalValuesProvider` 和 `IncrementalValueProvider` 这两个单词的差别，没错，核心在于 Values 和 Value 的差别。在增量源代码生成器里面，使用 `IncrementalValuesProvider` 表示多值提供器，使用 `IncrementalValueProvider` 表示单值提供器，两者差异只是值提供器里面提供的数据是多项还是单项。使用 `Collect` 方法可以将一个多值提供器的内容收集起来，收集为一个不可变集合，从而转换为一个单值提供器，这个单值提供器里面只有一项，且这一项是一个不可变数组。
+最终代码如下：
+```CSharp
+	[Generator(LanguageNames.CSharp)]  
+    public class IncrementalGenerator : IIncrementalGenerator  
+    {  
+        public void Initialize(IncrementalGeneratorInitializationContext context)  
+        {            
+            context.RegisterPostInitializationOutput(initializationContext =>  
+            {  
+                initializationContext.AddSource("FooAttribute.cs", @"  
+using System;  
+namespace ConsoleApp  
+{  
+    public class FooAttribute: Attribute {}
+}  
+");  
+            });  
+
+            IncrementalValuesProvider<string> targetClassNameProvider 
+                        = context.SyntaxProvider.ForAttributeWithMetadataName(  
+                "ConsoleApp.FooAttribute",  
+                // 进一步判断  
+                (SyntaxNode node, CancellationToken token) => {
+                    return node.IsKind(SyntaxKind.ClassDeclaration);
+                },
+                (GeneratorAttributeSyntaxContext syntaxContext, 
+                CancellationToken token) => 
+                {
+                    return syntaxContext.TargetSymbol.Name;
+                }
+            ); 
+                 
+            IncrementalValueProvider<ImmutableArray<string>> targetClassNameArrayProvider = targetClassNameProvider.Collect();  
+            
+            context.RegisterSourceOutput(targetClassNameArrayProvider, 
+                                        (productionContext, classNameArray) =>  
+            {  
+                productionContext.AddSource("GeneratedCode.cs",  
+                    $$"""  
+                      using System;                      
+                      namespace NinahajawhuLairfoheahurcee                      
+                      {                          
+                        public static class GeneratedCode                          
+                        {                              
+                            public static void Print()                              
+                            {                                  
+                                Console.WriteLine("标记了 Foo 特性的类型有： {{string.Join(",", classNameArray)}}");  
+                            }                         
+                        }                      
+                       }                     
+                """);  
+            });  
+        }    
+    }
+```
 
