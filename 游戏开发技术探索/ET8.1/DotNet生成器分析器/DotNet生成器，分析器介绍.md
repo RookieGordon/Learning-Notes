@@ -97,3 +97,4 @@ host: hlog.cc
     }
 ```
 ## 使用`ForAttributeWithMetadataName`快速分析代码
+这个方法是用于找到标记了某个 Attribute 特性的类型、方法、属性等。这个方法的使用非常简单，只需要传递一个 Attribute 特性的完整名称，就可以找到标记了这个 Attribute 特性的类型、方法、属性等
