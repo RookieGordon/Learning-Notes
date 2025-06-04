@@ -70,5 +70,30 @@ host: hlog.cc
 - 以上的 `OutputItemType="Analyzer"` 是告诉 dotnet 这个引用项目是一个分析器项目。这个配置是必须的，没有这个配置，dotnet 就不知道这个项目是一个分析器项目。通过这个配置是告诉 dotnet 这个项目是一个分析器项目，才能让 dotnet 在编译的时候能够正确地当成分析器处理这个项目
 - 以上的 `ReferenceOutputAssembly="false"` 是告诉 dotnet 不要引用这个项目的输出程序集。正常的项目是不应该引用分析器项目的程序集的，分析器项目的作用仅仅只是作为分析器，而不是提供程序集给其他项目引用。这个配置是为了让 dotnet 在编译的时候不要引用这个项目的输出程序集，避免引用错误或导致不小心用了不应该使用的类型
 对于正常的项目引用来说，一旦存在项目引用，那被引用的项目的输出程序集就会被引用。此时项目上就可以使用被引用项目的公开类型，以及获取 NuGet 包依赖传递等。但是对于分析器项目来说，这些都是不应该的，正常就不能让项目引用分析器项目的输出程序集。这就是为什么会额外添加 `ReferenceOutputAssembly="false"` 配置的原因
-# 代码
-## 
+# 分析和生成入门
+## `IIncrementalGenerator`接口
+2022 之后，官方大力推荐的是使用`IIncrementalGenerator`增量源代码生成器技术。整个`IIncrementalGenerator`的入口都在`Initialize`方法里面。
+通过 `context.RegisterPostInitializationOutput` 方法注册一个源代码输出。如以下代码所示，将输出一个名为 `GeneratedCode` 的代码
+```CSharp
+    public void Initialize(IncrementalGeneratorInitializationContext context)
+    {
+        context.RegisterPostInitializationOutput(initializationContext =>
+        {
+            initializationContext.AddSource("GeneratedCode.cs",
+                """
+                using System;
+                namespace ConsoleApp
+                {
+                    public static class GeneratedCode
+                    {
+                        public static void Print()
+                        {
+                            Console.WriteLine("Hello from generated code!");
+                        }
+                    }
+                }
+                """);
+        });
+    }
+```
+## 使用`ForAttributeWithMetadataName`快速分析代码
