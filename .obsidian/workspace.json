@@ -146,13 +146,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "导航/主页.md",
+                "file": "游戏开发技术探索/ET8.1/DotNet生成器分析器/DotNet生成器，分析器介绍.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "主页 的大纲"
+              "title": "DotNet生成器，分析器介绍 的大纲"
             }
           },
           {
@@ -213,8 +213,7 @@
               "title": "Source Control"
             }
           }
-        ],
-        "currentTab": 4
+        ]
       }
     ],
     "direction": "horizontal",

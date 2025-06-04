@@ -119,9 +119,11 @@ var provider =
 >2. 语义分析过程是在语法分析之后的过程，执行过程中有所损耗，且存在多个代码文件和程序集之间的引用关联关系。
 ### 语法和语义使用说明
 ```CSharp
-        IncrementalValuesProvider<string> targetClassNameProvider = context.SyntaxProvider.ForAttributeWithMetadataName("Lindexi.FooAttribute",
+        IncrementalValuesProvider<string> targetClassNameProvider = context.SyntaxProvider.ForAttributeWithMetadataName("ConsoleApp.FooAttribute",
             // 进一步判断
             (SyntaxNode node, CancellationToken token) => node.IsKind(SyntaxKind.ClassDeclaration),
             (GeneratorAttributeSyntaxContext syntaxContext, CancellationToken token) => syntaxContext.TargetSymbol.Name);
 ```
-`node.IsKind(SyntaxKind.ClassDeclaration)`表明，找到的代码是否是类声明。`SyntaxNode.IsKind`方法是判断当前传入的`SyntaxNode`是什么。满足该条件，则表明，
+语法处理代码块中，`node.IsKind(SyntaxKind.ClassDeclaration)`表明，找到的代码是否是类声明。`SyntaxNode.IsKind`方法是判断当前传入的`SyntaxNode`是什么。满足该条件，则表明，这是一个在类型上面标记了`Foo`特性的代码。
+语义处理代码块中，`syntaxContext.TargetSymbol`属性，是当前找到的代码的符号，即当前找到的代码的语义信息。这里的`TargetSymbol.Name`属性是当前找到的代码的名称，即当前找到的代码的类型名称。这里的代码块返回的是当前找到的代码的类型名称，即当前找到的代码的名称。
+返回类型`IncrementalValuesProvider<string>`是一个增量值的提供者，不是立刻返回所有满足条件的代码。在IED里面的执行逻辑上，大家可以认为是每更改、新增一次代码，就会执行一次这个查询逻辑，整个查询逻辑是源源不断执行的，不是一次性的，也不是瞬时全跑的，而是增量的逐步执行的。
