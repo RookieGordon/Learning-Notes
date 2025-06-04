@@ -127,3 +127,10 @@ var provider =
 语法处理代码块中，`node.IsKind(SyntaxKind.ClassDeclaration)`表明，找到的代码是否是类声明。`SyntaxNode.IsKind`方法是判断当前传入的`SyntaxNode`是什么。满足该条件，则表明，这是一个在类型上面标记了`Foo`特性的代码。
 语义处理代码块中，`syntaxContext.TargetSymbol`属性，是当前找到的代码的符号，即当前找到的代码的语义信息。这里的`TargetSymbol.Name`属性是当前找到的代码的名称，即当前找到的代码的类型名称。这里的代码块返回的是当前找到的代码的类型名称，即当前找到的代码的名称。
 返回类型`IncrementalValuesProvider<string>`是一个增量值的提供者，不是立刻返回所有满足条件的代码。在IED里面的执行逻辑上，大家可以认为是每更改、新增一次代码，就会执行一次这个查询逻辑，整个查询逻辑是源源不断执行的，不是一次性的，也不是瞬时全跑的，而是增量的逐步执行的。
+如果需要一次性收集所有类型，就需要使用Collect方法：
+```CSharp
+        IncrementalValueProvider<ImmutableArray<string>> targetClassNameArrayProvider = targetClassNameProvider
+            .Collect();
+```
+`ImmutableArray<string>`表明不可变数组。在整个Roslyn设计里面，大量采用不可变思想，这里的返回值就是不可变思想的一个体现。细心的伙伴可以看到 `IncrementalValuesProvider` 和 `IncrementalValueProvider` 这两个单词的差别，没错，核心在于 Values 和 Value 的差别。在增量源代码生成器里面，使用 `IncrementalValuesProvider` 表示多值提供器，使用 `IncrementalValueProvider` 表示单值提供器，两者差异只是值提供器里面提供的数据是多项还是单项。使用 `Collect` 方法可以将一个多值提供器的内容收集起来，收集为一个不可变集合，从而转换为一个单值提供器，这个单值提供器里面只有一项，且这一项是一个不可变数组。
+
