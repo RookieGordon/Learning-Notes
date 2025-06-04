@@ -124,4 +124,4 @@ var provider =
             (SyntaxNode node, CancellationToken token) => node.IsKind(SyntaxKind.ClassDeclaration),
             (GeneratorAttributeSyntaxContext syntaxContext, CancellationToken token) => syntaxContext.TargetSymbol.Name);
 ```
-`node.IsKind(SyntaxKind.ClassDeclaration)`表明，找到的代码是否是类声明
+`node.IsKind(SyntaxKind.ClassDeclaration)`表明，找到的代码是否是类声明。`SyntaxNode.IsKind`方法是判断当前传入的`SyntaxNode`是什么。满足该条件，则表明，
