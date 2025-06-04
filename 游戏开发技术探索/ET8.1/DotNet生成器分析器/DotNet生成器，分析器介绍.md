@@ -76,7 +76,8 @@ host: hlog.cc
 # 分析和生成入门
 ## `IIncrementalGenerator`接口
 2022 之后，官方大力推荐的是使用`IIncrementalGenerator`增量源代码生成器技术。整个`IIncrementalGenerator`的入口都在`Initialize`方法里面。
-通过 `context.RegisterPostInitializationOutput` 方法注册一个源代码输出。如以下代码所示，将输出一个名为 `GeneratedCode` 的代码
+通过 `context.RegisterPostInitializationOutput` 方法注册一个源代码输出，该方法的定义上就是用于提供分析器开始分析工作之前的初始化代码。
+如以下代码所示，将输出一个名为 `GeneratedCode` 的代码
 ```CSharp
     public void Initialize(IncrementalGeneratorInitializationContext context)
     {
@@ -191,4 +192,4 @@ namespace ConsoleApp
         }    
     }
 ```
-
+## 关于`RegisterPostInitializationOutput`，`RegisterSourceOutput`和`RegisterImplementationSourceOutput`
