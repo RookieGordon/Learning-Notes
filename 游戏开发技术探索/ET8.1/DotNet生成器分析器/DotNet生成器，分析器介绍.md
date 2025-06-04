@@ -15,6 +15,8 @@ dateFinish: 2025-06-06
 finished: false
 banner: Study
 displayIcon: pixel-banner-images/章节任务.png
+cssclasses:
+  - editor-full
 ---
 
 ```cardlink
@@ -193,3 +195,15 @@ namespace ConsoleApp
     }
 ```
 ## 关于`RegisterPostInitializationOutput`，`RegisterSourceOutput`和`RegisterImplementationSourceOutput`
+`RegisterPostInitializationOutput`方法，用于提供分析器开始分析工作之前的初始化代码。这部分代码由于可不用运行分析过程，可以非常快给到 IDE 层，一般用于提供一些类型定义，可以给到开发者直接快速使用，而不会在使用过程中飘红。
+`RegisterImplementationSourceOutput`是用来注册具体实现生成的代码，这部分输入的代码会被 IDE 作为可选分析项。但带来的问题是这部分生成代码可能不被加入 IDE 分析，导致业务方调用时飘红。因此其生成的代码，基本要求是不会被业务方直接调用。
+# 更底层的收集分析和生成
+在 IIncrementalGenerator 增量 Source Generator 源代码生成里面提供了众多数据源入口，比如整个的配置、引用的程序集、源代码等等。最核心也是用最多的就是通过提供的源代码数据源进行收集分析
+按照官方的设计，将会分为三个步骤完成增量代码生成：
+1. 告诉框架层需要关注哪些文件或内容或配置的变更
+	- 在有对应的文件等的变更情况下，才会触发后续步骤。如此就是增量代码生成的关键
+2. 告诉框架层从变更的文件里面感兴趣什么数据，对数据预先进行处理
+	- 预先处理过程中，是会不断进行过滤处理的，确保只有感兴趣的数据才会进入后续步骤
+	- 其中第一步和第二步可以合在一起
+3. 使用给出的数据进行处理源代码生成逻辑
+	- 这一步的逻辑和普通的 Source Generator 是相同的，只是输入的参数不同
