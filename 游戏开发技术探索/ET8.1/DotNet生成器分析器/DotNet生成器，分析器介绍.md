@@ -260,3 +260,4 @@ namespace ConsoleApp
     return namedTypeSymbol.Name;  
 }
 ```
+# 为分析器编写单元测试
