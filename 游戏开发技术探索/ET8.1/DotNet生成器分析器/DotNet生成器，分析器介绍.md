@@ -239,3 +239,24 @@ namespace ConsoleApp
 }
 ```
 `node is not ClassDeclarationSyntax`过滤掉不是类的代码。代码使用了对 `NameSyntax` 调用 `ToFullString` 方法获取到所标记的名（请参阅 [Roslyn NameSyntax 的 ToString 和 ToFullString 的区别](https://blog.lindexi.com/post/Roslyn-NameSyntax-%E7%9A%84-ToString-%E5%92%8C-ToFullString-%E7%9A%84%E5%8C%BA%E5%88%AB.html)）
+语义分析部分代码如下：
+```CSharp
+(syntaxContext, _) =>  
+{  
+    ISymbol declaredSymbol = syntaxContext.SemanticModel.GetDeclaredSymbol(syntaxContext.Node);  
+    if (declaredSymbol is not INamedTypeSymbol namedTypeSymbol)  
+    {        
+	    return (string) null;  
+    }  
+    ImmutableArray<AttributeData> attributeDataArray = namedTypeSymbol.GetAttributes();  
+  
+    // 在通过语义判断一次，防止被骗了  
+    if (!attributeDataArray.Any(t =>  
+            t.AttributeClass?.ToDisplayString(SymbolDisplayFormat.FullyQualifiedFormat) ==  
+            "global::ConsoleApp.FooAttribute"))  
+    {        
+	    return (string) null;  
+    }  
+    return namedTypeSymbol.Name;  
+}
+```
