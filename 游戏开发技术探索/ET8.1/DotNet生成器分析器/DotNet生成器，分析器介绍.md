@@ -238,8 +238,8 @@ namespace ConsoleApp
     return false;  
 }
 ```
-`node is not ClassDeclarationSyntax`过滤掉不是类的代码。代码使用了对 `NameSyntax` 调用 `ToFullString` 方法获取到所标记的名（请参阅 [Roslyn NameSyntax 的 ToString 和 ToFullString 的区别](https://blog.lindexi.com/post/Roslyn-NameSyntax-%E7%9A%84-ToString-%E5%92%8C-ToFullString-%E7%9A%84%E5%8C%BA%E5%88%AB.html)）
-语义分析部分代码如下：
+`node is not ClassDeclarationSyntax`过滤掉不是类的代码。代码使用了对 `NameSyntax` 调用 `ToFullString` 方法获取到所标记的名（请参阅 [Roslyn NameSyntax 的 ToString 和 ToFullString 的区别](https://blog.lindexi.com/post/Roslyn-NameSyntax-%E7%9A%84-ToString-%E5%92%8C-ToFullString-%E7%9A%84%E5%8C%BA%E5%88%AB.html)）。通过语法分析后，只能知道标记了名为`Foo`的特性，但是并不能确认是否真的是特性。
+通过语义来进一步分析。判断的方法就是通过 `GetAttributes` 方法获取标记在类型上面的特性，此时和语法不同的是，可以拿到分部类上面标记的特性，不单单只是某个类型文件而已。接着使用`ToDisplayString`方法获取标记的特性的全名，判断全名是否为 `global::ConsoleApp.FooAttribute` 从而确保类型符合预期。语义分析部分代码如下：
 ```CSharp
 (syntaxContext, _) =>  
 {  
