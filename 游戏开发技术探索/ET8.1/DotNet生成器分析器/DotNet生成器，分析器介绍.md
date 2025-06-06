@@ -267,3 +267,6 @@ namespace ConsoleApp
     <ProjectReference Include="..\Analyzers\Analyzers.csproj" ReferenceOutputAssembly="true" OutputItemType="Analyzer" />  
 </ItemGroup>
 ```
+和主工程引用分析器工程不同的是，在单元测试里面就应该添加程序集应用，如此才能够让单元测试项目访问到分析器项目的公开成员，从而进行测试。
+`OutputItemType="Analyzer"` 是可选的，仅仅用在期望额外将单元测试项目也当成被分析项目时才添加。默认 `ReferenceOutputAssembly`属性值就是 true 值，这里强行写 `ReferenceOutputAssembly="true"` 只是为了强调而已，默认不写即可。
+## 编写测试方法
