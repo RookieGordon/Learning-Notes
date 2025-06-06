@@ -1061,10 +1061,6 @@ body:not(.mod-rtl) {
 .cm-s-obsidian .HyperMD-table-row-0 {
   color: var(--text-normal);
 }
-/*center tables*/
-table, .table-wrapper {
-  margin-inline: auto;
-}
 
 /*underline & strikethrough styling*/
 u {
@@ -1244,11 +1240,21 @@ code, pre {
   font-family: var(--font-monospace);
 }
 
-/*---center + radius for img and embeds---*/
+/*center + radius for img and embeds */
+body:not(.no-center) {
 :is(:is(.markdown-source-view.mod-cm6) :is(.cm-content, .cm-line), .markdown-rendered) :is(img, .external-embed, .internal-embed audio, .internal-embed video, .iframe-external-embed) {
   margin-inline: auto !important;
   display: block;
   border-radius: 10px;
+}
+/*center tables*/
+table, .table-wrapper {
+  margin-inline: auto;
+}}
+/*very hacky fix for stacked images*/
+img + img, .markdown-rendered p:has(img + img) img {
+  margin-inline: 0 !important;
+  display: inline !important;
 }
 
 /*hover image animation !*/
@@ -1446,8 +1452,8 @@ input[data-task="i"]:checked, li[data-task="i"]>input:checked, li[data-task="i"]
 }
 input[data-task="/"]:checked, li[data-task="/"]>input:checked, li[data-task="/"]>p>input:checked {
   color: var(--foam);
-  -webkit-mask-image: url('data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20height%3D%2224px%22%20viewBox%3D%220%20-960%20960%20960%22%20width%3D%2224px%22%20fill%3D%22%235f6368%22%3E%3Cpath%20d%3D%22M480-530.52q65.61%200%20112.72-43.59t47.11-108.76v-114.09H320.17v114.09q0%2065.17%2047.11%20108.76T480-530.52ZM181.57-40.09q-25.96%200-43.72-17.76-17.76-17.76-17.76-43.72%200-25.39%2017.76-43.43t43.72-18.04h15.65v-114.09q0-57.44%2021.87-109.37%2021.87-51.93%2062.17-93.5-40.3-41.57-62.17-93.5-21.87-51.93-21.87-109.37v-114.09h-15.65q-25.96%200-43.72-18.04-17.76-18.04-17.76-43.43%200-25.96%2017.76-43.72%2017.76-17.76%2043.72-17.76h596.86q25.96%200%2043.72%2017.76%2017.76%2017.76%2017.76%2043.72%200%2025.39-17.76%2043.43t-43.72%2018.04h-15.65v114.09q0%2057.44-21.58%20109.37-21.59%2051.93-62.46%2093.5%2040.87%2041.57%2062.46%2093.5%2021.58%2051.93%2021.58%20109.37v114.09h15.65q25.96%200%2043.72%2018.04%2017.76%2018.04%2017.76%2043.43%200%2025.96-17.76%2043.72-17.76%2017.76-43.72%2017.76H181.57Z%22%2F%3E%3C%2Fsvg%3E');
-  mask-image: url('data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20height%3D%2224px%22%20viewBox%3D%220%20-960%20960%20960%22%20width%3D%2224px%22%20fill%3D%22%235f6368%22%3E%3Cpath%20d%3D%22M480-530.52q65.61%200%20112.72-43.59t47.11-108.76v-114.09H320.17v114.09q0%2065.17%2047.11%20108.76T480-530.52ZM181.57-40.09q-25.96%200-43.72-17.76-17.76-17.76-17.76-43.72%200-25.39%2017.76-43.43t43.72-18.04h15.65v-114.09q0-57.44%2021.87-109.37%2021.87-51.93%2062.17-93.5-40.3-41.57-62.17-93.5-21.87-51.93-21.87-109.37v-114.09h-15.65q-25.96%200-43.72-18.04-17.76-18.04-17.76-43.43%200-25.96%2017.76-43.72%2017.76-17.76%2043.72-17.76h596.86q25.96%200%2043.72%2017.76%2017.76%2017.76%2017.76%2043.72%200%2025.39-17.76%2043.43t-43.72%2018.04h-15.65v114.09q0%2057.44-21.58%20109.37-21.59%2051.93-62.46%2093.5%2040.87%2041.57%2062.46%2093.5%2021.58%2051.93%2021.58%20109.37v114.09h15.65q25.96%200%2043.72%2018.04%2017.76%2018.04%2017.76%2043.43%200%2025.96-17.76%2043.72-17.76%2017.76-43.72%2017.76H181.57Z%22%2F%3E%3C%2Fsvg%3E');
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath fill='%23000' d='M16 2a14 14 0 1 0 14 14A14.016 14.016 0 0 0 16 2m0 26a12 12 0 0 1 0-24v12l8.481 8.481A11.96 11.96 0 0 1 16 28' stroke-width='1.5' stroke='%23000'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath fill='%23000' d='M16 2a14 14 0 1 0 14 14A14.016 14.016 0 0 0 16 2m0 26a12 12 0 0 1 0-24v12l8.481 8.481A11.96 11.96 0 0 1 16 28' stroke-width='1.5' stroke='%23000'/%3E%3C/svg%3E");
 }
 input[data-task="I"]:checked, li[data-task="I"]>input:checked, li[data-task="I"]>p>input:checked {
   color: var(--color-yellow);
@@ -2121,6 +2127,17 @@ body:not(.no-cardboard) {
   display: none;
 }
 
+/*Disable image centering*/
+.no-center {
+:is(:is(.markdown-source-view.mod-cm6) :is(.cm-content, .cm-line), .markdown-rendered) :is(img, .external-embed, .internal-embed audio, .internal-embed video, .iframe-external-embed) {
+  margin-inline: 0;
+  display: inline;
+  border-radius: 10px;
+}
+table, .table-wrapper {
+  margin-inline: 0;
+}}
+
 /*Background image*/
 .workspace-bg .app-container::before {
   background-image: var(--bg-url);
@@ -2590,6 +2607,11 @@ settings:
     -
         id: no-h5
         title: Disable h5 header centering
+        type: class-toggle
+        default: false
+    -
+        id: no-center
+        title: Disable image/videos/embeds/etc. + Tables centering
         type: class-toggle
         default: false
     -

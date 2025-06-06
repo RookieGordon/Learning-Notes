@@ -15,8 +15,7 @@ dateFinish: 2025-06-06
 finished: false
 banner: Study
 displayIcon: pixel-banner-images/章节任务.png
-cssclasses:
-  - editor-full
+cssclasses: []
 ---
 
 ```cardlink
@@ -194,7 +193,7 @@ namespace ConsoleApp
         }    
     }
 ```
-## 关于`RegisterPostInitializationOutput`，`RegisterSourceOutput`和`RegisterImplementationSourceOutput`
+## 关于RegisterPostInitializationOutput，RegisterSourceOutput和RegisterImplementationSourceOutput
 `RegisterPostInitializationOutput`方法，用于提供分析器开始分析工作之前的初始化代码。这部分代码由于可不用运行分析过程，可以非常快给到 IDE 层，一般用于提供一些类型定义，可以给到开发者直接快速使用，而不会在使用过程中飘红。
 `RegisterImplementationSourceOutput`是用来注册具体实现生成的代码，这部分输入的代码会被 IDE 作为可选分析项。但带来的问题是这部分生成代码可能不被加入 IDE 分析，导致业务方调用时飘红。因此其生成的代码，基本要求是不会被业务方直接调用。
 # 更底层的收集分析和生成
@@ -207,7 +206,7 @@ namespace ConsoleApp
 	- 其中第一步和第二步可以合在一起
 3. 使用给出的数据进行处理源代码生成逻辑
 	- 这一步的逻辑和普通的 Source Generator 是相同的，只是输入的参数不同
-## 使用`context.SyntaxProvider.CreateSyntaxProvider`
+## 使用context.SyntaxProvider.CreateSyntaxProvider
 第一步的语法判断是判断当前传入的是否类型定义。如果是类型定义，则读取其标记的特性，判断特性满足 `ConsoleApp.FooAttribute` 的特征时，则算语法判断通过，让数据走到下面的语义判断处理上。
 语法分析部分代码如下：
 ```CSharp
@@ -270,3 +269,4 @@ namespace ConsoleApp
 和主工程引用分析器工程不同的是，在单元测试里面就应该添加程序集应用，如此才能够让单元测试项目访问到分析器项目的公开成员，从而进行测试。
 `OutputItemType="Analyzer"` 是可选的，仅仅用在期望额外将单元测试项目也当成被分析项目时才添加。默认 `ReferenceOutputAssembly`属性值就是 true 值，这里强行写 `ReferenceOutputAssembly="true"` 只是为了强调而已，默认不写即可。
 ## 编写测试方法
+在对分析器，特别是源代码生成器的单元测试中，一般都会通过一个自己编写的`CreateCompilation`方法，这个方法的作用是将传入的源代码字符串封装为`CSharpCompilation`类型。接着使用 `CSharpGeneratorDriver`执行指定的源代码生成器

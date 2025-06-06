@@ -44,7 +44,7 @@
               "type": "markdown",
               "state": {
                 "file": "游戏开发技术探索/ET8.1/DotNet生成器分析器/DotNet生成器，分析器介绍.md",
-                "mode": "preview",
+                "mode": "source",
                 "source": true
               },
               "icon": "lucide-file",
@@ -129,7 +129,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 299
+    "width": 299,
+    "collapsed": true
   },
   "right": {
     "id": "be1e91dfcb57ce3b",
