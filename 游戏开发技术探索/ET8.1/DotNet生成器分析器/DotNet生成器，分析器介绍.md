@@ -261,3 +261,9 @@ namespace ConsoleApp
 }
 ```
 # 为分析器编写单元测试
+分析器单元测试需要引用分析器项目，配置如下：
+```XML
+<ItemGroup>  
+    <ProjectReference Include="..\Analyzers\Analyzers.csproj" ReferenceOutputAssembly="true" OutputItemType="Analyzer" />  
+</ItemGroup>
+```
