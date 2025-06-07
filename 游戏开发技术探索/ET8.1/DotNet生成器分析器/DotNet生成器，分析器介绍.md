@@ -80,6 +80,7 @@ host: hlog.cc
 通过 `context.RegisterPostInitializationOutput` 方法注册一个源代码输出，该方法的定义上就是用于提供分析器开始分析工作之前的初始化代码。
 如以下代码所示，将输出一个名为 `GeneratedCode` 的代码
 ```CSharp
+
     public void Initialize(IncrementalGeneratorInitializationContext context)
     {
         context.RegisterPostInitializationOutput(initializationContext =>
@@ -104,6 +105,7 @@ host: hlog.cc
 ## 使用`ForAttributeWithMetadataName`快速分析代码
 这个方法是用于找到标记了某个`Attribute`特性的类型、方法、属性等，函数签名如下：
 ```CSharp
+
 var provider =
     context.SyntaxProvider.ForAttributeWithMetadataName
     (
@@ -124,6 +126,7 @@ var provider =
 >2. 语义分析过程是在语法分析之后的过程，执行过程中有所损耗，且存在多个代码文件和程序集之间的引用关联关系。
 ### 语法和语义使用说明
 ```CSharp
+
         IncrementalValuesProvider<string> targetClassNameProvider = context.SyntaxProvider.ForAttributeWithMetadataName("ConsoleApp.FooAttribute",
             // 进一步判断
             (SyntaxNode node, CancellationToken token) => node.IsKind(SyntaxKind.ClassDeclaration),
@@ -134,12 +137,14 @@ var provider =
 返回类型`IncrementalValuesProvider<string>`是一个增量值的提供者，不是立刻返回所有满足条件的代码。在IED里面的执行逻辑上，大家可以认为是每更改、新增一次代码，就会执行一次这个查询逻辑，整个查询逻辑是源源不断执行的，不是一次性的，也不是瞬时全跑的，而是增量的逐步执行的。
 如果需要一次性收集所有类型，就需要使用Collect方法：
 ```CSharp
+
         IncrementalValueProvider<ImmutableArray<string>> targetClassNameArrayProvider = targetClassNameProvider
             .Collect();
 ```
 `ImmutableArray<string>`表明不可变数组。在整个Roslyn设计里面，大量采用不可变思想，这里的返回值就是不可变思想的一个体现。细心的伙伴可以看到 `IncrementalValuesProvider` 和 `IncrementalValueProvider` 这两个单词的差别，没错，核心在于 Values 和 Value 的差别。在增量源代码生成器里面，使用 `IncrementalValuesProvider` 表示多值提供器，使用 `IncrementalValueProvider` 表示单值提供器，两者差异只是值提供器里面提供的数据是多项还是单项。使用 `Collect` 方法可以将一个多值提供器的内容收集起来，收集为一个不可变集合，从而转换为一个单值提供器，这个单值提供器里面只有一项，且这一项是一个不可变数组。
 最终代码如下：
 ```CSharp
+	
 	[Generator(LanguageNames.CSharp)]  
     public class IncrementalGenerator : IIncrementalGenerator  
     {  
@@ -210,6 +215,7 @@ namespace ConsoleApp
 第一步的语法判断是判断当前传入的是否类型定义。如果是类型定义，则读取其标记的特性，判断特性满足 `ConsoleApp.FooAttribute` 的特征时，则算语法判断通过，让数据走到下面的语义判断处理上。
 语法分析部分代码如下：
 ```CSharp
+
 (node, _) =>  
 {  
     if (node is not ClassDeclarationSyntax classDeclarationSyntax)  
@@ -240,6 +246,7 @@ namespace ConsoleApp
 `node is not ClassDeclarationSyntax`过滤掉不是类的代码。代码使用了对 `NameSyntax` 调用 `ToFullString` 方法获取到所标记的名（请参阅 [Roslyn NameSyntax 的 ToString 和 ToFullString 的区别](https://blog.lindexi.com/post/Roslyn-NameSyntax-%E7%9A%84-ToString-%E5%92%8C-ToFullString-%E7%9A%84%E5%8C%BA%E5%88%AB.html)）。通过语法分析后，只能知道标记了名为`Foo`的特性，但是并不能确认是否真的是特性。
 通过语义来进一步分析。判断的方法就是通过 `GetAttributes` 方法获取标记在类型上面的特性，此时和语法不同的是，可以拿到分部类上面标记的特性，不单单只是某个类型文件而已。接着使用`ToDisplayString`方法获取标记的特性的全名，判断全名是否为 `global::ConsoleApp.FooAttribute` 从而确保类型符合预期。语义分析部分代码如下：
 ```CSharp
+
 (syntaxContext, _) =>  
 {  
     ISymbol declaredSymbol = syntaxContext.SemanticModel.GetDeclaredSymbol(syntaxContext.Node);  
@@ -262,6 +269,7 @@ namespace ConsoleApp
 # 为分析器编写单元测试
 分析器单元测试需要引用分析器项目，配置如下：
 ```XML
+
 <ItemGroup>  
     <ProjectReference Include="..\Analyzers\Analyzers.csproj" ReferenceOutputAssembly="true" OutputItemType="Analyzer" />  
 </ItemGroup>
@@ -269,4 +277,18 @@ namespace ConsoleApp
 和主工程引用分析器工程不同的是，在单元测试里面就应该添加程序集应用，如此才能够让单元测试项目访问到分析器项目的公开成员，从而进行测试。
 `OutputItemType="Analyzer"` 是可选的，仅仅用在期望额外将单元测试项目也当成被分析项目时才添加。默认 `ReferenceOutputAssembly`属性值就是 true 值，这里强行写 `ReferenceOutputAssembly="true"` 只是为了强调而已，默认不写即可。
 ## 编写测试方法
-在对分析器，特别是源代码生成器的单元测试中，一般都会通过一个自己编写的`CreateCompilation`方法，这个方法的作用是将传入的源代码字符串封装为`CSharpCompilation`类型。接着使用 `CSharpGeneratorDriver`执行指定的源代码生成器
+在对分析器，特别是源代码生成器的单元测试中，一般都会通过一个自己编写的`CreateCompilation`方法，这个方法的作用是将传入的源代码字符串封装为`CSharpCompilation`类型。接着使用 `CSharpGeneratorDriver`执行指定的源代码生成器。
+常用的封装`CSharpCompilation`代码的`CreateCompilation`方法代码如下。可以简单将 `CSharpCompilation`理解为一个虚拟的项目。一个虚拟的项目重要的部分只有两个，一个就是源代码本身，另一个就是所引用的程序集。在单元测试的源代码本身就是通过 `CSharpSyntaxTree.ParseText` 方法将源代码转换为`SyntaxTree`对象。引用程序集可能会复杂一些，在咱这个单元测试里面只需要带上 `System.Runtime` 程序集即可，带上的方法是通过某个 `System.Runtime` 程序集的类型，如 `System.Reflection.Binder` 类型，取其类型所在程序集的路径，再通过 `MetadataReference.CreateFromFile` 作为引用路径
+```CSharp
+
+private static CSharpCompilation CreateCompilation(string source)
+        => CSharpCompilation.Create("compilation",
+            new[] { CSharpSyntaxTree.ParseText(source, path: "Foo.cs") },
+            new[]
+            {
+                // 如果缺少引用，那将会导致单元测试有些符号无法寻找正确，从而导致解析失败
+                MetadataReference.CreateFromFile(typeof(Binder).GetTypeInfo().Assembly.Location)
+            },
+            new CSharpCompilationOptions(OutputKind.ConsoleApplication));
+
+```
