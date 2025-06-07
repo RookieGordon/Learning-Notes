@@ -278,7 +278,7 @@ namespace ConsoleApp
 `OutputItemType="Analyzer"` 是可选的，仅仅用在期望额外将单元测试项目也当成被分析项目时才添加。默认 `ReferenceOutputAssembly`属性值就是 true 值，这里强行写 `ReferenceOutputAssembly="true"` 只是为了强调而已，默认不写即可。
 ## 编写测试方法
 在对分析器，特别是源代码生成器的单元测试中，一般都会通过一个自己编写的`CreateCompilation`方法，这个方法的作用是将传入的源代码字符串封装为`CSharpCompilation`类型。接着使用 `CSharpGeneratorDriver`执行指定的源代码生成器。
-常用的封装**CSharpCompilation**代码的`CreateCompilation`方法代码如下。可以简单将 **CSharpCompilation**理解为一个虚拟的项目。一个虚拟的项目重要的部分只有两个，一个就是源代码本身，另一个就是所引用的程序集。在单元测试的源代码本身就是通过 `CSharpSyntaxTree.ParseText` 方法将源代码转换为`SyntaxTree`对象。引用程序集可能会复杂一些，在咱这个单元测试里面只需要带上 `System.Runtime` 程序集即可，带上的方法是通过某个 `System.Runtime` 程序集的类型，如 `System.Reflection.Binder` 类型，取其类型所在程序集的路径，再通过 `MetadataReference.CreateFromFile` 作为引用路径
+常用的封装**CSharpCompilation**代码的`CreateCompilation`方法代码如下。可以简单将 **CSharpCompilation**理解为一个虚拟的项目。一个虚拟的项目重要的部分只有两个，一个就是源代码本身，另一个就是所引用的程序集。在单元测试的源代码本身就是通过 `CSharpSyntaxTree.ParseText` 方法将源代码转换为`SyntaxTree`对象。引用程序集可能会复杂一些，在这个单元测试里面只需要带上 `System.Runtime` 程序集即可，带上的方法是通过某个 `System.Runtime` 程序集的类型，如 `System.Reflection.Binder` 类型，取其类型所在程序集的路径，再通过 `MetadataReference.CreateFromFile` 作为引用路径
 ```CSharp
 
 private static CSharpCompilation CreateCompilation(string source)
@@ -287,7 +287,7 @@ private static CSharpCompilation CreateCompilation(string source)
             new[]
             {
                 // 如果缺少引用，那将会导致单元测试有些符号无法寻找正确，从而导致解析失败
-                MetadataReference.CreateFromFile(typeof(Binder).GetTypeInfo().Assembly.Location)
+            MetadataReference.CreateFromFile(typeof(Binder).GetTypeInfo().Assembly.Location)
             },
             new CSharpCompilationOptions(OutputKind.ConsoleApplication));
 
