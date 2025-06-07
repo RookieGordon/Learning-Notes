@@ -125,11 +125,12 @@
               "title": "Reminders"
             }
           }
-        ]
+        ],
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
-    "width": 299,
+    "width": 340.5,
     "collapsed": true
   },
   "right": {
@@ -214,16 +215,6 @@
             }
           },
           {
-            "id": "5b6ea9a5a635c75a",
-            "type": "leaf",
-            "state": {
-              "type": "todo",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "插件不再活动"
-            }
-          },
-          {
             "id": "43271033bc234913",
             "type": "leaf",
             "state": {
@@ -233,8 +224,7 @@
               "title": "Todo List"
             }
           }
-        ],
-        "currentTab": 6
+        ]
       }
     ],
     "direction": "horizontal",
