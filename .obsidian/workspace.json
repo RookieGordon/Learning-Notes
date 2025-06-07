@@ -210,12 +210,11 @@
             }
           }
         ],
-        "currentTab": 5
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
-    "width": 545,
-    "collapsed": true
+    "width": 545
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -236,7 +235,7 @@
       "vscode-editor:新建代码文件": false
     }
   },
-  "active": "fd1aec312b4ee8de",
+  "active": "ecb137817ae8abd6",
   "lastOpenFiles": [
     "游戏开发技术探索/ET8.1/DotNet生成器分析器/DotNet生成器分析器.md",
     "游戏开发技术探索/ET8.1/DotNet生成器分析器/DotNet生成器，分析器介绍.md",
