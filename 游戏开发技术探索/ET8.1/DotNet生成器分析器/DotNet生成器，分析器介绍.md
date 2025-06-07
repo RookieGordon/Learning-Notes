@@ -292,3 +292,4 @@ private static CSharpCompilation CreateCompilation(string source)
             new CSharpCompilationOptions(OutputKind.ConsoleApplication));
 
 ```
+大部分情况下的分析器单元测试项目的 CSharpCompilation 封装代码相对固定，会变更的只有某些引用逻辑而已。
