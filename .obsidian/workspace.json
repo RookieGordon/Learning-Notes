@@ -107,8 +107,8 @@
             "state": {
               "type": "reminder-list",
               "state": {},
-              "icon": "lucide-file",
-              "title": "插件不再活动"
+              "icon": "clock",
+              "title": "Reminders"
             }
           }
         ]
@@ -205,26 +205,17 @@
             "state": {
               "type": "todo",
               "state": {},
-              "icon": "lucide-file",
-              "title": "插件不再活动"
-            }
-          },
-          {
-            "id": "b26fe5c0280ce9f9",
-            "type": "leaf",
-            "state": {
-              "type": "todo",
-              "state": {},
               "icon": "checkmark",
               "title": "Todo List"
             }
           }
         ],
-        "currentTab": 6
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
-    "width": 545
+    "width": 545,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -234,10 +225,18 @@
       "daily-notes:打开/创建今天的日记": false,
       "command-palette:打开命令面板": false,
       "obsidian-git:Open Git source control": false,
-      "pexels-banner:🚩 Pixel Banner Menu": false
+      "pexels-banner:🚩 Pixel Banner Menu": false,
+      "templater-obsidian:Templater": false,
+      "obsidian-excalidraw-plugin:新建绘图文件": false,
+      "moredraw:MoreDraw": false,
+      "obsidian-memos:Thino": false,
+      "pdf-plus:PDF++: Toggle auto-copy": false,
+      "pdf-plus:PDF++: Toggle auto-focus": false,
+      "pdf-plus:PDF++: Toggle auto-paste": false,
+      "vscode-editor:新建代码文件": false
     }
   },
-  "active": "b26fe5c0280ce9f9",
+  "active": "fd1aec312b4ee8de",
   "lastOpenFiles": [
     "游戏开发技术探索/ET8.1/DotNet生成器分析器/DotNet生成器分析器.md",
     "游戏开发技术探索/ET8.1/DotNet生成器分析器/DotNet生成器，分析器介绍.md",
