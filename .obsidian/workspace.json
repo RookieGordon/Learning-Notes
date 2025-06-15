@@ -22,23 +22,8 @@
               "icon": "lucide-file",
               "title": "主页"
             }
-          },
-          {
-            "id": "fd1aec312b4ee8de",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "游戏开发技术探索/ET8.1/DotNet生成器分析器/DotNet生成器，分析器介绍.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "DotNet生成器，分析器介绍"
-            }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -115,8 +100,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 340.5,
-    "collapsed": true
+    "width": 340.5
   },
   "right": {
     "id": "be1e91dfcb57ce3b",
@@ -245,18 +229,29 @@
       "daily-notes:打开/创建今天的日记": false,
       "command-palette:打开命令面板": false,
       "obsidian-git:Open Git source control": false,
-      "pexels-banner:🚩 Pixel Banner Menu": false
+      "pexels-banner:🚩 Pixel Banner Menu": false,
+      "templater-obsidian:Templater": false,
+      "obsidian-excalidraw-plugin:新建绘图文件": false,
+      "moredraw:MoreDraw": false,
+      "obsidian-memos:Thino": false,
+      "pdf-plus:PDF++: Toggle auto-copy": false,
+      "pdf-plus:PDF++: Toggle auto-focus": false,
+      "pdf-plus:PDF++: Toggle auto-paste": false,
+      "vscode-editor:新建代码文件": false
     }
   },
-  "active": "f7a0f946614eb078",
+  "active": "4719768e372023f3",
   "lastOpenFiles": [
-    "项目/SeaWar/杂项代办/6月代办杂项.md",
-    "项目/SeaWar/App版本整理/App版本整理.md",
-    "游戏开发技术探索/ET8.1/DotNet生成器分析器/DotNet生成器，分析器介绍.md",
+    "游戏开发技术探索/ET8.1/ET8.1.md",
+    "游戏开发技术探索/ET8.1/框架介绍/ET框架介绍.md",
     "项目/SeaWar/SeaWar.md",
+    "游戏开发技术探索/ET8.1/框架介绍/ET框架结构.md",
     "项目/SeaWar/杂项代办/杂项代办.md",
-    "项目/SeaWar/Unity杂项知识点/Unity杂项知识点.md",
+    "项目/SeaWar/杂项代办/6月代办杂项.md",
     "导航/主页.md",
+    "游戏开发技术探索/ET8.1/DotNet生成器分析器/DotNet生成器，分析器介绍.md",
+    "项目/SeaWar/App版本整理/App版本整理.md",
+    "项目/SeaWar/Unity杂项知识点/Unity杂项知识点.md",
     "游戏开发技术探索/ET8.1/DotNet生成器分析器/DotNet生成器分析器.md",
     "项目/SeaWar/Unity杂项知识点/ScriptableObject生命周期.md",
     "项目/SeaWar/components/App版本整理_View.components",
@@ -267,7 +262,6 @@
     "项目/SeaWar/Unity杂项知识点/AssetBundle压缩选项.md",
     "项目/SeaWar/Unity杂项知识点/编辑器内存泄露.md",
     "项目/SeaWar/Unity杂项知识点/资源导入.md",
-    "游戏开发技术探索/ET8.1/ET8.1.md",
     "游戏开发技术探索/ET8.1/DotNet源代码生成器",
     "游戏开发技术探索/ET8.1/未命名.md",
     "游戏开发技术探索/ET8.1/DotNet生成器分析器",
@@ -278,8 +272,6 @@
     "项目/SeaWar/工具/多线程并行处理框架.md",
     "项目/SeaWar/工具/Http网址检测.md",
     "项目/SeaWar/工具/Http下载工具.md",
-    "游戏开发技术探索/Unity开发技术/Unity开发技术探索.md",
-    "生活/未命名.md",
     "游戏开发技术探索/ET8.1/重要组件",
     "游戏开发技术探索/ET8.1/网络框架/attachments/服务器消息流转.drawio.svg",
     "游戏开发技术探索/ET8.1/网络框架/attachments/（图解1）客户端消息流转.drawio.png",
