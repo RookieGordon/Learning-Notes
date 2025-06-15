@@ -215,12 +215,22 @@
             "state": {
               "type": "todo",
               "state": {},
+              "icon": "lucide-file",
+              "title": "插件不再活动"
+            }
+          },
+          {
+            "id": "f7a0f946614eb078",
+            "type": "leaf",
+            "state": {
+              "type": "todo",
+              "state": {},
               "icon": "checkmark",
               "title": "Todo List"
             }
           }
         ],
-        "currentTab": 6
+        "currentTab": 7
       }
     ],
     "direction": "horizontal",
@@ -235,18 +245,10 @@
       "daily-notes:打开/创建今天的日记": false,
       "command-palette:打开命令面板": false,
       "obsidian-git:Open Git source control": false,
-      "pexels-banner:🚩 Pixel Banner Menu": false,
-      "templater-obsidian:Templater": false,
-      "obsidian-excalidraw-plugin:新建绘图文件": false,
-      "moredraw:MoreDraw": false,
-      "obsidian-memos:Thino": false,
-      "pdf-plus:PDF++: Toggle auto-copy": false,
-      "pdf-plus:PDF++: Toggle auto-focus": false,
-      "pdf-plus:PDF++: Toggle auto-paste": false,
-      "vscode-editor:新建代码文件": false
+      "pexels-banner:🚩 Pixel Banner Menu": false
     }
   },
-  "active": "fd1aec312b4ee8de",
+  "active": "f7a0f946614eb078",
   "lastOpenFiles": [
     "项目/SeaWar/杂项代办/6月代办杂项.md",
     "项目/SeaWar/App版本整理/App版本整理.md",
