@@ -22,8 +22,23 @@
               "icon": "lucide-file",
               "title": "主页"
             }
+          },
+          {
+            "id": "b6d36358a8043282",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "游戏开发技术探索/ET8.1/ET8.1.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "ET8.1"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -240,15 +255,16 @@
       "vscode-editor:新建代码文件": false
     }
   },
-  "active": "4719768e372023f3",
+  "active": "b6d36358a8043282",
   "lastOpenFiles": [
-    "游戏开发技术探索/ET8.1/ET8.1.md",
-    "游戏开发技术探索/ET8.1/框架介绍/ET框架介绍.md",
     "项目/SeaWar/SeaWar.md",
+    "游戏开发技术探索/ET8.1/ET8.1.md",
+    "pixel-banner-images/ET.png",
+    "导航/主页.md",
+    "游戏开发技术探索/ET8.1/框架介绍/ET框架介绍.md",
     "游戏开发技术探索/ET8.1/框架介绍/ET框架结构.md",
     "项目/SeaWar/杂项代办/杂项代办.md",
     "项目/SeaWar/杂项代办/6月代办杂项.md",
-    "导航/主页.md",
     "游戏开发技术探索/ET8.1/DotNet生成器分析器/DotNet生成器，分析器介绍.md",
     "项目/SeaWar/App版本整理/App版本整理.md",
     "项目/SeaWar/Unity杂项知识点/Unity杂项知识点.md",
@@ -271,7 +287,6 @@
     "项目/SeaWar/工具/工具包.md",
     "项目/SeaWar/工具/多线程并行处理框架.md",
     "项目/SeaWar/工具/Http网址检测.md",
-    "项目/SeaWar/工具/Http下载工具.md",
     "游戏开发技术探索/ET8.1/重要组件",
     "游戏开发技术探索/ET8.1/网络框架/attachments/服务器消息流转.drawio.svg",
     "游戏开发技术探索/ET8.1/网络框架/attachments/（图解1）客户端消息流转.drawio.png",
@@ -287,7 +302,6 @@
     "游戏开发技术探索/ET8.1/components/ET8.1_View.components",
     "wallpapers/S-1.紫灵 凡人修仙传.jpg",
     "项目/SeaWar/打包步骤调整/attachments/（图解1）Inspector显示自定义内容.png",
-    "项目/SeaWar/attachments/Pasted image 20250527145149.png",
     "未命名.canvas"
   ]
 }
