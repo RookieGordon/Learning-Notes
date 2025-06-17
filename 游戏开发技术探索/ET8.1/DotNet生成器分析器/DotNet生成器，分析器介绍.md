@@ -1,7 +1,7 @@
 ---
 tags:
-  - ET8.1/.Net分析器
-  - ET8.1/.Net源码生成器
+  - ET8/.Net分析器
+  - ET8/.Net源码生成器
   - mytodo
   - Syntax语法
   - Semantic语义

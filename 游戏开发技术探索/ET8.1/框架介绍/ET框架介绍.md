@@ -1,6 +1,6 @@
 ---
 tags:
-  - ET8.1/ET框架介绍
+  - ET8/ET框架介绍
 type: Study
 course: ET8.1
 courseType: Chapter

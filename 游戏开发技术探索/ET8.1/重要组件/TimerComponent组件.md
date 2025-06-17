@@ -1,9 +1,9 @@
 ---
 tags:
-  - ET8.1/重要组件/重要组件
+  - ET8/重要组件/重要组件
   - mytodo
-  - ET8.1
-  - ET8.1/TimerComponent
+  - ET8
+  - ET8/TimerComponent
 type: Study
 course: ET8.1
 courseType: Section

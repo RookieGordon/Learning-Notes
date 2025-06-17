@@ -1,11 +1,11 @@
 ---
 tags:
-  - ET8.1/重要组件/重要组件
+  - ET8/重要组件/重要组件
   - mytodo
-  - ET8.1
-  - ET8.1/CoroutineLock
-  - ET8.1/CoroutineLockQueue
-  - ET8.1/CoroutineLockQueueType
+  - ET8
+  - ET8/CoroutineLock
+  - ET8/CoroutineLockQueue
+  - ET8/CoroutineLockQueueType
 type: Study
 course: ET8.1
 courseType: Section

@@ -1,18 +1,18 @@
 ---
 tags:
-  - ET8.1/框架介绍/框架结构
+  - ET8/框架介绍/框架结构
   - mytodo
-  - ET8.1
-  - ET8.1/CodeLoader
-  - ET8.1/FiberManager
-  - ET8.1/Fiber
-  - ET8.1/MainThreadScheduler
-  - ET8.1/ThreadScheduler
-  - ET8.1/ThreadPoolScheduler
-  - ET8.1/Entity
-  - ET8.1/Unit
-  - ET8.1/启动流程
-  - ET8.1/登录流程
+  - ET8
+  - ET8/CodeLoader
+  - ET8/FiberManager
+  - ET8/Fiber
+  - ET8/MainThreadScheduler
+  - ET8/ThreadScheduler
+  - ET8/ThreadPoolScheduler
+  - ET8/Entity
+  - ET8/Unit
+  - ET8/启动流程
+  - ET8/登录流程
 type: Study
 course: ET8.1
 courseType: Section
