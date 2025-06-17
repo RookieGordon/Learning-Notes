@@ -177,7 +177,8 @@
       "endDateTimeType": "$specifiedDateTime",
       "uiType": "ring",
       "title": "章节进度",
-      "startDateTime": "2025-05-30 15:24:49"
+      "startDateTime": "2025-05-30 15:24:49",
+      "endDateTime": "2027-05-30 15:25:18"
     }
   ],
   "rootComponentId": "866bf390-cf35-42ee-a8e6-e68bf1da911a"

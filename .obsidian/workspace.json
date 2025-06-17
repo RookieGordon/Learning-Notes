@@ -50,23 +50,9 @@
               "icon": "lucide-file",
               "title": "动画重采样"
             }
-          },
-          {
-            "id": "d766b276f703139a",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "游戏开发技术探索/ET8.1/ET8.1.md",
-                "mode": "preview",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "ET8.1"
-            }
           }
         ],
-        "currentTab": 3
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -264,15 +250,15 @@
       "vscode-editor:新建代码文件": false
     }
   },
-  "active": "d766b276f703139a",
+  "active": "3a12cc13b902f21a",
   "lastOpenFiles": [
-    "游戏开发技术探索/ET8.1/框架介绍/ET框架介绍.md",
-    "游戏开发技术探索/ET8.1/框架介绍/ET框架结构.md",
-    "游戏开发技术探索/ET8.1/ET8.1.md",
-    "游戏开发技术探索/ET8.1/DotNet生成器分析器/DotNet生成器分析器.md",
+    "项目/SeaWar/SeaWar.md",
     "导航/主页.md",
     "项目/SeaWar/工具/动画重采样.md",
-    "项目/SeaWar/SeaWar.md",
+    "游戏开发技术探索/ET8.1/ET8.1.md",
+    "游戏开发技术探索/ET8.1/框架介绍/ET框架介绍.md",
+    "游戏开发技术探索/ET8.1/框架介绍/ET框架结构.md",
+    "游戏开发技术探索/ET8.1/DotNet生成器分析器/DotNet生成器分析器.md",
     "项目/SeaWar/工具/Http下载工具.md",
     "项目/SeaWar/工具/工具包.md",
     "项目/SeaWar/杂项代办/杂项代办.md",
