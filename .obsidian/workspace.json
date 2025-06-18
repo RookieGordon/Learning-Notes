@@ -36,9 +36,51 @@
               "icon": "lucide-file",
               "title": "DeepSeek"
             }
+          },
+          {
+            "id": "e2f7721edf3354ee",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "项目/SeaWar/SeaWar.md",
+                "mode": "preview",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "SeaWar"
+            }
+          },
+          {
+            "id": "2be8929ec41e4886",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "项目/SeaWar/工具/工具包.md",
+                "mode": "preview",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "工具包"
+            }
+          },
+          {
+            "id": "852d7f5c64fafc94",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "项目/SeaWar/工具/动画重采样.md",
+                "mode": "preview",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "动画重采样"
+            }
           }
         ],
-        "currentTab": 1
+        "currentTab": 4
       }
     ],
     "direction": "vertical"
@@ -236,19 +278,19 @@
       "vscode-editor:新建代码文件": true
     }
   },
-  "active": "f35d7e5b32fead57",
+  "active": "852d7f5c64fafc94",
   "lastOpenFiles": [
+    "项目/SeaWar/工具/工具包.md",
     "项目/SeaWar/SeaWar.md",
+    "导航/主页.md",
     "Clippings/DeepSeek.md",
     "项目/SeaWar/工具/动画重采样.md",
     "Clippings",
-    "导航/主页.md",
     "游戏开发技术探索/ET8.1/ET8.1.md",
     "游戏开发技术探索/ET8.1/框架介绍/ET框架介绍.md",
     "游戏开发技术探索/ET8.1/框架介绍/ET框架结构.md",
     "游戏开发技术探索/ET8.1/DotNet生成器分析器/DotNet生成器分析器.md",
     "项目/SeaWar/工具/Http下载工具.md",
-    "项目/SeaWar/工具/工具包.md",
     "项目/SeaWar/杂项代办/杂项代办.md",
     "项目/SeaWar/杂项代办/6月代办杂项.md",
     "项目/SeaWar/工具/Prefab的引用替换工具.md",
