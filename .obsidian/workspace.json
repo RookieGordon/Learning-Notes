@@ -80,7 +80,7 @@
             }
           }
         ],
-        "currentTab": 4
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -157,7 +157,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 340.5
+    "width": 340.5,
+    "collapsed": true
   },
   "right": {
     "id": "be1e91dfcb57ce3b",
@@ -277,17 +278,17 @@
       "vscode-editor:新建代码文件": true
     }
   },
-  "active": "852d7f5c64fafc94",
+  "active": "f35d7e5b32fead57",
   "lastOpenFiles": [
+    "项目/SeaWar/SeaWar.md",
+    "项目/SeaWar/工具/工具包.md",
+    "项目/SeaWar/工具/动画重采样.md",
     "项目/SeaWar/工具/attachments/（图解3）不同帧率动画的时长对比.png",
     "项目/SeaWar/工具/attachments/20250618-164951.gif",
-    "项目/SeaWar/工具/动画重采样.md",
     "项目/SeaWar/工具/attachments/（图解2）SampleRate=15.gif",
     "项目/SeaWar/工具/attachments/20250618-164951 1.gif",
     "项目/SeaWar/工具/attachments/（图解1）SampleRate=30.gif",
     "项目/SeaWar/工具/attachments",
-    "项目/SeaWar/工具/工具包.md",
-    "项目/SeaWar/SeaWar.md",
     "导航/主页.md",
     "Clippings/DeepSeek.md",
     "Clippings",
@@ -323,7 +324,6 @@
     "游戏开发技术探索/ET8.1/网络框架/attachments",
     "游戏开发技术探索/ET8.1/网络框架",
     "游戏开发技术探索/ET8.1/框架介绍/attachments/（图解2）ET8.0中，Fiber和Scene的层级关系.png",
-    "游戏开发技术探索/ET8.1/框架介绍/attachments/（图解4）ET8.0登陆流程图.png",
     "游戏开发技术探索/ET8.1/框架介绍/attachments/ET框架启动流程.drawio",
     "未命名.canvas"
   ]
