@@ -24,20 +24,6 @@
             }
           },
           {
-            "id": "f35d7e5b32fead57",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Clippings/DeepSeek.md",
-                "mode": "preview",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "DeepSeek"
-            }
-          },
-          {
             "id": "e2f7721edf3354ee",
             "type": "leaf",
             "state": {
@@ -71,16 +57,16 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "项目/SeaWar/工具/动画重采样.md",
+                "file": "Clippings/Unity真机调试.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "动画重采样"
+              "title": "Unity真机调试"
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -278,19 +264,20 @@
       "vscode-editor:新建代码文件": true
     }
   },
-  "active": "f35d7e5b32fead57",
+  "active": "852d7f5c64fafc94",
   "lastOpenFiles": [
-    "项目/SeaWar/SeaWar.md",
-    "项目/SeaWar/工具/工具包.md",
     "项目/SeaWar/工具/动画重采样.md",
+    "Clippings/Unity真机调试.md",
+    "项目/SeaWar/工具/工具包.md",
+    "导航/主页.md",
+    "Clippings/DeepSeek.md",
+    "项目/SeaWar/SeaWar.md",
     "项目/SeaWar/工具/attachments/（图解3）不同帧率动画的时长对比.png",
     "项目/SeaWar/工具/attachments/20250618-164951.gif",
     "项目/SeaWar/工具/attachments/（图解2）SampleRate=15.gif",
     "项目/SeaWar/工具/attachments/20250618-164951 1.gif",
     "项目/SeaWar/工具/attachments/（图解1）SampleRate=30.gif",
     "项目/SeaWar/工具/attachments",
-    "导航/主页.md",
-    "Clippings/DeepSeek.md",
     "Clippings",
     "游戏开发技术探索/ET8.1/ET8.1.md",
     "游戏开发技术探索/ET8.1/框架介绍/ET框架介绍.md",
