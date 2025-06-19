@@ -9,39 +9,7 @@ description: "近期项目出现了不少性能问题，真机环境下与Editor
 tags:
   - "clippings"
 ---
-目录
-
-收起
-
-一、环境设置
-
-1.1 Building Setting
-
-1.2 Andorid Tools
-
-二、获取日志
-
-2.1 常用adb接口
-
-2.2 模拟器
-
-2.3 Android真机
-
-三、Android堆栈还原
-
-3.1 手动还原
-
-3.2 脚本还原
-
-四、相关插件
-
-4.1 Unity Profiler & Lua Profiler & Memory Profiler
-
-4.2 Render Doc
-
-参考
-
-近期项目出现了不少性能问题，真机环境下与Editor差异很大，需要对真机环境的程序状态做监控。这些内容不复杂但比较零碎，因此做一些记录。（此章节会持续更新）
+对真机环境的程序状态做监控。这些内容不复杂但比较零碎，因此做一些记录。（此章节会持续更新）
 
 ## 一、环境设置
 
