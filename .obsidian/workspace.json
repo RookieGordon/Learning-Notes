@@ -157,8 +157,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 340.5,
-    "collapsed": true
+    "width": 340.5
   },
   "right": {
     "id": "be1e91dfcb57ce3b",
@@ -279,6 +278,7 @@
   },
   "active": "ac01fcd52b938ba2",
   "lastOpenFiles": [
+    "项目/SeaWar/工具/attachments/AnimationResamplerWindow.cs",
     "项目/SeaWar/工具/attachments/（图解4）帧动画时间轴.png",
     "项目/SeaWar/工具/工具包.md",
     "项目/SeaWar/SeaWar.md",
@@ -323,7 +323,6 @@
     "游戏开发技术探索/ET8.1/网络框架/attachments/客户端消息流转.drawio.svg",
     "游戏开发技术探索/ET8.1/网络框架/attachments",
     "游戏开发技术探索/ET8.1/网络框架",
-    "游戏开发技术探索/ET8.1/框架介绍/attachments/（图解2）ET8.0中，Fiber和Scene的层级关系.png",
     "游戏开发技术探索/ET8.1/框架介绍/attachments/ET框架启动流程.drawio",
     "未命名.canvas"
   ]
