@@ -66,7 +66,7 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -160,13 +160,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "项目/SeaWar/SeaWar.md",
+                "file": "项目/SeaWar/工具/动画重采样.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "SeaWar 的大纲"
+              "title": "动画重采样 的大纲"
             }
           },
           {
@@ -263,11 +263,11 @@
       "vscode-editor:新建代码文件": true
     }
   },
-  "active": "747e7e2f16724a23",
+  "active": "fb6f9b86206f3c8a",
   "lastOpenFiles": [
     "项目/SeaWar/工具/工具包.md",
-    "项目/SeaWar/工具/动画重采样.md",
     "项目/SeaWar/SeaWar.md",
+    "项目/SeaWar/工具/动画重采样.md",
     "导航/主页.md",
     "项目/SeaWar/工具/曲线简化算法.md",
     "项目/SeaWar/工具/attachments/AnimationResamplerWindow.cs",
