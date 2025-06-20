@@ -43,12 +43,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "项目/SeaWar/工具/工具包.md",
+                "file": "Clippings/DeepSeek.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "工具包"
+              "title": "DeepSeek"
             }
           },
           {
@@ -57,12 +57,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "项目/SeaWar/工具/动画重采样.md",
+                "file": "项目/SeaWar/工具/曲线简化算法.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "动画重采样"
+              "title": "曲线简化算法"
             }
           },
           {
@@ -174,13 +174,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "项目/SeaWar/工具/动画重采样.md",
+                "file": "项目/SeaWar/工具/曲线简化算法.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "动画重采样 的大纲"
+              "title": "曲线简化算法 的大纲"
             }
           },
           {
@@ -279,7 +279,9 @@
   },
   "active": "ac01fcd52b938ba2",
   "lastOpenFiles": [
+    "Clippings/DeepSeek.md",
     "项目/SeaWar/工具/工具包.md",
+    "项目/SeaWar/工具/曲线简化算法.md",
     "项目/SeaWar/工具/动画重采样.md",
     "项目/SeaWar/工具/attachments/AnimationResamplerWindow.cs",
     "项目/SeaWar/工具/attachments/（图解4）帧动画时间轴.png",
@@ -288,7 +290,6 @@
     "Excalidraw/ScratchPaper.md",
     "Clippings/Unity真机调试.md",
     "导航/主页.md",
-    "Clippings/DeepSeek.md",
     "项目/SeaWar/工具/attachments/（图解3）不同帧率动画的时长对比.png",
     "项目/SeaWar/工具/attachments/20250618-164951.gif",
     "项目/SeaWar/工具/attachments/（图解2）SampleRate=15.gif",
