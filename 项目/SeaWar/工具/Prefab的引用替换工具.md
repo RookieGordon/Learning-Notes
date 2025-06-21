@@ -21,7 +21,7 @@ displayIcon: pixel-banner-images/项目任务.png
     - `fileID`：资源内部子对象的标识（如 Texture 的主对象为 0，Sprite 是子对象）
 3. **引用格式**：`{fileID: 11500000, guid: 5f489...8df1, type: 3}`
 # 解决方案步骤
-## 1. 获取资源的 GUID 和 FileID
+## 1. 获取资源的 GUID 和 LocalID
 ```CSharp
 // 获取任意资源的 GUID 和 FileID
 public static (string guid, long fileId) GetResourceIDs(UnityEngine.Object obj)
