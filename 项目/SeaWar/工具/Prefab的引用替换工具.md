@@ -21,7 +21,23 @@ displayIcon: pixel-banner-images/项目任务.png
     - `fileID`：资源内部子对象的标识（如 Texture 的主对象为 0，Sprite 是子对象）
 3. **引用格式**：`{fileID: 11500000, guid: 5f489...8df1, type: 3}`
 ## 关于引用资源的type
+具体参考文章：
 
+```cardlink
+url: https://unity.com/blog/engine-platform/understanding-unitys-serialization-language-yaml
+title: "了解Unity的序列化语言：YAML"
+description: "知道吗？你不必在Unity编辑器中使用XML或JSON等序列化语言就可以编辑任何种类的资产。尽管这种方法在大多数时候都能用，但有时你必须直接修改文件。比如为了避免合并冲突或损坏文件。而在这篇博文中，我们将进一步解读Unity的序列化系统，并介绍几种直接修改资产文件的用例。"
+host: unity.com
+favicon: /favicon.ico
+image: https://cdn.sanity.io/images/fuvbjjlp/production/dcf278a2d2cf399de9d757722ca728604cfeab4d-600x338.png
+```
+总结来说：
+>[!IMPORTANT]
+>Type 用于确定应从 Assets 文件夹还是 Library 文件夹加载文件。请注意，它仅支持以下值，从 2 开始（假设 0 和 1 已弃用）：
+>- 类型 2：可由 Editor 直接从 Assets 文件夹加载的资源，如 Materials 和 .asset 文件
+>- 类型 3：已在 Library 文件夹中处理和写入并由 Editor 从那里加载的资源，例如预制件、纹理和 3D 模型
+
+经过实际测试发现：
 
 # 解决方案步骤
 ## 1. 获取资源的 GUID 和 LocalID
