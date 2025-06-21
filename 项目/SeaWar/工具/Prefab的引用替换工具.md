@@ -3,7 +3,7 @@ tags:
   - SeaWar/工具/Prefab的引用替换工具
   - mytodo
   - Unity/Tools/Prefab读取
-  - Yaml文件解析
+  - Unity/编辑器/资源的引用type
 type: Project
 project: SeaWar
 projectType: Task
@@ -63,74 +63,33 @@ int GetResourceTypeID(Object obj)
     return 3;  
 }
 ```
-## 2. 解析并修改 Prefab YAML
+## 2. 通过正则匹配，替换引用资源
 ```CSharp
-using System.IO;
-using YamlDotNet.RepresentationModel;
-
-public static void ReplacePrefabReference(
-    string prefabPath, 
-    (string guid, long fileId) source, 
-    (string guid, long fileId) target)
-{
-    string yaml = File.ReadAllText(prefabPath);
-    var stream = new YamlStream();
-    stream.Load(new StringReader(yaml));
-
-    bool modified = false;
-    foreach (YamlDocument doc in stream.Documents)
-    {
-        TraverseYaml(doc.RootNode, node => 
-        {
-            if (!(node is YamlMappingNode mapping)) return;
-
-            // 检测资源引用字段
-            if (mapping.Children.TryGetValue("guid", out YamlNode guidNode) &&
-                mapping.Children.TryGetValue("fileID", out YamlNode fileIdNode))
-            {
-                string guid = ((YamlScalarNode)guidNode).Value;
-                long fileId = long.Parse(((YamlScalarNode)fileIdNode).Value);
-
-                // 匹配源资源
-                if (guid == source.guid && fileId == source.fileId)
-                {
-                    // 替换为新资源
-                    ((YamlScalarNode)guidNode).Value = target.guid;
-                    ((YamlScalarNode)fileIdNode).Value = target.fileId.ToString();
-                    modified = true;
-                }
-            }
-        });
-    }
-
-    if (modified)
-    {
-        using (var writer = new StringWriter())
-        {
-            stream.Save(writer, false);
-            File.WriteAllText(prefabPath, writer.ToString());
-        }
-        Debug.Log("Prefab references updated: " + prefabPath);
-    }
-}
-
-// 递归遍历 YAML 节点
-private static void TraverseYaml(YamlNode node, System.Action<YamlNode> action)
-{
-    action(node);
-    switch (node)
-    {
-        case YamlMappingNode mapping:
-            foreach (var child in mapping.Children.Values)
-                TraverseYaml(child, action);
-            break;
-        case YamlSequenceNode sequence:
-            foreach (var child in sequence.Children)
-                TraverseYaml(child, action);
-            break;
+tring content = File.ReadAllText(prefabPath);  
+// 构建匹配模式（考虑type字段位置变化）  
+string pattern = $@"{{fileID: {oldFileID}, guid: {oldGUID}, type: {oldTypeID}}}";  
+string newReference = $"{{fileID: {newFileID}, guid: {newGUID}, type: {newTypeID}}}";  
+  
+if (Regex.IsMatch(content, pattern))  
+{  
+    int count = 0;  
+    // 使用更安全的逐行处理  
+    string[] lines = File.ReadAllLines(prefabPath);  
+    for (int i = 0; i < lines.Length; i++)  
+    {        
+	    if (Regex.IsMatch(lines[i], pattern))  
+        {            
+		        count++;            
+		        lines[i] = Regex.Replace(lines[i],  Regex.Escape($"{oldFileID}"),  
+						                $"{newFileID}");  
+	            lines[i] = Regex.Replace(lines[i],  Regex.Escape($"{oldGUID}"),  
+						                $"{newGUID}");  
+	            lines[i] = Regex.Replace(lines[i], $@"type: {oldTypeID}",  
+						                $"type: {newTypeID}");  
+        }    
     }
 }
 ```
-
-
+完整代码如下：
+![[ResourceReferenceReplacer.cs]]
 
