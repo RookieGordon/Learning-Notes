@@ -66,7 +66,7 @@
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -233,11 +233,22 @@
             "state": {
               "type": "todo",
               "state": {},
+              "icon": "lucide-file",
+              "title": "插件不再活动"
+            }
+          },
+          {
+            "id": "ae3fb9c84bde24c7",
+            "type": "leaf",
+            "state": {
+              "type": "todo",
+              "state": {},
               "icon": "checkmark",
               "title": "Todo List"
             }
           }
-        ]
+        ],
+        "currentTab": 6
       }
     ],
     "direction": "horizontal",
@@ -252,25 +263,17 @@
       "daily-notes:打开/创建今天的日记": false,
       "command-palette:打开命令面板": true,
       "obsidian-git:Open Git source control": true,
-      "pexels-banner:🚩 Pixel Banner Menu": false,
-      "templater-obsidian:Templater": true,
-      "obsidian-excalidraw-plugin:新建绘图文件": false,
-      "moredraw:MoreDraw": true,
-      "obsidian-memos:Thino": true,
-      "pdf-plus:PDF++: Toggle auto-copy": true,
-      "pdf-plus:PDF++: Toggle auto-focus": true,
-      "pdf-plus:PDF++: Toggle auto-paste": true,
-      "vscode-editor:新建代码文件": true
+      "pexels-banner:🚩 Pixel Banner Menu": false
     }
   },
-  "active": "85a735740e5210da",
+  "active": "747e7e2f16724a23",
   "lastOpenFiles": [
+    "项目/SeaWar/App版本整理/使用版本文件，记录打包版本.md",
     "项目/SeaWar/App版本整理/App版本整理.md",
     "项目/SeaWar/SeaWar.md",
     "项目/SeaWar/Unity杂项知识点/Unity杂项知识点.md",
     "导航/主页.md",
     "项目/SeaWar/Unity杂项知识点/Unity中的GUID和LocalID.md",
-    "项目/SeaWar/App版本整理/使用版本文件，记录打包版本.md",
     "项目/SeaWar/热更步骤调整/热更步骤调整.md",
     "项目/SeaWar/Unity杂项知识点/资源导入.md",
     "收藏夹/面试题/面试集锦.md",
