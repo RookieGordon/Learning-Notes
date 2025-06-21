@@ -235,12 +235,11 @@
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
-    "width": 545,
-    "collapsed": true
+    "width": 545
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -261,7 +260,7 @@
       "vscode-editor:新建代码文件": false
     }
   },
-  "active": "747e7e2f16724a23",
+  "active": "ecb137817ae8abd6",
   "lastOpenFiles": [
     "项目/SeaWar/工具/工具包.md",
     "项目/SeaWar/工具/Prefab的引用替换工具.md",
