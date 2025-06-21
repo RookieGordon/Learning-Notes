@@ -20,6 +20,9 @@ displayIcon: pixel-banner-images/项目任务.png
     - `guid`：资源的全局唯一标识（存储在 .meta 文件）
     - `fileID`：资源内部子对象的标识（如 Texture 的主对象为 0，Sprite 是子对象）
 3. **引用格式**：`{fileID: 11500000, guid: 5f489...8df1, type: 3}`
+## 关于引用资源的type
+
+
 # 解决方案步骤
 ## 1. 获取资源的 GUID 和 LocalID
 ```CSharp
