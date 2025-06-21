@@ -38,16 +38,29 @@ image: https://cdn.sanity.io/images/fuvbjjlp/production/dcf278a2d2cf399de9d75772
 >- 类型 3：已在 Library 文件夹中处理和写入并由 Editor 从那里加载的资源，例如预制件、纹理和 3D 模型
 
 经过实际测试发现：
-
+![[（图解5）不同资源的引用数据.png|630]]
+可以发现，独立出来的动画片段，其type也是2，而FBX中的动画片段，其type则是3。
 # 解决方案步骤
-## 1. 获取资源的 GUID 和 LocalID
+## 1. 获取资源的 GUID、LocalID和type
 ```CSharp
-// 获取任意资源的 GUID 和 FileID
-public static (string guid, long fileId) GetResourceIDs(UnityEngine.Object obj)
-{
-    if (AssetDatabase.TryGetGUIDAndLocalFileIdentifier(obj, out string guid, out long fileId))
-        return (guid, fileId);
-    throw new System.Exception("Resource not found: " + obj.name);
+bool GetResourceMeta(Object obj, out string guid, out long fileID, out int typeID)  
+{  
+    AssetDatabase.TryGetGUIDAndLocalFileIdentifier(obj, out guid, out fileID);  
+    typeID = GetResourceTypeID(obj);  
+    return true;  
+}
+
+int GetResourceTypeID(Object obj)  
+{  
+    if (obj is Material) return 2; // Materials是Type 2  
+    if (obj is ScriptableObject) return 2; // .asset文件是Type 2  
+    if (obj is AnimationClip)  
+    {        
+	    return AssetDatabase.IsMainAsset(obj) ? 2 : 3; // AnimationClip主资源是Type 2，子资源是Type 3  
+    }  
+  
+    // 其他资源默认为Type 3  
+    return 3;  
 }
 ```
 ## 2. 解析并修改 Prefab YAML
