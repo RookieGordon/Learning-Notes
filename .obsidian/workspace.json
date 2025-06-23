@@ -29,12 +29,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "项目/SeaWar/SeaWar.md",
-                "mode": "preview",
+                "file": "项目/SeaWar/正式版本分支规划/正式版本分支规划.md",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "SeaWar"
+              "title": "正式版本分支规划"
             }
           },
           {
@@ -80,7 +80,7 @@
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -153,8 +153,7 @@
               "title": "Reminders"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -289,12 +288,14 @@
       "vscode-editor:新建代码文件": false
     }
   },
-  "active": "a11b97103bc2f483",
+  "active": "747e7e2f16724a23",
   "lastOpenFiles": [
+    "项目/SeaWar/SeaWar.md",
+    "项目/SeaWar/正式版本分支规划/正式版本分支规划.md",
+    "项目/SeaWar/正式版本分支规划",
     "项目/SeaWar/杂项代办/杂项代办.md",
     "项目/SeaWar/杂项代办/6月代办杂项.md",
     "项目/SeaWar/杂项代办/7月杂项代办.md",
-    "项目/SeaWar/SeaWar.md",
     "项目/SeaWar/工具/工具包.md",
     "项目/SeaWar/工具/Prefab的引用替换工具.md",
     "项目/SeaWar/工具/动画重采样.md",
@@ -334,7 +335,6 @@
     "项目/SeaWar/App版本整理",
     "游戏开发技术探索/ET8.1/DotNet源代码生成器",
     "游戏开发技术探索/ET8.1/DotNet生成器分析器",
-    "游戏开发技术探索/ET8.1/重要组件",
     "游戏开发技术探索/ET8.1/网络框架/attachments/服务器消息流转.drawio.svg",
     "未命名.canvas"
   ]
