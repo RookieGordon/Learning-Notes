@@ -1,18 +1,36 @@
 ---
-tags: SeaWar/Unity杂项知识点/Prefab编辑模式 mytodo
+tags:
+  - SeaWar/Unity杂项知识点/Prefab编辑模式
+  - mytodo
+  - Unity/编辑器/Prefab编辑模式
 type: Project
 project: SeaWar
 projectType: Task
 fileDirPath: 项目/SeaWar/Unity杂项知识点
 dateStart: 2025-06-25
 dateFinish: 2025-06-25
-finished: false
+finished: true
 displayIcon: pixel-banner-images/项目任务.png
-
 ---
-# 打开prefab到编辑模式
-通过Unity提供的[Unity - Scripting API: SceneManagement.PrefabStageUtility.OpenPrefab](https://docs.unity3d.com/6000.0/Documentation/ScriptReference/SceneManagement.PrefabStageUtility.OpenPrefab.html)API，可以在编辑模式下打开一个Prefab。
-
-
-
+# Prefab到编辑模式
+通过Unity提供的[SceneManagement.PrefabStageUtility.OpenPrefab](https://docs.unity3d.com/6000.0/Documentation/ScriptReference/SceneManagement.PrefabStageUtility.OpenPrefab.html)API，可以在编辑模式下打开一个Prefab。
+```CSharp
+// 打开Prefab编辑模式  
+PrefabStage stage = PrefabStageUtility.OpenPrefab(prefabPath);  
+// 获取根节点  
+GameObject root = stage.prefabContentsRoot;
+```
+通过[SceneManagement.StageUtility.GoToMainStage](https://docs.unity3d.com/ScriptReference/SceneManagement.StageUtility.GoToMainStage.html)，可以关闭编辑模式
+```CSharp
+PrefabStage stage = PrefabStageUtility.GetCurrentPrefabStage();  
+if (stage != null)  
+{  
+    StageUtility.GoToMainStage();  
+}
+```
+## 在编辑模式中，选中节点
+```CSharp
+Selection.activeGameObject = targetNode;  
+EditorGUIUtility.PingObject(targetNode);
+```
 

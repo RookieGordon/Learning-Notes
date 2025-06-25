@@ -66,20 +66,6 @@
             }
           },
           {
-            "id": "90df2acba0731b2f",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "项目/SeaWar/Unity杂项知识点/Prefab编辑模式.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Prefab编辑模式"
-            }
-          },
-          {
             "id": "743be23fe38e55fe",
             "type": "leaf",
             "state": {
@@ -94,7 +80,7 @@
             }
           }
         ],
-        "currentTab": 4
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -322,10 +308,10 @@
       "vscode-editor:新建代码文件": false
     }
   },
-  "active": "90df2acba0731b2f",
+  "active": "3a4d8729bbb7fdbd",
   "lastOpenFiles": [
-    "项目/SeaWar/Unity杂项知识点/资源导入.md",
     "项目/SeaWar/Unity杂项知识点/Prefab编辑模式.md",
+    "项目/SeaWar/Unity杂项知识点/资源导入.md",
     "项目/SeaWar/Unity杂项知识点/Unity杂项知识点.md",
     "项目/SeaWar/SeaWar.md",
     "项目/SeaWar/杂项代办/杂项代办.md",
