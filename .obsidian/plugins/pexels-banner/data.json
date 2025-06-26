@@ -1,6 +1,7 @@
 {
   "pixelBannerPlusEmail": "1322144566@qq.com",
   "pixelBannerPlusApiKey": " 940e3bce-9f12-49e2-bde2-aa8951629bb7",
+  "pixelBannerPlusEnabled": true,
   "apiProvider": "all",
   "pexelsApiKey": "vXttukaBa3CfwL4QmWFd5qV5pLU0h7NReAstc6NXay2ksuyQCFgrOD6A",
   "pixabayApiKey": "",
@@ -10,16 +11,16 @@
   "imageOrientation": "landscape",
   "numberOfImages": 10,
   "defaultKeywords": "nature, abstract, landscape, technology, art, cityscape, wildlife, ocean, mountains, forest, space, architecture, food, travel, science, music, sports, fashion, business, education, health, culture, history, weather, transportation, industry, people, animals, plants, patterns",
-  "yPosition": 50,
   "xPosition": 50,
+  "yPosition": 50,
   "customBannerField": [
     "banner"
   ],
-  "customYPositionField": [
-    "banner-y, y"
-  ],
   "customXPositionField": [
     "banner-x, x"
+  ],
+  "customYPositionField": [
+    "banner-y, y"
   ],
   "customContentStartField": [
     "content-start"
@@ -29,6 +30,12 @@
   ],
   "customImageRepeatField": [
     "banner-repeat"
+  ],
+  "customBannerMaxWidthField": [
+    "banner-max-width"
+  ],
+  "customBannerAlignmentField": [
+    "banner-align"
   ],
   "customBannerHeightField": [
     "banner-height"
@@ -48,8 +55,20 @@
   "customBannerIconField": [
     "icon"
   ],
+  "customBannerIconImageField": [
+    "icon-image"
+  ],
   "customBannerIconSizeField": [
     "icon-size"
+  ],
+  "customBannerIconImageSizeMultiplierField": [
+    "icon-image-size-multiplier"
+  ],
+  "customBannerIconTextVerticalOffsetField": [
+    "icon-text-vertical-offset"
+  ],
+  "customBannerIconRotateField": [
+    "icon-rotate"
   ],
   "customBannerIconXPositionField": [
     "icon-x"
@@ -77,6 +96,9 @@
   ],
   "customBannerIconVeritalOffsetField": [
     "icon-y"
+  ],
+  "customBannerIconImageAlignmentField": [
+    "banner-icon-image-alignment"
   ],
   "customFlagColorField": [
     "pixel-banner-flag-color"
@@ -109,7 +131,7 @@
   "showPinIcon": false,
   "pinnedImageFolder": "pixel-banner-images",
   "showReleaseNotes": true,
-  "lastVersion": "3.1.0",
+  "lastVersion": "3.5.5",
   "showRefreshIcon": false,
   "showViewImageIcon": false,
   "hidePixelBannerFields": true,
@@ -118,13 +140,17 @@
   "enableImageShuffle": false,
   "hideEmbeddedNoteTitles": false,
   "hideEmbeddedNoteBanners": false,
+  "showBannerInPopoverPreviews": true,
   "showSelectImageIcon": true,
   "selectImageIconOpacity": 40,
   "selectImageIconFlag": "red",
   "defaultSelectImagePath": "",
+  "defaultSelectIconPath": "",
   "useShortPath": true,
   "bannerGap": 12,
   "bannerIconSize": 70,
+  "bannerIconImageSizeMultiplier": 1,
+  "bannerIconTextVerticalOffset": 0,
   "bannerIconXPosition": 75,
   "bannerIconOpacity": 100,
   "bannerIconColor": "",
@@ -134,6 +160,8 @@
   "bannerIconPaddingY": "0",
   "bannerIconBorderRadius": "17",
   "bannerIconVeritalOffset": "0",
-  "openBannerIconModalAfterSelectingBanner": true,
-  "openTargetingModalAfterSelectingBannerOrIcon": true
+  "bannerIconImageAlignment": "left",
+  "openTargetingModalAfterSelectingBannerOrIcon": true,
+  "enableDailyGame": false,
+  "openBannerIconModalAfterSelectingBanner": true
 }

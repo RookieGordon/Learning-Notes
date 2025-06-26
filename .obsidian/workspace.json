@@ -142,23 +142,12 @@
               "icon": "lucide-file",
               "title": "插件不再活动"
             }
-          },
-          {
-            "id": "226fa1583cfbc27b",
-            "type": "leaf",
-            "state": {
-              "type": "reminder-list",
-              "state": {},
-              "icon": "clock",
-              "title": "Reminders"
-            }
           }
         ]
       }
     ],
     "direction": "horizontal",
-    "width": 340.5,
-    "collapsed": true
+    "width": 340.5
   },
   "right": {
     "id": "be1e91dfcb57ce3b",
@@ -277,12 +266,32 @@
             "state": {
               "type": "todo",
               "state": {},
+              "icon": "lucide-file",
+              "title": "插件不再活动"
+            }
+          },
+          {
+            "id": "4e364c59c539d5ca",
+            "type": "leaf",
+            "state": {
+              "type": "reminder-list",
+              "state": {},
+              "icon": "clock",
+              "title": "Reminders"
+            }
+          },
+          {
+            "id": "cf2a028a662838c2",
+            "type": "leaf",
+            "state": {
+              "type": "todo",
+              "state": {},
               "icon": "checkmark",
               "title": "Todo List"
             }
           }
         ],
-        "currentTab": 8
+        "currentTab": 10
       }
     ],
     "direction": "horizontal",
@@ -297,18 +306,10 @@
       "daily-notes:打开/创建今天的日记": false,
       "command-palette:打开命令面板": true,
       "obsidian-git:Open Git source control": true,
-      "pexels-banner:🚩 Pixel Banner Menu": false,
-      "templater-obsidian:Templater": false,
-      "obsidian-excalidraw-plugin:新建绘图文件": false,
-      "moredraw:MoreDraw": false,
-      "obsidian-memos:Thino": false,
-      "pdf-plus:PDF++: Toggle auto-copy": false,
-      "pdf-plus:PDF++: Toggle auto-focus": false,
-      "pdf-plus:PDF++: Toggle auto-paste": false,
-      "vscode-editor:新建代码文件": false
+      "pexels-banner:🚩 Pixel Banner Menu": false
     }
   },
-  "active": "3a4d8729bbb7fdbd",
+  "active": "cf2a028a662838c2",
   "lastOpenFiles": [
     "项目/SeaWar/Unity杂项知识点/Prefab编辑模式.md",
     "项目/SeaWar/Unity杂项知识点/资源导入.md",
@@ -352,10 +353,4 @@
     "游戏开发技术探索/ET8.1/框架介绍/ET框架结构.md",
     "pixel-banner-images/ET.png",
     "项目/SeaWar/components/App版本整理_View.components",
-    "项目/SeaWar/App版本整理",
-    "游戏开发技术探索/ET8.1/DotNet源代码生成器",
-    "游戏开发技术探索/ET8.1/DotNet生成器分析器",
-    "游戏开发技术探索/ET8.1/网络框架/attachments/服务器消息流转.drawio.svg",
-    "未命名.canvas"
-  ]
-}
+    "项目/SeaWar/App版本整

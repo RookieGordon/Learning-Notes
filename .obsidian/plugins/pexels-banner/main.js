@@ -59,10 +59,14 @@ var init_constants = __esm({
       API_URL: "https://pixel-banner.online/",
       // API_URL: 'http://localhost:3000/',
       ENDPOINTS: {
+        PING: "ping",
         VERIFY: "verify",
-        GENERATE: "generate",
+        TEXT_TO_IMAGE_MODELS: "text-to-image-models",
+        UPLOAD_TEMP_IMAGE: "/upload-temp-image",
+        GENERATE: "generatev2",
         GENERATE_BANNER_IDEA: "generate-banner-idea",
         GENERATE_BANNER_IDEA_FROM_SEED: "generate-banner-idea-from-seed",
+        REWRITE_BANNER_IDEA: "rewrite-banner-idea",
         HISTORY: "history",
         HISTORY_COUNT: "history/count",
         HISTORY_PAGE: "history/page",
@@ -76,10 +80,16 @@ var init_constants = __esm({
         BANNER_VOTES_USER_VOTE: "api/banner-votes/:id/user-vote",
         BANNER_VOTES_UPVOTE: "api/banner-votes/:id/upvote",
         BANNER_VOTES_DOWNVOTE: "api/banner-votes/:id/downvote",
-        INFO: "api/pixel-banner-info"
+        INFO: "api/pixel-banner-info",
+        DAILY_GAME: "games/daily-embed",
+        BANNER_ICON_CATEGORIES: "api/icon-categories",
+        BANNER_ICONS: "api/banner-icons",
+        BANNER_ICONS_SEARCH: "api/banner-icons/search",
+        BANNER_ICONS_ID: "api/banner-icons/:id"
       },
       SHOP_URL: "https://ko-fi.com/s/7ce609ff2c",
-      DONATE_URL: "https://ko-fi.com/jparkerweb"
+      DONATE_URL: "https://ko-fi.com/jparkerweb",
+      BANNER_ICON_KEY: "pixel-banner-icons"
     };
   }
 });
@@ -98,15 +108,14 @@ var init_releaseNotesModal = __esm({
       onOpen() {
         const { contentEl } = this;
         contentEl.empty();
+        this.modalEl.addClass("pixel-banner-release-notes-modal");
+        this.addStyles();
         contentEl.createEl("h2", { text: `Welcome to \u{1F6A9} Pixel Banner v${this.version}` });
         contentEl.createEl("p", {
           text: "After each update you'll be prompted with the release notes. You can disable this in the plugin settings General tab.",
           cls: "release-notes-instructions"
         });
-        const promotionalLinks = contentEl.createEl("div");
-        promotionalLinks.style.display = "flex";
-        promotionalLinks.style.flexDirection = "row";
-        promotionalLinks.style.justifyContent = "space-around";
+        const promotionalLinks = contentEl.createEl("div", { cls: "promotional-links" });
         const equilllabsLink = promotionalLinks.createEl("a", {
           href: "https://www.equilllabs.com",
           target: "equilllabs"
@@ -114,9 +123,7 @@ var init_releaseNotesModal = __esm({
         equilllabsLink.createEl("img", {
           attr: {
             height: "36",
-            style: "border:0px;height:36px;",
             src: "https://raw.githubusercontent.com/jparkerweb/pixel-banner/refs/heads/main/img/equilllabs.png?raw=true",
-            border: "0",
             alt: "eQuill Labs"
           }
         });
@@ -127,9 +134,7 @@ var init_releaseNotesModal = __esm({
         discordLink.createEl("img", {
           attr: {
             height: "36",
-            style: "border:0px;height:36px;",
             src: "https://raw.githubusercontent.com/jparkerweb/pixel-banner/refs/heads/main/img/discord.png?raw=true",
-            border: "0",
             alt: "Discord"
           }
         });
@@ -140,24 +145,114 @@ var init_releaseNotesModal = __esm({
         kofiLink.createEl("img", {
           attr: {
             height: "36",
-            style: "border:0px;height:36px;",
             src: "https://raw.githubusercontent.com/jparkerweb/pixel-banner/refs/heads/main/img/support.png?raw=true",
-            border: "0",
             alt: "Buy Me a Coffee at ko-fi.com"
           }
         });
         const notesContainer = contentEl.createDiv("release-notes-container");
         notesContainer.innerHTML = this.releaseNotes;
-        contentEl.createEl("div", { cls: "release-notes-spacer" }).style.height = "20px";
+        contentEl.createEl("div", { cls: "release-notes-spacer" });
         new import_obsidian7.Setting(contentEl).addButton((btn) => btn.setButtonText("Close").onClick(() => this.close()));
         const modalEl = this.modalEl;
         modalEl.style.position = "absolute";
         modalEl.style.left = `${modalEl.getBoundingClientRect().left}px`;
         modalEl.style.top = `${modalEl.getBoundingClientRect().top}px`;
       }
+      addStyles() {
+        const styleEl = document.createElement("style");
+        styleEl.id = "pixel-banner-release-notes-styles";
+        const existingStyle = document.getElementById(styleEl.id);
+        if (existingStyle) {
+          existingStyle.remove();
+        }
+        styleEl.textContent = `
+            .pixel-banner-release-notes-modal {
+                max-width: 600px;
+                width: 100%;
+                top: 50% !important;
+                left: 50% !important;
+                transform: translate(-50%, -50%);
+            }
+            
+            .promotional-links {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-around;
+                margin: 15px 0;
+            }
+            
+            .promotional-links img {
+                border: 0;
+                height: 36px;
+                transition: transform 0.2s ease;
+            }
+            
+            .promotional-links a:hover img {
+                transform: scale(1.1);
+            }
+            
+            .release-notes-instructions {
+                font-size: 0.75em;
+                font-weight: 300;
+                letter-spacing: 2px;
+                text-align: center;
+                margin: 10px 0;
+            }
+
+            .release-notes-container {
+                max-height: 400px;
+                overflow-y: auto;
+                padding: 10px;
+                margin: 10px 0;
+                border-radius: 5px;
+                background-color: var(--background-secondary);
+            }
+
+            .release-notes-container img {
+                max-width: 100%;
+            }
+
+            .release-notes-section {
+                margin: 10px 0;
+            }
+
+            .release-notes-section h4 {
+                margin: 15px 0 5px 0;
+                color: var(--text-accent-hover);
+            }
+
+            .release-notes-container > ul {
+                padding-left: 25px;
+            }
+            
+            .release-notes-container ul:not(:last-of-type) {
+                padding-bottom: 20px;
+            }
+
+            .release-notes-section ul {
+                margin: 0;
+                padding-left: 20px;
+            }
+
+            .release-notes-container li,
+            .release-notes-section li {
+                margin: 5px 0;
+            }
+
+            .release-notes-spacer {
+                margin: 10px 0;
+                height: 20px;
+            }
+        `;
+        document.head.appendChild(styleEl);
+      }
       onClose() {
         const { contentEl } = this;
         contentEl.empty();
+        const styleEl = document.getElementById("pixel-banner-release-notes-styles");
+        if (styleEl) {
+          styleEl.remove();
+        }
       }
     };
   }
@@ -169,27 +264,47 @@ var init_imageViewModal = __esm({
   "src/modal/modals/imageViewModal.js"() {
     import_obsidian8 = require("obsidian");
     ImageViewModal = class extends import_obsidian8.Modal {
-      constructor(app, imageUrl) {
+      constructor(app, imageUrl, bannerPath = "") {
         super(app);
         this.imageUrl = imageUrl;
+        this.bannerPath = bannerPath;
       }
       onOpen() {
         this.modalEl.addClass("pixel-banner-image-modal");
+        this.addStyles();
         const { contentEl } = this;
         contentEl.empty();
         contentEl.addClass("pixel-banner-image-view-modal");
         const imageContainer = contentEl.createDiv("image-container");
         const img = imageContainer.createEl("img", {
           attr: {
-            src: this.imageUrl,
-            style: "max-width: 100%; max-height: 90vh; object-fit: contain;"
+            src: this.imageUrl
           }
         });
+        if (this.bannerPath) {
+          const pathContainer = contentEl.createEl("div", { cls: "path-container" });
+          const pathDisplay = pathContainer.createEl("div", {
+            text: this.bannerPath,
+            cls: "banner-path"
+          });
+          const copyButton = pathContainer.createEl("button", {
+            text: "Copy Path",
+            cls: "mod-cta"
+          });
+          copyButton.addEventListener("click", () => {
+            navigator.clipboard.writeText(this.bannerPath).then(() => {
+              const originalText = copyButton.textContent;
+              copyButton.textContent = "Copied!";
+              setTimeout(() => {
+                copyButton.textContent = originalText;
+              }, 2e3);
+            });
+          });
+        }
         const closeButton = contentEl.createEl("button", {
           text: "Close",
-          cls: "mod-cta"
+          cls: "mod-cta close-button"
         });
-        closeButton.style.marginTop = "10px";
         closeButton.addEventListener("click", () => this.close());
         this.scope.register([], "Escape", () => this.close());
         const modalEl = this.modalEl;
@@ -197,9 +312,98 @@ var init_imageViewModal = __esm({
         modalEl.style.left = `${modalEl.getBoundingClientRect().left}px`;
         modalEl.style.top = `${modalEl.getBoundingClientRect().top}px`;
       }
+      addStyles() {
+        const styleEl = document.createElement("style");
+        styleEl.id = "pixel-banner-image-view-styles";
+        const existingStyle = document.getElementById(styleEl.id);
+        if (existingStyle) {
+          existingStyle.remove();
+        }
+        styleEl.textContent = `
+            .pixel-banner-image-modal {
+                max-width: 80vw;
+                max-height: 90vh;
+                width: 100%;
+                height: auto;
+                top: 50% !important;
+                left: 50% !important;
+                transform: translate(-50%, -50%);
+            }
+
+            .pixel-banner-image-view-modal {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                padding: 20px;
+            }
+
+            .pixel-banner-image-view-modal img {
+                max-width: 100%;
+                max-height: 90vh;
+                object-fit: contain;
+                border-radius: 8px;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            }
+
+            .pixel-banner-image-view-modal button {
+                padding: 8px 16px;
+                border-radius: 4px;
+                cursor: pointer;
+                transition: background-color 0.2s ease-in-out;
+            }
+
+            .pixel-banner-image-view-modal .image-container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-bottom: 10px;
+            }
+
+            .pixel-banner-image-view-modal .image-container img {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                height: 100%;
+                max-width: 100%;
+                max-height: 90vh;
+                object-fit: contain;
+            }
+
+            .pixel-banner-image-view-modal .path-container {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin-top: 10px;
+                margin-bottom: 10px;
+            }
+
+            .pixel-banner-image-view-modal .banner-path {
+                flex-grow: 1;
+                margin-right: 10px;
+                font-family: var(--font-monospace);
+                font-size: 0.9em;
+                overflow-x: auto;
+                padding: 4px;
+                background-color: var(--background-secondary);
+                border-radius: 4px;
+            }
+
+            .pixel-banner-image-view-modal .close-button {
+                margin-top: 10px;
+                width: 150px;
+            }
+        `;
+        document.head.appendChild(styleEl);
+      }
       onClose() {
         const { contentEl } = this;
         contentEl.empty();
+        const styleEl = document.getElementById("pixel-banner-image-view-styles");
+        if (styleEl) {
+          styleEl.remove();
+        }
       }
     };
   }
@@ -217,16 +421,29 @@ var init_folderSelectionModal = __esm({
         this.onChoose = onChoose;
         this.modalEl.addClass("pixel-banner-folder-select-modal");
         const titleDiv = document.createElement("p");
-        titleDiv.textContent = "\u{1F4BE} Choose a folder to save the Banner Image";
-        titleDiv.style.padding = "0 20px";
+        titleDiv.innerHTML = "\u{1F4BE} Choose a <strong>Folder</strong> to save the selected Banner in your vault";
+        titleDiv.style.margin = "10px 0";
+        titleDiv.style.padding = "20px 20px 0";
         titleDiv.style.color = "var(--text-accent)";
+        titleDiv.style.borderTop = "1px dashed var(--modal-border-color)";
         this.modalEl.appendChild(titleDiv);
+        const descriptionDiv = document.createElement("p");
+        descriptionDiv.innerHTML = "If you set a default value in settings it will be pre-filled above.<br>Select any folder in your vault to continue.";
+        descriptionDiv.style.margin = "0 0 20px 0";
+        descriptionDiv.style.padding = "0 20px";
+        descriptionDiv.style.color = "var(--text-muted)";
+        descriptionDiv.style.fontSize = ".9em";
+        this.modalEl.appendChild(descriptionDiv);
         this.setPlaceholder("Select or type folder path to save Banner Image");
         this.addStyle();
       }
       addStyle() {
         const style = document.createElement("style");
         style.textContent = `
+            .prompt.pixel-banner-folder-select-modal {
+                top: unset !important;
+                padding: 20px !important;
+            }
             .pixel-banner-folder-select-modal .prompt {
                 position: fixed !important;
                 top: 50% !important;
@@ -259,7 +476,7 @@ var init_folderSelectionModal = __esm({
         super.onOpen();
         const inputEl = this.inputEl;
         inputEl.value = this.defaultFolder;
-        inputEl.select();
+        inputEl.focus();
         this.updateSuggestions();
       }
     };
@@ -329,7 +546,13 @@ var init_saveImageModal = __esm({
 function getFrontmatterValue(frontmatter, fieldNames) {
   if (!frontmatter || !fieldNames) return null;
   const fields = Array.isArray(fieldNames) ? fieldNames : [fieldNames];
-  for (const field of fields) {
+  const processedFields = fields.flatMap((field) => {
+    if (typeof field === "string" && field.includes(",")) {
+      return field.split(",").map((f) => f.trim()).filter((f) => f.length > 0);
+    }
+    return field;
+  });
+  for (const field of processedFields) {
     if (frontmatter.hasOwnProperty(field)) {
       const value = frontmatter[field];
       if (value === 0) {
@@ -342,6 +565,17 @@ function getFrontmatterValue(frontmatter, fieldNames) {
     }
   }
   return null;
+}
+function getValueWithZeroCheck(values) {
+  if (!Array.isArray(values)) {
+    console.warn("getValueWithZeroCheck expects an array of values");
+    return null;
+  }
+  for (const value of values) {
+    if (value === 0) return 0;
+    if (value !== null && value !== void 0) return value;
+  }
+  return values[values.length - 1];
 }
 async function updateNoteFrontmatter(imagePath, plugin, usedField = null) {
   const activeFile = plugin.app.workspace.getActiveFile();
@@ -369,7 +603,7 @@ async function updateNoteFrontmatter(imagePath, plugin, usedField = null) {
         cleanedFrontmatter = cleanedFrontmatter.replace(fieldRegex, "");
       });
       cleanedFrontmatter = cleanedFrontmatter.trim();
-      const newFrontmatter = `${bannerField}: "[[${imageReference}]]"${cleanedFrontmatter ? "\n" + cleanedFrontmatter : ""}`;
+      const newFrontmatter = `${bannerField}: "![[${imageReference}]]"${cleanedFrontmatter ? "\n" + cleanedFrontmatter : ""}`;
       return `---
 ${newFrontmatter}
 ---`;
@@ -377,7 +611,7 @@ ${newFrontmatter}
   } else {
     const cleanContent = fileContent.replace(/^\s+/, "");
     updatedContent = `---
-${bannerField}: "[[${imageReference}]]"
+${bannerField}: "![[${imageReference}]]"
 ---
 
 ${cleanContent}`;
@@ -525,6 +759,25 @@ var init_handlePinIconClick = __esm({
   }
 });
 
+// src/utils/fractionTextDisplay.js
+function decimalToFractionString(num) {
+  const fractionMap = {
+    0.25: "\xBC",
+    0.5: "\xBD",
+    0.75: "\xBE"
+  };
+  const whole = Math.floor(num);
+  const decimal = +(num - whole).toFixed(2);
+  let fraction = fractionMap[decimal] || "";
+  if (whole === 0 && fraction) return fraction;
+  if (whole === 0 && !fraction) return num.toString();
+  return fraction ? `${whole} ${fraction}` : `${whole}`;
+}
+var init_fractionTextDisplay = __esm({
+  "src/utils/fractionTextDisplay.js"() {
+  }
+});
+
 // src/utils/downloadHistory.js
 var DownloadHistory;
 var init_downloadHistory = __esm({
@@ -587,73 +840,45 @@ var init_selectPixelBannerModal = __esm({
     init_modals();
     init_flags();
     init_semver();
+    init_fractionTextDisplay();
     init_constants();
     SelectPixelBannerModal = class extends import_obsidian12.Modal {
       constructor(app, plugin) {
         super(app);
         this.plugin = plugin;
-        this.isLoading = true;
+        this.isLoading = false;
+        this.isVerifyingAPI = true;
       }
       async onOpen() {
         const { contentEl } = this;
         contentEl.empty();
-        this.showLoadingSpinner(contentEl);
-        this.initializeModal().catch((error) => {
-          console.error("Error initializing modal:", error);
-          this.hideLoadingSpinner();
-          contentEl.createEl("p", {
-            text: "Failed to load Pixel Banner Menu. Please try again later.",
-            cls: "pixel-banner-error"
+        await this.initializeBasicUI();
+        if (this.plugin.settings.pixelBannerPlusEnabled) {
+          this.initializeAPIDependentSections().catch((error) => {
+            console.error("Error initializing API-dependent sections:", error);
+            this.updateAPIStatusUI(false);
           });
-        });
-      }
-      // Show loading spinner
-      showLoadingSpinner(container) {
-        this.isLoading = true;
-        this.loadingOverlay = container.createDiv({
-          cls: "pixel-banner-loading-overlay",
-          attr: {
-            style: `
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    right: 0;
-                    bottom: 0;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    background-color: var(--background-primary);
-                    z-index: 100;
-                    animation: pixel-banner-fade-in 0.3s ease-in-out;
-                `
-          }
-        });
-        this.loadingOverlay.createDiv({
-          cls: "pixel-banner-spinner",
-          attr: {
-            style: `
-                width: 40px;
-                    height: 40px;
-                    border: 4px solid var(--background-modifier-border);
-                    border-top: 4px solid var(--text-accent);
-                    border-radius: 50%;
-                    animation: pixel-banner-spin 1s linear infinite;
-                `
-          }
-        });
-      }
-      // Hide loading spinner
-      hideLoadingSpinner() {
-        this.isLoading = false;
-        if (this.loadingOverlay) {
-          this.loadingOverlay.remove();
-          this.loadingOverlay = null;
         }
       }
-      // Initialize modal content
-      async initializeModal() {
-        await this.plugin.verifyPixelBannerPlusCredentials();
-        await this.plugin.getPixelBannerInfo();
+      // Create a loading spinner element
+      createLoadingSpinner() {
+        const spinner = document.createElement("div");
+        spinner.classList.add("pixel-banner-section-spinner");
+        spinner.innerHTML = `
+            <div class="pixel-banner-spinner" style="
+                width: 20px;
+                height: 20px;
+                border: 2px solid var(--background-modifier-border);
+                border-top: 2px solid var(--text-accent);
+                border-radius: 50%;
+                animation: pixel-banner-spin 1s linear infinite;
+            "></div>
+        `;
+        return spinner;
+      }
+      // Initialize the basic UI (non-API dependent)
+      async initializeBasicUI() {
+        var _a;
         const { contentEl } = this;
         const titleContainer = contentEl.createEl("h2", {
           cls: "pixel-banner-selector-title",
@@ -686,7 +911,7 @@ var init_selectPixelBannerModal = __esm({
                     margin-left: auto;
                     margin-right: 20px;
                     padding: 4px 10px;
-                    background: transparent;
+                    // background: transparent;
                     border: none;
                     cursor: pointer;
                     font-size: 14px;
@@ -694,8 +919,8 @@ var init_selectPixelBannerModal = __esm({
                 `
           }
         });
-        settingsButton.innerHTML = "\u2699\uFE0F Settings";
-        settingsButton.title = "Open Pixel Banner Settings";
+        settingsButton.innerHTML = "\u2699\uFE0F Plugin Settings";
+        settingsButton.title = "Open Pixel Banner Plugin Settings";
         settingsButton.addEventListener("click", () => {
           this.close();
           const openSettings = async () => {
@@ -712,53 +937,25 @@ var init_selectPixelBannerModal = __esm({
           openSettings();
         });
         const activeFile = this.app.workspace.getActiveFile();
-        const hasBanner = activeFile ? this.plugin.hasBannerFrontmatter(activeFile) : false;
+        const hasBanner = activeFile ? this.plugin.hasBannerFrontmatter(activeFile) || ((_a = this.plugin.app.metadataCache.getFileCache(activeFile)) == null ? void 0 : _a.frontmatter) && this.plugin.settings.customBannerShuffleField.some(
+          (field) => {
+            var _a2, _b;
+            return (_b = (_a2 = this.plugin.app.metadataCache.getFileCache(activeFile)) == null ? void 0 : _a2.frontmatter) == null ? void 0 : _b[field];
+          }
+        ) : false;
         const mainContainer = contentEl.createDiv({ cls: "pixel-banner-main-container" });
         const bannerSourceSection = mainContainer.createDiv({ cls: "pixel-banner-section" });
-        bannerSourceSection.createEl("h3", { text: "Select Banner Source", cls: "pixel-banner-section-title" });
+        bannerSourceSection.createEl("h3", {
+          text: "Choose a Banner",
+          cls: "pixel-banner-section-title",
+          attr: {
+            style: `
+                    margin: 0;
+                `
+          }
+        });
         const bannerSourceButtons = bannerSourceSection.createDiv({
-          cls: "pixel-banner-source-buttons",
-          attr: {
-            style: `
-                    display: ${this.plugin.pixelBannerPlusServerOnline ? "flex !important" : "flex"};
-                `
-          }
-        });
-        const aiButton = bannerSourceButtons.createEl("button", {
-          cls: "pixel-banner-source-button",
-          attr: {
-            style: `
-                    display: ${this.plugin.pixelBannerPlusServerOnline ? "flex" : "none"};
-                `
-          }
-        });
-        const aiButtonContent = aiButton.createDiv({ cls: "pixel-banner-button-content" });
-        aiButtonContent.createEl("span", { text: "\u2728", cls: "pixel-banner-button-icon" });
-        aiButtonContent.createEl("div", { cls: "pixel-banner-button-text-container" }).createEl("span", {
-          text: "AI Banner",
-          cls: "pixel-banner-button-text"
-        });
-        aiButton.addEventListener("click", () => {
-          this.close();
-          new GenerateAIBannerModal(this.app, this.plugin).open();
-        });
-        const storeButton = bannerSourceButtons.createEl("button", {
-          cls: "pixel-banner-source-button",
-          attr: {
-            style: `
-                    display: ${this.plugin.pixelBannerPlusServerOnline ? "flex" : "none"};
-                `
-          }
-        });
-        const storeButtonContent = storeButton.createDiv({ cls: "pixel-banner-button-content" });
-        storeButtonContent.createEl("span", { text: "\u{1F3EA}", cls: "pixel-banner-button-icon" });
-        storeButtonContent.createEl("div", { cls: "pixel-banner-button-text-container" }).createEl("span", {
-          text: "Store",
-          cls: "pixel-banner-button-text"
-        });
-        storeButton.addEventListener("click", () => {
-          this.close();
-          new PixelBannerStoreModal(this.app, this.plugin).open();
+          cls: "pixel-banner-source-buttons"
         });
         const vaultButton = bannerSourceButtons.createEl("button", {
           cls: "pixel-banner-source-button"
@@ -779,43 +976,9 @@ var init_selectPixelBannerModal = __esm({
               if (activeFile2) {
                 await this.plugin.app.fileManager.processFrontMatter(activeFile2, (frontmatter) => {
                   const bannerField = this.plugin.settings.customBannerField[0];
-                  frontmatter[bannerField] = `[[${file.path}]]`;
+                  frontmatter[bannerField] = `![[${file.path}]]`;
                 });
-                if (this.plugin.settings.openBannerIconModalAfterSelectingBanner) {
-                  new EmojiSelectionModal(
-                    this.app,
-                    this.plugin,
-                    async (emoji) => {
-                      const activeFile3 = this.app.workspace.getActiveFile();
-                      if (activeFile3) {
-                        await this.plugin.app.fileManager.processFrontMatter(activeFile3, (frontmatter) => {
-                          const iconField = this.plugin.settings.customBannerIconField[0];
-                          if (emoji) {
-                            frontmatter[iconField] = emoji;
-                          } else {
-                            delete frontmatter[iconField];
-                          }
-                        });
-                        const view = this.plugin.app.workspace.getActiveViewOfType(import_obsidian12.MarkdownView);
-                        if (view) {
-                          const contentEl2 = view.contentEl;
-                          if (contentEl2) {
-                            const existingOverlays = contentEl2.querySelectorAll(".banner-icon-overlay");
-                            existingOverlays.forEach((overlay) => {
-                              this.plugin.returnIconOverlay(overlay);
-                            });
-                          }
-                          await this.plugin.updateBanner(view, true);
-                        }
-                        if (this.plugin.settings.openTargetingModalAfterSelectingBannerOrIcon) {
-                          new TargetPositionModal(this.app, this.plugin).open();
-                        }
-                      }
-                    },
-                    // Skip the targeting modal in the EmojiSelectionModal if we're going to open it here
-                    this.plugin.settings.openTargetingModalAfterSelectingBannerOrIcon
-                  ).open();
-                } else if (this.plugin.settings.openTargetingModalAfterSelectingBannerOrIcon) {
+                if (this.plugin.settings.openTargetingModalAfterSelectingBannerOrIcon) {
                   new TargetPositionModal(this.app, this.plugin).open();
                 }
               }
@@ -836,16 +999,147 @@ var init_selectPixelBannerModal = __esm({
           this.close();
           new WebAddressModal(this.app, this.plugin).open();
         });
+        if (this.plugin.settings.pixelBannerPlusEnabled) {
+          const aiButton = bannerSourceButtons.createEl("button", {
+            cls: "pixel-banner-source-button pixel-banner-api-dependent",
+            attr: {
+              id: "pixel-banner-plus-ai-button",
+              style: `
+                        position: relative;
+                    `
+            }
+          });
+          const aiButtonContent = aiButton.createDiv({ cls: "pixel-banner-button-content" });
+          aiButtonContent.createEl("span", { text: "\u2728", cls: "pixel-banner-button-icon" });
+          aiButtonContent.createEl("div", { cls: "pixel-banner-button-text-container" }).createEl("span", {
+            text: "AI Banner",
+            cls: "pixel-banner-button-text"
+          });
+          const aiLoadingOverlay = aiButton.createDiv({
+            cls: "pixel-banner-button-loading-overlay",
+            attr: {
+              style: `
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        right: 0;
+                        bottom: 0;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        background-color: var(--background-primary);
+                        opacity: 0.8;
+                        z-index: 10;
+                    `
+            }
+          });
+          aiLoadingOverlay.appendChild(this.createLoadingSpinner());
+          const storeButton = bannerSourceButtons.createEl("button", {
+            cls: "pixel-banner-source-button pixel-banner-api-dependent",
+            attr: {
+              id: "pixel-banner-plus-store-button",
+              style: `
+                        position: relative;
+                    `
+            }
+          });
+          const storeButtonContent = storeButton.createDiv({ cls: "pixel-banner-button-content" });
+          storeButtonContent.createEl("span", { text: "\u{1F3EA}", cls: "pixel-banner-button-icon" });
+          storeButtonContent.createEl("div", { cls: "pixel-banner-button-text-container" }).createEl("span", {
+            text: "Store",
+            cls: "pixel-banner-button-text"
+          });
+          const storeLoadingOverlay = storeButton.createDiv({
+            cls: "pixel-banner-button-loading-overlay",
+            attr: {
+              style: `
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        right: 0;
+                        bottom: 0;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        background-color: var(--background-primary);
+                        opacity: 0.8;
+                        z-index: 10;
+                    `
+            }
+          });
+          storeLoadingOverlay.appendChild(this.createLoadingSpinner());
+        }
         const customizationSection = mainContainer.createDiv({ cls: "pixel-banner-section" });
-        customizationSection.createEl("h3", { text: "Customize Banner", cls: "pixel-banner-section-title" });
+        customizationSection.createEl("h3", {
+          text: "Customize Banner",
+          cls: "pixel-banner-section-title",
+          attr: {
+            style: `
+                    margin: 0;
+                `
+          }
+        });
         const customizationOptions = customizationSection.createDiv({ cls: "pixel-banner-customization-options" });
+        const bannerIconImageButton = customizationOptions.createEl("button", {
+          cls: "pixel-banner-customize-button"
+        });
+        const bannerIconImageContent = bannerIconImageButton.createDiv({ cls: "pixel-banner-button-content" });
+        bannerIconImageContent.createEl("span", { text: "\u2B50", cls: "pixel-banner-button-icon" });
+        bannerIconImageContent.createEl("div", { cls: "pixel-banner-button-text-container" }).createEl("span", {
+          text: "Icon Image",
+          cls: "pixel-banner-button-text"
+        });
+        if (!hasBanner) {
+          bannerIconImageButton.disabled = true;
+          bannerIconImageButton.classList.add("pixel-banner-button-disabled");
+          bannerIconImageButton.title = "You need to add a banner first";
+        }
+        bannerIconImageButton.addEventListener("click", () => {
+          this.close();
+          const onChooseBannerIconImage = async (file) => {
+            if (!file) return;
+            const activeFile2 = this.app.workspace.getActiveFile();
+            if (!activeFile2) return;
+            if (file.isWebUrl) {
+              this.app.fileManager.processFrontMatter(activeFile2, (fm) => {
+                const iconImageField = Array.isArray(this.plugin.settings.customBannerIconImageField) ? this.plugin.settings.customBannerIconImageField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconImageField;
+                fm[iconImageField] = file.path;
+              });
+              new TargetPositionModal(this.app, this.plugin).open();
+              return;
+            }
+            if (file.extension.toLowerCase().match(/^(jpg|jpeg|png|gif|bmp|svg|webp|avif)$/)) {
+              try {
+                const imageUrl = await this.plugin.getVaultImageUrl(file.path);
+                if (imageUrl) {
+                  this.plugin.loadedImages.set(file.path, imageUrl);
+                  const preloadImg = new Image();
+                  preloadImg.src = imageUrl;
+                }
+              } catch (error) {
+                console.error("Error preloading icon image:", error);
+              }
+            }
+            this.app.fileManager.processFrontMatter(activeFile2, (fm) => {
+              const iconImageField = Array.isArray(this.plugin.settings.customBannerIconImageField) ? this.plugin.settings.customBannerIconImageField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconImageField;
+              fm[iconImageField] = `![[${file.path}]]`;
+            });
+            new TargetPositionModal(this.app, this.plugin).open();
+          };
+          new IconImageSelectionModal(
+            this.app,
+            this.plugin,
+            onChooseBannerIconImage,
+            this.plugin.settings.defaultSelectIconPath
+          ).open();
+        });
         const bannerIconButton = customizationOptions.createEl("button", {
           cls: "pixel-banner-customize-button"
         });
         const bannerIconContent = bannerIconButton.createDiv({ cls: "pixel-banner-button-content" });
-        bannerIconContent.createEl("span", { text: "\u2B50", cls: "pixel-banner-button-icon" });
+        bannerIconContent.createEl("span", { text: "\u{1F4F0}", cls: "pixel-banner-button-icon" });
         bannerIconContent.createEl("div", { cls: "pixel-banner-button-text-container" }).createEl("span", {
-          text: "Set Banner Icon",
+          text: "Icon Emoji & Text",
           cls: "pixel-banner-button-text"
         });
         if (!hasBanner) {
@@ -880,7 +1174,7 @@ var init_selectPixelBannerModal = __esm({
         const targetingIconContent = targetingIconButton.createDiv({ cls: "pixel-banner-button-content" });
         targetingIconContent.createEl("span", { text: "\u{1F3AF}", cls: "pixel-banner-button-icon" });
         targetingIconContent.createEl("div", { cls: "pixel-banner-button-text-container" }).createEl("span", {
-          text: "Adjust Position, Size, & Style",
+          text: "Position, Size, & Style",
           cls: "pixel-banner-button-text"
         });
         if (!hasBanner) {
@@ -892,159 +1186,447 @@ var init_selectPixelBannerModal = __esm({
           this.close();
           new TargetPositionModal(this.app, this.plugin).open();
         });
+        setTimeout(() => {
+          if (hasBanner && targetingIconButton) {
+            targetingIconButton.focus();
+          }
+        }, 1e3);
         if (!hasBanner) {
           const noBannerMessage = customizationSection.createDiv({ cls: "pixel-banner-no-banner-message" });
           noBannerMessage.createEl("p", {
-            text: "No banner found for this note. Add a banner first to enable customization options.",
+            text: "Add a banner first to enable customization options.",
             cls: "pixel-banner-message-text"
           });
         }
-        const accountSection = mainContainer.createDiv({
-          cls: "pixel-banner-section",
-          attr: {
-            style: `
-                    font-size: .9em;
-                    margin-top: 10px;
-                    gap: 5px;
-                `
-          }
-        });
-        const accountTitle = accountSection.createEl("h3", {
-          text: "Pixel Banner Plus Account",
-          cls: "pixel-banner-section-title",
-          attr: {
-            style: `
-                    margin: 0;
-                    cursor: help;
-                `
-          }
-        });
-        const accountInfo = accountSection.createDiv({ cls: "pixel-banner-account-info" });
-        const statusContainer = accountInfo.createDiv({
-          attr: {
-            style: `
-                    display: flex;
-                    flex-direction: row;
-                    gap: 10px;
-                    align-items: center;
-                    cursor: help;
-                `
-          }
-        });
-        const isConnected = this.plugin.pixelBannerPlusEnabled;
-        const pixelBannerPlusServerOnline = this.plugin.pixelBannerPlusServerOnline;
-        const statusText = pixelBannerPlusServerOnline ? isConnected ? "\u2705 Authorized" : "\u274C Not Authorized" : "\u{1F6A8} Servers Offline \u{1F6A8}";
-        const statusBorderColor = isConnected ? "#20bf6b" : "#FF0000";
-        statusContainer.createEl("span", {
-          text: statusText,
-          cls: "pixel-banner-status-value",
-          attr: {
-            style: `border: 1px dotted ${statusBorderColor};`
-          }
-        });
-        const tokenCount = this.plugin.pixelBannerPlusBannerTokens !== void 0 ? `\u{1FA99} ${this.plugin.pixelBannerPlusBannerTokens.toString()} Tokens` : "\u2753 Unknown";
-        statusContainer.createEl("span", {
-          text: tokenCount,
-          cls: "pixel-banner-status-value",
-          attr: {
-            style: `
-                    border: 1px dotted #F3B93B;
-                    display: ${pixelBannerPlusServerOnline && this.plugin.pixelBannerPlusEnabled ? "inline-flex" : "none"};
-                `
-          }
-        });
-        const openPlusSettings = async () => {
-          this.close();
-          await this.app.setting.open();
-          await new Promise((resolve) => setTimeout(resolve, 300));
-          const settingsTabs = document.querySelectorAll(".vertical-tab-header-group .vertical-tab-nav-item");
-          for (const tab of settingsTabs) {
-            if (tab.textContent.includes("Pixel Banner")) {
-              tab.click();
-              break;
+        if (this.plugin.settings.pixelBannerPlusEnabled) {
+          const accountSection = mainContainer.createDiv({
+            cls: "pixel-banner-section pixel-banner-api-dependent",
+            attr: {
+              style: `
+                        gap: 5px;
+                        position: relative;
+                        min-height: 97px;
+                    `
             }
-          }
-          const pixelBannerSettingsTabs = document.querySelectorAll(".pixel-banner-settings-tabs > button.pixel-banner-settings-tab");
-          for (const tab of pixelBannerSettingsTabs) {
-            if (tab.textContent.includes("Plus")) {
-              tab.click();
-              break;
+          });
+          const accountTitle = accountSection.createEl("h3", {
+            text: "Pixel Banner Plus Account",
+            cls: "pixel-banner-section-title",
+            attr: {
+              style: `
+                        margin: 0;
+                        cursor: help;
+                        width: max-content;
+                    `
             }
-          }
-        };
-        accountTitle.addEventListener("click", openPlusSettings);
-        statusContainer.addEventListener("click", openPlusSettings);
-        if (pixelBannerPlusServerOnline && isConnected && this.plugin.pixelBannerPlusBannerTokens === 0) {
-          const buyTokensButton = accountInfo.createEl("button", {
-            cls: "pixel-banner-account-button pixel-banner-buy-tokens-button",
-            text: "\u{1F4B5} Buy More Tokens"
           });
-          buyTokensButton.addEventListener("click", (event) => {
-            event.preventDefault();
-            window.open(PIXEL_BANNER_PLUS.SHOP_URL, "_blank");
-          });
-        } else if (pixelBannerPlusServerOnline && !isConnected) {
-          const signupButton = accountInfo.createEl("button", {
-            cls: "pixel-banner-account-button pixel-banner-signup-button",
-            text: "\u{1F6A9} Signup for Free!"
-          });
-          signupButton.addEventListener("click", (event) => {
-            event.preventDefault();
-            const signupUrl = PIXEL_BANNER_PLUS.API_URL + PIXEL_BANNER_PLUS.ENDPOINTS.SIGNUP;
-            window.open(signupUrl, "_blank");
-          });
-        }
-        const cloudVersion = this.plugin.pixelBannerVersion;
-        const currentVersion = this.plugin.settings.lastVersion;
-        console.log(`cloudVersion: ${cloudVersion}, currentVersion: ${currentVersion}`);
-        const isCloudVersionGreater = semver.gt(cloudVersion, currentVersion);
-        let versionText, cursor;
-        if (isCloudVersionGreater) {
-          versionText = `\u{1F504} Update Available!`;
-          cursor = "pointer";
-        } else {
-          versionText = ``;
-          cursor = "default";
-        }
-        const versionInfo = accountInfo.createDiv({
-          text: versionText,
-          attr: {
-            style: `
-                    display: flex;
-                    flex-direction: row;
-                    gap: 10px;
-                    align-items: center;
-                    cursor: ${cursor};
-                    margin-left: auto;
-                    animation: pixel-banner-scale-up-down 3s ease-in-out infinite;
-                `
-          }
-        });
-        if (isCloudVersionGreater) {
-          const openCommunityPlugins = async () => {
-            this.close();
-            await this.app.setting.open();
-            await new Promise((resolve) => setTimeout(resolve, 300));
-            const settingsTabs = document.querySelectorAll(".vertical-tab-header-group .vertical-tab-nav-item");
-            for (const tab of settingsTabs) {
-              if (tab.textContent.includes("Community plugins")) {
-                tab.click();
-                break;
-              }
+          const accountInfo = accountSection.createDiv({
+            cls: "pixel-banner-account-info",
+            attr: {
+              style: "visibility: hidden;"
             }
-            await new Promise((resolve) => setTimeout(resolve, 500));
-            const allTheButtons = document.querySelectorAll("button.mod-cta");
-            for (const button of allTheButtons) {
-              if (button.textContent.includes("Check for updates")) {
-                button.click();
-                break;
-              }
+          });
+          const accountLoadingOverlay = accountSection.createDiv({
+            cls: "pixel-banner-section-loading-overlay",
+            attr: {
+              style: `
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        right: 0;
+                        bottom: 0;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        background-color: var(--background-primary);
+                        opacity: 0.8;
+                        z-index: 10;
+                        min-height: 50px;
+                    `
             }
-          };
-          versionInfo.addEventListener("click", openCommunityPlugins);
+          });
+          accountLoadingOverlay.appendChild(this.createLoadingSpinner());
         }
         this.addStyle();
-        this.hideLoadingSpinner();
+      }
+      // Initialize the API-dependent UI sections
+      async initializeAPIDependentSections() {
+        try {
+          await this.plugin.verifyPixelBannerPlusCredentials();
+          await this.plugin.getPixelBannerInfo();
+          this.updateAPIStatusUI(true);
+        } catch (error) {
+          console.error("Error initializing API-dependent sections:", error);
+          this.plugin.pixelBannerPlusServerOnline = false;
+          this.updateAPIStatusUI(false);
+        }
+      }
+      // Update UI elements that depend on API status
+      updateAPIStatusUI(isOnline) {
+        this.isVerifyingAPI = false;
+        const { contentEl } = this;
+        if (!isOnline) {
+          this.plugin.pixelBannerPlusServerOnline = false;
+        }
+        const apiButtons = contentEl.querySelectorAll(".pixel-banner-api-dependent");
+        apiButtons.forEach((element) => {
+          const loadingOverlay = element.querySelector(".pixel-banner-button-loading-overlay, .pixel-banner-section-loading-overlay");
+          if (loadingOverlay) {
+            loadingOverlay.remove();
+          }
+          if (element.tagName === "BUTTON") {
+            if (isOnline && this.plugin.pixelBannerPlusServerOnline) {
+              element.style.display = "flex";
+              element.classList.remove("pixel-banner-button-disabled");
+              element.disabled = false;
+              if (element.textContent.includes("AI Banner")) {
+                element.addEventListener("click", () => {
+                  this.close();
+                  new GenerateAIBannerModal(this.app, this.plugin).open();
+                });
+              } else if (element.textContent.includes("Store")) {
+                element.addEventListener("click", () => {
+                  this.close();
+                  new PixelBannerStoreModal(this.app, this.plugin).open();
+                });
+              }
+            } else {
+              element.style.display = "none";
+            }
+          }
+        });
+        if (this.plugin.settings.pixelBannerPlusEnabled) {
+          const accountSection = contentEl.querySelector(".pixel-banner-section.pixel-banner-api-dependent");
+          if (accountSection) {
+            const accountInfo = accountSection.querySelector(".pixel-banner-account-info");
+            if (accountInfo) {
+              accountInfo.style.visibility = "visible";
+              accountInfo.empty();
+              const statusContainer = accountInfo.createDiv({
+                attr: {
+                  style: `
+                                display: flex;
+                                flex-direction: row;
+                                gap: 10px;
+                                align-items: center;
+                                cursor: help;
+                            `
+                }
+              });
+              const openPlusSettings = async () => {
+                this.close();
+                await this.app.setting.open();
+                await new Promise((resolve) => setTimeout(resolve, 300));
+                const settingsTabs = document.querySelectorAll(".vertical-tab-header-group .vertical-tab-nav-item");
+                for (const tab of settingsTabs) {
+                  if (tab.textContent.includes("Pixel Banner")) {
+                    tab.click();
+                    break;
+                  }
+                }
+                const pixelBannerSettingsTabs = document.querySelectorAll(".pixel-banner-settings-tabs > button.pixel-banner-settings-tab");
+                for (const tab of pixelBannerSettingsTabs) {
+                  if (tab.textContent.includes("Plus")) {
+                    tab.click();
+                    break;
+                  }
+                }
+              };
+              const accountTitle = accountSection.querySelector(".pixel-banner-section-title");
+              if (accountTitle) accountTitle.addEventListener("click", openPlusSettings);
+              const isConnected = this.plugin.pixelBannerPlusEnabled;
+              const pixelBannerPlusServerOnline = this.plugin.pixelBannerPlusServerOnline;
+              if (!isConnected) {
+                const aiButton = document.getElementById("pixel-banner-plus-ai-button");
+                const storeButton = document.getElementById("pixel-banner-plus-store-button");
+                aiButton.disabled = true;
+                aiButton.classList.add("pixel-banner-button-disabled");
+                aiButton.title = "You need an authorize Pixel Banner Plus account to use this feature";
+                storeButton.disabled = true;
+                storeButton.classList.add("pixel-banner-button-disabled");
+                storeButton.title = "You need an authorize Pixel Banner Plus account to use this feature";
+              }
+              const statusText = !isOnline || !pixelBannerPlusServerOnline ? "\u{1F6A8} Servers Offline \u{1F6A8}" : isConnected ? "\u2705 Authorized" : "\u274C Not Authorized";
+              const statusBorderColor = !isOnline || !pixelBannerPlusServerOnline ? "#FF6B6B" : isConnected ? "#177d47" : "#FF0000";
+              const statusEl = statusContainer.createEl("span", {
+                text: statusText,
+                cls: "pixel-banner-status-value",
+                attr: {
+                  style: `border: 1px dashed ${statusBorderColor};`
+                }
+              });
+              statusEl.addEventListener("click", openPlusSettings);
+              const isMobileDevice = window.navigator.userAgent.includes("Android") || window.navigator.userAgent.includes("iPhone") || window.navigator.userAgent.includes("iPad") || window.navigator.userAgent.includes("iPod");
+              if (isOnline && pixelBannerPlusServerOnline) {
+                const tokenCount = this.plugin.pixelBannerPlusBannerTokens !== void 0 ? `\u{1FA99} ${decimalToFractionString(this.plugin.pixelBannerPlusBannerTokens)} Tokens` : "\u2753 Unknown";
+                const tokenCountEl = statusContainer.createEl("span", {
+                  text: tokenCount,
+                  cls: "pixel-banner-status-value",
+                  attr: {
+                    style: `
+                                    border: 1px dashed #bba00f;
+                                    display: ${pixelBannerPlusServerOnline && this.plugin.pixelBannerPlusEnabled ? "inline-flex" : "none"};
+                                `
+                  }
+                });
+                tokenCountEl.addEventListener("click", openPlusSettings);
+                if (!isMobileDevice && isConnected) {
+                  const gameButton = statusContainer.createEl("button", {
+                    cls: "pixel-banner-game-button",
+                    attr: {
+                      style: `
+                                        margin-left: auto;
+                                        margin-right: 10px;
+                                        padding: 4px 10px;
+                                        background: transparent;
+                                        border: none;
+                                        box-shadow: none;
+                                        cursor: pointer;
+                                        font-size: 14px;
+                                        display: none;
+                                        text-transform: uppercase;
+                                    `
+                    }
+                  });
+                  gameButton.innerHTML = "\u{1F579}\uFE0F";
+                  gameButton.title = "Play Daily Game (optional)... chance to win Banner Tokens";
+                  gameButton.addEventListener("click", () => {
+                    this.close();
+                    new DailyGameModal(this.app, this.plugin.settings.pixelBannerPlusEmail, this.plugin.settings.pixelBannerPlusApiKey, this.plugin).open();
+                  });
+                  const showGameButton = isOnline && this.plugin.pixelBannerPlusServerOnline && this.plugin.pixelBannerPlusEnabled && !this.plugin.settings.enableDailyGame;
+                  gameButton.style.display = showGameButton ? "inline-block" : "none";
+                }
+                if (!isMobileDevice && this.plugin.settings.enableDailyGame && isConnected) {
+                  const dailyGameContainer = accountInfo.createDiv({
+                    cls: "pixel-banner-daily-game-container",
+                    attr: {
+                      style: `
+                                        display: flex;
+                                        flex-direction: row;
+                                        align-items: center;
+                                        gap: 10px;
+                                        justify-content: space-between;
+                                        width: 100%;
+                                        border-top: 1px solid var(--modal-border-color);
+                                        padding-top: 20px;
+                                        margin-top: 10px;
+                                    `
+                    }
+                  });
+                  const dailyGameInfoBlock = dailyGameContainer.createDiv({
+                    attr: {
+                      style: `
+                                        display: flex;
+                                        flex-direction: column;
+                                        align-items: flex-start;
+                                        gap: 5px;
+                                        width: 100%;
+                                    `
+                    }
+                  });
+                  const infoBlockRow1 = dailyGameInfoBlock.createEl("div");
+                  infoBlockRow1.createEl("span", { text: "\u{1F3AE} Daily Game " });
+                  infoBlockRow1.createEl("span", {
+                    text: this.plugin.pixelBannerPlusDailyGameName,
+                    attr: {
+                      style: `
+                                        font-style: italic;
+                                        padding: 0px 8px;
+                                        border-radius: 7px;
+                                        line-height: 1.38;
+                                        color: var(--text-color);
+                                        background-color: var(--interactive-normal);
+                                        box-shadow: var(--input-shadow);
+                                    `
+                    }
+                  });
+                  const infoBlockRow2 = dailyGameInfoBlock.createEl("div");
+                  infoBlockRow2.createEl("span", { text: "\u{1F3C6} High Score " });
+                  infoBlockRow2.createEl("span", {
+                    text: this.plugin.pixelBannerPlusHighScore,
+                    attr: { style: `
+                                    font-style: italic;
+                                    padding: 0px 8px;
+                                    border-radius: 7px;
+                                    line-height: 1.38;
+                                    color: var(--text-color);
+                                    background-color: var(--interactive-normal);
+                                    box-shadow: var(--input-shadow);
+                                ` }
+                  });
+                  const infoBlockRow3 = dailyGameInfoBlock.createEl("div");
+                  infoBlockRow3.createEl("span", { text: "\u{1F4B0} Current Jackpot " });
+                  infoBlockRow3.createEl("span", {
+                    text: `\u{1FA99} ${decimalToFractionString(this.plugin.pixelBannerPlusJackpot)} Tokens`,
+                    attr: { style: `
+                                    font-style: italic;
+                                    padding: 0px 8px;
+                                    border-radius: 7px;
+                                    line-height: 1.38;
+                                    color: var(--text-color);
+                                    background-color: var(--interactive-normal);
+                                    box-shadow: var(--input-shadow);
+                                ` }
+                  });
+                  const infoBlockRow4 = dailyGameInfoBlock.createEl("div");
+                  infoBlockRow4.createEl("span", { text: "\u23F0 Time Left " });
+                  infoBlockRow4.createEl("span", {
+                    text: this.plugin.pixelBannerPlusTimeLeft,
+                    attr: { style: `
+                                    font-style: italic;
+                                    padding: 0px 8px;
+                                    border-radius: 7px;
+                                    line-height: 1.38;
+                                    color: var(--text-color);
+                                    background-color: var(--interactive-normal);
+                                    box-shadow: var(--input-shadow);
+                                ` }
+                  });
+                  const infoBlockRow5 = dailyGameInfoBlock.createEl("div");
+                  infoBlockRow5.createEl("span", {
+                    text: "3 FREE",
+                    attr: {
+                      style: `
+                                        background: darkgreen;
+                                        color: white;
+                                        padding: 0px 4px;
+                                        border-radius: 5px;
+                                        letter-spacing: 1px;
+                                    `
+                    }
+                  });
+                  infoBlockRow5.createEl("span", { text: " plays per day!" });
+                  const dailyGameButton = dailyGameContainer.createEl("button", {
+                    cls: "pixel-banner-account-button pixel-banner-daily-game-button",
+                    attr: {
+                      style: `
+                                        min-width: 110px;
+                                    `
+                    }
+                  });
+                  const dailyGameContent = dailyGameButton.createDiv({
+                    cls: "pixel-banner-button-content",
+                    attr: {
+                      style: `
+                                        display: flex;
+                                        align-items: center;
+                                        gap: 10px;
+                                    `
+                    }
+                  });
+                  dailyGameContent.createEl("span", { text: "\u{1F579}\uFE0F", cls: "pixel-banner-button-icon pixel-banner-twinkle-animation" });
+                  dailyGameContent.createEl("div", { cls: "pixel-banner-button-text-container" }).createEl("span", {
+                    text: "Play Daily Game",
+                    cls: "pixel-banner-button-text"
+                  });
+                  dailyGameButton.addEventListener("click", () => {
+                    this.close();
+                    new DailyGameModal(this.app, this.plugin.settings.pixelBannerPlusEmail, this.plugin.settings.pixelBannerPlusApiKey, this.plugin).open();
+                  });
+                }
+              } else {
+                const retryButton = statusContainer.createEl("button", {
+                  text: "\u{1F504} Try Again",
+                  cls: "pixel-banner-account-button pixel-banner-retry-button",
+                  attr: {
+                    style: `
+                                    background-color: var(--background-accent) !important;
+                                    color: var(--text-on-accent) !important;
+                                    margin-left: 10px;
+                                `
+                  }
+                });
+                retryButton.addEventListener("click", async () => {
+                  statusContainer.empty();
+                  statusContainer.createEl("span", {
+                    text: "Connecting...",
+                    cls: "pixel-banner-status-value"
+                  });
+                  const tempSpinner = this.createLoadingSpinner();
+                  statusContainer.appendChild(tempSpinner);
+                  try {
+                    await this.plugin.verifyPixelBannerPlusCredentials();
+                    await this.plugin.getPixelBannerInfo();
+                    this.updateAPIStatusUI(true);
+                  } catch (error) {
+                    console.error("Error reconnecting:", error);
+                    this.plugin.pixelBannerPlusServerOnline = false;
+                    this.updateAPIStatusUI(false);
+                  }
+                });
+              }
+              if (pixelBannerPlusServerOnline && isConnected && this.plugin.pixelBannerPlusBannerTokens === 0) {
+                const buyTokensButton = accountInfo.createEl("button", {
+                  cls: "pixel-banner-account-button pixel-banner-buy-tokens-button",
+                  text: "\u{1F4B5} Buy More Tokens"
+                });
+                buyTokensButton.addEventListener("click", (event) => {
+                  event.preventDefault();
+                  window.open(PIXEL_BANNER_PLUS.SHOP_URL, "_blank");
+                });
+              } else if (pixelBannerPlusServerOnline && !isConnected) {
+                const signupButton = accountInfo.createEl("button", {
+                  cls: "pixel-banner-account-button pixel-banner-signup-button",
+                  text: "\u{1F6A9} Signup for Free!"
+                });
+                signupButton.addEventListener("click", (event) => {
+                  event.preventDefault();
+                  const signupUrl = PIXEL_BANNER_PLUS.API_URL + PIXEL_BANNER_PLUS.ENDPOINTS.SIGNUP;
+                  window.open(signupUrl, "_blank");
+                });
+              }
+              const cloudVersion = this.plugin.pixelBannerVersion;
+              const currentVersion = this.plugin.settings.lastVersion;
+              const isCloudVersionGreater = semver.gt(cloudVersion, currentVersion);
+              let versionText, cursor;
+              if (isCloudVersionGreater) {
+                versionText = `\u{1F504} Update Available!`;
+                cursor = "pointer";
+              } else {
+                versionText = ``;
+                cursor = "default";
+              }
+              const versionInfo = accountInfo.createDiv({
+                text: versionText,
+                attr: {
+                  style: `
+                                display: flex;
+                                flex-direction: row;
+                                gap: 10px;
+                                align-items: center;
+                                cursor: ${cursor};
+                                margin-left: auto;
+                                animation: pixel-banner-scale-up-down 3s ease-in-out infinite;
+                            `
+                }
+              });
+              if (isCloudVersionGreater) {
+                const openCommunityPlugins = async () => {
+                  this.close();
+                  await this.app.setting.open();
+                  await new Promise((resolve) => setTimeout(resolve, 300));
+                  const settingsTabs = document.querySelectorAll(".vertical-tab-header-group .vertical-tab-nav-item");
+                  for (const tab of settingsTabs) {
+                    if (tab.textContent.includes("Community plugins")) {
+                      tab.click();
+                      break;
+                    }
+                  }
+                  await new Promise((resolve) => setTimeout(resolve, 500));
+                  const allTheButtons = document.querySelectorAll("button.mod-cta");
+                  for (const button of allTheButtons) {
+                    if (button.textContent.includes("Check for updates")) {
+                      button.click();
+                      break;
+                    }
+                  }
+                };
+                versionInfo.addEventListener("click", openCommunityPlugins);
+              }
+            }
+          }
+        }
       }
       addStyle() {
         const style = document.createElement("style");
@@ -1052,9 +1634,8 @@ var init_selectPixelBannerModal = __esm({
             .pixel-banner-main-container {
                 display: flex;
                 flex-direction: column;
-                gap: 24px;
+                gap: 15px;
                 padding: 0 16px 16px;
-                overflow-y: auto;
                 max-height: 80vh;
                 width: 100%;
                 box-sizing: border-box;
@@ -1065,6 +1646,7 @@ var init_selectPixelBannerModal = __esm({
                 flex-direction: column;
                 gap: 16px;
                 width: 100%;
+                padding: 14px;
             }
             
             .pixel-banner-section-title {
@@ -1094,7 +1676,6 @@ var init_selectPixelBannerModal = __esm({
                 transition: all 0.2s ease;
                 flex: 1;
                 min-width: 80px;
-                min-height: 100px;
                 height: 100%;
                 box-sizing: border-box;
                 overflow: hidden;
@@ -1163,7 +1744,6 @@ var init_selectPixelBannerModal = __esm({
                 transition: all 0.2s ease;
                 flex: 1;
                 min-width: 80px;
-                min-height: 100px;
                 height: 100%;
                 box-sizing: border-box;
                 overflow: hidden;
@@ -1187,20 +1767,18 @@ var init_selectPixelBannerModal = __esm({
             }
             
             .pixel-banner-no-banner-message {
-                margin-top: 8px;
-                padding: 12px;
                 background: var(--background-modifier-error-rgb);
                 border-radius: 8px;
-                opacity: 0.7;
                 width: 100%;
                 box-sizing: border-box;
             }
             
             .pixel-banner-message-text {
                 margin: 0;
-                color: var(--text-error);
+                color: var(--text-accent-hover);
                 font-size: 14px;
                 text-align: center;
+                text-transform: uppercase;
             }
             
             .pixel-banner-settings-button:hover {
@@ -1210,9 +1788,9 @@ var init_selectPixelBannerModal = __esm({
             /* Pixel Banner Plus Account styles */
             .pixel-banner-account-info {
                 display: flex;
-                flex-direction: row;
-                justify-content: flex-start;
-                align-items: center;
+                flex-direction: column;
+                justify-content: center;
+                align-items: flex-start;
                 flex-wrap: wrap;
                 gap: 10px;
                 width: 100%;
@@ -1220,7 +1798,7 @@ var init_selectPixelBannerModal = __esm({
             
             .pixel-banner-status-value {
                 padding: 3px 7px;
-                border-radius: 0px;
+                border-radius: 15px;
                 font-size: .8em;
                 letter-spacing: 1px;
                 background-color: var(--background-primary);
@@ -1229,14 +1807,20 @@ var init_selectPixelBannerModal = __esm({
             }
             
             .pixel-banner-account-button {
-                padding: 3px 7px;
-                border-radius: 5px;
-                cursor: pointer;
-                text-transform: uppercase;
-                letter-spacing: 1px;
-                font-size: .7em;
-                transition: all 0.2s ease;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding: 12px 8px;
+                border-radius: 8px;
                 border: 1px solid var(--background-modifier-border);
+                background: var(--background-primary);
+                cursor: pointer;
+                transition: all 0.2s ease;
+                flex: 1;
+                min-width: 80px;
+                height: 100%;
+                box-sizing: border-box;
+                overflow: hidden;
             }
             
             .pixel-banner-account-button:hover {
@@ -1255,36 +1839,48 @@ var init_selectPixelBannerModal = __esm({
                 color: var(--text-on-accent) !important;
             }
             
+            .pixel-banner-retry-button {
+                background-color: var(--background-accent) !important;
+                color: var(--text-on-accent) !important;
+                font-size: 0.8em !important;
+                padding: 4px 8px !important;
+                animation: pixel-banner-pulse 2s infinite;
+            }
+            
+            @keyframes pixel-banner-pulse {
+                0% { transform: scale(1); }
+                50% { transform: scale(1.05); }
+                100% { transform: scale(1); }
+            }
+            
             /* Loading spinner styles */
-            .pixel-banner-loading-overlay {
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                background-color: var(--background-primary);
-                z-index: 100;
-                animation: pixel-banner-fade-in 0.3s ease-in-out;
+            @keyframes pixel-banner-spin {
+                0% { transform: rotate(0deg); }
+                100% { transform: rotate(360deg); }
+            }
+            
+            @keyframes pixel-banner-fade-in {
+                0% { opacity: 0; }
+                100% { opacity: 1; }
+            }
+            
+            @keyframes pixel-banner-scale-up-down {
+                0% { transform: scale(1); }
+                50% { transform: scale(1.05); }
+                100% { transform: scale(1); }
             }
             
             @media (min-width: 400px) {
-                .pixel-banner-source-buttons,
-                .pixel-banner-customization-options {
-                    display: grid;
-                    grid-template-columns: repeat(3, 1fr);
-                    grid-auto-rows: 1fr;
-                }
-                
-                .pixel-banner-customization-options {
-                    grid-template-columns: repeat(2, 1fr);
-                }
-                
                 .pixel-banner-source-button,
                 .pixel-banner-customize-button {
                     padding: 16px 8px;
+                }
+            }
+            
+            @media (max-width: 590px) {
+                .pixel-banner-daily-game-container {
+                    flex-direction: column !important;
+                    align-items: flex-start !important;
                 }
             }
             
@@ -1311,9 +1907,6 @@ var init_selectPixelBannerModal = __esm({
         if (this.style) {
           this.style.remove();
         }
-        if (this.loadingOverlay) {
-          this.loadingOverlay.remove();
-        }
       }
     };
   }
@@ -1326,6 +1919,7 @@ var init_generateAIBannerModal = __esm({
     import_obsidian13 = require("obsidian");
     init_constants();
     init_handlePinIconClick();
+    init_fractionTextDisplay();
     init_downloadHistory();
     init_modals();
     init_selectPixelBannerModal();
@@ -1333,13 +1927,15 @@ var init_generateAIBannerModal = __esm({
       constructor(app, plugin) {
         super(app);
         this.plugin = plugin;
-        this.width = 1440;
-        this.height = 480;
         this.prompt = "";
         this.imageContainer = null;
         this.modalEl.addClass("pixel-banner-ai-modal");
         this.downloadHistory = new DownloadHistory();
         this.isLoading = true;
+        this.availableModels = {};
+        this.selectedModelId = null;
+        this.controlValues = {};
+        this.controlsContainer = null;
         this.currentPage = 1;
         this.totalPages = 1;
         this.itemsPerPage = 9;
@@ -1421,6 +2017,55 @@ var init_generateAIBannerModal = __esm({
                 border-radius: 50%;
                 animation: pixel-banner-spin 1s linear infinite;
             }
+            
+            /* Dynamic controls styles */
+            .pixel-banner-dynamic-controls .setting-item {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                padding: 0.5rem 0;
+                border-bottom: 1px solid var(--background-modifier-border);
+            }
+            
+            .pixel-banner-dynamic-controls .setting-item:last-child {
+                border-bottom: none;
+            }
+            
+            .pixel-banner-dynamic-controls input[type="range"] {
+                width: 100%;
+            }
+            
+            .pixel-banner-dynamic-controls select.dropdown {
+                width: 100%;
+                padding: 8px;
+                border-radius: 4px;
+                background-color: var(--background-secondary);
+                color: var(--text-normal);
+                border: 1px solid var(--background-modifier-border);
+            }
+            
+            .pixel-banner-model-option {
+                display: flex;
+                align-items: center;
+                gap: 5px;
+                margin-right: 15px;
+                margin-bottom: 5px;
+            }
+            
+            .pixel-banner-model-option label {
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                gap: 5px;
+            }
+            
+            .pixel-banner-model-token-cost {
+                border-left: 1px solid var(--text-accent);
+                font-size: 0.8em;
+                margin-left: 3px;
+                padding-left: 4px;
+            }
         `;
         document.head.appendChild(styleEl);
         this.styleEl = styleEl;
@@ -1443,8 +2088,367 @@ var init_generateAIBannerModal = __esm({
           this.loadingOverlay = null;
         }
       }
+      // Fetch available AI models from the API
+      async fetchAvailableModels() {
+        try {
+          const modelUrl = new URL(PIXEL_BANNER_PLUS.ENDPOINTS.TEXT_TO_IMAGE_MODELS, PIXEL_BANNER_PLUS.API_URL).toString();
+          const response = await (0, import_obsidian13.requestUrl)({
+            url: modelUrl,
+            method: "GET",
+            headers: {
+              "X-User-Email": this.plugin.settings.pixelBannerPlusEmail,
+              "X-API-Key": this.plugin.settings.pixelBannerPlusApiKey,
+              "X-Pixel-Banner-Version": this.plugin.settings.lastVersion,
+              "Accept": "application/json"
+            }
+          });
+          if (response.status === 200) {
+            this.availableModels = response.json;
+            return true;
+          } else {
+            throw new Error("Failed to fetch models");
+          }
+        } catch (error) {
+          console.error("Error fetching models:", error);
+          return false;
+        }
+      }
+      // Helper method to capitalize first letter of a string
+      capitalizeFirstLetter(string) {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+      }
+      // Render model selection UI
+      renderModelSelection(container) {
+        container.empty();
+        const modelInfo = container.createDiv({ cls: "setting-item-info" });
+        modelInfo.createDiv({ cls: "setting-item-name", text: "AI Model" });
+        modelInfo.createDiv({
+          cls: "setting-item-description",
+          text: "Select an AI model for Banner generation",
+          attr: { style: "font-size: 0.8em;" }
+        });
+        const modelControl = container.createDiv({
+          cls: "setting-item-control",
+          attr: { style: "display: flex; flex-wrap: wrap; gap: 15px;" }
+        });
+        let isFirstEnabled = true;
+        let hasEnabledModels = false;
+        let firstEnabledModelId = null;
+        const radioButtons = [];
+        Object.entries(this.availableModels).forEach(([modelId, modelData]) => {
+          if (modelData.enabled === false) {
+            return;
+          }
+          hasEnabledModels = true;
+          const modelContainer = modelControl.createDiv({
+            cls: "pixel-banner-model-option",
+            attr: { style: "display: flex; align-items: center; gap: 5px;" }
+          });
+          const radio = modelContainer.createEl("input", {
+            type: "radio",
+            attr: {
+              id: `model-${modelId}`,
+              name: "textToImageModel",
+              value: modelId,
+              checked: isFirstEnabled,
+              // Select first model by default
+              style: "cursor: pointer;"
+            }
+          });
+          radioButtons.push({
+            element: radio,
+            modelId,
+            shouldBeChecked: isFirstEnabled
+          });
+          const tokenCost = modelData.tokens || 1;
+          let labelText = modelData.name;
+          const label = modelContainer.createEl("label", {
+            attr: {
+              for: `model-${modelId}`,
+              style: "cursor: pointer;"
+            }
+          });
+          label.innerHTML = `${labelText} <span class="pixel-banner-model-token-cost">\u{1FA99} ${decimalToFractionString(tokenCost)}</span>`;
+          if (modelData.description) {
+            modelContainer.setAttribute("title", modelData.description);
+          }
+          radio.addEventListener("change", (e) => {
+            if (e.target.checked) {
+              const previousModelId = this.selectedModelId;
+              this.selectedModelId = modelId;
+              if (previousModelId !== this.selectedModelId) {
+                this.renderModelControls();
+              }
+            }
+          });
+          if (isFirstEnabled) {
+            this.selectedModelId = modelId;
+            firstEnabledModelId = modelId;
+            isFirstEnabled = false;
+          }
+        });
+        setTimeout(() => {
+          radioButtons.forEach((item) => {
+            if (item.shouldBeChecked) {
+              item.element.checked = true;
+              const event = new Event("change", { bubbles: true });
+              item.element.dispatchEvent(event);
+            }
+          });
+        }, 50);
+        return hasEnabledModels;
+      }
+      // Render dynamic controls based on selected model
+      renderModelControls() {
+        if (!this.selectedModelId || !this.availableModels[this.selectedModelId]) {
+          return;
+        }
+        this.controlsContainer.empty();
+        this.controlValues = {};
+        const modelData = this.availableModels[this.selectedModelId];
+        const controls = modelData.controls;
+        const modelDescription = this.controlsContainer.createDiv({ cls: "setting-item-info" });
+        modelDescription.createDiv({
+          cls: "setting-item-name",
+          text: modelData.description,
+          attr: {
+            style: `
+                    border: 1px solid var(--text-accent);
+                    border-radius: 5px;
+                    padding: 5px 10px;
+                    font-size: 0.9em;
+                    color: var(--text-muted);
+                    font-style: italic;
+                    text-align: justify;
+                `
+          }
+        });
+        if (!controls || Object.keys(controls).length === 0) {
+          return;
+        }
+        const formElements = [];
+        Object.entries(controls).forEach(([controlKey, control]) => {
+          const controlContainer = this.controlsContainer.createDiv({
+            cls: "setting-item pixel-banner-ai-control-row"
+          });
+          const controlInfo = controlContainer.createDiv({ cls: "setting-item-info" });
+          controlInfo.createDiv({
+            cls: "setting-item-name",
+            text: this.capitalizeFirstLetter(controlKey)
+          });
+          this.controlValues[controlKey] = control.defaultValue;
+          const controlValueDisplay = controlInfo.createDiv({
+            cls: "setting-item-description",
+            text: control.defaultValue
+          });
+          const controlElement = controlContainer.createDiv({ cls: "setting-item-control" });
+          if (control.type === "slider") {
+            const slider = controlElement.createEl("input", {
+              type: "range",
+              attr: {
+                id: `control-${this.selectedModelId}-${controlKey}`,
+                min: control.min,
+                max: control.max,
+                step: control.step,
+                value: control.defaultValue
+              }
+            });
+            slider.addEventListener("input", (e) => {
+              const value = parseInt(e.target.value);
+              this.controlValues[controlKey] = value;
+              controlValueDisplay.textContent = value;
+            });
+            formElements.push({
+              element: slider,
+              type: "slider",
+              value: control.defaultValue
+            });
+          } else if (control.type === "select") {
+            const select = controlElement.createEl("select", {
+              cls: "dropdown",
+              attr: {
+                id: `control-${this.selectedModelId}-${controlKey}`,
+                style: "width: 100%;"
+              }
+            });
+            control.options.forEach((option) => {
+              const optElement = select.createEl("option", {
+                text: option,
+                attr: {
+                  value: option,
+                  selected: option === control.defaultValue
+                }
+              });
+            });
+            select.addEventListener("change", (e) => {
+              this.controlValues[controlKey] = e.target.value;
+              controlValueDisplay.textContent = e.target.value;
+            });
+            formElements.push({
+              element: select,
+              type: "select",
+              value: control.defaultValue
+            });
+          } else if (control.type === "image_file") {
+            const fileContainer = controlElement.createDiv({
+              attr: { style: "display: flex; flex-direction: column; gap: 10px;" }
+            });
+            const fileInput = fileContainer.createEl("input", {
+              type: "file",
+              attr: {
+                id: `control-${this.selectedModelId}-${controlKey}`,
+                accept: "image/jpeg,image/jpg,image/png,image/webp,image/gif"
+              }
+            });
+            const previewImage = fileContainer.createEl("img", {
+              attr: {
+                id: `${fileInput.id}-preview`,
+                style: "max-width: 200px; max-height: 200px; display: none; border-radius: 4px; border: 1px solid var(--background-modifier-border);"
+              }
+            });
+            const fileInfo = fileContainer.createDiv({
+              attr: {
+                id: `${fileInput.id}-info`,
+                style: "font-size: 12px; color: var(--text-muted);"
+              },
+              text: "No file selected (max 10MB)"
+            });
+            fileInput.addEventListener("change", (e) => {
+              const file = e.target.files[0];
+              if (file) {
+                const maxFileSize = 10 * 1024 * 1024;
+                const fileSizeMB = (file.size / (1024 * 1024)).toFixed(1);
+                if (file.size > maxFileSize) {
+                  fileInfo.innerHTML = `<span style="color: var(--text-error);">\u274C File too large: ${fileSizeMB}MB (max 10MB)</span>`;
+                  previewImage.style.display = "none";
+                  this.controlValues[controlKey] = null;
+                  controlValueDisplay.textContent = "File too large";
+                  console.error(`File too large: ${fileSizeMB}MB`);
+                  return;
+                }
+                fileInfo.innerHTML = `\u{1F4C1} ${file.name} (${fileSizeMB}MB)`;
+                const reader = new FileReader();
+                reader.onload = (e2) => {
+                  previewImage.src = e2.target.result;
+                  previewImage.style.display = "block";
+                };
+                reader.onerror = (e2) => {
+                  console.error("File reader error:", e2);
+                };
+                reader.readAsDataURL(file);
+                this.controlValues[controlKey] = "FILE_SELECTED";
+                controlValueDisplay.textContent = "File selected";
+              } else {
+                fileInfo.textContent = "No file selected (max 10MB)";
+                previewImage.style.display = "none";
+                this.controlValues[controlKey] = null;
+                controlValueDisplay.textContent = "No file";
+              }
+            });
+          }
+        });
+        setTimeout(() => {
+          formElements.forEach((item) => {
+            if (item.type === "slider") {
+              item.element.value = item.value;
+              const event = new Event("input", { bubbles: true });
+              item.element.dispatchEvent(event);
+            } else if (item.type === "select") {
+              item.element.value = item.value;
+              const event = new Event("change", { bubbles: true });
+              item.element.dispatchEvent(event);
+            }
+          });
+        }, 50);
+      }
+      // Helper method to collect control values
+      async collectControlValues() {
+        console.log("collectControlValues called");
+        if (!this.selectedModelId || !this.availableModels[this.selectedModelId]) {
+          console.error("No selected model or model data not found");
+          return {};
+        }
+        const controlValues = {};
+        const controls = this.availableModels[this.selectedModelId].controls;
+        for (const controlKey in controls) {
+          const controlId = `control-${this.selectedModelId}-${controlKey}`;
+          const controlElement = this.contentEl.querySelector(`#${controlId}`);
+          if (controlElement) {
+            if (controls[controlKey].type === "slider") {
+              controlValues[controlKey] = parseInt(controlElement.value, 10);
+            } else if (controls[controlKey].type === "image_file") {
+              const file = controlElement.files[0];
+              controlValues[controlKey] = file ? "FILE_SELECTED" : null;
+            } else {
+              controlValues[controlKey] = controlElement.value;
+            }
+          } else {
+            console.warn(`Control element not found for ${controlKey} (ID: ${controlId})`);
+          }
+        }
+        return controlValues;
+      }
+      // Helper method to upload image files
+      async uploadImageFiles(controlValues) {
+        var _a;
+        const controls = this.availableModels[this.selectedModelId].controls;
+        const updatedControlValues = { ...controlValues };
+        for (const controlKey in controlValues) {
+          if (((_a = controls[controlKey]) == null ? void 0 : _a.type) === "image_file" && controlValues[controlKey] === "FILE_SELECTED") {
+            const controlId = `control-${this.selectedModelId}-${controlKey}`;
+            const fileInput = this.contentEl.querySelector(`#${controlId}`);
+            const file = fileInput == null ? void 0 : fileInput.files[0];
+            if (file) {
+              try {
+                const maxFileSize = 10 * 1024 * 1024;
+                if (file.size > maxFileSize) {
+                  throw new Error(`Image file too large. Maximum size is ${maxFileSize / (1024 * 1024)}MB, but file is ${(file.size / (1024 * 1024)).toFixed(1)}MB`);
+                }
+                const formData = new FormData();
+                formData.append("image", file);
+                const uploadUrl = new URL(PIXEL_BANNER_PLUS.ENDPOINTS.UPLOAD_TEMP_IMAGE, PIXEL_BANNER_PLUS.API_URL).toString();
+                const response = await fetch(uploadUrl, {
+                  method: "POST",
+                  headers: {
+                    "X-User-Email": this.plugin.settings.pixelBannerPlusEmail,
+                    "X-API-Key": this.plugin.settings.pixelBannerPlusApiKey,
+                    "X-Pixel-Banner-Version": this.plugin.settings.lastVersion
+                    // Don't set Content-Type - let browser set it with boundary for FormData
+                  },
+                  body: formData
+                });
+                if (!response.ok) {
+                  const errorText = await response.text();
+                  console.error(`Upload failed with status ${response.status}:`, errorText);
+                  throw new Error(`Failed to upload ${controlKey} image: HTTP ${response.status}`);
+                }
+                const responseData = await response.json();
+                if (!(responseData == null ? void 0 : responseData.imageId)) {
+                  console.error("Upload response missing imageId:", responseData);
+                  throw new Error(`Upload response missing imageId for ${controlKey}`);
+                }
+                updatedControlValues[controlKey] = responseData.imageId;
+              } catch (error) {
+                console.error(`Error uploading ${controlKey}:`, error);
+                throw new Error(`Failed to upload ${controlKey}: ${error.message}`);
+              }
+            } else {
+              updatedControlValues[controlKey] = null;
+            }
+          }
+        }
+        return updatedControlValues;
+      }
       async generateImage() {
         if (!this.imageContainer) return;
+        if (!this.prompt) {
+          new import_obsidian13.Notice("Please enter a prompt");
+          return;
+        }
+        if (!this.selectedModelId && Object.keys(this.availableModels).length > 0) {
+          new import_obsidian13.Notice("Please select an AI model");
+          return;
+        }
         const existingImage = this.imageContainer.querySelector(".pixel-banner-generated-image");
         const existingImageData = existingImage ? {
           base64Image: existingImage.src,
@@ -1457,28 +2461,58 @@ var init_generateAIBannerModal = __esm({
           if (existingImageData) {
             await this.refreshHistoryContainer();
           }
+          let controlValues = await this.collectControlValues();
+          const hasImageFiles = Object.values(controlValues).includes("FILE_SELECTED");
+          if (hasImageFiles) {
+            loadingContainer.empty();
+            const uploadingDiv = loadingContainer.createDiv({ text: "Uploading images..." });
+            try {
+              controlValues = await this.uploadImageFiles(controlValues);
+            } catch (uploadError) {
+              console.error("Image upload failed:", uploadError);
+              throw uploadError;
+            }
+            loadingContainer.empty();
+            loadingContainer.createDiv({ cls: "dot-pulse" });
+          }
           const generateUrl = new URL(PIXEL_BANNER_PLUS.ENDPOINTS.GENERATE, PIXEL_BANNER_PLUS.API_URL).toString();
+          const modelData = this.availableModels[this.selectedModelId];
+          const modelControlValues = {};
+          if (modelData.controls) {
+            Object.keys(modelData.controls).forEach((controlKey) => {
+              if (controlValues[controlKey] !== void 0) {
+                modelControlValues[controlKey] = controlValues[controlKey];
+              } else {
+                modelControlValues[controlKey] = modelData.controls[controlKey].defaultValue;
+              }
+            });
+          }
+          const requestBody = {
+            prompt: this.prompt,
+            textToImageModel: this.selectedModelId,
+            controlValues: modelControlValues
+          };
+          if (modelData.appendToPrompt) {
+            requestBody.prompt += " " + modelData.appendToPrompt;
+          }
           const response = await (0, import_obsidian13.requestUrl)({
             url: generateUrl,
             method: "POST",
             headers: {
               "X-User-Email": this.plugin.settings.pixelBannerPlusEmail,
               "X-API-Key": this.plugin.settings.pixelBannerPlusApiKey,
+              "X-Pixel-Banner-Version": this.plugin.settings.lastVersion,
               "Accept": "application/json",
               "Content-Type": "application/json"
             },
-            body: JSON.stringify({
-              prompt: this.prompt,
-              width: this.width,
-              height: this.height
-            })
+            body: JSON.stringify(requestBody)
           });
           if (response.status === 200 && response.json.image) {
             this.plugin.pixelBannerPlusBannerTokens = response.json.balance;
             const pixelBannerPlusBalanceEl = document.querySelector(".modal.pixel-banner-ai-modal .pixel-banner-plus-token-balance");
             const tokenCountSpan = pixelBannerPlusBalanceEl.querySelector("span") || document.createElement("span");
             tokenCountSpan.style.color = "var(--text-accent)";
-            tokenCountSpan.innerText = this.plugin.pixelBannerPlusBannerTokens;
+            tokenCountSpan.innerText = decimalToFractionString(this.plugin.pixelBannerPlusBannerTokens);
             if (!tokenCountSpan.parentElement) {
               pixelBannerPlusBalanceEl.innerText = "\u{1FA99} Remaining Tokens: ";
               pixelBannerPlusBalanceEl.appendChild(tokenCountSpan);
@@ -1512,43 +2546,9 @@ var init_generateAIBannerModal = __esm({
               if (!activeFile || !savedPath) return;
               await this.plugin.app.fileManager.processFrontMatter(activeFile, (frontmatter) => {
                 const bannerField = this.plugin.settings.customBannerField[0];
-                frontmatter[bannerField] = `[[${savedPath}]]`;
+                frontmatter[bannerField] = `![[${savedPath}]]`;
               });
-              if (this.plugin.settings.openBannerIconModalAfterSelectingBanner) {
-                new EmojiSelectionModal(
-                  this.app,
-                  this.plugin,
-                  async (emoji) => {
-                    const activeFile2 = this.plugin.app.workspace.getActiveFile();
-                    if (activeFile2) {
-                      await this.plugin.app.fileManager.processFrontMatter(activeFile2, (frontmatter) => {
-                        const iconField = this.plugin.settings.customBannerIconField[0];
-                        if (emoji) {
-                          frontmatter[iconField] = emoji;
-                        } else {
-                          delete frontmatter[iconField];
-                        }
-                      });
-                      const view = this.plugin.app.workspace.getActiveViewOfType(import_obsidian13.MarkdownView);
-                      if (view) {
-                        const contentEl = view.contentEl;
-                        if (contentEl) {
-                          const existingOverlays = contentEl.querySelectorAll(".banner-icon-overlay");
-                          existingOverlays.forEach((overlay) => {
-                            this.plugin.returnIconOverlay(overlay);
-                          });
-                        }
-                        await this.plugin.updateBanner(view, true);
-                      }
-                      if (this.plugin.settings.openTargetingModalAfterSelectingBannerOrIcon) {
-                        new TargetPositionModal(this.app, this.plugin).open();
-                      }
-                    }
-                  },
-                  true
-                  // Skip the targeting modal in EmojiSelectionModal since we handle it in the callback
-                ).open();
-              } else if (this.plugin.settings.openTargetingModalAfterSelectingBannerOrIcon) {
+              if (this.plugin.settings.openTargetingModalAfterSelectingBannerOrIcon) {
                 new TargetPositionModal(this.app, this.plugin).open();
               }
             };
@@ -1636,6 +2636,7 @@ var init_generateAIBannerModal = __esm({
           headers: {
             "X-User-Email": this.plugin.settings.pixelBannerPlusEmail,
             "X-API-Key": this.plugin.settings.pixelBannerPlusApiKey,
+            "X-Pixel-Banner-Version": this.plugin.settings.lastVersion,
             "Accept": "application/json"
           }
         });
@@ -1663,6 +2664,10 @@ var init_generateAIBannerModal = __esm({
       async initializeModal() {
         await this.plugin.verifyPixelBannerPlusCredentials();
         const { contentEl } = this;
+        let modelsLoaded = false;
+        if (this.plugin.pixelBannerPlusEnabled) {
+          modelsLoaded = await this.fetchAvailableModels();
+        }
         const styleTag = contentEl.createEl("style", {
           text: `
                 /* AI Banner Generation Modal */
@@ -1719,6 +2724,29 @@ var init_generateAIBannerModal = __esm({
 
                 .pixel-banner-generate-btn-container button {
                     min-width: 150px;
+                }
+
+                .pixel-banner-image-controls {
+                    margin-top: 10px;
+                    display: flex;
+                    justify-content: center;
+                    gap: 10px;
+                }
+
+                .pixel-banner-generated-image-wrapper {
+                    width: 100%;
+                    border-radius: 8px;
+                    overflow: hidden;
+                    background: var(--background-secondary);
+
+                }
+
+                .pixel-banner-generated-image {
+                    width: inherit;
+                    height: auto;
+                    display: block;
+                    animation: pixel-banner-fade-in 1300ms ease-in-out;
+                    margin: 0 auto;
                 }
 
                 /* History container styles */
@@ -1823,7 +2851,8 @@ var init_generateAIBannerModal = __esm({
                     letter-spacing: 1px;
                 }
                 .pixel-banner-inspiration-button,
-                .pixel-banner-inspiration-from-seed-button {
+                .pixel-banner-inspiration-from-seed-button,
+                .pixel-banner-rewrite-button {
                     padding: 4px 12px;
                     border-radius: 4px;
                     cursor: pointer;
@@ -1834,15 +2863,50 @@ var init_generateAIBannerModal = __esm({
                     margin-left: 10px;
                 }
                 .pixel-banner-inspiration-button:hover,
-                .pixel-banner-inspiration-from-seed-button:hover {
+                .pixel-banner-inspiration-from-seed-button:hover,
+                .pixel-banner-rewrite-button:hover {
                     background-color: var(--interactive-accent-hover);
                 }
                 .pixel-banner-inspiration-button:disabled,
-                .pixel-banner-inspiration-from-seed-button:disabled {
+                .pixel-banner-inspiration-from-seed-button:disabled,
+                .pixel-banner-rewrite-button:disabled {
                     opacity: 0.7;
                     cursor: not-allowed;
                     background-color: var(--interactive-accent);
                 }
+
+                /* ------------------- */
+                /* -- mobile layout -- */
+                /* ------------------- */
+                @media screen and (max-width: 550px) {
+                    .pixel-banner-prompt-description { display: none; }
+                    .setting-item.pixel-banner-ai-prompt-container {
+                        max-width: var(--dialog-max-width) !important;
+                        padding-left: 20px;
+                        padding-right: 20px;
+                    }
+                    .pixel-banner-prompt-inspiration-container { flex-direction: column !important; }
+                    .pixel-banner-prompt-inspiration-container button { width: 100% !important; }
+                    .pixel-banner-generate-btn-container { flex-direction: column !important; }
+                    .pixel-banner-generate-btn-container button { width: 100% !important; }
+                }
+                
+                .pixel-banner-ai-modal .setting-item-control select.dropdown {
+                    width: 100%;
+                    height: auto;
+                    border-radius: 4px;
+                    padding: 8px;
+                    background-color: var(--background-secondary);
+                    color: var(--text-normal);
+                    border: 1px solid var(--background-modifier-border);
+                }
+                
+                .pixel-banner-ai-modal .setting-item-control select.dropdown:focus {
+                    border-color: var(--interactive-accent);
+                    outline: none;
+                }
+                
+                /* ------------------- */
             `
         });
         contentEl.createEl("h2", {
@@ -1863,17 +2927,6 @@ var init_generateAIBannerModal = __esm({
                 `
           }
         });
-        const promptDescription = promptAllowedSection.createEl("p", {
-          text: "Simply enter a prompt, optionally adjust the width and height, and let AI generate a banner for you. Dont have any prompt ideas? Use the \u{1F4A1} inspiration button to get started, or grow a basic prompt into something special with the \u{1F331} grow your idea button.",
-          attr: {
-            "style": `
-                    color: var(--text-muted); 
-                    max-width: 500px; 
-                    font-size: .9em;
-                    margin-bottom: 20px;
-                `
-          }
-        });
         const promptContainer = promptAllowedSection.createDiv({
           cls: "setting-item pixel-banner-ai-prompt-container",
           attr: {
@@ -1889,7 +2942,7 @@ var init_generateAIBannerModal = __esm({
         promptContainer.createDiv({ cls: "setting-item-name", text: "\u{1F58B}\uFE0F Creative Banner Prompt" });
         promptContainer.createDiv({
           cls: "setting-item-description",
-          text: 'TIP \u21E2 Type a few words and then press the "\u{1F331}" button to grow your idea into something special!',
+          text: 'TIP \u21E2 Type a few words and then press the "\u{1F331} GROW IDEA" button to transform your basic idea into something special! Select a Model and then click "\u2728 Generate Banner".',
           attr: {
             "style": `
                     color: var(--text-muted); 
@@ -1897,7 +2950,18 @@ var init_generateAIBannerModal = __esm({
                 `
           }
         });
-        const promptControl = promptContainer.createDiv({ cls: "setting-item-control width-100 margin-top-10 flex-column" });
+        const promptControl = promptContainer.createDiv({
+          cls: "setting-item-control",
+          attr: {
+            "style": `
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    margin-top: 10px !important;
+                    width: 100% !important;
+                `
+          }
+        });
         const promptInput = promptControl.createEl("textarea", {
           cls: "full-width-input",
           attr: {
@@ -1912,12 +2976,12 @@ var init_generateAIBannerModal = __esm({
         const promptInspirationContainer = promptControl.createDiv({ cls: "pixel-banner-prompt-inspiration-container" });
         const inspirationButton = promptInspirationContainer.createEl("button", {
           cls: "pixel-banner-inspiration-button",
-          text: "\u{1F4A1} Inspiration"
+          text: "\u{1F4A1} INSPIRATION"
         });
         inspirationButton.addEventListener("click", () => this.getPromptInspiration());
         const inspirationFromSeedButton = promptInspirationContainer.createEl("button", {
           cls: "pixel-banner-inspiration-from-seed-button",
-          text: "\u{1F331} Grow your Idea",
+          text: "\u{1F331} GROW IDEA",
           attr: {
             style: `
                     border-bottom: 1px solid var(--interactive-accent-hover);
@@ -1925,43 +2989,61 @@ var init_generateAIBannerModal = __esm({
           }
         });
         inspirationFromSeedButton.addEventListener("click", () => this.getPromptInspirationFromSeed());
+        const rewritePromptButton = promptInspirationContainer.createEl("button", {
+          cls: "pixel-banner-rewrite-button",
+          text: "\u270F\uFE0F REWRITE PROMPT",
+          attr: {
+            style: `
+                    border-bottom: 1px solid var(--interactive-accent-hover);
+                `
+          }
+        });
+        rewritePromptButton.addEventListener("click", () => this.rewritePrompt());
         const inspirationClearButton = promptInspirationContainer.createEl("button", {
           cls: "pixel-banner-inspiration-clear-button",
-          text: "\u{1F5D1}\uFE0F Clear"
+          text: "\u{1F5D1}\uFE0F CLEAR"
         });
         inspirationClearButton.addEventListener("click", () => this.clearPromptInspiration());
-        const widthContainer = promptAllowedSection.createDiv({ cls: "setting-item pixel-banner-ai-control-row", attr: { style: "padding-bottom: 0;" } });
-        const widthInfo = widthContainer.createDiv({ cls: "setting-item-info" });
-        widthInfo.createDiv({ cls: "setting-item-name", text: "Width" });
-        widthInfo.createDiv({ cls: "setting-item-description", text: this.width });
-        const widthControl = widthContainer.createDiv({ cls: "setting-item-control" });
-        const widthSlider = widthControl.createEl("input", { type: "range" });
-        widthSlider.setAttrs({
-          min: 256,
-          max: 1440,
-          step: 32,
-          value: this.width
+        const modelContainer = promptAllowedSection.createDiv({
+          cls: "setting-item pixel-banner-ai-control-row",
+          attr: {
+            style: `
+                    align-items: flex-start;
+                    padding-bottom: 0;
+                `
+          }
         });
-        widthSlider.addEventListener("input", (e) => {
-          this.width = parseInt(e.target.value);
-          widthInfo.querySelector(".setting-item-description").textContent = this.width;
+        if (!modelsLoaded || Object.keys(this.availableModels).length === 0) {
+          modelContainer.empty();
+          modelContainer.createEl("p", {
+            text: "No AI models available. Please try again later.",
+            cls: "pixel-banner-error"
+          });
+          return;
+        }
+        const hasModels = this.renderModelSelection(modelContainer);
+        if (!hasModels) {
+          modelContainer.empty();
+          modelContainer.createEl("p", {
+            text: "No enabled AI models available.",
+            cls: "pixel-banner-error"
+          });
+          return;
+        }
+        this.controlsContainer = promptAllowedSection.createDiv({
+          cls: "pixel-banner-dynamic-controls",
+          attr: {
+            style: `
+                    display: flex;
+                    flex-direction: column;
+                    gap: 15px;
+                    margin-top: 10px;
+                    width: 100%;
+                    max-width: 500px;
+                `
+          }
         });
-        const heightContainer = promptAllowedSection.createDiv({ cls: "setting-item pixel-banner-ai-control-row" });
-        const heightInfo = heightContainer.createDiv({ cls: "setting-item-info" });
-        heightInfo.createDiv({ cls: "setting-item-name", text: "Height" });
-        heightInfo.createDiv({ cls: "setting-item-description", text: this.height });
-        const heightControl = heightContainer.createDiv({ cls: "setting-item-control" });
-        const heightSlider = heightControl.createEl("input", { type: "range" });
-        heightSlider.setAttrs({
-          min: 256,
-          max: 1440,
-          step: 32,
-          value: this.height
-        });
-        heightSlider.addEventListener("input", (e) => {
-          this.height = parseInt(e.target.value);
-          heightInfo.querySelector(".setting-item-description").textContent = this.height;
-        });
+        this.renderModelControls();
         const promptDisallowedSection = contentEl.createDiv({
           cls: "prompt-disallowed-section",
           attr: {
@@ -2007,13 +3089,13 @@ var init_generateAIBannerModal = __esm({
         tokenCountSpan.style.color = "var(--text-accent)";
         tokenCountSpan.style.fontWeight = "bold";
         tokenCountSpan.style.letterSpacing = "1px";
-        tokenCountSpan.innerText = this.plugin.pixelBannerPlusBannerTokens;
+        tokenCountSpan.innerText = decimalToFractionString(this.plugin.pixelBannerPlusBannerTokens);
         tokenBalance.setText("\u{1FA99} Remaining Tokens: ");
         tokenBalance.appendChild(tokenCountSpan);
         tokenCountSpan.classList.add("token-balance-animation");
         const generateButton = buttonContainer.createEl("button", {
           cls: "mod-cta cursor-pointer radial-pulse-animation",
-          text: "\u2728 Generate Image",
+          text: "\u2728 Generate Banner",
           attr: {
             "style": `
                     display: ${this.plugin.pixelBannerPlusEnabled && this.plugin.pixelBannerPlusBannerTokens > 0 ? "block" : "none"};
@@ -2086,7 +3168,7 @@ var init_generateAIBannerModal = __esm({
           }
         });
         const historyContainerDescription = contentEl.createEl("p", {
-          text: `Click an image to download and use as a banner. These downloads are always FREE as you have already paid to generate them.`,
+          text: `Click an image to download and use as a banner. These downloads are always FREE as you have already paid to generate them. Images older than one month are subject to deletion from our servers.`,
           cls: "pixel-banner-history-description",
           attr: {
             style: `
@@ -2119,6 +3201,12 @@ var init_generateAIBannerModal = __esm({
           await this.refreshHistoryContainer();
         }
         this.hideLoadingSpinner();
+        if (promptInput) {
+          setTimeout(() => {
+            promptInput.focus();
+          }, 100);
+        }
+        this.hideLoadingSpinner();
       }
       async getPromptInspiration() {
         var _a;
@@ -2135,6 +3223,7 @@ var init_generateAIBannerModal = __esm({
             headers: {
               "X-User-Email": this.plugin.settings.pixelBannerPlusEmail,
               "X-API-Key": this.plugin.settings.pixelBannerPlusApiKey,
+              "X-Pixel-Banner-Version": this.plugin.settings.lastVersion,
               "Accept": "application/json"
             }
           });
@@ -2142,7 +3231,7 @@ var init_generateAIBannerModal = __esm({
             const promptInput = this.contentEl.querySelector("#ai-banner-prompt");
             if (promptInput) {
               let promptIdea = (_a = response.json.bannerIdea) == null ? void 0 : _a.toLowerCase();
-              promptIdea = promptIdea.replace(/[^a-zA-Z0-9\s]/g, "").trim();
+              promptIdea = promptIdea.trim();
               promptInput.value = promptIdea;
               this.prompt = promptIdea;
             }
@@ -2175,6 +3264,7 @@ var init_generateAIBannerModal = __esm({
             headers: {
               "X-User-Email": this.plugin.settings.pixelBannerPlusEmail,
               "X-API-Key": this.plugin.settings.pixelBannerPlusApiKey,
+              "X-Pixel-Banner-Version": this.plugin.settings.lastVersion,
               "Accept": "application/json"
             }
           });
@@ -2182,7 +3272,7 @@ var init_generateAIBannerModal = __esm({
             const promptInput = this.contentEl.querySelector("#ai-banner-prompt");
             if (promptInput) {
               let promptIdea = (_a = response.json.bannerIdea) == null ? void 0 : _a.toLowerCase();
-              promptIdea = promptIdea.replace(/[^a-zA-Z0-9\s]/g, "").trim();
+              promptIdea = promptIdea.trim();
               promptInput.value = promptIdea;
               this.prompt = promptIdea;
             }
@@ -2193,6 +3283,47 @@ var init_generateAIBannerModal = __esm({
         } finally {
           inspirationFromSeedButton.textContent = originalText;
           inspirationFromSeedButton.disabled = false;
+        }
+      }
+      async rewritePrompt() {
+        var _a;
+        const rewritePromptButton = this.contentEl.querySelector(".pixel-banner-rewrite-button");
+        const originalText = rewritePromptButton.textContent;
+        const promptTextarea = this.contentEl.querySelector("#ai-banner-prompt");
+        let seed = promptTextarea.value.trim();
+        if (seed.length === 0) {
+          new import_obsidian13.Notice("Please enter at lease one word in the Prompt box to generate a rewritten prompt.");
+          return;
+        }
+        try {
+          rewritePromptButton.textContent = "\u23F3";
+          rewritePromptButton.disabled = true;
+          const inspirationUrl = new URL(PIXEL_BANNER_PLUS.ENDPOINTS.REWRITE_BANNER_IDEA, PIXEL_BANNER_PLUS.API_URL).toString();
+          const response = await (0, import_obsidian13.requestUrl)({
+            url: inspirationUrl + `/${seed}`,
+            method: "GET",
+            headers: {
+              "X-User-Email": this.plugin.settings.pixelBannerPlusEmail,
+              "X-API-Key": this.plugin.settings.pixelBannerPlusApiKey,
+              "X-Pixel-Banner-Version": this.plugin.settings.lastVersion,
+              "Accept": "application/json"
+            }
+          });
+          if (response.status === 200 && response.json.bannerIdea) {
+            const promptInput = this.contentEl.querySelector("#ai-banner-prompt");
+            if (promptInput) {
+              let promptIdea = (_a = response.json.bannerIdea) == null ? void 0 : _a.toLowerCase();
+              promptIdea = promptIdea.trim();
+              promptInput.value = promptIdea;
+              this.prompt = promptIdea;
+            }
+          }
+        } catch (error) {
+          console.error("Failed to rewrite prompt:", error);
+          new import_obsidian13.Notice("Failed to rewrite prompt. Please try again.");
+        } finally {
+          rewritePromptButton.textContent = originalText;
+          rewritePromptButton.disabled = false;
         }
       }
       async clearPromptInspiration() {
@@ -2251,6 +3382,7 @@ var init_generateAIBannerModal = __esm({
             headers: {
               "X-User-Email": this.plugin.settings.pixelBannerPlusEmail,
               "X-API-Key": this.plugin.settings.pixelBannerPlusApiKey,
+              "X-Pixel-Banner-Version": this.plugin.settings.lastVersion,
               "Accept": "application/json"
             }
           });
@@ -2266,6 +3398,7 @@ var init_generateAIBannerModal = __esm({
             headers: {
               "X-User-Email": this.plugin.settings.pixelBannerPlusEmail,
               "X-API-Key": this.plugin.settings.pixelBannerPlusApiKey,
+              "X-Pixel-Banner-Version": this.plugin.settings.lastVersion,
               "Accept": "application/json"
             }
           });
@@ -2316,43 +3449,9 @@ var init_generateAIBannerModal = __esm({
           if (!activeFile || !savedPath) return;
           await this.plugin.app.fileManager.processFrontMatter(activeFile, (frontmatter) => {
             const bannerField = this.plugin.settings.customBannerField[0];
-            frontmatter[bannerField] = `[[${savedPath}]]`;
+            frontmatter[bannerField] = `![[${savedPath}]]`;
           });
-          if (this.plugin.settings.openBannerIconModalAfterSelectingBanner) {
-            new EmojiSelectionModal(
-              this.app,
-              this.plugin,
-              async (emoji) => {
-                const activeFile2 = this.plugin.app.workspace.getActiveFile();
-                if (activeFile2) {
-                  await this.plugin.app.fileManager.processFrontMatter(activeFile2, (frontmatter) => {
-                    const iconField = this.plugin.settings.customBannerIconField[0];
-                    if (emoji) {
-                      frontmatter[iconField] = emoji;
-                    } else {
-                      delete frontmatter[iconField];
-                    }
-                  });
-                  const view = this.plugin.app.workspace.getActiveViewOfType(import_obsidian13.MarkdownView);
-                  if (view) {
-                    const contentEl = view.contentEl;
-                    if (contentEl) {
-                      const existingOverlays = contentEl.querySelectorAll(".banner-icon-overlay");
-                      existingOverlays.forEach((overlay) => {
-                        this.plugin.returnIconOverlay(overlay);
-                      });
-                    }
-                    await this.plugin.updateBanner(view, true);
-                  }
-                  if (this.plugin.settings.openTargetingModalAfterSelectingBannerOrIcon) {
-                    new TargetPositionModal(this.app, this.plugin).open();
-                  }
-                }
-              },
-              true
-              // Skip the targeting modal in EmojiSelectionModal since we handle it in the callback
-            ).open();
-          } else if (this.plugin.settings.openTargetingModalAfterSelectingBannerOrIcon) {
+          if (this.plugin.settings.openTargetingModalAfterSelectingBannerOrIcon) {
             new TargetPositionModal(this.app, this.plugin).open();
           }
         });
@@ -2376,6 +3475,7 @@ var init_generateAIBannerModal = __esm({
             headers: {
               "X-User-Email": this.plugin.settings.pixelBannerPlusEmail,
               "X-API-Key": this.plugin.settings.pixelBannerPlusApiKey,
+              "X-Pixel-Banner-Version": this.plugin.settings.lastVersion,
               "Accept": "application/json"
             }
           });
@@ -2422,7 +3522,7 @@ var init_generateAIBannerModal = __esm({
           prevButton.addClass("disabled");
         }
         const pageInfo = paginationContainer.createSpan({
-          text: `Page ${this.currentPage} of ${this.totalPages}`
+          text: `${this.currentPage} of ${this.totalPages}`
         });
         const nextButton = paginationContainer.createEl("button", {
           text: "\u203A"
@@ -2547,6 +3647,115 @@ var init_imageSelectionModal = __esm({
         contentEl.empty();
         const style = document.createElement("style");
         style.textContent = `
+            .pixel-banner-image-modal {
+                width: var(--dialog-max-width);
+                top: unset !important;
+            }
+
+            .pixel-banner-image-select-modal {
+                top: unset !important;
+                width: var(--dialog-max-width);
+                max-width: 1100px;
+            }
+
+            .pixel-banner-image-select-modal .pixel-banner-image-delete {
+                position: absolute;
+                top: 8px;
+                right: 8px;
+                width: 24px;
+                height: 24px;
+                background-color: var(--background-secondary);
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                opacity: .5;
+                transition: opacity 0.2s ease, background-color 0.2s ease;
+                cursor: pointer;
+                z-index: 2;
+            }
+
+            .pixel-banner-image-select-modal .pixel-banner-image-wrapper:hover .pixel-banner-image-delete {
+                opacity: 1;
+            }
+
+            .pixel-banner-image-select-modal .pixel-banner-image-delete:hover {
+                background-color: red;
+                color: white;
+                opacity: 1;
+            }
+
+            .pixel-banner-image-select-modal .pixel-banner-image-delete svg {
+                width: 16px;
+                height: 16px;
+            }
+
+            .pixel-banner-image-select-description {
+                margin-top: -15px;
+                font-size: 0.8em;
+                word-break: break-all;
+                color: var(--text-muted);
+                margin-bottom: 15px;
+            }
+
+            .pixel-banner-search-container {
+                margin-bottom: 1rem;
+            }
+            
+            .pixel-banner-search-container input {
+                width: 100%;
+                padding: 8px;
+                border-radius: 4px;
+                border: 1px solid var(--background-modifier-border);
+            }
+
+            .pixel-banner-search-container .search-row {
+                flex: 1;
+                display: flex;
+                gap: 8px;
+                margin: 0;
+            }
+
+            .pixel-banner-search-container .controls-row {
+                flex: 0 auto;
+                display: flex;
+                gap: 8px;
+                margin: 0;
+            }
+
+            .pixel-banner-image-thumbnail {
+                width: 100%;
+                height: 150px;
+                object-fit: cover;
+                border-radius: 2px;
+            }
+
+            .pixel-banner-image-path {
+                margin-top: 8px;
+                font-size: 0.8em;
+                word-break: break-all;
+                color: var(--text-muted);
+            }
+
+            .pixel-banner-image-error {
+                height: 150px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: var(--background-modifier-error);
+                color: var(--text-error);
+                border-radius: 2px;
+            }
+
+            .pixel-banner-image-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                gap: 1rem;
+                padding: 0 1rem;
+                overflow-y: auto;
+                max-height: 60vh;
+            }
+
             .pixel-banner-pagination-button {
                 padding: 4px 8px;
                 border-radius: 4px;
@@ -2574,7 +3783,6 @@ var init_imageSelectionModal = __esm({
             .pixel-banner-image-container {
                 cursor: pointer;
                 border-radius: 6px;
-                overflow: hidden;
                 border: 1px solid var(--background-modifier-border);
                 transition: transform 0.2s ease, box-shadow 0.2s ease;
                 position: relative;
@@ -2656,6 +3864,38 @@ var init_imageSelectionModal = __esm({
                 height: 16px;
                 color: white;
             }
+
+            /* ------------------- */
+            /* -- mobile layout -- */
+            /* ------------------- */
+            @media screen and (max-width: 550px) {
+                .pixel-banner-pagination { flex-direction: column !important; }
+                .pixel-banner-pagination .pixel-banner-controls { flex-direction: column !important; }
+            }
+
+            @media screen and (max-width: 775px) {
+                .pixel-banner-search-container {
+                    flex-direction: column !important;
+                    gap: 8px !important;
+                }
+
+                .pixel-banner-search-container .search-row {
+                    display: flex;
+                    width: 100%;
+                    gap: 8px;
+                }
+
+                .pixel-banner-search-container .controls-row {
+                    display: flex;
+                    width: 100%;
+                    gap: 8px;
+                    align-items: center;
+                }
+
+                .pixel-banner-search-container input[type="text"] {
+                    flex: 1;
+                }
+            }
         `;
         document.head.appendChild(style);
         this.style = style;
@@ -2680,10 +3920,10 @@ var init_imageSelectionModal = __esm({
           text: "Clear"
         });
         const controlsRow = searchContainer.createDiv({ cls: "controls-row" });
-        if (this.plugin.pixelBannerPlusServerOnline) {
+        if (this.plugin.pixelBannerPlusEnabled && this.plugin.pixelBannerPlusServerOnline) {
           const pixelBannerPlusGenAIButton = controlsRow.createEl("button");
           pixelBannerPlusGenAIButton.addClass("radial-pulse-animation");
-          const sparkleSpan = pixelBannerPlusGenAIButton.createSpan({ cls: "twinkle-animation", text: "\u2728 " });
+          const sparkleSpan = pixelBannerPlusGenAIButton.createSpan({ cls: "pixel-banner-twinkle-animation", text: "\u2728 " });
           pixelBannerPlusGenAIButton.createSpan({ cls: "margin-left-5", text: "AI" });
           pixelBannerPlusGenAIButton.addEventListener("click", () => {
             this.close();
@@ -3059,6 +4299,4488 @@ var init_imageSelectionModal = __esm({
         if (this.style) {
           this.style.remove();
         }
+      }
+    };
+  }
+});
+
+// src/modal/modals/iconFolderSelectionModal.js
+var import_obsidian15, IconFolderSelectionModal;
+var init_iconFolderSelectionModal = __esm({
+  "src/modal/modals/iconFolderSelectionModal.js"() {
+    import_obsidian15 = require("obsidian");
+    IconFolderSelectionModal = class extends import_obsidian15.FuzzySuggestModal {
+      constructor(app, defaultFolder, onChoose) {
+        super(app);
+        this.defaultFolder = defaultFolder;
+        this.onChoose = onChoose;
+        this.modalEl.addClass("pixel-banner-icon-image-folder-select-modal");
+        const titleDiv = document.createElement("p");
+        titleDiv.innerHTML = "\u{1F4BE} Choose a <strong>Folder</strong> to save the selected Icon in your vault";
+        titleDiv.style.margin = "10px 0";
+        titleDiv.style.padding = "20px 20px 0";
+        titleDiv.style.color = "var(--text-accent)";
+        titleDiv.style.borderTop = "1px dashed var(--modal-border-color)";
+        this.modalEl.appendChild(titleDiv);
+        const descriptionDiv = document.createElement("p");
+        descriptionDiv.innerHTML = "If you set a default value in settings it will be pre-filled above.<br>Select any folder in your vault to continue.";
+        descriptionDiv.style.margin = "0 0 20px 0";
+        descriptionDiv.style.padding = "0 20px";
+        descriptionDiv.style.color = "var(--text-muted)";
+        descriptionDiv.style.fontSize = ".9em";
+        this.modalEl.appendChild(descriptionDiv);
+        this.setPlaceholder("Select or type folder path to save the Icon Image");
+        this.addStyle();
+      }
+      addStyle() {
+        const style = document.createElement("style");
+        style.textContent = `
+            .prompt.pixel-banner-icon-image-folder-select-modal {
+                top: unset !important;
+                padding: 20px !important;
+            }
+            .pixel-banner-icon-image-folder-select-modal .prompt {
+                position: fixed !important;
+                top: 50% !important;
+                left: 50% !important;
+                transform: translate(-50%, -50%) !important;
+            }
+        `;
+        document.head.appendChild(style);
+        this.style = style;
+      }
+      onClose() {
+        if (this.style) {
+          this.style.remove();
+        }
+      }
+      getItems() {
+        const folderPaths = this.app.vault.getAllLoadedFiles().filter((file) => file.children).map((folder) => folder.path);
+        if (!folderPaths.includes(this.defaultFolder)) {
+          folderPaths.unshift(this.defaultFolder);
+        }
+        return folderPaths;
+      }
+      getItemText(item) {
+        return item;
+      }
+      onChooseItem(item) {
+        this.onChoose(item);
+      }
+      onOpen() {
+        super.onOpen();
+        const inputEl = this.inputEl;
+        inputEl.value = this.defaultFolder;
+        inputEl.focus();
+        this.updateSuggestions();
+      }
+    };
+  }
+});
+
+// src/utils/getCurrentTheme.js
+function getCurrentTheme() {
+  return document.body.classList.contains("theme-dark") ? "dark" : "light";
+}
+var getCurrentTheme_default;
+var init_getCurrentTheme = __esm({
+  "src/utils/getCurrentTheme.js"() {
+    getCurrentTheme_default = getCurrentTheme;
+  }
+});
+
+// src/modal/modals/targetPositionModal.js
+var targetPositionModal_exports = {};
+__export(targetPositionModal_exports, {
+  TargetPositionModal: () => TargetPositionModal
+});
+var import_obsidian16, TargetPositionModal;
+var init_targetPositionModal = __esm({
+  "src/modal/modals/targetPositionModal.js"() {
+    import_obsidian16 = require("obsidian");
+    init_getCurrentTheme();
+    init_modals();
+    init_selectPixelBannerModal();
+    init_flags();
+    init_frontmatterUtils();
+    TargetPositionModal = class _TargetPositionModal extends import_obsidian16.Modal {
+      constructor(app, plugin, onPositionChange) {
+        var _a;
+        super(app);
+        this.plugin = plugin;
+        this.onPositionChange = onPositionChange;
+        this.isDragging = false;
+        const activeFile = this.app.workspace.getActiveFile();
+        const frontmatter = (_a = this.app.metadataCache.getFileCache(activeFile)) == null ? void 0 : _a.frontmatter;
+        const alignmentField = Array.isArray(this.plugin.settings.customBannerAlignmentField) ? this.plugin.settings.customBannerAlignmentField[0].split(",")[0].trim() : this.plugin.settings.customBannerAlignmentField;
+        this.currentAlignment = (frontmatter == null ? void 0 : frontmatter[alignmentField]) || "center";
+        const displayField = Array.isArray(this.plugin.settings.customImageDisplayField) ? this.plugin.settings.customImageDisplayField[0].split(",")[0].trim() : this.plugin.settings.customImageDisplayField;
+        this.currentDisplay = (frontmatter == null ? void 0 : frontmatter[displayField]) || this.plugin.settings.imageDisplay;
+        const xField = Array.isArray(this.plugin.settings.customXPositionField) ? this.plugin.settings.customXPositionField[0].split(",")[0].trim() : this.plugin.settings.customXPositionField;
+        this.currentX = (frontmatter == null ? void 0 : frontmatter[xField]) || this.plugin.settings.xPosition;
+        const yField = Array.isArray(this.plugin.settings.customYPositionField) ? this.plugin.settings.customYPositionField[0].split(",")[0].trim() : this.plugin.settings.customYPositionField;
+        this.currentY = (frontmatter == null ? void 0 : frontmatter[yField]) || this.plugin.settings.yPosition;
+        const heightField = Array.isArray(this.plugin.settings.customBannerHeightField) ? this.plugin.settings.customBannerHeightField[0].split(",")[0].trim() : this.plugin.settings.customBannerHeightField;
+        this.currentHeight = (frontmatter == null ? void 0 : frontmatter[heightField]) || this.plugin.settings.bannerHeight;
+        const maxWidthField = Array.isArray(this.plugin.settings.customBannerMaxWidthField) ? this.plugin.settings.customBannerMaxWidthField[0].split(",")[0].trim() : this.plugin.settings.customBannerMaxWidthField;
+        const maxWidthValue = frontmatter == null ? void 0 : frontmatter[maxWidthField];
+        const directMaxWidth = frontmatter == null ? void 0 : frontmatter["banner-max-width"];
+        const maxWidthExists = maxWidthValue !== void 0 && maxWidthValue !== null || directMaxWidth !== void 0 && directMaxWidth !== null;
+        const isMaxWidthUnset = !maxWidthExists;
+        this.currentMaxWidth = isMaxWidthUnset ? 1928 : parseInt(maxWidthValue || directMaxWidth) || 1928;
+        const contentStartPositionField = Array.isArray(this.plugin.settings.customContentStartField) ? this.plugin.settings.customContentStartField[0].split(",")[0].trim() : this.plugin.settings.customContentStartField;
+        this.currentContentStartPosition = (frontmatter == null ? void 0 : frontmatter[contentStartPositionField]) || this.plugin.settings.contentStartPosition;
+        const bannerIconXPositionField = Array.isArray(this.plugin.settings.customBannerIconXPositionField) ? this.plugin.settings.customBannerIconXPositionField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconXPositionField;
+        this.currentBannerIconXPosition = (frontmatter == null ? void 0 : frontmatter[bannerIconXPositionField]) || this.plugin.settings.bannerIconXPosition;
+        const bannerIconImageAlignmentField = Array.isArray(this.plugin.settings.customBannerIconImageAlignmentField) ? this.plugin.settings.customBannerIconImageAlignmentField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconImageAlignmentField;
+        const bannerIconRotateField = Array.isArray(this.plugin.settings.customBannerIconRotateField) ? this.plugin.settings.customBannerIconRotateField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconRotateField;
+        this.currentBannerIconRotate = getValueWithZeroCheck([
+          frontmatter == null ? void 0 : frontmatter[bannerIconRotateField],
+          0
+        ]);
+        const frontmatterValue = frontmatter == null ? void 0 : frontmatter[bannerIconImageAlignmentField];
+        const defaultValue = this.plugin.settings.bannerIconImageAlignment;
+        this.currentBannerIconImageAlignment = frontmatterValue === "right" ? "right" : "left";
+        const repeatField = Array.isArray(this.plugin.settings.customImageRepeatField) ? this.plugin.settings.customImageRepeatField[0].split(",")[0].trim() : this.plugin.settings.customImageRepeatField;
+        this.currentRepeat = (frontmatter == null ? void 0 : frontmatter[repeatField]) !== void 0 ? frontmatter[repeatField] : this.plugin.settings.imageRepeat;
+        const fadeField = Array.isArray(this.plugin.settings.customFadeField) ? this.plugin.settings.customFadeField[0].split(",")[0].trim() : this.plugin.settings.customFadeField;
+        this.currentFade = (frontmatter == null ? void 0 : frontmatter[fadeField]) !== void 0 ? frontmatter[fadeField] : this.plugin.settings.fade;
+        const borderRadiusField = Array.isArray(this.plugin.settings.customBorderRadiusField) ? this.plugin.settings.customBorderRadiusField[0].split(",")[0].trim() : this.plugin.settings.customBorderRadiusField;
+        this.currentBorderRadius = (frontmatter == null ? void 0 : frontmatter[borderRadiusField]) !== void 0 ? frontmatter[borderRadiusField] : this.plugin.settings.borderRadius || 0;
+        this.currentZoom = 100;
+        if (this.currentDisplay && this.currentDisplay.endsWith("%")) {
+          this.currentZoom = parseInt(this.currentDisplay) || 100;
+          this.currentDisplay = "cover-zoom";
+        }
+      }
+      // Helper to update frontmatter with new display value
+      updateDisplayMode(mode, zoom = null) {
+        const displayField = Array.isArray(this.plugin.settings.customImageDisplayField) ? this.plugin.settings.customImageDisplayField[0].split(",")[0].trim() : this.plugin.settings.customImageDisplayField;
+        const repeatField = Array.isArray(this.plugin.settings.customImageRepeatField) ? this.plugin.settings.customImageRepeatField[0].split(",")[0].trim() : this.plugin.settings.customImageRepeatField;
+        let newValue = mode;
+        if (mode === "cover-zoom") {
+          newValue = `${zoom}%`;
+        }
+        this.app.fileManager.processFrontMatter(this.app.workspace.getActiveFile(), (fm) => {
+          fm[displayField] = newValue;
+          if (mode === "contain" || mode === "auto") {
+            fm[repeatField] = this.currentRepeat;
+          } else {
+            if (repeatField in fm) {
+              delete fm[repeatField];
+            }
+          }
+        });
+      }
+      updateBannerMaxWidth(maxWidth) {
+        const maxWidthField = Array.isArray(this.plugin.settings.customBannerMaxWidthField) ? this.plugin.settings.customBannerMaxWidthField[0].split(",")[0].trim() : this.plugin.settings.customBannerMaxWidthField;
+        this.app.fileManager.processFrontMatter(this.app.workspace.getActiveFile(), (frontmatter) => {
+          if (maxWidth === "unset") {
+            if (maxWidthField in frontmatter) {
+              delete frontmatter[maxWidthField];
+            }
+          } else {
+            frontmatter[maxWidthField] = maxWidth;
+          }
+        });
+        setTimeout(() => {
+          const view = this.app.workspace.getActiveViewOfType(import_obsidian16.MarkdownView);
+          if (view) {
+            this.plugin.updateBanner(view, true);
+          }
+        }, 350);
+      }
+      updateBannerHeight(height) {
+        const heightField = Array.isArray(this.plugin.settings.customBannerHeightField) ? this.plugin.settings.customBannerHeightField[0].split(",")[0].trim() : this.plugin.settings.customBannerHeightField;
+        this.app.fileManager.processFrontMatter(this.app.workspace.getActiveFile(), (frontmatter) => {
+          frontmatter[heightField] = height;
+        });
+      }
+      updateBannerContentStartPosition(position) {
+        const contentStartPositionField = Array.isArray(this.plugin.settings.customContentStartField) ? this.plugin.settings.customContentStartField[0].split(",")[0].trim() : this.plugin.settings.customContentStartField;
+        this.app.fileManager.processFrontMatter(this.app.workspace.getActiveFile(), (frontmatter) => {
+          frontmatter[contentStartPositionField] = position;
+        });
+      }
+      updateBannerIconXPosition(position) {
+        const bannerIconXPositionField = Array.isArray(this.plugin.settings.customBannerIconXPositionField) ? this.plugin.settings.customBannerIconXPositionField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconXPositionField;
+        this.app.fileManager.processFrontMatter(this.app.workspace.getActiveFile(), (frontmatter) => {
+          frontmatter[bannerIconXPositionField] = position;
+        });
+      }
+      updateBannerIconSize(size) {
+        const bannerIconSizeField = Array.isArray(this.plugin.settings.customBannerIconSizeField) ? this.plugin.settings.customBannerIconSizeField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconSizeField;
+        this.app.fileManager.processFrontMatter(this.app.workspace.getActiveFile(), (frontmatter) => {
+          frontmatter[bannerIconSizeField] = size;
+        });
+      }
+      updateBannerIconImageSizeMultiplier(sizeMultiplier) {
+        const bannerIconImageSizeMultiplierField = Array.isArray(this.plugin.settings.customBannerIconImageSizeMultiplierField) ? this.plugin.settings.customBannerIconImageSizeMultiplierField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconImageSizeMultiplierField;
+        this.app.fileManager.processFrontMatter(this.app.workspace.getActiveFile(), (frontmatter) => {
+          frontmatter[bannerIconImageSizeMultiplierField] = sizeMultiplier;
+        });
+      }
+      updateBannerIconRotate(rotate) {
+        const bannerIconRotateField = Array.isArray(this.plugin.settings.customBannerIconRotateField) ? this.plugin.settings.customBannerIconRotateField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconRotateField;
+        this.app.fileManager.processFrontMatter(this.app.workspace.getActiveFile(), (frontmatter) => {
+          frontmatter[bannerIconRotateField] = rotate;
+        });
+      }
+      updateBannerIconColor(color) {
+        const bannerIconColorField = Array.isArray(this.plugin.settings.customBannerIconColorField) ? this.plugin.settings.customBannerIconColorField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconColorField;
+        this.app.fileManager.processFrontMatter(this.app.workspace.getActiveFile(), (frontmatter) => {
+          frontmatter[bannerIconColorField] = color;
+        });
+      }
+      updateBannerIconFontWeight(fontWeight) {
+        const bannerIconFontWeightField = Array.isArray(this.plugin.settings.customBannerIconFontWeightField) ? this.plugin.settings.customBannerIconFontWeightField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconFontWeightField;
+        this.app.fileManager.processFrontMatter(this.app.workspace.getActiveFile(), (frontmatter) => {
+          frontmatter[bannerIconFontWeightField] = fontWeight;
+        });
+      }
+      updateBannerIconBgColor(color, alpha) {
+        const bannerIconBgColorField = Array.isArray(this.plugin.settings.customBannerIconBackgroundColorField) ? this.plugin.settings.customBannerIconBackgroundColorField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconBackgroundColorField;
+        let finalColor = color;
+        if (alpha < 100) {
+          if (color.startsWith("#")) {
+            const r = parseInt(color.slice(1, 3), 16);
+            const g = parseInt(color.slice(3, 5), 16);
+            const b = parseInt(color.slice(5, 7), 16);
+            finalColor = `rgba(${r}, ${g}, ${b}, ${alpha / 100})`;
+          } else if (color && !color.startsWith("rgb")) {
+            const tempEl = document.createElement("div");
+            tempEl.style.color = color;
+            document.body.appendChild(tempEl);
+            const computedColor = window.getComputedStyle(tempEl).color;
+            document.body.removeChild(tempEl);
+            const rgbMatch = computedColor.match(/rgb\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*\)/);
+            if (rgbMatch) {
+              const r = parseInt(rgbMatch[1]);
+              const g = parseInt(rgbMatch[2]);
+              const b = parseInt(rgbMatch[3]);
+              finalColor = `rgba(${r}, ${g}, ${b}, ${alpha / 100})`;
+            }
+          }
+        }
+        this.app.fileManager.processFrontMatter(this.app.workspace.getActiveFile(), (frontmatter) => {
+          frontmatter[bannerIconBgColorField] = finalColor;
+        });
+      }
+      updateBannerIconPaddingX(paddingX) {
+        const bannerIconPaddingXField = Array.isArray(this.plugin.settings.customBannerIconPaddingXField) ? this.plugin.settings.customBannerIconPaddingXField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconPaddingXField;
+        this.app.fileManager.processFrontMatter(this.app.workspace.getActiveFile(), (frontmatter) => {
+          frontmatter[bannerIconPaddingXField] = paddingX;
+        });
+      }
+      updateBannerIconPaddingY(paddingY) {
+        const bannerIconPaddingYField = Array.isArray(this.plugin.settings.customBannerIconPaddingYField) ? this.plugin.settings.customBannerIconPaddingYField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconPaddingYField;
+        this.app.fileManager.processFrontMatter(this.app.workspace.getActiveFile(), (frontmatter) => {
+          frontmatter[bannerIconPaddingYField] = paddingY;
+        });
+      }
+      updateBannerIconBorderRadius(borderRadius) {
+        const bannerIconBorderRadiusField = Array.isArray(this.plugin.settings.customBannerIconBorderRadiusField) ? this.plugin.settings.customBannerIconBorderRadiusField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconBorderRadiusField;
+        this.app.fileManager.processFrontMatter(this.app.workspace.getActiveFile(), (frontmatter) => {
+          frontmatter[bannerIconBorderRadiusField] = borderRadius;
+        });
+      }
+      updateBannerIconVerticalOffset(verticalOffset) {
+        const bannerIconVerticalOffsetField = Array.isArray(this.plugin.settings.customBannerIconVeritalOffsetField) ? this.plugin.settings.customBannerIconVeritalOffsetField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconVeritalOffsetField;
+        this.app.fileManager.processFrontMatter(this.app.workspace.getActiveFile(), (frontmatter) => {
+          frontmatter[bannerIconVerticalOffsetField] = verticalOffset;
+        });
+      }
+      updateBannerIconTextVerticalOffset(textVerticalOffset) {
+        const bannerIconTextVerticalOffsetField = Array.isArray(this.plugin.settings.customBannerIconTextVerticalOffsetField) ? this.plugin.settings.customBannerIconTextVerticalOffsetField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconTextVerticalOffsetField;
+        this.app.fileManager.processFrontMatter(this.app.workspace.getActiveFile(), (frontmatter) => {
+          frontmatter[bannerIconTextVerticalOffsetField] = textVerticalOffset;
+        });
+      }
+      updateBannerIconImageAlignment(alignment) {
+        const bannerIconImageAlignmentField = Array.isArray(this.plugin.settings.customBannerIconImageAlignmentField) ? this.plugin.settings.customBannerIconImageAlignmentField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconImageAlignmentField;
+        this.app.fileManager.processFrontMatter(this.app.workspace.getActiveFile(), (frontmatter) => {
+          frontmatter[bannerIconImageAlignmentField] = alignment;
+        });
+        setTimeout(() => {
+          const view = this.app.workspace.getActiveViewOfType(import_obsidian16.MarkdownView);
+          if (view) {
+            this.plugin.updateBanner(view, true);
+          }
+        }, 350);
+      }
+      updateTitleColor(color) {
+        const titleColorField = Array.isArray(this.plugin.settings.customTitleColorField) ? this.plugin.settings.customTitleColorField[0].split(",")[0].trim() : this.plugin.settings.customTitleColorField;
+        this.app.fileManager.processFrontMatter(this.app.workspace.getActiveFile(), (frontmatter) => {
+          frontmatter[titleColorField] = color;
+        });
+      }
+      updateRepeatMode(repeat) {
+        const repeatField = Array.isArray(this.plugin.settings.customImageRepeatField) ? this.plugin.settings.customImageRepeatField[0].split(",")[0].trim() : this.plugin.settings.customImageRepeatField;
+        this.app.fileManager.processFrontMatter(this.app.workspace.getActiveFile(), (fm) => {
+          fm[repeatField] = repeat;
+        });
+      }
+      updateBannerAlignment(alignment) {
+        const alignmentField = Array.isArray(this.plugin.settings.customBannerAlignmentField) ? this.plugin.settings.customBannerAlignmentField[0].split(",")[0].trim() : this.plugin.settings.customBannerAlignmentField;
+        this.app.fileManager.processFrontMatter(this.app.workspace.getActiveFile(), (fm) => {
+          fm[alignmentField] = alignment;
+        });
+      }
+      updateBannerFade(fade) {
+        const fadeField = Array.isArray(this.plugin.settings.customFadeField) ? this.plugin.settings.customFadeField[0].split(",")[0].trim() : this.plugin.settings.customFadeField;
+        this.app.fileManager.processFrontMatter(this.app.workspace.getActiveFile(), (frontmatter) => {
+          frontmatter[fadeField] = fade;
+        });
+      }
+      updateBannerBorderRadius(borderRadius) {
+        const borderRadiusField = Array.isArray(this.plugin.settings.customBorderRadiusField) ? this.plugin.settings.customBorderRadiusField[0].split(",")[0].trim() : this.plugin.settings.customBorderRadiusField;
+        this.app.fileManager.processFrontMatter(this.app.workspace.getActiveFile(), (frontmatter) => {
+          frontmatter[borderRadiusField] = borderRadius;
+        });
+        setTimeout(() => {
+          const view = this.app.workspace.getActiveViewOfType(import_obsidian16.MarkdownView);
+          if (view) {
+            this.plugin.updateBanner(view, true);
+          }
+        }, 350);
+      }
+      onPositionChange(x, y) {
+        const activeFile = this.app.workspace.getActiveFile();
+        if (!activeFile) return;
+        this.app.fileManager.processFrontMatter(activeFile, (frontmatter) => {
+          frontmatter.bannerTargetX = x;
+          frontmatter.bannerTargetY = y;
+        });
+      }
+      onOpen() {
+        const { contentEl } = this;
+        contentEl.empty();
+        this.setupUI(contentEl);
+      }
+      async setupUI(contentEl) {
+        var _a;
+        const { modalEl, bgEl } = this;
+        contentEl.empty();
+        contentEl.addClass("target-position-modal");
+        modalEl.style.opacity = "0.8";
+        modalEl.style.width = "max-content";
+        modalEl.style.height = "max-content";
+        bgEl.style.opacity = "0";
+        const activeFile = this.app.workspace.getActiveFile();
+        const frontmatter = activeFile ? ((_a = this.app.metadataCache.getFileCache(activeFile)) == null ? void 0 : _a.frontmatter) || {} : {};
+        const dragHandle = contentEl.createDiv({
+          cls: "drag-handle",
+          attr: {
+            style: `
+                    cursor: move;
+                    position: absolute;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    top: 7px;
+                    opacity: .8;
+                `
+          }
+        });
+        dragHandle.setText("\u22EE\u22EE\u22EE\u22EE\u22EE\u22EE\u22EE\u22EE\u22EE\u22EE");
+        const bannerImageHeader = contentEl.createEl("div", {
+          text: "\u{1F5BC}\uFE0F Banner Image Settings",
+          cls: "banner-image-header",
+          attr: {
+            style: `
+                    display: flex;
+                    flex-direction: row;
+                    gap: 10px;
+                    align-items: center;
+                    justify-content: space-between;
+                    color: var(--text-accent);
+                    font-size: 0.9em;
+                    font-weight: 600;
+                    letter-spacing: 1px;
+                    text-transform: uppercase;
+                    margin-top: 15px;
+                    margin-bottom: 10px;
+                `
+          }
+        });
+        const bannerImageHeaderButtons = bannerImageHeader.createEl("div", {
+          cls: "banner-image-header-buttons",
+          attr: {
+            style: `
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                    gap: 5px;
+                `
+          }
+        });
+        const bannerImageHeaderChangeButton = bannerImageHeaderButtons.createEl("button", {
+          text: "\u270F\uFE0F Change Banner",
+          cls: "banner-image-header-button cursor-pointer",
+          attr: {
+            style: `
+                    text-transform: uppercase;
+                    font-size: .8em;
+                `
+          }
+        });
+        bannerImageHeaderChangeButton.addEventListener("click", () => {
+          this.close();
+          new SelectPixelBannerModal(this.app, this.plugin).open();
+        });
+        const bannerImageHeaderRemoveButton = bannerImageHeaderButtons.createEl("button", {
+          text: "\u{1F5D1}\uFE0F Remove Banner",
+          cls: "banner-image-header-button cursor-pointer",
+          attr: {
+            style: `
+                    text-transform: uppercase;
+                    font-size: .8em;
+                `
+          }
+        });
+        bannerImageHeaderRemoveButton.addEventListener("click", () => {
+          this.resetPixelBannerNoteSettings(true);
+        });
+        const mainContainer = contentEl.createDiv({
+          cls: "main-container--banner-image",
+          attr: {
+            style: `
+                    position: relative;
+                    display: flex;
+                    flex-direction: row;
+                    gap: 20px;
+                    alignt-items: stretch;
+                `
+          }
+        });
+        const controlPanel = mainContainer.createDiv({
+          cls: "control-panel",
+          attr: {
+            style: `
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+                    flex: 0 auto;
+                `
+          }
+        });
+        const displaySelect = controlPanel.createEl("select", { cls: "display-mode-select" });
+        ["cover", "auto", "contain", "cover-zoom"].forEach((mode) => {
+          const option = displaySelect.createEl("option", {
+            text: mode.replace("-", " "),
+            value: mode
+          });
+          if (mode === this.currentDisplay) {
+            option.selected = true;
+          }
+        });
+        const zoomContainer = controlPanel.createDiv({
+          cls: "zoom-container",
+          attr: {
+            style: `
+                    display: ${this.currentDisplay === "cover-zoom" ? "flex" : "none"};
+                    flex-direction: column;
+                    gap: 5px;
+                    align-items: center;
+                    margin-top: 10px;
+                    height: 100%;
+                `
+          }
+        });
+        const zoomValue = zoomContainer.createDiv({
+          cls: "zoom-value",
+          attr: {
+            style: `
+                    font-family: var(--font-monospace);
+                    font-size: 0.9em;
+                `
+          }
+        });
+        zoomValue.setText(`${this.currentZoom}%`);
+        const zoomSlider = zoomContainer.createEl("input", {
+          type: "range",
+          cls: "zoom-slider",
+          attr: {
+            min: "0",
+            max: "500",
+            step: "10",
+            value: this.currentZoom,
+            style: `
+                    flex: 1;
+                    writing-mode: vertical-lr;
+                    direction: rtl;
+                `
+          }
+        });
+        displaySelect.addEventListener("change", () => {
+          const mode = displaySelect.value;
+          zoomContainer.style.display = mode === "cover-zoom" ? "flex" : "none";
+          this.updateDisplayMode(mode, mode === "cover-zoom" ? this.currentZoom : null);
+        });
+        zoomSlider.addEventListener("input", () => {
+          this.currentZoom = parseInt(zoomSlider.value);
+          zoomValue.setText(`${this.currentZoom}%`);
+          this.updateDisplayMode("cover-zoom", this.currentZoom);
+        });
+        const maxWidthContainer = mainContainer.createDiv({
+          cls: "max-width-container",
+          attr: {
+            style: `
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+                    align-items: center;
+                    min-width: 60px;
+                    flex: 0 auto;
+                `
+          }
+        });
+        const maxWidthLabel = maxWidthContainer.createEl("div", {
+          text: "Max Width",
+          cls: "max-width-label",
+          attr: {
+            style: `
+                    color: var(--text-muted); 
+                    font-size: 0.9em;
+                `
+          }
+        });
+        const maxWidthField = Array.isArray(this.plugin.settings.customBannerMaxWidthField) ? this.plugin.settings.customBannerMaxWidthField[0].split(",")[0].trim() : this.plugin.settings.customBannerMaxWidthField;
+        const maxWidthValue = frontmatter == null ? void 0 : frontmatter[maxWidthField];
+        const directMaxWidth = frontmatter == null ? void 0 : frontmatter["banner-max-width"];
+        const maxWidthExists = maxWidthValue !== void 0 && maxWidthValue !== null || directMaxWidth !== void 0 && directMaxWidth !== null;
+        const isMaxWidthUnset = !maxWidthExists;
+        this.currentMaxWidth = isMaxWidthUnset ? 1928 : parseInt(maxWidthValue || directMaxWidth) || 1928;
+        const unsetContainer = maxWidthContainer.createDiv({
+          cls: "unset-container",
+          attr: {
+            style: `
+                    display: flex;
+                    align-items: center;
+                    gap: 5px;
+                    margin-bottom: 5px;
+                `
+          }
+        });
+        const unsetCheckbox = unsetContainer.createEl("input", {
+          type: "checkbox",
+          cls: "unset-checkbox"
+        });
+        const shouldBeChecked = isMaxWidthUnset;
+        unsetCheckbox.checked = shouldBeChecked;
+        unsetContainer.createEl("span", {
+          text: "unset"
+        });
+        const maxWidthValueDisplay = maxWidthContainer.createDiv({
+          cls: "max-width-value",
+          attr: {
+            style: `
+                    font-family: var(--font-monospace);
+                    font-size: 0.9em;
+                    ${isMaxWidthUnset ? "color: var(--text-muted);" : ""}
+                `
+          }
+        });
+        maxWidthValueDisplay.setText(isMaxWidthUnset ? "unset" : `${this.currentMaxWidth}px`);
+        const maxWidthSlider = maxWidthContainer.createEl("input", {
+          type: "range",
+          cls: "max-width-slider",
+          attr: {
+            min: "100",
+            max: "2560",
+            step: "10",
+            value: this.currentMaxWidth,
+            disabled: isMaxWidthUnset,
+            draggable: false,
+            style: `
+                    width: 15px;
+                    height: 30px;
+                    flex: 1;
+                    writing-mode: vertical-lr;
+                    direction: rtl;
+                    ${isMaxWidthUnset ? "opacity: 0.5;" : ""}
+                `
+          }
+        });
+        if (!isMaxWidthUnset) {
+          maxWidthSlider.disabled = false;
+          maxWidthSlider.style.opacity = "1";
+        }
+        unsetCheckbox.addEventListener("change", () => {
+          const isUnset = unsetCheckbox.checked;
+          maxWidthSlider.disabled = isUnset;
+          maxWidthSlider.style.opacity = isUnset ? "0.5" : "1";
+          maxWidthValueDisplay.style.color = isUnset ? "var(--text-muted)" : "";
+          maxWidthValueDisplay.setText(isUnset ? "unset" : `${this.currentMaxWidth}px`);
+          if (isUnset) {
+            this.updateBannerMaxWidth("unset");
+          } else {
+            this.updateBannerMaxWidth(this.currentMaxWidth);
+          }
+        });
+        maxWidthSlider.addEventListener("input", () => {
+          this.currentMaxWidth = parseInt(maxWidthSlider.value);
+          maxWidthValueDisplay.setText(`${this.currentMaxWidth}px`);
+          this.updateBannerMaxWidth(this.currentMaxWidth);
+        });
+        const heightContainer = mainContainer.createDiv({
+          cls: "height-container",
+          attr: {
+            style: `
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+                    align-items: center;
+                    min-width: 60px;
+                    flex: 0 auto;
+                `
+          }
+        });
+        const heightLabel = heightContainer.createEl("div", {
+          text: "Height",
+          cls: "height-label",
+          attr: {
+            style: `
+                    color: var(--text-muted); 
+                    font-size: 0.9em;
+                `
+          }
+        });
+        const heightValue = heightContainer.createDiv({
+          cls: "height-value",
+          attr: {
+            style: `
+                    font-family: var(--font-monospace);
+                    font-size: 0.9em;
+                `
+          }
+        });
+        heightValue.setText(`${this.currentHeight}px`);
+        const heightSlider = heightContainer.createEl("input", {
+          type: "range",
+          cls: "height-slider",
+          attr: {
+            min: "0",
+            max: "1280",
+            step: "10",
+            value: this.currentHeight,
+            style: `
+                    flex: 1;
+                    writing-mode: vertical-lr;
+                    direction: rtl;
+                `
+          }
+        });
+        heightSlider.addEventListener("input", () => {
+          this.currentHeight = parseInt(heightSlider.value);
+          heightValue.setText(`${this.currentHeight}px`);
+          this.updateBannerHeight(this.currentHeight);
+        });
+        const targetContainer = mainContainer.createDiv({
+          cls: "target-container",
+          attr: {
+            style: `
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+                    flex-grow: 1;
+                `
+          }
+        });
+        const targetArea = targetContainer.createDiv({
+          cls: "target-area",
+          attr: {
+            style: `
+                    width: 200px;
+                    height: 200px;
+                    border: 2px solid var(--background-modifier-border);
+                    position: relative;
+                    background-color: var(--background-primary);
+                    cursor: crosshair;
+                    flex-grow: 1;
+                `
+          }
+        });
+        const verticalLine = targetArea.createDiv({ cls: "crosshair-line vertical" });
+        const horizontalLine = targetArea.createDiv({ cls: "crosshair-line horizontal" });
+        const positionIndicator = targetContainer.createEl("div", {
+          cls: "position-indicator",
+          attr: {
+            style: `
+                    text-align: center;
+                    font-family: var(--font-monospace);
+                    font-size: 0.9em;
+                    color: var(--text-muted);
+                    width: 200px;
+                `
+          }
+        });
+        positionIndicator.setText(`X: ${this.currentX}%, Y: ${this.currentY}%`);
+        const updatePositionIndicator = () => {
+          positionIndicator.setText(`X: ${this.currentX}%, Y: ${this.currentY}%`);
+        };
+        this.addStyle();
+        const updatePosition = (e) => {
+          const rect = targetArea.getBoundingClientRect();
+          const x = Math.max(0, Math.min(100, (e.clientX - rect.left) / rect.width * 100));
+          const y = Math.max(0, Math.min(100, (e.clientY - rect.top) / rect.height * 100));
+          verticalLine.style.left = `${x}%`;
+          horizontalLine.style.top = `${y}%`;
+          this.currentX = Math.round(x);
+          this.currentY = Math.round(y);
+          const xField = Array.isArray(this.plugin.settings.customXPositionField) ? this.plugin.settings.customXPositionField[0].split(",")[0].trim() : this.plugin.settings.customXPositionField;
+          const yField = Array.isArray(this.plugin.settings.customYPositionField) ? this.plugin.settings.customYPositionField[0].split(",")[0].trim() : this.plugin.settings.customYPositionField;
+          this.app.fileManager.processFrontMatter(this.app.workspace.getActiveFile(), (frontmatter2) => {
+            frontmatter2[xField] = this.currentX;
+            frontmatter2[yField] = this.currentY;
+          });
+          updatePositionIndicator();
+        };
+        targetArea.addEventListener("click", updatePosition);
+        verticalLine.style.left = `${this.currentX}%`;
+        horizontalLine.style.top = `${this.currentY}%`;
+        const contentStartPositionContainer = mainContainer.createDiv({
+          cls: "content-start-position-container",
+          attr: {
+            style: `
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+                    align-items: center;
+                    min-width: 60px;
+                    flex: 0 auto;
+                `
+          }
+        });
+        const contentStartPositionLabel = contentStartPositionContainer.createEl("div", {
+          text: "Content Start Position",
+          cls: "content-start-position-label",
+          attr: {
+            style: `
+                    color: var(--text-muted); 
+                    font-size: 0.9em;
+                    text-align: center;
+                    width: 60px;
+                `
+          }
+        });
+        const contentStartPositionValue = contentStartPositionContainer.createDiv({
+          cls: "content-start-position-value",
+          attr: {
+            style: `
+                    font-family: var(--font-monospace);
+                    font-size: 0.9em;
+                `
+          }
+        });
+        contentStartPositionValue.setText(`${this.currentContentStartPosition}px`);
+        const contentStartPositionSlider = contentStartPositionContainer.createEl("input", {
+          type: "range",
+          cls: "content-start-position-slider",
+          attr: {
+            min: "1",
+            max: "800",
+            step: "5",
+            value: this.currentContentStartPosition,
+            style: `
+                    flex: 1;
+                    writing-mode: vertical-lr;
+                    direction: rtl;
+                `
+          }
+        });
+        contentStartPositionSlider.addEventListener("input", () => {
+          this.currentContentStartPosition = parseInt(contentStartPositionSlider.value);
+          contentStartPositionValue.setText(`${this.currentContentStartPosition}px`);
+          this.updateBannerContentStartPosition(this.currentContentStartPosition);
+        });
+        const bannerSettingsRow2 = contentEl.createDiv({
+          attr: {
+            style: `
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                gap: 10px;
+                align-items: center;
+                flex: 0 auto;
+                margin-top: 10px;
+                `
+          }
+        });
+        bannerSettingsRow2.createEl("div", {
+          text: "Banner Alignment",
+          attr: {
+            style: `
+                    color: var(--text-muted); 
+                    font-size: 0.9em;
+                `
+          }
+        });
+        const alignmentSelect = bannerSettingsRow2.createEl("select", { cls: "alignment-select" });
+        [
+          { value: "left", text: "Left" },
+          { value: "center", text: "Center" },
+          { value: "right", text: "Right" }
+        ].forEach((option) => {
+          const optionEl = alignmentSelect.createEl("option", {
+            text: option.text,
+            value: option.value
+          });
+          if (option.value === this.currentAlignment) {
+            optionEl.selected = true;
+          }
+        });
+        alignmentSelect.addEventListener("change", () => {
+          this.currentAlignment = alignmentSelect.value;
+          this.updateBannerAlignment(this.currentAlignment);
+        });
+        const bannerFadeContainer = bannerSettingsRow2.createDiv({
+          cls: "setting-item",
+          attr: {
+            style: `
+                    flex: 1;
+                    display: flex;
+                    flex-direction: row;
+                    gap: 10px;
+                    align-items: center;
+                `
+          }
+        });
+        const bannerFadeHeader = bannerFadeContainer.createDiv({
+          text: "Banner Fade",
+          attr: {
+            style: `
+                    color: var(--text-muted); 
+                    font-size: 0.9em;
+                `
+          }
+        });
+        const bannerFadeSliderContainer = bannerFadeContainer.createDiv({
+          attr: {
+            style: `
+                    flex: 1;
+                    display: flex;
+                    gap: 10px;
+                    align-items: center;
+                `
+          }
+        });
+        const bannerFadeSlider = bannerFadeSliderContainer.createEl("input", {
+          type: "range",
+          cls: "slider",
+          attr: {
+            min: "-300",
+            max: "100",
+            step: "5",
+            value: this.currentFade,
+            style: `
+                    flex: 1;
+                `
+          }
+        });
+        const bannerFadeValue = bannerFadeSliderContainer.createDiv({
+          text: this.currentFade,
+          attr: {
+            style: `
+                    color: var(--text-muted);
+                    font-size: 0.9em;
+                    min-width: 45px;
+                    text-align: right;
+                `
+          }
+        });
+        bannerFadeSlider.addEventListener("input", (e) => {
+          const value = parseInt(e.target.value);
+          this.updateBannerFade(value);
+          bannerFadeValue.setText(value.toString());
+        });
+        const borderRadiusContainer = bannerSettingsRow2.createDiv({
+          cls: "setting-item",
+          attr: {
+            style: `
+                    flex: 1;
+                    display: flex;
+                    flex-direction: row;
+                    gap: 10px;
+                    align-items: center;
+                `
+          }
+        });
+        const borderRadiusHeader = borderRadiusContainer.createDiv({
+          text: "Border Radius",
+          attr: {
+            style: `
+                    color: var(--text-muted); 
+                    font-size: 0.9em;
+                `
+          }
+        });
+        const borderRadiusSliderContainer = borderRadiusContainer.createDiv({
+          attr: {
+            style: `
+                    flex: 1;
+                    display: flex;
+                    gap: 10px;
+                    align-items: center;
+                `
+          }
+        });
+        const borderRadiusSlider = borderRadiusSliderContainer.createEl("input", {
+          type: "range",
+          cls: "slider",
+          attr: {
+            min: "0",
+            max: "50",
+            step: "1",
+            value: this.currentBorderRadius,
+            style: `
+                    flex: 1;
+                `
+          }
+        });
+        const borderRadiusValue = borderRadiusSliderContainer.createDiv({
+          text: this.currentBorderRadius.toString(),
+          attr: {
+            style: `
+                    color: var(--text-muted);
+                    font-size: 0.9em;
+                    min-width: 45px;
+                    text-align: right;
+                `
+          }
+        });
+        borderRadiusSlider.addEventListener("input", (e) => {
+          const value = parseInt(e.target.value);
+          this.updateBannerBorderRadius(value);
+          borderRadiusValue.setText(`${value}`);
+        });
+        const openEmojiPicker = () => {
+          this.close();
+          new EmojiSelectionModal(
+            this.app,
+            this.plugin,
+            async (emoji) => {
+              const activeFile2 = this.app.workspace.getActiveFile();
+              if (activeFile2) {
+                await this.plugin.app.fileManager.processFrontMatter(activeFile2, (frontmatter2) => {
+                  const iconField = this.plugin.settings.customBannerIconField[0];
+                  if (emoji) {
+                    frontmatter2[iconField] = emoji;
+                  } else {
+                    delete frontmatter2[iconField];
+                  }
+                });
+              }
+            }
+          ).open();
+        };
+        const openIconImagePicker = () => {
+          const defaultIconImageFolder = this.plugin.settings.defaultSelectIconPath || "";
+          this.close();
+          new IconImageSelectionModal(
+            this.app,
+            this.plugin,
+            async (file) => {
+              if (!file) return;
+              const activeFile2 = this.app.workspace.getActiveFile();
+              if (!activeFile2) return;
+              if (file.isWebUrl) {
+                this.app.fileManager.processFrontMatter(activeFile2, (fm) => {
+                  const iconImageField = Array.isArray(this.plugin.settings.customBannerIconImageField) ? this.plugin.settings.customBannerIconImageField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconImageField;
+                  fm[iconImageField] = file.path;
+                });
+                new _TargetPositionModal(this.app, this.plugin).open();
+                return;
+              }
+              if (file.extension.toLowerCase().match(/^(jpg|jpeg|png|gif|bmp|svg|webp|avif)$/)) {
+                try {
+                  const imageUrl = await this.plugin.getVaultImageUrl(file.path);
+                  if (imageUrl) {
+                    this.plugin.loadedImages.set(file.path, imageUrl);
+                    const preloadImg = new Image();
+                    preloadImg.src = imageUrl;
+                  }
+                } catch (error) {
+                  console.error("Error preloading icon image:", error);
+                }
+              }
+              this.app.fileManager.processFrontMatter(activeFile2, (fm) => {
+                const iconImageField = Array.isArray(this.plugin.settings.customBannerIconImageField) ? this.plugin.settings.customBannerIconImageField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconImageField;
+                fm[iconImageField] = `![[${file.path}]]`;
+              });
+              new _TargetPositionModal(this.app, this.plugin).open();
+            },
+            defaultIconImageFolder
+          ).open();
+        };
+        const bannerIconField = Array.isArray(this.plugin.settings.customBannerIconField) ? this.plugin.settings.customBannerIconField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconField;
+        const bannerIconImageField = Array.isArray(this.plugin.settings.customBannerIconImageField) ? this.plugin.settings.customBannerIconImageField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconImageField;
+        let hasBannerIcon = frontmatter && (frontmatter[bannerIconField] && frontmatter[bannerIconField].trim() !== "" || frontmatter[bannerIconImageField] && frontmatter[bannerIconImageField].trim() !== "");
+        const hasBannerIconImage = frontmatter && frontmatter[bannerIconImageField] && frontmatter[bannerIconImageField].trim() !== "";
+        if (!hasBannerIcon) {
+          await new Promise((resolve) => {
+            setTimeout(async () => {
+              var _a2;
+              const refreshedFrontmatter = (_a2 = this.app.metadataCache.getFileCache(activeFile)) == null ? void 0 : _a2.frontmatter;
+              if (refreshedFrontmatter && (refreshedFrontmatter[bannerIconField] && refreshedFrontmatter[bannerIconField].trim() !== "" || refreshedFrontmatter[bannerIconImageField] && refreshedFrontmatter[bannerIconImageField].trim() !== "")) {
+                hasBannerIcon = true;
+              }
+              resolve();
+            }, 400);
+          });
+        }
+        const addBannerIconContainer = contentEl.createDiv({
+          cls: "main-container--banner-icon",
+          attr: {
+            style: `
+                    display: flex;
+                    flex-direction: row;
+                    margin-top: 30px;
+                    margin-bottom: 10px;
+                    justify-content: space-between;
+                    align-items: center;
+                `
+          }
+        });
+        const bannerIconHeader = addBannerIconContainer.createEl("div", {
+          text: hasBannerIcon ? "\u2B50 Banner Icon Settings" : "",
+          cls: "banner-icon-header",
+          attr: {
+            style: `
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: space-between;
+                    color: var(--text-accent);
+                    font-size: 0.9em;
+                    font-weight: 600;
+                    letter-spacing: 1px;
+                    text-transform: uppercase;
+                `
+          }
+        });
+        const bannerIconHeaderButtons = addBannerIconContainer.createDiv({
+          cls: "banner-icon-header-buttons",
+          attr: {
+            style: `
+                    display: flex;
+                    flex-direction: row;
+                    gap: 10px;
+                    align-items: center;
+                    justify-content: flex-end;
+                `
+          }
+        });
+        const bannerIconHeaderButtonIcon = bannerIconHeaderButtons.createEl("button", {
+          text: hasBannerIconImage ? "\u270F\uFE0F Edit Icon Image" : "\u2B50 Add Icon Image",
+          cls: "banner-icon-header-button cursor-pointer",
+          attr: {
+            style: `
+                    text-transform: uppercase;
+                    font-size: .8em;
+                `
+          }
+        });
+        bannerIconHeaderButtonIcon.addEventListener("click", openIconImagePicker);
+        const hasBannerIconText = frontmatter && frontmatter[bannerIconField] && frontmatter[bannerIconField].trim() !== "";
+        const bannerIconHeaderButtonText = bannerIconHeaderButtons.createEl("button", {
+          text: hasBannerIconText ? "\u{1F4DD} Edit Icon Text & Emoji" : "\u{1F4F0} Add Icon Text & Emoji",
+          cls: "banner-icon-header-button cursor-pointer",
+          attr: {
+            style: `
+                    text-transform: uppercase;
+                    font-size: .8em;
+                `
+          }
+        });
+        bannerIconHeaderButtonText.addEventListener("click", openEmojiPicker);
+        const bannerIconControlsContainer = contentEl.createDiv({
+          cls: "main-container--banner-icon",
+          attr: {
+            style: `
+                    margin-top: 20px;
+                    display: ${hasBannerIcon ? "block" : "none"};
+                `
+          }
+        });
+        const bannerIconImageAlignmentContainer = bannerIconControlsContainer.createDiv({
+          cls: "banner-icon-image-alignment-container",
+          attr: {
+            style: `
+                    display: flex;
+                    flex-direction: row;
+                    gap: 10px;
+                    align-items: center;
+                    min-width: 60px;
+                    flex: 0 auto;
+                    margin-bottom: 15px;
+                `
+          }
+        });
+        const bannerIconImageAlignmentLabel = bannerIconImageAlignmentContainer.createEl("div", {
+          text: "Icon Image Alignment",
+          cls: "banner-icon-image-alignment-label",
+          attr: {
+            style: `
+                    color: var(--text-muted); 
+                    font-size: 0.9em;
+                    min-width: 120px;
+                `
+          }
+        });
+        const bannerIconImageAlignmentRadioContainer = bannerIconImageAlignmentContainer.createDiv({
+          cls: "banner-icon-image-alignment-radio-container",
+          attr: {
+            style: `
+                    display: flex;
+                    flex-direction: row;
+                    gap: 20px;
+                    align-items: center;
+                `
+          }
+        });
+        const leftRadioContainer = bannerIconImageAlignmentRadioContainer.createDiv({
+          cls: "radio-container",
+          attr: {
+            style: `
+                    display: flex;
+                    align-items: center;
+                    gap: 5px;
+                `
+          }
+        });
+        const isRightAlignment = this.currentBannerIconImageAlignment === "right";
+        const isLeftAlignment = !isRightAlignment;
+        const leftRadio = leftRadioContainer.createEl("input", {
+          type: "radio",
+          attr: {
+            id: "icon-placement-left",
+            name: "icon-image-placement",
+            value: "left",
+            style: `cursor: pointer;`
+          }
+        });
+        leftRadioContainer.createEl("label", {
+          text: "Left",
+          attr: {
+            for: "icon-placement-left",
+            style: `
+                    cursor: pointer;
+                    font-size: 0.9em;
+                `
+          }
+        });
+        const rightRadioContainer = bannerIconImageAlignmentRadioContainer.createDiv({
+          cls: "radio-container",
+          attr: {
+            style: `
+                    display: flex;
+                    align-items: center;
+                    gap: 5px;
+                `
+          }
+        });
+        const rightRadio = rightRadioContainer.createEl("input", {
+          type: "radio",
+          attr: {
+            id: "icon-placement-right",
+            name: "icon-image-placement",
+            value: "right",
+            style: `cursor: pointer;`
+          }
+        });
+        rightRadioContainer.createEl("label", {
+          text: "Right",
+          attr: {
+            for: "icon-placement-right",
+            style: `
+                    cursor: pointer;
+                    font-size: 0.9em;
+                `
+          }
+        });
+        setTimeout(() => {
+          leftRadio.checked = isLeftAlignment;
+          rightRadio.checked = isRightAlignment;
+        }, 50);
+        leftRadio.addEventListener("change", () => {
+          if (leftRadio.checked) {
+            this.currentBannerIconImageAlignment = "left";
+            this.updateBannerIconImageAlignment(this.currentBannerIconImageAlignment);
+          }
+        });
+        rightRadio.addEventListener("change", () => {
+          if (rightRadio.checked) {
+            this.currentBannerIconImageAlignment = "right";
+            this.updateBannerIconImageAlignment(this.currentBannerIconImageAlignment);
+          }
+        });
+        const bannerIconXPositionContainer = bannerIconControlsContainer.createDiv({
+          cls: "banner-icon-x-position-container",
+          attr: {
+            style: `
+                    display: flex;
+                    flex-direction: row;
+                    gap: 10px;
+                    align-items: center;
+                    min-width: 60px;
+                    flex: 0 auto;
+                `
+          }
+        });
+        const bannerIconXPositionLabel = bannerIconXPositionContainer.createEl("div", {
+          text: "Icon X Position",
+          cls: "banner-icon-x-position-label",
+          attr: {
+            style: `
+                    color: var(--text-muted); 
+                    font-size: 0.9em;
+                `
+          }
+        });
+        const bannerIconXPositionSlider = bannerIconXPositionContainer.createEl("input", {
+          type: "range",
+          cls: "banner-icon-x-position-slider",
+          attr: {
+            min: "1",
+            max: "100",
+            step: "1",
+            value: this.currentBannerIconXPosition,
+            style: `
+                    flex: 1;
+                    writing-mode: horizontal-tb;
+                    direction: ltr;
+                `
+          }
+        });
+        const bannerIconXPositionValue = bannerIconXPositionContainer.createDiv({
+          cls: "banner-icon-x-position-value",
+          attr: {
+            style: `
+                    font-family: var(--font-monospace);
+                    font-size: 0.9em;
+                `
+          }
+        });
+        bannerIconXPositionValue.setText(`${this.currentBannerIconXPosition}`);
+        bannerIconXPositionSlider.addEventListener("input", () => {
+          this.currentBannerIconXPosition = parseInt(bannerIconXPositionSlider.value);
+          bannerIconXPositionValue.setText(`${this.currentBannerIconXPosition}`);
+          this.updateBannerIconXPosition(this.currentBannerIconXPosition);
+        });
+        const bannerIconVerticalOffsetContainer = bannerIconControlsContainer.createDiv({
+          cls: "banner-icon-vertical-offset-container",
+          attr: {
+            style: `
+                    display: flex;
+                    flex-direction: row;
+                    gap: 10px;
+                    align-items: center;
+                    min-width: 60px;
+                    flex: 0 auto;
+                    margin-top: 10px;
+                `
+          }
+        });
+        const bannerIconVerticalOffsetLabel = bannerIconVerticalOffsetContainer.createEl("div", {
+          text: "Icon Y Position",
+          cls: "banner-icon-vertical-offset-label",
+          attr: {
+            style: `
+                    color: var(--text-muted); 
+                    font-size: 0.9em;
+                `
+          }
+        });
+        const iconVerticalOffsetField = Array.isArray(this.plugin.settings.customBannerIconVeritalOffsetField) ? this.plugin.settings.customBannerIconVeritalOffsetField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconVeritalOffsetField;
+        this.currentBannerIconVerticalOffset = (frontmatter == null ? void 0 : frontmatter[iconVerticalOffsetField]) || this.plugin.settings.bannerIconVeritalOffset;
+        const bannerIconVerticalOffsetSlider = bannerIconVerticalOffsetContainer.createEl("input", {
+          type: "range",
+          cls: "banner-icon-vertical-offset-slider",
+          attr: {
+            min: "-100",
+            max: "100",
+            step: "1",
+            value: this.currentBannerIconVerticalOffset,
+            style: `
+                    flex: 1;
+                    writing-mode: horizontal-tb;
+                    direction: ltr;
+                `
+          }
+        });
+        const bannerIconVerticalOffsetValue = bannerIconVerticalOffsetContainer.createDiv({
+          cls: "banner-icon-vertical-offset-value",
+          attr: {
+            style: `
+                    font-family: var(--font-monospace);
+                    font-size: 0.9em;
+                `
+          }
+        });
+        bannerIconVerticalOffsetValue.setText(`${this.currentBannerIconVerticalOffset}`);
+        bannerIconVerticalOffsetSlider.addEventListener("input", () => {
+          this.currentBannerIconVerticalOffset = parseInt(bannerIconVerticalOffsetSlider.value);
+          bannerIconVerticalOffsetValue.setText(`${this.currentBannerIconVerticalOffset}`);
+          this.updateBannerIconVerticalOffset(this.currentBannerIconVerticalOffset);
+        });
+        const bannerIconSizeContainer = bannerIconControlsContainer.createDiv({
+          cls: "banner-icon-size-container",
+          attr: {
+            style: `
+                    display: flex;
+                    flex-direction: row;
+                    gap: 10px;
+                    align-items: center;
+                    min-width: 60px;
+                    flex: 0 auto;
+                    margin-top: 10px;
+                `
+          }
+        });
+        const bannerIconSizeLabel = bannerIconSizeContainer.createEl("div", {
+          text: "Icon Size",
+          cls: "banner-icon-size-label",
+          attr: {
+            style: `
+                    color: var(--text-muted); 
+                    font-size: 0.9em;
+                `
+          }
+        });
+        const iconSizeField = Array.isArray(this.plugin.settings.customBannerIconSizeField) ? this.plugin.settings.customBannerIconSizeField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconSizeField;
+        this.currentBannerIconSize = (frontmatter == null ? void 0 : frontmatter[iconSizeField]) || this.plugin.settings.bannerIconSize;
+        const bannerIconSizeSlider = bannerIconSizeContainer.createEl("input", {
+          type: "range",
+          cls: "banner-icon-size-slider",
+          attr: {
+            min: "10",
+            max: "200",
+            step: "1",
+            value: this.currentBannerIconSize,
+            style: `
+                    flex: 1;
+                    writing-mode: horizontal-tb;
+                    direction: ltr;
+                `
+          }
+        });
+        const bannerIconSizeValue = bannerIconSizeContainer.createDiv({
+          cls: "banner-icon-size-value",
+          attr: {
+            style: `
+                    font-family: var(--font-monospace);
+                    font-size: 0.9em;
+                `
+          }
+        });
+        bannerIconSizeValue.setText(`${this.currentBannerIconSize}`);
+        bannerIconSizeSlider.addEventListener("input", () => {
+          this.currentBannerIconSize = parseInt(bannerIconSizeSlider.value);
+          bannerIconSizeValue.setText(`${this.currentBannerIconSize}`);
+          this.updateBannerIconSize(this.currentBannerIconSize);
+        });
+        const bannerIconImageSizeMultiplierContainer = bannerIconControlsContainer.createDiv({
+          cls: "banner-icon-image-size-multiplier-container",
+          attr: {
+            style: `
+                    display: ${hasBannerIconImage ? "flex" : "none"};
+                    flex-direction: row;
+                    gap: 10px;
+                    align-items: center;
+                    min-width: 60px;
+                    flex: 0 auto;
+                    margin-top: 10px;
+                `
+          }
+        });
+        const bannerIconImageSizeMultiplierLabel = bannerIconImageSizeMultiplierContainer.createEl("div", {
+          text: "Icon Image Size Multiplier",
+          cls: "banner-icon-image-size-multiplier-label",
+          attr: {
+            style: `
+                    color: var(--text-muted); 
+                    font-size: 0.9em;
+                `
+          }
+        });
+        const iconImageSizeMultiplierField = Array.isArray(this.plugin.settings.customBannerIconImageSizeMultiplierField) ? this.plugin.settings.customBannerIconImageSizeMultiplierField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconImageSizeMultiplierField;
+        this.currentBannerIconImageSizeMultiplier = (frontmatter == null ? void 0 : frontmatter[iconImageSizeMultiplierField]) || 1;
+        const bannerIconImageSizeMultiplierSlider = bannerIconImageSizeMultiplierContainer.createEl("input", {
+          type: "range",
+          cls: "banner-icon-image-size-multiplier-slider",
+          attr: {
+            min: ".2",
+            max: "3",
+            step: "0.1",
+            value: this.currentBannerIconImageSizeMultiplier,
+            style: `
+                    flex: 1;
+                    writing-mode: horizontal-tb;
+                    direction: ltr;
+                `
+          }
+        });
+        const bannerIconImageSizeMultiplierValue = bannerIconImageSizeMultiplierContainer.createDiv({
+          cls: "banner-icon-image-size-multiplier-value",
+          attr: {
+            style: `
+                    font-family: var(--font-monospace);
+                    font-size: 0.9em;
+                `
+          }
+        });
+        bannerIconImageSizeMultiplierValue.setText(`${this.currentBannerIconImageSizeMultiplier}`);
+        bannerIconImageSizeMultiplierSlider.addEventListener("input", () => {
+          this.currentBannerIconImageSizeMultiplier = parseFloat(bannerIconImageSizeMultiplierSlider.value);
+          bannerIconImageSizeMultiplierValue.setText(`${this.currentBannerIconImageSizeMultiplier}`);
+          this.updateBannerIconImageSizeMultiplier(this.currentBannerIconImageSizeMultiplier);
+        });
+        const bannerIconTextVerticalOffsetContainer = bannerIconControlsContainer.createDiv({
+          cls: "banner-icon-text-vertical-offset-container",
+          attr: {
+            style: `
+                    display: ${hasBannerIconText ? "flex" : "none"};
+                    flex-direction: row;
+                    gap: 10px;
+                    align-items: center;
+                    min-width: 60px;
+                    flex: 0 auto;
+                    margin-top: 10px;
+                `
+          }
+        });
+        const bannerIconTextVerticalOffsetLabel = bannerIconTextVerticalOffsetContainer.createEl("div", {
+          text: "Icon Text Vertical Offset",
+          cls: "banner-icon-text-vertical-offset-label",
+          attr: {
+            style: `
+                    color: var(--text-muted); 
+                    font-size: 0.9em;
+                `
+          }
+        });
+        const iconTextVerticalOffsetField = Array.isArray(this.plugin.settings.customBannerIconTextVerticalOffsetField) ? this.plugin.settings.customBannerIconTextVerticalOffsetField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconTextVerticalOffsetField;
+        this.currentBannerIconTextVerticalOffset = (frontmatter == null ? void 0 : frontmatter[iconTextVerticalOffsetField]) || this.plugin.settings.bannerIconTextVerticalOffset || 0;
+        const bannerIconTextVerticalOffsetSlider = bannerIconTextVerticalOffsetContainer.createEl("input", {
+          type: "range",
+          cls: "banner-icon-text-vertical-offset-slider",
+          attr: {
+            min: "-50",
+            max: "50",
+            step: "1",
+            value: this.currentBannerIconTextVerticalOffset,
+            style: `
+                    flex: 1;
+                    writing-mode: horizontal-tb;
+                    direction: ltr;
+                `
+          }
+        });
+        const bannerIconTextVerticalOffsetValue = bannerIconTextVerticalOffsetContainer.createDiv({
+          cls: "banner-icon-text-vertical-offset-value",
+          attr: {
+            style: `
+                    font-family: var(--font-monospace);
+                    font-size: 0.9em;
+                `
+          }
+        });
+        bannerIconTextVerticalOffsetValue.setText(`${this.currentBannerIconTextVerticalOffset}`);
+        bannerIconTextVerticalOffsetSlider.addEventListener("input", () => {
+          this.currentBannerIconTextVerticalOffset = parseInt(bannerIconTextVerticalOffsetSlider.value);
+          bannerIconTextVerticalOffsetValue.setText(`${this.currentBannerIconTextVerticalOffset}`);
+          this.updateBannerIconTextVerticalOffset(this.currentBannerIconTextVerticalOffset);
+        });
+        const bannerIconRotateContainer = bannerIconControlsContainer.createDiv({
+          cls: "banner-icon-rotate-container",
+          attr: {
+            style: `
+                    display: flex;
+                    flex-direction: row;
+                    gap: 10px;
+                    align-items: center;
+                    min-width: 60px;
+                    flex: 0 auto;
+                    margin-top: 10px;
+                `
+          }
+        });
+        const bannerIconRotateLabel = bannerIconRotateContainer.createEl("div", {
+          text: "Icon Rotation",
+          cls: "banner-icon-rotate-label",
+          attr: {
+            style: `
+                    color: var(--text-muted); 
+                    font-size: 0.9em;
+                `
+          }
+        });
+        const iconRotateField = Array.isArray(this.plugin.settings.customBannerIconRotateField) ? this.plugin.settings.customBannerIconRotateField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconRotateField;
+        this.currentBannerIconRotate = (frontmatter == null ? void 0 : frontmatter[iconRotateField]) || 0;
+        const bannerIconRotateSlider = bannerIconRotateContainer.createEl("input", {
+          type: "range",
+          cls: "banner-icon-rotate-slider",
+          attr: {
+            min: "0",
+            max: "360",
+            step: "5",
+            value: this.currentBannerIconRotate,
+            style: `
+                    flex: 1;
+                    writing-mode: horizontal-tb;
+                    direction: ltr;
+                `
+          }
+        });
+        const bannerIconRotateValue = bannerIconRotateContainer.createDiv({
+          cls: "banner-icon-rotate-value",
+          attr: {
+            style: `
+                    font-family: var(--font-monospace);
+                    font-size: 0.9em;
+                `
+          }
+        });
+        bannerIconRotateValue.setText(`${this.currentBannerIconRotate}`);
+        bannerIconRotateSlider.addEventListener("input", () => {
+          this.currentBannerIconRotate = parseInt(bannerIconRotateSlider.value);
+          bannerIconRotateValue.setText(`${this.currentBannerIconRotate}`);
+          this.updateBannerIconRotate(this.currentBannerIconRotate);
+        });
+        const bannerIconColorContainer = bannerIconControlsContainer.createDiv({
+          cls: "banner-icon-color-container",
+          attr: {
+            style: `
+                    display: flex;
+                    flex-direction: row;
+                    gap: 10px;
+                    flex: 0 auto;
+                    margin-top: 10px;
+                `
+          }
+        });
+        const bannerIconColorLabel = bannerIconColorContainer.createEl("div", {
+          text: "Icon Text Color",
+          cls: "banner-icon-color-label",
+          attr: {
+            style: `
+                    color: var(--text-muted); 
+                    font-size: 0.9em;
+                `
+          }
+        });
+        const iconColorField = Array.isArray(this.plugin.settings.customBannerIconColorField) ? this.plugin.settings.customBannerIconColorField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconColorField;
+        let currentIconColor = this.plugin.settings.bannerIconColor;
+        if ((frontmatter == null ? void 0 : frontmatter[iconColorField]) || this.plugin.settings.bannerIconColor) {
+          const colorValue = (frontmatter == null ? void 0 : frontmatter[iconColorField]) || this.plugin.settings.bannerIconColor;
+          if (typeof colorValue === "string" && colorValue.startsWith("#")) {
+            currentIconColor = colorValue;
+          } else if (typeof colorValue === "string" && colorValue.trim() !== "") {
+            currentIconColor = colorValue;
+          }
+        }
+        this.currentBannerIconColor = currentIconColor;
+        const ensureValidHexColor = (color) => {
+          if (!color || !/^#[0-9A-F]{6}$/i.test(color)) {
+            return "#000000";
+          }
+          return color;
+        };
+        const bannerIconColorPicker = bannerIconColorContainer.createEl("input", {
+          type: "color",
+          cls: "banner-icon-color-picker",
+          attr: {
+            value: ensureValidHexColor(this.currentBannerIconColor),
+            style: `
+                    width: 30px;
+                    height: 30px;
+                    cursor: pointer;
+                    padding: 0;
+                    background-color: transparent;
+                    margin-left: 5px;
+                    border: 1px solid;
+                    border-radius: 50%;
+                `
+          }
+        });
+        const bannerIconColorInput = bannerIconColorContainer.createEl("input", {
+          type: "text",
+          cls: "banner-icon-color-input",
+          attr: {
+            value: this.currentBannerIconColor || "",
+            placeholder: "#RRGGBB or color name",
+            style: `
+                    flex: 1;
+                    max-width: 120px;
+                `
+          }
+        });
+        bannerIconColorInput.addEventListener("change", () => {
+          this.currentBannerIconColor = bannerIconColorInput.value;
+          if (this.currentBannerIconColor.startsWith("#")) {
+            bannerIconColorPicker.value = this.currentBannerIconColor;
+          }
+          this.updateBannerIconColor(this.currentBannerIconColor);
+        });
+        bannerIconColorPicker.addEventListener("input", () => {
+          this.currentBannerIconColor = bannerIconColorPicker.value;
+          bannerIconColorInput.value = this.currentBannerIconColor;
+          this.updateBannerIconColor(this.currentBannerIconColor);
+        });
+        const bannerIconFontWeightContainer = bannerIconControlsContainer.createDiv({
+          cls: "banner-icon-font-weight-container",
+          attr: {
+            style: `
+                    display: flex;
+                    flex-direction: row;
+                    gap: 10px;
+                    align-items: center;
+                    min-width: 60px;
+                    flex: 0 auto;
+                    margin-top: 10px;
+                `
+          }
+        });
+        const bannerIconFontWeightLabel = bannerIconFontWeightContainer.createEl("div", {
+          text: "Icon Text Font Weight",
+          cls: "banner-icon-font-weight-label",
+          attr: {
+            style: `
+                    color: var(--text-muted); 
+                    font-size: 0.9em;
+                `
+          }
+        });
+        const iconFontWeightField = Array.isArray(this.plugin.settings.customBannerIconFontWeightField) ? this.plugin.settings.customBannerIconFontWeightField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconFontWeightField;
+        this.currentBannerIconFontWeight = (frontmatter == null ? void 0 : frontmatter[iconFontWeightField]) || this.plugin.settings.bannerIconFontWeight;
+        const bannerIconFontWeightSelect = bannerIconFontWeightContainer.createEl("select", {
+          cls: "banner-icon-font-weight-select"
+        });
+        ["lighter", "normal", "bold"].forEach((weight) => {
+          const option = bannerIconFontWeightSelect.createEl("option", {
+            text: weight.charAt(0).toUpperCase() + weight.slice(1),
+            value: weight
+          });
+          if (weight === this.currentBannerIconFontWeight) {
+            option.selected = true;
+          }
+        });
+        bannerIconFontWeightSelect.addEventListener("change", () => {
+          this.currentBannerIconFontWeight = bannerIconFontWeightSelect.value;
+          this.updateBannerIconFontWeight(this.currentBannerIconFontWeight);
+        });
+        const bannerIconBgColorContainer = bannerIconControlsContainer.createDiv({
+          cls: "banner-icon-bg-color-container",
+          attr: {
+            style: `
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+                    min-width: 60px;
+                    flex: 0 auto;
+                    margin-top: 10px;
+                `
+          }
+        });
+        const bannerIconBgColorLabel = bannerIconBgColorContainer.createEl("div", {
+          text: "Icon Background Color",
+          cls: "banner-icon-bg-color-label",
+          attr: {
+            style: `
+                    color: var(--text-muted); 
+                    font-size: 0.9em;
+                `
+          }
+        });
+        const colorPickerAndAlphaSliderRow = bannerIconBgColorContainer.createDiv({
+          cls: "color-picker-and-alpha-slider-row",
+          attr: {
+            style: `
+                    display: flex;
+                    flex-direction: row;
+                    gap: 10px;
+                    align-items: center;
+                    width: 100%;
+                `
+          }
+        });
+        const colorPickerRow = colorPickerAndAlphaSliderRow.createDiv({
+          cls: "color-picker-row",
+          attr: {
+            style: `
+                    display: flex;
+                    flex-direction: row;
+                    gap: 10px;
+                    align-items: center;
+                    width: 100%;
+                `
+          }
+        });
+        const iconBgColorField = Array.isArray(this.plugin.settings.customBannerIconBackgroundColorField) ? this.plugin.settings.customBannerIconBackgroundColorField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconBackgroundColorField;
+        let currentColor = this.plugin.settings.bannerIconBackgroundColor;
+        let currentAlpha = 100;
+        if ((frontmatter == null ? void 0 : frontmatter[iconBgColorField]) || this.plugin.settings.bannerIconBackgroundColor) {
+          const colorValue = (frontmatter == null ? void 0 : frontmatter[iconBgColorField]) || this.plugin.settings.bannerIconBackgroundColor;
+          const rgbaMatch = colorValue == null ? void 0 : colorValue.match(/rgba\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*,\s*([\d.]+)\s*\)/);
+          if (rgbaMatch) {
+            const r = parseInt(rgbaMatch[1]);
+            const g = parseInt(rgbaMatch[2]);
+            const b = parseInt(rgbaMatch[3]);
+            currentColor = `#${r.toString(16).padStart(2, "0")}${g.toString(16).padStart(2, "0")}${b.toString(16).padStart(2, "0")}`;
+            currentAlpha = Math.round(parseFloat(rgbaMatch[4]) * 100);
+          } else if (colorValue == null ? void 0 : colorValue.startsWith("#")) {
+            currentColor = colorValue;
+          } else if (colorValue) {
+            currentColor = colorValue;
+          }
+        }
+        this.currentBannerIconBgColor = currentColor;
+        this.currentBannerIconBgAlpha = currentAlpha;
+        const bannerIconBgColorInput = colorPickerAndAlphaSliderRow.createEl("input", {
+          type: "text",
+          cls: "banner-icon-bg-color-input",
+          attr: {
+            value: this.currentBannerIconBgColor || "",
+            placeholder: "#RRGGBB or color name",
+            style: `
+                    flex: 1;
+                    max-width: 120px;
+                `
+          }
+        });
+        const bannerIconBgColorPicker = colorPickerAndAlphaSliderRow.createEl("input", {
+          type: "color",
+          cls: "banner-icon-bg-color-picker",
+          attr: {
+            value: this.currentBannerIconBgColor && this.currentBannerIconBgColor.startsWith("#") ? this.currentBannerIconBgColor : "",
+            style: `
+                    width: 30px;
+                    height: 30px;
+                    cursor: pointer;
+                    padding: 0;
+                    background-color: transparent;
+                    margin-left: 5px;
+                    border: 1px solid;
+                    border-radius: 50%;
+                `
+          }
+        });
+        const alphaSliderRow = colorPickerAndAlphaSliderRow.createDiv({
+          cls: "alpha-slider-row",
+          attr: {
+            style: `
+                    display: flex;
+                    flex-direction: row;
+                    gap: 10px;
+                    align-items: center;
+                    width: 100%;
+                    margin-top: 5px;
+                `
+          }
+        });
+        const alphaLabel = colorPickerAndAlphaSliderRow.createEl("div", {
+          text: "Opacity:",
+          cls: "alpha-label",
+          attr: {
+            style: `
+                    color: var(--text-muted);
+                    font-size: 0.9em;
+                    min-width: 60px;
+                `
+          }
+        });
+        const alphaSlider = colorPickerAndAlphaSliderRow.createEl("input", {
+          type: "range",
+          cls: "alpha-slider",
+          attr: {
+            min: "0",
+            max: "100",
+            step: "1",
+            value: this.currentBannerIconBgAlpha,
+            style: `
+                    flex: 1;
+                `
+          }
+        });
+        const alphaValue = colorPickerAndAlphaSliderRow.createDiv({
+          cls: "alpha-value",
+          attr: {
+            style: `
+                    font-family: var(--font-monospace);
+                    font-size: 0.9em;
+                    min-width: 40px;
+                    text-align: right;
+                `
+          }
+        });
+        alphaValue.setText(`${this.currentBannerIconBgAlpha}%`);
+        const colorPreview = colorPickerAndAlphaSliderRow.createDiv({
+          cls: "color-preview",
+          attr: {
+            style: `
+                    width: 100%;
+                    height: 20px;
+                    border: 1px solid var(--background-modifier-border);
+                    border-radius: 4px;
+                    background-color: ${this.currentBannerIconBgColor};
+                    opacity: ${this.currentBannerIconBgAlpha / 100};
+                `
+          }
+        });
+        const updateColorPreview = () => {
+          colorPreview.style.backgroundColor = this.currentBannerIconBgColor;
+          colorPreview.style.opacity = this.currentBannerIconBgAlpha / 100;
+          this.updateBannerIconBgColor(this.currentBannerIconBgColor, this.currentBannerIconBgAlpha);
+        };
+        bannerIconBgColorInput.addEventListener("change", () => {
+          this.currentBannerIconBgColor = bannerIconBgColorInput.value;
+          if (this.currentBannerIconBgColor.startsWith("#")) {
+            bannerIconBgColorPicker.value = this.currentBannerIconBgColor;
+          }
+          updateColorPreview();
+        });
+        bannerIconBgColorPicker.addEventListener("input", () => {
+          this.currentBannerIconBgColor = bannerIconBgColorPicker.value;
+          bannerIconBgColorInput.value = this.currentBannerIconBgColor;
+          updateColorPreview();
+        });
+        alphaSlider.addEventListener("input", () => {
+          this.currentBannerIconBgAlpha = parseInt(alphaSlider.value);
+          alphaValue.setText(`${this.currentBannerIconBgAlpha}%`);
+          updateColorPreview();
+        });
+        const bannerIconPaddingXContainer = bannerIconControlsContainer.createDiv({
+          cls: "banner-icon-padding-x-container",
+          attr: {
+            style: `
+                    display: flex;
+                    flex-direction: row;
+                    gap: 10px;
+                    align-items: center;
+                    min-width: 60px;
+                    flex: 0 auto;
+                    margin-top: 10px;
+                `
+          }
+        });
+        const bannerIconPaddingXLabel = bannerIconPaddingXContainer.createEl("div", {
+          text: "Icon Padding X",
+          cls: "banner-icon-padding-x-label",
+          attr: {
+            style: `
+                    color: var(--text-muted); 
+                    font-size: 0.9em;
+                `
+          }
+        });
+        const iconPaddingXField = Array.isArray(this.plugin.settings.customBannerIconPaddingXField) ? this.plugin.settings.customBannerIconPaddingXField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconPaddingXField;
+        this.currentBannerIconPaddingX = (frontmatter == null ? void 0 : frontmatter[iconPaddingXField]) || this.plugin.settings.bannerIconPaddingX;
+        const bannerIconPaddingXSlider = bannerIconPaddingXContainer.createEl("input", {
+          type: "range",
+          cls: "banner-icon-padding-x-slider",
+          attr: {
+            min: "0",
+            max: "100",
+            step: "1",
+            value: this.currentBannerIconPaddingX,
+            style: `
+                    flex: 1;
+                    writing-mode: horizontal-tb;
+                    direction: ltr;
+                `
+          }
+        });
+        const bannerIconPaddingXValue = bannerIconPaddingXContainer.createDiv({
+          cls: "banner-icon-padding-x-value",
+          attr: {
+            style: `
+                    font-family: var(--font-monospace);
+                    font-size: 0.9em;
+                `
+          }
+        });
+        bannerIconPaddingXValue.setText(`${this.currentBannerIconPaddingX}`);
+        bannerIconPaddingXSlider.addEventListener("input", () => {
+          this.currentBannerIconPaddingX = parseInt(bannerIconPaddingXSlider.value);
+          bannerIconPaddingXValue.setText(`${this.currentBannerIconPaddingX}`);
+          this.updateBannerIconPaddingX(this.currentBannerIconPaddingX);
+        });
+        const bannerIconPaddingYContainer = bannerIconControlsContainer.createDiv({
+          cls: "banner-icon-padding-y-container",
+          attr: {
+            style: `
+                    display: flex;
+                    flex-direction: row;
+                    gap: 10px;
+                    align-items: center;
+                    min-width: 60px;
+                    flex: 0 auto;
+                    margin-top: 10px;
+                `
+          }
+        });
+        const bannerIconPaddingYLabel = bannerIconPaddingYContainer.createEl("div", {
+          text: "Icon Padding Y",
+          cls: "banner-icon-padding-y-label",
+          attr: {
+            style: `
+                    color: var(--text-muted); 
+                    font-size: 0.9em;
+                `
+          }
+        });
+        const iconPaddingYField = Array.isArray(this.plugin.settings.customBannerIconPaddingYField) ? this.plugin.settings.customBannerIconPaddingYField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconPaddingYField;
+        this.currentBannerIconPaddingY = (frontmatter == null ? void 0 : frontmatter[iconPaddingYField]) || this.plugin.settings.bannerIconPaddingY;
+        const bannerIconPaddingYSlider = bannerIconPaddingYContainer.createEl("input", {
+          type: "range",
+          cls: "banner-icon-padding-y-slider",
+          attr: {
+            min: "0",
+            max: "100",
+            step: "1",
+            value: this.currentBannerIconPaddingY,
+            style: `
+                    flex: 1;
+                    writing-mode: horizontal-tb;
+                    direction: ltr;
+                `
+          }
+        });
+        const bannerIconPaddingYValue = bannerIconPaddingYContainer.createDiv({
+          cls: "banner-icon-padding-y-value",
+          attr: {
+            style: `
+                    font-family: var(--font-monospace);
+                    font-size: 0.9em;
+                `
+          }
+        });
+        bannerIconPaddingYValue.setText(`${this.currentBannerIconPaddingY}`);
+        bannerIconPaddingYSlider.addEventListener("input", () => {
+          this.currentBannerIconPaddingY = parseInt(bannerIconPaddingYSlider.value);
+          bannerIconPaddingYValue.setText(`${this.currentBannerIconPaddingY}`);
+          this.updateBannerIconPaddingY(this.currentBannerIconPaddingY);
+        });
+        const bannerIconBorderRadiusContainer = bannerIconControlsContainer.createDiv({
+          cls: "banner-icon-border-radius-container",
+          attr: {
+            style: `
+                    display: flex;
+                    flex-direction: row;
+                    gap: 10px;
+                    align-items: center;
+                    min-width: 60px;
+                    flex: 0 auto;
+                    margin-top: 10px;
+                `
+          }
+        });
+        const bannerIconBorderRadiusLabel = bannerIconBorderRadiusContainer.createEl("div", {
+          text: "Icon Border Radius",
+          cls: "banner-icon-border-radius-label",
+          attr: {
+            style: `
+                    color: var(--text-muted); 
+                    font-size: 0.9em;
+                `
+          }
+        });
+        const iconBorderRadiusField = Array.isArray(this.plugin.settings.customBannerIconBorderRadiusField) ? this.plugin.settings.customBannerIconBorderRadiusField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconBorderRadiusField;
+        this.currentBannerIconBorderRadius = getValueWithZeroCheck([
+          frontmatter == null ? void 0 : frontmatter[iconBorderRadiusField],
+          this.plugin.settings.bannerIconBorderRadius
+        ]);
+        const bannerIconBorderRadiusSlider = bannerIconBorderRadiusContainer.createEl("input", {
+          type: "range",
+          cls: "banner-icon-border-radius-slider",
+          attr: {
+            min: "0",
+            max: "200",
+            step: "1",
+            value: this.currentBannerIconBorderRadius,
+            style: `
+                    flex: 1;
+                    writing-mode: horizontal-tb;
+                    direction: ltr;
+                `
+          }
+        });
+        const bannerIconBorderRadiusValue = bannerIconBorderRadiusContainer.createDiv({
+          cls: "banner-icon-border-radius-value",
+          attr: {
+            style: `
+                    font-family: var(--font-monospace);
+                    font-size: 0.9em;
+                `
+          }
+        });
+        bannerIconBorderRadiusValue.setText(`${this.currentBannerIconBorderRadius}`);
+        bannerIconBorderRadiusSlider.addEventListener("input", () => {
+          this.currentBannerIconBorderRadius = parseInt(bannerIconBorderRadiusSlider.value);
+          bannerIconBorderRadiusValue.setText(`${this.currentBannerIconBorderRadius}`);
+          this.updateBannerIconBorderRadius(this.currentBannerIconBorderRadius);
+        });
+        const flagColorSection = contentEl.createDiv({
+          cls: "flag-color-section",
+          attr: {
+            style: `
+                    display: flex;
+                    flex-direction: row;
+                    gap: 5px;
+                    margin-top: 20px;
+                    padding: 15px;
+                    border-radius: 5px;
+                    background-color: var(--background-secondary);
+                    max-width: 600px;
+                `
+          }
+        });
+        flagColorSection.createEl("span", {
+          text: "Flag Color",
+          attr: {
+            style: `
+                    color: var(--text-muted);
+                    font-size: 0.9em;
+                `
+          }
+        });
+        const flagRadioContainer = flagColorSection.createDiv({
+          cls: "pixel-banner-flag-radio-container",
+          attr: {
+            style: `
+                    max-width: 440px;
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                    gap: 10px;
+                `
+          }
+        });
+        const currentFlagColor = getFrontmatterValue(frontmatter, this.plugin.settings.customFlagColorField) || this.plugin.settings.selectImageIconFlag;
+        Object.keys(flags).forEach((color) => {
+          const radioContainer = flagRadioContainer.createDiv({
+            cls: "pixel-banner-flag-radio",
+            attr: {
+              style: `
+                        display: flex;
+                        align-items: center;
+                        gap: 5px;
+                    `
+            }
+          });
+          const radio = radioContainer.createEl("input", {
+            type: "radio",
+            attr: {
+              id: `flag-${color}`,
+              name: "pixel-banner-flag",
+              value: color,
+              style: `
+                        margin-right: 5px;
+                        cursor: pointer;
+                    `
+            }
+          });
+          radio.checked = currentFlagColor === color;
+          const label = radioContainer.createEl("label", {
+            attr: {
+              for: `flag-${color}`,
+              style: `
+                        display: flex;
+                        align-items: center;
+                        cursor: pointer;
+                    `
+            }
+          });
+          label.createEl("img", {
+            attr: {
+              src: flags[color],
+              alt: color,
+              style: `
+                        width: 15px;
+                        height: 20px;
+                        margin-right: 3px;
+                    `
+            }
+          });
+          label.createEl("span", {
+            text: color.charAt(0).toUpperCase() + color.slice(1),
+            attr: {
+              style: `
+                        display: none;
+                        font-size: 12px;
+                    `
+            }
+          });
+          radio.addEventListener("change", async () => {
+            if (radio.checked) {
+              const activeFile2 = this.app.workspace.getActiveFile();
+              if (activeFile2) {
+                await this.plugin.app.fileManager.processFrontMatter(activeFile2, (frontmatter2) => {
+                  const flagColorField = this.plugin.settings.customFlagColorField[0];
+                  frontmatter2[flagColorField] = color;
+                });
+                const view = this.plugin.app.workspace.getActiveViewOfType(import_obsidian16.MarkdownView);
+                if (view) {
+                  await this.plugin.updateBanner(view, true);
+                }
+              }
+            }
+          });
+        });
+        const inlineTitleEnabled = this.app.vault.config.showInlineTitle;
+        const titleColorSection = contentEl.createDiv({
+          cls: "title-color-section",
+          attr: {
+            style: `
+                    display: ${inlineTitleEnabled ? "flex" : "none"};
+                    flex-direction: row;
+                    gap: 10px;
+                    margin-top: 20px;
+                    padding: 15px;
+                    border-radius: 5px;
+                    background-color: var(--background-secondary);
+                    max-width: 510px;
+                    align-items: center;
+                `
+          }
+        });
+        titleColorSection.createEl("span", {
+          text: "Inline Title Color",
+          attr: {
+            style: `
+                    color: var(--text-muted);
+                    font-size: 0.9em;
+                    min-width: 90px;
+                `
+          }
+        });
+        const titleColorField = Array.isArray(this.plugin.settings.customTitleColorField) ? this.plugin.settings.customTitleColorField[0].split(",")[0].trim() : this.plugin.settings.customTitleColorField;
+        let currentTitleColor = (frontmatter == null ? void 0 : frontmatter[titleColorField]) || this.plugin.settings.titleColor;
+        if (currentTitleColor && currentTitleColor.startsWith("var(--")) {
+          const tempEl = document.createElement("div");
+          tempEl.style.color = currentTitleColor;
+          document.body.appendChild(tempEl);
+          const computedColor = window.getComputedStyle(tempEl).color;
+          document.body.removeChild(tempEl);
+          const rgbMatch = computedColor.match(/rgb\((\d+),\s*(\d+),\s*(\d+)\)/);
+          if (rgbMatch) {
+            const [_, r, g, b] = rgbMatch;
+            currentTitleColor = "#" + parseInt(r).toString(16).padStart(2, "0") + parseInt(g).toString(16).padStart(2, "0") + parseInt(b).toString(16).padStart(2, "0");
+          }
+        }
+        this.currentTitleColor = currentTitleColor || (getCurrentTheme_default() === "dark" ? "#ffffff" : "#000000");
+        const titleColorInput = titleColorSection.createEl("input", {
+          type: "text",
+          cls: "title-color-input",
+          attr: {
+            value: this.currentTitleColor || "",
+            placeholder: "#RRGGBB or color name",
+            style: `
+                    flex: 1;
+                    max-width: 90px;
+                `
+          }
+        });
+        const titleColorPicker = titleColorSection.createEl("input", {
+          type: "color",
+          cls: "title-color-picker",
+          attr: {
+            value: this.currentTitleColor && this.currentTitleColor.startsWith("#") ? this.currentTitleColor : getCurrentTheme_default() === "dark" ? "#ffffff" : "#000000",
+            style: `
+                    width: 30px;
+                    height: 30px;
+                    cursor: pointer;
+                    padding: 0;
+                    background-color: transparent;
+                    margin-left: 5px;
+                `
+          }
+        });
+        titleColorInput.addEventListener("change", () => {
+          this.currentTitleColor = titleColorInput.value;
+          if (this.currentTitleColor.startsWith("#")) {
+            titleColorPicker.value = this.currentTitleColor;
+          }
+          this.updateTitleColor(this.currentTitleColor);
+        });
+        titleColorPicker.addEventListener("input", () => {
+          this.currentTitleColor = titleColorPicker.value;
+          titleColorInput.value = this.currentTitleColor;
+          this.updateTitleColor(this.currentTitleColor);
+        });
+        const buttonContainer = contentEl.createDiv({
+          cls: "button-container",
+          attr: {
+            style: `
+                    display: flex;
+                    flex-direction: row;
+                    gap: 10px;
+                    align-items: center;
+                    justify-content: center;
+                    position: sticky;
+                    bottom: -20px;
+                    background: var(--modal-background);
+                    padding: 20px 0;
+                `
+          }
+        });
+        const resetButton = buttonContainer.createEl("button", {
+          text: "Reset to Defaults",
+          cls: "reset-button",
+          attr: {
+            style: `
+                    flex: 1;
+                `
+          }
+        });
+        const closeSettingsButton = buttonContainer.createEl("button", {
+          text: "Close Settings",
+          cls: "mod-cta close-settings-button",
+          attr: {
+            style: `
+                    flex: 1;
+                `
+          }
+        });
+        closeSettingsButton.addEventListener("click", () => {
+          this.close();
+        });
+        this.resetPixelBannerNoteSettings = (deleteBannerAndIcon = false) => {
+          displaySelect.value = "cover";
+          zoomContainer.style.display = "none";
+          repeatContainer.style.display = "none";
+          zoomSlider.value = 100;
+          heightSlider.value = this.plugin.settings.bannerHeight;
+          contentStartPositionSlider.value = this.plugin.settings.contentStartPosition;
+          bannerIconXPositionSlider.value = this.plugin.settings.bannerIconXPosition;
+          bannerFadeSlider.value = this.plugin.settings.fade;
+          bannerFadeValue.setText(this.plugin.settings.fade.toString());
+          const currentTheme = getCurrentTheme_default();
+          let defaultColor = currentTheme === "dark" ? "#ffffff" : "#000000";
+          if (bannerIconSizeSlider) bannerIconSizeSlider.value = this.plugin.settings.bannerIconSize;
+          if (bannerIconImageSizeMultiplierSlider) bannerIconImageSizeMultiplierSlider.value = this.plugin.settings.bannerIconImageSizeMultiplier;
+          if (bannerIconRotateSlider) bannerIconRotateSlider.value = 0;
+          if (bannerIconTextVerticalOffsetSlider) bannerIconTextVerticalOffsetSlider.value = this.plugin.settings.bannerIconTextVerticalOffset;
+          if (bannerIconColorInput) {
+            const defaultIconColor = this.plugin.settings.bannerIconColor || defaultColor;
+            bannerIconColorInput.value = defaultIconColor;
+            if (bannerIconColorPicker) {
+              bannerIconColorPicker.value = defaultIconColor.startsWith("#") ? defaultIconColor : defaultColor;
+            }
+            this.updateBannerIconColor(defaultIconColor);
+          }
+          if (bannerIconFontWeightSelect) bannerIconFontWeightSelect.value = this.plugin.settings.bannerIconFontWeight;
+          if (bannerIconBgColorInput) {
+            let defaultAlpha = 100;
+            if (this.plugin.settings.bannerIconBackgroundColor) {
+              const colorValue = this.plugin.settings.bannerIconBackgroundColor;
+              const rgbaMatch = colorValue == null ? void 0 : colorValue.match(/rgba\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*,\s*([\d.]+)\s*\)/);
+              if (rgbaMatch) {
+                const r = parseInt(rgbaMatch[1]);
+                const g = parseInt(rgbaMatch[2]);
+                const b = parseInt(rgbaMatch[3]);
+                defaultColor = `#${r.toString(16).padStart(2, "0")}${g.toString(16).padStart(2, "0")}${b.toString(16).padStart(2, "0")}`;
+                defaultAlpha = Math.round(parseFloat(rgbaMatch[4]) * 100);
+              } else if (colorValue == null ? void 0 : colorValue.startsWith("#")) {
+                defaultColor = colorValue;
+              } else if (colorValue) {
+                defaultColor = colorValue;
+              }
+            }
+            bannerIconBgColorInput.value = defaultColor;
+            if (bannerIconBgColorPicker) bannerIconBgColorPicker.value = defaultColor.startsWith("#") ? defaultColor : "#ffffff";
+            if (alphaSlider) alphaSlider.value = defaultAlpha;
+            if (alphaValue) alphaValue.setText(`${defaultAlpha}%`);
+            if (colorPreview) {
+              colorPreview.style.backgroundColor = defaultColor;
+              colorPreview.style.opacity = defaultAlpha / 100;
+            }
+            this.updateBannerIconBgColor(defaultColor, defaultAlpha);
+          }
+          if (bannerIconPaddingXSlider) bannerIconPaddingXSlider.value = this.plugin.settings.bannerIconPaddingX;
+          if (bannerIconPaddingYSlider) bannerIconPaddingYSlider.value = this.plugin.settings.bannerIconPaddingY;
+          if (bannerIconBorderRadiusSlider) bannerIconBorderRadiusSlider.value = this.plugin.settings.bannerIconBorderRadius;
+          if (bannerIconVerticalOffsetSlider) bannerIconVerticalOffsetSlider.value = this.plugin.settings.bannerIconVeritalOffset;
+          if (bannerIconSizeSlider) bannerIconSizeSlider.value = this.plugin.settings.bannerIconSize;
+          if (bannerIconRotateSlider) bannerIconRotateSlider.value = 0;
+          zoomValue.setText("100%");
+          heightValue.setText(`${this.plugin.settings.bannerHeight}px`);
+          contentStartPositionValue.setText(`${this.plugin.settings.contentStartPosition}px`);
+          bannerIconXPositionValue.setText(`${this.plugin.settings.bannerIconXPosition}`);
+          if (unsetCheckbox) {
+            unsetCheckbox.checked = true;
+            maxWidthValueDisplay.style.color = "var(--text-muted)";
+            maxWidthValueDisplay.setText("unset");
+          }
+          if (alignmentSelect) {
+            alignmentSelect.value = "center";
+          }
+          if (bannerIconSizeValue) bannerIconSizeValue.setText(`${this.plugin.settings.bannerIconSize}`);
+          if (bannerIconImageSizeMultiplierValue) bannerIconImageSizeMultiplierValue.setText(`${this.plugin.settings.bannerIconImageSizeMultiplier}`);
+          if (bannerIconTextVerticalOffsetValue) bannerIconTextVerticalOffsetValue.setText(`${this.plugin.settings.bannerIconTextVerticalOffset}`);
+          if (bannerIconPaddingXValue) bannerIconPaddingXValue.setText(`${this.plugin.settings.bannerIconPaddingX}`);
+          if (bannerIconPaddingYValue) bannerIconPaddingYValue.setText(`${this.plugin.settings.bannerIconPaddingY}`);
+          if (bannerIconBorderRadiusValue) bannerIconBorderRadiusValue.setText(`${this.plugin.settings.bannerIconBorderRadius}`);
+          if (bannerIconVerticalOffsetValue) bannerIconVerticalOffsetValue.setText(`${this.plugin.settings.bannerIconVeritalOffset}`);
+          if (bannerIconRotateValue) bannerIconRotateValue.setText(`${this.plugin.settings.bannerIconRotate}`);
+          toggleInput.checked = false;
+          this.currentX = this.plugin.settings.xPosition;
+          this.currentY = this.plugin.settings.yPosition;
+          verticalLine.style.left = `${this.currentX}%`;
+          horizontalLine.style.top = `${this.currentY}%`;
+          updatePositionIndicator();
+          const activeFile2 = this.app.workspace.getActiveFile();
+          this.app.fileManager.processFrontMatter(activeFile2, (frontmatter2) => {
+            const displayField = Array.isArray(this.plugin.settings.customImageDisplayField) ? this.plugin.settings.customImageDisplayField[0].split(",")[0].trim() : this.plugin.settings.customImageDisplayField;
+            const heightField = Array.isArray(this.plugin.settings.customBannerHeightField) ? this.plugin.settings.customBannerHeightField[0].split(",")[0].trim() : this.plugin.settings.customBannerHeightField;
+            const maxWidthField2 = Array.isArray(this.plugin.settings.customBannerMaxWidthField) ? this.plugin.settings.customBannerMaxWidthField[0].split(",")[0].trim() : this.plugin.settings.customBannerMaxWidthField;
+            const xField = Array.isArray(this.plugin.settings.customXPositionField) ? this.plugin.settings.customXPositionField[0].split(",")[0].trim() : this.plugin.settings.customXPositionField;
+            const yField = Array.isArray(this.plugin.settings.customYPositionField) ? this.plugin.settings.customYPositionField[0].split(",")[0].trim() : this.plugin.settings.customYPositionField;
+            const contentStartPositionField = Array.isArray(this.plugin.settings.customContentStartField) ? this.plugin.settings.customContentStartField[0].split(",")[0].trim() : this.plugin.settings.customContentStartField;
+            const bannerIconXPositionField = Array.isArray(this.plugin.settings.customBannerIconXPositionField) ? this.plugin.settings.customBannerIconXPositionField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconXPositionField;
+            const bannerIconImageAlignmentField = Array.isArray(this.plugin.settings.customBannerIconImageAlignmentField) ? this.plugin.settings.customBannerIconImageAlignmentField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconImageAlignmentField;
+            const repeatField = Array.isArray(this.plugin.settings.customImageRepeatField) ? this.plugin.settings.customImageRepeatField[0].split(",")[0].trim() : this.plugin.settings.customImageRepeatField;
+            const fadeField = Array.isArray(this.plugin.settings.customFadeField) ? this.plugin.settings.customFadeField[0].split(",")[0].trim() : this.plugin.settings.customFadeField;
+            const bannerIconColorField = Array.isArray(this.plugin.settings.customBannerIconColorField) ? this.plugin.settings.customBannerIconColorField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconColorField;
+            const bannerIconFontWeightField = Array.isArray(this.plugin.settings.customBannerIconFontWeightField) ? this.plugin.settings.customBannerIconFontWeightField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconFontWeightField;
+            const bannerIconBgColorField = Array.isArray(this.plugin.settings.customBannerIconBackgroundColorField) ? this.plugin.settings.customBannerIconBackgroundColorField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconBackgroundColorField;
+            const bannerIconPaddingXField = Array.isArray(this.plugin.settings.customBannerIconPaddingXField) ? this.plugin.settings.customBannerIconPaddingXField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconPaddingXField;
+            const bannerIconPaddingYField = Array.isArray(this.plugin.settings.customBannerIconPaddingYField) ? this.plugin.settings.customBannerIconPaddingYField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconPaddingYField;
+            const bannerIconBorderRadiusField = Array.isArray(this.plugin.settings.customBannerIconBorderRadiusField) ? this.plugin.settings.customBannerIconBorderRadiusField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconBorderRadiusField;
+            const bannerIconVerticalOffsetField = Array.isArray(this.plugin.settings.customBannerIconVeritalOffsetField) ? this.plugin.settings.customBannerIconVeritalOffsetField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconVeritalOffsetField;
+            const bannerIconSizeField = Array.isArray(this.plugin.settings.customBannerIconSizeField) ? this.plugin.settings.customBannerIconSizeField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconSizeField;
+            const bannerIconTextVerticalOffsetField = Array.isArray(this.plugin.settings.customBannerIconTextVerticalOffsetField) ? this.plugin.settings.customBannerIconTextVerticalOffsetField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconTextVerticalOffsetField;
+            const bannerIconImageSizeMultiplierField = Array.isArray(this.plugin.settings.customBannerIconImageSizeMultiplierField) ? this.plugin.settings.customBannerIconImageSizeMultiplierField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconImageSizeMultiplierField;
+            const bannerIconRotateField = Array.isArray(this.plugin.settings.customBannerIconRotateField) ? this.plugin.settings.customBannerIconRotateField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconRotateField;
+            delete frontmatter2[displayField];
+            delete frontmatter2[heightField];
+            delete frontmatter2[maxWidthField2];
+            delete frontmatter2[xField];
+            delete frontmatter2[yField];
+            delete frontmatter2[contentStartPositionField];
+            delete frontmatter2[repeatField];
+            delete frontmatter2[fadeField];
+            delete frontmatter2[bannerIconXPositionField];
+            delete frontmatter2[bannerIconImageAlignmentField];
+            delete frontmatter2[bannerIconColorField];
+            delete frontmatter2[bannerIconFontWeightField];
+            delete frontmatter2[bannerIconBgColorField];
+            delete frontmatter2[bannerIconPaddingXField];
+            delete frontmatter2[bannerIconPaddingYField];
+            delete frontmatter2[bannerIconBorderRadiusField];
+            delete frontmatter2[bannerIconVerticalOffsetField];
+            delete frontmatter2[bannerIconSizeField];
+            delete frontmatter2[bannerIconTextVerticalOffsetField];
+            delete frontmatter2[bannerIconImageSizeMultiplierField];
+            delete frontmatter2[bannerIconRotateField];
+            const alignmentField = Array.isArray(this.plugin.settings.customBannerAlignmentField) ? this.plugin.settings.customBannerAlignmentField[0].split(",")[0].trim() : this.plugin.settings.customBannerAlignmentField;
+            delete frontmatter2[alignmentField];
+            const flagColorField = Array.isArray(this.plugin.settings.customFlagColorField) ? this.plugin.settings.customFlagColorField[0].split(",")[0].trim() : this.plugin.settings.customFlagColorField;
+            delete frontmatter2[flagColorField];
+            if (deleteBannerAndIcon) {
+              const bannerField = Array.isArray(this.plugin.settings.customBannerField) ? this.plugin.settings.customBannerField[0].split(",")[0].trim() : this.plugin.settings.customBannerField;
+              const bannerIconImageField2 = Array.isArray(this.plugin.settings.customBannerIconImageField) ? this.plugin.settings.customBannerIconImageField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconImageField;
+              const bannerIconField2 = Array.isArray(this.plugin.settings.customBannerIconField) ? this.plugin.settings.customBannerIconField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconField;
+              delete frontmatter2[bannerField];
+              delete frontmatter2[bannerIconImageField2];
+              delete frontmatter2[bannerIconField2];
+            }
+          });
+          if (flagRadioContainer) {
+            const flagRadios = flagRadioContainer.querySelectorAll('input[type="radio"]');
+            flagRadios.forEach((radio) => {
+              radio.checked = radio.value === this.plugin.settings.selectImageIconFlag;
+            });
+          }
+          if (bannerIconImageAlignmentRadioContainer) {
+            const bannerIconImageAlignmentRadios = bannerIconImageAlignmentRadioContainer.querySelectorAll('input[type="radio"]');
+            bannerIconImageAlignmentRadios.forEach((radio) => {
+              radio.checked = radio.value === this.plugin.settings.bannerIconImageAlignment;
+            });
+          }
+          if (inlineTitleEnabled && titleColorInput) {
+            let defaultTitleColor = this.plugin.settings.titleColor;
+            if (defaultTitleColor.startsWith("var(--")) {
+              const tempEl = document.createElement("div");
+              tempEl.style.color = defaultTitleColor;
+              document.body.appendChild(tempEl);
+              const computedColor = window.getComputedStyle(tempEl).color;
+              document.body.removeChild(tempEl);
+              const rgbMatch = computedColor.match(/rgb\((\d+),\s*(\d+),\s*(\d+)\)/);
+              if (rgbMatch) {
+                const [_, r, g, b] = rgbMatch;
+                defaultTitleColor = "#" + parseInt(r).toString(16).padStart(2, "0") + parseInt(g).toString(16).padStart(2, "0") + parseInt(b).toString(16).padStart(2, "0");
+              }
+            }
+            titleColorInput.value = defaultTitleColor;
+            if (titleColorPicker) {
+              titleColorPicker.value = defaultTitleColor.startsWith("#") ? defaultTitleColor : getCurrentTheme_default() === "dark" ? "#ffffff" : "#000000";
+            }
+            this.updateTitleColor(defaultTitleColor);
+          }
+          this.currentX = this.plugin.settings.xPosition;
+          this.currentY = this.plugin.settings.yPosition;
+          verticalLine.style.left = `${this.currentX}%`;
+          horizontalLine.style.top = `${this.currentY}%`;
+          updatePositionIndicator();
+          setTimeout(() => {
+            const view = this.app.workspace.getActiveViewOfType(import_obsidian16.MarkdownView);
+            if (view) {
+              this.plugin.updateBanner(view, true);
+            }
+          }, 750);
+          if (deleteBannerAndIcon) {
+            this.close();
+          }
+        };
+        resetButton.addEventListener("click", () => {
+          this.resetPixelBannerNoteSettings();
+        });
+        const repeatContainer = controlPanel.createDiv({
+          cls: "repeat-container",
+          attr: {
+            style: `
+                    display: ${this.currentDisplay === "contain" || this.currentDisplay === "auto" ? "flex" : "none"};
+                    flex-direction: column;
+                    gap: 5px;
+                    align-items: center;
+                    justify-content: flex-start;
+                    margin-top: 10px;
+                    max-width: 70px;
+                    text-align: center;
+                `
+          }
+        });
+        const repeatLabel = repeatContainer.createEl("div", {
+          text: "repeat banner image?",
+          cls: "repeat-label",
+          attr: {
+            style: `
+                    color: var(--text-muted);
+                    font-size: 0.9em;
+                    margin-bottom: 20px;
+                `
+          }
+        });
+        const repeatToggle = repeatContainer.createEl("div", {
+          cls: "repeat-toggle",
+          attr: {
+            style: `
+                    margin-top: 10px;
+                `
+          }
+        });
+        const toggleInput = repeatToggle.createEl("input", {
+          type: "checkbox",
+          cls: "repeat-checkbox",
+          attr: {
+            checked: this.currentDisplay === "contain" || this.currentDisplay === "auto" ? this.currentRepeat : this.plugin.settings.imageRepeat
+          }
+        });
+        displaySelect.addEventListener("change", () => {
+          const mode = displaySelect.value;
+          zoomContainer.style.display = mode === "cover-zoom" ? "flex" : "none";
+          repeatContainer.style.display = mode === "contain" || mode === "auto" ? "flex" : "none";
+          if (mode === "contain" || mode === "auto") {
+            toggleInput.checked = this.currentRepeat;
+          } else {
+            toggleInput.checked = this.plugin.settings.imageRepeat;
+            this.currentRepeat = this.plugin.settings.imageRepeat;
+          }
+          this.updateDisplayMode(mode, mode === "cover-zoom" ? this.currentZoom : null);
+        });
+        toggleInput.addEventListener("change", () => {
+          this.currentRepeat = toggleInput.checked;
+          this.updateRepeatMode(this.currentRepeat);
+        });
+        let isDragging = false;
+        let offsetX, offsetY;
+        let isCrosshairDragging = false;
+        modalEl.addEventListener("mousedown", (e) => {
+          if (e.target === zoomSlider || e.target === heightSlider || e.target === maxWidthSlider || e.target === contentStartPositionSlider || e.target === bannerFadeSlider || e.target === borderRadiusSlider || e.target === bannerIconXPositionSlider || e.target === bannerIconSizeSlider || e.target === bannerIconImageSizeMultiplierSlider || e.target === bannerIconTextVerticalOffsetSlider || e.target === bannerIconRotateSlider || e.target === bannerIconColorPicker || e.target === bannerIconColorInput || e.target === bannerIconPaddingXSlider || e.target === bannerIconPaddingYSlider || e.target === bannerIconBorderRadiusSlider || e.target === bannerIconVerticalOffsetSlider || e.target === alphaSlider || e.target === bannerIconBgColorPicker || e.target === bannerIconBgColorInput || e.target === titleColorPicker || e.target === titleColorInput || e.target === targetArea || e.target === verticalLine || e.target === horizontalLine) return;
+          isDragging = true;
+          offsetX = e.clientX - modalEl.getBoundingClientRect().left;
+          offsetY = e.clientY - modalEl.getBoundingClientRect().top;
+          modalEl.style.cursor = "grabbing";
+        });
+        document.addEventListener("mousemove", (e) => {
+          if (isDragging) {
+            modalEl.style.left = `${e.clientX - offsetX}px`;
+            modalEl.style.top = `${e.clientY - offsetY}px`;
+          }
+          if (isCrosshairDragging) {
+            updatePosition(e);
+          }
+        });
+        document.addEventListener("mouseup", () => {
+          isDragging = false;
+          isCrosshairDragging = false;
+          modalEl.style.cursor = "default";
+          targetArea.style.cursor = "crosshair";
+        });
+        targetArea.addEventListener("mousedown", (e) => {
+          isCrosshairDragging = true;
+          targetArea.style.cursor = "move";
+          updatePosition(e);
+          e.preventDefault();
+        });
+        verticalLine.addEventListener("mousedown", (e) => {
+          isCrosshairDragging = true;
+          targetArea.style.cursor = "move";
+          e.preventDefault();
+        });
+        horizontalLine.addEventListener("mousedown", (e) => {
+          isCrosshairDragging = true;
+          targetArea.style.cursor = "move";
+          e.preventDefault();
+        });
+        modalEl.style.position = "absolute";
+        modalEl.style.left = `${modalEl.getBoundingClientRect().left}px`;
+        modalEl.style.top = `${modalEl.getBoundingClientRect().top}px`;
+      }
+      addStyle() {
+        const style = document.createElement("style");
+        style.textContent = `
+            /* --------------------------- */
+            /* -- Target Position Modal -- */
+            /* --------------------------- */
+            .target-position-modal {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+            }
+
+            .target-position-modal .target-container {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                flex-grow: 1;
+                min-width: 200px;
+            }
+
+            .target-position-modal .target-area {
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+                border-radius: 4px;
+            }
+
+            .target-position-modal .position-indicator {
+                padding: 4px;
+                border-radius: 4px;
+                background-color: var(--background-secondary);
+            }
+
+            .target-position-modal .crosshair-line {
+                position: absolute;
+                background-color: var(--text-accent);
+                pointer-events: none;
+            }
+
+            .target-position-modal .vertical {
+                width: 1px;
+                height: 100%;
+            }
+
+            .target-position-modal .horizontal {
+                width: 100%;
+                height: 1px;
+            }
+
+            .target-position-modal .control-panel {
+                background-color: var(--background-secondary);
+                padding: 15px;
+                border-radius: 8px;
+            }
+
+            .target-position-modal .display-mode-select {
+                width: 100%;
+                min-width: max-content;
+                padding: 6px;
+                border-radius: 4px;
+                border: 1px solid var(--background-modifier-border);
+                background-color: var(--background-primary);
+                color: var(--text-normal);
+            }
+
+            .target-position-modal .zoom-container {
+                position: relative;
+            }
+
+            .target-position-modal .zoom-slider {
+                width: 15px;
+                background-color: var(--background-primary);
+                border-radius: 5px;
+                cursor: pointer;
+                margin: 10px auto;
+                appearance: none;
+            }
+
+            .target-position-modal .zoom-slider::-webkit-slider-runnable-track {
+                width: 100%;
+                height: 200px;
+                background: var(--background-modifier-border);
+                border-radius: 5px;
+                border: none;
+            }
+
+            .target-position-modal .zoom-slider::-moz-range-track {
+                width: 100%;
+                height: 200px;
+                background: var(--background-modifier-border);
+                border-radius: 5px;
+                border: none;
+            }
+
+            .target-position-modal .zoom-slider::-webkit-slider-thumb {
+                -webkit-appearance: none;
+                width: 20px;
+                height: 20px;
+                border-radius: 50%;
+                background: var(--text-accent);
+                cursor: pointer;
+                border: none;
+                margin-top: 90px;
+                position: relative;
+                left: -2px;
+            }
+
+            .target-position-modal .zoom-slider::-moz-range-thumb {
+                width: 20px;
+                height: 20px;
+                border-radius: 50%;
+                background: var(--text-accent);
+                cursor: pointer;
+                border: none;
+            }
+
+            .target-position-modal .zoom-value {
+                color: var(--text-muted);
+                text-align: center;
+            }
+
+            .target-position-modal .height-slider,
+            .target-position-modal .content-start-position-slider {
+                width: 15px;
+                background-color: var(--background-primary);
+                border-radius: 5px;
+                cursor: pointer;
+                margin: 10px auto;
+                appearance: none;
+            }
+
+            .target-position-modal .height-slider::-webkit-slider-runnable-track,
+            .target-position-modal .content-start-position-slider::-webkit-slider-runnable-track {
+                width: 100%;
+                height: 200px;
+                background: var(--background-modifier-border);
+                border-radius: 5px;
+                border: none;
+            }
+
+            .target-position-modal .height-slider::-moz-range-track,
+            .target-position-modal .content-start-position-slider::-moz-range-track {
+                width: 100%;
+                height: 200px;
+                background: var(--background-modifier-border);
+                border-radius: 5px;
+                border: none;
+            }
+
+            .target-position-modal .max-width-slider::-webkit-slider-runnable-track,
+            .target-position-modal .height-slider::-webkit-slider-runnable-track,
+            .target-position-modal .content-start-position-slider::-webkit-slider-runnable-track {
+                width: 100%;
+                height: 200px;
+                background: var(--background-modifier-border);
+                border-radius: 5px;
+                border: none;
+            }
+
+            .target-position-modal .max-width-slider::-moz-range-track,
+            .target-position-modal .height-slider::-moz-range-track,
+            .target-position-modal .content-start-position-slider::-moz-range-track {
+                width: 100%;
+                height: 200px;
+                background: var(--background-modifier-border);
+                border-radius: 5px;
+                border: none;
+            }
+
+            .target-position-modal .max-width-slider::-webkit-slider-thumb,
+            .target-position-modal .height-slider::-webkit-slider-thumb,
+            .target-position-modal .content-start-position-slider::-webkit-slider-thumb {
+                -webkit-appearance: none;
+                width: 20px;
+                height: 20px;
+                border-radius: 50%;
+                background: var(--text-accent);
+                cursor: pointer;
+                border: none;
+                margin-top: 90px;
+                position: relative;
+                left: -2px;
+            }
+
+            .target-position-modal .max-width-slider:disabled {
+                opacity: 0;
+                cursor: not-allowed;
+            }
+
+            .target-position-modal .max-width-slider::-moz-range-thumb,
+            .target-position-modal .height-slider::-moz-range-thumb,
+            .target-position-modal .content-start-position-slider::-moz-range-thumb {
+                width: 20px;
+                height: 20px;
+                border-radius: 50%;
+                background: var(--text-accent);
+                cursor: pointer;
+                border: none;
+            }
+
+            .target-position-modal .height-value,
+            .target-position-modal .content-start-position-value {
+                color: var(--text-muted);
+                text-align: center;
+            }
+
+            .target-position-modal .max-width-container,
+            .target-position-modal .height-container,
+            .target-position-modal .content-start-position-container {
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+                align-items: center;
+                background-color: var(--background-secondary);
+                padding: 15px;
+                border-radius: 4px;
+            }
+
+            .target-position-modal .height-label,
+            .target-position-modal .content-start-position-label {
+                color: var(--text-muted);
+                font-size: 0.9em;
+            }
+
+            .target-position-modal .height-value,
+            .target-position-modal .content-start-position-value {
+                font-family: var(--font-monospace);
+                font-size: 0.9em;
+                color: var(--text-muted);
+            }
+
+            .target-position-modal .reset-button {
+                padding: 8px;
+                width: 100%;
+                font-size: 14px;
+                border-radius: 4px;
+                cursor: pointer;
+                transition: background-color 0.2s ease;
+            }
+
+            .target-position-modal .reset-button:hover {
+                background-color: var(--interactive-accent-hover);
+            }
+
+            .target-position-modal .target-area {
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            }
+            .target-position-modal .vertical {
+                position: absolute;
+                background-color: var(--text-accent);
+                pointer-events: none;
+                width: 1px;
+                height: 100%;
+                left: ${this.currentX}%;
+                pointer-events: auto;
+                cursor: move;
+            }
+            .target-position-modal .horizontal {
+                position: absolute;
+                background-color: var(--text-accent);
+                pointer-events: none;
+                width: 100%;
+                height: 1px;
+                top: ${this.currentY}%;
+                pointer-events: auto;
+                cursor: move;
+            }
+            .target-position-modal .position-indicator {
+                text-align: center;
+                margin-top: 10px;
+                font-family: var(--font-monospace);
+            }
+            .target-position-modal .repeat-container {
+                min-height: 120px;
+                display: flex;
+                justify-content: center;
+            }
+            
+            .target-position-modal .repeat-checkbox {
+                transform: scale(1.2);
+                cursor: pointer;
+            }
+
+            /* ------------------- */
+            /* -- mobile layout -- */
+            /* ------------------- */
+            @media screen and (max-width: 550px) {
+                .banner-image-header { flex-direction: column !important; }
+                .banner-icon-header { flex-direction: column !important; }
+                .main-container--banner-image { flex-direction: column !important; }
+                .main-container--banner-icon { flex-direction: column !important; }
+                .target-container { order: -1 !important; align-items: center !important; }
+                .height-slider,
+                .content-start-position-slider {
+                    rotate: 90deg !important;
+                    flex: 0 auto !important;
+                    writing-mode: unset !important;
+                    direction: unset !important;
+                }
+                .color-picker-and-alpha-slider-row { flex-wrap: wrap !important; }
+            }
+        `;
+        document.head.appendChild(style);
+      }
+      onClose() {
+        const style = document.head.querySelector("style:last-child");
+        if (style) {
+          style.remove();
+        }
+      }
+    };
+  }
+});
+
+// src/modal/modals/iconImageSelectionModal.js
+var import_obsidian17, IconImageSelectionModal;
+var init_iconImageSelectionModal = __esm({
+  "src/modal/modals/iconImageSelectionModal.js"() {
+    import_obsidian17 = require("obsidian");
+    init_iconFolderSelectionModal();
+    init_saveImageModal();
+    init_modals();
+    init_constants();
+    IconImageSelectionModal = class extends import_obsidian17.Modal {
+      constructor(app, plugin, onChoose, defaultPath = "") {
+        super(app);
+        this.plugin = plugin;
+        this.onChoose = onChoose;
+        this.defaultPath = defaultPath;
+        this.searchQuery = defaultPath.toLowerCase();
+        this.currentPage = 1;
+        this.imagesPerPage = 20;
+        this.sortOrder = "name-asc";
+        this.imageFiles = this.app.vault.getFiles().filter((file) => file.extension.toLowerCase().match(/^(jpg|jpeg|png|gif|bmp|svg|webp|avif)$/));
+        this.iconCategories = [];
+        this.selectedIconCategory = null;
+        this.selectedIconCategoryIndex = 0;
+        this.iconsCurrentPage = 1;
+        this.iconsTotalPages = 1;
+        this.iconsSearchTerm = "";
+        this.isIconsSearchMode = false;
+        this.iconsPerPage = 10;
+        this._isPaginating = false;
+        this.targetingModalOpened = false;
+        const originalOnChoose = this.onChoose;
+        this.onChoose = (file) => {
+          this.targetingModalOpened = true;
+          originalOnChoose(file);
+        };
+      }
+      debounce(func, wait) {
+        let timeout;
+        return (...args) => {
+          clearTimeout(timeout);
+          timeout = setTimeout(() => func.apply(this, args), wait);
+        };
+      }
+      async confirmDelete(file) {
+        return new Promise((resolve) => {
+          const modal = new import_obsidian17.Modal(this.app);
+          modal.contentEl.createEl("h2", { text: "Delete Image" });
+          modal.contentEl.createEl("p", { text: `Are you sure you want to delete "${file.name}"?` });
+          const buttonContainer = modal.contentEl.createDiv();
+          buttonContainer.style.display = "flex";
+          buttonContainer.style.justifyContent = "flex-end";
+          buttonContainer.style.gap = "10px";
+          const cancelButton = buttonContainer.createEl("button", { text: "Cancel" });
+          const deleteButton = buttonContainer.createEl("button", {
+            text: "Delete",
+            cls: "mod-warning"
+          });
+          cancelButton.onclick = () => {
+            modal.close();
+            resolve(false);
+          };
+          deleteButton.onclick = () => {
+            modal.close();
+            resolve(true);
+          };
+          modal.open();
+        });
+      }
+      async deleteImage(file) {
+        const confirmed = await this.confirmDelete(file);
+        if (!confirmed) return;
+        try {
+          await this.app.vault.delete(file);
+          this.imageFiles = this.imageFiles.filter((f) => f.path !== file.path);
+          this.updateImageGrid();
+        } catch (error) {
+          new import_obsidian17.Notice(`Failed to delete image: ${error.message}`);
+        }
+      }
+      onOpen() {
+        this.modalEl.addClass("pixel-banner-image-select-modal");
+        const { contentEl } = this;
+        contentEl.empty();
+        const style = document.createElement("style");
+        style.textContent = `
+            .pixel-banner-image-modal {
+                width: var(--dialog-max-width);
+                top: unset !important;
+            }
+
+            .pixel-banner-image-select-modal {
+                top: unset !important;
+                width: var(--dialog-max-width);
+                max-width: 1100px;
+                min-height: 50vh;
+                max-height: 95vh;
+            }
+
+            .pixel-banner-image-select-modal .pixel-banner-image-delete {
+                position: absolute;
+                top: 8px;
+                right: 8px;
+                width: 24px;
+                height: 24px;
+                background-color: var(--background-secondary);
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                opacity: .5;
+                transition: opacity 0.2s ease, background-color 0.2s ease;
+                cursor: pointer;
+                z-index: 2;
+            }
+
+            .pixel-banner-image-select-modal .pixel-banner-image-wrapper:hover .pixel-banner-image-delete {
+                opacity: 1;
+            }
+
+            .pixel-banner-image-select-modal .pixel-banner-image-delete:hover {
+                background-color: red;
+                color: white;
+                opacity: 1;
+            }
+
+            .pixel-banner-image-select-modal .pixel-banner-image-delete svg {
+                width: 16px;
+                height: 16px;
+            }
+
+            .pixel-banner-image-select-description {
+                margin-top: -15px;
+                font-size: 0.8em;
+                word-break: break-all;
+                color: var(--text-muted);
+                margin-bottom: 15px;
+            }
+
+            .pixel-banner-search-container {
+                margin-bottom: 1rem;
+            }
+            
+            .pixel-banner-search-container input {
+                width: 100%;
+                padding: 8px;
+                border-radius: 4px;
+                border: 1px solid var(--background-modifier-border);
+            }
+
+            .pixel-banner-search-container .search-row {
+                flex: 1;
+                display: flex;
+                gap: 8px;
+                margin: 0;
+            }
+
+            .pixel-banner-search-container .controls-row {
+                flex: 0 auto;
+                display: flex;
+                gap: 8px;
+                margin: 0;
+            }
+
+            .pixel-banner-image-path {
+                margin-top: 8px;
+                font-size: 0.8em;
+                word-break: break-all;
+                color: var(--text-muted);
+            }
+
+            .pixel-banner-image-error {
+                height: 150px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: var(--background-modifier-error);
+                color: var(--text-error);
+                border-radius: 2px;
+            }
+
+            .pixel-banner-image-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                gap: 1rem;
+                padding: 0 1rem;
+                overflow-y: auto;
+                max-height: 60vh;
+            }
+
+            .pixel-banner-pagination-button {
+                padding: 4px 8px;
+                border-radius: 4px;
+                background: var(--background-secondary);
+                border: 1px solid var(--background-modifier-border);
+                cursor: pointer;
+                font-size: 14px;
+                line-height: 1;
+            }
+
+            button.pixel-banner-pagination-button:not([disabled]),
+            .pixel-banner-pagination-button:hover:not(.disabled) {
+                background-color: var(--interactive-accent);
+                color: var(--text-on-accent);
+            }
+            
+            .pixel-banner-pagination-button.disabled {
+                opacity: 0.5;
+                cursor: not-allowed;
+            }
+            
+            .pixel-banner-pagination-info {
+                font-size: 14px;
+                color: var(--text-muted);
+            }
+            
+            .pixel-banner-image-container {
+                cursor: pointer;
+                border-radius: 6px;
+                border: 1px solid var(--background-modifier-border);
+                transition: transform 0.2s ease, box-shadow 0.2s ease;
+                position: relative;
+            }
+            
+            .pixel-banner-image-container:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            }
+            
+            .pixel-banner-image-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                gap: 15px;
+                margin-top: 15px;
+                max-height: 60vh;
+                overflow-y: auto;
+                padding: 5px;
+            }
+            
+            .pixel-banner-no-images {
+                width: 100%;
+                height: 200px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 1.2em;
+                color: var(--text-muted);
+                border: 1px dashed var(--background-modifier-border);
+                border-radius: 8px;
+                background-color: var(--background-secondary);
+                grid-column: 1 / -1;
+                text-align: center;
+                padding: 20px;
+            }
+            
+            .pixel-banner-image-thumbnail {
+                width: 100%;
+                max-width: fit-content;
+                height: auto;
+                max-height: 150px;
+                object-fit: cover;
+                display: block;
+            }
+            
+            .pixel-banner-image-info {
+                padding: 8px;
+                font-size: 12px;
+                background: var(--background-secondary);
+            }
+            
+            .pixel-banner-image-path {
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                margin-bottom: 4px;
+            }
+            
+            .pixel-banner-image-delete {
+                position: absolute;
+                top: 5px;
+                right: 5px;
+                background: rgba(0, 0, 0, 0.5);
+                border-radius: 50%;
+                width: 24px;
+                height: 24px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                opacity: 0;
+                transition: opacity 0.2s ease;
+            }
+            
+            .pixel-banner-image-container:hover .pixel-banner-image-delete {
+                opacity: 1;
+            }
+            
+            .pixel-banner-image-delete svg {
+                width: 16px;
+                height: 16px;
+                color: white;
+            }
+
+            /* ------------------- */
+            /* -- mobile layout -- */
+            /* ------------------- */
+            @media screen and (max-width: 550px) {
+                .pixel-banner-pagination { flex-direction: column !important; }
+                .pixel-banner-pagination .pixel-banner-controls { flex-direction: column !important; }
+            }
+
+            @media screen and (max-width: 775px) {
+                .pixel-banner-search-container {
+                    flex-direction: column !important;
+                    gap: 8px !important;
+                }
+
+                .pixel-banner-search-container .search-row {
+                    display: flex;
+                    width: 100%;
+                    gap: 8px;
+                }
+
+                .pixel-banner-search-container .controls-row {
+                    display: flex;
+                    width: 100%;
+                    gap: 8px;
+                    align-items: center;
+                }
+
+                .pixel-banner-search-container input[type="text"] {
+                    flex: 1;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+        this.style = style;
+        contentEl.createEl("h2", { text: "\u2B50 Select Banner Icon Image", cls: "margin-top-0" });
+        const titleDescriptionRow = contentEl.createEl("div", {
+          text: "Select an image to use as a banner icon.",
+          cls: "pixel-banner-image-select-description",
+          attr: {
+            style: `
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                `
+          }
+        });
+        const removeIconImageButton = titleDescriptionRow.createEl("button", {
+          text: "\u{1F5D1}\uFE0F Remove",
+          cls: "remove-icon-image-button cursor-pointer"
+        });
+        removeIconImageButton.addEventListener("click", async () => {
+          const activeFile = this.app.workspace.getActiveFile();
+          if (activeFile) {
+            await this.app.fileManager.processFrontMatter(activeFile, (frontmatter) => {
+              const bannerIconField = Array.isArray(this.plugin.settings.customBannerIconField) ? this.plugin.settings.customBannerIconField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconField;
+              const bannerIconImageAlignmentField = Array.isArray(this.plugin.settings.customBannerIconImageAlignmentField) ? this.plugin.settings.customBannerIconImageAlignmentField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconImageAlignmentField;
+              const iconSizeField = Array.isArray(this.plugin.settings.customBannerIconSizeField) ? this.plugin.settings.customBannerIconSizeField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconSizeField;
+              const iconImageSizeMultiplierField = Array.isArray(this.plugin.settings.customBannerIconImageSizeMultiplierField) ? this.plugin.settings.customBannerIconImageSizeMultiplierField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconImageSizeMultiplierField;
+              const iconRotateField = Array.isArray(this.plugin.settings.customBannerIconRotateField) ? this.plugin.settings.customBannerIconRotateField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconRotateField;
+              const iconYPositionField = Array.isArray(this.plugin.settings.customBannerIconVeritalOffsetField) ? this.plugin.settings.customBannerIconVeritalOffsetField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconVeritalOffsetField;
+              const iconXPositionField = Array.isArray(this.plugin.settings.customBannerIconXPositionField) ? this.plugin.settings.customBannerIconXPositionField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconXPositionField;
+              const iconColorField = Array.isArray(this.plugin.settings.customBannerIconColorField) ? this.plugin.settings.customBannerIconColorField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconColorField;
+              const iconBgColorField = Array.isArray(this.plugin.settings.customBannerIconBackgroundColorField) ? this.plugin.settings.customBannerIconBackgroundColorField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconBackgroundColorField;
+              const iconXPaddingField = Array.isArray(this.plugin.settings.customBannerIconPaddingXField) ? this.plugin.settings.customBannerIconPaddingXField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconPaddingXField;
+              const iconYPaddingField = Array.isArray(this.plugin.settings.customBannerIconPaddingYField) ? this.plugin.settings.customBannerIconPaddingYField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconPaddingYField;
+              const iconBorderRadiusField = Array.isArray(this.plugin.settings.customBannerIconBorderRadiusField) ? this.plugin.settings.customBannerIconBorderRadiusField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconBorderRadiusField;
+              const bannerIconImageField = Array.isArray(this.plugin.settings.customBannerIconImageField) ? this.plugin.settings.customBannerIconImageField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconImageField;
+              const hasTextEmoji = frontmatter[bannerIconField] !== void 0 && frontmatter[bannerIconField] !== null && frontmatter[bannerIconField] !== "";
+              if (!hasTextEmoji) {
+                delete frontmatter[bannerIconField];
+                delete frontmatter[bannerIconImageField];
+                delete frontmatter[bannerIconImageAlignmentField];
+                delete frontmatter[iconSizeField];
+                delete frontmatter[iconImageSizeMultiplierField];
+                delete frontmatter[iconRotateField];
+                delete frontmatter[iconYPositionField];
+                delete frontmatter[iconXPositionField];
+                delete frontmatter[iconColorField];
+                delete frontmatter[iconBgColorField];
+                delete frontmatter[iconXPaddingField];
+                delete frontmatter[iconYPaddingField];
+                delete frontmatter[iconBorderRadiusField];
+              } else {
+                delete frontmatter[bannerIconImageField];
+                delete frontmatter[iconImageSizeMultiplierField];
+                delete frontmatter[bannerIconImageAlignmentField];
+              }
+            });
+            this.onChoose(null);
+            this.close();
+            const activeView = this.app.workspace.getActiveViewOfType(import_obsidian17.MarkdownView);
+            if (activeView) {
+              const contentEl2 = activeView.contentEl;
+              if (contentEl2) {
+                const existingOverlays = contentEl2.querySelectorAll(".banner-icon-overlay");
+                existingOverlays.forEach((overlay) => {
+                  this.plugin.returnIconOverlay(overlay);
+                });
+              }
+              await this.plugin.updateBanner(activeView, true, this.plugin.UPDATE_MODE.FULL_UPDATE);
+            }
+            if (!this.skipTargetingModal && this.plugin.settings.openTargetingModalAfterSelectingBannerOrIcon) {
+              await new Promise((resolve) => {
+                var _a;
+                const initialFrontmatter = JSON.stringify(
+                  ((_a = this.app.metadataCache.getFileCache(activeFile)) == null ? void 0 : _a.frontmatter) || {}
+                );
+                const eventRef = this.app.metadataCache.on("changed", (file) => {
+                  var _a2;
+                  if (file.path !== activeFile.path) return;
+                  const updatedFrontmatter = JSON.stringify(
+                    ((_a2 = this.app.metadataCache.getFileCache(file)) == null ? void 0 : _a2.frontmatter) || {}
+                  );
+                  if (updatedFrontmatter !== initialFrontmatter) {
+                    this.app.metadataCache.off("changed", eventRef);
+                    resolve();
+                  }
+                });
+                setTimeout(() => {
+                  this.app.metadataCache.off("changed", eventRef);
+                  resolve();
+                }, 500);
+              });
+              new TargetPositionModal(this.app, this.plugin).open();
+            }
+          }
+        });
+        const tabContainer = contentEl.createDiv({
+          cls: "pixel-banner-tabs-container",
+          attr: {
+            style: `
+                    display: flex;
+                    margin-bottom: 16px;
+                    border-bottom: 1px solid var(--background-modifier-border);
+                `
+          }
+        });
+        const localImageTab = tabContainer.createDiv({
+          cls: "pixel-banner-tab active",
+          text: "\u{1F4BE} Local Image",
+          attr: {
+            style: `
+                    padding: 8px 16px;
+                    cursor: pointer;
+                    border-bottom: 2px solid transparent;
+                    margin-right: 8px;
+                    transition: all 0.2s ease;
+                `
+          }
+        });
+        const webTab = tabContainer.createDiv({
+          cls: "pixel-banner-tab",
+          text: "\u{1F310} WEB",
+          attr: {
+            style: `
+                    padding: 8px 16px;
+                    cursor: pointer;
+                    border-bottom: 2px solid transparent;
+                    margin-right: 8px;
+                    transition: all 0.2s ease;
+                `
+          }
+        });
+        this.collectionsTab = tabContainer.createDiv({
+          cls: "pixel-banner-tab",
+          text: "\u{1F4D1} Collections",
+          attr: {
+            style: `
+                    padding: 8px 16px;
+                    cursor: pointer;
+                    border-bottom: 2px solid transparent;
+                    transition: all 0.2s ease;
+                    display: none; /* Initially hidden */
+                `
+          }
+        });
+        const localImageContent = contentEl.createDiv({
+          cls: "pixel-banner-tab-content local-image-content",
+          attr: {
+            style: `
+                    display: block;
+                `
+          }
+        });
+        const webContent = contentEl.createDiv({
+          cls: "pixel-banner-tab-content web-content",
+          attr: {
+            style: `
+                    display: none;
+                `
+          }
+        });
+        this.collectionsContent = contentEl.createDiv({
+          cls: "pixel-banner-tab-content collections-content",
+          attr: {
+            style: `
+                    display: none;
+                `
+          }
+        });
+        const tabStyles = document.createElement("style");
+        tabStyles.textContent = `
+            .pixel-banner-tab.active {
+                border-bottom: 2px solid var(--interactive-accent) !important;
+                font-weight: bold;
+            }
+        `;
+        document.head.appendChild(tabStyles);
+        this.tabStyles = tabStyles;
+        const switchTab = (targetTab) => {
+          localImageTab.classList.remove("active");
+          webTab.classList.remove("active");
+          if (this.collectionsTab) {
+            this.collectionsTab.classList.remove("active");
+          }
+          targetTab.classList.add("active");
+          if (targetTab === localImageTab) {
+            localImageContent.style.display = "block";
+            webContent.style.display = "none";
+            this.collectionsContent.style.display = "none";
+          } else if (targetTab === webTab) {
+            localImageContent.style.display = "none";
+            webContent.style.display = "block";
+            this.collectionsContent.style.display = "none";
+          } else {
+            localImageContent.style.display = "none";
+            webContent.style.display = "none";
+            this.collectionsContent.style.display = "block";
+          }
+        };
+        localImageTab.addEventListener("click", () => switchTab(localImageTab));
+        webTab.addEventListener("click", () => switchTab(webTab));
+        this.collectionsTab.addEventListener("click", () => switchTab(this.collectionsTab));
+        this.checkServerStatus();
+        const searchContainer = localImageContent.createDiv({ cls: "pixel-banner-search-container" });
+        searchContainer.style.display = "flex";
+        searchContainer.style.gap = "8px";
+        searchContainer.style.alignItems = "center";
+        searchContainer.style.marginBottom = "1em";
+        this.initializeCollectionsTab(this.collectionsContent);
+        const searchRow = searchContainer.createDiv({ cls: "search-row" });
+        const searchInput = searchRow.createEl("input", {
+          type: "text",
+          placeholder: "Search images...",
+          value: this.defaultPath
+        });
+        searchInput.style.flex = "1";
+        const clearButton = searchRow.createEl("button", {
+          text: "Clear"
+        });
+        const controlsRow = searchContainer.createDiv({
+          cls: "controls-row",
+          attr: {
+            style: `
+                    display: flex !important;
+                    gap: 8px;
+                    align-items: center;
+                `
+          }
+        });
+        const uploadButton = controlsRow.createEl("button", {
+          text: "\u{1F4E4} Upload"
+        });
+        uploadButton.addEventListener("click", () => {
+          fileInput.click();
+        });
+        const shorPathToggleContainer = controlsRow.createDiv({
+          cls: "pixel-banner-path-toggle",
+          attr: {
+            style: `
+                    display: flex !important;
+                    align-items: center;
+                    gap: 8px;
+                    cursor: pointer;
+                `
+          }
+        });
+        const shorPathToggleLabel = shorPathToggleContainer.createSpan({
+          text: "Use short path",
+          attr: {
+            style: `
+                    font-size: 12px;
+                    color: var(--text-muted);
+                `
+          }
+        });
+        const shorPathToggle = new import_obsidian17.Setting(shorPathToggleContainer).addToggle((cb) => {
+          cb.setValue(this.plugin.settings.useShortPath).onChange(async (value) => {
+            this.plugin.settings.useShortPath = value;
+            await this.plugin.saveSettings();
+          });
+        });
+        shorPathToggle.settingEl.style.border = "none";
+        shorPathToggle.settingEl.style.padding = "0";
+        shorPathToggle.settingEl.style.margin = "0";
+        shorPathToggle.infoEl.remove();
+        const fileInput = searchContainer.createEl("input", {
+          type: "file",
+          attr: {
+            accept: "image/*",
+            style: "display: none;"
+          }
+        });
+        fileInput.addEventListener("change", async (event) => {
+          const file = event.target.files[0];
+          if (file) {
+            const reader = new FileReader();
+            reader.onload = async () => {
+              const arrayBuffer = reader.result;
+              const defaultFolder = this.plugin.settings.defaultSelectIconPath || "";
+              const folderPath = await new Promise((resolve) => {
+                new IconFolderSelectionModal(this.app, defaultFolder, (result) => {
+                  resolve(result);
+                }).open();
+              });
+              if (!folderPath) {
+                new import_obsidian17.Notice("No folder selected");
+                return;
+              }
+              if (!await this.app.vault.adapter.exists(folderPath)) {
+                await this.app.vault.createFolder(folderPath);
+              }
+              const suggestedName = file.name;
+              const fileName = await new Promise((resolve) => {
+                new SaveImageModal(this.app, suggestedName, (result) => {
+                  resolve(result);
+                }).open();
+              });
+              if (!fileName) {
+                new import_obsidian17.Notice("No file name provided");
+                return;
+              }
+              try {
+                const fullPath = `${folderPath}/${fileName}`.replace(/\/+/g, "/");
+                const newFile = await this.app.vault.createBinary(fullPath, arrayBuffer);
+                this.onChoose(newFile);
+                this.close();
+              } catch (error) {
+                new import_obsidian17.Notice(`Failed to save image: ${error.message}`);
+              }
+            };
+            reader.readAsArrayBuffer(file);
+          }
+        });
+        clearButton.addEventListener("click", () => {
+          searchInput.value = "";
+          this.searchQuery = "";
+          this.updateImageGrid();
+        });
+        searchInput.addEventListener("input", this.debounce(() => {
+          this.searchQuery = searchInput.value.toLowerCase();
+          this.updateImageGrid();
+        }, 500));
+        const webUrlInputContainer = webContent.createDiv({
+          cls: "web-url-input-container",
+          attr: {
+            style: `
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    gap: 10px;
+                    margin-bottom: 16px;
+                `
+          }
+        });
+        const urlInput = webUrlInputContainer.createEl("input", {
+          type: "text",
+          placeholder: "Enter image URL...",
+          cls: "web-url-input",
+          attr: {
+            style: `
+                    flex: 1;
+                    padding: 8px;
+                    border-radius: 4px;
+                    border: 1px solid var(--background-modifier-border);
+                `
+          }
+        });
+        const useUrlButton = webUrlInputContainer.createEl("button", {
+          text: "Use URL",
+          cls: "use-url-button",
+          attr: {
+            style: `
+                    background-color: var(--interactive-accent);
+                    color: var(--text-on-accent);
+                `
+          }
+        });
+        useUrlButton.addEventListener("click", () => {
+          const url = urlInput.value.trim();
+          if (validateUrl(url)) {
+            this.onChoose({
+              path: url,
+              name: url.split("/").pop() || "image",
+              extension: url.split(".").pop() || "jpg",
+              isWebUrl: true
+            });
+            this.close();
+          } else {
+            new import_obsidian17.Notice("Please enter a valid image URL");
+          }
+        });
+        const validateUrl = (url) => {
+          try {
+            new URL(url);
+            const imageExtensions = ["jpg", "jpeg", "png", "gif", "svg", "webp", "avif", "bmp"];
+            const extension = url.split(".").pop().toLowerCase();
+            return imageExtensions.includes(extension);
+          } catch (e) {
+            return false;
+          }
+        };
+        webContent.createEl("div", {
+          text: "Enter a direct URL to an image file (jpg, png, gif, etc.).",
+          attr: {
+            style: `
+                    font-size: 12px;
+                    color: var(--text-muted);
+                    margin-bottom: 16px;
+                `
+          }
+        });
+        const previewContainer = webContent.createDiv({
+          cls: "web-image-preview-container",
+          attr: {
+            style: `
+                    display: none;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    margin-top: 16px;
+                    padding: 16px;
+                    border: 1px dashed var(--background-modifier-border);
+                    border-radius: 4px;
+                `
+          }
+        });
+        const previewImage = previewContainer.createEl("img", {
+          cls: "web-image-preview",
+          attr: {
+            style: `
+                    max-width: 100%;
+                    max-height: 200px;
+                    object-fit: contain;
+                `
+          }
+        });
+        const previewCaption = previewContainer.createEl("div", {
+          cls: "web-image-preview-caption",
+          attr: {
+            style: `
+                    margin-top: 8px;
+                    font-size: 12px;
+                    color: var(--text-muted);
+                `
+          }
+        });
+        urlInput.addEventListener("input", this.debounce(() => {
+          const url = urlInput.value.trim();
+          if (validateUrl(url)) {
+            previewImage.src = url;
+            previewCaption.textContent = url.split("/").pop();
+            previewContainer.style.display = "flex";
+            previewImage.onerror = () => {
+              previewContainer.style.display = "none";
+              new import_obsidian17.Notice("Failed to load image preview");
+            };
+          } else {
+            previewContainer.style.display = "none";
+          }
+        }, 500));
+        this.gridContainer = localImageContent.createDiv({ cls: "pixel-banner-image-grid" });
+        this.paginationContainer = localImageContent.createDiv({
+          cls: "pixel-banner-pagination",
+          attr: {
+            style: `
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    gap: 10px;
+                    flex-wrap: wrap;
+                    margin-top: 15px;
+                `
+          }
+        });
+        this.updateImageGrid();
+        const modalEl = this.modalEl;
+        modalEl.style.position = "absolute";
+        modalEl.style.left = `${modalEl.getBoundingClientRect().left}px`;
+        modalEl.style.top = `${modalEl.getBoundingClientRect().top}px`;
+      }
+      async checkServerStatus() {
+        try {
+          const pingUrl = `${PIXEL_BANNER_PLUS.API_URL}${PIXEL_BANNER_PLUS.ENDPOINTS.PING}`;
+          const response = await fetch(pingUrl);
+          const data = await response.json();
+          if (response.ok && data.response === "pong") {
+            this.collectionsTab.style.display = "block";
+          } else {
+            console.log("Server response did not match expected format", data);
+          }
+        } catch (error) {
+          console.error(`Failed to connect to server: ${error.message}`);
+        }
+      }
+      async fetchIconCategories() {
+        try {
+          const url = `${PIXEL_BANNER_PLUS.API_URL}${PIXEL_BANNER_PLUS.ENDPOINTS.BANNER_ICON_CATEGORIES}?key=${PIXEL_BANNER_PLUS.BANNER_ICON_KEY}`;
+          const headers = {
+            "Accept": "application/json"
+          };
+          const response = await fetch(url, {
+            headers
+          });
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+          const data = await response.json();
+          if (!data.success) {
+            throw new Error(data.error || "Failed to fetch icon categories");
+          }
+          this.iconCategories = data.categories || [];
+          if (this.iconCategories.length === 0) {
+            throw new Error("No icon categories found");
+          }
+          return this.iconCategories;
+        } catch (error) {
+          console.error("Error fetching icon categories:", error);
+          throw error;
+        }
+      }
+      async fetchIconsByCategory() {
+        this.showCollectionsLoading();
+        try {
+          let url = `${PIXEL_BANNER_PLUS.API_URL}${PIXEL_BANNER_PLUS.ENDPOINTS.BANNER_ICONS}?page=${this.iconsCurrentPage}&limit=${this.iconsPerPage}&key=${PIXEL_BANNER_PLUS.BANNER_ICON_KEY}`;
+          if (this.selectedIconCategory && this.selectedIconCategory !== "all") {
+            url += `&category_id=${this.selectedIconCategory}`;
+          }
+          const headers = {
+            "Accept": "application/json"
+          };
+          const response = await fetch(url, {
+            headers
+          });
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+          const data = await response.json();
+          if (!data.success) {
+            throw new Error(data.error || "Failed to fetch icons");
+          }
+          this.iconsCurrentPage = data.currentPage || this.iconsCurrentPage;
+          this.renderIcons(data.bannerIcons, data.totalPages, data.totalCount);
+        } catch (error) {
+          console.error("Error fetching icons by category:", error);
+          this.showCollectionsError(error.message);
+        } finally {
+          this.hideCollectionsLoading();
+        }
+      }
+      initializeCollectionsTab(contentEl) {
+        const loadingContainer = contentEl.createDiv({
+          cls: "pixel-banner-loading-container",
+          attr: {
+            style: `
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 200px;
+                `
+          }
+        });
+        const loadingSpinner = loadingContainer.createDiv({
+          cls: "pixel-banner-loading-spinner",
+          attr: {
+            style: `
+                    width: 40px;
+                    height: 40px;
+                    border: 4px solid var(--background-modifier-border);
+                    border-top: 4px solid var(--text-accent);
+                    border-radius: 50%;
+                    animation: pixel-banner-spin 1s linear infinite;
+                `
+          }
+        });
+        const spinnerStyle = document.createElement("style");
+        spinnerStyle.textContent = `
+            @keyframes pixel-banner-spin {
+                0% { transform: rotate(0deg); }
+                100% { transform: rotate(360deg); }
+            }
+        `;
+        document.head.appendChild(spinnerStyle);
+        this.spinnerStyle = spinnerStyle;
+        this.fetchIconCategories().then(() => {
+          loadingContainer.remove();
+          const categoriesContainer = contentEl.createDiv({
+            cls: "pixel-banner-categories-container",
+            attr: {
+              style: `
+                        display: flex;
+                        align-items: center;
+                        gap: 8px;
+                        margin-bottom: 16px;
+                    `
+            }
+          });
+          categoriesContainer.createSpan({
+            text: "Icon Categories:",
+            attr: {
+              style: `
+                        font-size: 12px;
+                        color: var(--text-muted);
+                    `
+            }
+          });
+          this.categoriesDropdown = categoriesContainer.createEl("select", {
+            cls: "pixel-banner-categories-dropdown",
+            attr: {
+              style: `
+                        border-radius: 4px;
+                        border: 1px solid var(--background-modifier-border);
+                        flex-grow: 1;
+                    `
+            }
+          });
+          const allIconsOption = this.categoriesDropdown.createEl("option", {
+            text: "\u2B50 ALL ICONS",
+            value: "all"
+          });
+          allIconsOption.selected = true;
+          this.iconCategories.forEach((category, index) => {
+            this.categoriesDropdown.createEl("option", {
+              text: category.category,
+              value: category.id
+            });
+          });
+          this.categoriesDropdown.addEventListener("change", async () => {
+            this.selectedIconCategory = this.categoriesDropdown.value;
+            this.selectedIconCategoryIndex = this.categoriesDropdown.selectedIndex;
+            this.iconsCurrentPage = 1;
+            this.iconSearchInput.value = "";
+            this.isIconsSearchMode = false;
+            await this.fetchIconsByCategory();
+          });
+          const nextCategoryButton = categoriesContainer.createEl("button", {
+            text: "\u25B6\uFE0F Next Category",
+            cls: "pixel-banner-next-category-button",
+            attr: {
+              style: `
+                        padding: 8px 10px;
+                        border-radius: 4px;
+                        background-color: var(--interactive-accent);
+                        color: var(--text-on-accent);
+                        cursor: pointer;
+                        transition: background-color 0.2s ease;
+                    `
+            }
+          });
+          nextCategoryButton.addEventListener("click", async () => {
+            const optionsCount = this.categoriesDropdown.options.length;
+            let nextIndex = this.selectedIconCategoryIndex + 1;
+            if (nextIndex >= optionsCount) {
+              nextIndex = 0;
+            }
+            this.categoriesDropdown.selectedIndex = nextIndex;
+            this.selectedIconCategory = this.categoriesDropdown.value;
+            this.selectedIconCategoryIndex = nextIndex;
+            this.iconSearchInput.value = "";
+            this.isIconsSearchMode = false;
+            this.iconsCurrentPage = 1;
+            await this.fetchIconsByCategory();
+          });
+          const searchContainer = contentEl.createDiv({
+            cls: "pixel-banner-search-container",
+            attr: {
+              style: `
+                        display: flex;
+                        align-items: center;
+                        gap: 8px;
+                        margin-bottom: 16px;
+                    `
+            }
+          });
+          this.iconSearchInput = searchContainer.createEl("input", {
+            type: "text",
+            placeholder: "Search icons...",
+            cls: "pixel-banner-search-input",
+            attr: {
+              style: `
+                        padding: 8px;
+                        border-radius: 4px;
+                        border: 1px solid var(--background-modifier-border);
+                        flex-grow: 1;
+                    `
+            }
+          });
+          const searchButton = searchContainer.createEl("button", {
+            text: "Search",
+            cls: "pixel-banner-search-button",
+            attr: {
+              style: `
+                        padding: 8px 16px;
+                        border-radius: 4px;
+                        background-color: var(--interactive-accent);
+                        color: var(--text-on-accent);
+                    `
+            }
+          });
+          searchButton.addEventListener("click", () => {
+            this.searchIcons();
+          });
+          this.iconSearchInput.addEventListener("keydown", (e) => {
+            if (e.key === "Enter") {
+              this.searchIcons();
+            }
+          });
+          const clearSearchButton = searchContainer.createEl("button", {
+            text: "Clear",
+            cls: "pixel-banner-clear-search-button"
+          });
+          clearSearchButton.addEventListener("click", () => {
+            this.iconSearchInput.value = "";
+            this.isIconsSearchMode = false;
+            if (this.selectedIconCategory) {
+              this.fetchIconsByCategory();
+            }
+          });
+          this.collectionsGridContainer = contentEl.createDiv({
+            cls: "pixel-banner-collections-grid",
+            attr: {
+              style: `
+                        position: relative;
+                        display: grid;
+                        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+                        gap: 12px;
+                        margin-top: 12px;
+                        max-height: 400px;
+                        overflow-y: auto;
+                        padding: 8px;
+                        min-height: 200px;
+                    `
+            }
+          });
+          this.collectionsPaginationContainer = contentEl.createDiv({
+            cls: "pixel-banner-collections-pagination",
+            attr: {
+              style: `
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        margin-top: 12px;
+                        padding-top: 8px;
+                        border-top: 1px solid var(--background-modifier-border);
+                    `
+            }
+          });
+          this.selectedIconCategory = "all";
+          this.selectedIconCategoryIndex = 0;
+          this.fetchIconsByCategory();
+        }).catch((err) => {
+          loadingContainer.remove();
+          contentEl.createEl("div", {
+            cls: "pixel-banner-error",
+            text: `\u{1F62D} Failed to load icon categories. Please try again later.`,
+            attr: {
+              style: `
+                        color: var(--text-error);
+                        padding: 16px;
+                        border: 1px solid var(--background-modifier-error);
+                        border-radius: 4px;
+                        background-color: var(--background-modifier-error-rgb);
+                        margin-bottom: 16px;
+                    `
+            }
+          });
+        });
+      }
+      async onChooseIcon(icon) {
+        try {
+          const url = `${PIXEL_BANNER_PLUS.API_URL}${PIXEL_BANNER_PLUS.ENDPOINTS.BANNER_ICONS_ID.replace(":id", icon.id)}?key=${PIXEL_BANNER_PLUS.BANNER_ICON_KEY}`;
+          const response = await fetch(url, {
+            headers: {
+              "Accept": "application/json"
+            }
+          });
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+          const data = await response.json();
+          if (!data.success) {
+            throw new Error(data.error || "Failed to fetch icon details");
+          }
+          const iconData = data.bannerIcon;
+          let extension = "png";
+          if (iconData.base64Image) {
+            const mimeTypeMatch = iconData.base64Image.match(/data:image\/([\w\+\-\.]+);base64/);
+            if (mimeTypeMatch && mimeTypeMatch[1]) {
+              extension = mimeTypeMatch[1];
+              if (extension === "jpeg") extension = "jpg";
+              if (extension === "svg+xml") extension = "svg";
+            }
+          } else if (iconData.file_name) {
+            const parts = iconData.file_name.split(".");
+            if (parts.length > 1) {
+              extension = parts[parts.length - 1].toLowerCase();
+            }
+          }
+          if (iconData.base64Image) {
+            const defaultFolder = this.plugin.settings.defaultSelectIconPath || "";
+            const folderPath = await new Promise((resolve) => {
+              new IconFolderSelectionModal(this.app, defaultFolder, (result) => {
+                resolve(result);
+              }).open();
+            });
+            if (!folderPath) {
+              new import_obsidian17.Notice("No folder selected");
+              return;
+            }
+            if (!await this.app.vault.adapter.exists(folderPath)) {
+              await this.app.vault.createFolder(folderPath);
+            }
+            const suggestedName = `${iconData.description || "icon"}`;
+            const userFileName = await new Promise((resolve) => {
+              new SaveImageModal(this.app, suggestedName, (result) => {
+                resolve(result);
+              }).open();
+            });
+            if (!userFileName) {
+              new import_obsidian17.Notice("No file name provided");
+              return;
+            }
+            let baseName = userFileName;
+            if (baseName.includes(".")) {
+              baseName = baseName.substring(0, baseName.lastIndexOf("."));
+            }
+            const finalFileName = `${baseName}.${extension}`;
+            const base64Parts = iconData.base64Image.split(",");
+            const base64Data = base64Parts[1];
+            const binaryString = window.atob(base64Data);
+            const bytes = new Uint8Array(binaryString.length);
+            for (let i = 0; i < binaryString.length; i++) {
+              bytes[i] = binaryString.charCodeAt(i);
+            }
+            try {
+              const fullPath = `${folderPath}/${finalFileName}`.replace(/\/+/g, "/");
+              const newFile = await this.app.vault.createBinary(fullPath, bytes.buffer);
+              this.onChoose(newFile);
+              this.close();
+            } catch (error) {
+              new import_obsidian17.Notice(`Failed to save image: ${error.message}`);
+            }
+          }
+        } catch (error) {
+          console.error("Error selecting icon:", error);
+          new import_obsidian17.Notice(`Failed to select icon: ${error.message}`);
+        }
+      }
+      showCollectionsLoading() {
+        if (this.collectionsGridContainer) {
+          const loadingContainer = this.collectionsGridContainer.createDiv({
+            cls: "pixel-banner-loading-container",
+            attr: {
+              style: `
+                        position: absolute;
+                        top: 0;
+                        right: 0;
+                        bottom: 0;
+                        left: 0;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        background-color: var(--background-secondary);
+                        opacity: 0.7;
+                    `
+            }
+          });
+          loadingContainer.createDiv({
+            cls: "pixel-banner-loading-spinner",
+            attr: {
+              style: `
+                        width: 40px;
+                        height: 40px;
+                        border: 4px solid var(--background-modifier-border);
+                        border-top: 4px solid var(--text-accent);
+                        border-radius: 50%;
+                        animation: pixel-banner-spin 1s linear infinite;
+                    `
+            }
+          });
+        }
+      }
+      hideCollectionsLoading() {
+      }
+      showCollectionsError(message) {
+        if (this.collectionsGridContainer) {
+          this.collectionsGridContainer.empty();
+          this.collectionsGridContainer.createEl("div", {
+            cls: "pixel-banner-error",
+            text: `Error: ${message}`,
+            attr: {
+              style: `
+                        color: var(--text-error);
+                        padding: 16px;
+                        border: 1px solid var(--background-modifier-error);
+                        border-radius: 4px;
+                        background-color: var(--background-modifier-error-rgb);
+                        margin-bottom: 16px;
+                        grid-column: 1 / -1;
+                    `
+            }
+          });
+        }
+      }
+      renderIcons(icons, totalPages, totalCount) {
+        this.collectionsGridContainer.empty();
+        this.collectionsPaginationContainer.empty();
+        this.iconsTotalPages = totalPages || 1;
+        if (!icons || icons.length === 0) {
+          this.collectionsGridContainer.createEl("div", {
+            cls: "pixel-banner-no-icons",
+            text: this.isIconsSearchMode ? "No icons found matching your search." : "No icons found in this category.",
+            attr: {
+              style: `
+                        width: 100%;
+                        padding: 32px;
+                        text-align: center;
+                        color: var(--text-muted);
+                        background-color: var(--background-secondary);
+                        border-radius: 4px;
+                        grid-column: 1 / -1;
+                    `
+            }
+          });
+          return;
+        }
+        icons.forEach((icon) => {
+          const iconContainer = this.collectionsGridContainer.createDiv({
+            cls: "pixel-banner-icon-item",
+            attr: {
+              style: `
+                        border: 1px solid var(--background-modifier-border);
+                        border-radius: 4px;
+                        overflow: hidden;
+                        cursor: pointer;
+                        transition: transform 0.2s ease, box-shadow 0.2s ease;
+                    `
+            }
+          });
+          iconContainer.addEventListener("mouseenter", () => {
+            iconContainer.style.transform = "translateY(-2px)";
+            iconContainer.style.boxShadow = "0 4px 8px rgba(0, 0, 0, 0.1)";
+          });
+          iconContainer.addEventListener("mouseleave", () => {
+            iconContainer.style.transform = "none";
+            iconContainer.style.boxShadow = "none";
+          });
+          const imageContainer = iconContainer.createDiv({
+            attr: {
+              style: `
+                        height: 120px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        background-color: var(--background-secondary);
+                        padding: 8px;
+                    `
+            }
+          });
+          const image = imageContainer.createEl("img", {
+            attr: {
+              src: icon.base64Image,
+              alt: icon.description,
+              style: `
+                        max-width: 100%;
+                        max-height: 100%;
+                        object-fit: contain;
+                    `
+            }
+          });
+          const infoContainer = iconContainer.createDiv({
+            attr: {
+              style: `
+                        padding: 8px;
+                        background-color: var(--background-primary);
+                    `
+            }
+          });
+          infoContainer.createEl("div", {
+            text: icon.description,
+            attr: {
+              style: `
+                        font-size: 12px;
+                        font-weight: 500;
+                        margin-bottom: 4px;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                    `
+            }
+          });
+          infoContainer.createEl("div", {
+            text: icon.category,
+            attr: {
+              style: `
+                        font-size: 10px;
+                        color: var(--text-muted);
+                    `
+            }
+          });
+          iconContainer.addEventListener("click", () => {
+            this.onChooseIcon(icon);
+          });
+        });
+        if (totalPages > 1) {
+          const paginationInfo = this.collectionsPaginationContainer.createEl("div", {
+            text: `Page ${this.iconsCurrentPage} of ${totalPages} (${totalCount} icons)`,
+            attr: {
+              style: `
+                        font-size: 12px;
+                        color: var(--text-muted);
+                    `
+            }
+          });
+          const paginationControls = this.collectionsPaginationContainer.createDiv({
+            attr: {
+              style: `
+                        display: flex;
+                        gap: 4px;
+                    `
+            }
+          });
+          const firstPageButton = paginationControls.createEl("button", {
+            text: "\xAB",
+            cls: "pixel-banner-pagination-button"
+          });
+          if (this.iconsCurrentPage === 1) {
+            firstPageButton.disabled = true;
+          }
+          firstPageButton.addEventListener("click", () => {
+            if (this.iconsCurrentPage !== 1) {
+              this.iconsCurrentPage = 1;
+              this._isPaginating = true;
+              this.isIconsSearchMode ? this.searchIcons() : this.fetchIconsByCategory();
+            }
+          });
+          const prevPageButton = paginationControls.createEl("button", {
+            text: "\u2039",
+            cls: "pixel-banner-pagination-button"
+          });
+          if (this.iconsCurrentPage === 1) {
+            prevPageButton.disabled = true;
+          }
+          prevPageButton.addEventListener("click", () => {
+            if (this.iconsCurrentPage > 1) {
+              this.iconsCurrentPage--;
+              this._isPaginating = true;
+              this.isIconsSearchMode ? this.searchIcons() : this.fetchIconsByCategory();
+            }
+          });
+          const pageNumber = paginationControls.createEl("span", {
+            text: this.iconsCurrentPage.toString(),
+            attr: {
+              style: `
+                        padding: 4px 8px;
+                    `
+            }
+          });
+          const nextPageButton = paginationControls.createEl("button", {
+            text: "\u203A",
+            cls: "pixel-banner-pagination-button"
+          });
+          if (this.iconsCurrentPage === totalPages) {
+            nextPageButton.disabled = true;
+          }
+          nextPageButton.addEventListener("click", () => {
+            if (this.iconsCurrentPage < totalPages) {
+              this.iconsCurrentPage++;
+              this._isPaginating = true;
+              this.isIconsSearchMode ? this.searchIcons() : this.fetchIconsByCategory();
+            }
+          });
+          const lastPageButton = paginationControls.createEl("button", {
+            text: "\u203A\u203A",
+            cls: "pixel-banner-pagination-button"
+          });
+          if (this.iconsCurrentPage === totalPages) {
+            lastPageButton.disabled = true;
+          }
+          lastPageButton.addEventListener("click", () => {
+            if (this.iconsCurrentPage !== totalPages) {
+              this.iconsCurrentPage = totalPages;
+              this._isPaginating = true;
+              this.isIconsSearchMode ? this.searchIcons() : this.fetchIconsByCategory();
+            }
+          });
+        }
+      }
+      async searchIcons() {
+        const searchTerm = this.iconSearchInput.value.trim();
+        if (!searchTerm) return;
+        this.isIconsSearchMode = true;
+        if (!this._isPaginating) {
+          this.iconsCurrentPage = 1;
+        }
+        this.showCollectionsLoading();
+        try {
+          const url = `${PIXEL_BANNER_PLUS.API_URL}${PIXEL_BANNER_PLUS.ENDPOINTS.BANNER_ICONS_SEARCH}?key=${PIXEL_BANNER_PLUS.BANNER_ICON_KEY}`;
+          const response = await fetch(url, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              "Accept": "application/json"
+            },
+            body: JSON.stringify({
+              searchTerm,
+              page: this.iconsCurrentPage,
+              limit: this.iconsPerPage
+            })
+          });
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+          const data = await response.json();
+          if (!data.success) {
+            throw new Error(data.error || "Failed to search icons");
+          }
+          this.iconsCurrentPage = data.currentPage || this.iconsCurrentPage;
+          this.renderIcons(data.bannerIcons, data.totalPages, data.totalCount);
+        } catch (error) {
+          console.error("Error searching icons:", error);
+          this.showCollectionsError(error.message);
+        } finally {
+          this.hideCollectionsLoading();
+          this._isPaginating = false;
+        }
+      }
+      updateImageGrid() {
+        this.gridContainer.empty();
+        this.paginationContainer.empty();
+        let filteredFiles = this.imageFiles.filter((file) => {
+          const filePath = file.path.toLowerCase();
+          const fileName = file.name.toLowerCase();
+          return filePath.includes(this.searchQuery) || fileName.includes(this.searchQuery);
+        });
+        filteredFiles = this.sortFiles(filteredFiles);
+        const totalImages = filteredFiles.length;
+        const totalPages = Math.ceil(totalImages / this.imagesPerPage);
+        const startIndex = (this.currentPage - 1) * this.imagesPerPage;
+        const endIndex = Math.min(startIndex + this.imagesPerPage, totalImages);
+        const currentFiles = filteredFiles.slice(startIndex, endIndex);
+        if (currentFiles.length === 0) {
+          const noImagesMessage = this.gridContainer.createEl("div", {
+            cls: "pixel-banner-no-images",
+            text: filteredFiles.length === 0 ? "\u{1F50D} No images found matching your search." : "No images on this page.",
+            attr: {
+              style: `
+                        width: 100%;
+                        height: 200px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-size: 1.2em;
+                        color: var(--text-muted);
+                        border: 1px dashed var(--background-modifier-border);
+                        border-radius: 8px;
+                        background-color: var(--background-secondary);
+                        grid-column: 1 / -1;
+                        text-align: center;
+                        padding: 20px;
+                    `
+            }
+          });
+        }
+        currentFiles.forEach((file) => {
+          const imageContainer = this.gridContainer.createDiv({ cls: "pixel-banner-image-container" });
+          const thumbnailContainer = imageContainer.createDiv({
+            attr: {
+              style: `
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        height: 150px;
+                    `
+            }
+          });
+          if (file.extension.toLowerCase() === "svg") {
+            this.app.vault.readBinary(file).then((arrayBuffer) => {
+              const blob = new Blob([arrayBuffer], { type: "image/svg+xml" });
+              const url = URL.createObjectURL(blob);
+              const img = thumbnailContainer.createEl("img", {
+                cls: "pixel-banner-image-thumbnail",
+                attr: { src: url }
+              });
+              const cleanup = () => URL.revokeObjectURL(url);
+              img.addEventListener("load", cleanup);
+              img.addEventListener("error", cleanup);
+            }).catch(() => {
+              thumbnailContainer.createEl("div", {
+                cls: "pixel-banner-image-error",
+                text: "Error loading SVG"
+              });
+            });
+          } else {
+            this.app.vault.readBinary(file).then((arrayBuffer) => {
+              const blob = new Blob([arrayBuffer]);
+              const url = URL.createObjectURL(blob);
+              const img = thumbnailContainer.createEl("img", {
+                cls: "pixel-banner-image-thumbnail",
+                attr: { src: url }
+              });
+              const cleanup = () => URL.revokeObjectURL(url);
+              img.addEventListener("load", cleanup);
+              img.addEventListener("error", cleanup);
+            }).catch(() => {
+              thumbnailContainer.createEl("div", {
+                cls: "pixel-banner-image-error",
+                text: "Error loading image"
+              });
+            });
+          }
+          const deleteButton = imageContainer.createDiv({ cls: "pixel-banner-image-delete" });
+          deleteButton.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>';
+          deleteButton.addEventListener("click", (e) => {
+            e.stopPropagation();
+            this.deleteImage(file);
+          });
+          const infoContainer = imageContainer.createDiv({ cls: "pixel-banner-image-info" });
+          const displayPath = this.plugin.settings.useShortPath ? this.getShortPath(file.path) : file.path;
+          infoContainer.createDiv({ text: displayPath, cls: "pixel-banner-image-path" });
+          imageContainer.addEventListener("click", () => {
+            this.onChoose(file);
+            this.close();
+          });
+        });
+        if (totalPages > 1) {
+          const paginationInfo = this.paginationContainer.createDiv({
+            cls: "pixel-banner-pagination-info",
+            text: `Showing ${startIndex + 1}-${endIndex} of ${totalImages} images | Page ${this.currentPage} of ${totalPages}`
+          });
+          const paginationControls = this.paginationContainer.createDiv({
+            cls: "pixel-banner-controls",
+            attr: {
+              style: "display: flex; gap: 5px; align-items: center;"
+            }
+          });
+          const firstPageButton = paginationControls.createEl("button", {
+            cls: `pixel-banner-pagination-button ${this.currentPage === 1 ? "disabled" : ""}`,
+            text: "\xAB\xAB"
+          });
+          firstPageButton.addEventListener("click", () => {
+            if (this.currentPage !== 1) {
+              this.currentPage = 1;
+              this.updateImageGrid();
+            }
+          });
+          const prevPageButton = paginationControls.createEl("button", {
+            cls: `pixel-banner-pagination-button ${this.currentPage === 1 ? "disabled" : ""}`,
+            text: "\u2039"
+          });
+          prevPageButton.addEventListener("click", () => {
+            if (this.currentPage > 1) {
+              this.currentPage--;
+              this.updateImageGrid();
+            }
+          });
+          const nextPageButton = paginationControls.createEl("button", {
+            cls: `pixel-banner-pagination-button ${this.currentPage === totalPages ? "disabled" : ""}`,
+            text: "\u203A"
+          });
+          nextPageButton.addEventListener("click", () => {
+            if (this.currentPage < totalPages) {
+              this.currentPage++;
+              this.updateImageGrid();
+            }
+          });
+          const lastPageButton = paginationControls.createEl("button", {
+            cls: `pixel-banner-pagination-button ${this.currentPage === totalPages ? "disabled" : ""}`,
+            text: "\u203A\u203A"
+          });
+          lastPageButton.addEventListener("click", () => {
+            if (this.currentPage !== totalPages) {
+              this.currentPage = totalPages;
+              this.updateImageGrid();
+            }
+          });
+        }
+      }
+      sortFiles(files) {
+        return files.sort((a, b) => {
+          if (this.sortOrder === "name-asc") {
+            return a.name.localeCompare(b.name);
+          } else if (this.sortOrder === "name-desc") {
+            return b.name.localeCompare(a.name);
+          } else if (this.sortOrder === "date-asc") {
+            return a.stat.mtime - b.stat.mtime;
+          } else if (this.sortOrder === "date-desc") {
+            return b.stat.mtime - a.stat.mtime;
+          }
+          return 0;
+        });
+      }
+      getShortPath(path) {
+        const parts = path.split("/");
+        const fileName = parts.pop();
+        if (parts.length > 1) {
+          return `${parts[0]}/.../${fileName}`;
+        }
+        return path;
+      }
+      onClose() {
+        if (this.style) {
+          this.style.remove();
+        }
+        if (this.tabStyles) {
+          this.tabStyles.remove();
+        }
+        if (this.spinnerStyle) {
+          this.spinnerStyle.remove();
+        }
+        if (this.plugin.settings.openTargetingModalAfterSelectingBannerOrIcon && !this.targetingModalOpened) {
+          const activeFile = this.app.workspace.getActiveFile();
+          if (activeFile) {
+            const { TargetPositionModal: TargetPositionModal2 } = (init_targetPositionModal(), __toCommonJS(targetPositionModal_exports));
+            new TargetPositionModal2(this.app, this.plugin).open();
+          }
+        }
+        const { contentEl } = this;
+        contentEl.empty();
       }
     };
   }
@@ -3593,15 +9315,9 @@ var init_emoji_en_US = __esm({
         "face",
         "grimace",
         "teeth",
-        "#1\xA0best",
         "awkward",
         "eek",
-        "foot",
-        "friend",
-        "mouth",
-        "mutual",
-        "nervous",
-        "snapchat"
+        "nervous"
       ],
       "\u{1F925}": [
         "lying_face",
@@ -4255,7 +9971,8 @@ var init_emoji_en_US = __esm({
         "fairy",
         "fantasy",
         "oni",
-        "tale"
+        "tale",
+        "shrek"
       ],
       "\u{1F47A}": [
         "goblin",
@@ -6615,7 +12332,6 @@ var init_emoji_en_US = __esm({
         "guard",
         "protect",
         "british",
-        "foot",
         "guardsman"
       ],
       "\u{1F482}\u200D\u2642\uFE0F": [
@@ -20293,6 +26009,12 @@ var init_emoji_en_US = __esm({
         "romania",
         "romanian"
       ],
+      "\u{1F1E8}\u{1F1F6}": [
+        "flag_sark",
+        "cq",
+        "flag",
+        "banner"
+      ],
       "\u{1F1F7}\u{1F1F8}": [
         "flag_serbia",
         "rs",
@@ -21812,7 +27534,8 @@ var init_emoji_en_US = __esm({
         "monster",
         "fairy",
         "fantasy",
-        "tale"
+        "tale",
+        "shrek"
       ],
       "\u{1FAB8}": [
         "coral",
@@ -21992,7 +27715,6 @@ var init_emoji_en_US = __esm({
       ],
       "\u{1FACE}": [
         "moose",
-        "shrek",
         "canada",
         "sweden",
         "sven",
@@ -22233,6 +27955,35 @@ var init_emoji_en_US = __esm({
         "broken chain",
         "constraint",
         "break"
+      ],
+      "\u{1FAE9}": [
+        "face with bags under eyes",
+        "tired",
+        "sleepy",
+        "exhausted"
+      ],
+      "\u{1FAC6}": [
+        "fingerprint"
+      ],
+      "\u{1FABE}": [
+        "leafless tree"
+      ],
+      "\u{1FADC}": [
+        "root vegetable",
+        "radish"
+      ],
+      "\u{1FA89}": [
+        "harp",
+        "music",
+        "instrument"
+      ],
+      "\u{1FA8F}": [
+        "shovel",
+        "tool",
+        "dig"
+      ],
+      "\u{1FADF}": [
+        "splatter"
       ]
     };
   }
@@ -22251,13 +28002,13 @@ var init_emojis = __esm({
 });
 
 // src/modal/modals/emojiSelectionModal.js
-var import_obsidian15, EmojiSelectionModal;
+var import_obsidian18, EmojiSelectionModal;
 var init_emojiSelectionModal = __esm({
   "src/modal/modals/emojiSelectionModal.js"() {
-    import_obsidian15 = require("obsidian");
+    import_obsidian18 = require("obsidian");
     init_emojis();
     init_modals();
-    EmojiSelectionModal = class extends import_obsidian15.Modal {
+    EmojiSelectionModal = class extends import_obsidian18.Modal {
       constructor(app, plugin, onChoose, skipTargetingModal = false) {
         super(app);
         this.plugin = plugin;
@@ -22277,7 +28028,7 @@ var init_emojiSelectionModal = __esm({
         const bannerIconField = Array.isArray(this.plugin.settings.customBannerIconField) ? this.plugin.settings.customBannerIconField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconField;
         this.currentBannerIconField = (frontmatter == null ? void 0 : frontmatter[bannerIconField]) || "";
         contentEl.createEl("h3", {
-          text: "\u2B50 Set Banner Icon",
+          text: "\u{1F4F0} Set Banner Icon Emoji & Text",
           cls: "banner-icon-title margin-top-0"
         });
         contentEl.createEl("p", {
@@ -22292,7 +28043,7 @@ var init_emojiSelectionModal = __esm({
           }
         });
         const bannerIconContainer = contentEl.createDiv({
-          cls: "banner-icon-container",
+          cls: "banner-icon-input-container",
           attr: {
             style: `
                     display: flex;
@@ -22316,7 +28067,7 @@ var init_emojiSelectionModal = __esm({
           value: this.currentBannerIconField || ""
         });
         const setBannerButton = bannerIconContainer.createEl("button", {
-          text: "Update Banner Icon",
+          text: "\u{1F4BE} Insert / Update",
           cls: "set-banner-button",
           attr: {
             style: `
@@ -22325,14 +28076,60 @@ var init_emojiSelectionModal = __esm({
                 `
           }
         });
-        setBannerButton.addEventListener("click", async () => {
+        const removeBannerIconButton = bannerIconContainer.createEl("button", {
+          text: "\u{1F5D1}\uFE0F Remove",
+          cls: "remove-banner-icon-button cursor-pointer"
+        });
+        const handleSetBannerButtonClick = async () => {
           this.closedByButton = true;
           const trimmedValue = this.bannerIconInput.value.trim();
           await this.onChoose(trimmedValue === "" ? null : trimmedValue);
+          if (trimmedValue === "") {
+            const activeFile3 = this.app.workspace.getActiveFile();
+            if (activeFile3) {
+              await this.app.fileManager.processFrontMatter(activeFile3, (frontmatter2) => {
+                const bannerIconField2 = Array.isArray(this.plugin.settings.customBannerIconField) ? this.plugin.settings.customBannerIconField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconField;
+                const bannerIconImageAlignmentField = Array.isArray(this.plugin.settings.customBannerIconImageAlignmentField) ? this.plugin.settings.customBannerIconImageAlignmentField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconImageAlignmentField;
+                const iconSizeField = Array.isArray(this.plugin.settings.customBannerIconSizeField) ? this.plugin.settings.customBannerIconSizeField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconSizeField;
+                const iconTextVerticalOffsetField = Array.isArray(this.plugin.settings.customBannerIconTextVerticalOffsetField) ? this.plugin.settings.customBannerIconTextVerticalOffsetField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconTextVerticalOffsetField;
+                const iconRotateField = Array.isArray(this.plugin.settings.customBannerIconRotateField) ? this.plugin.settings.customBannerIconRotateField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconRotateField;
+                const iconYPositionField = Array.isArray(this.plugin.settings.customBannerIconVeritalOffsetField) ? this.plugin.settings.customBannerIconVeritalOffsetField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconVeritalOffsetField;
+                const iconXPositionField = Array.isArray(this.plugin.settings.customBannerIconXPositionField) ? this.plugin.settings.customBannerIconXPositionField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconXPositionField;
+                const iconColorField = Array.isArray(this.plugin.settings.customBannerIconColorField) ? this.plugin.settings.customBannerIconColorField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconColorField;
+                const iconBgColorField = Array.isArray(this.plugin.settings.customBannerIconBackgroundColorField) ? this.plugin.settings.customBannerIconBackgroundColorField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconBackgroundColorField;
+                const iconXPaddingField = Array.isArray(this.plugin.settings.customBannerIconPaddingXField) ? this.plugin.settings.customBannerIconPaddingXField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconPaddingXField;
+                const iconYPaddingField = Array.isArray(this.plugin.settings.customBannerIconPaddingYField) ? this.plugin.settings.customBannerIconPaddingYField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconPaddingYField;
+                const iconBorderRadiusField = Array.isArray(this.plugin.settings.customBannerIconBorderRadiusField) ? this.plugin.settings.customBannerIconBorderRadiusField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconBorderRadiusField;
+                const bannerIconImageField = Array.isArray(this.plugin.settings.customBannerIconImageField) ? this.plugin.settings.customBannerIconImageField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconImageField;
+                const iconImageSizeMultiplierField = Array.isArray(this.plugin.settings.customBannerIconImageSizeMultiplierField) ? this.plugin.settings.customBannerIconImageSizeMultiplierField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconImageSizeMultiplierField;
+                const hasBannerIconImage = frontmatter2[bannerIconImageField] !== void 0 && frontmatter2[bannerIconImageField] !== null && frontmatter2[bannerIconImageField] !== "";
+                if (!hasBannerIconImage) {
+                  delete frontmatter2[bannerIconField2];
+                  delete frontmatter2[bannerIconImageAlignmentField];
+                  delete frontmatter2[iconSizeField];
+                  delete frontmatter2[iconTextVerticalOffsetField];
+                  delete frontmatter2[iconRotateField];
+                  delete frontmatter2[iconYPositionField];
+                  delete frontmatter2[iconXPositionField];
+                  delete frontmatter2[iconColorField];
+                  delete frontmatter2[iconBgColorField];
+                  delete frontmatter2[iconXPaddingField];
+                  delete frontmatter2[iconYPaddingField];
+                  delete frontmatter2[iconBorderRadiusField];
+                  delete frontmatter2[iconImageSizeMultiplierField];
+                } else {
+                  delete frontmatter2[bannerIconField2];
+                  delete frontmatter2[iconTextVerticalOffsetField];
+                  delete frontmatter2[iconColorField];
+                  delete frontmatter2[bannerIconImageAlignmentField];
+                }
+              });
+            }
+          }
           this.close();
           const activeFile2 = this.app.workspace.getActiveFile();
           if (activeFile2) {
-            const activeView = this.app.workspace.getActiveViewOfType(import_obsidian15.MarkdownView);
+            const activeView = this.app.workspace.getActiveViewOfType(import_obsidian18.MarkdownView);
             if (activeView) {
               const contentEl2 = activeView.contentEl;
               if (contentEl2) {
@@ -22371,14 +28168,11 @@ var init_emojiSelectionModal = __esm({
               new TargetPositionModal(this.app, this.plugin).open();
             }
           }
-        });
-        const clearBannerIconButton = bannerIconContainer.createEl("button", {
-          text: "Clear Icon",
-          cls: "clear-banner-icon-button cursor-pointer"
-        });
-        clearBannerIconButton.addEventListener("click", () => {
+        };
+        setBannerButton.addEventListener("click", handleSetBannerButtonClick);
+        removeBannerIconButton.addEventListener("click", async () => {
           this.bannerIconInput.value = "";
-          this.bannerIconInput.focus();
+          await handleSetBannerButtonClick();
         });
         contentEl.createEl("h5", { text: "Emoji Selector" });
         const searchContainer = contentEl.createDiv({ cls: "emoji-search-container" });
@@ -22462,6 +28256,14 @@ var init_emojiSelectionModal = __esm({
             .set-banner-button:hover {
                 background: var(--interactive-accent-hover);
             }
+
+            /* ------------------- */
+            /* -- mobile layout -- */
+            /* ------------------- */
+            @media screen and (max-width: 640px) {
+                .banner-icon-input-container { flex-direction: column !important; }
+                .banner-icon-input-container * { width: 100% !important; }
+            }
         `;
         document.head.appendChild(style);
       }
@@ -22508,1736 +28310,18 @@ var init_emojiSelectionModal = __esm({
   }
 });
 
-// src/utils/getCurrentTheme.js
-function getCurrentTheme() {
-  return document.body.classList.contains("theme-dark") ? "dark" : "light";
-}
-var getCurrentTheme_default;
-var init_getCurrentTheme = __esm({
-  "src/utils/getCurrentTheme.js"() {
-    getCurrentTheme_default = getCurrentTheme;
-  }
-});
-
-// src/modal/modals/targetPositionModal.js
-var import_obsidian16, import_obsidian17, TargetPositionModal;
-var init_targetPositionModal = __esm({
-  "src/modal/modals/targetPositionModal.js"() {
-    import_obsidian16 = require("obsidian");
-    init_getCurrentTheme();
-    init_modals();
-    init_selectPixelBannerModal();
-    init_flags();
-    init_frontmatterUtils();
-    import_obsidian17 = require("obsidian");
-    TargetPositionModal = class extends import_obsidian16.Modal {
-      constructor(app, plugin, onPositionChange) {
-        var _a;
-        super(app);
-        this.plugin = plugin;
-        this.onPositionChange = onPositionChange;
-        this.isDragging = false;
-        const activeFile = this.app.workspace.getActiveFile();
-        const frontmatter = (_a = this.app.metadataCache.getFileCache(activeFile)) == null ? void 0 : _a.frontmatter;
-        const displayField = Array.isArray(this.plugin.settings.customImageDisplayField) ? this.plugin.settings.customImageDisplayField[0].split(",")[0].trim() : this.plugin.settings.customImageDisplayField;
-        this.currentDisplay = (frontmatter == null ? void 0 : frontmatter[displayField]) || this.plugin.settings.imageDisplay;
-        const xField = Array.isArray(this.plugin.settings.customXPositionField) ? this.plugin.settings.customXPositionField[0].split(",")[0].trim() : this.plugin.settings.customXPositionField;
-        this.currentX = (frontmatter == null ? void 0 : frontmatter[xField]) || this.plugin.settings.xPosition;
-        const yField = Array.isArray(this.plugin.settings.customYPositionField) ? this.plugin.settings.customYPositionField[0].split(",")[0].trim() : this.plugin.settings.customYPositionField;
-        this.currentY = (frontmatter == null ? void 0 : frontmatter[yField]) || this.plugin.settings.yPosition;
-        const heightField = Array.isArray(this.plugin.settings.customBannerHeightField) ? this.plugin.settings.customBannerHeightField[0].split(",")[0].trim() : this.plugin.settings.customBannerHeightField;
-        this.currentHeight = (frontmatter == null ? void 0 : frontmatter[heightField]) || this.plugin.settings.bannerHeight;
-        const contentStartPositionField = Array.isArray(this.plugin.settings.customContentStartField) ? this.plugin.settings.customContentStartField[0].split(",")[0].trim() : this.plugin.settings.customContentStartField;
-        this.currentContentStartPosition = (frontmatter == null ? void 0 : frontmatter[contentStartPositionField]) || this.plugin.settings.contentStartPosition;
-        const bannerIconXPositionField = Array.isArray(this.plugin.settings.customBannerIconXPositionField) ? this.plugin.settings.customBannerIconXPositionField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconXPositionField;
-        this.currentBannerIconXPosition = (frontmatter == null ? void 0 : frontmatter[bannerIconXPositionField]) || this.plugin.settings.bannerIconXPosition;
-        const repeatField = Array.isArray(this.plugin.settings.customImageRepeatField) ? this.plugin.settings.customImageRepeatField[0].split(",")[0].trim() : this.plugin.settings.customImageRepeatField;
-        this.currentRepeat = (frontmatter == null ? void 0 : frontmatter[repeatField]) !== void 0 ? frontmatter[repeatField] : this.plugin.settings.imageRepeat;
-        this.currentZoom = 100;
-        if (this.currentDisplay && this.currentDisplay.endsWith("%")) {
-          this.currentZoom = parseInt(this.currentDisplay) || 100;
-          this.currentDisplay = "cover-zoom";
-        }
-      }
-      // Helper to update frontmatter with new display value
-      updateDisplayMode(mode, zoom = null) {
-        const activeFile = this.app.workspace.getActiveFile();
-        if (!activeFile) return;
-        const displayField = Array.isArray(this.plugin.settings.customImageDisplayField) ? this.plugin.settings.customImageDisplayField[0].split(",")[0].trim() : this.plugin.settings.customImageDisplayField;
-        const repeatField = Array.isArray(this.plugin.settings.customImageRepeatField) ? this.plugin.settings.customImageRepeatField[0].split(",")[0].trim() : this.plugin.settings.customImageRepeatField;
-        let newValue = mode;
-        if (mode === "cover-zoom") {
-          newValue = `${zoom}%`;
-        }
-        this.app.fileManager.processFrontMatter(activeFile, (fm) => {
-          fm[displayField] = newValue;
-          if (mode === "contain" || mode === "auto") {
-            fm[repeatField] = this.currentRepeat;
-          } else {
-            if (repeatField in fm) {
-              delete fm[repeatField];
-            }
-          }
-        });
-      }
-      updateBannerHeight(height) {
-        const activeFile = this.app.workspace.getActiveFile();
-        if (!activeFile) return;
-        const heightField = Array.isArray(this.plugin.settings.customBannerHeightField) ? this.plugin.settings.customBannerHeightField[0].split(",")[0].trim() : this.plugin.settings.customBannerHeightField;
-        this.app.fileManager.processFrontMatter(activeFile, (frontmatter) => {
-          frontmatter[heightField] = height;
-        });
-      }
-      updateBannerContentStartPosition(position) {
-        const activeFile = this.app.workspace.getActiveFile();
-        if (!activeFile) return;
-        const contentStartPositionField = Array.isArray(this.plugin.settings.customContentStartField) ? this.plugin.settings.customContentStartField[0].split(",")[0].trim() : this.plugin.settings.customContentStartField;
-        this.app.fileManager.processFrontMatter(activeFile, (frontmatter) => {
-          frontmatter[contentStartPositionField] = position;
-        });
-      }
-      updateBannerIconXPosition(position) {
-        const activeFile = this.app.workspace.getActiveFile();
-        if (!activeFile) return;
-        const bannerIconXPositionField = Array.isArray(this.plugin.settings.customBannerIconXPositionField) ? this.plugin.settings.customBannerIconXPositionField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconXPositionField;
-        this.app.fileManager.processFrontMatter(activeFile, (frontmatter) => {
-          frontmatter[bannerIconXPositionField] = position;
-        });
-      }
-      updateBannerIconSize(size) {
-        const activeFile = this.app.workspace.getActiveFile();
-        if (!activeFile) return;
-        const bannerIconSizeField = Array.isArray(this.plugin.settings.customBannerIconSizeField) ? this.plugin.settings.customBannerIconSizeField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconSizeField;
-        this.app.fileManager.processFrontMatter(activeFile, (frontmatter) => {
-          frontmatter[bannerIconSizeField] = size;
-        });
-      }
-      updateBannerIconColor(color) {
-        const activeFile = this.app.workspace.getActiveFile();
-        if (!activeFile) return;
-        const bannerIconColorField = Array.isArray(this.plugin.settings.customBannerIconColorField) ? this.plugin.settings.customBannerIconColorField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconColorField;
-        this.app.fileManager.processFrontMatter(activeFile, (frontmatter) => {
-          frontmatter[bannerIconColorField] = color;
-        });
-      }
-      updateBannerIconFontWeight(fontWeight) {
-        const activeFile = this.app.workspace.getActiveFile();
-        if (!activeFile) return;
-        const bannerIconFontWeightField = Array.isArray(this.plugin.settings.customBannerIconFontWeightField) ? this.plugin.settings.customBannerIconFontWeightField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconFontWeightField;
-        this.app.fileManager.processFrontMatter(activeFile, (frontmatter) => {
-          frontmatter[bannerIconFontWeightField] = fontWeight;
-        });
-      }
-      updateBannerIconBgColor(color, alpha) {
-        const activeFile = this.app.workspace.getActiveFile();
-        if (!activeFile) return;
-        const bannerIconBgColorField = Array.isArray(this.plugin.settings.customBannerIconBackgroundColorField) ? this.plugin.settings.customBannerIconBackgroundColorField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconBackgroundColorField;
-        let finalColor = color;
-        if (alpha < 100) {
-          if (color.startsWith("#")) {
-            const r = parseInt(color.slice(1, 3), 16);
-            const g = parseInt(color.slice(3, 5), 16);
-            const b = parseInt(color.slice(5, 7), 16);
-            finalColor = `rgba(${r}, ${g}, ${b}, ${alpha / 100})`;
-          } else if (color && !color.startsWith("rgb")) {
-            const tempEl = document.createElement("div");
-            tempEl.style.color = color;
-            document.body.appendChild(tempEl);
-            const computedColor = window.getComputedStyle(tempEl).color;
-            document.body.removeChild(tempEl);
-            const rgbMatch = computedColor.match(/rgb\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*\)/);
-            if (rgbMatch) {
-              const r = parseInt(rgbMatch[1]);
-              const g = parseInt(rgbMatch[2]);
-              const b = parseInt(rgbMatch[3]);
-              finalColor = `rgba(${r}, ${g}, ${b}, ${alpha / 100})`;
-            }
-          }
-        }
-        this.app.fileManager.processFrontMatter(activeFile, (frontmatter) => {
-          frontmatter[bannerIconBgColorField] = finalColor;
-        });
-      }
-      updateBannerIconPaddingX(paddingX) {
-        const activeFile = this.app.workspace.getActiveFile();
-        if (!activeFile) return;
-        const bannerIconPaddingXField = Array.isArray(this.plugin.settings.customBannerIconPaddingXField) ? this.plugin.settings.customBannerIconPaddingXField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconPaddingXField;
-        this.app.fileManager.processFrontMatter(activeFile, (frontmatter) => {
-          frontmatter[bannerIconPaddingXField] = paddingX;
-        });
-      }
-      updateBannerIconPaddingY(paddingY) {
-        const activeFile = this.app.workspace.getActiveFile();
-        if (!activeFile) return;
-        const bannerIconPaddingYField = Array.isArray(this.plugin.settings.customBannerIconPaddingYField) ? this.plugin.settings.customBannerIconPaddingYField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconPaddingYField;
-        this.app.fileManager.processFrontMatter(activeFile, (frontmatter) => {
-          frontmatter[bannerIconPaddingYField] = paddingY;
-        });
-      }
-      updateBannerIconBorderRadius(borderRadius) {
-        const activeFile = this.app.workspace.getActiveFile();
-        if (!activeFile) return;
-        const bannerIconBorderRadiusField = Array.isArray(this.plugin.settings.customBannerIconBorderRadiusField) ? this.plugin.settings.customBannerIconBorderRadiusField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconBorderRadiusField;
-        this.app.fileManager.processFrontMatter(activeFile, (frontmatter) => {
-          frontmatter[bannerIconBorderRadiusField] = borderRadius;
-        });
-      }
-      updateBannerIconVerticalOffset(verticalOffset) {
-        const activeFile = this.app.workspace.getActiveFile();
-        if (!activeFile) return;
-        const bannerIconVerticalOffsetField = Array.isArray(this.plugin.settings.customBannerIconVeritalOffsetField) ? this.plugin.settings.customBannerIconVeritalOffsetField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconVeritalOffsetField;
-        this.app.fileManager.processFrontMatter(activeFile, (frontmatter) => {
-          frontmatter[bannerIconVerticalOffsetField] = verticalOffset;
-        });
-      }
-      updateTitleColor(color) {
-        const activeFile = this.app.workspace.getActiveFile();
-        if (!activeFile) return;
-        const titleColorField = Array.isArray(this.plugin.settings.customTitleColorField) ? this.plugin.settings.customTitleColorField[0].split(",")[0].trim() : this.plugin.settings.customTitleColorField;
-        this.app.fileManager.processFrontMatter(activeFile, (frontmatter) => {
-          frontmatter[titleColorField] = color;
-        });
-      }
-      updateRepeatMode(repeat) {
-        const activeFile = this.app.workspace.getActiveFile();
-        if (!activeFile) return;
-        const repeatField = Array.isArray(this.plugin.settings.customImageRepeatField) ? this.plugin.settings.customImageRepeatField[0].split(",")[0].trim() : this.plugin.settings.customImageRepeatField;
-        this.app.fileManager.processFrontMatter(activeFile, (fm) => {
-          fm[repeatField] = repeat;
-        });
-      }
-      onPositionChange(x, y) {
-        const activeFile = this.app.workspace.getActiveFile();
-        if (!activeFile) return;
-        this.app.fileManager.processFrontMatter(activeFile, (frontmatter) => {
-          frontmatter.bannerTargetX = x;
-          frontmatter.bannerTargetY = y;
-        });
-      }
-      onOpen() {
-        var _a;
-        const { contentEl, modalEl, bgEl } = this;
-        contentEl.empty();
-        contentEl.addClass("target-position-modal");
-        modalEl.style.opacity = "0.8";
-        modalEl.style.width = "max-content";
-        modalEl.style.height = "max-content";
-        bgEl.style.opacity = "0";
-        const dragHandle = contentEl.createDiv({
-          cls: "drag-handle",
-          attr: {
-            style: `
-                    cursor: move;
-                    position: absolute;
-                    left: 50%;
-                    transform: translateX(-50%);
-                    top: 7px;
-                    opacity: .8;
-                `
-          }
-        });
-        dragHandle.setText("\u22EE\u22EE\u22EE\u22EE\u22EE\u22EE\u22EE\u22EE\u22EE\u22EE");
-        const bannerImageHeader = contentEl.createEl("div", {
-          text: "\u{1F5BC}\uFE0F Banner Image Settings",
-          cls: "banner-image-header",
-          attr: {
-            style: `
-                    display: flex;
-                    flex-direction: row;
-                    gap: 10px;
-                    align-items: center;
-                    justify-content: space-between;
-                    color: var(--text-accent);
-                    font-size: 0.9em;
-                    font-weight: 600;
-                    letter-spacing: 1px;
-                    text-transform: uppercase;
-                    margin-bottom: 10px;
-                `
-          }
-        });
-        const bannerImageHeaderButton = bannerImageHeader.createEl("button", {
-          text: "\u270F\uFE0F Change Image",
-          cls: "banner-image-header-button cursor-pointer",
-          attr: {
-            style: `
-                    margin-top: 15px;
-                    text-transform: uppercase;
-                    font-size: .8em;
-                `
-          }
-        });
-        bannerImageHeaderButton.addEventListener("click", () => {
-          this.close();
-          new SelectPixelBannerModal(this.app, this.plugin).open();
-        });
-        const mainContainer = contentEl.createDiv({
-          cls: "main-container",
-          attr: {
-            style: `
-                    position: relative;
-                    display: flex;
-                    flex-direction: row;
-                    gap: 20px;
-                    alignt-items: stretch;
-                `
-          }
-        });
-        const controlPanel = mainContainer.createDiv({
-          cls: "control-panel",
-          attr: {
-            style: `
-                    display: flex;
-                    flex-direction: column;
-                    gap: 10px;
-                    flex: 0 auto;
-                `
-          }
-        });
-        const displaySelect = controlPanel.createEl("select", { cls: "display-mode-select" });
-        ["cover", "auto", "contain", "cover-zoom"].forEach((mode) => {
-          const option = displaySelect.createEl("option", {
-            text: mode.replace("-", " "),
-            value: mode
-          });
-          if (mode === this.currentDisplay) {
-            option.selected = true;
-          }
-        });
-        const zoomContainer = controlPanel.createDiv({
-          cls: "zoom-container",
-          attr: {
-            style: `
-                    display: ${this.currentDisplay === "cover-zoom" ? "flex" : "none"};
-                    flex-direction: column;
-                    gap: 5px;
-                    align-items: center;
-                    margin-top: 10px;
-                    height: 100%;
-                `
-          }
-        });
-        const zoomValue = zoomContainer.createDiv({
-          cls: "zoom-value",
-          attr: {
-            style: `
-                    font-family: var(--font-monospace);
-                    font-size: 0.9em;
-                `
-          }
-        });
-        zoomValue.setText(`${this.currentZoom}%`);
-        const zoomSlider = zoomContainer.createEl("input", {
-          type: "range",
-          cls: "zoom-slider",
-          attr: {
-            min: "0",
-            max: "500",
-            step: "10",
-            value: this.currentZoom,
-            style: `
-                    flex: 1;
-                    writing-mode: vertical-lr;
-                    direction: rtl;
-                `
-          }
-        });
-        displaySelect.addEventListener("change", () => {
-          const mode = displaySelect.value;
-          zoomContainer.style.display = mode === "cover-zoom" ? "flex" : "none";
-          this.updateDisplayMode(mode, mode === "cover-zoom" ? this.currentZoom : null);
-        });
-        zoomSlider.addEventListener("input", () => {
-          this.currentZoom = parseInt(zoomSlider.value);
-          zoomValue.setText(`${this.currentZoom}%`);
-          this.updateDisplayMode("cover-zoom", this.currentZoom);
-        });
-        const heightContainer = mainContainer.createDiv({
-          cls: "height-container",
-          attr: {
-            style: `
-                    display: flex;
-                    flex-direction: column;
-                    gap: 10px;
-                    align-items: center;
-                    min-width: 60px;
-                    flex: 0 auto;
-                `
-          }
-        });
-        const heightLabel = heightContainer.createEl("div", {
-          text: "Height",
-          cls: "height-label",
-          attr: {
-            style: `
-                    color: var(--text-muted);
-                    font-size: 0.9em;
-                `
-          }
-        });
-        const heightValue = heightContainer.createDiv({
-          cls: "height-value",
-          attr: {
-            style: `
-                    font-family: var(--font-monospace);
-                    font-size: 0.9em;
-                `
-          }
-        });
-        heightValue.setText(`${this.currentHeight}px`);
-        const heightSlider = heightContainer.createEl("input", {
-          type: "range",
-          cls: "height-slider",
-          attr: {
-            min: "0",
-            max: "1280",
-            step: "10",
-            value: this.currentHeight,
-            style: `
-                    flex: 1;
-                    writing-mode: vertical-lr;
-                    direction: rtl;
-                `
-          }
-        });
-        heightSlider.addEventListener("input", () => {
-          this.currentHeight = parseInt(heightSlider.value);
-          heightValue.setText(`${this.currentHeight}px`);
-          this.updateBannerHeight(this.currentHeight);
-        });
-        const targetContainer = mainContainer.createDiv({
-          cls: "target-container",
-          attr: {
-            style: `
-                    display: flex;
-                    flex-direction: column;
-                    gap: 10px;
-                    flex-grow: 1;
-                `
-          }
-        });
-        const targetArea = targetContainer.createDiv({
-          cls: "target-area",
-          attr: {
-            style: `
-                    width: 200px;
-                    height: 200px;
-                    border: 2px solid var(--background-modifier-border);
-                    position: relative;
-                    background-color: var(--background-primary);
-                    cursor: crosshair;
-                    flex-grow: 1;
-                `
-          }
-        });
-        const verticalLine = targetArea.createDiv({ cls: "vertical-line" });
-        const horizontalLine = targetArea.createDiv({ cls: "horizontal-line" });
-        const positionIndicator = targetContainer.createEl("div", {
-          cls: "position-indicator",
-          attr: {
-            style: `
-                    text-align: center;
-                    font-family: var(--font-monospace);
-                    font-size: 0.9em;
-                    color: var(--text-muted);
-                    width: 200px;
-                `
-          }
-        });
-        positionIndicator.setText(`X: ${this.currentX}%, Y: ${this.currentY}%`);
-        const updatePositionIndicator = () => {
-          positionIndicator.setText(`X: ${this.currentX}%, Y: ${this.currentY}%`);
-        };
-        this.addStyle();
-        const updatePosition = (e) => {
-          const rect = targetArea.getBoundingClientRect();
-          const x = Math.max(0, Math.min(100, (e.clientX - rect.left) / rect.width * 100));
-          const y = Math.max(0, Math.min(100, (e.clientY - rect.top) / rect.height * 100));
-          verticalLine.style.left = `${x}%`;
-          horizontalLine.style.top = `${y}%`;
-          this.currentX = Math.round(x);
-          this.currentY = Math.round(y);
-          const xField = Array.isArray(this.plugin.settings.customXPositionField) ? this.plugin.settings.customXPositionField[0].split(",")[0].trim() : this.plugin.settings.customXPositionField;
-          const yField = Array.isArray(this.plugin.settings.customYPositionField) ? this.plugin.settings.customYPositionField[0].split(",")[0].trim() : this.plugin.settings.customYPositionField;
-          this.app.fileManager.processFrontMatter(this.app.workspace.getActiveFile(), (frontmatter2) => {
-            frontmatter2[xField] = this.currentX;
-            frontmatter2[yField] = this.currentY;
-          });
-          updatePositionIndicator();
-        };
-        targetArea.addEventListener("click", updatePosition);
-        verticalLine.style.left = `${this.currentX}%`;
-        horizontalLine.style.top = `${this.currentY}%`;
-        const contentStartPositionContainer = mainContainer.createDiv({
-          cls: "content-start-position-container",
-          attr: {
-            style: `
-                    display: flex;
-                    flex-direction: column;
-                    gap: 10px;
-                    align-items: center;
-                    min-width: 60px;
-                    flex: 0 auto;
-                `
-          }
-        });
-        const contentStartPositionLabel = contentStartPositionContainer.createEl("div", {
-          text: "Content Start Position",
-          cls: "content-start-position-label",
-          attr: {
-            style: `
-                    color: var(--text-muted); 
-                    font-size: 0.9em;
-                    text-align: center;
-                    width: 60px;
-                `
-          }
-        });
-        const contentStartPositionValue = contentStartPositionContainer.createDiv({
-          cls: "content-start-position-value",
-          attr: {
-            style: `
-                    font-family: var(--font-monospace);
-                    font-size: 0.9em;
-                `
-          }
-        });
-        contentStartPositionValue.setText(`${this.currentContentStartPosition}px`);
-        const contentStartPositionSlider = contentStartPositionContainer.createEl("input", {
-          type: "range",
-          cls: "content-start-position-slider",
-          attr: {
-            min: "1",
-            max: "800",
-            step: "5",
-            value: this.currentContentStartPosition,
-            style: `
-                    flex: 1;
-                    writing-mode: vertical-lr;
-                    direction: rtl;
-                `
-          }
-        });
-        contentStartPositionSlider.addEventListener("input", () => {
-          this.currentContentStartPosition = parseInt(contentStartPositionSlider.value);
-          contentStartPositionValue.setText(`${this.currentContentStartPosition}px`);
-          this.updateBannerContentStartPosition(this.currentContentStartPosition);
-        });
-        const bannerIconControlsContainer = contentEl.createDiv({
-          cls: "main-container",
-          attr: {
-            style: `
-                    margin-top: 20px;
-                    display: none;
-                `
-          }
-        });
-        const activeFile = this.app.workspace.getActiveFile();
-        const frontmatter = (_a = this.app.metadataCache.getFileCache(activeFile)) == null ? void 0 : _a.frontmatter;
-        const bannerIconField = Array.isArray(this.plugin.settings.customBannerIconField) ? this.plugin.settings.customBannerIconField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconField;
-        const hasBannerIcon = frontmatter && frontmatter[bannerIconField] && frontmatter[bannerIconField].trim() !== "";
-        if (hasBannerIcon) {
-          bannerIconControlsContainer.style.display = "block";
-        } else {
-          setTimeout(() => {
-            var _a2;
-            const refreshedFrontmatter = (_a2 = this.app.metadataCache.getFileCache(activeFile)) == null ? void 0 : _a2.frontmatter;
-            if (refreshedFrontmatter && refreshedFrontmatter[bannerIconField] && refreshedFrontmatter[bannerIconField].trim() !== "") {
-              bannerIconControlsContainer.style.display = "block";
-            }
-          }, 300);
-        }
-        const bannerIconHeader = bannerIconControlsContainer.createEl("div", {
-          text: "\u2B50 Banner Icon Settings",
-          cls: "banner-icon-header",
-          attr: {
-            style: `
-                    display: flex;
-                    flex-direction: row;
-                    gap: 10px;
-                    align-items: center;
-                    justify-content: space-between;
-                    color: var(--text-accent);
-                    font-size: 0.9em;
-                    font-weight: 600;
-                    letter-spacing: 1px;
-                    text-transform: uppercase;
-                    margin-bottom: 10px;
-                `
-          }
-        });
-        const bannerIconHeaderButton = bannerIconHeader.createEl("button", {
-          text: "\u270F\uFE0F Edit Icon",
-          cls: "banner-icon-header-button cursor-pointer",
-          attr: {
-            style: `
-                    margin-top: 15px;
-                    text-transform: uppercase;
-                    font-size: .8em;
-                `
-          }
-        });
-        bannerIconHeaderButton.addEventListener("click", () => {
-          this.close();
-          new EmojiSelectionModal(
-            this.app,
-            this.plugin,
-            async (emoji) => {
-              const activeFile2 = this.app.workspace.getActiveFile();
-              if (activeFile2) {
-                await this.plugin.app.fileManager.processFrontMatter(activeFile2, (frontmatter2) => {
-                  const iconField = this.plugin.settings.customBannerIconField[0];
-                  if (emoji) {
-                    frontmatter2[iconField] = emoji;
-                  } else {
-                    delete frontmatter2[iconField];
-                  }
-                });
-              }
-            }
-          ).open();
-        });
-        const bannerIconXPositionContainer = bannerIconControlsContainer.createDiv({
-          cls: "banner-icon-x-position-container",
-          attr: {
-            style: `
-                    display: flex;
-                    flex-direction: row;
-                    gap: 10px;
-                    align-items: center;
-                    min-width: 60px;
-                    flex: 0 auto;
-                `
-          }
-        });
-        const bannerIconXPositionLabel = bannerIconXPositionContainer.createEl("div", {
-          text: "X Position",
-          cls: "banner-icon-x-position-label",
-          attr: {
-            style: `
-                    color: var(--text-muted); 
-                    font-size: 0.9em;
-                `
-          }
-        });
-        const bannerIconXPositionSlider = bannerIconXPositionContainer.createEl("input", {
-          type: "range",
-          cls: "banner-icon-x-position-slider",
-          attr: {
-            min: "1",
-            max: "99",
-            step: "1",
-            value: this.currentBannerIconXPosition,
-            style: `
-                    flex: 1;
-                    writing-mode: horizontal-tb;
-                    direction: ltr;
-                `
-          }
-        });
-        const bannerIconXPositionValue = bannerIconXPositionContainer.createDiv({
-          cls: "banner-icon-x-position-value",
-          attr: {
-            style: `
-                    font-family: var(--font-monospace);
-                    font-size: 0.9em;
-                `
-          }
-        });
-        bannerIconXPositionValue.setText(`${this.currentBannerIconXPosition}`);
-        bannerIconXPositionSlider.addEventListener("input", () => {
-          this.currentBannerIconXPosition = parseInt(bannerIconXPositionSlider.value);
-          bannerIconXPositionValue.setText(`${this.currentBannerIconXPosition}`);
-          this.updateBannerIconXPosition(this.currentBannerIconXPosition);
-        });
-        const bannerIconVerticalOffsetContainer = bannerIconControlsContainer.createDiv({
-          cls: "banner-icon-vertical-offset-container",
-          attr: {
-            style: `
-                    display: flex;
-                    flex-direction: row;
-                    gap: 10px;
-                    align-items: center;
-                    min-width: 60px;
-                    flex: 0 auto;
-                    margin-top: 10px;
-                `
-          }
-        });
-        const bannerIconVerticalOffsetLabel = bannerIconVerticalOffsetContainer.createEl("div", {
-          text: "Y Position",
-          cls: "banner-icon-vertical-offset-label",
-          attr: {
-            style: `
-                    color: var(--text-muted); 
-                    font-size: 0.9em;
-                `
-          }
-        });
-        const iconVerticalOffsetField = Array.isArray(this.plugin.settings.customBannerIconVeritalOffsetField) ? this.plugin.settings.customBannerIconVeritalOffsetField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconVeritalOffsetField;
-        this.currentBannerIconVerticalOffset = (frontmatter == null ? void 0 : frontmatter[iconVerticalOffsetField]) || this.plugin.settings.bannerIconVeritalOffset;
-        const bannerIconVerticalOffsetSlider = bannerIconVerticalOffsetContainer.createEl("input", {
-          type: "range",
-          cls: "banner-icon-vertical-offset-slider",
-          attr: {
-            min: "-100",
-            max: "100",
-            step: "1",
-            value: this.currentBannerIconVerticalOffset,
-            style: `
-                    flex: 1;
-                    writing-mode: horizontal-tb;
-                    direction: ltr;
-                `
-          }
-        });
-        const bannerIconVerticalOffsetValue = bannerIconVerticalOffsetContainer.createDiv({
-          cls: "banner-icon-vertical-offset-value",
-          attr: {
-            style: `
-                    font-family: var(--font-monospace);
-                    font-size: 0.9em;
-                `
-          }
-        });
-        bannerIconVerticalOffsetValue.setText(`${this.currentBannerIconVerticalOffset}`);
-        bannerIconVerticalOffsetSlider.addEventListener("input", () => {
-          this.currentBannerIconVerticalOffset = parseInt(bannerIconVerticalOffsetSlider.value);
-          bannerIconVerticalOffsetValue.setText(`${this.currentBannerIconVerticalOffset}`);
-          this.updateBannerIconVerticalOffset(this.currentBannerIconVerticalOffset);
-        });
-        const bannerIconSizeContainer = bannerIconControlsContainer.createDiv({
-          cls: "banner-icon-size-container",
-          attr: {
-            style: `
-                    display: flex;
-                    flex-direction: row;
-                    gap: 10px;
-                    align-items: center;
-                    min-width: 60px;
-                    flex: 0 auto;
-                    margin-top: 10px;
-                `
-          }
-        });
-        const bannerIconSizeLabel = bannerIconSizeContainer.createEl("div", {
-          text: "Size",
-          cls: "banner-icon-size-label",
-          attr: {
-            style: `
-                    color: var(--text-muted); 
-                    font-size: 0.9em;
-                `
-          }
-        });
-        const iconSizeField = Array.isArray(this.plugin.settings.customBannerIconSizeField) ? this.plugin.settings.customBannerIconSizeField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconSizeField;
-        this.currentBannerIconSize = (frontmatter == null ? void 0 : frontmatter[iconSizeField]) || this.plugin.settings.bannerIconSize;
-        const bannerIconSizeSlider = bannerIconSizeContainer.createEl("input", {
-          type: "range",
-          cls: "banner-icon-size-slider",
-          attr: {
-            min: "10",
-            max: "200",
-            step: "1",
-            value: this.currentBannerIconSize,
-            style: `
-                    flex: 1;
-                    writing-mode: horizontal-tb;
-                    direction: ltr;
-                `
-          }
-        });
-        const bannerIconSizeValue = bannerIconSizeContainer.createDiv({
-          cls: "banner-icon-size-value",
-          attr: {
-            style: `
-                    font-family: var(--font-monospace);
-                    font-size: 0.9em;
-                `
-          }
-        });
-        bannerIconSizeValue.setText(`${this.currentBannerIconSize}`);
-        bannerIconSizeSlider.addEventListener("input", () => {
-          this.currentBannerIconSize = parseInt(bannerIconSizeSlider.value);
-          bannerIconSizeValue.setText(`${this.currentBannerIconSize}`);
-          this.updateBannerIconSize(this.currentBannerIconSize);
-        });
-        const bannerIconColorContainer = bannerIconControlsContainer.createDiv({
-          cls: "banner-icon-color-container",
-          attr: {
-            style: `
-                    display: flex;
-                    flex-direction: row;
-                    gap: 10px;
-                    flex: 0 auto;
-                    margin-top: 10px;
-                `
-          }
-        });
-        const bannerIconColorLabel = bannerIconColorContainer.createEl("div", {
-          text: "Color",
-          cls: "banner-icon-color-label",
-          attr: {
-            style: `
-                    color: var(--text-muted); 
-                    font-size: 0.9em;
-                `
-          }
-        });
-        const iconColorField = Array.isArray(this.plugin.settings.customBannerIconColorField) ? this.plugin.settings.customBannerIconColorField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconColorField;
-        const currentTheme = getCurrentTheme_default();
-        let defaultColor = currentTheme === "dark" ? "#ffffff" : "#000000";
-        let currentIconColor = defaultColor;
-        if ((frontmatter == null ? void 0 : frontmatter[iconColorField]) || this.plugin.settings.bannerIconColor) {
-          const colorValue = (frontmatter == null ? void 0 : frontmatter[iconColorField]) || this.plugin.settings.bannerIconColor;
-          if (typeof colorValue === "string" && colorValue.startsWith("#")) {
-            currentIconColor = colorValue;
-          } else if (typeof colorValue === "string" && colorValue.trim() !== "") {
-            currentIconColor = colorValue;
-          }
-        }
-        this.currentBannerIconColor = currentIconColor;
-        const bannerIconColorInput = bannerIconColorContainer.createEl("input", {
-          type: "text",
-          cls: "banner-icon-color-input",
-          attr: {
-            value: this.currentBannerIconColor || "",
-            placeholder: "#RRGGBB or color name",
-            style: `
-                    flex: 1;
-                    max-width: 120px;
-                `
-          }
-        });
-        const bannerIconColorPicker = bannerIconColorContainer.createEl("input", {
-          type: "color",
-          cls: "banner-icon-color-picker",
-          attr: {
-            value: this.currentBannerIconColor && this.currentBannerIconColor.startsWith("#") ? this.currentBannerIconColor : ""
-          }
-        });
-        bannerIconColorInput.addEventListener("change", () => {
-          this.currentBannerIconColor = bannerIconColorInput.value;
-          if (this.currentBannerIconColor.startsWith("#")) {
-            bannerIconColorPicker.value = this.currentBannerIconColor;
-          }
-          this.updateBannerIconColor(this.currentBannerIconColor);
-        });
-        bannerIconColorPicker.addEventListener("input", () => {
-          this.currentBannerIconColor = bannerIconColorPicker.value;
-          bannerIconColorInput.value = this.currentBannerIconColor;
-          this.updateBannerIconColor(this.currentBannerIconColor);
-        });
-        const bannerIconFontWeightContainer = bannerIconControlsContainer.createDiv({
-          cls: "banner-icon-font-weight-container",
-          attr: {
-            style: `
-                    display: flex;
-                    flex-direction: row;
-                    gap: 10px;
-                    align-items: center;
-                    min-width: 60px;
-                    flex: 0 auto;
-                    margin-top: 10px;
-                `
-          }
-        });
-        const bannerIconFontWeightLabel = bannerIconFontWeightContainer.createEl("div", {
-          text: "Font Weight",
-          cls: "banner-icon-font-weight-label",
-          attr: {
-            style: `
-                    color: var(--text-muted); 
-                    font-size: 0.9em;
-                `
-          }
-        });
-        const iconFontWeightField = Array.isArray(this.plugin.settings.customBannerIconFontWeightField) ? this.plugin.settings.customBannerIconFontWeightField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconFontWeightField;
-        this.currentBannerIconFontWeight = (frontmatter == null ? void 0 : frontmatter[iconFontWeightField]) || this.plugin.settings.bannerIconFontWeight;
-        const bannerIconFontWeightSelect = bannerIconFontWeightContainer.createEl("select", {
-          cls: "banner-icon-font-weight-select"
-        });
-        ["lighter", "normal", "bold"].forEach((weight) => {
-          const option = bannerIconFontWeightSelect.createEl("option", {
-            text: weight.charAt(0).toUpperCase() + weight.slice(1),
-            value: weight
-          });
-          if (weight === this.currentBannerIconFontWeight) {
-            option.selected = true;
-          }
-        });
-        bannerIconFontWeightSelect.addEventListener("change", () => {
-          this.currentBannerIconFontWeight = bannerIconFontWeightSelect.value;
-          this.updateBannerIconFontWeight(this.currentBannerIconFontWeight);
-        });
-        const bannerIconBgColorContainer = bannerIconControlsContainer.createDiv({
-          cls: "banner-icon-bg-color-container",
-          attr: {
-            style: `
-                    display: flex;
-                    flex-direction: column;
-                    gap: 10px;
-                    min-width: 60px;
-                    flex: 0 auto;
-                    margin-top: 10px;
-                `
-          }
-        });
-        const bannerIconBgColorLabel = bannerIconBgColorContainer.createEl("div", {
-          text: "Background Color",
-          cls: "banner-icon-bg-color-label",
-          attr: {
-            style: `
-                    color: var(--text-muted); 
-                    font-size: 0.9em;
-                `
-          }
-        });
-        const colorPickerAndAlphaSliderRow = bannerIconBgColorContainer.createDiv({
-          cls: "color-picker-and-alpha-slider-row",
-          attr: {
-            style: `
-                    display: flex;
-                    flex-direction: row;
-                    gap: 10px;
-                    align-items: center;
-                    width: 100%;
-                `
-          }
-        });
-        const colorPickerRow = colorPickerAndAlphaSliderRow.createDiv({
-          cls: "color-picker-row",
-          attr: {
-            style: `
-                    display: flex;
-                    flex-direction: row;
-                    gap: 10px;
-                    align-items: center;
-                    width: 100%;
-                `
-          }
-        });
-        const iconBgColorField = Array.isArray(this.plugin.settings.customBannerIconBackgroundColorField) ? this.plugin.settings.customBannerIconBackgroundColorField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconBackgroundColorField;
-        let currentColor = defaultColor;
-        let currentAlpha = 100;
-        if ((frontmatter == null ? void 0 : frontmatter[iconBgColorField]) || this.plugin.settings.bannerIconBackgroundColor) {
-          const colorValue = (frontmatter == null ? void 0 : frontmatter[iconBgColorField]) || this.plugin.settings.bannerIconBackgroundColor;
-          const rgbaMatch = colorValue == null ? void 0 : colorValue.match(/rgba\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*,\s*([\d.]+)\s*\)/);
-          if (rgbaMatch) {
-            const r = parseInt(rgbaMatch[1]);
-            const g = parseInt(rgbaMatch[2]);
-            const b = parseInt(rgbaMatch[3]);
-            currentColor = `#${r.toString(16).padStart(2, "0")}${g.toString(16).padStart(2, "0")}${b.toString(16).padStart(2, "0")}`;
-            currentAlpha = Math.round(parseFloat(rgbaMatch[4]) * 100);
-          } else if (colorValue == null ? void 0 : colorValue.startsWith("#")) {
-            currentColor = colorValue;
-          } else if (colorValue) {
-            currentColor = colorValue;
-          }
-        }
-        this.currentBannerIconBgColor = currentColor;
-        this.currentBannerIconBgAlpha = currentAlpha;
-        const bannerIconBgColorInput = colorPickerAndAlphaSliderRow.createEl("input", {
-          type: "text",
-          cls: "banner-icon-bg-color-input",
-          attr: {
-            value: this.currentBannerIconBgColor || "",
-            placeholder: "#RRGGBB or color name",
-            style: `
-                    flex: 1;
-                    max-width: 120px;
-                `
-          }
-        });
-        const bannerIconBgColorPicker = colorPickerAndAlphaSliderRow.createEl("input", {
-          type: "color",
-          cls: "banner-icon-bg-color-picker",
-          attr: {
-            value: this.currentBannerIconBgColor && this.currentBannerIconBgColor.startsWith("#") ? this.currentBannerIconBgColor : defaultColor
-          }
-        });
-        const alphaSliderRow = colorPickerAndAlphaSliderRow.createDiv({
-          cls: "alpha-slider-row",
-          attr: {
-            style: `
-                    display: flex;
-                    flex-direction: row;
-                    gap: 10px;
-                    align-items: center;
-                    width: 100%;
-                    margin-top: 5px;
-                `
-          }
-        });
-        const alphaLabel = colorPickerAndAlphaSliderRow.createEl("div", {
-          text: "Opacity:",
-          cls: "alpha-label",
-          attr: {
-            style: `
-                    color: var(--text-muted);
-                    font-size: 0.9em;
-                    min-width: 60px;
-                `
-          }
-        });
-        const alphaSlider = colorPickerAndAlphaSliderRow.createEl("input", {
-          type: "range",
-          cls: "alpha-slider",
-          attr: {
-            min: "0",
-            max: "100",
-            step: "1",
-            value: this.currentBannerIconBgAlpha,
-            style: `
-                    flex: 1;
-                `
-          }
-        });
-        const alphaValue = colorPickerAndAlphaSliderRow.createDiv({
-          cls: "alpha-value",
-          attr: {
-            style: `
-                    font-family: var(--font-monospace);
-                    font-size: 0.9em;
-                    min-width: 40px;
-                    text-align: right;
-                `
-          }
-        });
-        alphaValue.setText(`${this.currentBannerIconBgAlpha}%`);
-        const colorPreview = colorPickerAndAlphaSliderRow.createDiv({
-          cls: "color-preview",
-          attr: {
-            style: `
-                    width: 100%;
-                    height: 20px;
-                    border: 1px solid var(--background-modifier-border);
-                    border-radius: 4px;
-                    background-color: ${this.currentBannerIconBgColor};
-                    opacity: ${this.currentBannerIconBgAlpha / 100};
-                `
-          }
-        });
-        const updateColorPreview = () => {
-          colorPreview.style.backgroundColor = this.currentBannerIconBgColor;
-          colorPreview.style.opacity = this.currentBannerIconBgAlpha / 100;
-          this.updateBannerIconBgColor(this.currentBannerIconBgColor, this.currentBannerIconBgAlpha);
-        };
-        bannerIconBgColorInput.addEventListener("change", () => {
-          this.currentBannerIconBgColor = bannerIconBgColorInput.value;
-          if (this.currentBannerIconBgColor.startsWith("#")) {
-            bannerIconBgColorPicker.value = this.currentBannerIconBgColor;
-          }
-          updateColorPreview();
-        });
-        bannerIconBgColorPicker.addEventListener("input", () => {
-          this.currentBannerIconBgColor = bannerIconBgColorPicker.value;
-          bannerIconBgColorInput.value = this.currentBannerIconBgColor;
-          updateColorPreview();
-        });
-        alphaSlider.addEventListener("input", () => {
-          this.currentBannerIconBgAlpha = parseInt(alphaSlider.value);
-          alphaValue.setText(`${this.currentBannerIconBgAlpha}%`);
-          updateColorPreview();
-        });
-        const bannerIconPaddingXContainer = bannerIconControlsContainer.createDiv({
-          cls: "banner-icon-padding-x-container",
-          attr: {
-            style: `
-                    display: flex;
-                    flex-direction: row;
-                    gap: 10px;
-                    align-items: center;
-                    min-width: 60px;
-                    flex: 0 auto;
-                    margin-top: 10px;
-                `
-          }
-        });
-        const bannerIconPaddingXLabel = bannerIconPaddingXContainer.createEl("div", {
-          text: "Padding X",
-          cls: "banner-icon-padding-x-label",
-          attr: {
-            style: `
-                    color: var(--text-muted); 
-                    font-size: 0.9em;
-                `
-          }
-        });
-        const iconPaddingXField = Array.isArray(this.plugin.settings.customBannerIconPaddingXField) ? this.plugin.settings.customBannerIconPaddingXField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconPaddingXField;
-        this.currentBannerIconPaddingX = (frontmatter == null ? void 0 : frontmatter[iconPaddingXField]) || this.plugin.settings.bannerIconPaddingX;
-        const bannerIconPaddingXSlider = bannerIconPaddingXContainer.createEl("input", {
-          type: "range",
-          cls: "banner-icon-padding-x-slider",
-          attr: {
-            min: "0",
-            max: "100",
-            step: "1",
-            value: this.currentBannerIconPaddingX,
-            style: `
-                    flex: 1;
-                    writing-mode: horizontal-tb;
-                    direction: ltr;
-                `
-          }
-        });
-        const bannerIconPaddingXValue = bannerIconPaddingXContainer.createDiv({
-          cls: "banner-icon-padding-x-value",
-          attr: {
-            style: `
-                    font-family: var(--font-monospace);
-                    font-size: 0.9em;
-                `
-          }
-        });
-        bannerIconPaddingXValue.setText(`${this.currentBannerIconPaddingX}`);
-        bannerIconPaddingXSlider.addEventListener("input", () => {
-          this.currentBannerIconPaddingX = parseInt(bannerIconPaddingXSlider.value);
-          bannerIconPaddingXValue.setText(`${this.currentBannerIconPaddingX}`);
-          this.updateBannerIconPaddingX(this.currentBannerIconPaddingX);
-        });
-        const bannerIconPaddingYContainer = bannerIconControlsContainer.createDiv({
-          cls: "banner-icon-padding-y-container",
-          attr: {
-            style: `
-                    display: flex;
-                    flex-direction: row;
-                    gap: 10px;
-                    align-items: center;
-                    min-width: 60px;
-                    flex: 0 auto;
-                    margin-top: 10px;
-                `
-          }
-        });
-        const bannerIconPaddingYLabel = bannerIconPaddingYContainer.createEl("div", {
-          text: "Padding Y",
-          cls: "banner-icon-padding-y-label",
-          attr: {
-            style: `
-                    color: var(--text-muted); 
-                    font-size: 0.9em;
-                `
-          }
-        });
-        const iconPaddingYField = Array.isArray(this.plugin.settings.customBannerIconPaddingYField) ? this.plugin.settings.customBannerIconPaddingYField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconPaddingYField;
-        this.currentBannerIconPaddingY = (frontmatter == null ? void 0 : frontmatter[iconPaddingYField]) || this.plugin.settings.bannerIconPaddingY;
-        const bannerIconPaddingYSlider = bannerIconPaddingYContainer.createEl("input", {
-          type: "range",
-          cls: "banner-icon-padding-y-slider",
-          attr: {
-            min: "0",
-            max: "100",
-            step: "1",
-            value: this.currentBannerIconPaddingY,
-            style: `
-                    flex: 1;
-                    writing-mode: horizontal-tb;
-                    direction: ltr;
-                `
-          }
-        });
-        const bannerIconPaddingYValue = bannerIconPaddingYContainer.createDiv({
-          cls: "banner-icon-padding-y-value",
-          attr: {
-            style: `
-                    font-family: var(--font-monospace);
-                    font-size: 0.9em;
-                `
-          }
-        });
-        bannerIconPaddingYValue.setText(`${this.currentBannerIconPaddingY}`);
-        bannerIconPaddingYSlider.addEventListener("input", () => {
-          this.currentBannerIconPaddingY = parseInt(bannerIconPaddingYSlider.value);
-          bannerIconPaddingYValue.setText(`${this.currentBannerIconPaddingY}`);
-          this.updateBannerIconPaddingY(this.currentBannerIconPaddingY);
-        });
-        const bannerIconBorderRadiusContainer = bannerIconControlsContainer.createDiv({
-          cls: "banner-icon-border-radius-container",
-          attr: {
-            style: `
-                    display: flex;
-                    flex-direction: row;
-                    gap: 10px;
-                    align-items: center;
-                    min-width: 60px;
-                    flex: 0 auto;
-                    margin-top: 10px;
-                `
-          }
-        });
-        const bannerIconBorderRadiusLabel = bannerIconBorderRadiusContainer.createEl("div", {
-          text: "Border Radius",
-          cls: "banner-icon-border-radius-label",
-          attr: {
-            style: `
-                    color: var(--text-muted); 
-                    font-size: 0.9em;
-                `
-          }
-        });
-        const iconBorderRadiusField = Array.isArray(this.plugin.settings.customBannerIconBorderRadiusField) ? this.plugin.settings.customBannerIconBorderRadiusField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconBorderRadiusField;
-        if ((frontmatter == null ? void 0 : frontmatter[iconBorderRadiusField]) === 0) {
-          this.currentBannerIconBorderRadius = 0;
-        } else if (this.plugin.settings.bannerIconBorderRadius === 0) {
-          this.currentBannerIconBorderRadius = 0;
-        } else {
-          this.currentBannerIconBorderRadius = (frontmatter == null ? void 0 : frontmatter[iconBorderRadiusField]) || this.plugin.settings.bannerIconBorderRadius;
-        }
-        const bannerIconBorderRadiusSlider = bannerIconBorderRadiusContainer.createEl("input", {
-          type: "range",
-          cls: "banner-icon-border-radius-slider",
-          attr: {
-            min: "0",
-            max: "100",
-            step: "1",
-            value: this.currentBannerIconBorderRadius,
-            style: `
-                    flex: 1;
-                    writing-mode: horizontal-tb;
-                    direction: ltr;
-                `
-          }
-        });
-        const bannerIconBorderRadiusValue = bannerIconBorderRadiusContainer.createDiv({
-          cls: "banner-icon-border-radius-value",
-          attr: {
-            style: `
-                    font-family: var(--font-monospace);
-                    font-size: 0.9em;
-                `
-          }
-        });
-        bannerIconBorderRadiusValue.setText(`${this.currentBannerIconBorderRadius}`);
-        bannerIconBorderRadiusSlider.addEventListener("input", () => {
-          this.currentBannerIconBorderRadius = parseInt(bannerIconBorderRadiusSlider.value);
-          bannerIconBorderRadiusValue.setText(`${this.currentBannerIconBorderRadius}`);
-          this.updateBannerIconBorderRadius(this.currentBannerIconBorderRadius);
-        });
-        const flagColorSection = contentEl.createDiv({
-          cls: "flag-color-section",
-          attr: {
-            style: `
-                    display: flex;
-                    flex-direction: row;
-                    gap: 5px;
-                    margin-top: 20px;
-                    padding: 15px;
-                    border-radius: 5px;
-                    background-color: var(--background-secondary);
-                    max-width: 510px;
-                `
-          }
-        });
-        flagColorSection.createEl("span", {
-          text: "Flag Color",
-          attr: {
-            style: `
-                    color: var(--text-muted);
-                    font-size: 0.9em;
-                `
-          }
-        });
-        const flagRadioContainer = flagColorSection.createDiv({
-          cls: "pixel-banner-flag-radio-container",
-          attr: {
-            style: `
-                    max-width: 600px;
-                    display: flex;
-                    flex-direction: row;
-                    flex-wrap: wrap;
-                    gap: 10px;
-                `
-          }
-        });
-        const currentFlagColor = getFrontmatterValue(frontmatter, this.plugin.settings.customFlagColorField) || this.plugin.settings.selectImageIconFlag;
-        Object.keys(flags).forEach((color) => {
-          const radioContainer = flagRadioContainer.createDiv({
-            cls: "pixel-banner-flag-radio",
-            attr: {
-              style: `
-                        display: flex;
-                        align-items: center;
-                        gap: 5px;
-                    `
-            }
-          });
-          const radio = radioContainer.createEl("input", {
-            type: "radio",
-            attr: {
-              id: `flag-${color}`,
-              name: "pixel-banner-flag",
-              value: color,
-              style: `
-                        margin-right: 5px;
-                        cursor: pointer;
-                    `
-            }
-          });
-          radio.checked = currentFlagColor === color;
-          const label = radioContainer.createEl("label", {
-            attr: {
-              for: `flag-${color}`,
-              style: `
-                        display: flex;
-                        align-items: center;
-                        cursor: pointer;
-                    `
-            }
-          });
-          label.createEl("img", {
-            attr: {
-              src: flags[color],
-              alt: color,
-              style: `
-                        width: 15px;
-                        height: 20px;
-                        margin-right: 3px;
-                    `
-            }
-          });
-          label.createEl("span", {
-            text: color.charAt(0).toUpperCase() + color.slice(1),
-            attr: {
-              style: `
-                        display: none;
-                        font-size: 12px;
-                    `
-            }
-          });
-          radio.addEventListener("change", async () => {
-            if (radio.checked) {
-              const activeFile2 = this.app.workspace.getActiveFile();
-              if (activeFile2) {
-                await this.plugin.app.fileManager.processFrontMatter(activeFile2, (frontmatter2) => {
-                  const flagColorField = this.plugin.settings.customFlagColorField[0];
-                  frontmatter2[flagColorField] = color;
-                });
-                const view = this.plugin.app.workspace.getActiveViewOfType(import_obsidian17.MarkdownView);
-                if (view) {
-                  await this.plugin.updateBanner(view, true);
-                }
-              }
-            }
-          });
-        });
-        const inlineTitleEnabled = this.app.vault.config.showInlineTitle;
-        const titleColorSection = contentEl.createDiv({
-          cls: "title-color-section",
-          attr: {
-            style: `
-                    display: ${inlineTitleEnabled ? "flex" : "none"};
-                    flex-direction: row;
-                    gap: 10px;
-                    margin-top: 20px;
-                    padding: 15px;
-                    border-radius: 5px;
-                    background-color: var(--background-secondary);
-                    max-width: 510px;
-                    align-items: center;
-                `
-          }
-        });
-        titleColorSection.createEl("span", {
-          text: "Inline Title Color",
-          attr: {
-            style: `
-                    color: var(--text-muted);
-                    font-size: 0.9em;
-                    min-width: 120px;
-                `
-          }
-        });
-        const titleColorField = Array.isArray(this.plugin.settings.customTitleColorField) ? this.plugin.settings.customTitleColorField[0].split(",")[0].trim() : this.plugin.settings.customTitleColorField;
-        let currentTitleColor = (frontmatter == null ? void 0 : frontmatter[titleColorField]) || this.plugin.settings.titleColor;
-        if (currentTitleColor && currentTitleColor.startsWith("var(--")) {
-          const tempEl = document.createElement("div");
-          tempEl.style.color = currentTitleColor;
-          document.body.appendChild(tempEl);
-          const computedColor = window.getComputedStyle(tempEl).color;
-          document.body.removeChild(tempEl);
-          const rgbMatch = computedColor.match(/rgb\((\d+),\s*(\d+),\s*(\d+)\)/);
-          if (rgbMatch) {
-            const [_, r, g, b] = rgbMatch;
-            currentTitleColor = "#" + parseInt(r).toString(16).padStart(2, "0") + parseInt(g).toString(16).padStart(2, "0") + parseInt(b).toString(16).padStart(2, "0");
-          }
-        }
-        this.currentTitleColor = currentTitleColor || (getCurrentTheme_default() === "dark" ? "#ffffff" : "#000000");
-        const titleColorInput = titleColorSection.createEl("input", {
-          type: "text",
-          cls: "title-color-input",
-          attr: {
-            value: this.currentTitleColor || "",
-            placeholder: "#RRGGBB or color name",
-            style: `
-                    flex: 1;
-                    max-width: 120px;
-                `
-          }
-        });
-        const titleColorPicker = titleColorSection.createEl("input", {
-          type: "color",
-          cls: "title-color-picker",
-          attr: {
-            value: this.currentTitleColor && this.currentTitleColor.startsWith("#") ? this.currentTitleColor : getCurrentTheme_default() === "dark" ? "#ffffff" : "#000000"
-          }
-        });
-        titleColorInput.addEventListener("change", () => {
-          this.currentTitleColor = titleColorInput.value;
-          if (this.currentTitleColor.startsWith("#")) {
-            titleColorPicker.value = this.currentTitleColor;
-          }
-          this.updateTitleColor(this.currentTitleColor);
-        });
-        titleColorPicker.addEventListener("input", () => {
-          this.currentTitleColor = titleColorPicker.value;
-          titleColorInput.value = this.currentTitleColor;
-          this.updateTitleColor(this.currentTitleColor);
-        });
-        const buttonContainer = contentEl.createDiv({
-          cls: "button-container",
-          attr: {
-            style: `
-                    display: flex;
-                    flex-direction: row;
-                    gap: 10px;
-                    align-items: center;
-                    justify-content: center;
-                    position: sticky;
-                    bottom: -20px;
-                    background: var(--modal-background);
-                    padding: 20px 0;
-                `
-          }
-        });
-        const resetButton = buttonContainer.createEl("button", {
-          text: "Reset to Defaults",
-          cls: "reset-button",
-          attr: {
-            style: `
-                    flex: 1;
-                `
-          }
-        });
-        const closeSettingsButton = buttonContainer.createEl("button", {
-          text: "Close Settings",
-          cls: "mod-cta close-settings-button",
-          attr: {
-            style: `
-                    flex: 1;
-                `
-          }
-        });
-        closeSettingsButton.addEventListener("click", () => {
-          this.close();
-        });
-        resetButton.addEventListener("click", () => {
-          displaySelect.value = "cover";
-          zoomContainer.style.display = "none";
-          repeatContainer.style.display = "none";
-          zoomSlider.value = 100;
-          heightSlider.value = this.plugin.settings.bannerHeight;
-          contentStartPositionSlider.value = this.plugin.settings.contentStartPosition;
-          bannerIconXPositionSlider.value = this.plugin.settings.bannerIconXPosition;
-          const currentTheme2 = getCurrentTheme_default();
-          let defaultColor2 = currentTheme2 === "dark" ? "#ffffff" : "#000000";
-          if (bannerIconSizeSlider) bannerIconSizeSlider.value = this.plugin.settings.bannerIconSize;
-          if (bannerIconColorInput) {
-            const defaultIconColor = this.plugin.settings.bannerIconColor || defaultColor2;
-            bannerIconColorInput.value = defaultIconColor;
-            if (bannerIconColorPicker) {
-              bannerIconColorPicker.value = defaultIconColor.startsWith("#") ? defaultIconColor : defaultColor2;
-            }
-            this.updateBannerIconColor(defaultIconColor);
-          }
-          if (bannerIconFontWeightSelect) bannerIconFontWeightSelect.value = this.plugin.settings.bannerIconFontWeight;
-          if (bannerIconBgColorInput) {
-            let defaultAlpha = 100;
-            if (this.plugin.settings.bannerIconBackgroundColor) {
-              const colorValue = this.plugin.settings.bannerIconBackgroundColor;
-              const rgbaMatch = colorValue.match(/rgba\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*,\s*([\d.]+)\s*\)/);
-              if (rgbaMatch) {
-                const r = parseInt(rgbaMatch[1]);
-                const g = parseInt(rgbaMatch[2]);
-                const b = parseInt(rgbaMatch[3]);
-                defaultColor2 = `#${r.toString(16).padStart(2, "0")}${g.toString(16).padStart(2, "0")}${b.toString(16).padStart(2, "0")}`;
-                defaultAlpha = Math.round(parseFloat(rgbaMatch[4]) * 100);
-              } else if (colorValue.startsWith("#")) {
-                defaultColor2 = colorValue;
-              } else if (colorValue) {
-                defaultColor2 = colorValue;
-              }
-            }
-            bannerIconBgColorInput.value = defaultColor2;
-            if (bannerIconBgColorPicker) bannerIconBgColorPicker.value = defaultColor2.startsWith("#") ? defaultColor2 : "#ffffff";
-            if (alphaSlider) alphaSlider.value = defaultAlpha;
-            if (alphaValue) alphaValue.setText(`${defaultAlpha}%`);
-            if (colorPreview) {
-              colorPreview.style.backgroundColor = defaultColor2;
-              colorPreview.style.opacity = defaultAlpha / 100;
-            }
-            this.updateBannerIconBgColor(defaultColor2, defaultAlpha);
-          }
-          if (bannerIconPaddingXSlider) bannerIconPaddingXSlider.value = this.plugin.settings.bannerIconPaddingX;
-          if (bannerIconPaddingYSlider) bannerIconPaddingYSlider.value = this.plugin.settings.bannerIconPaddingY;
-          if (bannerIconBorderRadiusSlider) bannerIconBorderRadiusSlider.value = this.plugin.settings.bannerIconBorderRadius;
-          if (bannerIconVerticalOffsetSlider) bannerIconVerticalOffsetSlider.value = this.plugin.settings.bannerIconVeritalOffset;
-          zoomValue.setText("100%");
-          heightValue.setText(`${this.plugin.settings.bannerHeight}px`);
-          contentStartPositionValue.setText(`${this.plugin.settings.contentStartPosition}px`);
-          bannerIconXPositionValue.setText(`${this.plugin.settings.bannerIconXPosition}`);
-          if (bannerIconSizeValue) bannerIconSizeValue.setText(`${this.plugin.settings.bannerIconSize}`);
-          if (bannerIconPaddingXValue) bannerIconPaddingXValue.setText(`${this.plugin.settings.bannerIconPaddingX}`);
-          if (bannerIconPaddingYValue) bannerIconPaddingYValue.setText(`${this.plugin.settings.bannerIconPaddingY}`);
-          if (bannerIconBorderRadiusValue) bannerIconBorderRadiusValue.setText(`${this.plugin.settings.bannerIconBorderRadius}`);
-          if (bannerIconVerticalOffsetValue) bannerIconVerticalOffsetValue.setText(`${this.plugin.settings.bannerIconVeritalOffset}`);
-          toggleInput.checked = false;
-          this.currentX = this.plugin.settings.xPosition;
-          this.currentY = this.plugin.settings.yPosition;
-          verticalLine.style.left = `${this.currentX}%`;
-          horizontalLine.style.top = `${this.currentY}%`;
-          updatePositionIndicator();
-          const activeFile2 = this.app.workspace.getActiveFile();
-          this.app.fileManager.processFrontMatter(activeFile2, (frontmatter2) => {
-            const displayField = Array.isArray(this.plugin.settings.customImageDisplayField) ? this.plugin.settings.customImageDisplayField[0].split(",")[0].trim() : this.plugin.settings.customImageDisplayField;
-            const heightField = Array.isArray(this.plugin.settings.customBannerHeightField) ? this.plugin.settings.customBannerHeightField[0].split(",")[0].trim() : this.plugin.settings.customBannerHeightField;
-            const xField = Array.isArray(this.plugin.settings.customXPositionField) ? this.plugin.settings.customXPositionField[0].split(",")[0].trim() : this.plugin.settings.customXPositionField;
-            const yField = Array.isArray(this.plugin.settings.customYPositionField) ? this.plugin.settings.customYPositionField[0].split(",")[0].trim() : this.plugin.settings.customYPositionField;
-            const contentStartPositionField = Array.isArray(this.plugin.settings.customContentStartField) ? this.plugin.settings.customContentStartField[0].split(",")[0].trim() : this.plugin.settings.customContentStartField;
-            const bannerIconXPositionField = Array.isArray(this.plugin.settings.customBannerIconXPositionField) ? this.plugin.settings.customBannerIconXPositionField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconXPositionField;
-            const repeatField = Array.isArray(this.plugin.settings.customImageRepeatField) ? this.plugin.settings.customImageRepeatField[0].split(",")[0].trim() : this.plugin.settings.customImageRepeatField;
-            const bannerIconSizeField = Array.isArray(this.plugin.settings.customBannerIconSizeField) ? this.plugin.settings.customBannerIconSizeField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconSizeField;
-            const bannerIconColorField = Array.isArray(this.plugin.settings.customBannerIconColorField) ? this.plugin.settings.customBannerIconColorField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconColorField;
-            const bannerIconFontWeightField = Array.isArray(this.plugin.settings.customBannerIconFontWeightField) ? this.plugin.settings.customBannerIconFontWeightField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconFontWeightField;
-            const bannerIconBgColorField = Array.isArray(this.plugin.settings.customBannerIconBackgroundColorField) ? this.plugin.settings.customBannerIconBackgroundColorField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconBackgroundColorField;
-            const bannerIconPaddingXField = Array.isArray(this.plugin.settings.customBannerIconPaddingXField) ? this.plugin.settings.customBannerIconPaddingXField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconPaddingXField;
-            const bannerIconPaddingYField = Array.isArray(this.plugin.settings.customBannerIconPaddingYField) ? this.plugin.settings.customBannerIconPaddingYField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconPaddingYField;
-            const bannerIconBorderRadiusField = Array.isArray(this.plugin.settings.customBannerIconBorderRadiusField) ? this.plugin.settings.customBannerIconBorderRadiusField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconBorderRadiusField;
-            const bannerIconVerticalOffsetField = Array.isArray(this.plugin.settings.customBannerIconVeritalOffsetField) ? this.plugin.settings.customBannerIconVeritalOffsetField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconVeritalOffsetField;
-            delete frontmatter2[displayField];
-            delete frontmatter2[heightField];
-            delete frontmatter2[xField];
-            delete frontmatter2[yField];
-            delete frontmatter2[contentStartPositionField];
-            delete frontmatter2[repeatField];
-            delete frontmatter2[bannerIconXPositionField];
-            delete frontmatter2[bannerIconSizeField];
-            delete frontmatter2[bannerIconColorField];
-            delete frontmatter2[bannerIconFontWeightField];
-            delete frontmatter2[bannerIconBgColorField];
-            delete frontmatter2[bannerIconPaddingXField];
-            delete frontmatter2[bannerIconPaddingYField];
-            delete frontmatter2[bannerIconBorderRadiusField];
-            delete frontmatter2[bannerIconVerticalOffsetField];
-            const flagColorField = Array.isArray(this.plugin.settings.customFlagColorField) ? this.plugin.settings.customFlagColorField[0].split(",")[0].trim() : this.plugin.settings.customFlagColorField;
-            console.log("Removing flag color field:", flagColorField);
-            delete frontmatter2[flagColorField];
-            const defaultColor3 = this.plugin.settings.selectImageIconFlag;
-            const radios = flagRadioContainer.querySelectorAll('input[type="radio"]');
-            radios.forEach((radio) => {
-              radio.checked = radio.value === defaultColor3;
-            });
-          });
-          if (flagRadioContainer) {
-            console.log("Updating flag radio buttons after reset");
-            const flagRadios = flagRadioContainer.querySelectorAll('input[type="radio"]');
-            flagRadios.forEach((radio) => {
-              radio.checked = radio.value === this.plugin.settings.selectImageIconFlag;
-            });
-          }
-          if (inlineTitleEnabled && titleColorInput) {
-            let defaultTitleColor = this.plugin.settings.titleColor;
-            if (defaultTitleColor.startsWith("var(--")) {
-              const tempEl = document.createElement("div");
-              tempEl.style.color = defaultTitleColor;
-              document.body.appendChild(tempEl);
-              const computedColor = window.getComputedStyle(tempEl).color;
-              document.body.removeChild(tempEl);
-              const rgbMatch = computedColor.match(/rgb\((\d+),\s*(\d+),\s*(\d+)\)/);
-              if (rgbMatch) {
-                const [_, r, g, b] = rgbMatch;
-                defaultTitleColor = "#" + parseInt(r).toString(16).padStart(2, "0") + parseInt(g).toString(16).padStart(2, "0") + parseInt(b).toString(16).padStart(2, "0");
-              }
-            }
-            titleColorInput.value = defaultTitleColor;
-            if (titleColorPicker) {
-              titleColorPicker.value = defaultTitleColor.startsWith("#") ? defaultTitleColor : getCurrentTheme_default() === "dark" ? "#ffffff" : "#000000";
-            }
-            this.updateTitleColor(defaultTitleColor);
-          }
-          this.currentX = this.plugin.settings.xPosition;
-          this.currentY = this.plugin.settings.yPosition;
-          verticalLine.style.left = `${this.currentX}%`;
-          horizontalLine.style.top = `${this.currentY}%`;
-          updatePositionIndicator();
-        });
-        const repeatContainer = controlPanel.createDiv({
-          cls: "repeat-container",
-          attr: {
-            style: `
-                    display: ${this.currentDisplay === "contain" || this.currentDisplay === "auto" ? "flex" : "none"};
-                    flex-direction: column;
-                    gap: 5px;
-                    align-items: center;
-                    justify-content: flex-start;
-                    margin-top: 10px;
-                    max-width: 70px;
-                    text-align: center;
-                `
-          }
-        });
-        const repeatLabel = repeatContainer.createEl("div", {
-          text: "repeat banner image?",
-          cls: "repeat-label",
-          attr: {
-            style: `
-                    color: var(--text-muted);
-                    font-size: 0.9em;
-                    margin-bottom: 20px;
-                `
-          }
-        });
-        const repeatToggle = repeatContainer.createEl("div", {
-          cls: "repeat-toggle",
-          attr: {
-            style: `
-                    margin-top: 10px;
-                `
-          }
-        });
-        const toggleInput = repeatToggle.createEl("input", {
-          type: "checkbox",
-          cls: "repeat-checkbox",
-          attr: {
-            checked: this.currentDisplay === "contain" || this.currentDisplay === "auto" ? this.currentRepeat : this.plugin.settings.imageRepeat
-          }
-        });
-        displaySelect.addEventListener("change", () => {
-          const mode = displaySelect.value;
-          zoomContainer.style.display = mode === "cover-zoom" ? "flex" : "none";
-          repeatContainer.style.display = mode === "contain" || mode === "auto" ? "flex" : "none";
-          if (mode === "contain" || mode === "auto") {
-            toggleInput.checked = this.currentRepeat;
-          } else {
-            toggleInput.checked = this.plugin.settings.imageRepeat;
-            this.currentRepeat = this.plugin.settings.imageRepeat;
-          }
-          this.updateDisplayMode(mode, mode === "cover-zoom" ? this.currentZoom : null);
-        });
-        toggleInput.addEventListener("change", () => {
-          this.currentRepeat = toggleInput.checked;
-          this.updateRepeatMode(this.currentRepeat);
-        });
-        let isDragging = false;
-        let offsetX, offsetY;
-        let isCrosshairDragging = false;
-        modalEl.addEventListener("mousedown", (e) => {
-          if (e.target === zoomSlider || e.target === heightSlider || e.target === contentStartPositionSlider || e.target === bannerIconXPositionSlider || e.target === bannerIconSizeSlider || e.target === bannerIconColorPicker || e.target === bannerIconColorInput || e.target === bannerIconPaddingXSlider || e.target === bannerIconPaddingYSlider || e.target === bannerIconBorderRadiusSlider || e.target === bannerIconVerticalOffsetSlider || e.target === alphaSlider || e.target === bannerIconBgColorPicker || e.target === bannerIconBgColorInput || e.target === titleColorPicker || e.target === titleColorInput || e.target === targetArea || e.target === verticalLine || e.target === horizontalLine) return;
-          isDragging = true;
-          offsetX = e.clientX - modalEl.getBoundingClientRect().left;
-          offsetY = e.clientY - modalEl.getBoundingClientRect().top;
-          modalEl.style.cursor = "grabbing";
-        });
-        document.addEventListener("mousemove", (e) => {
-          if (isDragging) {
-            modalEl.style.left = `${e.clientX - offsetX}px`;
-            modalEl.style.top = `${e.clientY - offsetY}px`;
-          }
-          if (isCrosshairDragging) {
-            updatePosition(e);
-          }
-        });
-        document.addEventListener("mouseup", () => {
-          isDragging = false;
-          isCrosshairDragging = false;
-          modalEl.style.cursor = "default";
-          targetArea.style.cursor = "crosshair";
-        });
-        targetArea.addEventListener("mousedown", (e) => {
-          isCrosshairDragging = true;
-          targetArea.style.cursor = "move";
-          updatePosition(e);
-          e.preventDefault();
-        });
-        verticalLine.addEventListener("mousedown", (e) => {
-          isCrosshairDragging = true;
-          targetArea.style.cursor = "move";
-          e.preventDefault();
-        });
-        horizontalLine.addEventListener("mousedown", (e) => {
-          isCrosshairDragging = true;
-          targetArea.style.cursor = "move";
-          e.preventDefault();
-        });
-        modalEl.style.position = "absolute";
-        modalEl.style.left = `${modalEl.getBoundingClientRect().left}px`;
-        modalEl.style.top = `${modalEl.getBoundingClientRect().top}px`;
-      }
-      addStyle() {
-        const style = document.createElement("style");
-        style.textContent = `
-            .target-position-modal .target-area {
-                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            }
-            .target-position-modal .vertical-line {
-                position: absolute;
-                background-color: var(--text-accent);
-                pointer-events: none;
-                width: 1px;
-                height: 100%;
-                left: ${this.currentX}%;
-                pointer-events: auto;
-                cursor: move;
-            }
-            .target-position-modal .horizontal-line {
-                position: absolute;
-                background-color: var(--text-accent);
-                pointer-events: none;
-                width: 100%;
-                height: 1px;
-                top: ${this.currentY}%;
-                pointer-events: auto;
-                cursor: move;
-            }
-            .target-position-modal .position-indicator {
-                text-align: center;
-                margin-top: 10px;
-                font-family: var(--font-monospace);
-            }
-            .target-position-modal .repeat-container {
-                min-height: 120px;
-                display: flex;
-                justify-content: center;
-            }
-            
-            .target-position-modal .repeat-checkbox {
-                transform: scale(1.2);
-                cursor: pointer;
-            }
-        `;
-        document.head.appendChild(style);
-      }
-      onClose() {
-        const style = document.head.querySelector("style:last-child");
-        if (style) {
-          style.remove();
-        }
-      }
-    };
-  }
-});
-
 // src/modal/modals/pixelBannerStoreModal.js
-var import_obsidian18, PixelBannerStoreModal, ConfirmPurchaseModal;
+var import_obsidian19, PixelBannerStoreModal, ConfirmPurchaseModal;
 var init_pixelBannerStoreModal = __esm({
   "src/modal/modals/pixelBannerStoreModal.js"() {
-    import_obsidian18 = require("obsidian");
+    import_obsidian19 = require("obsidian");
     init_constants();
     init_handlePinIconClick();
+    init_fractionTextDisplay();
     init_modals();
     init_flags();
     init_selectPixelBannerModal();
-    PixelBannerStoreModal = class extends import_obsidian18.Modal {
+    PixelBannerStoreModal = class extends import_obsidian19.Modal {
       constructor(app, plugin) {
         super(app);
         this.plugin = plugin;
@@ -24385,6 +28469,7 @@ var init_pixelBannerStoreModal = __esm({
               headers: {
                 "x-user-email": this.plugin.settings.pixelBannerPlusEmail,
                 "x-api-key": this.plugin.settings.pixelBannerPlusApiKey,
+                "X-Pixel-Banner-Version": this.plugin.settings.lastVersion,
                 "Accept": "application/json"
               }
             }
@@ -24431,8 +28516,8 @@ var init_pixelBannerStoreModal = __esm({
           }
         });
         this.nextCategoryButton = this.categoryControlsContainer.createEl("button", {
-          text: "Next Category",
-          cls: "pixel-banner-store-next-category",
+          text: "\u25B6\uFE0F Next Category",
+          cls: "pixel-banner-store-next-category radial-pulse-animation",
           attr: {
             style: `
                     display: ${this.plugin.pixelBannerPlusEnabled ? "inline-flex" : "none"};
@@ -24574,7 +28659,7 @@ var init_pixelBannerStoreModal = __esm({
             style: `border: 1px dotted ${statusBorderColor};`
           }
         });
-        const tokenCount = this.plugin.pixelBannerPlusBannerTokens !== void 0 ? `\u{1FA99} ${this.plugin.pixelBannerPlusBannerTokens.toString()} Tokens` : "\u2753 Unknown";
+        const tokenCount = this.plugin.pixelBannerPlusBannerTokens !== void 0 ? `\u{1FA99} ${decimalToFractionString(this.plugin.pixelBannerPlusBannerTokens)} Tokens` : "\u2753 Unknown";
         const tokenCountEl = pixelBannerPlusAccountStatus.createEl("span", {
           text: tokenCount,
           cls: "pixel-banner-status-value",
@@ -24653,6 +28738,7 @@ var init_pixelBannerStoreModal = __esm({
               headers: {
                 "x-user-email": this.plugin.settings.pixelBannerPlusEmail,
                 "x-api-key": this.plugin.settings.pixelBannerPlusApiKey,
+                "X-Pixel-Banner-Version": this.plugin.settings.lastVersion,
                 "Accept": "application/json"
               }
             }
@@ -24675,7 +28761,7 @@ var init_pixelBannerStoreModal = __esm({
       async searchBanners(page = 1) {
         this.searchTerm = this.searchInput.value.trim();
         if (!this.searchTerm) {
-          new import_obsidian18.Notice("Please enter a search term");
+          new import_obsidian19.Notice("Please enter a search term");
           return;
         }
         this.isSearchMode = true;
@@ -24697,6 +28783,7 @@ var init_pixelBannerStoreModal = __esm({
                 "Content-Type": "application/json",
                 "x-user-email": this.plugin.settings.pixelBannerPlusEmail,
                 "x-api-key": this.plugin.settings.pixelBannerPlusApiKey,
+                "X-Pixel-Banner-Version": this.plugin.settings.lastVersion,
                 "Accept": "application/json"
               },
               body: JSON.stringify({
@@ -24782,8 +28869,23 @@ var init_pixelBannerStoreModal = __esm({
         container.empty();
         const imageIds = images.map((image) => image.id || image.imageId || image.bannerId).filter((id) => id && id !== "unknown");
         if (this.plugin.pixelBannerPlusEnabled && imageIds.length > 0) {
-          this.fetchVoteStatsForImages(imageIds);
-          this.fetchUserVotesForImages(imageIds);
+          images.forEach((image) => {
+            const id = image.id || image.imageId || image.bannerId;
+            if (!id || id === "unknown") return;
+            this.voteStats[id] = {
+              upvotes: image.upvotes || 0,
+              downvotes: image.downvotes || 0,
+              total: image.vote_score || 0
+            };
+            if (image.user_vote === 1 || image.user_vote === "up") {
+              this.userVotes[id] = "up";
+            } else if (image.user_vote === -1 || image.user_vote === "down") {
+              this.userVotes[id] = "down";
+            } else {
+              this.userVotes[id] = null;
+            }
+            this.updateVoteDisplay(id);
+          });
         }
         images.forEach((image) => {
           try {
@@ -24797,7 +28899,9 @@ var init_pixelBannerStoreModal = __esm({
               cls: "pixel-banner-store-image-card",
               attr: {
                 "data-image-id": imageId,
-                "data-image-cost": imageCost
+                "data-image-cost": imageCost,
+                "data-image-new": true,
+                "data-image-hot": image.hot ? "true" : "false"
               }
             });
             const imageSource = image.base64Image || image.base64 || image.url || image.src || "";
@@ -24811,10 +28915,49 @@ var init_pixelBannerStoreModal = __esm({
             const promptText = image.prompt || image.description || image.title || "No description";
             const truncatedPrompt = promptText.length > 85 ? promptText.slice(0, 85) + "..." : promptText;
             details.createEl("p", { text: truncatedPrompt, cls: "pixel-banner-store-prompt" });
-            const costText = imageCost === 0 ? "FREE" : `\u{1FA99}`;
-            const costEl = details.createEl("p", { text: costText, cls: "pixel-banner-store-cost" });
+            const metaDetails = details.createEl("div", { cls: "pixel-banner-store-meta-details" });
+            const costText = imageCost === 0 ? "FREE" : `\u{1FA99} ${decimalToFractionString(imageCost)}`;
+            const costEl = metaDetails.createEl("div", {
+              text: costText,
+              cls: "pixel-banner-store-cost",
+              attr: {
+                style: "color: var(--text-normal);"
+              }
+            });
             if (imageCost === 0) {
               costEl.addClass("free");
+            }
+            if (image.new) {
+              metaDetails.createEl("div", {
+                text: "NEW",
+                attr: {
+                  style: `
+                                color: var(--interactive-accent);
+                                font-weight: bold;
+                                font-size: 11px;
+                                margin: 0;
+                                text-align: right;
+                                white-space: nowrap;
+                                margin-left: 5px;
+                            `
+                }
+              });
+            }
+            if (image.hot) {
+              metaDetails.createEl("div", {
+                text: "\u{1F525}HOT",
+                attr: {
+                  style: `
+                                color: var(--error-color);
+                                font-weight: bold;
+                                font-size: 11px;
+                                margin: 0;
+                                text-align: right;
+                                white-space: nowrap;
+                                margin-left: 5px;
+                            `
+                }
+              });
             }
             if (this.plugin.pixelBannerPlusEnabled && imageId !== "unknown") {
               const voteControls = card.createDiv({
@@ -24858,7 +29001,7 @@ var init_pixelBannerStoreModal = __esm({
             }
             card.addEventListener("click", async () => {
               var _a;
-              const cost = parseInt(card.getAttribute("data-image-cost"));
+              const cost = Number(card.getAttribute("data-image-cost"));
               if (cost > 0) {
                 new ConfirmPurchaseModal(this.app, cost, image.prompt, image.base64Image, async () => {
                   var _a2;
@@ -24867,6 +29010,7 @@ var init_pixelBannerStoreModal = __esm({
                       headers: {
                         "x-user-email": this.plugin.settings.pixelBannerPlusEmail,
                         "x-api-key": this.plugin.settings.pixelBannerPlusApiKey,
+                        "X-Pixel-Banner-Version": this.plugin.settings.lastVersion,
                         "Accept": "application/json"
                       }
                     });
@@ -24882,32 +29026,12 @@ var init_pixelBannerStoreModal = __esm({
                     filename = filename.replace(/\s+/g, "-").substring(0, 47);
                     await handlePinIconClick(data.base64Image, this.plugin, null, filename);
                     this.close();
-                    if (this.plugin.settings.openBannerIconModalAfterSelectingBanner) {
-                      new EmojiSelectionModal(
-                        this.app,
-                        this.plugin,
-                        async (emoji) => {
-                          const activeFile = this.app.workspace.getActiveFile();
-                          if (activeFile) {
-                            await this.plugin.app.fileManager.processFrontMatter(activeFile, (frontmatter) => {
-                              const iconField = this.plugin.settings.customBannerIconField[0];
-                              frontmatter[iconField] = emoji;
-                            });
-                            if (this.plugin.settings.openTargetingModalAfterSelectingBannerOrIcon) {
-                              await new Promise((resolve) => setTimeout(resolve, 200));
-                              new TargetPositionModal(this.app, this.plugin).open();
-                            }
-                          }
-                        },
-                        true
-                        // Skip the targeting modal in EmojiSelectionModal since we handle it in the callback
-                      ).open();
-                    } else if (this.plugin.settings.openTargetingModalAfterSelectingBannerOrIcon) {
+                    if (this.plugin.settings.openTargetingModalAfterSelectingBannerOrIcon) {
                       new TargetPositionModal(this.app, this.plugin).open();
                     }
                   } catch (error) {
                     console.error("Error purchasing image:", error);
-                    new import_obsidian18.Notice("Failed to purchase image. Please try again.");
+                    new import_obsidian19.Notice("Failed to purchase image. Please try again.");
                   }
                 }, this.plugin).open();
               } else {
@@ -24916,6 +29040,7 @@ var init_pixelBannerStoreModal = __esm({
                     headers: {
                       "x-user-email": this.plugin.settings.pixelBannerPlusEmail,
                       "x-api-key": this.plugin.settings.pixelBannerPlusApiKey,
+                      "X-Pixel-Banner-Version": this.plugin.settings.lastVersion,
                       "Accept": "application/json"
                     }
                   });
@@ -24927,27 +29052,7 @@ var init_pixelBannerStoreModal = __esm({
                   filename = filename.replace(/\s+/g, "-").substring(0, 47);
                   await handlePinIconClick(data.base64Image, this.plugin, null, filename);
                   this.close();
-                  if (this.plugin.settings.openBannerIconModalAfterSelectingBanner) {
-                    new EmojiSelectionModal(
-                      this.app,
-                      this.plugin,
-                      async (emoji) => {
-                        const activeFile = this.app.workspace.getActiveFile();
-                        if (activeFile) {
-                          await this.plugin.app.fileManager.processFrontMatter(activeFile, (frontmatter) => {
-                            const iconField = this.plugin.settings.customBannerIconField[0];
-                            frontmatter[iconField] = emoji;
-                          });
-                          if (this.plugin.settings.openTargetingModalAfterSelectingBannerOrIcon) {
-                            await new Promise((resolve) => setTimeout(resolve, 200));
-                            new TargetPositionModal(this.app, this.plugin).open();
-                          }
-                        }
-                      },
-                      true
-                      // Skip the targeting modal in EmojiSelectionModal since we handle it in the callback
-                    ).open();
-                  } else if (this.plugin.settings.openTargetingModalAfterSelectingBannerOrIcon) {
+                  if (this.plugin.settings.openTargetingModalAfterSelectingBannerOrIcon) {
                     new TargetPositionModal(this.app, this.plugin).open();
                   }
                 } catch (error) {
@@ -24963,76 +29068,6 @@ var init_pixelBannerStoreModal = __esm({
           this.addPaginationControls();
         } else {
           this.paginationContainer.style.display = "none";
-        }
-      }
-      // Fetch vote stats for multiple images
-      async fetchVoteStatsForImages(imageIds) {
-        if (!imageIds || imageIds.length === 0) return;
-        try {
-          for (const id of imageIds) {
-            const endpoint = PIXEL_BANNER_PLUS.ENDPOINTS.BANNER_VOTES_STATS.replace(":id", id);
-            const response = await fetch(`${PIXEL_BANNER_PLUS.API_URL}${endpoint}`, {
-              headers: {
-                "x-user-email": this.plugin.settings.pixelBannerPlusEmail,
-                "x-api-key": this.plugin.settings.pixelBannerPlusApiKey,
-                "Accept": "application/json"
-              }
-            });
-            if (response.ok) {
-              const data = await response.json();
-              this.voteStats[id] = {
-                upvotes: data.upvotes || 0,
-                downvotes: data.downvotes || 0,
-                total: (data.upvotes || 0) - (data.downvotes || 0)
-              };
-              this.updateVoteDisplay(id);
-            }
-          }
-        } catch (error) {
-          console.error("Error fetching vote stats:", error);
-        }
-      }
-      // Fetch user's votes for multiple images
-      async fetchUserVotesForImages(imageIds) {
-        if (!imageIds || imageIds.length === 0 || !this.plugin.pixelBannerPlusEnabled) {
-          return;
-        }
-        try {
-          for (const id of imageIds) {
-            try {
-              const endpoint = PIXEL_BANNER_PLUS.ENDPOINTS.BANNER_VOTES_USER_VOTE.replace(":id", id);
-              const response = await fetch(`${PIXEL_BANNER_PLUS.API_URL}${endpoint}`, {
-                headers: {
-                  "x-user-email": this.plugin.settings.pixelBannerPlusEmail,
-                  "x-api-key": this.plugin.settings.pixelBannerPlusApiKey,
-                  "Accept": "application/json"
-                }
-              });
-              if (response.ok) {
-                const data = await response.json();
-                if (data.vote === "up" || data.vote === 1) {
-                  this.userVotes[id] = "up";
-                } else if (data.vote === "down" || data.vote === -1) {
-                  this.userVotes[id] = "down";
-                } else {
-                  this.userVotes[id] = null;
-                }
-                this.updateVoteDisplay(id);
-              } else {
-                console.error(`Error fetching user vote for banner ${id}: ${response.status}`);
-                this.userVotes[id] = null;
-              }
-            } catch (error) {
-              console.error(`Error processing vote for banner ${id}:`, error);
-              this.userVotes[id] = null;
-            }
-          }
-        } catch (error) {
-          console.error("Error fetching user votes:", error);
-        } finally {
-          for (const id of imageIds) {
-            this.updateVoteDisplay(id);
-          }
         }
       }
       // Update vote display for a specific banner
@@ -25084,6 +29119,7 @@ var init_pixelBannerStoreModal = __esm({
             headers: {
               "x-user-email": this.plugin.settings.pixelBannerPlusEmail,
               "x-api-key": this.plugin.settings.pixelBannerPlusApiKey,
+              "X-Pixel-Banner-Version": this.plugin.settings.lastVersion,
               "Content-Type": "application/json",
               "Accept": "application/json"
             }
@@ -25100,7 +29136,7 @@ var init_pixelBannerStoreModal = __esm({
           }
         } catch (error) {
           console.error("Error upvoting banner:", error);
-          new import_obsidian18.Notice("Failed to upvote banner. Please try again.");
+          new import_obsidian19.Notice("Failed to upvote banner. Please try again.");
         }
       }
       // Downvote a banner
@@ -25113,6 +29149,7 @@ var init_pixelBannerStoreModal = __esm({
             headers: {
               "x-user-email": this.plugin.settings.pixelBannerPlusEmail,
               "x-api-key": this.plugin.settings.pixelBannerPlusApiKey,
+              "X-Pixel-Banner-Version": this.plugin.settings.lastVersion,
               "Content-Type": "application/json",
               "Accept": "application/json"
             }
@@ -25129,7 +29166,7 @@ var init_pixelBannerStoreModal = __esm({
           }
         } catch (error) {
           console.error("Error downvoting banner:", error);
-          new import_obsidian18.Notice("Failed to downvote banner. Please try again.");
+          new import_obsidian19.Notice("Failed to downvote banner. Please try again.");
         }
       }
       // Toggle between search mode and category browsing mode
@@ -25246,8 +29283,7 @@ var init_pixelBannerStoreModal = __esm({
             }
             
             .pixel-banner-store-search-button,
-            .pixel-banner-store-stop-search-button,
-            .pixel-banner-store-search-all-button {
+            .pixel-banner-store-stop-search-button {
                 background-color: var(--interactive-accent) !important;
                 color: var(--text-on-accent) !important;
             }
@@ -25422,8 +29458,8 @@ var init_pixelBannerStoreModal = __esm({
                 margin-left: 5px;
             }
             .pixel-banner-store-cost.free {
-                color: var(--text-success);
-                font-weight: bold;
+                color: var(--text-success) !important;
+                font-weight: bold !important;
             }
             
             /* Vote Controls Styles */
@@ -25569,6 +29605,17 @@ var init_pixelBannerStoreModal = __esm({
             .pixel-banner-store-image-grid.store-voting-off .pixel-banner-store-vote-controls {
                 display: none;
             }
+
+
+            /* ------------------- */
+            /* -- mobile layout -- */
+            /* ------------------- */
+            @media screen and (max-width: 800px) {
+                .pixel-banner-store-select-container { flex-direction: column !important; width: 100% !important; }
+                .pixel-banner-store-select-container * { width: 100% !important; }
+                .pixel-banner-store-search-container { flex-direction: column !important; width: 100% !important; }
+                .pixel-banner-store-search-container * { width: 100% !important; }
+            }
         `;
         document.head.appendChild(style);
         this.style = style;
@@ -25583,7 +29630,7 @@ var init_pixelBannerStoreModal = __esm({
         }
       }
     };
-    ConfirmPurchaseModal = class extends import_obsidian18.Modal {
+    ConfirmPurchaseModal = class extends import_obsidian19.Modal {
       constructor(app, cost, prompt, previewImage, onConfirm, plugin) {
         super(app);
         this.cost = cost;
@@ -25649,7 +29696,7 @@ var init_pixelBannerStoreModal = __esm({
           }
         });
         const explanationText = buttonContainer.createEl("p", {
-          text: `\u{1FA99} ${this.cost} Banner Token${this.cost > 1 ? "s" : ""} (this is not a monitary transaction). Once purchased, the banner will be added to your vault, and will be free to download while listed in the store.`,
+          text: `\u{1FA99} ${decimalToFractionString(this.cost)} Banner Token${this.cost > 1 ? "s" : ""} (this is not a monitary transaction). Once purchased, the banner will be added to your vault, and will be free to download while listed in the store.`,
           cls: "setting-item-description",
           attr: {
             style: `
@@ -25661,7 +29708,7 @@ var init_pixelBannerStoreModal = __esm({
           }
         });
         const confirmButton = buttonContainer.createEl("button", {
-          text: "\u{1FA99} Purchase",
+          text: `\u{1FA99} ${decimalToFractionString(this.cost)} Token${this.cost > 1 ? "s" : ""}`,
           cls: "mod-cta radial-pulse-animation"
         });
         confirmButton.addEventListener("click", () => {
@@ -25704,12 +29751,12 @@ var init_pixelBannerStoreModal = __esm({
 });
 
 // src/modal/modals/webAddressModal.js
-var import_obsidian19, WebAddressModal;
+var import_obsidian20, WebAddressModal;
 var init_webAddressModal = __esm({
   "src/modal/modals/webAddressModal.js"() {
-    import_obsidian19 = require("obsidian");
+    import_obsidian20 = require("obsidian");
     init_modals();
-    WebAddressModal = class extends import_obsidian19.Modal {
+    WebAddressModal = class extends import_obsidian20.Modal {
       constructor(app, plugin) {
         super(app);
         this.plugin = plugin;
@@ -25717,10 +29764,22 @@ var init_webAddressModal = __esm({
       async onOpen() {
         const { contentEl } = this;
         contentEl.empty();
+        const style = document.createElement("style");
+        style.textContent = `
+            /* ------------------- */
+            /* -- mobile layout -- */
+            /* ------------------- */
+            @media screen and (max-width: 375px) {
+                .pixel-banner-web-address-button-container { flex-direction: column !important; }
+                .pixel-banner-web-address-button-container button { width: 100% !important; }
+            }
+        `;
+        document.head.appendChild(style);
+        this.style = style;
         const mainContainer = contentEl.createDiv({ cls: "pixel-banner-web-address-modal" });
         const titleContainer = mainContainer.createEl("h2", {
           cls: "pixel-banner-web-address-title",
-          text: "Enter Image URL",
+          text: "\u{1F310} Enter Banner URL",
           attr: {
             style: `
                     margin-top: 10px;
@@ -25863,40 +29922,7 @@ var init_webAddressModal = __esm({
               const bannerField = this.plugin.settings.customBannerField[0];
               frontmatter[bannerField] = url;
             });
-            if (this.plugin.settings.openBannerIconModalAfterSelectingBanner) {
-              this.close();
-              new EmojiSelectionModal(
-                this.app,
-                this.plugin,
-                async (emoji) => {
-                  if (activeFile) {
-                    await this.plugin.app.fileManager.processFrontMatter(activeFile, (frontmatter) => {
-                      const iconField = this.plugin.settings.customBannerIconField[0];
-                      if (emoji) {
-                        frontmatter[iconField] = emoji;
-                      } else {
-                        delete frontmatter[iconField];
-                      }
-                    });
-                    const view = this.plugin.app.workspace.getActiveViewOfType(import_obsidian19.MarkdownView);
-                    if (view) {
-                      const contentEl2 = view.contentEl;
-                      if (contentEl2) {
-                        const existingOverlays = contentEl2.querySelectorAll(".banner-icon-overlay");
-                        existingOverlays.forEach((overlay) => {
-                          this.plugin.returnIconOverlay(overlay);
-                        });
-                      }
-                      await this.plugin.updateBanner(view, true);
-                    }
-                    if (this.plugin.settings.openTargetingModalAfterSelectingBannerOrIcon) {
-                      new TargetPositionModal(this.app, this.plugin).open();
-                    }
-                  }
-                },
-                this.plugin.settings.openTargetingModalAfterSelectingBannerOrIcon
-              ).open();
-            } else if (this.plugin.settings.openTargetingModalAfterSelectingBannerOrIcon) {
+            if (this.plugin.settings.openTargetingModalAfterSelectingBannerOrIcon) {
               this.close();
               new TargetPositionModal(this.app, this.plugin).open();
             } else {
@@ -25946,12 +29972,122 @@ var init_webAddressModal = __esm({
   }
 });
 
+// src/modal/modals/dailyGame.js
+var import_obsidian21, DailyGameModal;
+var init_dailyGame = __esm({
+  "src/modal/modals/dailyGame.js"() {
+    import_obsidian21 = require("obsidian");
+    init_constants();
+    init_selectPixelBannerModal();
+    DailyGameModal = class extends import_obsidian21.Modal {
+      constructor(app, userEmail, apiKey, plugin) {
+        super(app);
+        this.userEmail = userEmail;
+        this.apiKey = apiKey;
+        this.iframe = null;
+        this.plugin = plugin;
+      }
+      onOpen() {
+        const style = document.createElement("style");
+        style.innerHTML = `
+        .pixel-banner-game-modal {
+        width: 800px;
+        max-width: 90vw;
+        }
+
+        .pixel-banner-game-modal .game-container {
+        margin: 1rem 0;
+        border: 1px solid var(--background-modifier-border);
+        border-radius: 4px;
+        overflow: hidden;
+        height: 600px;
+        }
+
+        .pixel-banner-game-modal iframe {
+        border: none;
+        }
+    `;
+        const { contentEl } = this;
+        contentEl.addClass("pixel-banner-game-modal");
+        const gameContainer = contentEl.createDiv({ cls: "game-container" });
+        this.iframe = gameContainer.createEl("iframe", {
+          attr: {
+            src: `${PIXEL_BANNER_PLUS.API_URL}${PIXEL_BANNER_PLUS.ENDPOINTS.DAILY_GAME}`,
+            width: "100%",
+            height: "600px",
+            frameborder: "0",
+            allowfullscreen: "true",
+            allow: "clipboard-write; encrypted-media",
+            sandbox: "allow-scripts allow-same-origin allow-popups allow-forms"
+          }
+        });
+        const buttonContainer = contentEl.createDiv({
+          cls: "button-container",
+          attr: {
+            style: `
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            `
+          }
+        });
+        const buyTokensButton = buttonContainer.createEl("button", {
+          cls: "pixel-banner-account-button pixel-banner-buy-tokens-button",
+          text: "\u{1F4B5} Buy More Tokens"
+        });
+        buyTokensButton.addEventListener("click", (event) => {
+          event.preventDefault();
+          window.open(PIXEL_BANNER_PLUS.SHOP_URL, "_blank");
+        });
+        const backToMainButton = buttonContainer.createEl("button", {
+          text: "\u21E0 Main Menu",
+          cls: "cursor-pointer",
+          attr: {
+            style: `
+              margin-left: auto;
+              width: max-content;
+              min-width: auto;
+          `
+          }
+        });
+        backToMainButton.addEventListener("click", () => {
+          this.close();
+          new SelectPixelBannerModal(this.app, this.plugin).open();
+        });
+        this.iframe.onload = () => {
+          this.sendAuthToIframe();
+        };
+      }
+      sendAuthToIframe() {
+        if (!this.iframe.contentWindow) {
+          console.error("Iframe content window not available");
+          return;
+        }
+        this.iframe.contentWindow.postMessage({
+          type: "auth",
+          data: {
+            userEmail: this.userEmail,
+            apiKey: this.apiKey
+          }
+        }, PIXEL_BANNER_PLUS.API_URL);
+      }
+      onClose() {
+        const { contentEl } = this;
+        contentEl.empty();
+      }
+    };
+  }
+});
+
 // src/modal/modals.js
 var modals_exports = {};
 __export(modals_exports, {
+  DailyGameModal: () => DailyGameModal,
   EmojiSelectionModal: () => EmojiSelectionModal,
   FolderSelectionModal: () => FolderSelectionModal,
   GenerateAIBannerModal: () => GenerateAIBannerModal,
+  IconFolderSelectionModal: () => IconFolderSelectionModal,
+  IconImageSelectionModal: () => IconImageSelectionModal,
   ImageSelectionModal: () => ImageSelectionModal,
   ImageViewModal: () => ImageViewModal,
   PixelBannerStoreModal: () => PixelBannerStoreModal,
@@ -25966,7 +30102,9 @@ var init_modals = __esm({
     init_releaseNotesModal();
     init_imageViewModal();
     init_imageSelectionModal();
+    init_iconImageSelectionModal();
     init_folderSelectionModal();
+    init_iconFolderSelectionModal();
     init_generateAIBannerModal();
     init_saveImageModal();
     init_emojiSelectionModal();
@@ -25974,6 +30112,7 @@ var init_modals = __esm({
     init_selectPixelBannerModal();
     init_pixelBannerStoreModal();
     init_webAddressModal();
+    init_dailyGame();
   }
 });
 
@@ -25985,10 +30124,10 @@ __export(main_exports, {
 module.exports = __toCommonJS(main_exports);
 
 // src/core/pixelBannerPlugin.js
-var import_obsidian28 = require("obsidian");
+var import_obsidian30 = require("obsidian");
 
 // virtual-module:virtual:release-notes
-var releaseNotes = '<a href="https://www.youtube.com/watch?v=pJFsMfrWak4">\n  <img src="https://pixel-banner.online/img/pixel-banner-v3-transparent-bg.png" alt="Pixel Banner" style="max-width: 400px;">\n</a>\n\n<h2>\u{1F389} What&#39;s New</h2>\n<h3>v3.1.0 - 2025-03-22</h3>\n<h4>\u2728 Added</h4>\n<ul>\n<li>Modal for setting banner source from a URL</li>\n<li>Add voting functionality to Pixel Banner Store</li>\n<li>Added clear instruction to the top of the &quot;Set Banner Icon&quot; modal</li>\n<li>Enhance the visibility of the &quot;\u{1F331} GROW YOUR IDEA&quot; button on the AI Banner modal to make it more prominent, highlighting its usefulness</li>\n<li>Show a &quot;Upgrade Available&quot; message in the footer of hte Pixel Banner main menu if a new version is available</li>\n</ul>\n<h4>\u{1F4E6} Updated</h4>\n<ul>\n<li>Added back ability to prevent the <code>\u{1F6A9}</code> select pixel banner icon from being displayed on notes (you can still set the opacity of the icon when enabled)</li>\n<li>Improved UX of dragging/selecting banner position when using the &quot;crosshair&quot; targeting control</li>\n</ul>\n<h3>v3.0.0 - 2025-03-19</h3>\n<h4>\u2728 Added</h4>\n<ul>\n<li>New <code>Pixel Banner Plus \u{1F6A9}\u2795</code> premium features:<blockquote>\n<ul>\n<li>Curated Store of Images to choose from</li>\n<li>Generate banners using custom &quot;text to banner&quot; prompts</li>\n<li>Get image prompt inspiration from the AI models</li>\n<li>Cloud Server endpoint for handling user accounts and AI interactions (<a href="https://pixel-banner.online/">https://pixel-banner.online/</a>)</li>\n</ul>\n</blockquote>\n</li>\n<li>When using the &#39;\u{1F4CC} Pin Banner&#39; action, you can specify to not use the saved image as a banner (good for just saving file)</li>\n<li>Targeting Modal now has controls for all Image Banner and Icons settings!</li>\n<li>Added support for <code>.avif</code> images</li>\n<li>Added extra calculation to ensure Banner Icon position is within the Note&#39;s visible bounds</li>\n<li>Added <code>repeat</code> option to the <code>contain</code> section of the Targeting Modal</li>\n<li>Support for embedded image format in the Banner frontmatter field: <code>![[image.jpg]]</code></li>\n<li>YouTube promo video: <a href="https://www.youtube.com/watch?v=pJFsMfrWak4">https://www.youtube.com/watch?v=pJFsMfrWak4</a></li>\n</ul>\n<h4>\u{1F4E6} Updated</h4>\n<ul>\n<li>Complete restructuring of plugin codebase for better organization and maintainability</li>\n<li>The Targeting Modal slider controls won&#39;t unintentionally drag the modal</li>\n</ul>\n<h4>\u{1F41B} Fixed</h4>\n<ul>\n<li>Fixed issue with the <code>Folder</code> selection modal displaying the suggested directory twice when saving a banner image</li>\n<li>Resolved issue with cleaning up cached banner icons when loading notes without banner icons</li>\n</ul>\n';
+var releaseNotes = '<a href="https://www.youtube.com/watch?v=fwvVX7to7-4">\n  <img src="https://pixel-banner.online/img/pixel-banner-v3.5.jpg" alt="Pixel Banner" style="max-width: 400px;">\n</a>\n\n<h2>\u{1F389} What&#39;s New</h2>\n<h3>v3.5.5 - 2025-05-30</h3>\n<h4>\u2728 Added</h4>\n<ul>\n<li>New AI Image Model, <code>FLUX Kontext (pro)</code>, allows for uploading images and editing them via text prompts<ul>\n<li>example: type in a prompt &quot;Make this a Studio Ghible cartoon&quot;, select the &quot;FLUX Kontext&quot; model, upload an image, then click Generate</li>\n</ul>\n</li>\n</ul>\n<h3>v3.5.4 - 2025-05-27</h3>\n<h4>\u{1F41B} Fixed</h4>\n<ul>\n<li>Resolve issue with not evaluating all defined custom field names for &quot;banner&quot; frontmatter</li>\n<li>Revert aggresive css change impacting the background color of some theme variations and plugins</li>\n</ul>\n<h3>v3.5.3 - 2025-05-23</h3>\n<h4>\u2728 Added</h4>\n<ul>\n<li>New <code>Icon Image Size Multiplier</code> control:<br>allows for changing the icon image size relative to the Banner Icon elements size (perfect to when you want the image to be larger or smaller than any accompanying icon text)</li>\n<li>New <code>Icon Text Vertical Offset</code> control:<br>allows for adjusting the vertical offset of the Icon Text relative to the Icon Image if set (perfect for fine-tuning center alignment of text)</li>\n</ul>\n<h4>\u{1F4E6} Updated</h4>\n<ul>\n<li>Updated some labels on the &quot;Position, Size &amp; Style&quot; modal for clarity</li>\n</ul>\n<h3>v3.5.2 - 2025-05-21</h3>\n<h4>\u{1F41B} Fixed</h4>\n<ul>\n<li>Updated styles to remove overflow on images for mobile devices</li>\n<li>Resolved issue with icon image selection modal not using the correct extension for non-svg images</li>\n</ul>\n<h3>v3.5.1 - 2025-05-19</h3>\n<h4>\u2728 Added</h4>\n<ul>\n<li>Added Command Palette command for selecting a <code>Banner Icon Image</code></li>\n</ul>\n<h3>v3.5.0 - 2025-05-18</h3>\n<h4>\u2728 Added</h4>\n<ul>\n<li>New &quot;Banner Icon Rotation&quot; option to rotate the banner icon from 0 to 360 degrees</li>\n<li>New &quot;Icon Image&quot; support to allow banner icons to contain both text/emojis and an image</li>\n<li>Added Banner Icon Image controls to the Position, Size &amp; Style Modal (image source and alignment)</li>\n<li>Banner Icon Image sources include:<ul>\n<li>Local images</li>\n<li>Web URL</li>\n<li>Online Collections (FREE downloadable icons)</li>\n</ul>\n</li>\n<li>Banner Icon Image alignment options include:<ul>\n<li>Left or Right (set the position of the icon image relative to the text/emojis)</li>\n</ul>\n</li>\n<li>New Border Radius slider control available in the Position, Size &amp; Style Modal</li>\n<li>Four new AI Models to choose from when generating an image for a banner</li>\n</ul>\n<h4>\u{1F4E6} Updated</h4>\n<ul>\n<li>Embedded notes now respect custom frontmatter settings (border radius, banner height, etc.)</li>\n<li>Any system action that sets the frontmatter value for a Banner or Icon Image now uses <code>![[image]]</code> format vs <code>[[image]]</code></li>\n<li>Updated Token currency to allow for fractional tokens (e.g. 0.5 tokens) for better pricing where applicable</li>\n</ul>\n<h4>\u{1F41B} Fixed</h4>\n<ul>\n<li>Resolved issue with content being pushed down when banner was present in embedded notes</li>\n<li>Resolved issue with max-width slider being disabled even when a custom max-width was set in frontmatter</li>\n<li>Addressed background color preventing banner from showing in reading mode for some themes</li>\n</ul>\n<a href="https://www.youtube.com/watch?v=pJFsMfrWak4">\n  <img src="https://pixel-banner.online/img/pixel-banner-transparent-bg.png" alt="Pixel Banner" style="max-width: 400px;">\n</a>';
 
 // src/settings/settings.js
 var import_obsidian6 = require("obsidian");
@@ -26054,7 +30193,7 @@ function random20characters() {
 }
 function createAPISettings(containerEl, plugin) {
   const calloutEl = containerEl.createEl("div", { cls: "tab-callout" });
-  calloutEl.createEl("div", { text: "\u{1F310} Optionally select which 3rd party API provider to use for fetching images. See the Examples tab for more information on referencing images by URL or local image. You can use any combination of API keyword, URL, or local image between notes." });
+  calloutEl.createEl("div", { text: "\u{1F310} Optionally select which 3rd party API provider to use for displaying random images." });
   new import_obsidian.Setting(containerEl).setName("API Provider").setDesc("Select the API provider for fetching images").addDropdown((dropdown) => dropdown.addOption("all", "All (Random)").addOption("pexels", "Pexels").addOption("pixabay", "Pixabay").addOption("flickr", "Flickr").addOption("unsplash", "Unsplash").setValue(plugin.settings.apiProvider).onChange(async (value) => {
     plugin.settings.apiProvider = value;
     await plugin.saveSettings();
@@ -26146,6 +30285,43 @@ function createAPISettings(containerEl, plugin) {
     button.setDisabled(false);
     new import_obsidian.Notice(isValid ? "\u2705 Unsplash API key is valid!" : "\u274C Invalid Unsplash API key");
   }));
+  const exampleContainer = containerEl.createEl("div", {
+    attr: {
+      style: `
+                margin: 20px 0;
+                padding: 20px;
+                border: 1px solid var(--modal-border-color);
+                border-radius: 7px;
+            `
+    }
+  });
+  exampleContainer.createEl("div", {
+    text: "Usage Example",
+    attr: {
+      style: `
+                font-weight: bold;
+                font-size: 1.1rem;
+                color: var(--color-accent);
+            `
+    }
+  });
+  exampleContainer.createEl("div", {
+    text: "Add keyword(s) to the banner frontmatter to display random API images matching the keywords.",
+    attr: {
+      style: `
+                margin: 10px 0;
+            `
+    }
+  });
+  exampleContainer.createEl("img", {
+    attr: {
+      src: "https://raw.githubusercontent.com/jparkerweb/pixel-banner/refs/heads/main/img/3rd-party-apis-example.jpg",
+      style: `
+                width: auto;
+                max-width: 100%;
+            `
+    }
+  });
   new import_obsidian.Setting(containerEl).setName("Images").setDesc("Configure settings for images fetched from API. These settings apply when using keywords to fetch random images.").setHeading();
   new import_obsidian.Setting(containerEl).setName("Show Pin Icon").setDesc("Show a pin icon on random banner images that allows saving them to your vault. Once pinned, your frontmatter will be updated to use the local image instead of the API image.").addToggle((toggle) => toggle.setValue(plugin.settings.showPinIcon).onChange(async (value) => {
     plugin.settings.showPinIcon = value;
@@ -26747,6 +30923,20 @@ function createCustomFieldsSettings(containerEl, plugin) {
       placeholder: "banner-repeat, image-repeat, repeat"
     },
     {
+      setting: "customBannerMaxWidthField",
+      name: "Banner Max Width Field Names",
+      desc: "Set custom field names for the banner maximum width in frontmatter",
+      values: "800px, 100%, 1200px",
+      placeholder: "banner-max-width, max-width, banner-width"
+    },
+    {
+      setting: "customBannerAlignmentField",
+      name: "Banner Alignment Field Names",
+      desc: "Set custom field names for the banner alignment in frontmatter",
+      values: "left, center, right",
+      placeholder: "banner-alignment"
+    },
+    {
       setting: "customBannerHeightField",
       name: "Banner Height Field Names",
       desc: "Set custom field names for the banner height in frontmatter",
@@ -26757,7 +30947,7 @@ function createCustomFieldsSettings(containerEl, plugin) {
       setting: "customFadeField",
       name: "Fade Field Names",
       desc: "Set custom field names for the fade in frontmatter",
-      values: "-75, -150, 0",
+      values: "-300, -50, 0, 100",
       placeholder: "banner-fade, fade, fade-amount"
     },
     {
@@ -26796,11 +30986,39 @@ function createCustomFieldsSettings(containerEl, plugin) {
       placeholder: "banner-icon, icon, header-icon"
     },
     {
+      setting: "customBannerIconImageField",
+      name: "Banner Icon Image Field Names",
+      desc: "Set custom field names for the banner icon image in frontmatter",
+      values: '[[image.png]], "images/icon.jpg"',
+      placeholder: "banner-icon-image, icon-image"
+    },
+    {
       setting: "customBannerIconSizeField",
       name: "Banner Icon Size Field Names",
       desc: "Set custom field names for the banner icon size in frontmatter",
       values: "50, 70, 100",
       placeholder: "banner-icon-size, icon-size"
+    },
+    {
+      setting: "customBannerIconImageSizeMultiplierField",
+      name: "Banner Icon Image Size Multiplier Field Names",
+      desc: "Set custom field names for the banner icon image size multiplier in frontmatter",
+      values: ".5, 1.5, 2",
+      placeholder: "banner-icon-image-size-multiplier, icon-image-size-multiplier"
+    },
+    {
+      setting: "customBannerIconTextVerticalOffsetField",
+      name: "Banner Icon Text Vertical Offset Field Names",
+      desc: "Set custom field names for the banner icon text vertical offset in frontmatter",
+      values: "-10, 0, 10",
+      placeholder: "banner-icon-text-vertical-offset, icon-text-vertical-offset"
+    },
+    {
+      setting: "customBannerIconRotateField",
+      name: "Banner Icon Rotate Field Names",
+      desc: "Set custom field names for the banner icon rotate in frontmatter",
+      values: "50, 70, 100",
+      placeholder: "banner-icon-rotate, icon-rotate"
     },
     {
       setting: "customBannerIconXPositionField",
@@ -26864,6 +31082,13 @@ function createCustomFieldsSettings(containerEl, plugin) {
       desc: "Set custom field names for the banner icon vertical offset in frontmatter",
       values: "-50, 0, 50",
       placeholder: "banner-icon-y, icon-y"
+    },
+    {
+      setting: "customBannerIconImageAlignmentField",
+      name: "Banner Icon Image Alignment Field Names",
+      desc: "Set custom field names for the banner icon image alignment in frontmatter",
+      values: "left, right",
+      placeholder: "banner-icon-image-alignment, icon-image-alignment"
     }
   ];
   customFields.forEach((field) => {
@@ -26905,7 +31130,7 @@ function createGeneralSettings(containerEl, plugin) {
   const calloutEl = containerEl.createEl("div", { cls: "tab-callout margin-bottom-0" });
   calloutEl.createEl("div", { text: "\u2699\uFE0F Configure default settings for all notes." });
   const SelectImageSettingsGroup = containerEl.createDiv({ cls: "setting-group" });
-  const showSelectImageIconSetting = new import_obsidian4.Setting(SelectImageSettingsGroup).setName("Show Select Image Icon").setDesc("Show the banner selector icon in the top-left corner of notes").addToggle((toggle) => toggle.setValue(plugin.settings.showSelectImageIcon).onChange(async (value) => {
+  const showSelectImageIconSetting = new import_obsidian4.Setting(SelectImageSettingsGroup).setName("Show Pixel Banner Flag").setDesc("Show the banner selector icon in the top-left corner of notes").addToggle((toggle) => toggle.setValue(plugin.settings.showSelectImageIcon).onChange(async (value) => {
     plugin.settings.showSelectImageIcon = value;
     await plugin.saveSettings();
     plugin.updateAllBanners();
@@ -26918,7 +31143,7 @@ function createGeneralSettings(containerEl, plugin) {
     }
     plugin.updateAllBanners();
   }));
-  const selectImageIconOpacitySetting = new import_obsidian4.Setting(SelectImageSettingsGroup).setName("Pixel Banner Icon Opacity").setDesc("Set the opacity of the banner selector icon in the top-left corner (0-100)").addSlider((slider) => slider.setLimits(0, 100, 1).setValue(plugin.settings.selectImageIconOpacity).setDynamicTooltip().onChange(async (value) => {
+  const selectImageIconOpacitySetting = new import_obsidian4.Setting(SelectImageSettingsGroup).setName("Pixel Banner Flag Opacity").setDesc("Set the opacity of the banner selector icon in the top-left corner (0-100)").addSlider((slider) => slider.setLimits(0, 100, 1).setValue(plugin.settings.selectImageIconOpacity).setDynamicTooltip().onChange(async (value) => {
     plugin.settings.selectImageIconOpacity = value;
     await plugin.saveSettings();
     plugin.updateAllBanners();
@@ -27011,15 +31236,28 @@ function createGeneralSettings(containerEl, plugin) {
       textComponent.setValue(DEFAULT_SETTINGS.defaultSelectImagePath);
     }
   }));
-  const openBannerIconModalSetting = new import_obsidian4.Setting(SelectImageSettingsGroup).setName("Open Banner Icon Modal after selecting a Banner").setDesc("Automatically open the Banner Icon selection modal after selecting a banner image").addToggle((toggle) => toggle.setValue(plugin.settings.openBannerIconModalAfterSelectingBanner).onChange(async (value) => {
-    plugin.settings.openBannerIconModalAfterSelectingBanner = value;
-    await plugin.saveSettings();
+  const defaultSelectIconPathSetting = new import_obsidian4.Setting(SelectImageSettingsGroup).setName("Default Select Icon Path").setDesc("Set a default folder path to filter images when selecting a banner icon image").addText((text) => {
+    text.setPlaceholder("Example: Images/Icons").setValue(plugin.settings.defaultSelectIconPath).onChange(async (value) => {
+      plugin.settings.defaultSelectIconPath = value;
+      await plugin.saveSettings();
+    });
+    text.inputEl.style.width = "200px";
+    return text;
+  }).addButton((button) => button.setButtonText("Browse").onClick(() => {
+    new FolderSuggestModal(plugin.app, (chosenPath) => {
+      plugin.settings.defaultSelectIconPath = chosenPath;
+      const textInput = defaultSelectIconPathSetting.components[0];
+      if (textInput) {
+        textInput.setValue(chosenPath);
+      }
+      plugin.saveSettings();
+    }).open();
   })).addExtraButton((button) => button.setIcon("reset").setTooltip("Reset to default").onClick(async () => {
-    plugin.settings.openBannerIconModalAfterSelectingBanner = DEFAULT_SETTINGS.openBannerIconModalAfterSelectingBanner;
+    plugin.settings.defaultSelectIconPath = DEFAULT_SETTINGS.defaultSelectIconPath;
     await plugin.saveSettings();
-    const toggleComponent = openBannerIconModalSetting.components[0];
-    if (toggleComponent) {
-      toggleComponent.setValue(DEFAULT_SETTINGS.openBannerIconModalAfterSelectingBanner);
+    const textComponent = defaultSelectIconPathSetting.components[0];
+    if (textComponent) {
+      textComponent.setValue(DEFAULT_SETTINGS.defaultSelectIconPath);
     }
   }));
   const openTargetingModalSetting = new import_obsidian4.Setting(SelectImageSettingsGroup).setName("Open Targeting Modal after selecting a Banner or Icon").setDesc("Automatically open the Targeting Modal after selecting a banner image or icon").addToggle((toggle) => toggle.setValue(plugin.settings.openTargetingModalAfterSelectingBannerOrIcon).onChange(async (value) => {
@@ -27033,20 +31271,6 @@ function createGeneralSettings(containerEl, plugin) {
       toggleComponent.setValue(DEFAULT_SETTINGS.openTargetingModalAfterSelectingBannerOrIcon);
     }
   }));
-  new import_obsidian4.Setting(containerEl).setName("Image Vertical Position").setDesc("Set the vertical position of the image (0-100)").addSlider(
-    (slider) => slider.setLimits(0, 100, 1).setValue(plugin.settings.yPosition).setDynamicTooltip().onChange(async (value) => {
-      plugin.settings.yPosition = value;
-      await plugin.saveSettings();
-      plugin.updateAllBanners();
-    })
-  ).addExtraButton((button) => button.setIcon("reset").setTooltip("Reset to default").onClick(async () => {
-    plugin.settings.yPosition = DEFAULT_SETTINGS.yPosition;
-    await plugin.saveSettings();
-    plugin.updateAllBanners();
-    const sliderEl = button.extraSettingsEl.parentElement.querySelector(".slider");
-    sliderEl.value = DEFAULT_SETTINGS.yPosition;
-    sliderEl.dispatchEvent(new Event("input"));
-  }));
   new import_obsidian4.Setting(containerEl).setName("Image Horizontal Position").setDesc("Set the horizontal position of the image (0-100)").addSlider(
     (slider) => slider.setLimits(0, 100, 1).setValue(plugin.settings.xPosition).setDynamicTooltip().onChange(async (value) => {
       plugin.settings.xPosition = value;
@@ -27059,6 +31283,20 @@ function createGeneralSettings(containerEl, plugin) {
     plugin.updateAllBanners();
     const sliderEl = button.extraSettingsEl.parentElement.querySelector(".slider");
     sliderEl.value = DEFAULT_SETTINGS.xPosition;
+    sliderEl.dispatchEvent(new Event("input"));
+  }));
+  new import_obsidian4.Setting(containerEl).setName("Image Vertical Position").setDesc("Set the vertical position of the image (0-100)").addSlider(
+    (slider) => slider.setLimits(0, 100, 1).setValue(plugin.settings.yPosition).setDynamicTooltip().onChange(async (value) => {
+      plugin.settings.yPosition = value;
+      await plugin.saveSettings();
+      plugin.updateAllBanners();
+    })
+  ).addExtraButton((button) => button.setIcon("reset").setTooltip("Reset to default").onClick(async () => {
+    plugin.settings.yPosition = DEFAULT_SETTINGS.yPosition;
+    await plugin.saveSettings();
+    plugin.updateAllBanners();
+    const sliderEl = button.extraSettingsEl.parentElement.querySelector(".slider");
+    sliderEl.value = DEFAULT_SETTINGS.yPosition;
     sliderEl.dispatchEvent(new Event("input"));
   }));
   new import_obsidian4.Setting(containerEl).setName("Content Start Position").setDesc("Set the default vertical position where the content starts (in pixels)").addText((text) => text.setPlaceholder("150").setValue(String(plugin.settings.contentStartPosition)).onChange(async (value) => {
@@ -27145,8 +31383,8 @@ function createGeneralSettings(containerEl, plugin) {
     inputEl.value = DEFAULT_SETTINGS.bannerHeight;
     inputEl.dispatchEvent(new Event("input"));
   }));
-  new import_obsidian4.Setting(containerEl).setName("Banner Fade").setDesc("Set the default fade effect for the banner image (-1500 to 100)").addSlider(
-    (slider) => slider.setLimits(-1500, 100, 5).setValue(plugin.settings.fade).setDynamicTooltip().onChange(async (value) => {
+  new import_obsidian4.Setting(containerEl).setName("Banner Fade").setDesc("Set the default fade effect for the banner image (-300 to 100)").addSlider(
+    (slider) => slider.setLimits(-300, 100, 5).setValue(plugin.settings.fade).setDynamicTooltip().onChange(async (value) => {
       plugin.settings.fade = value;
       await plugin.saveSettings();
       plugin.updateAllBanners();
@@ -27238,7 +31476,7 @@ function createGeneralSettings(containerEl, plugin) {
       }
     }
   }));
-  const hideEmbeddedNoteTitlesSetting = new import_obsidian4.Setting(containerEl).setName("Hide Embedded Note Titles").setDesc("Hide titles of embedded notes").addToggle((toggle) => toggle.setValue(plugin.settings.hideEmbeddedNoteTitles).onChange(async (value) => {
+  const hideEmbeddedNoteTitlesSetting = new import_obsidian4.Setting(containerEl).setName("Hide Embedded Note Titles").setDesc(`Hide titles of embedded notes if Obsidian's "Show inline title" setting is enabled`).addToggle((toggle) => toggle.setValue(plugin.settings.hideEmbeddedNoteTitles).onChange(async (value) => {
     plugin.settings.hideEmbeddedNoteTitles = value;
     await plugin.saveSettings();
     plugin.updateEmbeddedTitlesVisibility();
@@ -27263,6 +31501,21 @@ function createGeneralSettings(containerEl, plugin) {
       toggleComponent.setValue(DEFAULT_SETTINGS.hideEmbeddedNoteBanners);
     }
     plugin.updateEmbeddedBannersVisibility();
+  }));
+  new import_obsidian4.Setting(containerEl).setName("Show Banner in Popover Previews").setDesc("Show banners in popover note previews").addToggle((toggle) => toggle.setValue(plugin.settings.showBannerInPopoverPreviews).onChange(async (value) => {
+    plugin.settings.showBannerInPopoverPreviews = value;
+    await plugin.saveSettings();
+    plugin.updateAllBanners();
+  })).addExtraButton((button) => button.setIcon("reset").setTooltip("Reset to default").onClick(async () => {
+    plugin.settings.showBannerInPopoverPreviews = DEFAULT_SETTINGS.showBannerInPopoverPreviews;
+    await plugin.saveSettings();
+    plugin.updateAllBanners();
+    const checkboxContainer = button.extraSettingsEl.parentElement.querySelector(".checkbox-container");
+    const toggleEl = checkboxContainer.querySelector("input");
+    if (toggleEl) {
+      toggleEl.checked = DEFAULT_SETTINGS.showBannerInPopoverPreviews;
+      checkboxContainer.classList.toggle("is-enabled", DEFAULT_SETTINGS.showBannerInPopoverPreviews);
+    }
   }));
   const showViewImageIconSetting = new import_obsidian4.Setting(containerEl).setName("Show View Image Icon").setDesc("Show an icon to view the banner image in full screen").addToggle((toggle) => toggle.setValue(plugin.settings.showViewImageIcon).onChange(async (value) => {
     plugin.settings.showViewImageIcon = value;
@@ -27416,6 +31669,10 @@ function createGeneralSettings(containerEl, plugin) {
   })).addExtraButton((button) => button.setIcon("reset").setTooltip("Reset to default").onClick(async () => {
     plugin.settings.bannerIconPaddingX = DEFAULT_SETTINGS.bannerIconPaddingX;
     await plugin.saveSettings();
+    const sliderInput = button.extraSettingsEl.parentElement.querySelector('input[type="range"]');
+    sliderInput.value = DEFAULT_SETTINGS.bannerIconPaddingX;
+    const event = new Event("input", { bubbles: true, cancelable: true });
+    sliderInput.dispatchEvent(event);
   }));
   new import_obsidian4.Setting(containerEl).setName("Default Banner Icon Padding Y").setDesc("Set the default padding Y for the banner icon").addSlider((slider) => slider.setLimits(0, 100, 1).setValue(plugin.settings.bannerIconPaddingY).setDynamicTooltip().onChange(async (value) => {
     plugin.settings.bannerIconPaddingY = value;
@@ -27423,6 +31680,10 @@ function createGeneralSettings(containerEl, plugin) {
   })).addExtraButton((button) => button.setIcon("reset").setTooltip("Reset to default").onClick(async () => {
     plugin.settings.bannerIconPaddingY = DEFAULT_SETTINGS.bannerIconPaddingY;
     await plugin.saveSettings();
+    const sliderInput = button.extraSettingsEl.parentElement.querySelector('input[type="range"]');
+    sliderInput.value = DEFAULT_SETTINGS.bannerIconPaddingY;
+    const event = new Event("input", { bubbles: true, cancelable: true });
+    sliderInput.dispatchEvent(event);
   }));
   new import_obsidian4.Setting(containerEl).setName("Default Banner Icon Border Radius").setDesc("Set the default border radius for the banner icon").addSlider((slider) => slider.setLimits(0, 100, 1).setValue(plugin.settings.bannerIconBorderRadius).setDynamicTooltip().onChange(async (value) => {
     plugin.settings.bannerIconBorderRadius = value;
@@ -27463,6 +31724,7 @@ function createGeneralSettings(containerEl, plugin) {
 var import_obsidian5 = require("obsidian");
 init_constants();
 function createPixelBannerPlusSettings(containerEl, plugin) {
+  plugin.pixelBannerPlusEnabled = plugin.settings.pixelBannerPlusEnabled !== false;
   const calloutElPixelBannerPlus = containerEl.createEl("div", { cls: "tab-callout margin-bottom-0" });
   calloutElPixelBannerPlus.createEl("h4", {
     text: "\u2728 Pixel Banner Plus \u2728",
@@ -27472,25 +31734,59 @@ function createPixelBannerPlusSettings(containerEl, plugin) {
   });
   calloutElPixelBannerPlus.createEl("div", { text: "Pixel Banner Plus enhances your notes with AI-generated, high-quality banners. Using a token-based system, you can instantly create stunning, customized visuals\u2014no design skills needed. Sign up for free to access the banner store, which includes a selection of zero-token banners at no cost. No subscription required\u2014simply purchase tokens whenever you need AI-generated designs. Transform your Obsidian workspace with professional banners, starting for free and only adding tokens as needed." });
   const pixelBannerPlusSettingsGroup = containerEl.createDiv({ cls: "setting-group" });
-  new import_obsidian5.Setting(pixelBannerPlusSettingsGroup).setName("Pixel Banner Plus Email Address").setDesc("Your email address for Pixel Banner Plus authentication").addText(
+  const plusDependentSettings = containerEl.createDiv({ cls: "pixel-banner-plus-dependent-settings" });
+  function updatePlusDependentSettingsVisibility(isEnabled) {
+    if (isEnabled) {
+      plusDependentSettings.style.display = "block";
+    } else {
+      plusDependentSettings.style.display = "none";
+    }
+  }
+  new import_obsidian5.Setting(pixelBannerPlusSettingsGroup).setName("Pixel Banner Plus Enabled").setDesc("Enable or disable Pixel Banner Plus features").addToggle((toggle) => toggle.setValue(plugin.settings.pixelBannerPlusEnabled !== false).onChange(async (value) => {
+    plugin.pixelBannerPlusEnabled = value;
+    plugin.settings.pixelBannerPlusEnabled = value;
+    await plugin.saveSettings();
+    updatePlusDependentSettingsVisibility(value);
+  })).addExtraButton((button) => button.setIcon("reset").setTooltip("Reset to default").onClick(async () => {
+    plugin.settings.pixelBannerPlusEnabled = DEFAULT_SETTINGS.pixelBannerPlusEnabled;
+    plugin.pixelBannerPlusEnabled = plugin.settings.pixelBannerPlusEnabled;
+    await plugin.saveSettings();
+    const toggleComponent = button.extraSettingsEl.parentElement.querySelector(".checkbox-container input");
+    if (toggleComponent) {
+      toggleComponent.checked = plugin.settings.pixelBannerPlusEnabled;
+      toggleComponent.parentElement.classList.toggle("is-enabled", plugin.settings.pixelBannerPlusEnabled);
+      toggleComponent.dispatchEvent(new Event("change"));
+    }
+    updatePlusDependentSettingsVisibility(plugin.settings.pixelBannerPlusEnabled);
+  })).then((setting) => {
+    const nameEl = setting.nameEl;
+    if (nameEl) {
+      nameEl.innerHTML = '<span class="pixel-banner-twinkle-animation">\u2728</span> Pixel Banner Plus Enabled';
+    }
+  });
+  updatePlusDependentSettingsVisibility(plugin.settings.pixelBannerPlusEnabled !== false);
+  const accountSettingsGroup = plusDependentSettings.createDiv({ cls: "setting-group margin-top-0" });
+  new import_obsidian5.Setting(accountSettingsGroup).setName("Pixel Banner Plus Email Address").setDesc("Your email address for Pixel Banner Plus authentication").addText(
     (text) => text.setPlaceholder("Enter your email address").setValue(plugin.settings.pixelBannerPlusEmail).onChange(async (value) => {
       plugin.settings.pixelBannerPlusEmail = value;
       await plugin.saveSettings();
       if (!value) {
         plugin.pixelBannerPlusEnabled = false;
+        plugin.settings.pixelBannerPlusEnabled = false;
       }
     }).inputEl.style = "width: 100%; max-width: 275px; padding: 5px 10px;"
   );
-  new import_obsidian5.Setting(pixelBannerPlusSettingsGroup).setName("Pixel Banner Plus API Key").setDesc("Your API key for Pixel Banner Plus authentication").addText(
+  new import_obsidian5.Setting(accountSettingsGroup).setName("Pixel Banner Plus API Key").setDesc("Your API key for Pixel Banner Plus authentication").addText(
     (text) => text.setPlaceholder("Enter your API key").setValue(plugin.settings.pixelBannerPlusApiKey).onChange(async (value) => {
       plugin.settings.pixelBannerPlusApiKey = value;
       await plugin.saveSettings();
       if (!value) {
         plugin.pixelBannerPlusEnabled = false;
+        plugin.settings.pixelBannerPlusEnabled = false;
       }
     }).inputEl.style = "width: 100%; max-width: 275px; padding: 5px 10px;"
   );
-  new import_obsidian5.Setting(pixelBannerPlusSettingsGroup).setName("Establish Connection").setDesc("Establish a connection to your Pixel Banner Plus account").addButton((button) => {
+  new import_obsidian5.Setting(accountSettingsGroup).setName("Establish Connection").setDesc("Establish a connection to your Pixel Banner Plus account").addButton((button) => {
     const buttonEl = button.buttonEl;
     buttonEl.style.textTransform = "uppercase";
     buttonEl.style.letterSpacing = "1px";
@@ -27551,8 +31847,26 @@ function createPixelBannerPlusSettings(containerEl, plugin) {
       button.setDisabled(false);
     });
   });
-  updateSignupSection(pixelBannerPlusSettingsGroup, plugin);
-  const accountStatusGroup = containerEl.createDiv({ cls: "setting-group" });
+  new import_obsidian5.Setting(accountSettingsGroup).setName("Show Daily Game").setDesc("Enable the daily game feature in the banner selection modal for a chance to win the daily jackpot's Tokens").addToggle((toggle) => toggle.setValue(plugin.settings.enableDailyGame).onChange(async (value) => {
+    plugin.settings.enableDailyGame = value;
+    await plugin.saveSettings();
+  })).addExtraButton((button) => button.setIcon("reset").setTooltip("Reset to default").onClick(async () => {
+    plugin.settings.enableDailyGame = DEFAULT_SETTINGS.enableDailyGame;
+    await plugin.saveSettings();
+    const toggleComponent = button.extraSettingsEl.parentElement.querySelector(".checkbox-container input");
+    if (toggleComponent) {
+      toggleComponent.checked = DEFAULT_SETTINGS.enableDailyGame;
+      toggleComponent.parentElement.classList.toggle("is-enabled", DEFAULT_SETTINGS.enableDailyGame);
+      toggleComponent.dispatchEvent(new Event("change"));
+    }
+  })).then((setting) => {
+    const nameEl = setting.nameEl;
+    if (nameEl) {
+      nameEl.innerHTML = '<span class="pixel-banner-twinkle-animation">\u{1F579}\uFE0F</span> Show Daily Game';
+    }
+  });
+  updateSignupSection(plusDependentSettings, plugin);
+  const accountStatusGroup = plusDependentSettings.createDiv({ cls: "setting-group" });
   accountStatusGroup.createEl("h3", { text: "Account Status" });
   updateAccountStatusSection(accountStatusGroup, plugin);
 }
@@ -27585,7 +31899,15 @@ function updateSignupSection(containerEl, plugin) {
 }
 function updateAccountStatusSection(containerEl, plugin) {
   containerEl.empty();
-  containerEl.createEl("h3", { text: "Account Status" });
+  containerEl.createEl("h3", {
+    text: "Account Status",
+    attr: {
+      style: `
+                margin-top: 0;
+                margin-bottom: 0;
+            `
+    }
+  });
   new import_obsidian5.Setting(containerEl).setName("Connection Status").setDesc("Current status of your Pixel Banner Plus account").addText((text) => {
     const statusText = plugin.pixelBannerPlusServerOnline ? plugin.pixelBannerPlusEnabled ? "\u2705 Authorized" : "\u274C Not Authorized" : "\u{1F6A8} Servers Offline \u{1F6A8}";
     const isLightMode = document.body.classList.contains("theme-light");
@@ -27661,6 +31983,7 @@ function updateAccountStatusSection(containerEl, plugin) {
 var DEFAULT_SETTINGS = {
   pixelBannerPlusEmail: "",
   pixelBannerPlusApiKey: "",
+  pixelBannerPlusEnabled: true,
   apiProvider: "all",
   pexelsApiKey: "",
   pixabayApiKey: "",
@@ -27670,21 +31993,27 @@ var DEFAULT_SETTINGS = {
   imageOrientation: "landscape",
   numberOfImages: 10,
   defaultKeywords: "nature, abstract, landscape, technology, art, cityscape, wildlife, ocean, mountains, forest, space, architecture, food, travel, science, music, sports, fashion, business, education, health, culture, history, weather, transportation, industry, people, animals, plants, patterns",
-  yPosition: 50,
   xPosition: 50,
+  yPosition: 60,
   customBannerField: ["banner"],
-  customYPositionField: ["banner-y, y"],
   customXPositionField: ["banner-x, x"],
+  customYPositionField: ["banner-y, y"],
   customContentStartField: ["content-start"],
   customImageDisplayField: ["banner-display"],
   customImageRepeatField: ["banner-repeat"],
+  customBannerMaxWidthField: ["banner-max-width"],
+  customBannerAlignmentField: ["banner-align"],
   customBannerHeightField: ["banner-height"],
   customFadeField: ["banner-fade"],
   customBorderRadiusField: ["banner-radius"],
   customTitleColorField: ["banner-inline-title-color"],
   customBannerShuffleField: ["banner-shuffle"],
   customBannerIconField: ["icon"],
+  customBannerIconImageField: ["icon-image"],
   customBannerIconSizeField: ["icon-size"],
+  customBannerIconImageSizeMultiplierField: ["icon-image-size-multiplier"],
+  customBannerIconTextVerticalOffsetField: ["icon-text-vertical-offset"],
+  customBannerIconRotateField: ["icon-rotate"],
   customBannerIconXPositionField: ["icon-x"],
   customBannerIconOpacityField: ["icon-opacity"],
   customBannerIconColorField: ["icon-color"],
@@ -27694,13 +32023,14 @@ var DEFAULT_SETTINGS = {
   customBannerIconPaddingYField: ["icon-padding-y"],
   customBannerIconBorderRadiusField: ["icon-border-radius"],
   customBannerIconVeritalOffsetField: ["icon-y"],
+  customBannerIconImageAlignmentField: ["banner-icon-image-alignment"],
   customFlagColorField: ["pixel-banner-flag-color"],
   folderImages: [],
   contentStartPosition: 355,
   imageDisplay: "cover",
   imageRepeat: false,
   bannerHeight: 350,
-  fade: -75,
+  fade: -70,
   bannerFadeInAnimationDuration: 300,
   borderRadius: 17,
   showPinIcon: false,
@@ -27715,24 +32045,29 @@ var DEFAULT_SETTINGS = {
   enableImageShuffle: false,
   hideEmbeddedNoteTitles: false,
   hideEmbeddedNoteBanners: false,
+  showBannerInPopoverPreviews: true,
   showSelectImageIcon: true,
   selectImageIconOpacity: 40,
   selectImageIconFlag: "red",
   defaultSelectImagePath: "",
+  defaultSelectIconPath: "",
   useShortPath: true,
   bannerGap: 12,
   bannerIconSize: 70,
+  bannerIconImageSizeMultiplier: 1,
+  bannerIconTextVerticalOffset: 0,
   bannerIconXPosition: 75,
   bannerIconOpacity: 100,
   bannerIconColor: "",
   bannerIconFontWeight: "normal",
   bannerIconBackgroundColor: "",
-  bannerIconPaddingX: "0",
-  bannerIconPaddingY: "0",
+  bannerIconPaddingX: "10",
+  bannerIconPaddingY: "10",
   bannerIconBorderRadius: "17",
   bannerIconVeritalOffset: "0",
-  openBannerIconModalAfterSelectingBanner: true,
-  openTargetingModalAfterSelectingBannerOrIcon: true
+  bannerIconImageAlignment: "left",
+  openTargetingModalAfterSelectingBannerOrIcon: true,
+  enableDailyGame: false
 };
 var FolderSuggestModal = class extends import_obsidian6.FuzzySuggestModal {
   constructor(app, onChoose) {
@@ -27810,7 +32145,7 @@ init_modals();
 init_handlePinIconClick();
 
 // src/core/settings.js
-var import_obsidian20 = require("obsidian");
+var import_obsidian22 = require("obsidian");
 async function loadSettings(plugin) {
   plugin.settings = Object.assign({}, DEFAULT_SETTINGS, await plugin.loadData());
   if (!Array.isArray(plugin.settings.folderImages)) {
@@ -27830,7 +32165,7 @@ async function saveSettings(plugin) {
   plugin.lastKeywords.clear();
   plugin.imageCache.clear();
   plugin.app.workspace.iterateAllLeaves((leaf) => {
-    if (leaf.view instanceof import_obsidian20.MarkdownView) {
+    if (leaf.view instanceof import_obsidian22.MarkdownView) {
       plugin.updateBanner(leaf.view, true);
       if (plugin.settings.hidePixelBannerFields) {
         plugin.updateFieldVisibility(leaf.view);
@@ -27840,7 +32175,7 @@ async function saveSettings(plugin) {
 }
 
 // src/core/bannerIconHelpers.js
-var import_obsidian21 = require("obsidian");
+var import_obsidian23 = require("obsidian");
 init_modals();
 function normalizeColor(color) {
   if (!color || color === "transparent" || color === "none") return "transparent";
@@ -27894,7 +32229,7 @@ function shouldUpdateIconOverlay(plugin, existingOverlay, newIconState, viewType
 async function handleSetBannerIcon(plugin) {
   const activeFile = plugin.app.workspace.getActiveFile();
   if (!activeFile) {
-    new import_obsidian21.Notice("No active file");
+    new import_obsidian23.Notice("No active file");
     return;
   }
   new EmojiSelectionModal(
@@ -27907,11 +32242,11 @@ async function handleSetBannerIcon(plugin) {
           delete frontmatter[bannerIconField2];
         });
         await new Promise((resolve) => setTimeout(resolve, 300));
-        const view = plugin.app.workspace.getActiveViewOfType(import_obsidian21.MarkdownView);
+        const view = plugin.app.workspace.getActiveViewOfType(import_obsidian23.MarkdownView);
         if (view) {
           await plugin.updateBanner(view, true);
         }
-        new import_obsidian21.Notice("Banner icon removed");
+        new import_obsidian23.Notice("Banner icon removed");
         return;
       }
       let fileContent = await plugin.app.vault.read(activeFile);
@@ -27974,7 +32309,7 @@ ${cleanContent}`;
         const retryDelay = 150;
         let success = false;
         for (let i = 0; i < maxRetries && !success; i++) {
-          const view = plugin.app.workspace.getActiveViewOfType(import_obsidian21.MarkdownView);
+          const view = plugin.app.workspace.getActiveViewOfType(import_obsidian23.MarkdownView);
           if (view) {
             try {
               const cache = plugin.app.metadataCache.getFileCache(activeFile);
@@ -27993,12 +32328,12 @@ ${cleanContent}`;
         }
         if (!success) {
           await new Promise((resolve) => setTimeout(resolve, 500));
-          const view = plugin.app.workspace.getActiveViewOfType(import_obsidian21.MarkdownView);
+          const view = plugin.app.workspace.getActiveViewOfType(import_obsidian23.MarkdownView);
           if (view) {
             await plugin.updateBanner(view, true);
           }
         }
-        new import_obsidian21.Notice("Banner icon updated");
+        new import_obsidian23.Notice("Banner icon updated");
       }
       if (plugin.settings.openTargetingModalAfterSelectingBannerOrIcon) {
         await new Promise((resolve) => setTimeout(resolve, 200));
@@ -28012,17 +32347,120 @@ ${cleanContent}`;
 }
 function cleanupIconOverlay(plugin, view) {
   if (!view || !view.contentEl) return;
-  const existingOverlays = view.contentEl.querySelectorAll(".banner-icon-overlay");
-  if (existingOverlays.length > 0) {
-    existingOverlays.forEach((overlay) => {
-      plugin.returnIconOverlay(overlay);
-      overlay.remove();
-    });
+  const bannerIconOverlays = view.contentEl.querySelectorAll(".banner-icon-overlay");
+  bannerIconOverlays.forEach((overlay) => {
+    if (overlay) {
+      returnIconOverlay(plugin, overlay);
+    }
+  });
+}
+async function handleSetBannerIconImage(plugin) {
+  const activeFile = plugin.app.workspace.getActiveFile();
+  if (!activeFile) {
+    new import_obsidian23.Notice("No active file");
+    return;
   }
+  new IconImageSelectionModal(
+    plugin.app,
+    plugin,
+    async (selectedImage) => {
+      if (!selectedImage) {
+        return;
+      }
+      const imagePath = selectedImage.path ? selectedImage.path : selectedImage;
+      let fileContent = await plugin.app.vault.read(activeFile);
+      const frontmatterRegex = /^---\n([\s\S]*?)\n---/;
+      const hasFrontmatter = frontmatterRegex.test(fileContent);
+      const bannerIconImageField = Array.isArray(plugin.settings.customBannerIconImageField) && plugin.settings.customBannerIconImageField.length > 0 ? plugin.settings.customBannerIconImageField[0].split(",")[0].trim() : "icon-image";
+      fileContent = fileContent.replace(/^\s+/, "");
+      let updatedContent;
+      if (hasFrontmatter) {
+        updatedContent = fileContent.replace(frontmatterRegex, (match, frontmatter) => {
+          let cleanedFrontmatter = frontmatter.trim();
+          if (Array.isArray(plugin.settings.customBannerIconImageField)) {
+            plugin.settings.customBannerIconImageField.forEach((field) => {
+              const fieldNames = field.split(",").map((f) => f.trim());
+              fieldNames.forEach((fieldName) => {
+                const fieldRegex = new RegExp(`${fieldName}:\\s*.+\\n?`, "g");
+                cleanedFrontmatter = cleanedFrontmatter.replace(fieldRegex, "");
+              });
+            });
+          }
+          cleanedFrontmatter = cleanedFrontmatter.trim();
+          const newFrontmatter = `${bannerIconImageField}: "${imagePath}"${cleanedFrontmatter ? "\n" + cleanedFrontmatter : ""}`;
+          return `---
+${newFrontmatter}
+---`;
+        });
+      } else {
+        const cleanContent = fileContent.replace(/^\s+/, "");
+        updatedContent = `---
+${bannerIconImageField}: "${imagePath}"
+---
+
+${cleanContent}`;
+      }
+      updatedContent = updatedContent.replace(/^\s+/, "");
+      if (updatedContent !== fileContent) {
+        await plugin.app.vault.modify(activeFile, updatedContent);
+        const metadataUpdated = new Promise((resolve) => {
+          let eventRef = null;
+          let resolved = false;
+          const cleanup = () => {
+            if (eventRef) {
+              plugin.app.metadataCache.off("changed", eventRef);
+              eventRef = null;
+            }
+          };
+          const timeoutId = setTimeout(() => {
+            if (!resolved) {
+              resolved = true;
+              cleanup();
+              resolve();
+            }
+          }, 2e3);
+          eventRef = plugin.app.metadataCache.on("changed", (file) => {
+            if (file.path === activeFile.path && !resolved) {
+              resolved = true;
+              clearTimeout(timeoutId);
+              cleanup();
+              setTimeout(resolve, 50);
+            }
+          });
+        });
+        await metadataUpdated;
+        const maxRetries = 3;
+        const retryDelay = 150;
+        let success = false;
+        for (let i = 0; i < maxRetries && !success; i++) {
+          const view = plugin.app.workspace.getActiveViewOfType(import_obsidian23.MarkdownView);
+          if (view) {
+            try {
+              const cache = plugin.app.metadataCache.getFileCache(activeFile);
+              if (!cache || !cache.frontmatter || cache.frontmatter[bannerIconImageField] !== imagePath) {
+                await new Promise((resolve) => setTimeout(resolve, 100));
+                continue;
+              }
+              await plugin.updateBanner(view, true);
+              success = true;
+              new import_obsidian23.Notice(`Banner icon image updated: ${imagePath.split("/").pop()}`);
+            } catch (error) {
+              if (i < maxRetries - 1) {
+                await new Promise((resolve) => setTimeout(resolve, retryDelay));
+              }
+            }
+          }
+        }
+        if (!success) {
+          new import_obsidian23.Notice("Banner icon image set, but banner update failed. Try reopening the note.");
+        }
+      }
+    }
+  ).open();
 }
 
 // src/core/cacheHelpers.js
-var import_obsidian22 = require("obsidian");
+var import_obsidian24 = require("obsidian");
 function generateCacheKey(filePath, leafId, isShuffled = false) {
   const encodedPath = encodeURIComponent(filePath);
   return `${encodedPath}-${leafId}${isShuffled ? "-shuffle" : ""}`;
@@ -28039,7 +32477,7 @@ function cleanupCache(force = false) {
     if (force || now - entry.timestamp > maxAge) {
       if (entry.leafId) {
         const leaf = this.app.workspace.getLeafById(entry.leafId);
-        if ((leaf == null ? void 0 : leaf.view) instanceof import_obsidian22.MarkdownView) {
+        if ((leaf == null ? void 0 : leaf.view) instanceof import_obsidian24.MarkdownView) {
           const contentEl = leaf.view.contentEl;
           ["cm-sizer", "markdown-preview-sizer"].forEach((selector) => {
             const container = contentEl.querySelector(`.${selector}`);
@@ -28062,7 +32500,7 @@ function cleanupCache(force = false) {
       const [key, entry] = entries.shift();
       if (entry.leafId) {
         const leaf = this.app.workspace.getLeafById(entry.leafId);
-        if ((leaf == null ? void 0 : leaf.view) instanceof import_obsidian22.MarkdownView) {
+        if ((leaf == null ? void 0 : leaf.view) instanceof import_obsidian24.MarkdownView) {
           const contentEl = leaf.view.contentEl;
           ["cm-sizer", "markdown-preview-sizer"].forEach((selector) => {
             const container = contentEl.querySelector(`.${selector}`);
@@ -28085,7 +32523,7 @@ function invalidateLeafCache(leafId) {
   for (const [key, entry] of this.bannerStateCache) {
     if (key.includes(`-${leafId}`)) {
       const leaf = this.app.workspace.getLeafById(leafId);
-      if ((leaf == null ? void 0 : leaf.view) instanceof import_obsidian22.MarkdownView) {
+      if ((leaf == null ? void 0 : leaf.view) instanceof import_obsidian24.MarkdownView) {
         const contentEl = leaf.view.contentEl;
         ["cm-sizer", "markdown-preview-sizer"].forEach((selector) => {
           const container = contentEl.querySelector(`.${selector}`);
@@ -28104,7 +32542,7 @@ function invalidateLeafCache(leafId) {
 }
 
 // src/services/apiService.js
-var import_obsidian23 = require("obsidian");
+var import_obsidian25 = require("obsidian");
 var rateLimiter = {
   lastRequestTime: 0,
   minInterval: 1e3
@@ -28117,7 +32555,7 @@ async function makeRequest(url, options = {}) {
   }
   rateLimiter.lastRequestTime = Date.now();
   try {
-    const response = await (0, import_obsidian23.requestUrl)({
+    const response = await (0, import_obsidian25.requestUrl)({
       url,
       headers: options.headers || {},
       ...options
@@ -28157,7 +32595,7 @@ async function fetchPexelsImage(plugin, keyword) {
       }
     } catch (error) {
       console.error(`Error fetching image from API for keyword "${currentKeyword}":`, error);
-      new import_obsidian23.Notice(`Failed to fetch image: ${error.message}`);
+      new import_obsidian25.Notice(`Failed to fetch image: ${error.message}`);
     }
   }
   return null;
@@ -28191,7 +32629,7 @@ async function fetchPixabayImage(plugin, keyword) {
       console.error("Error fetching image from Pixabay:", error);
     }
   }
-  new import_obsidian23.Notice("Failed to fetch an image after multiple attempts");
+  new import_obsidian25.Notice("Failed to fetch an image after multiple attempts");
   return null;
 }
 async function fetchFlickrImage(plugin, keyword) {
@@ -28228,7 +32666,7 @@ async function fetchFlickrImage(plugin, keyword) {
       console.error("Error fetching image from Flickr:", error);
     }
   }
-  new import_obsidian23.Notice("Failed to fetch an image after multiple attempts");
+  new import_obsidian25.Notice("Failed to fetch an image after multiple attempts");
   return null;
 }
 async function fetchUnsplashImage(plugin, keyword) {
@@ -28262,7 +32700,7 @@ async function fetchUnsplashImage(plugin, keyword) {
       console.error("Error fetching image from Unsplash:", error);
     }
   }
-  new import_obsidian23.Notice("Failed to fetch an image after multiple attempts");
+  new import_obsidian25.Notice("Failed to fetch an image after multiple attempts");
   return null;
 }
 
@@ -28280,6 +32718,7 @@ async function verifyPixelBannerPlusCredentials(plugin) {
         headers: {
           "X-User-Email": plugin.settings.pixelBannerPlusEmail,
           "X-API-Key": plugin.settings.pixelBannerPlusApiKey,
+          "X-Pixel-Banner-Version": plugin.settings.lastVersion,
           "Accept": "application/json"
         }
       }
@@ -28289,51 +32728,254 @@ async function verifyPixelBannerPlusCredentials(plugin) {
       return {
         serverOnline: true,
         verified: data.success,
-        bannerTokens: data.banner_tokens
+        bannerTokens: data.banner_tokens,
+        jackpot: data.jackpot,
+        dailyGameName: data.daily_game,
+        highScore: data.high_score,
+        topUser: data.top_user,
+        timeLeft: data.time_left
       };
     }
-    return { serverOnline: true, verified: false, bannerTokens: 0 };
+    return { serverOnline: true, verified: false, bannerTokens: 0, jackpot: 0, dailyGameName: "", highScore: 0, topUser: "", timeLeft: "0" };
   } catch (error) {
     console.error("Failed to verify Pixel Banner Plus credentials:", error);
-    const isConnectionError = error.name === "TypeError" || error.message.includes("Network Error") || error.message.includes("Failed to fetch") || error.message.includes("network") || !navigator.onLine;
+    const errorMessage = error.message.toLowerCase();
+    const errorName = error.name.toLowerCase();
+    const isConnectionError = errorName === "typeerror" || errorName === "error" || errorMessage.includes("network error") || errorMessage.includes("failed to fetch") || errorMessage.includes("network") || errorMessage.startsWith("err_") || !navigator.onLine;
+    const isUnauthorized = errorMessage.includes("401") || errorMessage.includes("unauthorized");
+    console.log(`pixel banner plus error.message: ${error.message}`);
+    console.log(`pixel banner plus isConnectionError: ${isConnectionError}`);
+    console.log(`pixel banner plus isUnauthorized: ${isUnauthorized}`);
     return {
-      serverOnline: !isConnectionError,
+      serverOnline: !isConnectionError || isUnauthorized,
       verified: false,
-      bannerTokens: 0
+      bannerTokens: 0,
+      jackpot: 0,
+      dailyGameName: "",
+      highScore: 0,
+      topUser: "",
+      timeLeft: "0"
     };
   }
 }
 async function getPixelBannerInfo() {
-  const response = await makeRequest(
-    `${PIXEL_BANNER_PLUS.API_URL}${PIXEL_BANNER_PLUS.ENDPOINTS.INFO}`,
-    {
-      method: "GET"
+  try {
+    const response = await makeRequest(
+      `${PIXEL_BANNER_PLUS.API_URL}${PIXEL_BANNER_PLUS.ENDPOINTS.INFO}`,
+      {
+        method: "GET"
+      }
+    );
+    if (response.status === 200) {
+      const data = response.json;
+      return {
+        version: data.version
+      };
     }
-  );
-  if (response.status === 200) {
-    const data = response.json;
-    return {
-      version: data.version
-    };
+  } catch (error) {
+    console.error("Failed to get Pixel Banner Plus info:", error);
   }
   return { version: "0.0.0" };
 }
 
 // src/core/bannerManager.js
-var import_obsidian24 = require("obsidian");
+var import_obsidian26 = require("obsidian");
 init_modals();
 init_frontmatterUtils();
 init_handlePinIconClick();
 init_flags();
+
+// src/utils/debounce.js
+function debounceImmediate(func, wait) {
+  let timeout;
+  let isFirstCall = true;
+  return function executedFunction(...args) {
+    if (isFirstCall) {
+      isFirstCall = false;
+      func(...args);
+      return;
+    }
+    const later = () => {
+      clearTimeout(timeout);
+      isFirstCall = true;
+      func(...args);
+    };
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+  };
+}
+function debounceAndSwallow(func, wait) {
+  let lastCallTime = 0;
+  return function executedFunction(...args) {
+    const now = Date.now();
+    if (now - lastCallTime >= wait) {
+      lastCallTime = now;
+      return func(...args);
+    }
+  };
+}
+
+// src/core/bannerManager.js
+var debouncedAddPixelBanner = debounceAndSwallow(addPixelBanner, 350);
 async function addPixelBanner(plugin, el, ctx) {
-  var _a, _b;
+  var _a, _b, _c;
   const { frontmatter, file, isContentChange, yPosition, xPosition, contentStartPosition, bannerImage, isReadingView } = ctx;
   const viewContent = el;
   const isEmbedded = viewContent.classList.contains("internal-embed") && viewContent.classList.contains("markdown-embed");
-  if (!isEmbedded && viewContent.classList.contains("view-content")) {
+  const isHoverPopover = viewContent.closest(".hover-popover") !== null;
+  const hideEmbeddedNoteBanners = getFrontmatterValue(frontmatter, plugin.settings.customHideEmbeddedNoteBannersField) || ((_a = plugin.getFolderSpecificImage(file.path)) == null ? void 0 : _a.hideEmbeddedNoteBanners) || plugin.settings.hideEmbeddedNoteBanners || false;
+  if (!isEmbedded && !isHoverPopover && viewContent.classList.contains("view-content")) {
+    const sourceEl = viewContent.querySelector(":scope > .markdown-source-view .cm-sizer");
+    if (sourceEl) {
+      sourceEl.style.paddingTop = "var(--pixel-banner-content-start, 150px)";
+      sourceEl.style.paddingBottom = "0px !important";
+    }
+    const previewEl = viewContent.querySelector(":scope > .markdown-reading-view .markdown-preview-sizer");
+    if (previewEl) {
+      previewEl.style.paddingTop = "var(--pixel-banner-content-start, 150px)";
+      previewEl.style.paddingBottom = "0px !important";
+    }
     viewContent.classList.add("pixel-banner");
     plugin.setupResizeObserver(viewContent);
     plugin.applyBannerWidth(viewContent);
+  } else if (isEmbedded) {
+    viewContent.classList.add("pixel-banner");
+    plugin.applyContentStartPosition(viewContent, contentStartPosition);
+    const embedContentDiv = viewContent.querySelector(":scope > .markdown-embed-content");
+    if (embedContentDiv && !hideEmbeddedNoteBanners) {
+      const previewViewEl = embedContentDiv.querySelector(":scope > .markdown-preview-view");
+      if (previewViewEl) {
+        const folderSpecific = plugin.getFolderSpecificImage(file.path);
+        const maxWidth = getFrontmatterValue(frontmatter, plugin.settings.customBannerMaxWidthField) || (folderSpecific == null ? void 0 : folderSpecific.bannerMaxWidth) || "unset";
+        const maxWidthValue = maxWidth === "unset" ? "unset" : `${maxWidth}px`;
+        const bannerYPosition = getValueWithZeroCheck([
+          getFrontmatterValue(frontmatter, plugin.settings.customYPositionField),
+          folderSpecific == null ? void 0 : folderSpecific.bannerYPosition,
+          plugin.settings.bannerYPosition,
+          0
+        ]);
+        const bannerXPosition = getValueWithZeroCheck([
+          getFrontmatterValue(frontmatter, plugin.settings.customXPositionField),
+          folderSpecific == null ? void 0 : folderSpecific.bannerXPosition,
+          plugin.settings.bannerXPosition,
+          0
+        ]);
+        const bannerTitleColor = getFrontmatterValue(frontmatter, plugin.settings.customTitleColorField) || (folderSpecific == null ? void 0 : folderSpecific.titleColor) || plugin.settings.titleColor || "var(--inline-title-color)";
+        previewViewEl.style.setProperty("--pixel-banner-y-position", `${bannerYPosition}%`);
+        previewViewEl.style.setProperty("--pixel-banner-x-position", `${bannerXPosition}%`);
+        previewViewEl.style.setProperty("--pixel-banner-max-width", maxWidthValue);
+        previewViewEl.style.setProperty("--pixel-banner-title-color", bannerTitleColor);
+        const bannerIconSize = getFrontmatterValue(frontmatter, plugin.settings.customBannerIconSizeField) || (folderSpecific == null ? void 0 : folderSpecific.bannerIconSize) || plugin.settings.bannerIconSize || 70;
+        const bannerIconXPosition = getValueWithZeroCheck([
+          getFrontmatterValue(frontmatter, plugin.settings.customBannerIconXPositionField),
+          folderSpecific == null ? void 0 : folderSpecific.bannerIconXPosition,
+          plugin.settings.bannerIconXPosition,
+          25
+        ]);
+        const bannerIconOpacity = getValueWithZeroCheck([
+          getFrontmatterValue(frontmatter, plugin.settings.customBannerIconOpacityField),
+          folderSpecific == null ? void 0 : folderSpecific.bannerIconOpacity,
+          plugin.settings.bannerIconOpacity,
+          100
+        ]);
+        const bannerIconColor = getFrontmatterValue(frontmatter, plugin.settings.customBannerIconColorField) || (folderSpecific == null ? void 0 : folderSpecific.bannerIconColor) || plugin.settings.bannerIconColor || "var(--text-normal)";
+        const bannerIconFontWeight = getFrontmatterValue(frontmatter, plugin.settings.customBannerIconFontWeightField) || (folderSpecific == null ? void 0 : folderSpecific.bannerIconFontWeight) || plugin.settings.bannerIconFontWeight || "normal";
+        const bannerIconBackgroundColor = getFrontmatterValue(frontmatter, plugin.settings.customBannerIconBackgroundColorField) || (folderSpecific == null ? void 0 : folderSpecific.bannerIconBackgroundColor) || plugin.settings.bannerIconBackgroundColor || "transparent";
+        const bannerIconPaddingX = getValueWithZeroCheck([
+          getFrontmatterValue(frontmatter, plugin.settings.customBannerIconPaddingXField),
+          folderSpecific == null ? void 0 : folderSpecific.bannerIconPaddingX,
+          plugin.settings.bannerIconPaddingX,
+          10
+        ]);
+        const bannerIconPaddingY = getValueWithZeroCheck([
+          getFrontmatterValue(frontmatter, plugin.settings.customBannerIconPaddingYField),
+          folderSpecific == null ? void 0 : folderSpecific.bannerIconPaddingY,
+          plugin.settings.bannerIconPaddingY,
+          10
+        ]);
+        const bannerIconBorderRadius = getValueWithZeroCheck([
+          getFrontmatterValue(frontmatter, plugin.settings.customBannerIconBorderRadiusField),
+          folderSpecific == null ? void 0 : folderSpecific.bannerIconBorderRadius,
+          plugin.settings.bannerIconBorderRadius,
+          17
+        ]);
+        const bannerIconVerticalOffset = getValueWithZeroCheck([
+          getFrontmatterValue(frontmatter, plugin.settings.customBannerIconVeritalOffsetField),
+          folderSpecific == null ? void 0 : folderSpecific.bannerIconVeritalOffset,
+          plugin.settings.bannerIconVeritalOffset,
+          0
+        ]);
+        const bannerIconRotate = getValueWithZeroCheck([
+          getFrontmatterValue(frontmatter, plugin.settings.customBannerIconRotateField),
+          0
+        ]);
+        const bannerIconImageSizeMultiplier = getValueWithZeroCheck([
+          getFrontmatterValue(frontmatter, plugin.settings.customBannerIconImageSizeMultiplierField),
+          plugin.settings.bannerIconImageSizeMultiplier,
+          1
+        ]);
+        const bannerIconTextVerticalOffset = getValueWithZeroCheck([
+          getFrontmatterValue(frontmatter, plugin.settings.customBannerIconTextVerticalOffsetField),
+          plugin.settings.bannerIconTextVerticalOffset,
+          0
+        ]);
+        previewViewEl.style.setProperty("--pixel-banner-icon-size", `${bannerIconSize}px`);
+        previewViewEl.style.setProperty("--pixel-banner-icon-x", `${bannerIconXPosition}%`);
+        previewViewEl.style.setProperty("--pixel-banner-icon-opacity", `${bannerIconOpacity}%`);
+        previewViewEl.style.setProperty("--pixel-banner-icon-color", bannerIconColor);
+        previewViewEl.style.setProperty("--pixel-banner-icon-font-weight", bannerIconFontWeight);
+        previewViewEl.style.setProperty("--pixel-banner-icon-background-color", bannerIconBackgroundColor);
+        previewViewEl.style.setProperty("--pixel-banner-icon-padding-x", `${bannerIconPaddingX}px`);
+        previewViewEl.style.setProperty("--pixel-banner-icon-padding-y", `${bannerIconPaddingY}px`);
+        previewViewEl.style.setProperty("--pixel-banner-icon-border-radius", `${bannerIconBorderRadius}px`);
+        previewViewEl.style.setProperty("--pixel-banner-icon-vertical-offset", `${bannerIconVerticalOffset}px`);
+        previewViewEl.style.setProperty("--pixel-banner-icon-rotate", `${bannerIconRotate}deg`);
+        previewViewEl.style.setProperty("--pixel-banner-icon-image-size-multiplier", `${bannerIconImageSizeMultiplier}em`);
+        previewViewEl.style.setProperty("--pixel-banner-icon-text-vertical-offset", `${bannerIconTextVerticalOffset}px`);
+        const bannerHeight = getFrontmatterValue(frontmatter, plugin.settings.customBannerHeightField) || (folderSpecific == null ? void 0 : folderSpecific.bannerHeight) || plugin.settings.bannerHeight || 150;
+        const embedMinHeight = `${parseInt(bannerHeight) + parseInt(bannerIconSize) / 2}px`;
+        previewViewEl.style.setProperty("--pixel-banner-embed-min-height", embedMinHeight);
+        previewViewEl.style.setProperty("--pixel-banner-height", `${bannerHeight}px`);
+        const bannerFade = getValueWithZeroCheck([
+          getFrontmatterValue(frontmatter, plugin.settings.customBannerFadeField),
+          folderSpecific == null ? void 0 : folderSpecific.bannerFade,
+          plugin.settings.fade,
+          -75
+        ]);
+        previewViewEl.style.setProperty("--pixel-banner-fade", `${bannerFade}%`);
+        const bannerRadius = getValueWithZeroCheck([
+          getFrontmatterValue(frontmatter, plugin.settings.customBorderRadiusField),
+          folderSpecific == null ? void 0 : folderSpecific.borderRadius,
+          plugin.settings.borderRadius,
+          17
+        ]);
+        previewViewEl.style.setProperty("--pixel-banner-radius", `${bannerRadius}px`);
+        const bannerAlignment = getFrontmatterValue(frontmatter, plugin.settings.customBannerAlignmentField) || "center";
+        let alignmentValue = "0 auto";
+        if (bannerAlignment === "left") {
+          alignmentValue = "0 auto 0 0";
+        } else if (bannerAlignment === "right") {
+          alignmentValue = "0 0 0 auto";
+        }
+        previewViewEl.style.setProperty("--pixel-banner-alignment", alignmentValue);
+        previewViewEl.style.setProperty("--pixel-banner-icon-start", `${bannerHeight - bannerIconSize / 2}px`);
+        let bannerIconVeritalOffset = Number(getValueWithZeroCheck([
+          getFrontmatterValue(frontmatter, plugin.settings.customBannerIconVeritalOffsetField),
+          folderSpecific == null ? void 0 : folderSpecific.bannerIconVeritalOffset,
+          plugin.settings.bannerIconVeritalOffset,
+          0
+        ]));
+        const contentStart = !hideEmbeddedNoteBanners ? `${parseInt(bannerHeight) + parseInt(bannerIconSize) / 2 + parseInt(bannerIconVeritalOffset) + parseInt(bannerIconPaddingY)}px` : "0px";
+        previewViewEl.style.setProperty("--pixel-banner-content-start", contentStart);
+      }
+    }
+  } else if (isHoverPopover && plugin.settings.showBannerInPopoverPreviews) {
+    const previewEl = viewContent.querySelector(".markdown-preview-view");
+    if (previewEl) {
+      previewEl.classList.add("pixel-banner");
+      plugin.setupResizeObserver(previewEl);
+      plugin.applyBannerWidth(previewEl);
+    }
   }
   let container;
   if (isEmbedded) {
@@ -28343,6 +32985,15 @@ async function addPixelBanner(plugin, el, ctx) {
     }
     if (!container) {
       container = viewContent;
+    }
+  } else if (isHoverPopover && plugin.settings.showBannerInPopoverPreviews) {
+    container = viewContent.querySelector(".markdown-preview-sizer") || viewContent.querySelector(".markdown-preview-view");
+    if (!container) {
+      if (viewContent.classList.contains("markdown-preview-view")) {
+        container = viewContent;
+      } else if (viewContent.parentElement && viewContent.parentElement.classList.contains("markdown-preview-view")) {
+        container = viewContent.parentElement;
+      }
     }
   } else {
     container = isReadingView ? viewContent.querySelector(".markdown-preview-sizer:not(.internal-embed .markdown-preview-sizer)") || viewContent.querySelector(".markdown-preview-view") : viewContent.querySelector(".cm-sizer") || viewContent.querySelector(".markdown-source-view");
@@ -28364,7 +33015,7 @@ async function addPixelBanner(plugin, el, ctx) {
   const oldRefreshIcons = container.querySelectorAll(".refresh-icon");
   const oldSelectIcons = container.querySelectorAll(".select-image-icon");
   [...oldViewIcons, ...oldPinIcons, ...oldRefreshIcons, ...oldSelectIcons].forEach((el2) => el2.remove());
-  if (isEmbedded) {
+  if (isEmbedded || isHoverPopover) {
     plugin.updateEmbeddedBannersVisibility();
   } else {
     let leftOffset = plugin.settings.bannerGap + 15;
@@ -28407,11 +33058,11 @@ async function addPixelBanner(plugin, el, ctx) {
       viewImageIcon.innerHTML = "\u{1F5BC}\uFE0F";
       viewImageIcon._isPersistentViewImage = true;
       viewImageIcon.innerHTML = "\u{1F5BC}\uFE0F";
-      viewImageIcon._updateVisibility = (newUrl) => {
+      viewImageIcon._updateVisibility = (newUrl, originalPath) => {
         viewImageIcon.style.display = newUrl ? "block" : "none";
         if (newUrl) {
           viewImageIcon.onclick = () => {
-            new ImageViewModal(plugin.app, newUrl).open();
+            new ImageViewModal(plugin.app, newUrl, originalPath).open();
           };
         }
       };
@@ -28432,8 +33083,8 @@ async function addPixelBanner(plugin, el, ctx) {
       const bannerIconOverlay = this.querySelector(":scope > .banner-icon-overlay");
       children = Array.from(children).filter(
         (child) => {
-          var _a2, _b2, _c, _d, _e, _f;
-          return !((_a2 = child.classList) == null ? void 0 : _a2.contains("pixel-banner-image")) && !((_b2 = child.classList) == null ? void 0 : _b2.contains("view-image-icon")) && !((_c = child.classList) == null ? void 0 : _c.contains("pin-icon")) && !((_d = child.classList) == null ? void 0 : _d.contains("refresh-icon")) && !((_e = child.classList) == null ? void 0 : _e.contains("select-image-icon")) && !((_f = child.classList) == null ? void 0 : _f.contains("banner-icon-overlay"));
+          var _a2, _b2, _c2, _d, _e, _f;
+          return !((_a2 = child.classList) == null ? void 0 : _a2.contains("pixel-banner-image")) && !((_b2 = child.classList) == null ? void 0 : _b2.contains("view-image-icon")) && !((_c2 = child.classList) == null ? void 0 : _c2.contains("pin-icon")) && !((_d = child.classList) == null ? void 0 : _d.contains("refresh-icon")) && !((_e = child.classList) == null ? void 0 : _e.contains("select-image-icon")) && !((_f = child.classList) == null ? void 0 : _f.contains("banner-icon-overlay"));
         }
       );
       if (bannerElement == null ? void 0 : bannerElement._isPersistentBanner) {
@@ -28475,6 +33126,7 @@ async function addPixelBanner(plugin, el, ctx) {
     if (imageUrl) {
       const folderSpecific2 = plugin.getFolderSpecificImage(file.path);
       const imageDisplay = getFrontmatterValue(frontmatter, plugin.settings.customImageDisplayField) || (folderSpecific2 == null ? void 0 : folderSpecific2.imageDisplay) || plugin.settings.imageDisplay;
+      const imageRepeat = getFrontmatterValue(frontmatter, plugin.settings.customImageRepeatField) || (folderSpecific2 == null ? void 0 : folderSpecific2.imageRepeat) || plugin.settings.imageRepeat;
       const isSvg = imageUrl.includes("image/svg+xml") || file.path && file.path.toLowerCase().endsWith(".svg");
       if (imageUrl.startsWith("blob:")) {
         try {
@@ -28500,22 +33152,27 @@ async function addPixelBanner(plugin, el, ctx) {
       } else {
         bannerDiv.style.backgroundSize = imageDisplay || "cover";
       }
+      bannerDiv.style.backgroundRepeat = imageRepeat ? "repeat" : "no-repeat";
       bannerDiv.style.display = "block";
+      if (isEmbedded) {
+        bannerDiv.style.setProperty("--pixel-banner-image", `url('${imageUrl}')`);
+      }
       const viewImageIcon = container.querySelector(":scope > .view-image-icon");
       if (viewImageIcon && viewImageIcon._updateVisibility) {
-        viewImageIcon._updateVisibility(imageUrl);
+        const bannerValue = getFrontmatterValue(frontmatter, plugin.settings.customBannerField);
+        viewImageIcon._updateVisibility(imageUrl, bannerValue || file.path);
       }
       plugin.applyBannerSettings(bannerDiv, ctx, isEmbedded);
-      const hideEmbeddedNoteBanners = getFrontmatterValue(frontmatter, plugin.settings.customHideEmbeddedNoteBannersField) || (folderSpecific2 == null ? void 0 : folderSpecific2.hideEmbeddedNoteBanners) || plugin.settings.hideEmbeddedNoteBanners || false;
+      const hideEmbeddedNoteBanners2 = getFrontmatterValue(frontmatter, plugin.settings.customHideEmbeddedNoteBannersField) || (folderSpecific2 == null ? void 0 : folderSpecific2.hideEmbeddedNoteBanners) || plugin.settings.hideEmbeddedNoteBanners || false;
       let effectiveContentStart = 0;
-      if (!hideEmbeddedNoteBanners || !isEmbedded) {
+      if (!hideEmbeddedNoteBanners2 || !isEmbedded) {
         const frontmatterContentStart = getFrontmatterValue(frontmatter, plugin.settings.customContentStartField);
         const parsedFrontmatterStart = frontmatterContentStart ? Number(frontmatterContentStart) : null;
-        effectiveContentStart = (_b = (_a = parsedFrontmatterStart != null ? parsedFrontmatterStart : contentStartPosition) != null ? _a : folderSpecific2 == null ? void 0 : folderSpecific2.contentStartPosition) != null ? _b : plugin.settings.contentStartPosition;
+        effectiveContentStart = (_c = (_b = parsedFrontmatterStart != null ? parsedFrontmatterStart : contentStartPosition) != null ? _b : folderSpecific2 == null ? void 0 : folderSpecific2.contentStartPosition) != null ? _c : plugin.settings.contentStartPosition;
       }
       plugin.applyContentStartPosition(viewContent, effectiveContentStart);
       plugin.applyBannerWidth(viewContent);
-      const canPin = (inputType === "keyword" || inputType === "url") && plugin.settings.showPinIcon && !isEmbedded;
+      const canPin = (inputType === "keyword" || inputType === "url") && plugin.settings.showPinIcon && !isEmbedded && !isHoverPopover;
       if (canPin) {
         let leftOffset = plugin.settings.bannerGap + 5;
         const iconEls = container.querySelectorAll(".select-image-icon, .view-image-icon");
@@ -28535,7 +33192,7 @@ async function addPixelBanner(plugin, el, ctx) {
             await handlePinIconClick(imageUrl, plugin);
           } catch (error) {
             console.error("Error pinning image:", error);
-            new import_obsidian24.Notice("Failed to pin the image.");
+            new import_obsidian26.Notice("Failed to pin the image.");
           }
         };
         container.appendChild(pinIcon);
@@ -28566,21 +33223,22 @@ async function addPixelBanner(plugin, el, ctx) {
                 bannerDiv.style.backgroundImage = `url('${newImageUrl}')`;
                 const viewImageIcon2 = container.querySelector(":scope > .view-image-icon");
                 if (viewImageIcon2 && viewImageIcon2._updateVisibility) {
-                  viewImageIcon2._updateVisibility(newImageUrl);
+                  const bannerValue = getFrontmatterValue(frontmatter, plugin.settings.customBannerField);
+                  viewImageIcon2._updateVisibility(newImageUrl, bannerValue || file.path);
                 }
                 pinIcon.onclick = async () => {
                   try {
                     await handlePinIconClick(newImageUrl, plugin);
                   } catch (error) {
                     console.error("Error pinning image:", error);
-                    new import_obsidian24.Notice("Failed to pin the image.");
+                    new import_obsidian26.Notice("Failed to pin the image.");
                   }
                 };
-                new import_obsidian24.Notice("\u{1F504} Refreshed banner image");
+                new import_obsidian26.Notice("\u{1F504} Refreshed banner image");
               }
             } catch (error) {
               console.error("Error refreshing image:", error);
-              new import_obsidian24.Notice("Failed to refresh image");
+              new import_obsidian26.Notice("Failed to refresh image");
             }
           };
           container.appendChild(refreshIcon);
@@ -28596,6 +33254,7 @@ async function addPixelBanner(plugin, el, ctx) {
     }
   }
 }
+var debouncedUpdateBanner = debounceImmediate(updateBanner, 50);
 async function updateBanner(plugin, view, isContentChange, updateMode = plugin.UPDATE_MODE.FULL_UPDATE) {
   var _a, _b, _c, _d, _e, _f, _g, _h, _i, _j, _k, _l, _m, _n;
   if (!view || !view.file) {
@@ -28607,6 +33266,7 @@ async function updateBanner(plugin, view, isContentChange, updateMode = plugin.U
   const frontmatter = (_a = plugin.app.metadataCache.getFileCache(view.file)) == null ? void 0 : _a.frontmatter;
   const contentEl = view.contentEl;
   const isEmbedded = contentEl.classList.contains("internal-embed") && contentEl.classList.contains("markdown-embed");
+  const isHoverPopover = contentEl.closest(".hover-popover") !== null;
   const viewContent = contentEl;
   const nonPersistentOverlays = viewContent.querySelectorAll('.banner-icon-overlay:not([data-persistent="true"])');
   nonPersistentOverlays.forEach((overlay) => overlay.remove());
@@ -28650,6 +33310,14 @@ async function updateBanner(plugin, view, isContentChange, updateMode = plugin.U
   }
   if (!isEmbedded && !bannerImage) {
     contentEl.classList.remove("pixel-banner");
+    const previewSizer = contentEl.querySelector(".markdown-preview-sizer");
+    if (previewSizer) {
+      previewSizer.style.removeProperty("padding-top");
+    }
+    const sourceSizer = contentEl.querySelector(".cm-sizer");
+    if (sourceSizer) {
+      sourceSizer.style.removeProperty("padding-top");
+    }
     if (existingBanner) {
       existingBanner.style.backgroundImage = "";
       existingBanner.style.display = "none";
@@ -28673,7 +33341,7 @@ async function updateBanner(plugin, view, isContentChange, updateMode = plugin.U
       bannerImage = bannerImage.flat()[0];
       bannerImage = `[[${bannerImage}]]`;
     }
-    if (typeof bannerImage === "string" && !bannerImage.startsWith("[[")) {
+    if (typeof bannerImage === "string" && (!bannerImage.startsWith("[[") || !bannerImage.startsWith("![["))) {
       const bannerValues = bannerImage.includes(",") ? bannerImage.split(",").map((v) => v.trim()).filter((v) => v.length > 0).filter(Boolean) : [bannerImage];
       if (bannerValues.length > 0) {
         bannerImage = bannerValues[Math.floor(Math.random() * bannerValues.length)];
@@ -28681,11 +33349,11 @@ async function updateBanner(plugin, view, isContentChange, updateMode = plugin.U
         bannerImage = null;
       }
     }
-    if (bannerImage && !bannerImage.startsWith("[[") && !bannerImage.startsWith("http")) {
+    if (bannerImage && (!bannerImage.startsWith("[[") || !bannerImage.startsWith("![[")) && !bannerImage.startsWith("http")) {
       const file = plugin.app.vault.getAbstractFileByPath(bannerImage);
       if (file && "extension" in file) {
         if (file.extension.match(/^(jpg|jpeg|png|gif|bmp|svg)$/i)) {
-          bannerImage = `[[${bannerImage}]]`;
+          bannerImage = `![[${bannerImage}]]`;
         }
       }
     }
@@ -28695,6 +33363,7 @@ async function updateBanner(plugin, view, isContentChange, updateMode = plugin.U
   let bannerHeight = (_i = (_h = getFrontmatterValue(frontmatter, plugin.settings.customBannerHeightField)) != null ? _h : folderSpecific == null ? void 0 : folderSpecific.bannerHeight) != null ? _i : plugin.settings.bannerHeight;
   let fade = (_k = (_j = getFrontmatterValue(frontmatter, plugin.settings.customFadeField)) != null ? _j : folderSpecific == null ? void 0 : folderSpecific.fade) != null ? _k : plugin.settings.fade;
   let borderRadius = (_m = (_l = getFrontmatterValue(frontmatter, plugin.settings.customBorderRadiusField)) != null ? _l : folderSpecific == null ? void 0 : folderSpecific.borderRadius) != null ? _m : plugin.settings.borderRadius;
+  let maxWidth = getFrontmatterValue(frontmatter, plugin.settings.customBannerMaxWidthField) || (folderSpecific == null ? void 0 : folderSpecific.bannerMaxWidth) || "unset";
   if (bannerImage) {
     await addPixelBanner(plugin, contentEl, {
       frontmatter,
@@ -28709,6 +33378,7 @@ async function updateBanner(plugin, view, isContentChange, updateMode = plugin.U
       bannerHeight,
       fade,
       borderRadius,
+      maxWidth,
       isReadingView: view.getMode && view.getMode() === "preview"
     });
     plugin.lastYPositions.set(view.file.path, yPosition);
@@ -28776,6 +33446,7 @@ async function updateBanner(plugin, view, isContentChange, updateMode = plugin.U
     plugin.updateFieldVisibility(view);
   }
   const bannerIcon = getFrontmatterValue(frontmatter, plugin.settings.customBannerIconField);
+  const bannerIconImage = getFrontmatterValue(frontmatter, plugin.settings.customBannerIconImageField);
   if (isEmbedded) {
     const embedContainer = contentEl.querySelector(".markdown-preview-sizer") || contentEl.querySelector(".markdown-embed-content") || contentEl;
     const thisEmbedOverlays = embedContainer.querySelectorAll(':scope > .banner-icon-overlay:not([data-persistent="true"])');
@@ -28789,7 +33460,7 @@ async function updateBanner(plugin, view, isContentChange, updateMode = plugin.U
       }
     });
   }
-  if (!bannerIcon || typeof bannerIcon === "string" && !bannerIcon.trim()) {
+  if ((!bannerIcon || typeof bannerIcon === "string" && !bannerIcon.trim()) && (!bannerIconImage || typeof bannerIconImage === "string" && !bannerIconImage.trim())) {
     if (isEmbedded) {
       const embedContainer = contentEl.querySelector(".markdown-preview-sizer") || contentEl.querySelector(".markdown-embed-content") || contentEl;
       const persistentOverlays = embedContainer.querySelectorAll(':scope > .banner-icon-overlay[data-persistent="true"]');
@@ -28816,8 +33487,8 @@ async function updateBanner(plugin, view, isContentChange, updateMode = plugin.U
       }
     }
   }
-  if (bannerIcon && typeof bannerIcon === "string" && bannerIcon.trim()) {
-    const cleanIcon = bannerIcon.trim();
+  if (bannerIcon && typeof bannerIcon === "string" && bannerIcon.trim() || bannerIconImage && typeof bannerIconImage === "string" && bannerIconImage.trim()) {
+    const cleanIcon = bannerIcon ? bannerIcon.trim() : "";
     const cacheKey = plugin.generateCacheKey(view.file.path, plugin.app.workspace.activeLeaf.id);
     const cachedState = plugin.bannerStateCache.get(cacheKey);
     const cachedIconState = (_n = cachedState == null ? void 0 : cachedState.state) == null ? void 0 : _n.iconState;
@@ -28829,23 +33500,36 @@ async function updateBanner(plugin, view, isContentChange, updateMode = plugin.U
       const currentIconState = {
         icon: cleanIcon,
         size: getFrontmatterValue(frontmatter, plugin.settings.customBannerIconSizeField) || plugin.settings.bannerIconSize,
-        xPosition: getFrontmatterValue(frontmatter, plugin.settings.customBannerIconXPositionField) || plugin.settings.bannerIconXPosition,
-        opacity: getFrontmatterValue(frontmatter, plugin.settings.customBannerIconOpacityField) || plugin.settings.bannerIconOpacity,
+        xPosition: getValueWithZeroCheck([
+          getFrontmatterValue(frontmatter, plugin.settings.customBannerIconXPositionField),
+          plugin.settings.bannerIconXPosition
+        ]),
+        opacity: getValueWithZeroCheck([
+          getFrontmatterValue(frontmatter, plugin.settings.customBannerIconOpacityField),
+          plugin.settings.bannerIconOpacity
+        ]),
         color: getFrontmatterValue(frontmatter, plugin.settings.customBannerIconColorField) || plugin.settings.bannerIconColor,
         fontWeight: getFrontmatterValue(frontmatter, plugin.settings.customBannerIconFontWeightField) || plugin.settings.bannerIconFontWeight,
         backgroundColor: getFrontmatterValue(frontmatter, plugin.settings.customBannerIconBackgroundColorField) || plugin.settings.bannerIconBackgroundColor,
-        paddingX: getFrontmatterValue(frontmatter, plugin.settings.customBannerIconPaddingXField) || plugin.settings.bannerIconPaddingX,
-        paddingY: getFrontmatterValue(frontmatter, plugin.settings.customBannerIconPaddingYField) || plugin.settings.bannerIconPaddingY,
-        borderRadius: getFrontmatterValue(frontmatter, plugin.settings.customBannerIconBorderRadiusField) || plugin.settings.bannerIconBorderRadius,
-        verticalOffset: getFrontmatterValue(frontmatter, plugin.settings.customBannerIconVeritalOffsetField) || plugin.settings.bannerIconVeritalOffset,
+        paddingX: getValueWithZeroCheck([
+          getFrontmatterValue(frontmatter, plugin.settings.customBannerIconPaddingXField),
+          plugin.settings.bannerIconPaddingX
+        ]),
+        paddingY: getValueWithZeroCheck([
+          getFrontmatterValue(frontmatter, plugin.settings.customBannerIconPaddingYField),
+          plugin.settings.bannerIconPaddingY
+        ]),
+        borderRadius: getValueWithZeroCheck([
+          getFrontmatterValue(frontmatter, plugin.settings.customBannerIconBorderRadiusField),
+          plugin.settings.bannerIconBorderRadius
+        ]),
+        verticalOffset: getValueWithZeroCheck([
+          getFrontmatterValue(frontmatter, plugin.settings.customBannerIconVeritalOffsetField),
+          plugin.settings.bannerIconVeritalOffset
+        ]),
+        imageAlignment: getFrontmatterValue(frontmatter, plugin.settings.customBannerIconImageAlignmentField) || plugin.settings.bannerIconImageAlignment,
         viewType
       };
-      if (getFrontmatterValue(frontmatter, plugin.settings.customBannerIconVeritalOffsetField) === 0) {
-        currentIconState.verticalOffset = 0;
-      }
-      if (getFrontmatterValue(frontmatter, plugin.settings.customBannerIconBorderRadiusField) === 0) {
-        currentIconState.borderRadius = 0;
-      }
       const existingOverlay = ((_b2 = (_a2 = banner.nextElementSibling) == null ? void 0 : _a2.classList) == null ? void 0 : _b2.contains("banner-icon-overlay")) ? banner.nextElementSibling : null;
       if (existingOverlay) {
         if (!plugin.shouldUpdateIconOverlay(existingOverlay, currentIconState, viewType)) {
@@ -28856,8 +33540,57 @@ async function updateBanner(plugin, view, isContentChange, updateMode = plugin.U
       const bannerIconOverlay = plugin.getIconOverlay();
       bannerIconOverlay.dataset.viewType = viewType;
       bannerIconOverlay.dataset.persistent = "true";
-      bannerIconOverlay.textContent = cleanIcon;
+      bannerIconOverlay.textContent = "";
       bannerIconOverlay._isPersistentBannerIcon = true;
+      bannerIconOverlay.innerHTML = "";
+      const imageAlignment = currentIconState.imageAlignment === "right" ? "right" : "left";
+      let imgElement = null;
+      if (bannerIconImage) {
+        const inputType = plugin.getInputType(bannerIconImage);
+        let imagePath = null;
+        switch (inputType) {
+          case "obsidianLink":
+            const file = plugin.getPathFromObsidianLink(bannerIconImage);
+            if (file) {
+              imagePath = plugin.loadedImages.get(file.path);
+              if (!imagePath) {
+                plugin.getVaultImageUrl(file.path).then((url) => {
+                  if (url) plugin.loadedImages.set(file.path, url);
+                });
+              }
+            }
+            break;
+          case "vaultPath":
+            imagePath = plugin.loadedImages.get(bannerIconImage);
+            if (!imagePath) {
+              plugin.getVaultImageUrl(bannerIconImage).then((url) => {
+                if (url) plugin.loadedImages.set(bannerIconImage, url);
+              });
+            }
+            break;
+          case "url":
+            imagePath = bannerIconImage;
+            break;
+        }
+        if (imagePath) {
+          imgElement = document.createElement("img");
+          imgElement.src = imagePath;
+          imgElement.className = "banner-icon-image";
+        }
+      }
+      let textElement = null;
+      if (cleanIcon) {
+        textElement = document.createElement("div");
+        textElement.className = "banner-icon-text";
+        textElement.textContent = cleanIcon;
+      }
+      if (imageAlignment === "right") {
+        if (textElement) bannerIconOverlay.appendChild(textElement);
+        if (imgElement) bannerIconOverlay.appendChild(imgElement);
+      } else {
+        if (imgElement) bannerIconOverlay.appendChild(imgElement);
+        if (textElement) bannerIconOverlay.appendChild(textElement);
+      }
       bannerIconOverlay.style.display = "block";
       bannerIconOverlay.style.fontSize = `${currentIconState.size}px`;
       bannerIconOverlay.style.left = `${currentIconState.xPosition}%`;
@@ -28889,74 +33622,148 @@ async function updateBanner(plugin, view, isContentChange, updateMode = plugin.U
     }
   }
 }
+var debouncedApplyBannerSettings = debounceAndSwallow(applyBannerSettings, 350);
 function applyBannerSettings(plugin, bannerDiv, ctx, isEmbedded) {
-  const { frontmatter, imageDisplay, imageRepeat, bannerHeight, fade, borderRadius } = ctx;
+  const { frontmatter, imageDisplay, imageRepeat, bannerHeight, fade, borderRadius, maxWidth } = ctx;
   const folderSpecific = plugin.getFolderSpecificImage(ctx.file.path);
-  const pixelBannerYPosition = getFrontmatterValue(frontmatter, plugin.settings.customYPositionField) || (folderSpecific == null ? void 0 : folderSpecific.yPosition) || plugin.settings.yPosition;
-  const pixelBannerXPosition = getFrontmatterValue(frontmatter, plugin.settings.customXPositionField) || (folderSpecific == null ? void 0 : folderSpecific.xPosition) || plugin.settings.xPosition;
+  let pixelBannerYPosition = getValueWithZeroCheck([
+    getFrontmatterValue(frontmatter, plugin.settings.customYPositionField),
+    folderSpecific == null ? void 0 : folderSpecific.yPosition,
+    plugin.settings.yPosition
+  ]);
+  let pixelBannerXPosition = getValueWithZeroCheck([
+    getFrontmatterValue(frontmatter, plugin.settings.customXPositionField),
+    folderSpecific == null ? void 0 : folderSpecific.xPosition,
+    plugin.settings.xPosition
+  ]);
+  const pixelBannerMaxWidth = getFrontmatterValue(frontmatter, plugin.settings.customBannerMaxWidthField) || (folderSpecific == null ? void 0 : folderSpecific.bannerMaxWidth) || "unset";
   const titleColor = getFrontmatterValue(frontmatter, plugin.settings.customTitleColorField) || (folderSpecific == null ? void 0 : folderSpecific.titleColor) || plugin.settings.titleColor;
   const bannerIconSize = getFrontmatterValue(frontmatter, plugin.settings.customBannerIconSizeField) || (folderSpecific == null ? void 0 : folderSpecific.bannerIconSize) || plugin.settings.bannerIconSize || 70;
-  const bannerIconXPosition = getFrontmatterValue(frontmatter, plugin.settings.customBannerIconXPositionField) || (folderSpecific == null ? void 0 : folderSpecific.bannerIconXPosition) || plugin.settings.bannerIconXPosition || 25;
-  const bannerIconOpacity = getFrontmatterValue(frontmatter, plugin.settings.customBannerIconOpacityField) || (folderSpecific == null ? void 0 : folderSpecific.bannerIconOpacity) || plugin.settings.bannerIconOpacity || 100;
+  const bannerIconXPosition = getValueWithZeroCheck([
+    getFrontmatterValue(frontmatter, plugin.settings.customBannerIconXPositionField),
+    folderSpecific == null ? void 0 : folderSpecific.bannerIconXPosition,
+    plugin.settings.bannerIconXPosition,
+    25
+  ]);
+  const bannerIconOpacity = getValueWithZeroCheck([
+    getFrontmatterValue(frontmatter, plugin.settings.customBannerIconOpacityField),
+    folderSpecific == null ? void 0 : folderSpecific.bannerIconOpacity,
+    plugin.settings.bannerIconOpacity,
+    100
+  ]);
   const bannerIconColor = getFrontmatterValue(frontmatter, plugin.settings.customBannerIconColorField) || (folderSpecific == null ? void 0 : folderSpecific.bannerIconColor) || plugin.settings.bannerIconColor || "var(--text-normal)";
   const bannerIconFontWeight = getFrontmatterValue(frontmatter, plugin.settings.customBannerIconFontWeightField) || (folderSpecific == null ? void 0 : folderSpecific.bannerIconFontWeight) || plugin.settings.bannerIconFontWeight || "normal";
   const bannerIconBackgroundColor = getFrontmatterValue(frontmatter, plugin.settings.customBannerIconBackgroundColorField) || (folderSpecific == null ? void 0 : folderSpecific.bannerIconBackgroundColor) || plugin.settings.bannerIconBackgroundColor || "transparent";
-  const bannerIconPaddingX = getFrontmatterValue(frontmatter, plugin.settings.customBannerIconPaddingXField) || (folderSpecific == null ? void 0 : folderSpecific.bannerIconPaddingX) || plugin.settings.bannerIconPaddingX || 0;
-  const bannerIconPaddingY = getFrontmatterValue(frontmatter, plugin.settings.customBannerIconPaddingYField) || (folderSpecific == null ? void 0 : folderSpecific.bannerIconPaddingY) || plugin.settings.bannerIconPaddingY || 0;
-  let bannerIconBorderRadius = getFrontmatterValue(frontmatter, plugin.settings.customBannerIconBorderRadiusField) || (folderSpecific == null ? void 0 : folderSpecific.bannerIconBorderRadius) || plugin.settings.bannerIconBorderRadius || 17;
-  if (getFrontmatterValue(frontmatter, plugin.settings.customBannerIconBorderRadiusField) === 0) {
-    bannerIconBorderRadius = 0;
-  } else if ((folderSpecific == null ? void 0 : folderSpecific.bannerIconBorderRadius) === 0) {
-    bannerIconBorderRadius = 0;
-  } else if (plugin.settings.bannerIconBorderRadius === 0) {
-    bannerIconBorderRadius = 0;
-  }
-  let bannerIconVeritalOffset = Number(getFrontmatterValue(frontmatter, plugin.settings.customBannerIconVeritalOffsetField)) || (folderSpecific == null ? void 0 : folderSpecific.bannerIconVeritalOffset) || plugin.settings.bannerIconVeritalOffset || 0;
-  if (Number(getFrontmatterValue(frontmatter, plugin.settings.customBannerIconVeritalOffsetField)) === 0) {
-    bannerIconVeritalOffset = 0;
-  }
+  const bannerIconPaddingX = getValueWithZeroCheck([
+    getFrontmatterValue(frontmatter, plugin.settings.customBannerIconPaddingXField),
+    folderSpecific == null ? void 0 : folderSpecific.bannerIconPaddingX,
+    plugin.settings.bannerIconPaddingX,
+    10
+  ]);
+  const bannerIconPaddingY = getValueWithZeroCheck([
+    getFrontmatterValue(frontmatter, plugin.settings.customBannerIconPaddingYField),
+    folderSpecific == null ? void 0 : folderSpecific.bannerIconPaddingY,
+    plugin.settings.bannerIconPaddingY,
+    10
+  ]);
+  const bannerIconBorderRadius = getValueWithZeroCheck([
+    getFrontmatterValue(frontmatter, plugin.settings.customBannerIconBorderRadiusField),
+    folderSpecific == null ? void 0 : folderSpecific.bannerIconBorderRadius,
+    plugin.settings.bannerIconBorderRadius,
+    17
+  ]);
+  const bannerIconVeritalOffset = getValueWithZeroCheck([
+    Number(getFrontmatterValue(frontmatter, plugin.settings.customBannerIconVeritalOffsetField)),
+    folderSpecific == null ? void 0 : folderSpecific.bannerIconVeritalOffset,
+    plugin.settings.bannerIconVeritalOffset,
+    0
+  ]);
+  const bannerIconRotate = getValueWithZeroCheck([
+    getFrontmatterValue(frontmatter, plugin.settings.customBannerIconRotateField),
+    0
+  ]);
+  const bannerIconImageSizeMultiplier = getValueWithZeroCheck([
+    getFrontmatterValue(frontmatter, plugin.settings.customBannerIconImageSizeMultiplierField),
+    plugin.settings.bannerIconImageSizeMultiplier,
+    1
+  ]);
+  const bannerIconTextVerticalOffset = getValueWithZeroCheck([
+    getFrontmatterValue(frontmatter, plugin.settings.customBannerIconTextVerticalOffsetField),
+    plugin.settings.bannerIconTextVerticalOffset,
+    0
+  ]);
   const hideEmbeddedNoteBanners = getFrontmatterValue(frontmatter, plugin.settings.customHideEmbeddedNoteBannersField) || (folderSpecific == null ? void 0 : folderSpecific.hideEmbeddedNoteBanners) || plugin.settings.hideEmbeddedNoteBanners || false;
+  const bannerAlignment = getFrontmatterValue(frontmatter, plugin.settings.customBannerAlignmentField) || "center";
+  let alignmentValue = "0 auto";
+  if (bannerAlignment === "left") {
+    alignmentValue = "0 auto 0 0";
+  } else if (bannerAlignment === "right") {
+    alignmentValue = "0 0 0 auto";
+  }
+  const cssVars = {
+    "--pixel-banner-height": hideEmbeddedNoteBanners && isEmbedded ? "0px" : `${bannerHeight}px`,
+    "--pixel-banner-fade": `${fade}%`,
+    "--pixel-banner-fade-in-animation-duration": `${plugin.settings.bannerFadeInAnimationDuration}ms`,
+    "--pixel-banner-radius": `${borderRadius}px`,
+    "--pixel-banner-max-width": pixelBannerMaxWidth === "unset" ? "unset" : `${pixelBannerMaxWidth}px`,
+    "--pixel-banner-y-position": `${pixelBannerYPosition}%`,
+    "--pixel-banner-x-position": `${pixelBannerXPosition}%`,
+    "--pixel-banner-title-color": titleColor,
+    "--pixel-banner-icon-size": `${bannerIconSize}px`,
+    "--pixel-banner-icon-start": `${bannerHeight - bannerIconSize / 2}px`,
+    "--pixel-banner-icon-x": `${bannerIconXPosition}%`,
+    "--pixel-banner-icon-opacity": `${bannerIconOpacity}%`,
+    "--pixel-banner-icon-color": bannerIconColor,
+    "--pixel-banner-icon-font-weight": bannerIconFontWeight,
+    "--pixel-banner-icon-background-color": bannerIconBackgroundColor,
+    "--pixel-banner-icon-padding-x": `${bannerIconPaddingX}px`,
+    "--pixel-banner-icon-padding-y": `${bannerIconPaddingY}px`,
+    "--pixel-banner-icon-border-radius": `${bannerIconBorderRadius}px`,
+    "--pixel-banner-icon-vertical-offset": `${bannerIconVeritalOffset}px`,
+    "--pixel-banner-icon-rotate": `${bannerIconRotate}deg`,
+    "--pixel-banner-icon-image-size-multiplier": `${bannerIconImageSizeMultiplier}em`,
+    "--pixel-banner-icon-text-vertical-offset": `${bannerIconTextVerticalOffset}px`,
+    "--pixel-banner-embed-min-height": !hideEmbeddedNoteBanners ? `${parseInt(bannerHeight) + parseInt(bannerIconSize) / 2 + parseInt(bannerIconVeritalOffset) + parseInt(bannerIconPaddingY)}px` : "0px",
+    "--pixel-banner-alignment": alignmentValue
+  };
   bannerDiv.style.backgroundSize = imageDisplay || "cover";
   bannerDiv.style.backgroundRepeat = imageRepeat ? "repeat" : "no-repeat";
-  if (hideEmbeddedNoteBanners && isEmbedded) {
-    bannerDiv.style.setProperty("--pixel-banner-height", `0px`);
-  } else {
-    bannerDiv.style.setProperty("--pixel-banner-height", `${bannerHeight}px`);
-  }
-  bannerDiv.style.setProperty("--pixel-banner-fade", `${fade}%`);
-  bannerDiv.style.setProperty("--pixel-banner-fade-in-animation-duration", `${plugin.settings.bannerFadeInAnimationDuration}ms`);
-  bannerDiv.style.setProperty("--pixel-banner-radius", `${borderRadius}px`);
-  let bannerIconStart = `${bannerIconSize}px`;
-  let bannerHeightPlusIcon = `0px`;
-  if (!hideEmbeddedNoteBanners) {
-    bannerIconStart = `${bannerHeight - bannerIconSize / 2}px`;
-    bannerHeightPlusIcon = `${parseInt(bannerHeight) + parseInt(bannerIconSize) / 2 + parseInt(bannerIconVeritalOffset) + parseInt(bannerIconPaddingY)}px`;
-  }
+  Object.entries(cssVars).forEach(([property, value]) => {
+    bannerDiv.style.setProperty(property, value);
+  });
   const container = bannerDiv.closest(".markdown-preview-view, .markdown-source-view");
   if (container) {
-    container.style.setProperty("--pixel-banner-y-position", `${pixelBannerYPosition}%`);
-    container.style.setProperty("--pixel-banner-x-position", `${pixelBannerXPosition}%`);
-    container.style.setProperty("--pixel-banner-title-color", titleColor);
-    container.style.setProperty("--pixel-banner-icon-size", `${bannerIconSize}px`);
-    container.style.setProperty("--pixel-banner-icon-start", bannerIconStart);
-    container.style.setProperty("--pixel-banner-icon-x", `${bannerIconXPosition}%`);
-    container.style.setProperty("--pixel-banner-icon-opacity", `${bannerIconOpacity}%`);
-    container.style.setProperty("--pixel-banner-icon-color", bannerIconColor);
-    container.style.setProperty("--pixel-banner-icon-font-weight", bannerIconFontWeight);
-    container.style.setProperty("--pixel-banner-icon-background-color", bannerIconBackgroundColor);
-    container.style.setProperty("--pixel-banner-icon-padding-x", `${bannerIconPaddingX}px`);
-    container.style.setProperty("--pixel-banner-icon-padding-y", `${bannerIconPaddingY}px`);
-    container.style.setProperty("--pixel-banner-icon-border-radius", `${bannerIconBorderRadius}px`);
-    container.style.setProperty("--pixel-banner-icon-vertical-offset", `${bannerIconVeritalOffset}px`);
-    container.style.setProperty("--pixel-banner-embed-min-height", `${bannerHeightPlusIcon}`);
+    Object.entries(cssVars).forEach(([property, value]) => {
+      container.style.setProperty(property, value);
+    });
+  }
+  if (isEmbedded) {
+    const embedContainer = bannerDiv.closest(".internal-embed");
+    if (embedContainer) {
+      embedContainer.style.setProperty("--pixel-banner-content-start", cssVars["--pixel-banner-embed-min-height"]);
+      const embedContentDiv = embedContainer.querySelector(":scope > .markdown-embed-content");
+      if (embedContentDiv) {
+        Object.entries(cssVars).forEach(([property, value]) => {
+          embedContentDiv.style.setProperty(property, value);
+        });
+        const previewViewEl = embedContentDiv.querySelector(":scope > .markdown-preview-view");
+        if (previewViewEl) {
+          Object.entries(cssVars).forEach(([property, value]) => {
+            previewViewEl.style.setProperty(property, value);
+          });
+        }
+      }
+    }
   }
 }
+var debouncedApplyContentStartPosition = debounceAndSwallow(applyContentStartPosition, 350);
 function applyContentStartPosition(plugin, el, contentStartPosition) {
   if (!el) {
     return;
   }
   el.style.setProperty("--pixel-banner-content-start", `${contentStartPosition}px`);
 }
+var debouncedApplyBannerWidth = debounceAndSwallow(applyBannerWidth, 350);
 function applyBannerWidth(plugin, el) {
   if (!el) return;
   setTimeout(() => {
@@ -28969,6 +33776,7 @@ function applyBannerWidth(plugin, el) {
     el.style.setProperty("--pixel-banner-banner-gap", `${bannerGap}px`);
   }, 50);
 }
+var debouncedUpdateAllBanners = debounceAndSwallow(updateAllBanners, 350);
 function updateAllBanners(plugin) {
   plugin.app.workspace.iterateAllLeaves((leaf) => {
     if (leaf.view.getViewType() === "markdown") {
@@ -28976,6 +33784,7 @@ function updateAllBanners(plugin) {
     }
   });
 }
+var debouncedUpdateBannerPosition = debounceAndSwallow(updateBannerPosition, 350);
 async function updateBannerPosition(plugin, file, position) {
   if (!file) return;
   const metadata = plugin.app.metadataCache.getFileCache(file);
@@ -28985,9 +33794,48 @@ async function updateBannerPosition(plugin, file, position) {
     frontmatter.banner_y = position.y;
   });
 }
+function registerMarkdownPostProcessor(plugin) {
+  plugin.registerMarkdownPostProcessor((el, ctx) => {
+    var _a;
+    const isPreview = ctx.containerEl.classList.contains("markdown-preview-view");
+    const isHoverPopover = ctx.containerEl.closest(".hover-popover");
+    if (!isPreview && !isHoverPopover) return;
+    const file = ctx.sourcePath ? plugin.app.vault.getAbstractFileByPath(ctx.sourcePath) : null;
+    if (!file) return;
+    const frontmatter = (_a = plugin.app.metadataCache.getFileCache(file)) == null ? void 0 : _a.frontmatter;
+    let bannerImage = null;
+    for (const field of plugin.settings.customBannerField) {
+      if (frontmatter == null ? void 0 : frontmatter[field]) {
+        bannerImage = frontmatter[field];
+        break;
+      }
+    }
+    if (!bannerImage) {
+      const folderSpecific2 = plugin.getFolderSpecificImage(file.path);
+      if (folderSpecific2 == null ? void 0 : folderSpecific2.image) {
+        bannerImage = folderSpecific2.image;
+      }
+    }
+    if (!bannerImage) return;
+    const folderSpecific = plugin.getFolderSpecificImage(file.path);
+    const yPosition = getFrontmatterValue(frontmatter, plugin.settings.customYPositionField) || (folderSpecific == null ? void 0 : folderSpecific.yPosition) || plugin.settings.yPosition;
+    const xPosition = getFrontmatterValue(frontmatter, plugin.settings.customXPositionField) || (folderSpecific == null ? void 0 : folderSpecific.xPosition) || plugin.settings.xPosition;
+    const contentStartPosition = getFrontmatterValue(frontmatter, plugin.settings.customContentStartField) || (folderSpecific == null ? void 0 : folderSpecific.contentStartPosition) || plugin.settings.contentStartPosition;
+    addPixelBanner(plugin, ctx.containerEl, {
+      frontmatter,
+      file,
+      isContentChange: false,
+      yPosition,
+      xPosition,
+      contentStartPosition,
+      bannerImage,
+      isReadingView: true
+    });
+  });
+}
 
 // src/core/bannerUtils.js
-var import_obsidian25 = require("obsidian");
+var import_obsidian27 = require("obsidian");
 function getInputType(input) {
   if (Array.isArray(input)) {
     input = input.flat()[0];
@@ -28998,6 +33846,9 @@ function getInputType(input) {
   input = input.trim().replace(/^["'](.*)["']$/, "$1");
   if (input.match(/^\[{2}.*\]{2}$/) || input.match(/^"?!?\[{2}.*\]{2}"?$/)) {
     return "obsidianLink";
+  }
+  if (input.match(/^!\[\]\(.*\)$/) || input.match(/^"?!\[\]\(.*\)"?$/)) {
+    return "markdownImage";
   }
   try {
     new URL(input);
@@ -29019,6 +33870,20 @@ function getPathFromObsidianLink(link) {
   innerLink = innerLink.endsWith("]]") ? innerLink.slice(0, -2) : innerLink;
   const path = innerLink.split("|")[0];
   return this.app.metadataCache.getFirstLinkpathDest(path, "");
+}
+function getPathFromMarkdownImage(link) {
+  let cleanLink = link.replace(/^["'](.*)["']$/, "$1");
+  const match = cleanLink.match(/^!\[\]\((.*)\)$/);
+  if (match && match[1]) {
+    const path = match[1];
+    try {
+      new URL(path);
+      return path;
+    } catch (_) {
+      return this.app.metadataCache.getFirstLinkpathDest(path, "");
+    }
+  }
+  return null;
 }
 async function getVaultImageUrl(path) {
   const file = this.app.vault.getAbstractFileByPath(path);
@@ -29127,9 +33992,11 @@ function getActiveApiProvider() {
   return availableProviders[Math.floor(Math.random() * availableProviders.length)];
 }
 function hasBannerFrontmatter(file) {
-  var _a;
   const metadata = this.app.metadataCache.getFileCache(file);
-  return ((_a = metadata == null ? void 0 : metadata.frontmatter) == null ? void 0 : _a.banner) !== void 0;
+  if (!(metadata == null ? void 0 : metadata.frontmatter)) return false;
+  return this.settings.customBannerField.some(
+    (fieldName) => metadata.frontmatter[fieldName] !== void 0
+  );
 }
 function createFolderImageSettings(folderImage) {
   const settings = { ...folderImage };
@@ -29143,18 +34010,18 @@ function createFolderImageSettings(folderImage) {
 }
 
 // src/core/eventHandler.js
-var import_obsidian26 = require("obsidian");
+var import_obsidian28 = require("obsidian");
 init_modals();
 init_frontmatterUtils();
 async function handleActiveLeafChange(leaf) {
   var _a;
   this.cleanupCache();
   const previousLeaf = this.app.workspace.activeLeaf;
-  if (previousLeaf && previousLeaf.view instanceof import_obsidian26.MarkdownView && previousLeaf !== leaf) {
+  if (previousLeaf && previousLeaf.view instanceof import_obsidian28.MarkdownView && previousLeaf !== leaf) {
     this.cleanupPreviousLeaf(previousLeaf);
     this.cleanupIconOverlay(previousLeaf.view);
   }
-  if (!leaf || !(leaf.view instanceof import_obsidian26.MarkdownView) || !leaf.view.file) {
+  if (!leaf || !(leaf.view instanceof import_obsidian28.MarkdownView) || !leaf.view.file) {
     return;
   }
   const currentPath = leaf.view.file.path;
@@ -29223,7 +34090,7 @@ async function handleActiveLeafChange(leaf) {
       shouldUpdateBanner = true;
     }
     const previousLeaf2 = this.app.workspace.activeLeaf;
-    if (previousLeaf2 && previousLeaf2.view instanceof import_obsidian26.MarkdownView && previousLeaf2 !== leaf) {
+    if (previousLeaf2 && previousLeaf2.view instanceof import_obsidian28.MarkdownView && previousLeaf2 !== leaf) {
       this.cleanupPreviousLeaf(previousLeaf2);
     }
     if (shouldUpdateBanner) {
@@ -29280,7 +34147,7 @@ function handleLayoutChange() {
   }
   setTimeout(() => {
     const activeLeaf = this.app.workspace.activeLeaf;
-    if (activeLeaf && activeLeaf.view instanceof import_obsidian26.MarkdownView) {
+    if (activeLeaf && activeLeaf.view instanceof import_obsidian28.MarkdownView) {
       const contentEl = activeLeaf.view.contentEl;
       const hasBanner = contentEl.querySelector(".pixel-banner-image");
       if (hasBanner) {
@@ -29294,7 +34161,7 @@ function handleLayoutChange() {
   }, 100);
 }
 async function handleModeChange(leaf) {
-  if (leaf && leaf.view instanceof import_obsidian26.MarkdownView && leaf.view.file) {
+  if (leaf && leaf.view instanceof import_obsidian28.MarkdownView && leaf.view.file) {
     await this.updateBanner(leaf.view, true);
     if (this.settings.hidePixelBannerFields) {
       this.updateFieldVisibility(leaf.view);
@@ -29304,7 +34171,7 @@ async function handleModeChange(leaf) {
 async function handleSelectImage() {
   const activeFile = this.app.workspace.getActiveFile();
   if (!activeFile) {
-    new import_obsidian26.Notice("No active file");
+    new import_obsidian28.Notice("No active file");
     return;
   }
   new ImageSelectionModal(
@@ -29331,7 +34198,7 @@ async function handleSelectImage() {
             cleanedFrontmatter = cleanedFrontmatter.replace(fieldRegex, "");
           });
           cleanedFrontmatter = cleanedFrontmatter.trim();
-          const newFrontmatter = `${bannerField}: "[[${imageReference}]]"${cleanedFrontmatter ? "\n" + cleanedFrontmatter : ""}`;
+          const newFrontmatter = `${bannerField}: "![[${imageReference}]]"${cleanedFrontmatter ? "\n" + cleanedFrontmatter : ""}`;
           return `---
 ${newFrontmatter}
 ---`;
@@ -29339,7 +34206,7 @@ ${newFrontmatter}
       } else {
         const cleanContent = fileContent.replace(/^\s+/, "");
         updatedContent = `---
-${bannerField}: "[[${imageReference}]]"
+${bannerField}: "![[${imageReference}]]"
 ---
 
 ${cleanContent}`;
@@ -29348,9 +34215,9 @@ ${cleanContent}`;
       if (updatedContent !== fileContent) {
         await this.app.vault.modify(activeFile, updatedContent);
         if (this.settings.useShortPath && imageReference === selectedFile.path) {
-          new import_obsidian26.Notice("Banner image updated (full path used due to duplicate filenames)");
+          new import_obsidian28.Notice("Banner image updated (full path used due to duplicate filenames)");
         } else {
-          new import_obsidian26.Notice("Banner image updated");
+          new import_obsidian28.Notice("Banner image updated");
         }
       }
     },
@@ -29362,7 +34229,7 @@ function handleBannerIconClick() {
 }
 
 // src/core/domManager.js
-var import_obsidian27 = require("obsidian");
+var import_obsidian29 = require("obsidian");
 function setupMutationObserver() {
   this.observer = new MutationObserver((mutations) => {
     for (let mutation of mutations) {
@@ -29378,7 +34245,7 @@ function setupMutationObserver() {
         );
         if (bannerRemoved || structuralChange) {
           const activeLeaf = this.app.workspace.activeLeaf;
-          if (activeLeaf && activeLeaf.view instanceof import_obsidian27.MarkdownView) {
+          if (activeLeaf && activeLeaf.view instanceof import_obsidian29.MarkdownView) {
             const contentEl = activeLeaf.view.contentEl;
             const hasBanner = contentEl.querySelector('.pixel-banner-image[style*="display: block"]');
             if (!hasBanner) {
@@ -29418,13 +34285,20 @@ function updateFieldVisibility(view) {
     ...this.settings.customContentStartField,
     ...this.settings.customImageDisplayField,
     ...this.settings.customImageRepeatField,
+    ...this.settings.customBannerMaxWidthField,
     ...this.settings.customBannerHeightField,
+    ...this.settings.customBannerAlignmentField,
     ...this.settings.customFadeField,
     ...this.settings.customBorderRadiusField,
     ...this.settings.customTitleColorField,
     ...this.settings.customBannerShuffleField,
     ...this.settings.customBannerIconField,
+    ...this.settings.customBannerIconImageField,
+    ...this.settings.customBannerIconImageAlignmentField,
     ...this.settings.customBannerIconSizeField,
+    ...this.settings.customBannerIconImageSizeMultiplierField,
+    ...this.settings.customBannerIconTextVerticalOffsetField,
+    ...this.settings.customBannerIconRotateField,
     ...this.settings.customBannerIconXPositionField,
     ...this.settings.customBannerIconOpacityField,
     ...this.settings.customBannerIconColorField,
@@ -29482,12 +34356,18 @@ function updateEmbeddedBannersVisibility() {
       document.head.appendChild(styleEl);
     }
     styleEl.textContent = `
-            .internal-embed .pixel-banner-image {
+            .internal-embed .pixel-banner-image,
+            .internal-embed .banner-icon-overlay {
                 display: none !important;
             }
             .internal-embed > .markdown-embed-content .cm-sizer:first-of-type,
             .internal-embed > .markdown-embed-content .markdown-preview-sizer:first-of-type {
                 padding-top: unset !important;
+            }
+            /* hide pusher to prevent content from being pushed down */
+            .internal-embed > .markdown-embed-content .cm-sizer:first-of-type > .pixel-banner-image + .markdown-preview-pusher,
+            .internal-embed > .markdown-embed-content .markdown-preview-sizer:first-of-type > .pixel-banner-image + .markdown-preview-pusher {
+                display: none !important;
             }
         `;
   } else if (styleEl) {
@@ -29523,7 +34403,8 @@ function cleanupPreviousLeaf(previousLeaf) {
 }
 
 // src/core/pixelBannerPlugin.js
-var PixelBannerPlugin = class extends import_obsidian28.Plugin {
+init_frontmatterUtils();
+var PixelBannerPlugin = class extends import_obsidian30.Plugin {
   constructor() {
     super(...arguments);
     // Update modes for banner refresh
@@ -29562,7 +34443,7 @@ var PixelBannerPlugin = class extends import_obsidian28.Plugin {
     // -----------------------------
     __publicField(this, "debouncedEnsureBanner", debounce(() => {
       const activeLeaf = this.app.workspace.activeLeaf;
-      if (activeLeaf && activeLeaf.view instanceof import_obsidian28.MarkdownView) {
+      if (activeLeaf && activeLeaf.view instanceof import_obsidian30.MarkdownView) {
         const contentEl = activeLeaf.view.contentEl;
         const hasBanner = contentEl.querySelector(".pixel-banner-image");
         if (hasBanner) {
@@ -29605,25 +34486,25 @@ var PixelBannerPlugin = class extends import_obsidian28.Plugin {
     return handleSetBannerIcon(this);
   }
   addPixelBanner(el, ctx) {
-    return addPixelBanner(this, el, ctx);
+    return debouncedAddPixelBanner(this, el, ctx);
   }
   updateBanner(view, isContentChange, updateMode) {
-    return updateBanner(this, view, isContentChange, updateMode);
+    return debouncedUpdateBanner(this, view, isContentChange, updateMode);
   }
   applyBannerSettings(bannerDiv, ctx, isEmbedded) {
-    return applyBannerSettings(this, bannerDiv, ctx, isEmbedded);
+    return debouncedApplyBannerSettings(this, bannerDiv, ctx, isEmbedded);
   }
   applyContentStartPosition(el, contentStartPosition) {
-    return applyContentStartPosition(this, el, contentStartPosition);
+    return debouncedApplyContentStartPosition(this, el, contentStartPosition);
   }
   applyBannerWidth(el) {
-    return applyBannerWidth(this, el);
+    return debouncedApplyBannerWidth(this, el);
   }
   updateAllBanners() {
-    return updateAllBanners(this);
+    return debouncedUpdateAllBanners(this);
   }
   updateBannerPosition(file, position) {
-    return updateBannerPosition(this, file, position);
+    return debouncedUpdateBannerPosition(this, file, position);
   }
   cleanupIconOverlay(view) {
     return cleanupIconOverlay(this, view);
@@ -29636,6 +34517,9 @@ var PixelBannerPlugin = class extends import_obsidian28.Plugin {
   }
   getPathFromObsidianLink(link) {
     return getPathFromObsidianLink.call(this, link);
+  }
+  getPathFromMarkdownImage(link) {
+    return getPathFromMarkdownImage.call(this, link);
   }
   getVaultImageUrl(path) {
     return getVaultImageUrl.call(this, path);
@@ -29724,6 +34608,13 @@ var PixelBannerPlugin = class extends import_obsidian28.Plugin {
         new GenerateAIBannerModal(this.app, this).open();
       }
     });
+    this.addCommand({
+      id: "play-daily-game",
+      name: "\u{1F579}\uFE0F Play Daily Game",
+      callback: () => {
+        new DailyGameModal(this.app, this.settings.pixelBannerPlusEmail, this.settings.pixelBannerPlusApiKey, this).open();
+      }
+    });
     this.registerEvent(
       this.app.workspace.on("active-leaf-change", this.handleActiveLeafChange.bind(this))
     );
@@ -29751,6 +34642,7 @@ var PixelBannerPlugin = class extends import_obsidian28.Plugin {
           ...this.settings.customContentStartField,
           ...this.settings.customImageDisplayField,
           ...this.settings.customImageRepeatField,
+          ...this.settings.customBannerMaxWidthField,
           ...this.settings.customBannerHeightField,
           ...this.settings.customFadeField,
           ...this.settings.customBorderRadiusField,
@@ -29758,6 +34650,10 @@ var PixelBannerPlugin = class extends import_obsidian28.Plugin {
           ...this.settings.customBannerShuffleField,
           ...this.settings.customBannerIconField,
           ...this.settings.customBannerIconSizeField,
+          ...this.settings.customBannerIconImageSizeMultiplierField,
+          ...this.settings.customBannerIconTextVerticalOffsetField,
+          ...this.settings.customBannerIconRotateField,
+          ...this.settings.customBannerIconImageAlignmentField,
           ...this.settings.customBannerIconXPositionField,
           ...this.settings.customBannerIconOpacityField,
           ...this.settings.customBannerIconColorField,
@@ -29778,7 +34674,7 @@ var PixelBannerPlugin = class extends import_obsidian28.Plugin {
         this.lastFrontmatter.set(file.path, frontmatter);
         const leaves = this.app.workspace.getLeavesOfType("markdown");
         for (const leaf of leaves) {
-          if (leaf.view instanceof import_obsidian28.MarkdownView && leaf.view.file === file) {
+          if (leaf.view instanceof import_obsidian30.MarkdownView && leaf.view.file === file) {
             this.loadedImages.delete(file.path);
             this.lastKeywords.delete(file.path);
             await this.updateBanner(leaf.view, true);
@@ -29786,14 +34682,59 @@ var PixelBannerPlugin = class extends import_obsidian28.Plugin {
         }
       })
     );
-    this.registerMarkdownPostProcessor(this.postProcessor.bind(this));
+    this.registerMarkdownPostProcessor((el, ctx) => {
+      var _a;
+      const isPreview = ctx.containerEl.classList.contains("markdown-preview-view");
+      const isHoverPopover = ctx.containerEl.closest(".hover-popover") !== null;
+      if (!isPreview && !isHoverPopover) return;
+      const file = ctx.sourcePath ? this.app.vault.getAbstractFileByPath(ctx.sourcePath) : null;
+      if (!file) return;
+      if (isHoverPopover && !this.settings.showBannerInPopoverPreviews) return;
+      const frontmatter = (_a = this.app.metadataCache.getFileCache(file)) == null ? void 0 : _a.frontmatter;
+      let bannerImage = null;
+      for (const field of this.settings.customBannerField) {
+        if (frontmatter == null ? void 0 : frontmatter[field]) {
+          bannerImage = frontmatter[field];
+          break;
+        }
+      }
+      if (!bannerImage) {
+        const folderSpecific2 = this.getFolderSpecificImage(file.path);
+        if (folderSpecific2 == null ? void 0 : folderSpecific2.image) {
+          bannerImage = folderSpecific2.image;
+        }
+      }
+      if (!bannerImage) return;
+      const folderSpecific = this.getFolderSpecificImage(file.path);
+      const yPosition = getFrontmatterValue(frontmatter, this.settings.customYPositionField) || (folderSpecific == null ? void 0 : folderSpecific.yPosition) || this.settings.yPosition;
+      const xPosition = getFrontmatterValue(frontmatter, this.settings.customXPositionField) || (folderSpecific == null ? void 0 : folderSpecific.xPosition) || this.settings.xPosition;
+      const contentStartPosition = getFrontmatterValue(frontmatter, this.settings.customContentStartField) || (folderSpecific == null ? void 0 : folderSpecific.contentStartPosition) || this.settings.contentStartPosition;
+      if (isHoverPopover) {
+        this.addPixelBanner(ctx.containerEl, {
+          frontmatter,
+          file,
+          isContentChange: false,
+          yPosition,
+          xPosition,
+          contentStartPosition,
+          bannerImage,
+          isReadingView: true
+        });
+      } else {
+        this.updateBanner({
+          file,
+          contentEl: ctx.containerEl,
+          getMode: () => "preview"
+        }, false, this.UPDATE_MODE.ENSURE_VISIBILITY);
+      }
+    });
     this.setupMutationObserver();
     this.addCommand({
       id: "pin-banner-image",
       name: "\u{1F4CC} Pin current banner image",
       checkCallback: (checking) => {
         var _a;
-        const activeView = this.app.workspace.getActiveViewOfType(import_obsidian28.MarkdownView);
+        const activeView = this.app.workspace.getActiveViewOfType(import_obsidian30.MarkdownView);
         if (!activeView || !activeView.file) return false;
         const imageUrl = this.loadedImages.get(activeView.file.path);
         const frontmatter = (_a = this.app.metadataCache.getFileCache(activeView.file)) == null ? void 0 : _a.frontmatter;
@@ -29819,7 +34760,7 @@ var PixelBannerPlugin = class extends import_obsidian28.Plugin {
       name: "\u{1F504} Refresh current banner image",
       checkCallback: (checking) => {
         var _a;
-        const activeView = this.app.workspace.getActiveViewOfType(import_obsidian28.MarkdownView);
+        const activeView = this.app.workspace.getActiveViewOfType(import_obsidian30.MarkdownView);
         if (!activeView || !activeView.file) return false;
         const frontmatter = (_a = this.app.metadataCache.getFileCache(activeView.file)) == null ? void 0 : _a.frontmatter;
         let bannerImage;
@@ -29836,10 +34777,10 @@ var PixelBannerPlugin = class extends import_obsidian28.Plugin {
           this.loadedImages.delete(activeView.file.path);
           this.lastKeywords.delete(activeView.file.path);
           this.updateBanner(activeView, true).then(() => {
-            new import_obsidian28.Notice("\u{1F504} Refreshed banner image");
+            new import_obsidian30.Notice("\u{1F504} Refreshed banner image");
           }).catch((error) => {
             console.error("Error refreshing image:", error);
-            new import_obsidian28.Notice("\u{1F62D} Failed to refresh image");
+            new import_obsidian30.Notice("\u{1F62D} Failed to refresh image");
           });
         }
         return true;
@@ -29863,11 +34804,33 @@ var PixelBannerPlugin = class extends import_obsidian28.Plugin {
       callback: () => this.openBannerStore()
     });
     this.addCommand({
-      id: "set-banner-icon",
-      name: "\u2B50 Set Banner Icon",
+      id: "set-banner-icon-image",
+      name: "\u2B50 Select Banner Icon Image",
       checkCallback: (checking) => {
         var _a;
-        const activeView = this.app.workspace.getActiveViewOfType(import_obsidian28.MarkdownView);
+        const activeView = this.app.workspace.getActiveViewOfType(import_obsidian30.MarkdownView);
+        if (!activeView || !activeView.file) return false;
+        const frontmatter = (_a = this.app.metadataCache.getFileCache(activeView.file)) == null ? void 0 : _a.frontmatter;
+        let hasBanner = false;
+        for (const field of this.settings.customBannerField) {
+          if (frontmatter == null ? void 0 : frontmatter[field]) {
+            hasBanner = true;
+            break;
+          }
+        }
+        if (checking) return hasBanner;
+        if (hasBanner) {
+          handleSetBannerIconImage(this);
+        }
+        return true;
+      }
+    });
+    this.addCommand({
+      id: "set-banner-icon",
+      name: "\u{1F4F0} Set Banner Icon Text / Emoji",
+      checkCallback: (checking) => {
+        var _a;
+        const activeView = this.app.workspace.getActiveViewOfType(import_obsidian30.MarkdownView);
         if (!activeView || !activeView.file) return false;
         const frontmatter = (_a = this.app.metadataCache.getFileCache(activeView.file)) == null ? void 0 : _a.frontmatter;
         let hasBanner = false;
@@ -29911,7 +34874,7 @@ var PixelBannerPlugin = class extends import_obsidian28.Plugin {
       this.app.metadataCache.on("resolved", () => {
         var _a;
         const leaf = this.app.workspace.activeLeaf;
-        if (leaf && leaf.view instanceof import_obsidian28.MarkdownView) {
+        if (leaf && leaf.view instanceof import_obsidian30.MarkdownView) {
           const contentEl = leaf.view.contentEl;
           const hasBanner = contentEl.querySelector(".pixel-banner-image");
           if (hasBanner) {
@@ -29928,6 +34891,7 @@ var PixelBannerPlugin = class extends import_obsidian28.Plugin {
     this.addRibbonIcon("flag", "\u{1F6A9} Pixel Banner Menu", () => {
       this.handleBannerIconClick();
     });
+    registerMarkdownPostProcessor(this);
   }
   // -------------------
   // -- get image url --
@@ -29940,6 +34904,21 @@ var PixelBannerPlugin = class extends import_obsidian28.Plugin {
       const file = this.getPathFromObsidianLink(input);
       if (file) {
         return this.getVaultImageUrl(file.path);
+      }
+      return null;
+    }
+    if (type === "markdownImage") {
+      const path = this.getPathFromMarkdownImage(input);
+      if (typeof path === "string") {
+        try {
+          new URL(path);
+          return path;
+        } catch (_) {
+          return this.getVaultImageUrl(path);
+        }
+      }
+      if (path) {
+        return this.getVaultImageUrl(path.path);
       }
       return null;
     }
@@ -29988,6 +34967,7 @@ var PixelBannerPlugin = class extends import_obsidian28.Plugin {
         customContentStartField: this.settings.customContentStartField,
         customImageDisplayField: this.settings.customImageDisplayField,
         customImageRepeatField: this.settings.customImageRepeatField,
+        customBannerMaxWidthField: this.settings.customBannerMaxWidthField,
         bannerImage: frontmatter[this.settings.customBannerField]
       });
       if (this.settings.hidePixelBannerFields) {
@@ -30000,13 +34980,19 @@ var PixelBannerPlugin = class extends import_obsidian28.Plugin {
             ...this.settings.customContentStartField,
             ...this.settings.customImageDisplayField,
             ...this.settings.customImageRepeatField,
+            ...this.settings.customBannerMaxWidthField,
             ...this.settings.customBannerHeightField,
+            ...this.settings.customBannerAlignmentField,
             ...this.settings.customFadeField,
             ...this.settings.customBorderRadiusField,
             ...this.settings.customTitleColorField,
             ...this.settings.customBannerShuffleField,
             ...this.settings.customBannerIconField,
             ...this.settings.customBannerIconSizeField,
+            ...this.settings.customBannerIconImageSizeMultiplierField,
+            ...this.settings.customBannerIconTextVerticalOffsetField,
+            ...this.settings.customBannerIconRotateField,
+            ...this.settings.customBannerIconImageAlignmentField,
             ...this.settings.customBannerIconXPositionField,
             ...this.settings.customBannerIconOpacityField,
             ...this.settings.customBannerIconColorField,
@@ -30036,7 +35022,7 @@ var PixelBannerPlugin = class extends import_obsidian28.Plugin {
       this.observer.disconnect();
     }
     this.app.workspace.iterateAllLeaves((leaf) => {
-      if (leaf.view instanceof import_obsidian28.MarkdownView) {
+      if (leaf.view instanceof import_obsidian30.MarkdownView) {
         const viewContent = leaf.view.contentEl;
         if (viewContent._resizeObserver) {
           viewContent._resizeObserver.disconnect();
@@ -30132,11 +35118,28 @@ var PixelBannerPlugin = class extends import_obsidian28.Plugin {
   // -- verify pixel banner plus credentials --
   // ------------------------------------------
   async verifyPixelBannerPlusCredentials() {
-    const result = await verifyPixelBannerPlusCredentials(this);
-    this.pixelBannerPlusServerOnline = result.serverOnline;
-    this.pixelBannerPlusEnabled = result.verified;
-    this.pixelBannerPlusBannerTokens = result.bannerTokens;
-    return result;
+    if (this.settings.pixelBannerPlusEnabled) {
+      const result = await verifyPixelBannerPlusCredentials(this);
+      this.pixelBannerPlusServerOnline = result.serverOnline;
+      this.pixelBannerPlusEnabled = result.verified;
+      this.pixelBannerPlusBannerTokens = result.bannerTokens;
+      this.pixelBannerPlusJackpot = result.jackpot;
+      this.pixelBannerPlusDailyGameName = result.dailyGameName;
+      this.pixelBannerPlusHighScore = result.highScore || "0";
+      this.pixelBannerPlusTopUser = result.topUser;
+      this.pixelBannerPlusTimeLeft = result.timeLeft;
+      return result;
+    }
+    return {
+      serverOnline: false,
+      verified: false,
+      bannerTokens: 0,
+      jackpot: 0,
+      dailyGameName: "",
+      highScore: "0",
+      topUser: "",
+      timeLeft: 0
+    };
   }
   // -------------------------------- //
   // -- get pixel banner plus info -- //

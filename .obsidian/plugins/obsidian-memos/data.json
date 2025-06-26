@@ -86,7 +86,7 @@
   "MomentsIcon": "https://images.pexels.com/photos/256514/pexels-photo-256514.jpeg",
   "MomentsQuote": "Share your thino with the world",
   "DefaultThemeForThino": "modern",
-  "LastUpdatedVersion": "2.7.3",
+  "LastUpdatedVersion": "2.7.16",
   "ShareToThinoWithText": false,
   "ShareToThinoWithTextAppend": "",
   "ShareToThinoWithTextPrepend": "",
@@ -129,5 +129,6 @@
   "UseBlockLinkWhenDragging": false,
   "ShowScrollToTopButton": true,
   "ZoomImageWhenViewing": false,
-  "ViewArchiveInRandomReview": false
+  "ViewArchiveInRandomReview": false,
+  "DraggingBehavior": "block-link"
 }
