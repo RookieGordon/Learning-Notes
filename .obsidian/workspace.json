@@ -22,8 +22,21 @@
               "icon": "lucide-file",
               "title": "主页"
             }
+          },
+          {
+            "id": "bfadcb100fc239b8",
+            "type": "leaf",
+            "pinned": true,
+            "state": {
+              "type": "todo",
+              "state": {},
+              "pinned": true,
+              "icon": "checkmark",
+              "title": "Todo List"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -107,13 +120,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "项目/SeaWar/正式版本分支规划/SeaWar分支版本规划.md",
+                "file": "导航/主页.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "SeaWar分支版本规划 的大纲"
+              "title": "主页 的大纲"
             }
           },
           {
@@ -183,23 +196,13 @@
               "icon": "clock",
               "title": "Reminders"
             }
-          },
-          {
-            "id": "bfadcb100fc239b8",
-            "type": "leaf",
-            "state": {
-              "type": "todo",
-              "state": {},
-              "icon": "checkmark",
-              "title": "Todo List"
-            }
           }
-        ],
-        "currentTab": 6
+        ]
       }
     ],
     "direction": "horizontal",
-    "width": 545
+    "width": 545,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -220,18 +223,18 @@
       "vscode-editor:新建代码文件": false
     }
   },
-  "active": "4719768e372023f3",
+  "active": "bfadcb100fc239b8",
   "lastOpenFiles": [
+    "项目/SeaWar/杂项代办/7月杂项代办.md",
+    "导航/主页.md",
     "项目/SeaWar/SeaWar.md",
     "项目/SeaWar/正式版本分支规划/版本分支规划.md",
     "项目/SeaWar/正式版本分支规划/正式版本分支规划.md",
     "项目/SeaWar/正式版本分支规划/SeaWar分支版本规划.md",
-    "导航/主页.md",
     "项目/SeaWar/正式版本分支规划/attachments/（图解1）版本线路图.png",
     "项目/SeaWar/正式版本分支规划/attachments",
     "项目/SeaWar/components/正式版本分支规划_View.components",
     "项目/SeaWar/杂项代办/杂项代办.md",
-    "项目/SeaWar/杂项代办/7月杂项代办.md",
     "项目/SeaWar/杂项代办/6月代办杂项.md",
     "项目/SeaWar/Unity杂项知识点/Prefab编辑模式.md",
     "项目/SeaWar/Unity杂项知识点/资源导入.md",
