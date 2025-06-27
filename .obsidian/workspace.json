@@ -35,7 +35,8 @@
               "title": "SeaWar分支版本规划"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -273,10 +274,10 @@
       "vscode-editor:新建代码文件": false
     }
   },
-  "active": "4719768e372023f3",
+  "active": "c47548bb3ad85af7",
   "lastOpenFiles": [
-    "Excalidraw/SeaWar分支版本规划.md",
     "导航/主页.md",
+    "Excalidraw/SeaWar分支版本规划.md",
     "项目/SeaWar/正式版本分支规划/正式版本分支规划.md",
     "项目/SeaWar/components/正式版本分支规划_View.components",
     "项目/SeaWar/SeaWar.md",
