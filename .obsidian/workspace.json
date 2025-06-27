@@ -24,7 +24,21 @@
             }
           },
           {
-            "id": "66599d34bb510da3",
+            "id": "0482817b86ed940e",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "项目/SeaWar/SeaWar.md",
+                "mode": "preview",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "SeaWar"
+            }
+          },
+          {
+            "id": "fdfc68ee7ccef803",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -38,7 +52,7 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -122,13 +136,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "项目/SeaWar/App版本整理/使用版本文件，记录打包版本.md",
+                "file": "项目/SeaWar/正式版本分支规划/SeaWar分支版本规划.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "使用版本文件，记录打包版本 的大纲"
+              "title": "SeaWar分支版本规划 的大纲"
             }
           },
           {
@@ -190,47 +204,7 @@
             }
           },
           {
-            "id": "645e65b3830546b3",
-            "type": "leaf",
-            "state": {
-              "type": "todo",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "插件不再活动"
-            }
-          },
-          {
-            "id": "ae3fb9c84bde24c7",
-            "type": "leaf",
-            "state": {
-              "type": "todo",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "插件不再活动"
-            }
-          },
-          {
-            "id": "2d158fdd05ddc237",
-            "type": "leaf",
-            "state": {
-              "type": "todo",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "插件不再活动"
-            }
-          },
-          {
-            "id": "00c6dffdddb2faa9",
-            "type": "leaf",
-            "state": {
-              "type": "todo",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "插件不再活动"
-            }
-          },
-          {
-            "id": "4e364c59c539d5ca",
+            "id": "5525c57f6a5b086f",
             "type": "leaf",
             "state": {
               "type": "reminder-list",
@@ -240,7 +214,7 @@
             }
           },
           {
-            "id": "cf2a028a662838c2",
+            "id": "bfadcb100fc239b8",
             "type": "leaf",
             "state": {
               "type": "todo",
@@ -250,7 +224,7 @@
             }
           }
         ],
-        "currentTab": 10
+        "currentTab": 6
       }
     ],
     "direction": "horizontal",
@@ -276,16 +250,16 @@
       "vscode-editor:新建代码文件": false
     }
   },
-  "active": "66599d34bb510da3",
+  "active": "fdfc68ee7ccef803",
   "lastOpenFiles": [
-    "项目/SeaWar/正式版本分支规划/SeaWar分支版本规划.md",
+    "项目/SeaWar/SeaWar.md",
     "项目/SeaWar/正式版本分支规划/版本分支规划.md",
+    "项目/SeaWar/正式版本分支规划/正式版本分支规划.md",
+    "项目/SeaWar/正式版本分支规划/SeaWar分支版本规划.md",
     "导航/主页.md",
     "项目/SeaWar/正式版本分支规划/attachments/（图解1）版本线路图.png",
     "项目/SeaWar/正式版本分支规划/attachments",
-    "项目/SeaWar/正式版本分支规划/正式版本分支规划.md",
     "项目/SeaWar/components/正式版本分支规划_View.components",
-    "项目/SeaWar/SeaWar.md",
     "项目/SeaWar/杂项代办/杂项代办.md",
     "项目/SeaWar/杂项代办/7月杂项代办.md",
     "项目/SeaWar/杂项代办/6月代办杂项.md",
