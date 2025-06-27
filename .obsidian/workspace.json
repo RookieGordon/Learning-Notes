@@ -24,15 +24,17 @@
             }
           },
           {
-            "id": "c47548bb3ad85af7",
+            "id": "66599d34bb510da3",
             "type": "leaf",
             "state": {
-              "type": "excalidraw",
+              "type": "markdown",
               "state": {
-                "file": "Excalidraw/SeaWar分支版本规划.md"
+                "file": "项目/SeaWar/正式版本分支规划/版本分支规划.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "excalidraw-icon",
-              "title": "SeaWar分支版本规划"
+              "icon": "lucide-file",
+              "title": "版本分支规划"
             }
           }
         ],
@@ -274,10 +276,13 @@
       "vscode-editor:新建代码文件": false
     }
   },
-  "active": "c47548bb3ad85af7",
+  "active": "66599d34bb510da3",
   "lastOpenFiles": [
+    "项目/SeaWar/正式版本分支规划/SeaWar分支版本规划.md",
+    "项目/SeaWar/正式版本分支规划/版本分支规划.md",
     "导航/主页.md",
-    "Excalidraw/SeaWar分支版本规划.md",
+    "项目/SeaWar/正式版本分支规划/attachments/（图解1）版本线路图.png",
+    "项目/SeaWar/正式版本分支规划/attachments",
     "项目/SeaWar/正式版本分支规划/正式版本分支规划.md",
     "项目/SeaWar/components/正式版本分支规划_View.components",
     "项目/SeaWar/SeaWar.md",
@@ -318,8 +323,6 @@
     "pixel-banner-images/ET.png",
     "项目/SeaWar/components/App版本整理_View.components",
     "项目/SeaWar/App版本整理",
-    "游戏开发技术探索/ET8.1/DotNet源代码生成器",
-    "游戏开发技术探索/ET8.1/网络框架/attachments/服务器消息流转.drawio.svg",
     "未命名.canvas"
   ]
 }
