@@ -50,34 +50,6 @@
             }
           },
           {
-            "id": "2c290437a26c6f80",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "项目/SeaWar/杂项代办/杂项代办.md",
-                "mode": "preview",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "杂项代办"
-            }
-          },
-          {
-            "id": "e664b95068c8f6cf",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "项目/SeaWar/杂项代办/6月代办杂项.md",
-                "mode": "preview",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "6月代办杂项"
-            }
-          },
-          {
             "id": "008ec27fa1139a5b",
             "type": "leaf",
             "state": {
@@ -92,7 +64,7 @@
             }
           }
         ],
-        "currentTab": 4
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -176,13 +148,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "项目/SeaWar/杂项代办/6月代办杂项.md",
+                "file": "项目/SeaWar/SeaWar.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "6月代办杂项 的大纲"
+              "title": "SeaWar 的大纲"
             }
           },
           {
@@ -279,10 +251,14 @@
       "vscode-editor:新建代码文件": false
     }
   },
-  "active": "e664b95068c8f6cf",
+  "active": "3a115e78ed1cc6ce",
   "lastOpenFiles": [
-    "项目/SeaWar/杂项代办/杂项代办.md",
+    "项目/SeaWar/App版本整理/App版本整理.md",
     "项目/SeaWar/SeaWar.md",
+    "项目/SeaWar/App强更流程/App强更流程.md",
+    "项目/SeaWar/热更功能合并/热更功能合并.md",
+    "项目/SeaWar/杂项代办/杂项代办.md",
+    "项目/SeaWar/杂项代办/6月代办杂项.md",
     "项目/SeaWar/正式版本分支规划/版本分支规划.md",
     "项目/SeaWar/正式版本分支规划/版本生成逻辑修改.md",
     "项目/SeaWar/正式版本分支规划/SeaWar分支版本规划.md",
@@ -292,7 +268,6 @@
     "项目/SeaWar/正式版本分支规划/attachments/（图解1）版本线路图.png",
     "项目/SeaWar/正式版本分支规划/attachments",
     "项目/SeaWar/components/正式版本分支规划_View.components",
-    "项目/SeaWar/杂项代办/6月代办杂项.md",
     "项目/SeaWar/Unity杂项知识点/Prefab编辑模式.md",
     "项目/SeaWar/Unity杂项知识点/资源导入.md",
     "项目/SeaWar/Unity杂项知识点/Unity杂项知识点.md",
@@ -307,7 +282,6 @@
     "项目/SeaWar/工具/attachments/未命名",
     "项目/SeaWar/工具/attachments/Pasted image 20250621205514.png",
     "项目/SeaWar/App版本整理/使用版本文件，记录打包版本.md",
-    "项目/SeaWar/App版本整理/App版本整理.md",
     "项目/SeaWar/Unity杂项知识点/Unity中的GUID和LocalID.md",
     "项目/SeaWar/热更步骤调整/热更步骤调整.md",
     "收藏夹/面试题/面试集锦.md",
@@ -316,8 +290,6 @@
     "Clippings/DeepSeek.md",
     "Clippings/Unity真机调试.md",
     "项目/SeaWar/工具/attachments/（图解4）帧动画时间轴.png",
-    "Excalidraw/Map.md",
-    "Excalidraw/ScratchPaper.md",
     "项目/SeaWar/工具/attachments/（图解3）不同帧率动画的时长对比.png",
     "项目/SeaWar/工具/attachments/20250618-164951.gif",
     "项目/SeaWar/工具/attachments/（图解2）SampleRate=15.gif",
