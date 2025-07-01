@@ -50,20 +50,6 @@
             }
           },
           {
-            "id": "88e24ecb1c404fb8",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "项目/SeaWar/App强更流程/App强更流程.md",
-                "mode": "preview",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "App强更流程"
-            }
-          },
-          {
             "id": "008ec27fa1139a5b",
             "type": "leaf",
             "state": {
@@ -78,7 +64,7 @@
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -145,7 +131,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 340.5
+    "width": 340.5,
+    "collapsed": true
   },
   "right": {
     "id": "be1e91dfcb57ce3b",
@@ -161,13 +148,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "项目/SeaWar/App强更流程/App强更流程.md",
+                "file": "项目/SeaWar/SeaWar.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "App强更流程 的大纲"
+              "title": "SeaWar 的大纲"
             }
           },
           {
@@ -264,14 +251,14 @@
       "vscode-editor:新建代码文件": false
     }
   },
-  "active": "88e24ecb1c404fb8",
+  "active": "bfadcb100fc239b8",
   "lastOpenFiles": [
+    "项目/SeaWar/App强更流程/App强更流程.md",
     "项目/SeaWar/SeaWar.md",
     "项目/SeaWar/杂项代办/杂项代办.md",
     "项目/SeaWar/杂项代办/6月代办杂项.md",
     "项目/SeaWar/正式版本分支规划/版本分支规划.md",
     "项目/SeaWar/App版本整理/App版本整理.md",
-    "项目/SeaWar/App强更流程/App强更流程.md",
     "项目/SeaWar/热更功能合并/热更功能合并.md",
     "项目/SeaWar/正式版本分支规划/版本生成逻辑修改.md",
     "项目/SeaWar/正式版本分支规划/SeaWar分支版本规划.md",
