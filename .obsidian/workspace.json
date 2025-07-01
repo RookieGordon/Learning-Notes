@@ -64,7 +64,7 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -148,13 +148,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "项目/SeaWar/SeaWar.md",
+                "file": "项目/SeaWar/正式版本分支规划/版本分支规划.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "SeaWar 的大纲"
+              "title": "版本分支规划 的大纲"
             }
           },
           {
@@ -251,10 +251,10 @@
       "vscode-editor:新建代码文件": false
     }
   },
-  "active": "3a115e78ed1cc6ce",
+  "active": "008ec27fa1139a5b",
   "lastOpenFiles": [
-    "项目/SeaWar/正式版本分支规划/版本分支规划.md",
     "项目/SeaWar/SeaWar.md",
+    "项目/SeaWar/正式版本分支规划/版本分支规划.md",
     "项目/SeaWar/App强更流程/App强更流程.md",
     "项目/SeaWar/杂项代办/杂项代办.md",
     "项目/SeaWar/杂项代办/6月代办杂项.md",
