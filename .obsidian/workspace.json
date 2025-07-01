@@ -77,8 +77,7 @@
               "title": "版本分支规划"
             }
           }
-        ],
-        "currentTab": 4
+        ]
       }
     ],
     "direction": "vertical"
@@ -162,13 +161,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "项目/SeaWar/正式版本分支规划/版本分支规划.md",
+                "file": "导航/主页.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "版本分支规划 的大纲"
+              "title": "主页 的大纲"
             }
           },
           {
@@ -265,12 +264,12 @@
       "vscode-editor:新建代码文件": false
     }
   },
-  "active": "008ec27fa1139a5b",
+  "active": "4719768e372023f3",
   "lastOpenFiles": [
-    "项目/SeaWar/杂项代办/7月杂项代办.md",
-    "项目/SeaWar/Unity杂项知识点/Unity杂项知识点.md",
     "项目/SeaWar/SeaWar.md",
+    "项目/SeaWar/Unity杂项知识点/Unity杂项知识点.md",
     "项目/SeaWar/正式版本分支规划/版本分支规划.md",
+    "项目/SeaWar/杂项代办/7月杂项代办.md",
     "项目/SeaWar/App强更流程/App强更流程.md",
     "项目/SeaWar/杂项代办/杂项代办.md",
     "项目/SeaWar/杂项代办/6月代办杂项.md",
