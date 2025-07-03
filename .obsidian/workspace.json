@@ -70,7 +70,7 @@
               "type": "markdown",
               "state": {
                 "file": "项目/SeaWar/UI适配/UGUI适配.md",
-                "mode": "preview",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
@@ -267,10 +267,12 @@
   },
   "active": "1fcb9581949f9a26",
   "lastOpenFiles": [
+    "项目/SeaWar/UI适配/attachments/（图解1）Constant Pixel Size缩放模式.png",
+    "项目/SeaWar/UI适配/attachments",
     "项目/SeaWar/UI适配/UI适配.md",
+    "项目/SeaWar/UI适配/UGUI适配.md",
     "项目/SeaWar/SeaWar.md",
     "导航/主页.md",
-    "项目/SeaWar/UI适配/UGUI适配.md",
     "项目/SeaWar/UI适配/全屏背景图适配.md",
     "项目/SeaWar/UI适配/特效适配.md",
     "项目/SeaWar/components/UI适配_View.components",
@@ -303,7 +305,6 @@
     "项目/SeaWar/工具/attachments/未命名",
     "项目/SeaWar/工具/attachments/Pasted image 20250621205514.png",
     "项目/SeaWar/App版本整理/使用版本文件，记录打包版本.md",
-    "项目/SeaWar/Unity杂项知识点/Unity中的GUID和LocalID.md",
     "项目/SeaWar/工具/attachments/AnimationResamplerWindow.cs",
     "项目/SeaWar/工具/attachments/（图解4）帧动画时间轴.png",
     "项目/SeaWar/工具/attachments/（图解3）不同帧率动画的时长对比.png",
@@ -311,7 +312,6 @@
     "项目/SeaWar/工具/attachments/（图解2）SampleRate=15.gif",
     "项目/SeaWar/工具/attachments/20250618-164951 1.gif",
     "项目/SeaWar/工具/attachments",
-    "Clippings",
     "pixel-banner-images/ET.png",
     "未命名.canvas"
   ]

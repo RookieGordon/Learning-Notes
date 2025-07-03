@@ -11,8 +11,17 @@ dateFinish: 2025-07-05
 finished: false
 displayIcon: pixel-banner-images/项目任务.png
 ---
+# CanvasScaler组件
+## 三种UI缩放模式
 
+### Constant Pixel Size
+![[（图解1）Constant Pixel Size缩放模式.png]]
+不根据屏幕分辨率调整 Canvas 的缩放，以 UI 元素的 像素值 × Scale Factor 对应真实屏幕的像素点进行渲染。当 Scale Factor 为 1 时，屏幕上显示为 UI 元素的给定像素大小。
 
+**_Scale Factor_** 画布的缩放比例。默认况下为 1，表示正常大小。
+
+_**Reference Pixels Per Unit**_ 每个 UI 单位代表的像素量。 官方的解释是”如果  sprite（精灵，下同） 具有 **Pixels Per Unit** 设置，则 sprite 中的一个像素将覆盖 UI 中的一个单位”，个人理解这个值是用来覆盖 sprite 导入设置中的 **Pixels Per Unit** 值，即决定每个 UI 单位应包含多少像素。
+### 
 
 
 
