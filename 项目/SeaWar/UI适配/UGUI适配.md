@@ -23,4 +23,8 @@ displayIcon: pixel-banner-images/项目任务.png
 _**Reference Pixels Per Unit**_ 每个 UI 单位代表的像素量。 官方的解释是”如果  sprite（精灵，下同） 具有 **Pixels Per Unit** 设置，则 sprite 中的一个像素将覆盖 UI 中的一个单位”，个人理解这个值是用来覆盖 sprite 导入设置中的 **Pixels Per Unit** 值，即决定每个 UI 单位应包含多少像素。
 ### Scale With Screen Size
 ![[（图解2）Scale With Screen Size模式.png|580]]
-**Scale With Screen Size** 表示根据真实屏幕的宽高来缩放 Canvas。**Reference Resolution** 是游戏的设计分辨率。**Scer**
+**Scale With Screen Size** 表示根据真实屏幕的宽高来缩放 Canvas。**Reference Resolution** 是游戏的设计分辨率。**Screen Match Mode** 有三种模式
+1. **Match Width or Height** 根据真实屏幕的宽高比按指定的 **Match** 值来缩放 Canvas。  **Match**决定 Canvas 按宽高缩放的[权重值，当 **Match = 0** 时，按宽度进行 Canvas 等比缩放；当 **Match = 1** 时，按高度度进行 Canvas 等比缩放。一般情况下这个值非 0 即 1，不用纠结中间值
+2. **Expand** 在屏幕大小上**内接**画布。以 Canvas 小于 屏幕 为例，放大画布直至宽或高有一边与屏幕重合停止。此模式下为 **Canvas 全部显示在屏幕中** 的前提下 Canvas 的最大缩放值
+3. **Shrink** 在屏幕大小上 **外切** 画布。以 Canvas 小于 屏幕 为例，放大画布直至宽或高最后一边与屏幕重合停止。此模式下为 **Canvas 被裁切，不能完全显示在屏幕中**
+
