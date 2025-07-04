@@ -56,7 +56,7 @@
               "type": "markdown",
               "state": {
                 "file": "项目/SeaWar/设置系统/设置系统.md",
-                "mode": "preview",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
@@ -254,9 +254,9 @@
   "active": "18971338e33d108e",
   "lastOpenFiles": [
     "项目/SeaWar/SeaWar.md",
-    "项目/SeaWar/设置系统/CPU和GPU定档.md",
-    "项目/SeaWar/设置系统/设置系统.md",
     "导航/主页.md",
+    "项目/SeaWar/设置系统/设置系统.md",
+    "项目/SeaWar/设置系统/CPU和GPU定档.md",
     "项目/SeaWar/UI适配/UI适配.md",
     "项目/SeaWar/UI适配/全屏背景图适配.md",
     "项目/SeaWar/UI适配/UGUI适配.md",
