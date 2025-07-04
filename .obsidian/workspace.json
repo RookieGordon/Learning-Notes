@@ -36,31 +36,31 @@
             }
           },
           {
-            "id": "4d05c7096dca7a2b",
+            "id": "ef969d1ad95124a4",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "项目/SeaWar/UI适配/UI适配.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "UI适配"
-            }
-          },
-          {
-            "id": "44768de39cfa8e1a",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "项目/SeaWar/UI适配/UGUI适配.md",
+                "file": "项目/SeaWar/SeaWar.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "UGUI适配"
+              "title": "SeaWar"
+            }
+          },
+          {
+            "id": "18971338e33d108e",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "项目/SeaWar/设置系统/设置系统.md",
+                "mode": "preview",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "设置系统"
             }
           }
         ],
@@ -148,13 +148,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "项目/SeaWar/UI适配/UGUI适配.md",
+                "file": "项目/SeaWar/设置系统/设置系统.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "UGUI适配 的大纲"
+              "title": "设置系统 的大纲"
             }
           },
           {
@@ -251,19 +251,20 @@
       "vscode-editor:新建代码文件": false
     }
   },
-  "active": "44768de39cfa8e1a",
+  "active": "18971338e33d108e",
   "lastOpenFiles": [
-    "项目/SeaWar/UI适配/UI适配.md",
-    "项目/SeaWar/设置系统/设置系统.md",
-    "项目/SeaWar/components/设置系统_View.components",
     "项目/SeaWar/SeaWar.md",
-    "项目/SeaWar/设置系统",
+    "项目/SeaWar/设置系统/CPU和GPU定档.md",
+    "项目/SeaWar/设置系统/设置系统.md",
+    "导航/主页.md",
+    "项目/SeaWar/UI适配/UI适配.md",
+    "项目/SeaWar/UI适配/全屏背景图适配.md",
     "项目/SeaWar/UI适配/UGUI适配.md",
+    "项目/SeaWar/components/设置系统_View.components",
+    "项目/SeaWar/设置系统",
     "项目/SeaWar/UI适配/attachments/（图解2）Scale With Screen Size模式.png",
     "项目/SeaWar/UI适配/attachments/（图解1）Constant Pixel Size缩放模式.png",
     "项目/SeaWar/UI适配/attachments",
-    "导航/主页.md",
-    "项目/SeaWar/UI适配/全屏背景图适配.md",
     "项目/SeaWar/UI适配/特效适配.md",
     "项目/SeaWar/components/UI适配_View.components",
     "项目/SeaWar/UI适配",
