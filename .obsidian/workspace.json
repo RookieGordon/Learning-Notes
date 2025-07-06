@@ -15,7 +15,7 @@
               "type": "markdown",
               "state": {
                 "file": "导航/主页.md",
-                "mode": "preview",
+                "mode": "source",
                 "source": false
               },
               "pinned": true,
@@ -31,8 +31,8 @@
               "type": "todo",
               "state": {},
               "pinned": true,
-              "icon": "lucide-file",
-              "title": "插件不再活动"
+              "icon": "checkmark",
+              "title": "Todo List"
             }
           },
           {
@@ -242,12 +242,11 @@
             }
           }
         ],
-        "currentTab": 8
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
-    "width": 545,
-    "collapsed": true
+    "width": 545
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -257,16 +256,24 @@
       "daily-notes:打开/创建今天的日记": false,
       "command-palette:打开命令面板": true,
       "obsidian-git:Open Git source control": true,
-      "pexels-banner:🚩 Pixel Banner Menu": false
+      "pexels-banner:🚩 Pixel Banner Menu": false,
+      "templater-obsidian:Templater": false,
+      "obsidian-excalidraw-plugin:新建绘图文件": false,
+      "moredraw:MoreDraw": false,
+      "obsidian-memos:Thino": false,
+      "pdf-plus:PDF++: Toggle auto-copy": false,
+      "pdf-plus:PDF++: Toggle auto-focus": false,
+      "pdf-plus:PDF++: Toggle auto-paste": false,
+      "vscode-editor:新建代码文件": false
     }
   },
-  "active": "302b4259b6c2ef95",
+  "active": "ecb137817ae8abd6",
   "lastOpenFiles": [
     "项目/SeaWar/SeaWar.md",
+    "导航/主页.md",
+    "项目/SeaWar/设置系统/设置系统框架.md",
     "项目/SeaWar/杂项代办/杂项代办.md",
     "项目/SeaWar/App版本整理/App版本整理.md",
-    "项目/SeaWar/设置系统/设置系统框架.md",
-    "导航/主页.md",
     "项目/SeaWar/App强更流程/App强更流程.md",
     "项目/SeaWar/热更功能合并/热更功能合并.md",
     "项目/SeaWar/热更功能合并/CSharp继承的小坑.md",
