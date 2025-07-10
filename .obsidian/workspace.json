@@ -145,7 +145,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 340.5
+    "width": 340.5,
+    "collapsed": true
   },
   "right": {
     "id": "be1e91dfcb57ce3b",
@@ -264,7 +265,15 @@
       "daily-notes:打开/创建今天的日记": false,
       "command-palette:打开命令面板": true,
       "obsidian-git:Open Git source control": true,
-      "pexels-banner:🚩 Pixel Banner Menu": false
+      "pexels-banner:🚩 Pixel Banner Menu": false,
+      "templater-obsidian:Templater": false,
+      "obsidian-excalidraw-plugin:新建绘图文件": false,
+      "moredraw:MoreDraw": false,
+      "obsidian-memos:Thino": false,
+      "pdf-plus:PDF++: Toggle auto-copy": false,
+      "pdf-plus:PDF++: Toggle auto-focus": false,
+      "pdf-plus:PDF++: Toggle auto-paste": false,
+      "vscode-editor:新建代码文件": false
     }
   },
   "active": "6a18ec212f93836d",
