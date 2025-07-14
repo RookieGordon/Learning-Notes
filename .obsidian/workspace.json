@@ -31,8 +31,8 @@
               "type": "todo",
               "state": {},
               "pinned": true,
-              "icon": "checkmark",
-              "title": "Todo List"
+              "icon": "lucide-file",
+              "title": "插件不再活动"
             }
           },
           {
@@ -78,7 +78,7 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 4
       }
     ],
     "direction": "vertical"
@@ -235,8 +235,8 @@
             "state": {
               "type": "todo",
               "state": {},
-              "icon": "checkmark",
-              "title": "Todo List"
+              "icon": "lucide-file",
+              "title": "插件不再活动"
             }
           },
           {
@@ -248,9 +248,19 @@
               "icon": "clock",
               "title": "Reminders"
             }
+          },
+          {
+            "id": "2f82081ed3bf85ab",
+            "type": "leaf",
+            "state": {
+              "type": "todo",
+              "state": {},
+              "icon": "checkmark",
+              "title": "Todo List"
+            }
           }
         ],
-        "currentTab": 5
+        "currentTab": 7
       }
     ],
     "direction": "horizontal",
@@ -272,18 +282,17 @@
       "obsidian-memos:Thino": false,
       "pdf-plus:PDF++: Toggle auto-copy": false,
       "pdf-plus:PDF++: Toggle auto-focus": false,
-      "pdf-plus:PDF++: Toggle auto-paste": false,
-      "vscode-editor:新建代码文件": false
+      "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "18971338e33d108e",
+  "active": "a3f76f86dd319d6a",
   "lastOpenFiles": [
-    "项目/SeaWar/设置系统/CPU和GPU定档.md",
+    "项目/SeaWar/SeaWar.md",
     "项目/SeaWar/设置系统/帧率设置功能.md",
+    "项目/SeaWar/设置系统/CPU和GPU定档.md",
     "项目/SeaWar/设置系统/设置系统框架.md",
     "项目/SeaWar/设置系统/设置系统.md",
     "项目/SeaWar/杂项代办/7月杂项代办.md",
-    "项目/SeaWar/SeaWar.md",
     "项目/SeaWar/杂项代办/8月代办杂项.md",
     "项目/SeaWar/杂项代办/杂项代办.md",
     "导航/主页.md",
