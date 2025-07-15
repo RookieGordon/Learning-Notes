@@ -1,12 +1,14 @@
 ---
-link: https://blog.csdn.net/qq_30100043/article/details/130464256?spm=1001.2101.3001.6650.8&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7ERate-8-130464256-blog-136141327.235%5Ev43%5Epc_blog_bottom_relevance_base2&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7ERate-8-130464256-blog-136141327.235%5Ev43%5Epc_blog_bottom_relevance_base2
-byline: 成就一亿技术人!
-excerpt: 文章浏览阅读3.8k次。当游戏需要兼容多平台或面对不同硬件性能时，可以使用Unity的QualitySettings进行画质分级。这包括调整渲染管线、纹理质量、帧率限制、阴影质量等，以确保在低端设备上也能流畅运行。例如，降低渲染分辨率、关闭动态反射、限制帧率到30fps以及使用低模和性能更好的着色器，可以显著提升移动端游戏的运行效率。
 tags:
-  - slurp/unity
-slurped: 2025-07-15T17:37
-title: unity 性能优化之画质分级_unity 低端机模型要求-CSDN博客
+  - Unity/性能优化/画质分级
 ---
+
+```cardlink
+url: https://blog.csdn.net/qq_30100043/article/details/130464256?spm=1001.2101.3001.6650.8&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7ERate-8-130464256-blog-136141327.235%5Ev43%5Epc_blog_bottom_relevance_base2&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7ERate-8-130464256-blog-136141327.235%5Ev43%5Epc_blog_bottom_relevance_base2
+title: "unity 性能优化之画质分级_unity 低端机模型要求-CSDN博客"
+description: "文章浏览阅读3.8k次。当游戏需要兼容多平台或面对不同硬件性能时，可以使用Unity的QualitySettings进行画质分级。这包括调整渲染管线、纹理质量、帧率限制、阴影质量等，以确保在低端设备上也能流畅运行。例如，降低渲染分辨率、关闭动态反射、限制帧率到30fps以及使用低模和性能更好的着色器，可以显著提升移动端游戏的运行效率。"
+host: blog.csdn.net
+```
 
 如果你的游戏兼容多平台，或者当前平台的设备也有硬件差距，比如低端设备就是带不动你的画质，无论如何你如何优化就是带不动。这种情况下，我们可以考虑对画质进行分级，减少一些特性，来提高运行质量。接下来我们来学习一下unity内置的Quality来实现一下质量分级：  
 ![在这里插入图片描述](https://i-blog.csdnimg.cn/blog_migrate/f4c64a79851b073e782b6d46f3840bb5.png)  

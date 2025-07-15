@@ -1,22 +1,14 @@
 ---
-link: https://blog.csdn.net/weixin_42186870/article/details/136141327
-byline: weixin_42186870
-date: 2024-02-17T20:04
-excerpt: 文章浏览阅读1.9k次，点赞18次，收藏7次。本文介绍了Unity游戏引擎中的设备分级策略，通过预生成和动态评分，结合硬件数据（如内存、CPU、GPU等）和跑分机制来确定设备等级，以提供优化的游戏体验。作者强调了跑分的逻辑和选择模型绘制数量作为评价标准的原因。
 tags:
-  - slurp/unity
-slurped: 2025-07-15T17:37
-title: Unity设备分级策略
+  - Unity/性能优化/设备性能
 ---
 
-最新推荐文章于 2025-02-13 22:01:13 发布
-
-![](https://csdnimg.cn/release/blogv2/dist/pc/img/original.png)
-
-[Don里个冬](https://blog.csdn.net/weixin_42186870 "Don里个冬") ![](https://csdnimg.cn/release/blogv2/dist/pc/img/newCurrentTime2.png) 最新推荐文章于 2025-02-13 22:01:13 发布
-
-版权声明：本文为博主原创文章，遵循 [CC 4.0 BY-SA](http://creativecommons.org/licenses/by-sa/4.0/) 版权协议，转载请附上原文出处链接和本声明。
-
+```cardlink
+url: https://blog.csdn.net/weixin_42186870/article/details/136141327
+title: "Unity设备分级策略_unity 判断中高低端设备-CSDN博客"
+description: "文章浏览阅读1.9k次，点赞18次，收藏7次。本文介绍了Unity游戏引擎中的设备分级策略，通过预生成和动态评分，结合硬件数据（如内存、CPU、GPU等）和跑分机制来确定设备等级，以提供优化的游戏体验。作者强调了跑分的逻辑和选择模型绘制数量作为评价标准的原因。"
+host: blog.csdn.net
+```
 ## Unity设备分级策略
 
 ---
