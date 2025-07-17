@@ -76,7 +76,7 @@
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 4
       }
     ],
     "direction": "vertical"
@@ -304,14 +304,14 @@
       "vscode-editor:新建代码文件": false
     }
   },
-  "active": "6c8edfc2571b2825",
+  "active": "9a168cc530152826",
   "lastOpenFiles": [
+    "项目/SeaWar/SeaWar.md",
     "项目/SeaWar/正式版本分支规划/SeaWar分支版本规划.md",
     "项目/SeaWar/正式版本分支规划/attachments/（图解1）版本线路图.png",
     "项目/SeaWar/正式版本分支规划/正式版本分支规划.md",
     "项目/SeaWar/正式版本分支规划/版本分支规划.md",
     "项目/SeaWar/正式版本分支规划/版本生成逻辑修改.md",
-    "项目/SeaWar/SeaWar.md",
     "项目/SeaWar/App版本整理/App版本整理.md",
     "项目/SeaWar/App版本整理/使用版本文件，记录打包版本.md",
     "项目/SeaWar/杂项代办/7月杂项代办.md",
