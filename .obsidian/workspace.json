@@ -62,9 +62,37 @@
               "icon": "lucide-file",
               "title": "SeaWar"
             }
+          },
+          {
+            "id": "9a168cc530152826",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "项目/SeaWar/正式版本分支规划/正式版本分支规划.md",
+                "mode": "preview",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "正式版本分支规划"
+            }
+          },
+          {
+            "id": "e84649fd160416ac",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "项目/SeaWar/正式版本分支规划/版本分支规划.md",
+                "mode": "preview",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "版本分支规划"
+            }
           }
         ],
-        "currentTab": 2
+        "currentTab": 5
       }
     ],
     "direction": "vertical"
@@ -281,14 +309,26 @@
       "daily-notes:打开/创建今天的日记": false,
       "command-palette:打开命令面板": true,
       "obsidian-git:Open Git source control": true,
-      "pexels-banner:🚩 Pixel Banner Menu": false
+      "pexels-banner:🚩 Pixel Banner Menu": false,
+      "templater-obsidian:Templater": false,
+      "obsidian-excalidraw-plugin:新建绘图文件": false,
+      "moredraw:MoreDraw": false,
+      "obsidian-memos:Thino": false,
+      "pdf-plus:PDF++: Toggle auto-copy": false,
+      "pdf-plus:PDF++: Toggle auto-focus": false,
+      "pdf-plus:PDF++: Toggle auto-paste": false,
+      "vscode-editor:新建代码文件": false
     }
   },
-  "active": "a3f76f86dd319d6a",
+  "active": "e84649fd160416ac",
   "lastOpenFiles": [
+    "项目/SeaWar/正式版本分支规划/正式版本分支规划.md",
+    "项目/SeaWar/正式版本分支规划/版本生成逻辑修改.md",
     "项目/SeaWar/SeaWar.md",
-    "导航/主页.md",
+    "项目/SeaWar/App版本整理/App版本整理.md",
+    "项目/SeaWar/App版本整理/使用版本文件，记录打包版本.md",
     "项目/SeaWar/杂项代办/7月杂项代办.md",
+    "导航/主页.md",
     "项目/SeaWar/设置系统/设置系统.md",
     "项目/SeaWar/设置系统/Unity设备分级策略.md",
     "项目/SeaWar/设置系统/unity 性能优化之画质分级_unity 低端机模型要求-CSDN博客.md",
@@ -298,7 +338,6 @@
     "项目/SeaWar/设置系统/CPU和GPU定档.md",
     "项目/SeaWar/杂项代办/8月代办杂项.md",
     "项目/SeaWar/杂项代办/杂项代办.md",
-    "项目/SeaWar/App版本整理/App版本整理.md",
     "项目/SeaWar/App强更流程/App强更流程.md",
     "项目/SeaWar/热更功能合并/热更功能合并.md",
     "项目/SeaWar/热更功能合并/CSharp继承的小坑.md",
@@ -316,9 +355,6 @@
     "项目/SeaWar/components/UI适配_View.components",
     "项目/SeaWar/UI适配",
     "项目/SeaWar/Unity杂项知识点/FBX动画资源.md",
-    "项目/SeaWar/Unity杂项知识点/资源导入.md",
-    "项目/SeaWar/工具/工具包.md",
-    "项目/SeaWar/工具/动画重采样.md",
     "项目/SeaWar/正式版本分支规划/attachments/（图解1）版本线路图.png",
     "项目/SeaWar/正式版本分支规划/attachments",
     "项目/SeaWar/components/正式版本分支规划_View.components",
