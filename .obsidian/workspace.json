@@ -76,9 +76,21 @@
               "icon": "lucide-file",
               "title": "正式版本分支规划"
             }
+          },
+          {
+            "id": "7638b12b73fbf2d5",
+            "type": "leaf",
+            "state": {
+              "type": "excalidraw",
+              "state": {
+                "file": "项目/SeaWar/正式版本分支规划/SeaWar分支版本规划.md"
+              },
+              "icon": "excalidraw-icon",
+              "title": "SeaWar分支版本规划"
+            }
           }
         ],
-        "currentTab": 4
+        "currentTab": 5
       }
     ],
     "direction": "vertical"
@@ -306,11 +318,11 @@
       "vscode-editor:新建代码文件": false
     }
   },
-  "active": "9a168cc530152826",
+  "active": "7638b12b73fbf2d5",
   "lastOpenFiles": [
-    "项目/SeaWar/正式版本分支规划/attachments/（图解1）版本线路图.png",
     "项目/SeaWar/正式版本分支规划/版本分支规划.md",
     "项目/SeaWar/正式版本分支规划/正式版本分支规划.md",
+    "项目/SeaWar/正式版本分支规划/attachments/（图解1）版本线路图.png",
     "项目/SeaWar/正式版本分支规划/版本生成逻辑修改.md",
     "项目/SeaWar/SeaWar.md",
     "项目/SeaWar/App版本整理/App版本整理.md",
