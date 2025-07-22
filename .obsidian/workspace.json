@@ -71,8 +71,8 @@
               "state": {
                 "file": "项目/SeaWar/正式版本分支规划/SeaWar分支版本规划.md"
               },
-              "icon": "excalidraw-icon",
-              "title": "SeaWar分支版本规划"
+              "icon": "lucide-file",
+              "title": "插件不再活动"
             }
           }
         ],
@@ -273,12 +273,22 @@
             "state": {
               "type": "todo",
               "state": {},
+              "icon": "lucide-file",
+              "title": "插件不再活动"
+            }
+          },
+          {
+            "id": "da25a3707f56db51",
+            "type": "leaf",
+            "state": {
+              "type": "todo",
+              "state": {},
               "icon": "checkmark",
               "title": "Todo List"
             }
           }
         ],
-        "currentTab": 9
+        "currentTab": 10
       }
     ],
     "direction": "horizontal",
@@ -293,18 +303,10 @@
       "daily-notes:打开/创建今天的日记": false,
       "command-palette:打开命令面板": true,
       "obsidian-git:Open Git source control": true,
-      "pexels-banner:🚩 Pixel Banner Menu": false,
-      "templater-obsidian:Templater": false,
-      "obsidian-excalidraw-plugin:新建绘图文件": false,
-      "moredraw:MoreDraw": false,
-      "obsidian-memos:Thino": false,
-      "pdf-plus:PDF++: Toggle auto-copy": false,
-      "pdf-plus:PDF++: Toggle auto-focus": false,
-      "pdf-plus:PDF++: Toggle auto-paste": false,
-      "vscode-editor:新建代码文件": false
+      "pexels-banner:🚩 Pixel Banner Menu": false
     }
   },
-  "active": "9a168cc530152826",
+  "active": "da25a3707f56db51",
   "lastOpenFiles": [
     "项目/SeaWar/SeaWar.md",
     "项目/SeaWar/正式版本分支规划/SeaWar分支版本规划.md",
