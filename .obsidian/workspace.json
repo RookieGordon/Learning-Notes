@@ -104,7 +104,7 @@
             }
           }
         ],
-        "currentTab": 5
+        "currentTab": 6
       }
     ],
     "direction": "vertical"
@@ -342,10 +342,10 @@
       "vscode-editor:新建代码文件": false
     }
   },
-  "active": "5fee7a418c859d95",
+  "active": "da89606ec20d0406",
   "lastOpenFiles": [
-    "项目/SeaWar/正式版本分支规划/SeaWar分支版本规划.md",
     "项目/SeaWar/正式版本分支规划/版本分支规划.md",
+    "项目/SeaWar/正式版本分支规划/SeaWar分支版本规划.md",
     "项目/SeaWar/正式版本分支规划/正式版本分支规划.md",
     "项目/SeaWar/正式版本分支规划/版本生成逻辑修改.md",
     "项目/SeaWar/SeaWar.md",
