@@ -2,7 +2,6 @@
   background-color: transparent !important;
   z-index: 99999;
 }
-
 .windows .titlebar {
   -webkit-app-region: drag;
 }
@@ -97,4 +96,14 @@ body.is-mobile .modal-header {
 }
 body.is-mobile .menu{
   background: rgba(0, 0, 0, 0.7);
+}
+.live-wallpaper-settings-nav {
+  display: flex;
+  overflow-x: auto;
+  white-space: nowrap;
+  gap: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+.live-wallpaper-settings-nav .setting-button {
+  flex-shrink: 0;
 }
