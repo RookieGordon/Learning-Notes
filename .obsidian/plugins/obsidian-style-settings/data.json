@@ -12,5 +12,6 @@
   "underwater-theme@@underwater-colors-light": "rose-pine-dawn",
   "underwater-theme@@callout": "callout-outlined",
   "mp-theme@@custom-color-accent-light-toggle": false,
-  "mp-theme@@extended-dark-color-schemes": "onyx"
+  "mp-theme@@extended-dark-color-schemes": "onyx",
+  "notation-2-theme@@font-select": "default-sans"
 }
