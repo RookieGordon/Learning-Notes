@@ -55,12 +55,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "项目/SeaWar/SeaWar.md",
-                "mode": "preview",
+                "file": "项目/SeaWar/资源规范/资源规范整理.md",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "SeaWar"
+              "title": "资源规范整理"
             }
           },
           {
@@ -90,7 +90,7 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -157,8 +157,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 538.5,
-    "collapsed": true
+    "width": 538.5
   },
   "right": {
     "id": "be1e91dfcb57ce3b",
@@ -328,12 +327,17 @@
       "vscode-editor:新建代码文件": false
     }
   },
-  "active": "bfadcb100fc239b8",
+  "active": "b3158249b5a196a4",
   "lastOpenFiles": [
     "项目/SeaWar/正式版本分支规划/版本分支规划.md",
+    "项目/SeaWar/正式版本分支规划/SeaWar分支版本规划.md",
+    "项目/SeaWar/资源规范/资源规范整理.md",
+    "项目/SeaWar/资源规范/资源规范.md",
+    "项目/SeaWar/components/资源规范_View.components",
+    "项目/SeaWar/打包步骤调整/资源目录划分规则整理.md",
+    "项目/SeaWar/资源规范",
     "项目/SeaWar/SeaWar.md",
     "项目/SeaWar/杂项代办/7月杂项代办.md",
-    "项目/SeaWar/正式版本分支规划/SeaWar分支版本规划.md",
     "项目/SeaWar/正式版本分支规划/正式版本分支规划.md",
     "项目/SeaWar/正式版本分支规划/版本生成逻辑修改.md",
     "导航/主页.md",
@@ -354,8 +358,6 @@
     "项目/SeaWar/热更功能合并/CSharp继承的小坑.md",
     "项目/SeaWar/杂项代办/6月代办杂项.md",
     "项目/SeaWar/Unity杂项知识点/Unity杂项知识点.md",
-    "项目/SeaWar/UI适配/UI适配.md",
-    "项目/SeaWar/UI适配/全屏背景图适配.md",
     "项目/SeaWar/components/设置系统_View.components",
     "项目/SeaWar/设置系统",
     "项目/SeaWar/UI适配/attachments/（图解2）Scale With Screen Size模式.png",
@@ -368,8 +370,6 @@
     "项目/SeaWar/工具/attachments/（图解5）不同资源的引用数据.png",
     "项目/SeaWar/正式版本分支规划",
     "项目/SeaWar/工具/attachments/（图解1）SampleRate=30.gif",
-    "项目/SeaWar/工具/attachments/ResourceReferenceReplacer.cs",
-    "项目/SeaWar/工具/attachments/未命名",
     "项目/SeaWar/工具/attachments/Pasted image 20250621205514.png",
     "项目/SeaWar/工具/attachments/（图解4）帧动画时间轴.png",
     "项目/SeaWar/工具/attachments/（图解3）不同帧率动画的时长对比.png",
