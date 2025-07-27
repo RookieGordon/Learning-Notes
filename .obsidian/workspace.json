@@ -31,8 +31,8 @@
               "type": "todo",
               "state": {},
               "pinned": true,
-              "icon": "checkmark",
-              "title": "Todo List"
+              "icon": "lucide-file",
+              "title": "插件不再活动"
             }
           },
           {
@@ -231,12 +231,22 @@
             "state": {
               "type": "todo",
               "state": {},
+              "icon": "lucide-file",
+              "title": "插件不再活动"
+            }
+          },
+          {
+            "id": "a1f37ac4b005fa3e",
+            "type": "leaf",
+            "state": {
+              "type": "todo",
+              "state": {},
               "icon": "checkmark",
               "title": "Todo List"
             }
           }
         ],
-        "currentTab": 6
+        "currentTab": 7
       }
     ],
     "direction": "horizontal",
@@ -251,18 +261,10 @@
       "daily-notes:打开/创建今天的日记": false,
       "command-palette:打开命令面板": true,
       "obsidian-git:Open Git source control": true,
-      "pexels-banner:🚩 Pixel Banner Menu": false,
-      "templater-obsidian:Templater": false,
-      "obsidian-excalidraw-plugin:新建绘图文件": false,
-      "moredraw:MoreDraw": false,
-      "obsidian-memos:Thino": false,
-      "pdf-plus:PDF++: Toggle auto-copy": false,
-      "pdf-plus:PDF++: Toggle auto-focus": false,
-      "pdf-plus:PDF++: Toggle auto-paste": false,
-      "vscode-editor:新建代码文件": false
+      "pexels-banner:🚩 Pixel Banner Menu": false
     }
   },
-  "active": "5fee7a418c859d95",
+  "active": "a1f37ac4b005fa3e",
   "lastOpenFiles": [
     "导航/主页.md",
     "项目/SeaWar/资源规范/资源规范整理.md",
