@@ -56,7 +56,7 @@
               "type": "markdown",
               "state": {
                 "file": "项目/SeaWar/资源规范/资源规范整理.md",
-                "mode": "source",
+                "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
@@ -231,8 +231,8 @@
             "state": {
               "type": "todo",
               "state": {},
-              "icon": "lucide-file",
-              "title": "插件不再活动"
+              "icon": "checkmark",
+              "title": "Todo List"
             }
           },
           {
@@ -250,8 +250,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 545,
-    "collapsed": true
+    "width": 545
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -272,7 +271,7 @@
       "vscode-editor:新建代码文件": false
     }
   },
-  "active": "5fee7a418c859d95",
+  "active": "a1f37ac4b005fa3e",
   "lastOpenFiles": [
     "导航/主页.md",
     "项目/SeaWar/资源规范/资源规范整理.md",
