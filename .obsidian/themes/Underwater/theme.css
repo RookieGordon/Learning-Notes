@@ -242,7 +242,6 @@
 }
 
 .theme-light /*Rosé Pine dawn*/ {
-  /*PALETTE*/
   --love-rgb: 180, 99, 122;
   --gold-rgb: 234, 157, 52;
   --rose-rgb: 215, 130, 126;
@@ -262,14 +261,12 @@
   --highlight-med-rgb: 223, 218, 217;
   --highlight-high: #cecacd;
 
-  /*override accent color !*/
   --accent-h: 187;
   --accent-s: 30%;
   --accent-l: 45%;
   --color-accent-hsl: 187, 30%, 45%;
 }
 .theme-light.nord-bright {
-  /*PALETTE*/
   --love-rgb: 191, 97, 106; /*nord11*/
   --gold-rgb: 208, 135, 112; /*nord12*/
   --rose-rgb: 180, 142, 173;/*nord15*/
@@ -289,14 +286,12 @@
   --highlight-med-rgb: 216, 222, 233; /*nord4*/ 
   --highlight-high: #d8dee9; /*nord4*/
 
-  /*override accent color !*/
   --accent-h: 210;
   --accent-s: 34%;
   --accent-l: 63%;
   --color-accent-hsl: 210, 34%, 63%; /*nord9*/
 }
 .theme-light.catppuccin-latte {
-  /*PALETTE*/
   --love-rgb: 230, 69, 83;/*maroon*/
   --gold-rgb: 223, 142, 29;/*yellow*/
   --rose-rgb: 221, 120, 120;/*flamingo*/
@@ -316,14 +311,12 @@
   --highlight-med-rgb: 188, 192, 204; /*surface1*/
   --highlight-high: #acb0be; /*surface2*/
 
-  /*override accent color !*/
   --accent-h: 11;
   --accent-s: 59%;
   --accent-l: 67%;
   --color-accent-hsl: 11, 59%, 67%; /*Rosewater*/
 }
 .theme-light.everforest-light {
-  /*PALETTE*/
   --love-rgb: 248, 85, 82;/*statusline3*/
   --gold-rgb: 223, 160, 0;/*yellow*/
   --rose-rgb: 245, 125, 38;/*orange*/
@@ -343,14 +336,12 @@
   --highlight-med-rgb: 230, 226, 204; /*bg3*/
   --highlight-high: #e0dcc7; /*bg4*/
 
-  /*override accent color !*/
   --accent-h: 97;
   --accent-s: 38%;
   --accent-l: 53%;
   --color-accent-hsl: 97, 38%, 53%; /*green/statusline1*/
 }
 .theme-light.gruvbox-light {
-  /*PALETTE*/
   --love-rgb: 204, 36, 29;/*red*/
   --gold-rgb: 215, 153, 33;/*yellow*/
   --rose-rgb: 152, 151, 26;/*green*/
@@ -370,14 +361,12 @@
   --highlight-med-rgb: 189, 174, 147; /*bg3*/
   --highlight-high: #a89984; /*bg4*/
 
-  /*override accent color !*/
   --accent-h: 122;
   --accent-s: 22%;
   --accent-l: 51%;
   --color-accent-hsl: 122, 22%, 51%; /*aqua*/
 }
 .theme-light.obsidian-light {
-  /*PALETTE*/
   --love-rgb: 233, 49, 71; /*red*/
   --gold-rgb: 224, 172, 0; /*yellow*/
   --rose-rgb: 236, 117, 0; /*orange*/
@@ -397,14 +386,12 @@
   --highlight-med-rgb: 224, 224, 224; /*e0e0e0*/  /*color-base-30*/
   --highlight-high: #d4d4d4; /*color-base-35*/
 
-  /*override accent color !*/
   --accent-h: 258;
   --accent-s: 88%;
   --accent-l: 66%;
   --color-accent-hsl: 258, 88%, 66%; /*default purple*/
 }
 .theme-light.uw-octopus {
-  /*PALETTE*/
   --love-rgb: 205, 106, 94;
   --gold-rgb: 230, 161, 73;
   --rose-rgb: 127, 111, 134;
@@ -424,14 +411,12 @@
   --highlight-med-rgb: 206, 222, 227; 
   --highlight-high: #B4C3C8;
 
-  /*override accent color !*/
   --accent-h: 6;
   --accent-s: 53%;
   --accent-l: 59%;
   --color-accent-hsl: 6, 53%, 59%; /*foam*/
 }
 .theme-light.uw-coral {
-  /*PALETTE*/
   --love-rgb: 145, 121, 123;
   --gold-rgb: 242, 154, 99;
   --rose-rgb: 145, 166, 204;
@@ -451,14 +436,12 @@
   --highlight-med-rgb: 231, 214, 196; 
   --highlight-high: #D9C6B9;
 
-  /*override accent color !*/
   --accent-h: 11;
   --accent-s: 56%;
   --accent-l: 70%;
   --color-accent-hsl: 11, 56%, 70%; /*iris*/
 }
 .theme-light.uw-aqua {
-  /*PALETTE*/
   --love-rgb: 194, 105, 128;
   --gold-rgb: 183, 195, 121;
   --rose-rgb: 215, 131, 116;
@@ -478,14 +461,12 @@
   --highlight-med-rgb: 220, 227, 230; 
   --highlight-high: #cfdadf;
 
-  /*override accent color !*/
   --accent-h: 187;
   --accent-s: 40%;
   --accent-l: 60%;
   --color-accent-hsl: 187, 40%, 60%; /*foam*/
 }
 .theme-light.uw-oyster {
-  /*PALETTE*/
   --love-rgb: 64, 45, 48;
   --gold-rgb: 255, 150, 0;
   --rose-rgb: 140, 35, 51;
@@ -505,14 +486,12 @@
   --highlight-med-rgb: 209, 201, 193; 
   --highlight-high: #B8B3AD;
 
-  /*override accent color !*/
   --accent-h: 201;
   --accent-s: 48%;
   --accent-l: 38%;
   --color-accent-hsl: 201, 48%, 38%; /*pine*/
 }
 .theme-dark /*Rosé Pine*/ {
-  /*PALETTE*/
   --love-rgb: 235, 111, 146;
   --gold-rgb: 246, 193, 119;
   --rose-rgb: 235, 188, 186;
@@ -532,14 +511,12 @@
   --highlight-med-rgb: 64, 61, 82;
   --highlight-high: #524f67;
 
-  /*override accent color !*/
   --accent-h: 193;
   --accent-s: 46%;
   --accent-l: 75%;
   --color-accent-hsl: 193, 46%, 75%;
 }
 .theme-dark.rose-pine-moon {
-  /*PALETTE*/
   --love-rgb: 235, 111, 146;
   --gold-rgb: 246, 193, 119;
   --rose-rgb: 234, 154, 151;
@@ -559,14 +536,12 @@
   --highlight-med-rgb: 68, 65, 90;
   --highlight-high: #56526e;
 
-  /*override accent color !*/
   --accent-h: 193;
   --accent-s: 46%;
   --accent-l: 75%;
   --color-accent-hsl: 193, 46%, 75%;
 }
 .theme-dark.nord-dark {
-  /*PALETTE*/
   --love-rgb: 191, 97, 106; /*nord11*/
   --gold-rgb: 235, 203, 139; /*nord13*/
   --rose-rgb: 208, 135, 112;/*nord12*/
@@ -586,14 +561,12 @@
   --highlight-med-rgb: 67, 76, 94; /*nord 2*/
   --highlight-high: #4c566a; /*nord3*/
 
-  /*override accent color !*/
   --accent-h: 210;
   --accent-s: 34%;
   --accent-l: 63%;
   --color-accent-hsl: 210, 34%, 63%;
 }
 .theme-dark.catppuccin-mocha {
-  /*PALETTE*/
   --love-rgb: 250, 179, 135;/*Peach*/
   --gold-rgb: 249, 226, 175; /*Yellow*/
   --rose-rgb: 235, 160, 172;/*Maroon*/
@@ -613,14 +586,12 @@
   --highlight-med-rgb: 69, 71, 90; /*surface1*/
   --highlight-high: #585b70; /*surface2*/
 
-  /*override accent color !*/
   --accent-h: 232;
   --accent-s: 97%;
   --accent-l: 85%;
   --color-accent-hsl: 232, 97%, 85%; /*Lavender*/
 }
 .theme-dark.everforest-dark {
-  /*PALETTE*/
   --love-rgb: 230, 126, 128;/*red*/
   --gold-rgb: 219, 188, 127;/*yellow*/
   --rose-rgb: 230, 152, 117;/*orange*/
@@ -640,14 +611,12 @@
   --highlight-med-rgb: 65, 75, 80; /*bg3*/
   --highlight-high: #495156; /*bg4*/
 
-  /*override accent color !*/
   --accent-h: 90;
   --accent-s: 36%;
   --accent-l: 66%;
   --color-accent-hsl: 90, 36%, 66%; /*green/statusline1*/
 }
 .theme-dark.biscuit-dark {
-  /*PALETTE*/
   --love-rgb: 202, 63, 63;/*Persian Red*/
   --gold-rgb: 227, 156, 69;/*Butterscotch*/
   --rose-rgb: 228, 106, 58;/*Flame*/
@@ -667,14 +636,12 @@
   --highlight-med-rgb: 109, 95, 95; /*Wenge*/
   --highlight-high: #978787; /*Cinereous*/
 
-  /*override accent color !*/
   --accent-h: 226;
   --accent-s: 31%;
   --accent-l: 42%;
   --color-accent-hsl: 226, 31%, 42%; /*YinMn Blue*/
 }
 .theme-dark.obsidian-dark {
-  /*PALETTE*/
   --love-rgb: 251, 70, 76; /*red*/
   --gold-rgb: 224, 222, 113; /*yellow*/
   --rose-rgb: 233, 151, 63; /*orange*/
@@ -694,14 +661,12 @@
   --highlight-med-rgb: 63, 63, 63; /*3f3f3f*/  /*color-base-35*/
   --highlight-high: #555555; /*color-base-40*/
 
-  /*override accent color !*/
   --accent-h: 258;
   --accent-s: 88%;
   --accent-l: 66%;
   --color-accent-hsl: 258, 88%, 66%; /*default purple*/
 }
 .theme-dark.uw-deep {
-  /*PALETTE*/
   --love-rgb: 215, 97, 76; /*goldfish*/
   --gold-rgb: 217, 209, 89; /*Sand!*/
   --rose-rgb: 229, 156, 88; /*Crab!*/
@@ -721,14 +686,12 @@
   --highlight-med-rgb: 49, 60, 66;
   --highlight-high: #334852;
 
-  /*override accent color !*/
   --accent-h: 213;
   --accent-s: 49%;
   --accent-l: 61%;
   --color-accent-hsl: 213, 49%, 61%; /*Ocean*/
 }
 .theme-dark.uw-ocean {
-  /*PALETTE*/
   --love-rgb: 254, 114, 143;
   --gold-rgb: 255, 225, 97;
   --rose-rgb: 232, 177, 146;
@@ -748,14 +711,12 @@
   --highlight-med-rgb: 40, 56, 82;
   --highlight-high: #19263B;
 
-  /*override accent color !*/
   --accent-h: 179;
   --accent-s: 63%;
   --accent-l: 51%;
   --color-accent-hsl: 179, 63%, 51%;
 }
 .theme-dark.uw-seaweed {
-  /*PALETTE*/
   --love-rgb: 255, 123, 123;
   --gold-rgb: 242, 225, 95;
   --rose-rgb: 216, 237, 141;
@@ -775,14 +736,12 @@
   --highlight-med-rgb: 63, 99, 96;
   --highlight-high: #5D817E;
 
-  /*override accent color !*/
   --accent-h: 169;
   --accent-s: 42%;
   --accent-l: 82%;
   --color-accent-hsl: 169, 42%, 82%; /*foam*/
 }
 .theme-dark.uw-sand {
-  /*PALETTE*/
   --love-rgb: 232, 157, 149;
   --gold-rgb: 246, 173, 119;
   --rose-rgb: 187, 163, 121;
@@ -802,7 +761,6 @@
   --highlight-med-rgb: 48, 62, 85;
   --highlight-high: #37465F;
 
-  /*override accent color !*/
   --accent-h: 213;
   --accent-s: 60%;
   --accent-l: 67%;
@@ -810,14 +768,14 @@
 }
 
 /*-------------LAYOUT------------------*/ /* remove for default layout*/
-body:not(is-mobile) .workspace-tab-container {
+body .workspace-tab-container {
   margin: 7px 14px 14px 0px;
   border-radius: 12px;
 }
 .mod-right-split, .mod-left-split { /*right and left margins*/
   margin: 0px;
 }
-body:not(is-mobile):not(.show-ribbon) .workspace {
+body:not(.show-ribbon) .workspace {
   margin-left: 14px;
 }
 .workspace.is-left-sidedock-open {
@@ -868,6 +826,7 @@ body:not(.is-mobile) .workspace-split.mod-left-split .workspace-sidedock-vault-p
 .workspace-tab-header-tab-list .clickable-icon, .workspace-tab-header-new-tab .clickable-icon {
   margin-top: 5px; /*aligns new tab button with tabs*/
 }
+
 /*Mobile styling*/
 .mobile-navbar, .mobile-toolbar {
   background-color: var(--uw-background);
@@ -877,6 +836,19 @@ body:not(.is-mobile) .workspace-split.mod-left-split .workspace-sidedock-vault-p
 .is-mobile .workspace-tab-container {
   margin: 10px;
   border-radius: 15px;
+}
+.workspace-tab-header-container {
+  background-color: var(--uw-background);
+}
+.is-mobile, .is-tablet { 
+  --mobile-sidebar-background: var(--uw-background) !important;
+  --system-status-background: var(--uw-background);
+  .workspace-drawer-inner {
+      background-color: var(--uw-background);
+  }
+  .workspace-drawer, .workspace-drawer-header, .workspace-drawer-ribbon {
+    background-color: var(--uw-background);
+  }
 }
 
 /*Panels titlebar styling*/
@@ -1099,37 +1071,55 @@ th .MJX-TEX { /*no color for table headers*/
   color: var(--table-header-color);
 }
 
-/*LINKS STYLING!*/
+/*Internal links styling*/
 a:focus-within {
   box-shadow: none !important;
 }
 a, .external-link {
   transition: color 0.5s ease;
 }
-body:not(.no-links) .markdown-source-view.mod-cm6 .cm-hmd-internal-link,
-body:not(.no-links) .markdown-rendered .internal-link {
-  background-color: transparent;
-  color: var(--link-color);
-  border-radius: 7px;
+/*Modern*/
+.markdown-source-view.mod-cm6 .cm-hmd-internal-link,
+.markdown-rendered .internal-link {
+  background-color: rgba(var(--rose-rgb), 0.1);
+  border-radius: 6px;
   padding-left: 5px;
   padding-right: 5px;
-  border: 1px solid var(--highlight-med);
   transition: background-color 0.5s ease;
   box-decoration-break: clone;
+
+  &:hover {
+      background-color: rgba(var(--rose-rgb), 0.3);
+      color: var(--link-color);
+  }
 }
-body:not(.no-links) .markdown-rendered .internal-link:hover,
-body:not(.no-links) .markdown-source-view.mod-cm6 .cm-hmd-internal-link:hover {
-  background-color: var(--highlight-med);
-  color: var(--link-color);
-}
-body:not(.no-links) .markdown-source-view.mod-cm6 .cm-hmd-internal-link .cm-underline:hover {
-  color: var(--link-color);
-}
-.no-links .markdown-source-view.mod-cm6 .cm-hmd-internal-link:hover,
-.no-links .markdown-rendered .internal-link:hover {
-  color: var(--link-color-hover);
-  transition: color 0.3s ease-out;
-}
+
+/*Vanilla (obsidian default)*/
+.no-links {
+  .markdown-source-view.mod-cm6 .cm-hmd-internal-link,
+  .markdown-rendered .internal-link {
+    background-color: transparent;
+    padding: 0px;
+
+    &:hover {
+      color: var(--link-color-hover);
+      transition: color 0.3s ease-out;
+      background-color: transparent;
+}}}
+
+/*Boxed links*/
+.box-links {
+  .markdown-source-view.mod-cm6 .cm-hmd-internal-link,
+  .markdown-rendered .internal-link {
+    border: 1px solid var(--highlight-med);
+    background-color: transparent;
+    
+    &:hover {
+      background-color: var(--highlight-med);
+      color: var(--link-color);
+    }
+}}
+
 
 /*scrollbar - from BORDER theme*/
 ::-webkit-scrollbar {
@@ -1251,11 +1241,11 @@ body:not(.no-center) {
 table, .table-wrapper {
   margin-inline: auto;
 }}
-/*very hacky fix for stacked images*/
+/*very hacky fix for stacked images
 img + img, .markdown-rendered p:has(img + img) img {
   margin-inline: 0 !important;
-  display: inline !important;
-}
+  display: inline-block !important;
+}*/
 
 /*hover image animation !*/
 body:not(.no-animation) img {
@@ -1949,6 +1939,21 @@ body:not(.no-cardboard) {
     padding-top: 0;
 }}
 
+/*Task genius*/
+.task-genius-container {
+  background-color: var(--overlay);
+  border-top: none;
+
+  .full-calendar-container {
+    --checkbox-border-color: var(--highlight-med);
+  }
+
+  .full-calendar-container .calendar-event.is-completed,  
+  .full-calendar-container .calendar-event:has(input[data-task="-"]) {
+    background-color: var(--text-muted) !important;
+  }
+}
+
 /*STYLE SETTINGS*/
 .style-settings-info-text .style-settings-markdown {
   background-color: var(--base);
@@ -2588,7 +2593,22 @@ settings:
             -
                label: Dev
                value: vault-dev
-
+    -
+        id: links-styling
+        title: Internal links styling
+        type: class-select
+        allowEmpty: false
+        default: normal
+        options:
+            -
+               label: Modern
+               value: normal
+            -
+               label: Boxed links
+               value: box-links
+            -
+               label: Vanilla
+               value: no-links
     -
         id: headings-font
         title: Specific font for headings
@@ -2622,11 +2642,6 @@ settings:
     -
         id: no-button
         title: Disable slight button zoom on hover
-        type: class-toggle
-        default: false
-    -
-        id: no-links
-        title: Disable border around internal links
         type: class-toggle
         default: false
     -
