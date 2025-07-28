@@ -64,7 +64,7 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -131,8 +131,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 385.5,
-    "collapsed": true
+    "width": 385.5
   },
   "right": {
     "id": "be1e91dfcb57ce3b",
@@ -282,11 +281,11 @@
       "vscode-editor:新建代码文件": false
     }
   },
-  "active": "bfadcb100fc239b8",
+  "active": "5fee7a418c859d95",
   "lastOpenFiles": [
+    "项目/SeaWar/杂项代办/7月杂项代办.md",
     "项目/SeaWar/资源规范/资源规范整理.md",
     "导航/主页.md",
-    "项目/SeaWar/杂项代办/7月杂项代办.md",
     "项目/SeaWar/打包步骤调整/资源自动导入YooassetCollector.md",
     "项目/SeaWar/正式版本分支规划/SeaWar分支版本规划.md",
     "项目/SeaWar/正式版本分支规划/版本分支规划.md",
