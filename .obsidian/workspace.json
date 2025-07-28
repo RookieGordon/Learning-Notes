@@ -260,7 +260,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 545
+    "width": 545,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -270,10 +271,17 @@
       "daily-notes:打开/创建今天的日记": false,
       "command-palette:打开命令面板": true,
       "obsidian-git:Open Git source control": true,
-      "pexels-banner:🚩 Pixel Banner Menu": false
+      "pexels-banner:🚩 Pixel Banner Menu": false,
+      "templater-obsidian:Templater": false,
+      "obsidian-excalidraw-plugin:新建绘图文件": false,
+      "moredraw:MoreDraw": false,
+      "obsidian-memos:Thino": false,
+      "pdf-plus:PDF++: Toggle auto-copy": false,
+      "pdf-plus:PDF++: Toggle auto-focus": false,
+      "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "f210f6f7751dde59",
+  "active": "5fee7a418c859d95",
   "lastOpenFiles": [
     "导航/主页.md",
     "项目/SeaWar/资源规范/资源规范整理.md",
