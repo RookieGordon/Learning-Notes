@@ -284,6 +284,8 @@
   },
   "active": "08db2c7823b78e6c",
   "lastOpenFiles": [
+    "项目/SeaWar/打包策略和资源规范调整/attachments/（图解4）IntelAtlas的Bundle资源.png",
+    "项目/SeaWar/打包策略和资源规范调整/attachments/（图解3）Intel模块的交叉引用.png",
     "项目/SeaWar/打包策略和资源规范调整/attachments/（图解2）UI模块之间的交叉引用.png",
     "项目/SeaWar/打包策略和资源规范调整/打包策略和资源规范调整.md",
     "项目/SeaWar/SeaWar.md",
@@ -328,8 +330,6 @@
     "项目/SeaWar/工具/attachments/（图解5）不同资源的引用数据.png",
     "项目/SeaWar/工具/attachments/（图解1）SampleRate=30.gif",
     "项目/SeaWar/工具/attachments/Pasted image 20250621205514.png",
-    "项目/SeaWar/工具/attachments/（图解4）帧动画时间轴.png",
-    "项目/SeaWar/工具/attachments/（图解3）不同帧率动画的时长对比.png",
     "未命名.canvas"
   ]
 }
