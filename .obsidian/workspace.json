@@ -64,7 +64,7 @@
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -292,14 +292,16 @@
       "vscode-editor:新建代码文件": false
     }
   },
-  "active": "d0ed0d62ed9978e8",
+  "active": "08db2c7823b78e6c",
   "lastOpenFiles": [
+    "导航/主页.md",
+    "项目/SeaWar/杂项代办/8月代办杂项.md",
+    "项目/SeaWar/杂项代办/6月代办杂项.md",
+    "项目/SeaWar/Unity杂项知识点/ScriptableObject生命周期.md",
     "项目/SeaWar/打包策略和资源规范调整/打包策略调整.md",
     "项目/SeaWar/SeaWar.md",
     "项目/SeaWar/杂项代办/杂项代办.md",
-    "项目/SeaWar/杂项代办/8月代办杂项.md",
     "项目/SeaWar/杂项代办/7月杂项代办.md",
-    "导航/主页.md",
     "项目/SeaWar/打包策略和资源规范调整/attachments/（图解4）IntelAtlas的Bundle资源.png",
     "项目/SeaWar/打包策略和资源规范调整/attachments/（图解3）Intel模块的交叉引用.png",
     "项目/SeaWar/打包策略和资源规范调整/attachments/（图解2）UI模块之间的交叉引用.png",
@@ -329,7 +331,6 @@
     "项目/SeaWar/设置系统/帧率设置功能.md",
     "Slurped Pages/unity 性能优化之画质分级_unity 低端机模型要求-CSDN博客.md",
     "项目/SeaWar/设置系统/CPU和GPU定档.md",
-    "项目/SeaWar/App强更流程/App强更流程.md",
     "项目/SeaWar/components/设置系统_View.components",
     "项目/SeaWar/设置系统",
     "项目/SeaWar/UI适配/attachments/（图解2）Scale With Screen Size模式.png",
