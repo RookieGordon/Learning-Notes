@@ -64,7 +64,7 @@
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -292,10 +292,10 @@
       "vscode-editor:新建代码文件": false
     }
   },
-  "active": "d0ed0d62ed9978e8",
+  "active": "08db2c7823b78e6c",
   "lastOpenFiles": [
-    "项目/SeaWar/打包策略和资源规范调整/打包策略调整.md",
     "项目/SeaWar/杂项代办/8月代办杂项.md",
+    "项目/SeaWar/打包策略和资源规范调整/打包策略调整.md",
     "导航/主页.md",
     "项目/SeaWar/杂项代办/6月代办杂项.md",
     "项目/SeaWar/Unity杂项知识点/ScriptableObject生命周期.md",
