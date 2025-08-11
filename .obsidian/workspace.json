@@ -63,8 +63,7 @@
               "title": "8月代办杂项"
             }
           }
-        ],
-        "currentTab": 3
+        ]
       }
     ],
     "direction": "vertical"
@@ -292,7 +291,7 @@
       "vscode-editor:新建代码文件": false
     }
   },
-  "active": "d0ed0d62ed9978e8",
+  "active": "4719768e372023f3",
   "lastOpenFiles": [
     "项目/SeaWar/打包策略和资源规范调整/打包策略调整.md",
     "项目/SeaWar/杂项代办/8月代办杂项.md",
