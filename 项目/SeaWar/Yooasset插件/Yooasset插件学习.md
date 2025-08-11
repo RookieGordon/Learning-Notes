@@ -132,7 +132,6 @@ private DependencyInfo CreateDependencyInfo(string assetPath)
 1. 剔除未被引用的依赖资源
 2. 区分主动收集和被动收集
 3. 找到依赖资源
-
-### 剔除没有引用的资源
+### **剔除没有引用的资源**
 这个步骤，只有当有收集项被配置成[依赖资源](https://www.yooasset.com/docs/api/YooAsset.Editor/ECollectorType#dependassetcollector)才会生效。
 
