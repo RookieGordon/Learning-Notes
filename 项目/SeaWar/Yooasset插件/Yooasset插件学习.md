@@ -127,11 +127,14 @@ private DependencyInfo CreateDependencyInfo(string assetPath)
     return cacheInfo;
 }
 ```
-
 接下来，根据这份收集列表，需要做如下几个事情：
 1. 剔除未被引用的依赖资源
-2. 区分主动收集和被动收集
-3. 找到依赖资源
-### **剔除没有引用的资源**
-这个步骤，只有当有收集项被配置成[依赖资源](https://www.yooasset.com/docs/api/YooAsset.Editor/ECollectorType#dependassetcollector)才会生效。
+2. 录入主动收集的资源
+3. 录入依赖资源
+### 剔除没有引用的资源
+这个步骤，只有当有收集项被配置成[依赖资源](https://www.yooasset.com/docs/api/YooAsset.Editor/ECollectorType#dependassetcollector)才会生效。我们配置了一部分资源为依赖资源，那么这些资源必须被其他资源依赖，如果没有，就需要进行剔除
+### 录入主动收集的资源
+将所有需要被打包的资源整理完毕后（`CollectAssetInfo`列表），就需要进行Bundle设置了。Bundle的数据结构如下：
+```CSharp
 
+```
