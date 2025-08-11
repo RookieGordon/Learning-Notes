@@ -33,7 +33,7 @@ Unity官方对于[AssetBundle 压缩格式](https://docs.unity3d.com/Manual/asse
 ## 资源收集
 通过`AssetBundleCollectorSetting.BeginCollect`可以根据收集规则，获取所有需要构建AssetBundle的资源。具体步骤如下：遍历每个分组，遍历每个分组中的每个收集项，获取收集项中的资源。
 ![[（图解1）Yooasset中配置的收集组，收集项.png|490]]
-所有收集到的，需要被打成AssetBundle的资源，都被封装成了`CollectAssetInfo`对象
+收集项中的每一个资源，都会被封装成了`CollectAssetInfo`对象
 ```CSharp
 public class CollectAssetInfo  
 {  
@@ -136,7 +136,7 @@ private DependencyInfo CreateDependencyInfo(string assetPath)
 #### **剔除没有引用的资源**
 这个步骤，只有当有收集项被配置成[依赖资源](https://www.yooasset.com/docs/api/YooAsset.Editor/ECollectorType#dependassetcollector)才会生效。我们配置了一部分资源为依赖资源，那么这些资源必须被其他资源依赖，如果没有，就需要进行剔除
 #### **录入主动收集的资源**
-将所有需要被打包的资源整理完毕后（`CollectAssetInfo`列表），就需要构建Bundle之间的引用关系了，因此，将收集到的资源，重新封装成`BuildAssetInfo`对象：
+将所有收集资源整理完毕后（`CollectAssetInfo`列表），就需要构建Bundle之间的引用关系了，因此，将收集到的资源，重新封装成`BuildAssetInfo`对象：
 ```CSharp
 public class BuildAssetInfo  
 {  
