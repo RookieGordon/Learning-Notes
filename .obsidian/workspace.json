@@ -148,13 +148,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "项目/SeaWar/设置系统/设置系统框架.md",
+                "file": "项目/SeaWar/Yooasset插件/Yooasset插件学习.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "设置系统框架 的大纲"
+              "title": "Yooasset插件学习 的大纲"
             }
           },
           {
@@ -265,8 +265,7 @@
               "title": "Todo List"
             }
           }
-        ],
-        "currentTab": 9
+        ]
       }
     ],
     "direction": "horizontal",

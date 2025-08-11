@@ -63,7 +63,9 @@ public class CollectAssetInfo
     public List<AssetInfo> DependAssets = new List<AssetInfo>();  
 }
 ```
-这里重点关注`BundleName`和`DependAssets`这两个字段。在具体操作每个收集项部分，会使用`AssetBundleCollector.CreateCollectAssetInfo`方法将找到的资源封装成`CollectAssetInfo`对象。我们重点关注一下该函数中，如何获取Bundle名和依赖资源列表。
+这里重点关注`BundleName`和`DependAssets`这两个字段。
+### 主资源Bundle名的构成
+在具体操作每个收集项部分，会使用`AssetBundleCollector.CreateCollectAssetInfo`方法将找到的资源封装成`CollectAssetInfo`对象。我们重点关注一下该函数中，如何获取Bundle名和依赖资源列表。
 ```Csharp
 private string GetBundleName(CollectCommand command, AssetBundleCollectorGroup group, AssetInfo assetInfo)  
 {  
@@ -104,8 +106,58 @@ public string GetBundleName(string packageName, bool uniqueBundleName)
     return fullName.ToLower();  
 }
 ```
-所以，shader的bundle名是`firstpkg_unityshaders`
-
+所以，shader的bundle名是：`firstpkg_unityshaders.bundle`。其他主资源的bundle名是：`资源所在文件夹路径.bundle`，因此同一个文件夹下的所有资源，会打成一个bundle。
+### 依赖资源的收集
+在打包选项中，我们开启了使用数据库，因此依赖资源的收集是通过`AssetDependencyDatabase`数据库实现的，关键代码如下：
+```CSharp
+public string[] GetDependencies(string assetPath, bool recursive)  
+        {            // 注意：AssetDatabase.GetDependencies()方法返回结果里会踢出丢失文件！  
+            // 注意：AssetDatabase.GetDependencies()方法返回结果里会包含主资源路径！  
+  
+            // 注意：机制上不允许存在未收录的资源  
+            if (_database.ContainsKey(assetPath) == false)  
+            {                throw new Exception($"Fatal : can not found cache info : {assetPath}");  
+            }  
+            var result = new HashSet<string> { assetPath };  
+            CollectDependencies(assetPath, assetPath, result, recursive);  
+  
+            // 注意：AssetDatabase.GetDependencies保持一致，将主资源添加到依赖列表最前面  
+            return result.ToArray();  
+        }        private void CollectDependencies(string parent, string assetPath, HashSet<string> result, bool recursive)  
+        {            if (_database.TryGetValue(assetPath, out var cacheInfo) == false)  
+            {                // 说明：检测是否为丢失引用的资产  
+#if UNITY_2021_3_OR_NEWER  
+                var assetGUID = AssetDatabase.AssetPathToGUID(assetPath, AssetPathToGUIDOptions.OnlyExistingAssets);  
+#else  
+                var assetGUID = AssetDatabase.AssetPathToGUID(assetPath);  
+#endif  
+                if (string.IsNullOrEmpty(assetGUID))  
+                {                    Debug.LogWarning($"{parent} found missing asset : {assetPath}");  
+                    return;  
+                }                else  
+                {  
+                    throw new Exception($"Fatal : can not found cache info : {assetPath}");  
+                }            }  
+            foreach (var dependGUID in cacheInfo.DependGUIDs)  
+            {                string dependAssetPath = AssetDatabase.GUIDToAssetPath(dependGUID);  
+                if (string.IsNullOrEmpty(dependAssetPath))  
+                    continue;  
+  
+                // 如果是文件夹资源  
+                if (AssetDatabase.IsValidFolder(dependAssetPath))  
+                    continue;  
+  
+                // 如果已经收集过  
+                if (result.Contains(dependAssetPath))  
+                    continue;  
+  
+                result.Add(dependAssetPath);  
+  
+                // 递归收集依赖  
+                if (recursive)  
+                    CollectDependencies(assetPath, dependAssetPath, result, recursive);  
+            }        }
+```
 接下来，根据这份收集列表，需要做如下几个事情：
 1. 剔除未被引用的依赖资源
 2. 区分主动收集和被动收集
