@@ -32,6 +32,7 @@ Unity官方对于[AssetBundle 压缩格式](https://docs.unity3d.com/Manual/asse
 [Unity Addressables: Compression Benchmark | TheGamedev.Guru](https://thegamedev.guru/unity-addressables/compression-benchmark/)
 ## 资源收集
 通过`AssetBundleCollectorSetting.BeginCollect`可以根据收集规则，获取所有需要构建AssetBundle的资源。具体步骤如下：遍历每个分组，遍历每个分组中的每个收集项，获取收集项中的资源。
+![[（图解1）Yooasset中配置的收集组，收集项.png|490]]
 所有收集到的，需要被打成AssetBundle的资源，都被封装成了`CollectAssetInfo`对象
 ```CSharp
 public class CollectAssetInfo  
@@ -66,4 +67,7 @@ public class CollectAssetInfo
 1. 剔除未被引用的依赖资源
 2. 区分主动收集和被动收集
 3. 找到依赖资源
+
+### 剔除没有引用的资源
+这个步骤，只有当有收集项被配置成[Enum ECollectorType | YooAsset](https://www.yooasset.com/docs/api/YooAsset.Editor/ECollectorType#dependassetcollector)
 
