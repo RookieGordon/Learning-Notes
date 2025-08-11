@@ -31,5 +31,5 @@ Unity官方对于[AssetBundle 压缩格式](https://docs.unity3d.com/Manual/asse
 [Addressables：Asset Bundle Compression该如何选择？ - 知乎](https://zhuanlan.zhihu.com/p/673316663)
 [Unity Addressables: Compression Benchmark | TheGamedev.Guru](https://thegamedev.guru/unity-addressables/compression-benchmark/)
 ## 资源收集
-根据打包参数可
+通过`AssetBundleCollectorSetting.BeginCollect`可以根据收集规则，获取所有需要构建AssetBundle的资源。具体步骤如下：
 
