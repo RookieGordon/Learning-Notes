@@ -167,4 +167,22 @@ public class BuildAssetInfo
 #### **录入依赖资源**
 遍历整个`CollectAssetInfo`列表，遍历每个收集资源的依赖列表，将依赖资源封装成`BuildAssetInfo`对象，并且将引用该依赖资源的资源的Bundle名，添加到`_referenceBundleNames`中。
 #### **计算共享资源包名**
-遍历打包资源列表（`BuildAssetInfo`列表），如果资源没有设置Bundle名（依赖资源），那么就对其设置Bundle名。
+遍历打包资源列表（`BuildAssetInfo`列表），如果资源没有设置Bundle名（依赖资源），那么就对其设置Bundle名。**对于只被一个资源引用的依赖资源，如果关闭了[SingleReferencedPackAlone](https://www.yooasset.com/docs/api/YooAsset.Editor/BuildParameters#singlereferencedpackalone)选项，那边就会根据其所在目录，生成Bundle名。**
+```CSharp
+public string GetShareBundleName(string packageName, bool uniqueBundleName)  
+{  
+    string fullName;  
+    string bundleName = EditorTools.GetRegularPath(_bundleName)
+                                    .Replace('/', '_')
+                                    .Replace('.', '_')
+                                    .Replace(" ", "_")
+                                    .ToLower();  
+    if (uniqueBundleName)  
+        fullName = $"{packageName}_share_{bundleName}.{_bundleExtension}";  
+    else  
+        fullName = $"share_{bundleName}.{_bundleExtension}";  
+    return fullName.ToLower();  
+}
+```
+所以，共享资源的Bundle名为：`firstpkg_share_资源所在文件夹路径.bundle`
+
