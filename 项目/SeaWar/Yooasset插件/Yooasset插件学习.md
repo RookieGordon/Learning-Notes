@@ -165,4 +165,4 @@ public class BuildAssetInfo
 ```
 关键字段是`_referenceBundleNames`，这里并不是指该资源的依赖，而是`依赖该资源的Bundle的集合`。
 #### **录入依赖资源**
-遍历整个`CollectAssetInfo`列表，遍历每个收集资源的依赖列表，将引用资源的bundle名，添加到`_referenceBundleNames`中去。
+遍历整个`CollectAssetInfo`列表，遍历每个收集资源的依赖列表，将依赖资源封装成`BuildAssetInfo`对象，并且将引用该依赖资源的资源的Bundle名，添加到`_referenceBundleNames`中。
