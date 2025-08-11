@@ -167,3 +167,4 @@ public class BuildAssetInfo
 #### **录入依赖资源**
 遍历整个`CollectAssetInfo`列表，遍历每个收集资源的依赖列表，将依赖资源封装成`BuildAssetInfo`对象，并且将引用该依赖资源的资源的Bundle名，添加到`_referenceBundleNames`中。
 #### **计算共享资源包名**
+遍历打包资源列表（`BuildAssetInfo`列表），如果资源没有设置Bundle名（依赖资源），那么就对其设置Bundle名。
