@@ -131,6 +131,8 @@ private DependencyInfo CreateDependencyInfo(string assetPath)
 1. 剔除未被引用的依赖资源
 2. 录入主动收集的资源
 3. 录入依赖资源
+4. 收集shader
+5. 计算共享资源包名
 #### **剔除没有引用的资源**
 这个步骤，只有当有收集项被配置成[依赖资源](https://www.yooasset.com/docs/api/YooAsset.Editor/ECollectorType#dependassetcollector)才会生效。我们配置了一部分资源为依赖资源，那么这些资源必须被其他资源依赖，如果没有，就需要进行剔除
 #### **录入主动收集的资源**
