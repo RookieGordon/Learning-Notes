@@ -63,11 +63,14 @@ public class CollectAssetInfo
     public List<AssetInfo> DependAssets = new List<AssetInfo>();  
 }
 ```
+这里重点关注`BundleName`和`DependAssets`这两个字段。在具体操作每个收集项部分，会使用`AssetBundleCollector.CreateCollectAssetInfo`方法将找到的资源封装成`CollectAssetInfo`对象。
+
+
 接下来，根据这份收集列表，需要做如下几个事情：
 1. 剔除未被引用的依赖资源
 2. 区分主动收集和被动收集
 3. 找到依赖资源
 
 ### 剔除没有引用的资源
-这个步骤，只有当有收集项被配置成[Enum ECollectorType | YooAsset](https://www.yooasset.com/docs/api/YooAsset.Editor/ECollectorType#dependassetcollector)
+这个步骤，只有当有收集项被配置成[依赖资源](https://www.yooasset.com/docs/api/YooAsset.Editor/ECollectorType#dependassetcollector)才会生效。
 
