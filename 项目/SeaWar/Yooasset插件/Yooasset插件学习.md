@@ -134,7 +134,33 @@ private DependencyInfo CreateDependencyInfo(string assetPath)
 ### 剔除没有引用的资源
 这个步骤，只有当有收集项被配置成[依赖资源](https://www.yooasset.com/docs/api/YooAsset.Editor/ECollectorType#dependassetcollector)才会生效。我们配置了一部分资源为依赖资源，那么这些资源必须被其他资源依赖，如果没有，就需要进行剔除
 ### 录入主动收集的资源
-将所有需要被打包的资源整理完毕后（`CollectAssetInfo`列表），就需要进行Bundle设置了。Bundle的数据结构如下：
+将所有需要被打包的资源整理完毕后（`CollectAssetInfo`列表），就需要构建Bundle之间的引用关系了，因此，将收集到的资源，重新封装成`BuildAssetInfo`对象：
 ```CSharp
+public class BuildAssetInfo  
+{  
+    private readonly HashSet<string> _referenceBundleNames = new HashSet<string>();  
 
+    /// <summary>  
+    /// 资源包完整名称  
+    /// </summary>  
+    public string BundleName { private set; get; }  
+  
+    /// <summary>  
+    /// 可寻址地址  
+    /// </summary>  
+    public string Address { private set; get; }  
+  
+    /// <summary>  
+    /// 资源信息  
+    /// </summary>  
+    public AssetInfo AssetInfo { private set; get; }  
+    /// <summary>  
+    /// 依赖的所有资源  
+    /// 注意：包括零依赖资源和冗余资源（资源包名无效）  
+    /// </summary>  
+    public List<BuildAssetInfo> AllDependAssetInfos { private set; get; }
+}
 ```
+关键字段是`_referenceBundleNames`，因为其依赖资源，很多是共用同一个bundle名的。
+遍历整个`CollectAssetInfo`列表，对每个主资源，构建一个`BuildAssetInfo`对象。
+### 录入依赖资源
