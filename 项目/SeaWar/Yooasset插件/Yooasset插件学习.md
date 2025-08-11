@@ -63,9 +63,31 @@ public class CollectAssetInfo
     public List<AssetInfo> DependAssets = new List<AssetInfo>();  
 }
 ```
-这里重点关注`BundleName`和`DependAssets`这两个字段。在具体操作每个收集项部分，会使用`AssetBundleCollector.CreateCollectAssetInfo`方法将找到的资源封装成`CollectAssetInfo`对象。
-
-
+这里重点关注`BundleName`和`DependAssets`这两个字段。在具体操作每个收集项部分，会使用`AssetBundleCollector.CreateCollectAssetInfo`方法将找到的资源封装成`CollectAssetInfo`对象。我们重点关注一下该函数中，如果获取Bundle名和依赖资源列表
+```Csharp
+private string GetBundleName(CollectCommand command, AssetBundleCollectorGroup group, AssetInfo assetInfo)  
+{  
+    if (command.AutoCollectShaders)  
+    {        
+        if (assetInfo.IsShaderAsset())  
+        {            
+            // 获取着色器打包规则结果  
+            PackRuleResult shaderPackRuleResult = DefaultPackRule.CreateShadersPackRuleResult();  
+            return shaderPackRuleResult.GetBundleName(command.PackageName, 
+                                                    command.UniqueBundleName);  
+        }    
+    }  
+    // 获取其它资源打包规则结果  
+    IPackRule packRuleInstance = AssetBundleCollectorSettingData.GetPackRuleInstance(PackRuleName);  
+    PackRuleResult defaultPackRuleResult = packRuleInstance.GetPackRuleResult(
+        new PackRuleData(assetInfo.AssetPath, 
+                        CollectPath, 
+                        group.GroupName, 
+                        UserData));  
+    return defaultPackRuleResult.GetBundleName(command.PackageName, command.UniqueBundleName);  
+}
+```
+Shader资源的Bundle名是单独处理的，
 接下来，根据这份收集列表，需要做如下几个事情：
 1. 剔除未被引用的依赖资源
 2. 区分主动收集和被动收集
