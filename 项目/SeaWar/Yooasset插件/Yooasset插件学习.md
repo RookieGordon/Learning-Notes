@@ -164,3 +164,4 @@ public class BuildAssetInfo
 关键字段是`_referenceBundleNames`，因为其依赖资源，很多是共用同一个bundle名的。
 遍历整个`CollectAssetInfo`列表，对每个主资源，构建一个`BuildAssetInfo`对象。
 ### 录入依赖资源
+遍历整个`CollectAssetInfo`列表，遍历每个收集资源的依赖列表，
