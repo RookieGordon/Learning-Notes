@@ -10,7 +10,9 @@ finished: false
 displayIcon: pixel-banner-images/项目任务.png
 
 ---
-
+# 资源收集策略
+以下打包，以`ScriptableBuildPipeline`管线为例。
+## 打包参数`ScriptableBuildParameters`
 
 
 
