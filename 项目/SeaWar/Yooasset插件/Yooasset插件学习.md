@@ -186,5 +186,8 @@ public string GetShareBundleName(string packageName, bool uniqueBundleName)
 ```
 所以，共享资源的Bundle名为：`firstpkg_share_资源所在文件夹路径.bundle`
 # AssetBundle加载
-Yooasset插件的runtime部分，集成了Editor模式加载，离线模式加载，远程模式更新，远程模式加载等功能，这里着重讲解一下离线模式加载（OfflineMode）
+Yooasset插件的runtime部分，集成了Editor模式加载，离线模式加载，远程模式更新，远程模式加载等功能，这里着重讲解一下离线模式加载（OfflinePlayMode）。
+## Yooasset初始化
+## Yooasset加载资源
+
 
