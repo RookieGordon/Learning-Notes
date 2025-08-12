@@ -31,8 +31,8 @@
               "type": "todo",
               "state": {},
               "pinned": true,
-              "icon": "lucide-file",
-              "title": "插件不再活动"
+              "icon": "checkmark",
+              "title": "Todo List"
             }
           },
           {
@@ -64,7 +64,7 @@
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -253,7 +253,7 @@
       "share-to-notionnext:分享到 NotionNext": false
     }
   },
-  "active": "d9ea1ac1b38f916a",
+  "active": "bfadcb100fc239b8",
   "lastOpenFiles": [
     "项目/SeaWar/打包策略和资源规范调整/打包策略调整.md",
     "项目/SeaWar/Yooasset插件/Yooasset插件学习.md",
