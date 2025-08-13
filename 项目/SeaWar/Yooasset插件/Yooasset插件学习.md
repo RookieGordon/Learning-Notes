@@ -292,3 +292,16 @@ internal class OperationSystem
 }
 ```
 ### 资源加载任务
+`ResourceManager`是加载资源的管理类
+```CSharp
+internal class ResourceManager
+{
+	internal readonly Dictionary<string, ProviderOperation> ProviderDic 
+															= new Dictionary<string, ProviderOperation>(5000);  
+	internal readonly Dictionary<string, LoadBundleFileOperation> LoaderDic 
+															= new Dictionary<string, LoadBundleFileOperation>(5000);
+	private IBundleQuery _bundleQuery;
+}
+```
+`ProviderOperation`是资源加载任务发起者和最终资源的提供者。
+
