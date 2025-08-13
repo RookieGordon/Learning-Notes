@@ -189,5 +189,8 @@ public string GetShareBundleName(string packageName, bool uniqueBundleName)
 Yooasset插件的runtime部分，集成了Editor模式加载，离线模式加载，远程模式更新，远程模式加载等功能，这里着重讲解一下离线模式加载（OfflinePlayMode）。
 ## Yooasset初始化
 ## Yooasset加载资源
-![[（图解1）yooasset关键类图.png|610]]
-
+![[（图解1）yooasset关键类图.png|570]]
+![[（图解2）资源加载时序图.png|670]]
+Yooasset采用Update轮询加上状态来驱动整个资源加载流程。
+### 任务和任务驱动
+`AsyncOperationBase`是所有异步任务基类，
