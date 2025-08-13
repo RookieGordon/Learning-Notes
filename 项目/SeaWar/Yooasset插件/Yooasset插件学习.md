@@ -193,4 +193,45 @@ Yooasset插件的runtime部分，集成了Editor模式加载，离线模式加�
 ![[（图解2）资源加载时序图.png|670]]
 Yooasset采用Update轮询加上状态来驱动整个资源加载流程。
 ### 任务和任务驱动
-`AsyncOperationBase`是所有异步任务基类，
+`AsyncOperationBase`是所有异步任务基类，通过`Status`记录任务当前的状态，通过`StartOperation`、`UpdateOperation`、`AbortOperation`实现任务的启动，更新和中断。并且通过`Childs`和`InternalStart`、`InternalUpdate`、`InternalAbort`实现了任务的嵌套。
+```CSharp
+public abstract class AsyncOperationBase : IEnumerator, IComparable<AsyncOperationBase>
+{
+    /// <summary>
+    /// 所有子任务
+    /// </summary>
+    internal readonly List<AsyncOperationBase> Childs = new List<AsyncOperationBase>(10);
+    /// <summary>  
+    /// 任务状态  
+    /// </summary>  
+    public EOperationStatus Status { get; protected set; } = EOperationStatus.None;
+
+    internal abstract void InternalStart();  
+    internal abstract void InternalUpdate();  
+    internal virtual void InternalAbort();
+
+    /// <summary>  
+    /// 开始异步操作，开启所有子任务  
+    /// </summary>  
+    internal void StartOperation()  
+    {  
+        // do something...
+    }  
+    
+    /// <summary>  
+    /// 更新异步操作，更新所有子任务
+    /// </summary>  
+    internal void UpdateOperation()  
+    {  
+        // do something...
+    }  
+    
+    /// <summary>  
+    /// 终止异步任务，终止
+    /// </summary>  
+    internal void AbortOperation()  
+    {  
+        // do something...
+    }
+}
+```
