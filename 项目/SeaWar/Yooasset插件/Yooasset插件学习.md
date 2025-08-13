@@ -227,7 +227,7 @@ public abstract class AsyncOperationBase : IEnumerator, IComparable<AsyncOperati
     }  
     
     /// <summary>  
-    /// 终止异步任务，终止
+    /// 终止异步任务，终止所有子任务
     /// </summary>  
     internal void AbortOperation()  
     {  
@@ -235,3 +235,60 @@ public abstract class AsyncOperationBase : IEnumerator, IComparable<AsyncOperati
     }
 }
 ```
+`OperationSystem`用于驱动任务。
+```CSharp
+internal class OperationSystem
+{
+	private static readonly List<AsyncOperationBase> _operations 
+                                                    = new List<AsyncOperationBase>(1000);  
+    private static readonly List<AsyncOperationBase> _newList 
+                                                    = new List<AsyncOperationBase>(1000);
+
+    /// <summary>  
+    /// 更新异步操作系统  
+    /// </summary>  
+    public static void Update()  
+    {  
+        // 移除已经完成的异步操作  
+        // 注意：移除上一帧完成的异步操作，方便调试器接收到完整的信息！  
+        for (int i = _operations.Count - 1; i >= 0; i--)  
+        {        
+            var operation = _operations[i];  
+            if (operation.IsFinish)  
+                _operations.RemoveAt(i);  
+        }  
+        // 添加新增的异步操作  
+        if (_newList.Count > 0)  
+        {        
+            bool sorting = false;  
+            foreach (var operation in _newList)  
+            {            
+                if (operation.Priority > 0)  
+                {                
+                    sorting = true;  
+                    break;  
+                }        
+            }  
+            _operations.AddRange(_newList);  
+            _newList.Clear();  
+    
+            // 重新排序优先级  
+            if (sorting)  
+                _operations.Sort();  
+        }  
+        // 更新进行中的异步操作  
+        for (int i = 0; i < _operations.Count; i++)  
+        {        
+            if (IsBusy)  
+                break;  
+    
+            var operation = _operations[i];  
+            if (operation.IsFinish)  
+                continue;  
+    
+            operation.UpdateOperation();  
+        }
+    }
+}
+```
+### 资源加载任务
