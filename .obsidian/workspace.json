@@ -50,7 +50,7 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -239,7 +239,7 @@
       "share-to-notionnext:分享到 NotionNext": false
     }
   },
-  "active": "d9ea1ac1b38f916a",
+  "active": "bfadcb100fc239b8",
   "lastOpenFiles": [
     "项目/SeaWar/Yooasset插件/attachments/（图解2）资源加载时序图.png",
     "项目/SeaWar/Yooasset插件/attachments/（图解1）yooasset关键类图.png",
