@@ -31,8 +31,8 @@
               "type": "todo",
               "state": {},
               "pinned": true,
-              "icon": "lucide-file",
-              "title": "插件不再活动"
+              "icon": "lucide-ghost",
+              "title": "todo"
             }
           },
           {
@@ -151,8 +151,8 @@
             "state": {
               "type": "todo",
               "state": {},
-              "icon": "lucide-file",
-              "title": "插件不再活动"
+              "icon": "lucide-ghost",
+              "title": "todo"
             }
           }
         ]
@@ -259,12 +259,22 @@
             "state": {
               "type": "todo",
               "state": {},
-              "icon": "lucide-file",
-              "title": "插件不再活动"
+              "icon": "lucide-ghost",
+              "title": "todo"
             }
           },
           {
             "id": "59e377038410ab3c",
+            "type": "leaf",
+            "state": {
+              "type": "todo",
+              "state": {},
+              "icon": "lucide-ghost",
+              "title": "todo"
+            }
+          },
+          {
+            "id": "cd17c8549eafedf3",
             "type": "leaf",
             "state": {
               "type": "todo",
@@ -274,7 +284,7 @@
             }
           }
         ],
-        "currentTab": 7
+        "currentTab": 8
       }
     ],
     "direction": "horizontal",
@@ -283,6 +293,7 @@
   },
   "left-ribbon": {
     "hiddenItems": {
+      "bases:创建新数据库": false,
       "switcher:打开快速切换": false,
       "graph:查看关系图谱": false,
       "canvas:新建白板": false,
@@ -292,7 +303,7 @@
       "pexels-banner:🚩 Pixel Banner Menu": false
     }
   },
-  "active": "59e377038410ab3c",
+  "active": "cd17c8549eafedf3",
   "lastOpenFiles": [
     "项目/SeaWar/杂项代办/杂项代办.md",
     "项目/SeaWar/SeaWar.md",
