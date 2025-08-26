@@ -279,12 +279,22 @@
             "state": {
               "type": "todo",
               "state": {},
+              "icon": "lucide-ghost",
+              "title": "todo"
+            }
+          },
+          {
+            "id": "2d1b552cd0496fa3",
+            "type": "leaf",
+            "state": {
+              "type": "todo",
+              "state": {},
               "icon": "checkmark",
               "title": "Todo List"
             }
           }
         ],
-        "currentTab": 8
+        "currentTab": 9
       }
     ],
     "direction": "horizontal",
@@ -300,11 +310,23 @@
       "daily-notes:打开/创建今天的日记": false,
       "command-palette:打开命令面板": true,
       "obsidian-git:Open Git source control": true,
-      "pexels-banner:🚩 Pixel Banner Menu": false
+      "pexels-banner:🚩 Pixel Banner Menu": false,
+      "templater-obsidian:Templater": false,
+      "obsidian-excalidraw-plugin:新建绘图文件": false,
+      "moredraw:MoreDraw": false,
+      "obsidian-memos:Thino": false,
+      "pdf-plus:PDF++: Toggle auto-copy": false,
+      "pdf-plus:PDF++: Toggle auto-focus": false,
+      "pdf-plus:PDF++: Toggle auto-paste": false,
+      "vscode-editor:新建代码文件": false
     }
   },
-  "active": "cd17c8549eafedf3",
+  "active": "0c50ec00e39934e9",
   "lastOpenFiles": [
+    "项目/SeaWar/杂项代办/attachments/Pasted image 20250826201838.png",
+    "项目/SeaWar/杂项代办/attachments/Pasted image 20250826201759.png",
+    "项目/SeaWar/杂项代办/attachments/Pasted image 20250826201726.png",
+    "项目/SeaWar/杂项代办/attachments",
     "项目/SeaWar/杂项代办/杂项代办.md",
     "项目/SeaWar/SeaWar.md",
     "导航/主页.md",
@@ -338,7 +360,6 @@
     "项目/SeaWar/打包策略和资源规范调整/打包策略和资源规范调整.md",
     "项目/SeaWar/资源规范/资源规范整理.md",
     "项目/SeaWar/打包策略和资源规范调整/attachments/（图解1）UI模块中过大的bundle.png",
-    "项目/SeaWar/打包策略和资源规范调整/attachments/Pasted image 20250729153822.png",
     "项目/SeaWar/打包策略和资源规范调整/attachments",
     "项目/SeaWar/components/打包策略和资源规范调整_View.components",
     "项目/SeaWar/打包策略和资源规范调整",
@@ -348,8 +369,6 @@
     "项目/SeaWar/资源规范/资源规范.md",
     "项目/SeaWar/components/资源规范_View.components",
     "项目/SeaWar/打包步骤调整/资源目录划分规则整理.md",
-    "项目/SeaWar/资源规范",
-    "项目/SeaWar/正式版本分支规划/attachments/（图解1）版本线路图.png",
     "未命名.canvas"
   ]
 }
