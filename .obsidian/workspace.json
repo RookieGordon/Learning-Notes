@@ -90,9 +90,21 @@
               "icon": "lucide-file",
               "title": "8月代办杂项"
             }
+          },
+          {
+            "id": "21434a8facbf3378",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.9.14"
+              },
+              "icon": "lucide-book-up",
+              "title": "版本说明 1.9.14"
+            }
           }
         ],
-        "currentTab": 5
+        "currentTab": 6
       }
     ],
     "direction": "vertical"
@@ -309,12 +321,22 @@
             "state": {
               "type": "todo",
               "state": {},
+              "icon": "lucide-ghost",
+              "title": "todo"
+            }
+          },
+          {
+            "id": "7b3b70052a684a90",
+            "type": "leaf",
+            "state": {
+              "type": "todo",
+              "state": {},
               "icon": "checkmark",
               "title": "Todo List"
             }
           }
         ],
-        "currentTab": 11
+        "currentTab": 12
       }
     ],
     "direction": "horizontal",
@@ -333,7 +355,7 @@
       "pexels-banner:🚩 Pixel Banner Menu": false
     }
   },
-  "active": "57bcba122909276f",
+  "active": "7b3b70052a684a90",
   "lastOpenFiles": [
     "项目/SeaWar/杂项代办/杂项代办.md",
     "课程和练习/C++/容器、算法和迭代器.md",
