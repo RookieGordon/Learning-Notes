@@ -53,58 +53,17 @@
             "id": "1374727d4f35598f",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "bases",
               "state": {
-                "file": "项目/SeaWar/SeaWar.md",
-                "mode": "preview",
-                "source": false
+                "file": "未命名 3.base",
+                "viewName": "表格"
               },
-              "icon": "lucide-file",
-              "title": "SeaWar"
-            }
-          },
-          {
-            "id": "0905b71f81293748",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "项目/SeaWar/杂项代办/杂项代办.md",
-                "mode": "preview",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "杂项代办"
-            }
-          },
-          {
-            "id": "4c57e98c26f532ab",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "项目/SeaWar/杂项代办/8月代办杂项.md",
-                "mode": "preview",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "8月代办杂项"
-            }
-          },
-          {
-            "id": "21434a8facbf3378",
-            "type": "leaf",
-            "state": {
-              "type": "release-notes",
-              "state": {
-                "currentVersion": "1.9.14"
-              },
-              "icon": "lucide-book-up",
-              "title": "版本说明 1.9.14"
+              "icon": "lucide-table",
+              "title": "未命名 3"
             }
           }
         ],
-        "currentTab": 6
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -331,12 +290,22 @@
             "state": {
               "type": "todo",
               "state": {},
+              "icon": "lucide-ghost",
+              "title": "todo"
+            }
+          },
+          {
+            "id": "810c8b07a39acb6d",
+            "type": "leaf",
+            "state": {
+              "type": "todo",
+              "state": {},
               "icon": "checkmark",
               "title": "Todo List"
             }
           }
         ],
-        "currentTab": 12
+        "currentTab": 13
       }
     ],
     "direction": "horizontal",
@@ -352,12 +321,25 @@
       "daily-notes:打开/创建今天的日记": false,
       "command-palette:打开命令面板": true,
       "obsidian-git:Open Git source control": true,
-      "pexels-banner:🚩 Pixel Banner Menu": false
+      "pexels-banner:🚩 Pixel Banner Menu": false,
+      "templater-obsidian:Templater": false,
+      "obsidian-excalidraw-plugin:新建绘图文件": false,
+      "moredraw:MoreDraw": false,
+      "obsidian-memos:Thino": false,
+      "pdf-plus:PDF++: Toggle auto-copy": false,
+      "pdf-plus:PDF++: Toggle auto-focus": false,
+      "pdf-plus:PDF++: Toggle auto-paste": false,
+      "vscode-editor:新建代码文件": false
     }
   },
-  "active": "7b3b70052a684a90",
+  "active": "1374727d4f35598f",
   "lastOpenFiles": [
+    "未命名 2.base",
+    "未命名 3.base",
+    "项目/SeaWar/SeaWar.md",
+    "项目/SeaWar/Unity杂项知识点/Unity中的GUID和LocalID.md",
     "项目/SeaWar/杂项代办/杂项代办.md",
+    "项目/SeaWar/杂项代办/8月代办杂项.md",
     "课程和练习/C++/容器、算法和迭代器.md",
     "课程和练习/C++/内存管理.md",
     "课程和练习/C++/模板.md",
@@ -366,13 +348,11 @@
     "课程和练习/计算机图形学—从0开始构建一个OpenGL软光栅/计算机图形学—从0开始构建一个OpenGL软光栅.md",
     "未命名 1.base",
     "未命名.base",
-    "项目/SeaWar/杂项代办/8月代办杂项.md",
     "项目/SeaWar/杂项代办/attachments/Pasted image 20250830110505.png",
     "项目/SeaWar/杂项代办/attachments/Pasted image 20250826201838.png",
     "项目/SeaWar/杂项代办/attachments/Pasted image 20250826201759.png",
     "项目/SeaWar/杂项代办/attachments/Pasted image 20250826201726.png",
     "项目/SeaWar/杂项代办/attachments",
-    "项目/SeaWar/SeaWar.md",
     "导航/主页.md",
     "项目/SeaWar/Yooasset插件/Yooasset插件学习.md",
     "项目/SeaWar/Yooasset插件/attachments/（图解2）资源加载时序图.png",
@@ -400,10 +380,7 @@
     "项目/SeaWar/打包策略和资源规范调整/attachments/（图解4）IntelAtlas的Bundle资源.png",
     "项目/SeaWar/打包策略和资源规范调整/attachments/（图解3）Intel模块的交叉引用.png",
     "项目/SeaWar/打包策略和资源规范调整/打包策略和资源规范调整.md",
-    "项目/SeaWar/资源规范/资源规范整理.md",
     "项目/SeaWar/打包策略和资源规范调整/attachments",
-    "项目/SeaWar/components/打包策略和资源规范调整_View.components",
-    "项目/SeaWar/打包步骤调整/资源自动导入YooassetCollector.md",
     "未命名.canvas"
   ]
 }
