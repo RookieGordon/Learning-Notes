@@ -311,12 +311,22 @@
             "state": {
               "type": "todo",
               "state": {},
+              "icon": "lucide-ghost",
+              "title": "todo"
+            }
+          },
+          {
+            "id": "0857b7db1237bcaa",
+            "type": "leaf",
+            "state": {
+              "type": "todo",
+              "state": {},
               "icon": "checkmark",
               "title": "Todo List"
             }
           }
         ],
-        "currentTab": 14
+        "currentTab": 15
       }
     ],
     "direction": "horizontal",
@@ -335,7 +345,7 @@
       "pexels-banner:🚩 Pixel Banner Menu": false
     }
   },
-  "active": "73ae0f9677a0462d",
+  "active": "0857b7db1237bcaa",
   "lastOpenFiles": [
     "项目/SeaWar/热更功能合并/CSharp继承的小坑.md",
     "项目/SeaWar/资源规范/资源规范整理.md",
