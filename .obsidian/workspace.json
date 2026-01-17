@@ -4,67 +4,20 @@
     "type": "split",
     "children": [
       {
-        "id": "7ffdefdb9f53ec86",
+        "id": "b6eb3ac5d8cf7d4d",
         "type": "tabs",
         "children": [
           {
-            "id": "4719768e372023f3",
+            "id": "8fca041ac2b9d5a8",
             "type": "leaf",
-            "pinned": true,
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "导航/主页.md",
-                "mode": "source",
-                "source": false
-              },
-              "pinned": true,
-              "icon": "lucide-file",
-              "title": "主页"
-            }
-          },
-          {
-            "id": "bfadcb100fc239b8",
-            "type": "leaf",
-            "pinned": true,
-            "state": {
-              "type": "todo",
+              "type": "empty",
               "state": {},
-              "pinned": true,
-              "icon": "lucide-ghost",
-              "title": "todo"
-            }
-          },
-          {
-            "id": "d9ea1ac1b38f916a",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "项目/SeaWar/Unity杂项知识点/Unity杂项知识点.md",
-                "mode": "source",
-                "source": false
-              },
               "icon": "lucide-file",
-              "title": "Unity杂项知识点"
-            }
-          },
-          {
-            "id": "c7d847fb28f8200c",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "项目/SeaWar/工具/Prefab的引用替换工具.md",
-                "mode": "preview",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Prefab的引用替换工具"
+              "title": "新标签页"
             }
           }
-        ],
-        "currentTab": 3
+        ]
       }
     ],
     "direction": "vertical"
@@ -131,8 +84,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 385.5,
-    "collapsed": true
+    "width": 385.5
   },
   "right": {
     "id": "be1e91dfcb57ce3b",
@@ -321,12 +273,32 @@
             "state": {
               "type": "todo",
               "state": {},
+              "icon": "lucide-ghost",
+              "title": "todo"
+            }
+          },
+          {
+            "id": "ae9405f774065bc7",
+            "type": "leaf",
+            "state": {
+              "type": "todo",
+              "state": {},
+              "icon": "lucide-ghost",
+              "title": "todo"
+            }
+          },
+          {
+            "id": "f4197108fc41867d",
+            "type": "leaf",
+            "state": {
+              "type": "todo",
+              "state": {},
               "icon": "checkmark",
               "title": "Todo List"
             }
           }
         ],
-        "currentTab": 15
+        "currentTab": 17
       }
     ],
     "direction": "horizontal",
@@ -335,29 +307,34 @@
   },
   "left-ribbon": {
     "hiddenItems": {
-      "bases:创建新数据库": false,
+      "bases:新建数据库": false,
       "switcher:打开快速切换": false,
       "graph:查看关系图谱": false,
       "canvas:新建白板": false,
       "daily-notes:打开/创建今天的日记": false,
       "command-palette:打开命令面板": true,
       "obsidian-git:Open Git source control": true,
-      "pexels-banner:🚩 Pixel Banner Menu": false
+      "pexels-banner:🚩 Pixel Banner Menu": false,
+      "templater-obsidian:Templater": false
     }
   },
-  "active": "0857b7db1237bcaa",
+  "active": "f4197108fc41867d",
   "lastOpenFiles": [
+    "未命名 1.base",
+    "250520_1322144566@qq.com_components_license.md",
+    "未命名.base",
+    "导航/主页.md",
+    "项目/SeaWar/工具/Prefab的引用替换工具.md",
+    "项目/SeaWar/Unity杂项知识点/Unity杂项知识点.md",
     "项目/SeaWar/热更功能合并/CSharp继承的小坑.md",
     "项目/SeaWar/资源规范/资源规范整理.md",
     "项目/SeaWar/资源规范/资源规范.md",
     "项目/SeaWar/Unity杂项知识点/编辑器内存泄露.md",
     "项目/SeaWar/Unity杂项知识点/资源导入.md",
     "项目/SeaWar/Unity杂项知识点/Unity中的GUID和LocalID.md",
-    "项目/SeaWar/Unity杂项知识点/Unity杂项知识点.md",
     "项目/SeaWar/Unity杂项知识点/ScriptableObject生命周期.md",
     "项目/SeaWar/Unity杂项知识点/Prefab编辑模式.md",
     "未命名 4.base",
-    "未命名.base",
     "未命名 3.base",
     "未命名 2.base",
     "项目/SeaWar/SeaWar.md",
@@ -369,13 +346,11 @@
     "课程和练习/C++/类和对象.md",
     "课程和练习/C++/C++.canvas",
     "课程和练习/计算机图形学—从0开始构建一个OpenGL软光栅/计算机图形学—从0开始构建一个OpenGL软光栅.md",
-    "未命名 1.base",
     "项目/SeaWar/杂项代办/attachments/Pasted image 20250830110505.png",
     "项目/SeaWar/杂项代办/attachments/Pasted image 20250826201838.png",
     "项目/SeaWar/杂项代办/attachments/Pasted image 20250826201759.png",
     "项目/SeaWar/杂项代办/attachments/Pasted image 20250826201726.png",
     "项目/SeaWar/杂项代办/attachments",
-    "导航/主页.md",
     "项目/SeaWar/Yooasset插件/Yooasset插件学习.md",
     "项目/SeaWar/Yooasset插件/attachments/（图解2）资源加载时序图.png",
     "项目/SeaWar/Yooasset插件/attachments/（图解1）yooasset关键类图.png",
@@ -386,9 +361,6 @@
     "游戏开发技术探索/ET8.1/网络框架/网络框架.md",
     "游戏开发技术探索/ET8.1/网络框架/网络协议收发.md",
     "游戏开发技术探索/ET8.1/网络框架/网络协议.md",
-    "游戏开发技术探索/ET8.1/网络框架/网络层.md",
-    "游戏开发技术探索/ET8.1/框架介绍/ET框架介绍.md",
-    "游戏开发技术探索/ET8.1/框架介绍/ET框架结构.md",
     "项目/SeaWar/Yooasset插件/attachments/（图解1）Yooasset中配置的收集组，收集项.png",
     "项目/SeaWar/Yooasset插件/attachments",
     "项目/SeaWar/components/Yooasset插件_View.components",
