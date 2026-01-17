@@ -103,7 +103,7 @@
     "obsidian-reminder-plugin": {
       "id": "obsidian-reminder-plugin",
       "delay": 0,
-      "enabled": true
+      "enabled": false
     },
     "slurp": {
       "id": "slurp",

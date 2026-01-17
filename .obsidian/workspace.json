@@ -11,10 +11,14 @@
             "id": "8fca041ac2b9d5a8",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "apk_diff_patch_android_客户端完整接入与构建文档.md",
+                "mode": "preview",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "新标签页"
+              "title": "apk_diff_patch_android_客户端完整接入与构建文档"
             }
           }
         ]
@@ -100,13 +104,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "项目/SeaWar/Yooasset插件/Yooasset插件学习.md",
-                "followCursor": true,
-                "showSearch": false,
+                "file": "apk_diff_patch_android_客户端完整接入与构建文档.md",
+                "followCursor": false,
+                "showSearch": true,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Yooasset插件学习 的大纲"
+              "title": "apk_diff_patch_android_客户端完整接入与构建文档 的大纲"
             }
           },
           {
@@ -166,144 +170,12 @@
               "icon": "git-pull-request",
               "title": "Source Control"
             }
-          },
-          {
-            "id": "b54468e58ffb5e86",
-            "type": "leaf",
-            "state": {
-              "type": "reminder-list",
-              "state": {},
-              "icon": "clock",
-              "title": "Reminders"
-            }
-          },
-          {
-            "id": "1996a75a1f0ec82e",
-            "type": "leaf",
-            "state": {
-              "type": "todo",
-              "state": {},
-              "icon": "lucide-ghost",
-              "title": "todo"
-            }
-          },
-          {
-            "id": "59e377038410ab3c",
-            "type": "leaf",
-            "state": {
-              "type": "todo",
-              "state": {},
-              "icon": "lucide-ghost",
-              "title": "todo"
-            }
-          },
-          {
-            "id": "cd17c8549eafedf3",
-            "type": "leaf",
-            "state": {
-              "type": "todo",
-              "state": {},
-              "icon": "lucide-ghost",
-              "title": "todo"
-            }
-          },
-          {
-            "id": "2d1b552cd0496fa3",
-            "type": "leaf",
-            "state": {
-              "type": "todo",
-              "state": {},
-              "icon": "lucide-ghost",
-              "title": "todo"
-            }
-          },
-          {
-            "id": "bc9b0e3f97857db0",
-            "type": "leaf",
-            "state": {
-              "type": "todo",
-              "state": {},
-              "icon": "lucide-ghost",
-              "title": "todo"
-            }
-          },
-          {
-            "id": "57bcba122909276f",
-            "type": "leaf",
-            "state": {
-              "type": "todo",
-              "state": {},
-              "icon": "lucide-ghost",
-              "title": "todo"
-            }
-          },
-          {
-            "id": "7b3b70052a684a90",
-            "type": "leaf",
-            "state": {
-              "type": "todo",
-              "state": {},
-              "icon": "lucide-ghost",
-              "title": "todo"
-            }
-          },
-          {
-            "id": "810c8b07a39acb6d",
-            "type": "leaf",
-            "state": {
-              "type": "todo",
-              "state": {},
-              "icon": "lucide-ghost",
-              "title": "todo"
-            }
-          },
-          {
-            "id": "73ae0f9677a0462d",
-            "type": "leaf",
-            "state": {
-              "type": "todo",
-              "state": {},
-              "icon": "lucide-ghost",
-              "title": "todo"
-            }
-          },
-          {
-            "id": "0857b7db1237bcaa",
-            "type": "leaf",
-            "state": {
-              "type": "todo",
-              "state": {},
-              "icon": "lucide-ghost",
-              "title": "todo"
-            }
-          },
-          {
-            "id": "ae9405f774065bc7",
-            "type": "leaf",
-            "state": {
-              "type": "todo",
-              "state": {},
-              "icon": "lucide-ghost",
-              "title": "todo"
-            }
-          },
-          {
-            "id": "f4197108fc41867d",
-            "type": "leaf",
-            "state": {
-              "type": "todo",
-              "state": {},
-              "icon": "checkmark",
-              "title": "Todo List"
-            }
           }
-        ],
-        "currentTab": 17
+        ]
       }
     ],
     "direction": "horizontal",
-    "width": 545,
-    "collapsed": true
+    "width": 545
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -315,11 +187,19 @@
       "command-palette:打开命令面板": true,
       "obsidian-git:Open Git source control": true,
       "pexels-banner:🚩 Pixel Banner Menu": false,
-      "templater-obsidian:Templater": false
+      "templater-obsidian:Templater": false,
+      "obsidian-excalidraw-plugin:新建绘图文件": false,
+      "moredraw:MoreDraw": false,
+      "obsidian-memos:Thino": false,
+      "pdf-plus:PDF++: Toggle auto-copy": false,
+      "pdf-plus:PDF++: Toggle auto-focus": false,
+      "pdf-plus:PDF++: Toggle auto-paste": false,
+      "vscode-editor:新建代码文件": false
     }
   },
-  "active": "f4197108fc41867d",
+  "active": "8fca041ac2b9d5a8",
   "lastOpenFiles": [
+    "apk_diff_patch_android_客户端完整接入与构建文档.md",
     "未命名 1.base",
     "250520_1322144566@qq.com_components_license.md",
     "未命名.base",
