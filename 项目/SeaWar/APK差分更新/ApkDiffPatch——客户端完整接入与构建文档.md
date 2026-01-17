@@ -112,7 +112,7 @@ builds/android_ndk_jni_mk/apk_patch.cpp
 因此：
 
 - 文档中提到的 `apkpatch.cpp` **属于误称**
-- 正确文件名是：``
+- 正确文件名是：`apk_patch.cpp`
 
 ---
 
