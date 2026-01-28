@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "69f3cebbf02e31a5",
+        "id": "e0038d24d959f850",
         "type": "tabs",
         "children": [
           {
-            "id": "99425d6929668b0b",
+            "id": "8dff584487c46993",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -69,18 +69,9 @@
               "icon": "lucide-bookmark",
               "title": "书签"
             }
-          },
-          {
-            "id": "ca02d6f0bc822c73",
-            "type": "leaf",
-            "state": {
-              "type": "todo",
-              "state": {},
-              "icon": "lucide-ghost",
-              "title": "todo"
-            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -166,19 +157,9 @@
               "icon": "git-pull-request",
               "title": "Source Control"
             }
-          },
-          {
-            "id": "2f44a3ceb0a23ef5",
-            "type": "leaf",
-            "state": {
-              "type": "todo",
-              "state": {},
-              "icon": "checkmark",
-              "title": "Todo List"
-            }
           }
         ],
-        "currentTab": 5
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
@@ -205,17 +186,17 @@
       "vscode-editor:新建代码文件": false
     }
   },
-  "active": "99425d6929668b0b",
+  "active": "8dff584487c46993",
   "lastOpenFiles": [
-    "Excalidraw/Map.md",
-    "Excalidraw/ScratchPaper.md",
     "250520_1322144566@qq.com_components_license.md",
+    "未命名.base",
+    "Excalidraw/ScratchPaper.md",
+    "Excalidraw/Map.md",
     "wallpapers/S-1.紫灵 凡人修仙传.jpg",
     "项目/SeaWar/APK差分更新/ApkDiffPatch——客户端完整接入与构建文档.md",
     "项目/SeaWar/APK差分更新/apk_diff_patch_android_客户端完整接入与构建文档.md",
     "未命名 1.base",
     "项目/SeaWar/APK差分更新",
-    "未命名.base",
     "apk_diff_patch_android_客户端完整接入与构建文档.md",
     "AAAA.md",
     "导航/主页.md",
@@ -240,7 +221,6 @@
     "课程和练习/C++/模板.md",
     "课程和练习/C++/类和对象.md",
     "课程和练习/C++/C++.canvas",
-    "课程和练习/计算机图形学—从0开始构建一个OpenGL软光栅/计算机图形学—从0开始构建一个OpenGL软光栅.md",
     "项目/SeaWar/杂项代办/attachments/Pasted image 20250830110505.png",
     "项目/SeaWar/杂项代办/attachments/Pasted image 20250826201838.png",
     "项目/SeaWar/杂项代办/attachments/Pasted image 20250826201759.png",
