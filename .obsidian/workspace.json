@@ -11,10 +11,12 @@
             "id": "ed0a80a01b5d35c6",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "新标签页"
+              "type": "excalidraw",
+              "state": {
+                "file": "Excalidraw/Map.md"
+              },
+              "icon": "excalidraw-icon",
+              "title": "Map"
             }
           }
         ]
@@ -206,7 +208,9 @@
   },
   "active": "ed0a80a01b5d35c6",
   "lastOpenFiles": [
+    "Excalidraw/ScratchPaper.md",
     "250520_1322144566@qq.com_components_license.md",
+    "wallpapers/S-1.紫灵 凡人修仙传.jpg",
     "项目/SeaWar/APK差分更新/ApkDiffPatch——客户端完整接入与构建文档.md",
     "项目/SeaWar/APK差分更新/apk_diff_patch_android_客户端完整接入与构建文档.md",
     "未命名 1.base",
@@ -248,11 +252,9 @@
     "游戏开发技术探索/ET8.1/网络框架/attachments/（图解1）客户端消息流转.drawio.png.~tmp",
     "游戏开发技术探索/ET8.1/网络框架/attachments/（图解1）客户端消息流转.drawio.png~RF42a8aba.TMP",
     "游戏开发技术探索/ET8.1/网络框架/attachments/（图解1）客户端消息流转.drawio.png",
-    "游戏开发技术探索/ET8.1/ET8.1.md",
     "项目/SeaWar/Yooasset插件/attachments/（图解1）Yooasset中配置的收集组，收集项.png",
     "项目/SeaWar/Yooasset插件/attachments",
     "项目/SeaWar/打包策略和资源规范调整/attachments/（图解4）IntelAtlas的Bundle资源.png",
-    "项目/SeaWar/打包策略和资源规范调整/attachments/（图解3）Intel模块的交叉引用.png",
     "未命名.canvas"
   ]
 }

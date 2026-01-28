@@ -123,7 +123,7 @@
     "templater-obsidian": {
       "id": "templater-obsidian",
       "delay": 8000,
-      "enabled": true
+      "enabled": false
     },
     "timelines-revamped": {
       "id": "timelines-revamped",
@@ -173,7 +173,7 @@
     "pexels-banner": {
       "id": "pexels-banner",
       "delay": 0,
-      "enabled": true
+      "enabled": false
     },
     "obsidian-dynamic-background": {
       "id": "obsidian-dynamic-background",
