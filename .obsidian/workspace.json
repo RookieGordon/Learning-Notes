@@ -11,10 +11,14 @@
             "id": "dca5f8acf8403c70",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "250520_1322144566@qq.com_components_license.md",
+                "mode": "preview",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "新标签页"
+              "title": "250520_1322144566@qq.com_components_license"
             }
           }
         ]
@@ -194,10 +198,17 @@
       "command-palette:打开命令面板": true,
       "obsidian-git:Open Git source control": true,
       "pexels-banner:🚩 Pixel Banner Menu": false,
-      "templater-obsidian:Templater": false
+      "templater-obsidian:Templater": false,
+      "obsidian-excalidraw-plugin:新建绘图文件": false,
+      "moredraw:MoreDraw": false,
+      "obsidian-memos:Thino": false,
+      "pdf-plus:PDF++: Toggle auto-copy": false,
+      "pdf-plus:PDF++: Toggle auto-focus": false,
+      "pdf-plus:PDF++: Toggle auto-paste": false,
+      "vscode-editor:新建代码文件": false
     }
   },
-  "active": "2f44a3ceb0a23ef5",
+  "active": "dca5f8acf8403c70",
   "lastOpenFiles": [
     "项目/SeaWar/APK差分更新/ApkDiffPatch——客户端完整接入与构建文档.md",
     "项目/SeaWar/APK差分更新/apk_diff_patch_android_客户端完整接入与构建文档.md",
