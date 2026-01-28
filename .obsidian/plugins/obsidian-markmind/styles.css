@@ -1066,6 +1066,12 @@ th {
     word-wrap: break-word
 }
 
+.mm-node-edit code,
+.cm-node-text code {
+    word-break: break-all;
+    white-space: break-spaces;
+}
+
 /* .cm-node-text mjx-math,
 .mm-node-edit mjx-math {
     max-width: 100%;
@@ -1291,7 +1297,7 @@ th {
     font-size: 16px;
     width: 8000px;
     height: 8000px;
-    transition: all 0.15s linear;
+    transition: all 0.05s linear;
 
 }
 
@@ -1404,6 +1410,25 @@ th {
 .mm-node .mm-node-content table img,
 .mm-node-note-container table img {
     background-color: transparent;
+}
+
+.theme-dark .mm-node .mm-node-content table tr,
+.theme-dark .mm-node-note-container table tr {
+    background-color: #222;
+    border-top: 1px solid hsl(210deg 16.85% 50.93%);
+}
+
+.theme-dark .mm-node .mm-node-content table tr:nth-child(2n),
+.theme-dark .mm-node-note-container table tr:nth-child(2n) {
+    background-color: #222;
+    border-top: 1px solid hsl(210deg 16.85% 50.93%);
+}
+
+.theme-dark .mm-node .mm-node-content table th,
+.theme-dark .mm-node .mm-node-content table td,
+.theme-dark .mm-node-note-container table th,
+.theme-dark .mm-node-note-container table td {
+    border: 1px solid #3f3f3f;
 }
 
 /* .mm-node .mm-node-content img[align=right] {
@@ -1553,10 +1578,26 @@ th {
 }
 
 .mm-node-left.mm-fish-node>.mm-node-bar {
-    bottom: -6px !important;
-    left: -12px !important;
-    top: auto;
+    left: -20px;
+    top: 50%;
+    margin-top: -5px;
 }
+
+.mm-node.mm-node-left.mm-fish-top>.mm-node-bar {
+    display: block;
+    left: 50%;
+    margin-left: -2px;
+    top: 100%;
+    margin-top: 4px;
+}
+
+.mm-node.mm-node-left.mm-fish-bottom>.mm-node-bar {
+    display: block;
+    left: 50%;
+    margin-left: 0px;
+    top: -15px;
+}
+
 
 
 
@@ -2575,9 +2616,10 @@ th {
     box-shadow: 0 0 0 #fff;
 }
 
-.mm-mobile-app .mm-node .mm-node-content {
+/* .mm-mobile-app .mm-node .mm-node-edit,
+.mm-mobile-app .mm-node .cm-node-text {
     max-width: 400px;
-}
+} */
 
 .mm-note {
     position: absolute;
@@ -3300,6 +3342,41 @@ th {
     cursor: pointer;
 }
 
+.mm-embed-link {
+    position: absolute;
+    width: 182px;
+    height: 30px;
+    background-color: #333;
+    border: 1px solid #000;
+    border-radius: 3px;
+    z-index: 1000;
+    cursor: pointer;
+    color: #666;
+    
+}
+
+.mm-embed-link div {
+    width: 90px;
+    float: left;
+    text-align: center;
+    line-height: 30px;
+    font-size: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mm-embed-link div span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 2px;
+}
+
+.mm-embed-link div span svg {
+    fill: #666;
+}
+
 /* .mm-link-menu:before {
     width: 0;
     height: 0;
@@ -3610,7 +3687,7 @@ span.mm-sline .line {
 .cm-mindmap-ppt span {
     vertical-align: middle;
     display: inline-flex;
-    width: 24px;
+    min-width: 30px;
     height: 24px;
     align-items: center;
     justify-content: center;

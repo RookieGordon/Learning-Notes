@@ -103,5 +103,6 @@
   "logs": {
     "logPath": "_slurplogs",
     "debug": false
-  }
+  },
+  "frontmatterOnly": false
 }

@@ -6,12 +6,6 @@
   -webkit-app-region: drag;
 }
 
-.workspace-ribbon.side-dock-ribbon.mod-left,
-.workspace-ribbon.mod-left,
-.workspace-ribbon.mod-right {
-  background-color: transparent !important;
-}
-
 .titlebar-button-container {
   z-index: 9999;
   -webkit-app-region: no-drag;
@@ -25,25 +19,20 @@
   background-color: var(--background-modifier-hover) !important;
 }
 
-.app-container {
-  background-color: transparent !important;
-}
-
 .live-wallpaper-active .titlebar {
-  background-color: transparent !important;
   border-bottom: none !important;
   -webkit-app-region: drag;
 }
 
 #live-wallpaper-container {
   transition: opacity 0.3s ease, filter 0.3s ease;
+  pointer-events: none;
 }
 
 video#live-wallpaper-media {
   transition: playback-rate 0.3s ease;
 }
 .text-arena-table {
-  width: 100%;
   border-collapse: collapse;
   margin: 10px 0;
 }
@@ -73,7 +62,6 @@ video#live-wallpaper-media {
   padding: 0 !important;
   margin: 0 !important;
 }
-
 .text-arena-table .setting-item-control {
   width: 100%;
 }

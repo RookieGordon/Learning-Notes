@@ -9145,6 +9145,30 @@ var extractDomain = (u) => {
   }
   return null;
 };
+var getErrorMessage = (err) => {
+  var _a;
+  const message = (_a = err.message) != null ? _a : String(err);
+  if (message.includes("401") || message.includes("403")) {
+    return "This site cannot be slurped as it requires a login.";
+  }
+  if (message.includes("400")) {
+    return "Invalid request. Please check the URL and try again.";
+  }
+  if (message.includes("404")) {
+    return "Page not found. Please check the URL and try again.";
+  }
+  if (message.includes("429")) {
+    return "Too many requests. Please wait a moment and try again.";
+  }
+  const serverErrorCodes = ["500", "502", "503", "504", "408"];
+  if (serverErrorCodes.some((code) => message.includes(code))) {
+    return "The server encountered an error. Please try again later.";
+  }
+  if (message.toLowerCase().includes("network") || message.toLowerCase().includes("timeout") || message.toLowerCase().includes("connection")) {
+    return "A network error occurred. Please check your connection and try again.";
+  }
+  return `${message}. If this is a bug, please report it from plugin settings.`;
+};
 
 // src/lib/logger.ts
 var MAX_BUFFER_SIZE = 100;
@@ -9557,6 +9581,7 @@ var FRONT_MATTER_ITEM_DEFAULT_SETTINGS = createFrontMatterPropSettings(createFro
 var DEFAULT_SETTINGS = {
   settingsVersion: 1,
   defaultPath: "Slurped Pages",
+  frontmatterOnly: false,
   fm: {
     includeEmpty: false,
     tags: {
@@ -9690,15 +9715,21 @@ var SlurpNewNoteModal = class extends import_obsidian5.Modal {
   onOpen() {
     const { contentEl } = this;
     let slurpBtn;
+    let frontmatterOnlyValue = this.plugin.settings.frontmatterOnly;
     new import_obsidian5.Setting(contentEl).setName("What would you like to slurp today?").setHeading();
     const urlField = new ValidatedTextComponent(contentEl).setPlaceholder("https://www.somesite.com/...").setMinimumLength(5).addValidator((url) => this.validateUrlFormat(url)).addValidator((url) => this.validateKnownBrokenDomains(url)).onValidate((url, errs) => {
       slurpBtn.setDisabled(errs.length > 0 || urlField.getValue().length < 5);
     });
     urlField.inputEl.setCssProps({ "width": "100%" });
     const progressBar = new BouncingProgressBarComponent(contentEl);
+    new import_obsidian5.Setting(contentEl).setName("Frontmatter only").addToggle(
+      (toggle) => toggle.setValue(this.plugin.settings.frontmatterOnly).onChange((value) => {
+        frontmatterOnlyValue = value;
+      })
+    );
     const doSlurp = () => {
       progressBar.start();
-      this.plugin.slurp(urlField.getValue());
+      this.plugin.slurp(urlField.getValue(), frontmatterOnlyValue);
       progressBar.stop();
       this.close();
     };
@@ -12362,6 +12393,12 @@ var SlurpSettingsTab = class extends import_obsidian9.PluginSettingTab {
       this.plugin.settings.defaultPath = val.path;
       await this.plugin.saveSettings();
     });
+    new import_obsidian9.Setting(containerEl).setName("Frontmatter only").setDesc("Save only frontmatter, leaving note content empty.").addToggle(
+      (toggle) => toggle.setValue(this.plugin.settings.frontmatterOnly).onChange(async (val) => {
+        this.plugin.settings.frontmatterOnly = val;
+        await this.plugin.saveSettings();
+      })
+    );
     new import_obsidian9.Setting(containerEl).setName("Properties").setHeading();
     new import_obsidian9.Setting(containerEl).setName("Show empty properties").setDesc("Should Slurp add all note properties even if they are empty?").addToggle(
       (toggle) => toggle.setValue(this.plugin.settings.fm.includeEmpty).onChange(async (val) => {
@@ -12450,7 +12487,7 @@ var SlurpSettingsTab = class extends import_obsidian9.PluginSettingTab {
 var SlurpPlugin = class extends import_obsidian10.Plugin {
   constructor() {
     super(...arguments);
-    this.displayError = (err) => new import_obsidian10.Notice(`Slurp Error! ${err.message}. If this is a bug, please report it from plugin settings.`, 0);
+    this.displayError = (err) => new import_obsidian10.Notice(`Slurp Error! ${getErrorMessage(err)}`, 0);
   }
   async onload() {
     await this.loadSettings();
@@ -12471,6 +12508,17 @@ var SlurpPlugin = class extends import_obsidian10.Plugin {
         this.displayError(err);
       }
     });
+    this.registerEvent(
+      //eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      //@ts-ignore
+      this.app.workspace.on("receive-text-menu", (menu, shareText) => {
+        menu.addItem((item) => {
+          item.setTitle("Slurp");
+          item.setIcon("download");
+          item.onClick(() => this.slurp(shareText));
+        });
+      })
+    );
   }
   onunload() {
   }
@@ -12500,6 +12548,8 @@ var SlurpPlugin = class extends import_obsidian10.Plugin {
   patchInDefaults() {
     if (this.settings.defaultPath === void 0)
       this.settings.defaultPath = DEFAULT_SETTINGS.defaultPath;
+    if (this.settings.frontmatterOnly === void 0)
+      this.settings.frontmatterOnly = DEFAULT_SETTINGS.frontmatterOnly;
   }
   migrateObjToMap(obj) {
     if (!obj.hasOwnProperty("keys")) {
@@ -12527,7 +12577,7 @@ var SlurpPlugin = class extends import_obsidian10.Plugin {
     this.logger.debug("saving settings", this.settings);
     await this.saveData(this.settings);
   }
-  async slurp(url) {
+  async slurp(url, frontmatterOnlyOverride) {
     this.logger.debug("slurping", { url });
     try {
       const doc = new DOMParser().parseFromString(await fetchHtml(url), "text/html");
@@ -12541,8 +12591,9 @@ var SlurpPlugin = class extends import_obsidian10.Plugin {
       this.logger.debug("parsed metadata", parsedMetadata);
       const mergedMetadata = mergeMetadata(article, parsedMetadata);
       this.logger.debug("merged metadata", parsedMetadata);
-      const md = parseMarkdown(article.content);
-      this.logger.debug("converted page to markdown", md);
+      const frontmatterOnly = frontmatterOnlyOverride != null ? frontmatterOnlyOverride : this.settings.frontmatterOnly;
+      const md = frontmatterOnly ? "" : parseMarkdown(article.content);
+      this.logger.debug(frontmatterOnly ? "skipping markdown conversion" : "converted page to markdown", md);
       await this.slurpNewNoteCallback({
         ...mergedMetadata,
         content: md,
