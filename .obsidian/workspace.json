@@ -4,19 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "6bfa209c9e40554a",
+        "id": "69f3cebbf02e31a5",
         "type": "tabs",
         "children": [
           {
-            "id": "ed0a80a01b5d35c6",
+            "id": "99425d6929668b0b",
             "type": "leaf",
             "state": {
-              "type": "excalidraw",
-              "state": {
-                "file": "Excalidraw/Map.md"
-              },
-              "icon": "excalidraw-icon",
-              "title": "Map"
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "新标签页"
             }
           }
         ]
@@ -86,7 +84,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 385.5
+    "width": 385.5,
+    "collapsed": true
   },
   "right": {
     "id": "be1e91dfcb57ce3b",
@@ -206,7 +205,7 @@
       "vscode-editor:新建代码文件": false
     }
   },
-  "active": "ed0a80a01b5d35c6",
+  "active": "99425d6929668b0b",
   "lastOpenFiles": [
     "Excalidraw/Map.md",
     "Excalidraw/ScratchPaper.md",
