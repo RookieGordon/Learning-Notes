@@ -4,21 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "5c413eef4ec0f665",
+        "id": "6bfa209c9e40554a",
         "type": "tabs",
         "children": [
           {
-            "id": "dca5f8acf8403c70",
+            "id": "ed0a80a01b5d35c6",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "250520_1322144566@qq.com_components_license.md",
-                "mode": "preview",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "250520_1322144566@qq.com_components_license"
+              "title": "新标签页"
             }
           }
         ]
@@ -208,14 +204,14 @@
       "vscode-editor:新建代码文件": false
     }
   },
-  "active": "dca5f8acf8403c70",
+  "active": "ed0a80a01b5d35c6",
   "lastOpenFiles": [
+    "250520_1322144566@qq.com_components_license.md",
     "项目/SeaWar/APK差分更新/ApkDiffPatch——客户端完整接入与构建文档.md",
     "项目/SeaWar/APK差分更新/apk_diff_patch_android_客户端完整接入与构建文档.md",
     "未命名 1.base",
     "项目/SeaWar/APK差分更新",
     "未命名.base",
-    "250520_1322144566@qq.com_components_license.md",
     "apk_diff_patch_android_客户端完整接入与构建文档.md",
     "AAAA.md",
     "导航/主页.md",
