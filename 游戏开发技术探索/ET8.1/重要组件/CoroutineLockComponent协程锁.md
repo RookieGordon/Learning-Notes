@@ -1,20 +1,10 @@
 ---
 tags:
   - ET8/重要组件/重要组件
-  - mytodo
   - ET8
   - ET8/CoroutineLock
   - ET8/CoroutineLockQueue
   - ET8/CoroutineLockQueueType
-type: Study
-course: ET8.1
-courseType: Section
-fileDirPath: 项目/ET8.1/重要组件
-dateStart: 2025-05-30
-dateFinish: 2025-05-30
-finished: true
-banner: Study
-displayIcon: pixel-banner-images/章节任务.png
 ---
 >[!Important]
 >协程锁是因为异步编程总会引起逻辑上一些先后关系给破坏掉了。为了保证逻辑上先后关系 引入协程锁。就跟线程的lock一样。协程锁原理很简单，同一个key只有一个协程能执行，其它同一个key的协程将队列，这个协程执行完会唤醒下一个协程。

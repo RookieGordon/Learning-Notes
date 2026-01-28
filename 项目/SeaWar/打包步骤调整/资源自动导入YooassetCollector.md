@@ -1,17 +1,8 @@
 ---
 tags:
   - SeaWar/打包步骤调整/资源自动导入YooassetCollector
-  - mytodo
   - Unity/资源后处理
   - Unity/编辑器/资源变更回调
-type: Project
-project: SeaWar
-projectType: Task
-fileDirPath: 项目/SeaWar/资源加载与热更
-dateStart: 2025-04-08
-dateFinish: 2025-04-10
-finished: true
-displayIcon: pixel-banner-images/项目任务.png
 ---
 # 资源后处理框架
 需要实现一套资源导入后的后处理框架，在资源被创建，被删除，被移动后，执行某些操作。那么资源自动收集到YooAsset就可以通过该框架进行实现

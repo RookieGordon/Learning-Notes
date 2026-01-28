@@ -1,18 +1,8 @@
 ---
 tags:
   - ET8/重要组件/重要组件
-  - mytodo
   - ET8
   - ET8/ObjectWait
-type: Study
-course: ET8.1
-courseType: Section
-fileDirPath: 项目/ET8.1/重要组件
-dateStart: 2025-05-30
-dateFinish: 2025-05-30
-finished: true
-banner: Study
-displayIcon: pixel-banner-images/章节任务.png
 ---
 >[!Improtant]
 > `ObjectWait`主要用于开发场景中的A等B的情况，这种等待情况不存在于同一个逻辑链条上，因此不能简单使用Task来等待。以往的开发中，可以通过使用事件系统来标记B是否完成，ET提供的`ObjectWait`使用一致性的任务来实现这种情况

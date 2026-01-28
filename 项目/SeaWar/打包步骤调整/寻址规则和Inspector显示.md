@@ -1,16 +1,7 @@
 ---
 tags:
   - SeaWar/打包步骤调整/寻址规则和Inspector显示
-  - mytodo
   - Unity/Inspector扩展/Inspector页眉
-type: Project
-project: SeaWar
-projectType: Task
-fileDirPath: 项目/SeaWar/资源加载与热更
-dateStart: 2025-04-08
-dateFinish: 2025-04-08
-finished: true
-displayIcon: pixel-banner-images/项目任务.png
 ---
 # Inspector显示需求
 在点击任意Asset资源唤出Inspetor窗口时，在Inspetor中显示该资源配置的可寻址路径，具体效果如下：

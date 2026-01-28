@@ -1,15 +1,6 @@
 ---
 tags:
   - SeaWar/热更功能合并/CSharp继承的小坑
-  - mytodo
-type: Project
-project: SeaWar
-projectType: Task
-fileDirPath: 项目/SeaWar/热更功能合并
-dateStart: 2025-05-13
-dateFinish: 2025-05-13
-finished: true
-displayIcon: pixel-banner-images/项目任务.png
 ---
 ```CSharp
 public abstract class A  

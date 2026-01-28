@@ -1,17 +1,8 @@
 ---
 tags:
   - SeaWar/Unity杂项知识点/Unity中的GUID和LocalID
-  - mytodo
   - Unity/编辑器/GUID
   - Unity/编辑器/LocalID
-type: Project
-project: SeaWar
-projectType: Task
-fileDirPath: 项目/SeaWar/Unity杂项知识点
-dateStart: 2025-06-20
-dateFinish: 2025-06-20
-finished: true
-displayIcon: pixel-banner-images/项目任务.png
 ---
 在Unity中，**GUID（全局唯一标识符）** 和 **Local ID（局部标识符）** 是资源引用系统的核心机制，它们共同确保了资源引用的准确性和稳定性。下面详细分析它们的作用及协作原理：
 ## **1. GUID（全局唯一标识符）**

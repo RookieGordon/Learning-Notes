@@ -1,17 +1,8 @@
 ---
 tags:
   - SeaWar/工具/Prefab的引用替换工具
-  - mytodo
   - Unity/Tools/Prefab读取
   - Unity/编辑器/资源的引用type
-type: Project
-project: SeaWar
-projectType: Task
-fileDirPath: 项目/SeaWar/工具
-dateStart: 2025-06-16
-dateFinish: 2025-06-21
-finished: true
-displayIcon: pixel-banner-images/项目任务.png
 ---
 在 Unity 中替换 Prefab 对资源的引用，直接解析 Prefab 的 YAML 文件是更通用且强大的方法。这种方法不依赖组件类型，通过修改资源 GUID 和 FileID 实现精准替换。以下是完整解决方案：
 # 核心原理
