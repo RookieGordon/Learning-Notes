@@ -122,7 +122,7 @@ apply plugin: 'com.android.library'
 
 android {
 	// AGP 8.0+ 必须指定，与 package 保持一致
-	// 这里的xxx必须和libapkpatch.so中定义的一致
+	// [这里的xxx必须和libapkpatch.so中定义的一致]([[02_NDK构建指南#android_jni.cpp]])
     namespace 'com.xxx.patch'
     compileSdkVersion 33
     
