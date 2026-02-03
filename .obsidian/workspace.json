@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "项目/SeaWar/APK差分更新/04_服务端Patch生成.md",
+                "file": "项目/SeaWar/APK差分更新/05_原理与排错.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "04_服务端Patch生成"
+              "title": "05_原理与排错"
             }
           },
           {
@@ -109,13 +109,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "课程和练习/计算机图形学—从0开始构建一个OpenGL软光栅/直线绘制.md",
+                "file": "项目/SeaWar/APK差分更新/05_原理与排错.md",
                 "followCursor": false,
                 "showSearch": true,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "直线绘制 的大纲"
+              "title": "05_原理与排错 的大纲"
             }
           },
           {
@@ -180,8 +180,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 515.5,
-    "collapsed": true
+    "width": 515.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -203,11 +202,11 @@
   "active": "8dff584487c46993",
   "lastOpenFiles": [
     "项目/SeaWar/APK差分更新/03_Unity集成指南.md",
-    "项目/SeaWar/APK差分更新/04_服务端Patch生成.md",
     "项目/SeaWar/APK差分更新/05_原理与排错.md",
+    "项目/SeaWar/APK差分更新/04_服务端Patch生成.md",
+    "项目/SeaWar/APK差分更新/01_概述与快速开始.md",
     "项目/SeaWar/APK差分更新/02_NDK构建指南.md",
     "![[02_NDK构建指南.md",
-    "项目/SeaWar/APK差分更新/01_概述与快速开始.md",
     "课程和练习/计算机图形学—从0开始构建一个OpenGL软光栅/直线绘制.md",
     "课程和练习/计算机图形学—从0开始构建一个OpenGL软光栅/向量和矩阵.md",
     "Excalidraw/ScratchPaper.md",
