@@ -259,10 +259,10 @@ CMake Error: Cannot find source file: src/patch/*.cpp
 **解决**：使用 `file(GLOB ...)`
 
 ```cmake
-# ❌ 错误
+## ❌ 错误
 set(SRC src/patch/*.cpp)
 
-# ✅ 正确
+## ✅ 正确
 file(GLOB SRC src/patch/*.cpp)
 ```
 

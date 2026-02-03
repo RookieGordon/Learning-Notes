@@ -1,6 +1,6 @@
 # 服务端 Patch 生成指南
 
-## 1. 工具准备
+# 1. 工具准备
 
 从 ApkDiffPatch 仓库编译或下载以下工具：
 
@@ -9,11 +9,11 @@
 | `apk_diff` | 生成 patch |
 | `apk_patch` | 验证 patch（可选） |
 
-### 1.1 Python 脚本（推荐）
+## 1.1 Python 脚本（推荐）
 
 我们提供了开箱即用的 Python 脚本 `scripts/apk_diff_server.py`，封装了完整的 Patch 生成流程。
 
-#### 配置常量（首次使用需修改）
+## 配置常量（首次使用需修改）
 
 打开脚本文件，修改顶部的配置区域：
 
@@ -48,9 +48,9 @@ python scripts/apk_diff_server.py --help
 
 ---
 
-## 2. Patch 生成流程
+# 2. Patch 生成流程
 
-### 2.1 生成 patch
+## 2.1 生成 patch
 
 ```bash
 ./apk_diff old.norm.apk new.norm.apk update.patch
@@ -58,7 +58,7 @@ python scripts/apk_diff_server.py --help
 
 **输出**：`update.patch`
 
-### 2.2 Patch 校验（强烈建议）
+## 2.2 Patch 校验（强烈建议）
 
 ```bash
 ./apk_patch old.apk update.patch test_new.apk
@@ -72,7 +72,7 @@ python scripts/apk_diff_server.py --help
 
 ---
 
-## 3. 完整脚本示例
+# 3. 完整脚本示例
 
 ```bash
 #!/bin/bash
@@ -103,11 +103,11 @@ else
 fi
 ```
 
-### 3.2 Python 脚本使用（推荐）
+## 3.2 Python 脚本使用（推荐）
 
 使用 `scripts/apk_diff_server.py` 可以一键完成上述所有步骤：
 
-#### 单个 Patch 生成
+## 单个 Patch 生成
 
 ```bash
 # 基本用法
@@ -124,7 +124,7 @@ python scripts/apk_diff_server.py --old old.apk --new new.apk --output ./patches
 python scripts/apk_diff_server.py --old old.apk --new new.apk --output ./patches --no-verify
 ```
 
-#### 批量生成
+## 批量生成
 
 ```bash
 # 将所有 APK 放入同一目录，脚本会自动按版本号排序生成连续 Patch
@@ -141,7 +141,7 @@ python scripts/apk_diff_server.py --batch ./apk_versions --output ./patches
 python scripts/apk_diff_server.py --batch ./apk_versions --output ./patches --full-chain
 ```
 
-#### 输出示例
+## 输出示例
 
 ```
 patches/
@@ -156,9 +156,9 @@ patches/
 
 ---
 
-## 4. 服务端部署建议
+# 4. 服务端部署建议
 
-### 4.1 存储结构
+## 4.1 存储结构
 
 ```
 patches/
@@ -171,7 +171,7 @@ patches/
 └─ ...
 ```
 
-### 4.2 manifest.json 示例
+## 4.2 manifest.json 示例
 
 ```json
 {
@@ -188,7 +188,7 @@ patches/
 
 ---
 
-## 5. 客户端合成流程
+# 5. 客户端合成流程
 
 ```
 1. 检查更新 → 获取 manifest
@@ -206,7 +206,7 @@ patches/
 
 ---
 
-## 6. 体积优化参考
+# 6. 体积优化参考
 
 | APK 大小 | 典型 Patch 大小 | 压缩比 |
 |---------|----------------|--------|
@@ -218,9 +218,9 @@ patches/
 
 ---
 
-## 7. Python 脚本详细说明
+# 7. Python 脚本详细说明
 
-### 7.1 配置常量
+## 7.1 配置常量
 
 脚本顶部提供了配置区域，**建议首次使用时根据环境修改**：
 
@@ -241,7 +241,7 @@ python scripts/apk_diff_server.py --old old.apk --new new.apk
 python scripts/apk_diff_server.py --batch ./apk_versions
 ```
 
-### 7.2 命令行参数
+## 7.2 命令行参数
 
 命令行参数可覆盖配置常量：
 
@@ -260,7 +260,7 @@ python scripts/apk_diff_server.py --batch ./apk_versions
 | `--workers` | 并行工作数（批量模式）|
 | `--verbose`, `-v` | 详细输出 |
 
-### 7.3 版本号自动提取
+## 7.3 版本号自动提取
 
 脚本支持从文件名自动提取版本号，支持以下格式：
 
@@ -269,7 +269,7 @@ python scripts/apk_diff_server.py --batch ./apk_versions
 - `1.0.0.apk`
 - `app-release-1.0.0.apk`
 
-### 7.4 汇总报告
+## 7.4 汇总报告
 
 批量模式会在输出目录生成 `summary.json`：
 
@@ -294,9 +294,9 @@ python scripts/apk_diff_server.py --batch ./apk_versions
 
 ---
 
-## 8. 常见问题
+# 8. 常见问题
 
-### 8.1 Patch 过大
+## 8.1 Patch 过大
 
 **可能原因**：
 
@@ -310,7 +310,7 @@ python scripts/apk_diff_server.py --batch ./apk_versions
 - 检查资源打包方式是否一致
 - 考虑分包更新
 
-### 8.2 客户端合成失败
+## 8.2 客户端合成失败
 
 **排查步骤**：
 
@@ -319,7 +319,7 @@ python scripts/apk_diff_server.py --batch ./apk_versions
 3. 确认存储空间充足
 4. 查看 ApkPatch 返回值
 
-### 8.3 签名校验失败
+## 8.3 签名校验失败
 
 **可能原因**：
 
@@ -327,7 +327,7 @@ python scripts/apk_diff_server.py --batch ./apk_versions
 - 客户端 APK 被渠道二次签名
 - 合成过程中文件被修改
 
-### 8.4 Python 脚本报错
+## 8.4 Python 脚本报错
 
 **工具未找到**：
 ```
@@ -344,7 +344,7 @@ python scripts/apk_diff_server.py --batch ./apk_versions
 
 ---
 
-## 9. 安全建议
+# 9. 安全建议
 
 1. **传输加密**：使用 HTTPS 传输 patch
 2. **完整性校验**：客户端验证 patch hash
@@ -354,9 +354,9 @@ python scripts/apk_diff_server.py --batch ./apk_versions
 
 ---
 
-## 10. CI/CD 集成示例
+# 10. CI/CD 集成示例
 
-### 10.1 GitHub Actions
+## 10.1 GitHub Actions
 
 ```yaml
 name: Generate APK Patch
@@ -402,7 +402,7 @@ jobs:
           path: ./patches/
 ```
 
-### 10.2 Jenkins Pipeline
+## 10.2 Jenkins Pipeline
 
 ```groovy
 pipeline {
@@ -438,5 +438,5 @@ pipeline {
 ```
 
 ---
-## 下一步
+# 下一步
 - 原理与排错 → [05_原理与排错.md](05_原理与排错.md)

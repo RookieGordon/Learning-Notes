@@ -1,8 +1,6 @@
-# Unity 集成指南
+# 1. 获取生产用 .so 文件
 
-## 1. 获取生产用 .so 文件
-
-### 1.1 调试符号说明
+## 1.1 调试符号说明
 
 `intermediates/cxx/` 目录下的 .so 文件**仍包含调试符号**：
 
@@ -11,7 +9,7 @@
 | 带调试符号 | ~2.7 MB | intermediates 目录原始输出 |
 | Strip 后 | ~760 KB | **生产环境应使用此版本** |
 
-### 1.2 验证是否包含调试符号
+## 1.2 验证是否包含调试符号
 
 ```powershell
 # Windows 使用 NDK 中的 llvm-readelf
@@ -20,7 +18,7 @@ D:\AndroidSDK\ndk\27.0.12077973\toolchains\llvm\prebuilt\windows-x86_64\bin\llvm
 
 如果输出包含 `.debug_info`、`.debug_line` 等段，说明调试符号未剥离。
 
-### 1.3 获取 Strip 后的 .so
+## 1.3 获取 Strip 后的 .so
 
 **方法 1：手动 strip**
 
@@ -45,9 +43,9 @@ app/build/outputs/apk/release/app-release.apk
 
 ---
 
-## 2. ABI 校验
+# 2. ABI 校验
 
-### 2.1 校验命令
+## 2.1 校验命令
 
 **Windows**
 
@@ -61,7 +59,7 @@ D:\AndroidSDK\ndk\27.0.12077973\toolchains\llvm\prebuilt\windows-x86_64\bin\llvm
 readelf -h libapkpatch.so
 ```
 
-### 2.2 输出解读
+## 2.2 输出解读
 
 ```text
 ELF Header:
@@ -79,7 +77,7 @@ ELF Header:
 
 ---
 
-## 3. Unity 文件放置
+# 3. Unity 文件放置
 
 使用 `.androidlib` 目录（Android 库项目）是推荐方式，所有文件集中管理，便于维护和迁移：
 
@@ -104,9 +102,9 @@ Assets/Plugins/Android/
 
 ---
 
-## 4. Android 库项目文件
+# 4. Android 库项目文件
 
-### 4.1 AndroidManifest.xml
+## 4.1 AndroidManifest.xml
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -115,7 +113,7 @@ Assets/Plugins/Android/
 </manifest>
 ```
 
-### 4.2 build.gradle
+## 4.2 build.gradle
 
 ```gradle
 apply plugin: 'com.android.library'
@@ -138,7 +136,7 @@ dependencies {
 
 > ⚠️ **AGP 8.0+ 要求**：必须在 `build.gradle` 中指定 `namespace`，否则会报错 "Namespace not specified"。`namespace` 的值必须与 Java 类的包名一致。
 
-### 4.3 ApkPatch.java
+## 4.3 ApkPatch.java
 
 ```java
 package com.xxx.patch;
@@ -156,7 +154,7 @@ public class ApkPatch {
 
 > 💡 `System.loadLibrary("apkpatch")` 会自动加载 `libapkpatch.so`，系统会自动添加 `lib` 前缀和 `.so` 后缀。
 
-### 4.4 多 ABI 支持（可选）
+## 4.4 多 ABI 支持（可选）
 
 如需支持多种 CPU 架构，在 `jniLibs` 下添加对应目录：
 
@@ -172,7 +170,7 @@ jniLibs/
 
 ---
 
-## 5. Unity C# 调用示例
+# 5. Unity C# 调用示例
 
 ```csharp
 using UnityEngine;
@@ -227,7 +225,7 @@ public static class ApkPatchHelper
 
 ---
 
-## 6. 完整更新流程示例
+# 6. 完整更新流程示例
 
 ```csharp
 public class UpdateManager : MonoBehaviour
@@ -275,9 +273,9 @@ public class UpdateManager : MonoBehaviour
 
 ---
 
-## 7. 常见问题
+# 7. 常见问题
 
-### 7.1 UnsatisfiedLinkError
+## 7.1 UnsatisfiedLinkError
 
 ```
 java.lang.UnsatisfiedLinkError: No implementation found for int com.xxx.patch.ApkPatch.nativePatch
@@ -288,7 +286,7 @@ java.lang.UnsatisfiedLinkError: No implementation found for int com.xxx.patch.Ap
 - .so 文件 ABI 不正确
 - .so 未正确放置在 Plugins/Android 目录
 
-### 7.2 签名校验失败
+## 7.2 签名校验失败
 
 合成后的 APK 安装时提示签名无效。
 
@@ -304,7 +302,7 @@ java.lang.UnsatisfiedLinkError: No implementation found for int com.xxx.patch.Ap
 
 ---
 
-## 下一步
+# 下一步
 
 - 服务端 Patch 生成 → [04_服务端Patch生成.md](04_服务端Patch生成.md)
 - 原理与排错 → [05_原理与排错.md](05_原理与排错.md)
