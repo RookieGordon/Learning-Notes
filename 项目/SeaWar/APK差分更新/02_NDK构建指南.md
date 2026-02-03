@@ -1,8 +1,6 @@
-# NDK 构建指南
+# 1. JNI 封装代码
 
-## 1. JNI 封装代码
-
-### android_jni.cpp 
+## android_jni.cpp 
 
 > ⚠️ **重要说明**：官方 `apk_patch.cpp` 中定义的函数是 `ApkPatch`（大写），不是 `apk_patch`。
 
@@ -42,7 +40,7 @@ Java_com_xxx_patch_ApkPatch_nativePatch(
 }
 ```
 
-### TPatchResult 错误码说明
+## TPatchResult 错误码说明
 
 | 错误码 | 枚举名 | 说明 |
 |--------|--------|------|
@@ -70,7 +68,7 @@ Java_com_xxx_patch_ApkPatch_nativePatch(
 
 ---
 
-## 2. CMakeLists.txt（实测可用版本）
+# 2. CMakeLists.txt（实测可用版本）
 
 > ⚠️ **CMake 语法注意**：
 > - `set()` 中**不能直接使用通配符** `*.cpp`，必须通过 `file(GLOB ...)` 收集
@@ -165,7 +163,7 @@ target_link_libraries(apkpatch
 
 ---
 
-## 3. build.gradle.kts 配置
+# 3. build.gradle.kts 配置
 
 ```kotlin
 android {
@@ -203,11 +201,11 @@ android {
 
 ---
 
-## 4. HDiffPatch 必需源码
+# 4. HDiffPatch 必需源码
 
 客户端只需要 **patch 功能**，不需要 diff：
 
-### ✅ 必须包含
+## ✅ 必须包含
 
 ```text
 HDiffPatch/libHDiffPatch/HPatch/patch.c      # patch 核心算法
@@ -215,7 +213,7 @@ HDiffPatch/file_for_patch.c                   # 文件流操作
 HDiffPatch/libParallel/*.cpp                  # 并行处理支持
 ```
 
-### ❌ 必须排除
+## ❌ 必须排除
 
 ```text
 HDiffPatch/hdiffz.cpp                         # 命令行工具
@@ -225,21 +223,21 @@ HDiffPatch/compress_plugin_demo.h
 
 ---
 
-## 5. 构建步骤
+# 5. 构建步骤
 
-### 方式一：Android Studio
+## 方式一：Android Studio
 
 1. 打开 Android 工程
 2. 选择 Build Variant = **release**，Active ABI = **arm64-v8a**
 3. 点击 Build → Assemble Project
 
-### 方式二：命令行
+## 方式二：命令行
 
 ```bash
 ./gradlew clean assembleRelease
 ```
 
-### 输出路径
+## 输出路径
 
 ```text
 # 新版 AGP (≥ 7.0)
@@ -248,9 +246,9 @@ app/build/intermediates/cxx/Release/<hash>/obj/arm64-v8a/libapkpatch.so
 
 ---
 
-## 6. 常见编译错误
+# 6. 常见编译错误
 
-### 6.1 通配符错误
+## 6.1 通配符错误
 
 ```
 CMake Error: Cannot find source file: src/patch/*.cpp
@@ -268,7 +266,7 @@ set(SRC src/patch/*.cpp)
 file(GLOB SRC src/patch/*.cpp)
 ```
 
-### 6.2 未定义符号 `read` / `close`
+## 6.2 未定义符号 `read` / `close`
 
 ```
 error: call to undeclared function 'read'
@@ -285,7 +283,7 @@ target_compile_definitions(apkpatch PRIVATE
 )
 ```
 
-### 6.3 未定义符号 `hpatch_TFileStreamInput_close`
+## 6.3 未定义符号 `hpatch_TFileStreamInput_close`
 
 **原因**：缺少 `file_for_patch.c`
 
@@ -298,7 +296,7 @@ set(HDIFFPATCH_HPATCH_SRC
 )
 ```
 
-### 6.4 未定义符号 `CChannel::close`
+## 6.4 未定义符号 `CChannel::close`
 
 **原因**：缺少 libParallel
 
@@ -310,7 +308,7 @@ file(GLOB HDIFFPATCH_PARALLEL_SRC
 )
 ```
 
-### 6.5 未定义符号 `apk_patch`
+## 6.5 未定义符号 `apk_patch`
 
 **原因**：函数名是 `ApkPatch`（大写），不是 `apk_patch`
 
@@ -318,9 +316,9 @@ file(GLOB HDIFFPATCH_PARALLEL_SRC
 
 ---
 
-## 7. C++ 与 Toolchain 配置
+# 7. C++ 与 Toolchain 配置
 
-### 推荐配置
+## 推荐配置
 
 ```cmake
 set(CMAKE_CXX_STANDARD 11)
@@ -328,7 +326,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 ```
 
-### 常见误区
+## 常见误区
 
 | 误区 | 后果 |
 |------|------|
@@ -338,7 +336,7 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 
 ---
 
-## 下一步
+# 下一步
 
 - Unity 集成 → [03_Unity集成指南.md](03_Unity集成指南.md)
 - 原理与排错 → [04_原理与排错.md](05_原理与排错.md)
