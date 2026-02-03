@@ -1,3 +1,6 @@
+# 1. 官方仓库真实结构（以当前 GitHub 为准）
+
+
 # 1. JNI 封装代码
 
 ## android_jni.cpp 
