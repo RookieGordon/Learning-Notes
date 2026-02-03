@@ -11,10 +11,14 @@
             "id": "8dff584487c46993",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "课程和练习/计算机图形学—从0开始构建一个OpenGL软光栅/直线绘制.md",
+                "mode": "preview",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "新标签页"
+              "title": "直线绘制"
             }
           }
         ]
@@ -70,12 +74,11 @@
               "title": "书签"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
-    "width": 385.5
+    "width": 200
   },
   "right": {
     "id": "be1e91dfcb57ce3b",
@@ -91,12 +94,13 @@
             "state": {
               "type": "outline",
               "state": {
+                "file": "课程和练习/计算机图形学—从0开始构建一个OpenGL软光栅/直线绘制.md",
                 "followCursor": false,
                 "showSearch": true,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "大纲"
+              "title": "直线绘制 的大纲"
             }
           },
           {
@@ -157,12 +161,12 @@
               "title": "Source Control"
             }
           }
-        ],
-        "currentTab": 4
+        ]
       }
     ],
     "direction": "horizontal",
-    "width": 515.5
+    "width": 515.5,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -170,25 +174,16 @@
       "switcher:打开快速切换": false,
       "graph:查看关系图谱": false,
       "canvas:新建白板": false,
-      "daily-notes:打开/创建今天的日记": false,
       "command-palette:打开命令面板": true,
-      "obsidian-git:Open Git source control": true,
-      "pexels-banner:🚩 Pixel Banner Menu": false,
-      "templater-obsidian:Templater": false,
-      "obsidian-excalidraw-plugin:新建绘图文件": false,
-      "moredraw:MoreDraw": false,
-      "obsidian-memos:Thino": false,
-      "pdf-plus:PDF++: Toggle auto-copy": false,
-      "pdf-plus:PDF++: Toggle auto-focus": false,
-      "pdf-plus:PDF++: Toggle auto-paste": false,
-      "vscode-editor:新建代码文件": false
+      "obsidian-git:Open Git source control": true
     }
   },
   "active": "8dff584487c46993",
   "lastOpenFiles": [
-    "250520_1322144566@qq.com_components_license.md",
-    "未命名.base",
+    "课程和练习/计算机图形学—从0开始构建一个OpenGL软光栅/向量和矩阵.md",
     "Excalidraw/ScratchPaper.md",
+    "未命名.base",
+    "250520_1322144566@qq.com_components_license.md",
     "Excalidraw/Map.md",
     "wallpapers/S-1.紫灵 凡人修仙传.jpg",
     "项目/SeaWar/APK差分更新/ApkDiffPatch——客户端完整接入与构建文档.md",
