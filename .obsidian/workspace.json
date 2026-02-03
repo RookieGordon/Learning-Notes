@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "项目/SeaWar/APK差分更新/02_NDK构建指南.md",
-                "mode": "source",
+                "file": "项目/SeaWar/APK差分更新/05_原理与排错.md",
+                "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "02_NDK构建指南"
+              "title": "05_原理与排错"
             }
           }
         ]
@@ -95,13 +95,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "项目/SeaWar/APK差分更新/02_NDK构建指南.md",
+                "file": "项目/SeaWar/APK差分更新/05_原理与排错.md",
                 "followCursor": false,
                 "showSearch": true,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "02_NDK构建指南 的大纲"
+              "title": "05_原理与排错 的大纲"
             }
           },
           {
@@ -188,13 +188,13 @@
   },
   "active": "8dff584487c46993",
   "lastOpenFiles": [
+    "项目/SeaWar/APK差分更新/04_服务端Patch生成.md",
+    "项目/SeaWar/APK差分更新/03_Unity集成指南.md",
+    "项目/SeaWar/APK差分更新/02_NDK构建指南.md",
+    "项目/SeaWar/APK差分更新/01_概述与快速开始.md",
+    "项目/SeaWar/APK差分更新/05_原理与排错.md",
     "项目/SeaWar/APK差分更新.7z",
     "项目/SeaWar/APK差分更新.7z.tmp",
-    "项目/SeaWar/APK差分更新/05_原理与排错.md",
-    "项目/SeaWar/APK差分更新/03_Unity集成指南.md",
-    "项目/SeaWar/APK差分更新/04_服务端Patch生成.md",
-    "项目/SeaWar/APK差分更新/01_概述与快速开始.md",
-    "项目/SeaWar/APK差分更新/02_NDK构建指南.md",
     "![[02_NDK构建指南.md",
     "课程和练习/计算机图形学—从0开始构建一个OpenGL软光栅/直线绘制.md",
     "课程和练习/计算机图形学—从0开始构建一个OpenGL软光栅/向量和矩阵.md",
@@ -231,7 +231,6 @@
     "项目/SeaWar/Yooasset插件/attachments/（图解2）资源加载时序图.png",
     "项目/SeaWar/Yooasset插件/attachments/（图解1）yooasset关键类图.png",
     "游戏开发技术探索/ET8.1/网络框架/attachments/（图解1）客户端消息流转.drawio.png.~tmp",
-    "游戏开发技术探索/ET8.1/网络框架/attachments/（图解1）客户端消息流转.drawio.png~RF42a8aba.TMP",
     "游戏开发技术探索/ET8.1/网络框架/attachments/（图解1）客户端消息流转.drawio.png",
     "项目/SeaWar/Yooasset插件/attachments/（图解1）Yooasset中配置的收集组，收集项.png",
     "项目/SeaWar/打包策略和资源规范调整/attachments/（图解4）IntelAtlas的Bundle资源.png",
