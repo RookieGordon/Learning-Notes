@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "项目/SeaWar/APK差分更新/05_原理与排错.md",
+                "file": "项目/SeaWar/APK差分更新/02_NDK构建指南.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "05_原理与排错"
+              "title": "02_NDK构建指南"
             }
           }
         ]
@@ -95,13 +95,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "项目/SeaWar/APK差分更新/05_原理与排错.md",
+                "file": "项目/SeaWar/APK差分更新/02_NDK构建指南.md",
                 "followCursor": false,
                 "showSearch": true,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "05_原理与排错 的大纲"
+              "title": "02_NDK构建指南 的大纲"
             }
           },
           {
@@ -188,11 +188,11 @@
   },
   "active": "8dff584487c46993",
   "lastOpenFiles": [
+    "项目/SeaWar/APK差分更新/05_原理与排错.md",
     "项目/SeaWar/APK差分更新/04_服务端Patch生成.md",
     "项目/SeaWar/APK差分更新/03_Unity集成指南.md",
     "项目/SeaWar/APK差分更新/02_NDK构建指南.md",
     "项目/SeaWar/APK差分更新/01_概述与快速开始.md",
-    "项目/SeaWar/APK差分更新/05_原理与排错.md",
     "项目/SeaWar/APK差分更新.7z",
     "项目/SeaWar/APK差分更新.7z.tmp",
     "![[02_NDK构建指南.md",
