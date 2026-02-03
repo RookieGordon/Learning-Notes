@@ -122,7 +122,7 @@ apply plugin: 'com.android.library'
 
 android {
 	// AGP 8.0+ 必须指定，与 package 保持一致
-	// [这里的xxx必须和libapkpatch.so中定义的一致]([[02_NDK构建指南#android_jni.cpp]])
+	// 这里的xxx必须和libapkpatch.so中定义的一致
     namespace 'com.xxx.patch'
     compileSdkVersion 33
     
@@ -306,5 +306,5 @@ java.lang.UnsatisfiedLinkError: No implementation found for int com.xxx.patch.Ap
 
 ## 下一步
 
-- 原理与排错 → [04_原理与排错.md](05_原理与排错.md)
-- 服务端 Patch 生成 → [05_服务端Patch生成.md](04_服务端Patch生成.md)
+- 服务端 Patch 生成 → [04_服务端Patch生成.md](04_服务端Patch生成.md)
+- 原理与排错 → [05_原理与排错.md](05_原理与排错.md)

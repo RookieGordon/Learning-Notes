@@ -6,5 +6,6 @@
   "metadata-hider",
   "editing-toolbar",
   "obsidian-advanced-codeblock",
-  "components"
+  "components",
+  "obsidian-copy-block-link"
 ]
