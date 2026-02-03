@@ -1,6 +1,70 @@
 # 1. 官方仓库真实结构（以当前 GitHub 为准）
 
+仓库地址： [https://github.com/sisong/ApkDiffPatch](https://github.com/sisong/ApkDiffPatch)
 
+> ⚠️ **重要更正说明**：ApkDiffPatch 仓库在不同历史版本、不同文档中，目录命名存在较大差异。 以下结构以你当前看到的 **实际仓库结构** 为准，而不是早期文章中常见的 `libZip / libHDiffPatch` 命名。
+
+## 1.1 当前仓库真实目录结构（你截图所示）
+
+```
+ApkDiffPatch/
+├─ builds/
+│  ├─ android_ndk_jni_mk/   # 官方提供的 Android NDK 示例工程（ndk-build）
+│  ├─ vc/
+│  └─ xcode/
+├─ HDiffPatch/              # ★ 底层差分算法实现（核心）
+├─ lzma/                    # ★ 压缩算法实现
+├─ zlib-1.3.1/              # ★ zlib 实现（已内置）
+├─ src/
+│  ├─ diff/                 # 差分生成逻辑（服务端为主）
+│  ├─ patch/                # ★ patch 合成逻辑（客户端核心）
+│  ├─ normalized/           # APK 归一化相关（服务端）
+│  ├─ zip_diff.cpp
+│  ├─ zip_patch.cpp         # ★ ZIP/APK 合成核心
+│  ├─ apk_normalized.cpp
+│  └─ ZipExtExtraDemo.cpp
+└─ ...
+```
+
+## 1.2 客户端真正需要编译的源码范围（非常关键）
+### ✅ 必须包含（缺一不可）
+- `src/patch/`
+- `src/zip_patch.cpp`
+- `HDiffPatch/`
+- `lzma/`
+- `zlib-1.3.1/`
+这些共同组成了：
+
+> **apk\_patch() 的完整实现依赖闭包**
+
+---
+## 1.3 apk\_patch 的真实入口说明（以官方 NDK 示例为准）
+
+这里需要**非常明确地纠正一个容易被误解的点**：
+
+> **apk\_patch 的“入口文件”并不在仓库根目录，也不叫 apkpatch.cpp**。
+
+### 3.3.1 真正存在的入口文件
+
+在官方仓库中，真正提供 **apk\_patch 函数声明与 main 调用示例** 的文件是：
+
+```
+builds/android_ndk_jni_mk/apk_patch.cpp
+```
+
+这个文件：
+
+- ✅ **真实存在**
+- ✅ 定义 / 引用了 `apk_patch()`
+- ✅ 是官方 Android NDK 示例工程的一部分
+- ❌ **不在仓库根目录**
+
+因此：
+
+- 文档中提到的 `apkpatch.cpp` **属于误称**
+- 正确文件名是：\`\`
+
+---
 # 1. JNI 封装代码
 
 ## android_jni.cpp 
