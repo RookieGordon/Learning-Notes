@@ -20,16 +20,6 @@
               "icon": "lucide-file",
               "title": "家园带宽问题优化"
             }
-          },
-          {
-            "id": "dfed3f781a021127",
-            "type": "leaf",
-            "state": {
-              "type": "empty",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "新标签页"
-            }
           }
         ]
       }
@@ -198,6 +188,14 @@
   },
   "active": "8dff584487c46993",
   "lastOpenFiles": [
+    "项目/SeaWar/技术分享/attachments/（图解54）优化后数据7.png",
+    "项目/SeaWar/技术分享/attachments/（图解54）优化后数据7.png.crdownload",
+    "项目/SeaWar/技术分享/attachments/（图解53）优化后数据6.png",
+    "项目/SeaWar/技术分享/attachments/（图解53）优化后数据6.png.crdownload",
+    "项目/SeaWar/技术分享/attachments/（图解52）家园前后状态对比.png",
+    "项目/SeaWar/技术分享/attachments/（图解52）家园前后状态对比.png.crdownload",
+    "项目/SeaWar/技术分享/attachments/（图解51）优化后数据5.png",
+    "项目/SeaWar/技术分享/attachments/（图解51）优化后数据5.png.crdownload",
     "项目/SeaWar/技术分享/attachments/（图解50）优化后数据4.png",
     "项目/SeaWar/技术分享/attachments/（图解50）优化后数据4.png.crdownload",
     "项目/SeaWar/技术分享/attachments/（图解49）优化后数据3.png",
@@ -211,14 +209,6 @@
     "项目/SeaWar/技术分享/attachments/（图解45）profile数据1.png",
     "项目/SeaWar/技术分享/attachments/（图解45）profile数据1.png.crdownload",
     "项目/SeaWar/技术分享/attachments/（图解44）家园运行时参数.png",
-    "项目/SeaWar/技术分享/attachments/（图解44）家园运行时参数.png.crdownload",
-    "项目/SeaWar/技术分享/attachments/（图解43）优化后的顶点获取停顿率.png",
-    "项目/SeaWar/技术分享/attachments/（图解42）优化后的顶点获取停顿率.png",
-    "项目/SeaWar/技术分享/attachments/（图解42）优化后的顶点获取停顿率.png.crdownload",
-    "项目/SeaWar/技术分享/attachments/（图解42）优化后的纹理丢失率2.png",
-    "项目/SeaWar/技术分享/attachments/（图解42）优化后的纹理丢失率2.png.crdownload",
-    "项目/SeaWar/技术分享/attachments/（图解41）优化后的读写速度3.png",
-    "项目/SeaWar/技术分享/attachments/（图解41）优化后的读写速度3.png.crdownload",
     "项目/SeaWar/技术分享/动态生成字体消耗过大的问题.md",
     "项目/SeaWar/打包策略和资源规范调整/打包策略调整.md",
     "项目/SeaWar/技术分享/内存问题排查.md",
