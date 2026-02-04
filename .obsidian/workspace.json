@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "项目/SeaWar/UI适配/UGUI适配.md",
+                "file": "项目/SeaWar/技术分享/家园带宽问题优化.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "UGUI适配"
+              "title": "家园带宽问题优化"
             }
           }
         ]
@@ -94,13 +94,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "项目/SeaWar/UI适配/UGUI适配.md",
+                "file": "项目/SeaWar/技术分享/家园带宽问题优化.md",
                 "followCursor": false,
                 "showSearch": true,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "UGUI适配 的大纲"
+              "title": "家园带宽问题优化 的大纲"
             }
           },
           {
@@ -187,12 +187,19 @@
   },
   "active": "8dff584487c46993",
   "lastOpenFiles": [
+    "项目/SeaWar/技术分享/项目字体问题.md",
+    "项目/SeaWar/技术分享/家园带宽问题优化.md",
+    "项目/SeaWar/技术分享/动态生成字体消耗过大的问题.md",
+    "项目/SeaWar/技术分享/内存优化记录.md",
+    "项目/SeaWar/技术分享/家园NPC的高度跟随建筑浮力 Jobsystem + Burst.md",
+    "项目/SeaWar/技术分享/沙盘同屏优化.md",
+    "项目/SeaWar/UI适配/UGUI适配.md",
+    "项目/SeaWar/技术分享",
     "项目/SeaWar/APK差分更新/05_原理与排错.md",
     "项目/SeaWar/APK差分更新/04_服务端Patch生成.md",
     "项目/SeaWar/APK差分更新/03_Unity集成指南.md",
     "项目/SeaWar/APK差分更新/02_NDK构建指南.md",
     "项目/SeaWar/APK差分更新/01_概述与快速开始.md",
-    "项目/SeaWar/UI适配/UGUI适配.md",
     "项目/SeaWar/热更功能合并/CSharp继承的小坑.md",
     "项目/SeaWar/正式版本分支规划/版本分支规划.md",
     "项目/SeaWar/正式版本分支规划/SeaWar分支版本规划.md",
@@ -213,12 +220,6 @@
     "apk_diff_patch_android_客户端完整接入与构建文档.md",
     "AAAA.md",
     "导航/主页.md",
-    "项目/SeaWar/工具/Prefab的引用替换工具.md",
-    "项目/SeaWar/Unity杂项知识点/Unity杂项知识点.md",
-    "项目/SeaWar/资源规范/资源规范整理.md",
-    "项目/SeaWar/资源规范/资源规范.md",
-    "项目/SeaWar/Unity杂项知识点/编辑器内存泄露.md",
-    "项目/SeaWar/Unity杂项知识点/资源导入.md",
     "未命名 4.base",
     "未命名 3.base",
     "未命名 2.base",
@@ -230,7 +231,6 @@
     "项目/SeaWar/杂项代办/attachments",
     "项目/SeaWar/Yooasset插件/attachments/（图解2）资源加载时序图.png",
     "项目/SeaWar/Yooasset插件/attachments/（图解1）yooasset关键类图.png",
-    "游戏开发技术探索/ET8.1/网络框架/attachments/（图解1）客户端消息流转.drawio.png.~tmp",
     "游戏开发技术探索/ET8.1/网络框架/attachments/（图解1）客户端消息流转.drawio.png",
     "项目/SeaWar/Yooasset插件/attachments/（图解1）Yooasset中配置的收集组，收集项.png",
     "项目/SeaWar/打包策略和资源规范调整/attachments/（图解4）IntelAtlas的Bundle资源.png",
