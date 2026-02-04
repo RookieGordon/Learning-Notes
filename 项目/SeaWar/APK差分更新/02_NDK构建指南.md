@@ -279,6 +279,7 @@ target_link_libraries(apkpatch
 ```
 
 ---
+
 ## 2.5 构建 so 的实际步骤
 
 ### 方式一：Android Studio（推荐）
@@ -435,7 +436,7 @@ android-21
 
 ### 2.7.4 C++ 版本与 Toolchain 配置说明（非常重要）
 
-### 2.7.4.1 C++ 版本要求
+#### 2.7.4.1 C++ 版本要求
 
 **结论：使用 C++11 即可，且这是官方源码的实际要求。**
 
@@ -468,7 +469,7 @@ set(CMAKE_CXX_STANDARD 11)
 
 ---
 
-### 2.7.4.2 是否可以使用 NDK 工程默认 Toolchain？
+#### 2.7.4.2 是否可以使用 NDK 工程默认 Toolchain？
 
 **结论：可以，而且这是推荐做法。**
 
@@ -483,7 +484,7 @@ set(CMAKE_CXX_STANDARD 11)
 
 ---
 
-### 2.7.4.3 是否需要指定 STL？
+#### 2.7.4.3 是否需要指定 STL？
 
 **结论：不需要手动指定，使用默认即可。**
 
@@ -508,7 +509,7 @@ ApkDiffPatch：
 
 ---
 
-### 2.7.4.4 是否需要指定 Toolchain 版本？
+#### 2.7.4.4 是否需要指定 Toolchain 版本？
 
 **不需要。**
 
@@ -522,7 +523,7 @@ ApkDiffPatch：
 
 ---
 
-### 4.7.4.5 推荐的最终 CMake / Gradle 配置示例
+#### 2.7.4.5 推荐的最终 CMake / Gradle 配置示例
 
 #### CMakeLists.txt
 
@@ -544,7 +545,7 @@ externalNativeBuild {
 
 ---
 
-### 4.7.4.6 常见误区（务必避免）
+#### 2.7.4.6 常见误区（务必避免）
 
 | 误区               | 后果            |
 | ---------------- | ------------- |
@@ -555,7 +556,7 @@ externalNativeBuild {
 
 ---
 
-## 4.7.5 常见错误结论速查表
+## 2.7.5 常见错误结论速查表
 
 | 问题                | 是否影响 so | 说明            |
 | ----------------- | ------- | ------------- |
@@ -577,6 +578,74 @@ readelf -h libapkpatch.so
 - 与 APK 构建 ABI 一致
 
 ---
+## 2.8 常见编译错误
+
+### 2.8.1 通配符错误
+
+```
+CMake Error: Cannot find source file: src/patch/*.cpp
+```
+
+**原因**：`set()` 不支持通配符
+
+**解决**：使用 `file(GLOB ...)`
+
+```cmake
+## ❌ 错误
+set(SRC src/patch/*.cpp)
+
+## ✅ 正确
+file(GLOB SRC src/patch/*.cpp)
+```
+
+### 2.8.2 未定义符号 `read` / `close`
+
+```
+error: call to undeclared function 'read'
+```
+
+**解决**：添加 POSIX 宏定义
+
+```cmake
+target_compile_definitions(apkpatch PRIVATE
+    _LARGEFILE_SOURCE
+    _LARGEFILE64_SOURCE
+    _FILE_OFFSET_BITS=64
+    Z_HAVE_UNISTD_H
+)
+```
+
+### 2.8.3 未定义符号 `hpatch_TFileStreamInput_close`
+
+**原因**：缺少 `file_for_patch.c`
+
+**解决**：添加到源文件列表
+
+```cmake
+set(HDIFFPATCH_HPATCH_SRC
+    HDiffPatch/libHDiffPatch/HPatch/patch.c
+    HDiffPatch/file_for_patch.c              # ← 添加这行
+)
+```
+
+#### 2.4.1.4 未定义符号 `CChannel::close`
+
+**原因**：缺少 libParallel
+
+**解决**：
+
+```cmake
+file(GLOB HDIFFPATCH_PARALLEL_SRC
+    HDiffPatch/libParallel/*.cpp
+)
+```
+
+#### 2.4.1.5 未定义符号 `apk_patch`
+
+**原因**：函数名是 `ApkPatch`（大写），不是 `apk_patch`
+
+**解决**：修改 JNI 代码，包含 `apk_patch.h` 并调用 `ApkPatch()`
+
 # 3. build.gradle.kts 配置
 
 ```kotlin
@@ -614,122 +683,6 @@ android {
 ```
 
 ---
-
-# 4. HDiffPatch 必需源码
-
-客户端只需要 **patch 功能**，不需要 diff：
-
-## ✅ 必须包含
-
-```text
-HDiffPatch/libHDiffPatch/HPatch/patch.c      # patch 核心算法
-HDiffPatch/file_for_patch.c                   # 文件流操作
-HDiffPatch/libParallel/*.cpp                  # 并行处理支持
-```
-
-## ❌ 必须排除
-
-```text
-HDiffPatch/hdiffz.cpp                         # 命令行工具
-HDiffPatch/libHDiffPatch/HDiff/*              # diff 功能（服务端用）
-HDiffPatch/compress_plugin_demo.h
-```
-
----
-
-# 5. 构建步骤
-
-## 方式一：Android Studio
-
-1. 打开 Android 工程
-2. 选择 Build Variant = **release**，Active ABI = **arm64-v8a**
-3. 点击 Build → Assemble Project
-
-## 方式二：命令行
-
-```bash
-./gradlew clean assembleRelease
-```
-
-## 输出路径
-
-```text
-# 新版 AGP (≥ 7.0)
-app/build/intermediates/cxx/Release/<hash>/obj/arm64-v8a/libapkpatch.so
-```
-
----
-
-# 6. 常见编译错误
-
-## 6.1 通配符错误
-
-```
-CMake Error: Cannot find source file: src/patch/*.cpp
-```
-
-**原因**：`set()` 不支持通配符
-
-**解决**：使用 `file(GLOB ...)`
-
-```cmake
-## ❌ 错误
-set(SRC src/patch/*.cpp)
-
-## ✅ 正确
-file(GLOB SRC src/patch/*.cpp)
-```
-
-## 6.2 未定义符号 `read` / `close`
-
-```
-error: call to undeclared function 'read'
-```
-
-**解决**：添加 POSIX 宏定义
-
-```cmake
-target_compile_definitions(apkpatch PRIVATE
-    _LARGEFILE_SOURCE
-    _LARGEFILE64_SOURCE
-    _FILE_OFFSET_BITS=64
-    Z_HAVE_UNISTD_H
-)
-```
-
-## 6.3 未定义符号 `hpatch_TFileStreamInput_close`
-
-**原因**：缺少 `file_for_patch.c`
-
-**解决**：添加到源文件列表
-
-```cmake
-set(HDIFFPATCH_HPATCH_SRC
-    HDiffPatch/libHDiffPatch/HPatch/patch.c
-    HDiffPatch/file_for_patch.c              # ← 添加这行
-)
-```
-
-## 6.4 未定义符号 `CChannel::close`
-
-**原因**：缺少 libParallel
-
-**解决**：
-
-```cmake
-file(GLOB HDIFFPATCH_PARALLEL_SRC
-    HDiffPatch/libParallel/*.cpp
-)
-```
-
-## 6.5 未定义符号 `apk_patch`
-
-**原因**：函数名是 `ApkPatch`（大写），不是 `apk_patch`
-
-**解决**：修改 JNI 代码，包含 `apk_patch.h` 并调用 `ApkPatch()`
-
----
-
 # 7. C++ 与 Toolchain 配置
 
 ## 推荐配置
