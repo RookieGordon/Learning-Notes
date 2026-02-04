@@ -317,34 +317,89 @@ android {
 
 ## 2.6 构建 so 的实际步骤
 
-### 方式一：Android Studio（推荐）
-
+**方式一：Android Studio（推荐）**
 1. 打开 Android 工程
-2. 选择 Build Variant = **Release**
-3. 点击 Build → Make Project
-4. 生成路径：
-```
+2. 选择 Build Variant = **release**，Active ABI = **arm64-v8a**
+3. 点击 Build → Assemble Project
+4. 生成路径（**注意：新版 AGP 7.0+ 路径已变更**）：
+```text
+# 旧版 AGP (< 7.0)
 app/build/intermediates/cmake/release/obj/arm64-v8a/libapkpatch.so
-````
 
-### 方式二：命令行
+# 新版 AGP (≥ 7.0)
+app/build/intermediates/cxx/Release/<hash>/obj/arm64-v8a/libapkpatch.so
+```
 
+**方式二：命令行**
 ```bash
 ./gradlew assembleRelease
 ````
+
+### 2.6.1 关于调试符号的重要说明
+
+> ⚠️ **注意**：`intermediates/cxx/` 目录下的 .so 文件**仍包含调试符号**，体积较大（约 2.7 MB）。
+
+**验证是否包含调试符号**
+```powershell
+# Windows 使用 NDK 中的 llvm-readelf
+llvm-readelf.exe -S libapkpatch.so | Select-String "debug"
+```
+
+如果输出包含 `.debug_info`、`.debug_line` 等段，说明调试符号未剥离。
+
+#### 2.6.1.1 获取生产用 .so 的方法
+
+**方法 1：手动 strip**
+```powershell
+# 使用 NDK 中的 llvm-strip
+llvm-strip.exe -o libapkpatch_stripped.so libapkpatch.so
+```
+
+Strip 后体积：**约 760 KB**（原始 2.7 MB）
+
+**方法 2：从 APK 提取（推荐）**
+AGP 打包 APK 时会自动 strip，从输出 APK 中提取即可：
+
+```text
+app/build/outputs/apk/release/app-release.apk
+  └─ lib/arm64-v8a/libapkpatch.so  # 已自动 strip
+```
 
 ---
 
 ## 2.7 ABI 校验（非常重要）
 
+> ⚠️ **Windows 注意**：`readelf` 是 Linux 工具，Windows 需使用 NDK 中的 `llvm-readelf`。
+
+**Windows 命令**
+```powershell
+# 使用 NDK 中的 llvm-readelf（路径根据实际 NDK 版本调整）
+D:\AndroidSDK\ndk\27.0.12077973\toolchains\llvm\prebuilt\windows-x86_64\bin\llvm-readelf.exe -h libapkpatch.so
+```
+
+**Linux / macOS 命令**
 ```bash
 readelf -h libapkpatch.so
 ```
 
-确保：
+**输出解读**
+```text
+ELF Header:
+  Class:                             ELF64
+  Machine:                           AArch64    # ← 关键字段
+  Type:                              DYN (Shared object file)
+```
 
-- 只包含目标 ABI
-- 与 APK 构建 ABI 一致
+| Machine 字段 | 对应 Android ABI |
+|-------------|------------------|
+| `AArch64` | arm64-v8a ✅ |
+| `ARM` | armeabi-v7a |
+| `Intel 80386` | x86 |
+| `Advanced Micro Devices X86-64` | x86_64 |
+
+确保：
+- `Machine: AArch64` = arm64-v8a
+- 与 Unity 构建 ABI 一致
 
 ---
 
@@ -556,31 +611,7 @@ ApkDiffPatch：
 - 特殊 ROM 编译问题
 - 极老 NDK 兼容问题（不推荐）
 
----
-
-#### 2.8.4.5 推荐的最终 CMake / Gradle 配置示例
-
-#### CMakeLists.txt
-
-```cmake
-set(CMAKE_CXX_STANDARD 11)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_CXX_EXTENSIONS OFF)
-```
-
-#### build.gradle（节选）
-
-```gradle
-externalNativeBuild {
-    cmake {
-        cppFlags "-O2"
-    }
-}
-```
-
----
-
-#### 2.8.4.6 常见误区（务必避免）
+#### 2.8.4.5 常见误区（务必避免）
 
 | 误区               | 后果            |
 | ---------------- | ------------- |
