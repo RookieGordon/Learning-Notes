@@ -31,8 +31,7 @@
               "title": "新标签页"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -106,12 +105,13 @@
             "state": {
               "type": "outline",
               "state": {
+                "file": "项目/SeaWar/技术分享/动态生成字体消耗过大的问题.md",
                 "followCursor": false,
                 "showSearch": true,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "大纲"
+              "title": "动态生成字体消耗过大的问题 的大纲"
             }
           },
           {
@@ -196,11 +196,12 @@
       "vscode-editor:新建代码文件": false
     }
   },
-  "active": "dfed3f781a021127",
+  "active": "8dff584487c46993",
   "lastOpenFiles": [
+    "项目/SeaWar/技术分享/attachments/download_image.jpeg",
+    "项目/SeaWar/技术分享/attachments/download_image.jpeg.crdownload",
     "项目/SeaWar/技术分享/动态生成字体消耗过大的问题.md",
     "项目/SeaWar/技术分享/attachments/（图解3）耗时字体来源.jpeg",
-    "项目/SeaWar/技术分享/attachments/download_image.jpeg.crdownload",
     "项目/SeaWar/技术分享/attachments/（图解2）添加字体加载耗时日志.jpeg",
     "项目/SeaWar/技术分享/attachments/（图解1）字体加载耗时.png",
     "项目/SeaWar/技术分享/attachments",
