@@ -14,7 +14,7 @@
               "type": "markdown",
               "state": {
                 "file": "项目/SeaWar/技术分享/动态生成字体消耗过大的问题.md",
-                "mode": "preview",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
@@ -78,7 +78,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 402.5
+    "width": 402.5,
+    "collapsed": true
   },
   "right": {
     "id": "be1e91dfcb57ce3b",
@@ -187,6 +188,9 @@
   },
   "active": "8dff584487c46993",
   "lastOpenFiles": [
+    "项目/SeaWar/技术分享/attachments/（图解3）耗时字体来源.jpeg",
+    "项目/SeaWar/技术分享/attachments/download_image.jpeg.crdownload",
+    "项目/SeaWar/技术分享/attachments/（图解2）添加字体加载耗时日志.jpeg",
     "项目/SeaWar/技术分享/attachments/（图解1）字体加载耗时.png",
     "项目/SeaWar/技术分享/动态生成字体消耗过大的问题.md",
     "项目/SeaWar/技术分享/attachments",
@@ -223,7 +227,6 @@
     "项目/SeaWar/APK差分更新",
     "未命名 4.base",
     "未命名 3.base",
-    "未命名 2.base",
     "课程和练习/C++/C++.canvas",
     "项目/SeaWar/杂项代办/attachments/Pasted image 20250830110505.png",
     "项目/SeaWar/杂项代办/attachments/Pasted image 20250826201838.png",
@@ -232,7 +235,6 @@
     "项目/SeaWar/Yooasset插件/attachments/（图解2）资源加载时序图.png",
     "项目/SeaWar/Yooasset插件/attachments/（图解1）yooasset关键类图.png",
     "游戏开发技术探索/ET8.1/网络框架/attachments/（图解1）客户端消息流转.drawio.png",
-    "项目/SeaWar/Yooasset插件/attachments/（图解1）Yooasset中配置的收集组，收集项.png",
     "未命名.canvas"
   ]
 }
