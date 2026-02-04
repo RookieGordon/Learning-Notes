@@ -14,7 +14,7 @@
               "type": "markdown",
               "state": {
                 "file": "项目/SeaWar/技术分享/动态生成字体消耗过大的问题.md",
-                "mode": "source",
+                "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
@@ -187,13 +187,15 @@
   },
   "active": "8dff584487c46993",
   "lastOpenFiles": [
+    "项目/SeaWar/技术分享/attachments/（图解1）字体加载耗时.png",
+    "项目/SeaWar/技术分享/动态生成字体消耗过大的问题.md",
+    "项目/SeaWar/技术分享/attachments",
     "项目/SeaWar/打包策略和资源规范调整/打包策略调整.md",
     "项目/SeaWar/技术分享/内存问题排查.md",
     "项目/SeaWar/技术分享/家园建筑名字的followUI组件实现优化.md",
     "项目/SeaWar/技术分享/GPU内存带宽.md",
     "项目/SeaWar/技术分享/家园带宽问题优化.md",
     "项目/SeaWar/技术分享/项目字体问题.md",
-    "项目/SeaWar/技术分享/动态生成字体消耗过大的问题.md",
     "项目/SeaWar/技术分享/内存优化记录.md",
     "项目/SeaWar/技术分享/家园NPC的高度跟随建筑浮力 Jobsystem + Burst.md",
     "项目/SeaWar/技术分享/沙盘同屏优化.md",
@@ -216,7 +218,6 @@
     "课程和练习/计算机图形学—从0开始构建一个OpenGL软光栅/向量和矩阵.md",
     "Excalidraw/ScratchPaper.md",
     "未命名.base",
-    "250520_1322144566@qq.com_components_license.md",
     "wallpapers/S-1.紫灵 凡人修仙传.jpg",
     "未命名 1.base",
     "项目/SeaWar/APK差分更新",
@@ -228,12 +229,10 @@
     "项目/SeaWar/杂项代办/attachments/Pasted image 20250826201838.png",
     "项目/SeaWar/杂项代办/attachments/Pasted image 20250826201759.png",
     "项目/SeaWar/杂项代办/attachments/Pasted image 20250826201726.png",
-    "项目/SeaWar/杂项代办/attachments",
     "项目/SeaWar/Yooasset插件/attachments/（图解2）资源加载时序图.png",
     "项目/SeaWar/Yooasset插件/attachments/（图解1）yooasset关键类图.png",
     "游戏开发技术探索/ET8.1/网络框架/attachments/（图解1）客户端消息流转.drawio.png",
     "项目/SeaWar/Yooasset插件/attachments/（图解1）Yooasset中配置的收集组，收集项.png",
-    "项目/SeaWar/打包策略和资源规范调整/attachments/（图解4）IntelAtlas的Bundle资源.png",
     "未命名.canvas"
   ]
 }
