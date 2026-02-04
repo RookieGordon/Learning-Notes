@@ -6,7 +6,7 @@
       {
         "id": "e0038d24d959f850",
         "type": "tabs",
-        "dimension": 41.04077253218884,
+        "dimension": 38.68025751072962,
         "children": [
           {
             "id": "8dff584487c46993",
@@ -27,7 +27,7 @@
       {
         "id": "d1e2463c0a2f0df9",
         "type": "tabs",
-        "dimension": 58.95922746781116,
+        "dimension": 61.31974248927039,
         "children": [
           {
             "id": "253d1ffac0e4fee5",
@@ -224,10 +224,10 @@
   },
   "active": "253d1ffac0e4fee5",
   "lastOpenFiles": [
-    "项目/SeaWar/APK差分更新/01_概述与快速开始.md",
-    "项目/SeaWar/APK差分更新/02_NDK构建指南.md",
-    "项目/SeaWar/APK差分更新/05_原理与排错.md",
     "项目/SeaWar/APK差分更新/ApkDiffPatch——客户端完整接入与构建文档.md",
+    "项目/SeaWar/APK差分更新/02_NDK构建指南.md",
+    "项目/SeaWar/APK差分更新/01_概述与快速开始.md",
+    "项目/SeaWar/APK差分更新/05_原理与排错.md",
     "项目/SeaWar/APK差分更新/04_服务端Patch生成.md",
     "项目/SeaWar/APK差分更新/03_Unity集成指南.md",
     "项目/SeaWar/APK差分更新.7z",
