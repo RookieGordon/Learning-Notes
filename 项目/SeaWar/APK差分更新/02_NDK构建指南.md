@@ -1,3 +1,8 @@
+---
+tags:
+  - SeaWar/更新/APK差分合并
+  - SeaWar/Android/NDK工程
+---
 # 1. 官方仓库真实结构（以当前 GitHub 为准）
 
 仓库地址： [https://github.com/sisong/ApkDiffPatch](https://github.com/sisong/ApkDiffPatch)
