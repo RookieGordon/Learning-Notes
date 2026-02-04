@@ -20,8 +20,19 @@
               "icon": "lucide-file",
               "title": "动态生成字体消耗过大的问题"
             }
+          },
+          {
+            "id": "dfed3f781a021127",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "新标签页"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -95,13 +106,12 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "项目/SeaWar/技术分享/动态生成字体消耗过大的问题.md",
                 "followCursor": false,
                 "showSearch": true,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "动态生成字体消耗过大的问题 的大纲"
+              "title": "大纲"
             }
           },
           {
@@ -186,13 +196,13 @@
       "vscode-editor:新建代码文件": false
     }
   },
-  "active": "8dff584487c46993",
+  "active": "dfed3f781a021127",
   "lastOpenFiles": [
+    "项目/SeaWar/技术分享/动态生成字体消耗过大的问题.md",
     "项目/SeaWar/技术分享/attachments/（图解3）耗时字体来源.jpeg",
     "项目/SeaWar/技术分享/attachments/download_image.jpeg.crdownload",
     "项目/SeaWar/技术分享/attachments/（图解2）添加字体加载耗时日志.jpeg",
     "项目/SeaWar/技术分享/attachments/（图解1）字体加载耗时.png",
-    "项目/SeaWar/技术分享/动态生成字体消耗过大的问题.md",
     "项目/SeaWar/技术分享/attachments",
     "项目/SeaWar/打包策略和资源规范调整/打包策略调整.md",
     "项目/SeaWar/技术分享/内存问题排查.md",
@@ -234,7 +244,6 @@
     "项目/SeaWar/杂项代办/attachments/Pasted image 20250826201726.png",
     "项目/SeaWar/Yooasset插件/attachments/（图解2）资源加载时序图.png",
     "项目/SeaWar/Yooasset插件/attachments/（图解1）yooasset关键类图.png",
-    "游戏开发技术探索/ET8.1/网络框架/attachments/（图解1）客户端消息流转.drawio.png",
     "未命名.canvas"
   ]
 }
