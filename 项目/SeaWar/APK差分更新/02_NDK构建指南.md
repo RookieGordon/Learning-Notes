@@ -192,95 +192,130 @@ Java_com_xxx_patch_ApkPatch_nativePatch(
 > - zlib 目录名需与实际目录一致（可能是 `zlib-1.3.1` 或 `zlib1.3.1`）
 
 ```cmake
-cmake_minimum_required(VERSION 3.10)
-project(apkpatch)
-
-set(CMAKE_CXX_STANDARD 11)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_CXX_EXTENSIONS OFF)
-
-set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -O2")
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O2")
-
-# --- 使用 file(GLOB) 收集源文件 ---
-
-# HDiffPatch - HPatch 核心（客户端只需要 patch，不需要 diff）
-set(HDIFFPATCH_HPATCH_SRC
-        HDiffPatch/libHDiffPatch/HPatch/patch.c
-        HDiffPatch/file_for_patch.c
-)
-
-# HDiffPatch - libParallel（并行处理支持）
-file(GLOB HDIFFPATCH_PARALLEL_SRC
-        HDiffPatch/libParallel/*.cpp
-)
-
-# src/patch 目录
-file(GLOB SRC_PATCH_FILES
-        src/patch/*.cpp
-)
-
-# lzma 目录
-file(GLOB LZMA_SRC
-        lzma/*.c
-)
-file(GLOB LZMA_SUB_SRC
-        lzma/*/*.c
-)
-
-# zlib 目录（注意：检查实际目录名）
-file(GLOB ZLIB_SRC
-        zlib1.3.1/*.c
-)
-
-set(SRC_FILES
-        apk_patch.cpp
-        android_jni.cpp
-        src/zip_patch.cpp
-        ${HDIFFPATCH_HPATCH_SRC}
-        ${HDIFFPATCH_PARALLEL_SRC}
-        ${SRC_PATCH_FILES}
-        ${LZMA_SRC}
-        ${LZMA_SUB_SRC}
-        ${ZLIB_SRC}
-)
-
-add_library(apkpatch SHARED ${SRC_FILES})
-
-# 编译宏定义
-target_compile_definitions(apkpatch PRIVATE
-        # 启用 POSIX 函数（read, close, lseek64 等）
-        _LARGEFILE_SOURCE
-        _LARGEFILE64_SOURCE
-        _FILE_OFFSET_BITS=64
-        # zlib 配置
-        Z_HAVE_UNISTD_H
-)
-
-# 头文件路径
-target_include_directories(apkpatch PRIVATE
-        ${CMAKE_SOURCE_DIR}
-        ${CMAKE_SOURCE_DIR}/src
-        ${CMAKE_SOURCE_DIR}/HDiffPatch
-        ${CMAKE_SOURCE_DIR}/HDiffPatch/libHDiffPatch
-        ${CMAKE_SOURCE_DIR}/HDiffPatch/libHDiffPatch/HPatch
-        ${CMAKE_SOURCE_DIR}/lzma
-        ${CMAKE_SOURCE_DIR}/zlib1.3.1
-)
-
-# Android & log
-find_library(log-lib log)
-find_library(android-lib android)
-
-target_link_libraries(apkpatch
-        ${log-lib}
-        ${android-lib}
+cmake_minimum_required(VERSION 3.10)  
+project(apkpatch)  
+  
+set(CMAKE_CXX_STANDARD 11)  
+set(CMAKE_CXX_STANDARD_REQUIRED ON)  
+set(CMAKE_CXX_EXTENSIONS OFF)  
+  
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -O2")  
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O2")  
+  
+# --- 使用 file(GLOB) 收集源文件 ---  
+# HDiffPatch - HPatch 核心（客户端只需要 patch，不需要 diff）  
+# patch.c 是核心的 patch 实现，file_for_patch.c 提供文件流操作  
+set(HDIFFPATCH_HPATCH_SRC  
+        HDiffPatch/libHDiffPatch/HPatch/patch.c  
+        HDiffPatch/file_for_patch.c  
+)  
+  
+# HDiffPatch - libParallel（并行处理支持）  
+file(GLOB HDIFFPATCH_PARALLEL_SRC  
+        HDiffPatch/libParallel/*.cpp  
+)  
+  
+# src/patch 目录  
+file(GLOB SRC_PATCH_FILES  
+        src/patch/*.cpp  
+)  
+  
+# lzma 目录  
+file(GLOB LZMA_SRC  
+        lzma/*.c  
+)  
+file(GLOB LZMA_SUB_SRC  
+        lzma/*/*.c  
+)  
+  
+# zlib 目录（注意：实际目录名是 zlib1.3.1）  
+file(GLOB ZLIB_SRC  
+        zlib1.3.1/*.c  
+)  
+  
+set(SRC_FILES  
+        apk_patch.cpp  
+        android_jni.cpp  
+        src/zip_patch.cpp  
+        ${HDIFFPATCH_HPATCH_SRC}  
+        ${HDIFFPATCH_PARALLEL_SRC}  
+        ${SRC_PATCH_FILES}  
+        ${LZMA_SRC}  
+        ${LZMA_SUB_SRC}  
+        ${ZLIB_SRC}  
+)  
+  
+add_library(apkpatch SHARED ${SRC_FILES})  
+  
+# 编译宏定义  
+target_compile_definitions(apkpatch PRIVATE  
+        # 启用 POSIX 函数（read, close, lseek64 等）  
+        _LARGEFILE_SOURCE  
+        _LARGEFILE64_SOURCE  
+        _FILE_OFFSET_BITS=64  
+        # zlib 配置  
+        Z_HAVE_UNISTD_H  
+)  
+  
+# 头文件路径  
+target_include_directories(apkpatch PRIVATE  
+        ${CMAKE_SOURCE_DIR}  
+        ${CMAKE_SOURCE_DIR}/src  
+        ${CMAKE_SOURCE_DIR}/HDiffPatch  
+        ${CMAKE_SOURCE_DIR}/HDiffPatch/libHDiffPatch  
+        ${CMAKE_SOURCE_DIR}/HDiffPatch/libHDiffPatch/HPatch  
+        ${CMAKE_SOURCE_DIR}/lzma  
+        ${CMAKE_SOURCE_DIR}/zlib1.3.1  
+)  
+  
+# Android & log  
+find_library(log-lib log)  
+find_library(android-lib android)  
+  
+target_link_libraries(apkpatch  
+        ${log-lib}  
+        ${android-lib}  
 )
 ```
 
 ---
+## 2.5. build.gradle.kts 配置
 
-## 2.5 构建 so 的实际步骤
+```kotlin
+android {
+    defaultConfig {
+        // NDK 配置
+        ndk {
+            abiFilters += listOf("arm64-v8a")
+        }
+        externalNativeBuild {
+            cmake {
+                cppFlags += "-O2"
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            // 指定 CMake 使用纯 Release 构建类型
+            externalNativeBuild {
+                cmake {
+                    arguments += "-DCMAKE_BUILD_TYPE=Release"
+                }
+            }
+        }
+    }
+
+    externalNativeBuild {
+        cmake {
+            path = file("src/main/cpp/CMakeLists.txt")
+            version = "3.22.1"
+        }
+    }
+}
+```
+
+## 2.6 构建 so 的实际步骤
 
 ### 方式一：Android Studio（推荐）
 
@@ -300,7 +335,7 @@ app/build/intermediates/cmake/release/obj/arm64-v8a/libapkpatch.so
 
 ---
 
-## 2.6 ABI 校验（非常重要）
+## 2.7 ABI 校验（非常重要）
 
 ```bash
 readelf -h libapkpatch.so
@@ -313,9 +348,9 @@ readelf -h libapkpatch.so
 
 ---
 
-## 2.7 NDK 工程 Package Name 与 SDK 版本配置说明（重要）
+## 2.8 NDK 工程 Package Name 与 SDK 版本配置说明（重要）
 
-### 2.7.1 Package Name 是否有要求？
+### 2.8.1 Package Name 是否有要求？
 
 **结论：对 so 本身没有任何要求，但对 JNI 有约束。**
 
@@ -360,7 +395,7 @@ Java_com_company_update_patch_ApkPatch_nativePatch
 
 ---
 
-### 2.7.2 compileSdk / minSdk / targetSdk 要求
+### 2.8.2 compileSdk / minSdk / targetSdk 要求
 
 #### 1️⃣ compileSdkVersion
 
@@ -401,7 +436,7 @@ minSdkVersion 21
 
 ---
 
-### 2.7.3 NDK 版本与 API Level 选择
+### 2.8.3 NDK 版本与 API Level 选择
 
 在 `externalNativeBuild` 中推荐：
 
@@ -434,9 +469,9 @@ android-21
 
 ---
 
-### 2.7.4 C++ 版本与 Toolchain 配置说明（非常重要）
+### 2.8.4 C++ 版本与 Toolchain 配置说明（非常重要）
 
-#### 2.7.4.1 C++ 版本要求
+#### 2.8.4.1 C++ 版本要求
 
 **结论：使用 C++11 即可，且这是官方源码的实际要求。**
 
@@ -469,7 +504,7 @@ set(CMAKE_CXX_STANDARD 11)
 
 ---
 
-#### 2.7.4.2 是否可以使用 NDK 工程默认 Toolchain？
+#### 2.8.4.2 是否可以使用 NDK 工程默认 Toolchain？
 
 **结论：可以，而且这是推荐做法。**
 
@@ -484,7 +519,7 @@ set(CMAKE_CXX_STANDARD 11)
 
 ---
 
-#### 2.7.4.3 是否需要指定 STL？
+#### 2.8.4.3 是否需要指定 STL？
 
 **结论：不需要手动指定，使用默认即可。**
 
@@ -509,7 +544,7 @@ ApkDiffPatch：
 
 ---
 
-#### 2.7.4.4 是否需要指定 Toolchain 版本？
+#### 2.8.4.4 是否需要指定 Toolchain 版本？
 
 **不需要。**
 
@@ -523,7 +558,7 @@ ApkDiffPatch：
 
 ---
 
-#### 2.7.4.5 推荐的最终 CMake / Gradle 配置示例
+#### 2.8.4.5 推荐的最终 CMake / Gradle 配置示例
 
 #### CMakeLists.txt
 
@@ -545,7 +580,7 @@ externalNativeBuild {
 
 ---
 
-#### 2.7.4.6 常见误区（务必避免）
+#### 2.8.4.6 常见误区（务必避免）
 
 | 误区               | 后果            |
 | ---------------- | ------------- |
@@ -556,7 +591,7 @@ externalNativeBuild {
 
 ---
 
-## 2.7.5 常见错误结论速查表
+### 2.8.5 常见错误结论速查表
 
 | 问题                | 是否影响 so | 说明            |
 | ----------------- | ------- | ------------- |
@@ -578,9 +613,9 @@ readelf -h libapkpatch.so
 - 与 APK 构建 ABI 一致
 
 ---
-## 2.8 常见编译错误
+## 2.9 常见编译错误
 
-### 2.8.1 通配符错误
+### 2.9.1 通配符错误
 
 ```
 CMake Error: Cannot find source file: src/patch/*.cpp
@@ -598,7 +633,7 @@ set(SRC src/patch/*.cpp)
 file(GLOB SRC src/patch/*.cpp)
 ```
 
-### 2.8.2 未定义符号 `read` / `close`
+### 2.9.2 未定义符号 `read` / `close`
 
 ```
 error: call to undeclared function 'read'
@@ -615,7 +650,7 @@ target_compile_definitions(apkpatch PRIVATE
 )
 ```
 
-### 2.8.3 未定义符号 `hpatch_TFileStreamInput_close`
+### 2.9.3 未定义符号 `hpatch_TFileStreamInput_close`
 
 **原因**：缺少 `file_for_patch.c`
 
@@ -628,7 +663,7 @@ set(HDIFFPATCH_HPATCH_SRC
 )
 ```
 
-#### 2.4.1.4 未定义符号 `CChannel::close`
+### 2.9.4 未定义符号 `CChannel::close`
 
 **原因**：缺少 libParallel
 
@@ -640,69 +675,13 @@ file(GLOB HDIFFPATCH_PARALLEL_SRC
 )
 ```
 
-#### 2.4.1.5 未定义符号 `apk_patch`
+### 2.9.5 未定义符号 `apk_patch`
 
 **原因**：函数名是 `ApkPatch`（大写），不是 `apk_patch`
 
 **解决**：修改 JNI 代码，包含 `apk_patch.h` 并调用 `ApkPatch()`
 
-# 3. build.gradle.kts 配置
-
-```kotlin
-android {
-    defaultConfig {
-        // NDK 配置
-        ndk {
-            abiFilters += listOf("arm64-v8a")
-        }
-        externalNativeBuild {
-            cmake {
-                cppFlags += "-O2"
-            }
-        }
-    }
-
-    buildTypes {
-        release {
-            // 指定 CMake 使用纯 Release 构建类型
-            externalNativeBuild {
-                cmake {
-                    arguments += "-DCMAKE_BUILD_TYPE=Release"
-                }
-            }
-        }
-    }
-
-    externalNativeBuild {
-        cmake {
-            path = file("src/main/cpp/CMakeLists.txt")
-            version = "3.22.1"
-        }
-    }
-}
-```
-
 ---
-# 7. C++ 与 Toolchain 配置
-
-## 推荐配置
-
-```cmake
-set(CMAKE_CXX_STANDARD 11)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_CXX_EXTENSIONS OFF)
-```
-
-## 常见误区
-
-| 误区 | 后果 |
-|------|------|
-| 强制 C++17 / C++20 | 编译通过但运行风险上升 |
-| 使用旧 gnustl | NDK r18+ 直接失败 |
-| 手动切换 gcc | 已被官方弃用 |
-
----
-
 # 下一步
 
 - Unity 集成 → [03_Unity集成指南.md](03_Unity集成指南.md)
