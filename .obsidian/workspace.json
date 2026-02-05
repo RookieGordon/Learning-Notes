@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "项目/SeaWar/Unity杂项知识点/AssetBundle压缩选项.md",
+                "file": "项目/SeaWar/资源规范/资源规范整理.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "AssetBundle压缩选项"
+              "title": "资源规范整理"
             }
           }
         ]
@@ -94,13 +94,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "项目/SeaWar/Unity杂项知识点/AssetBundle压缩选项.md",
+                "file": "项目/SeaWar/资源规范/资源规范整理.md",
                 "followCursor": false,
                 "showSearch": true,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "AssetBundle压缩选项 的大纲"
+              "title": "资源规范整理 的大纲"
             }
           },
           {
@@ -187,8 +187,14 @@
   },
   "active": "cfc5c0c09c988915",
   "lastOpenFiles": [
-    "项目/SeaWar/Unity杂项知识点/资源导入.md",
+    "项目/SeaWar/Yooasset插件/Yooasset插件学习.md",
     "项目/SeaWar/Unity杂项知识点/编辑器内存泄露.md",
+    "项目/SeaWar/Unity杂项知识点/Unity中的GUID和LocalID.md",
+    "项目/SeaWar/Unity杂项知识点/ScriptableObject生命周期.md",
+    "项目/SeaWar/Unity杂项知识点/Prefab编辑模式.md",
+    "项目/SeaWar/Unity杂项知识点/FBX动画资源.md",
+    "项目/SeaWar/Unity杂项知识点/AssetBundle压缩选项.md",
+    "项目/SeaWar/Unity杂项知识点/资源导入.md",
     "项目/SeaWar/技术分享/家园建筑名字的followUI组件实现优化.md",
     "项目/SeaWar/技术分享/家园带宽问题优化.md",
     "项目/SeaWar/技术分享/attachments/（图解80）优化后数据29.png",
@@ -227,12 +233,6 @@
     "项目/SeaWar/APK差分更新/01_概述与快速开始.md",
     "项目/SeaWar/热更功能合并/CSharp继承的小坑.md",
     "项目/SeaWar/正式版本分支规划/版本分支规划.md",
-    "项目/SeaWar/正式版本分支规划/SeaWar分支版本规划.md",
-    "项目/SeaWar/APK差分更新/ApkDiffPatch——客户端完整接入与构建文档.md",
-    "项目/SeaWar/APK差分更新/apk_diff_patch_android_客户端完整接入与构建文档.md",
-    "![[02_NDK构建指南.md",
-    "课程和练习/计算机图形学—从0开始构建一个OpenGL软光栅/直线绘制.md",
-    "课程和练习/计算机图形学—从0开始构建一个OpenGL软光栅/向量和矩阵.md",
     "课程和练习/C++/C++.canvas",
     "未命名.canvas"
   ]
