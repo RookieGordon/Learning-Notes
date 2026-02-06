@@ -244,9 +244,12 @@ public delegate void BackgroundTaskFailedCallback();
 └─────────────────────────────────────────────────────────────────────────┘
 ```
 
-为什么 iOS 不用 AndroidJavaProxy 类似机制？因为 iOS 没有类似 JNI 的反射桥接层：
-- Android：Java ↔ C# 之间有 JNI + Unity 运行时 作为中间层
-- iOS：Objective-C ↔ C# 之间是直接的 P/Invoke，没有中间反射层
+>[!IMPORTANT]
+>为什么 iOS 不用 AndroidJavaProxy 类似机制？因为 iOS 没有类似 JNI 的反射桥接层：
+>- Android：Java ↔ C# 之间有 JNI + Unity 运行时 作为中间层
+>- iOS：Objective-C ↔ C# 之间是直接的 P/Invoke，没有中间反射层
+
+
 
 
 
