@@ -29,7 +29,7 @@ NS_ASSUME_NONNULL_END
 
 ## 桥接层开发
 
-### 桥接层结构
+### 桥接层结构（官方推荐做法）
 
 ```C
 ┌─────────────────────────────────────────────────────────────────────────┐  
@@ -48,12 +48,33 @@ NS_ASSUME_NONNULL_END
 ```
 
 桥接层示例如下：
-```objective-c
-[DllImport("__Internal")]  
-public static extern void _IOS_StopBackgroundDownloadSupport();  
-// 回调委托定义  
-[UnmanagedFunctionPointer(CallingConvention.Cdecl)]  
-public delegate void BackgroundTaskFailedCallback();
+**IOSUtility.mm**
+```c
+extern "C"  
+{
+    void _IOS_StopBackgroundDownloadSupport()  
+    {  
+        [[DownloadBackgroundManager sharedManager] stopBackgroundDownloadSupport];  
+    }  
+    
+    void _IOS_SetBackgroundTaskFailedCallback(IOSBackgroundTaskFailedCallback callback)  
+    {  
+        [[DownloadBackgroundManager sharedManager] setBackgroundTaskFailedCallback:callback];  
+    }
+}
+```
+
+**IOSUtility.cs**
+```CSharp
+public static class IOSUtility
+{
+    [DllImport("__Internal")]  
+    public static extern void _IOS_StopBackgroundDownloadSupport();  
+    
+    // 回调委托定义  
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]  
+    public delegate void BackgroundTaskFailedCallback();
+}
 ```
 
 `DllImport`和`UnmanagedFunctionPointer`用于两个不同的场景，C#调用iOS/C的代码，就需要使用`DllImport`特性。反之，原生代码需要回调C#代码，就需要使用`UnmanagedFunctionPointer`特性。
