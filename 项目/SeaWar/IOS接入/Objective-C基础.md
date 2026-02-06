@@ -87,10 +87,12 @@ Objective-C，类别与消息的关系比较松散，调用方法视为对对象
 当你想调用一个方法，你传递消息到对应的对象。这里消息就是方法标识符，以及传递给方法的参数信息。发送给对象的所有消息都会动态分发，这样有利于实现Objective-C类的多态行为。
 
 消息被中括号( [ 和 ] )包括。中括号中间，接收消息的对象在左边，消息（包括消息需要的任何参数）在右边。例如，给myArray变量传递消息insertObject:atIndex:消息，你需要使用如下的语法：
+```objective-c
+[myArray insertObject:anObj atIndex:0];
+```
 
 
-
-## 2. **属性特性（Property Attributes）**
+## 3. **属性特性（Property Attributes）**
 
 ```objective-c
 @property (nonatomic, strong) NSString *name;  // 强引用
@@ -104,6 +106,8 @@ Objective-C，类别与消息的关系比较松散，调用方法视为对对象
 # 三、独特特性
 
 ## 1. **协议（Protocols）**
+
+协议是一组没有实现的方法列表，任何的类均可采纳协议并具体实现这组方法。协议类似于Java与C#语言中的"接口"。
 
 ```objective-c
 
@@ -154,4 +158,102 @@ int (^multiplyBlock)(int, int) = ^(int a, int b) {
 
 // 作为方法参数
 - (void)doSomethingWithCompletion:(void (^)(BOOL success))completion;
+```
+
+## 2. 转发
+
+Objective-C允许对一个对象发送消息，不管它是否能够响应之。除了响应或丢弃消息以外，对象也可以将消息转发到可以响应该消息的对象。转发可以用于简化特定的设计模式，例如观测器模式或代理模式。
+
+Objective-C运行时在Object中定义了一对方法：
+
+### 转发方法：
+```Objective-c
+
+- (retval_t) forward:(SEL) sel :(arglist_t) args; // with GCC
+- (id) forward:(SEL) sel :(marg_list) args; // with NeXT/Apple systems
+```
+### 响应方法：
+```Objective-c
+- (retval_t) performv:(SEL) sel :(arglist_t) args;  // with GCC
+- (id) performv:(SEL) sel :(marg_list) args; // with NeXT/Apple systems
+```
+希望实现转发的对象只需用新的方法覆盖以上方法来定义其转发行为。无需重写响应方法performv::，由于该方法只是单纯的对响应对象发送消息并传递参数。其中，SEL类型是Objective-C中消息的类型。
+
+以下代码演示了转发的基本概念：
+#### Forwarder.h 文件代码：
+```objective-c
+#import <objc/Object.h>
+
+@interface Forwarder : Object
+{
+    id recipient; //该对象是我们希望转发到的对象。
+}
+
+@property (assign, nonatomic) id recipient;
+
+@end
+```
+#### Forwarder.m 文件代码：
+```objective-c
+#import "Forwarder.h"
+
+@implementation Forwarder
+
+@synthesize recipient;
+
+- (retval_t) forward: (SEL) sel : (arglist_t) args
+{
+    /*
+     *检查转发对象是否响应该消息。
+     *若转发对象不响应该消息，则不会转发，而产生一个错误。
+     */
+    if([recipient respondsTo:sel])
+       return [recipient performv: sel : args];
+    else
+       return [self error:"Recipient does not respond"];
+}
+```
+#### Recipient.h 文件代码：
+```objective-c
+#import <objc/Object.h>
+
+// A simple Recipient object.
+@interface Recipient : Object
+- (id) hello;
+@end
+```
+#### Recipient.m 文件代码：
+```objective-c
+#import "Recipient.h"
+
+@implementation Recipient
+
+- (id) hello
+{
+    printf("Recipient says hello!\n");
+
+    return self;
+}
+
+@end
+```
+#### main.m 文件代码：
+```objective-c
+#import "Forwarder.h"
+#import "Recipient.h"
+
+int main(void)
+{
+    Forwarder *forwarder = [Forwarder new];
+    Recipient *recipient = [Recipient new];
+
+    forwarder.recipient = recipient; //Set the recipient.
+    /*
+     *转发者不响应hello消息！该消息将被转发到转发对象。
+     *（若转发对象响应该消息）
+     */
+    [forwarder hello];
+
+    return 0;
+}
 ```
