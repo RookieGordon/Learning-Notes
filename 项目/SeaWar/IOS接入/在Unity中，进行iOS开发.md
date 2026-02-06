@@ -29,5 +29,14 @@ NS_ASSUME_NONNULL_END
 
 ## 桥接层开发
 
+桥接层示例如下：
+```objective-c
+[DllImport("__Internal")]  
+public static extern void _IOS_StopBackgroundDownloadSupport();  
+// 回调委托定义  
+[UnmanagedFunctionPointer(CallingConvention.Cdecl)]  
+public delegate void BackgroundTaskFailedCallback();
+```
+
 
 ## Unity业务层开发
