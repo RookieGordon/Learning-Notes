@@ -121,29 +121,32 @@ Objective-C，类别与消息的关系比较松散，调用方法视为对对象
 
 @interface MyClass : NSObject <MyProtocol>
 @end
+```
 
-### 2. **分类（Categories）**
+## 2. **分类（Categories）**
 
-objectivec
+```objective-c
 
 // 为已有类添加方法
 @interface NSString (MyCategory)
 - (NSString *)reversedString;
 @end
+```
 
-### 3. **扩展（Extensions）**
+## 3. **扩展（Extensions）**
 
-objectivec
+```objective-c
 
 // 私有接口（通常在.m文件中）
 @interface MyClass ()
 @property (nonatomic, strong) NSString *privateProperty;
 - (void)privateMethod;
 @end
+```
 
-### 4. **块（Blocks）**
+## 4. **块（Blocks）**
 
-objectivec
+```objective-c
 
 // 类似匿名函数/闭包
 // 定义
@@ -160,7 +163,7 @@ int (^multiplyBlock)(int, int) = ^(int a, int b) {
 - (void)doSomethingWithCompletion:(void (^)(BOOL success))completion;
 ```
 
-## 2. 转发
+## 5. 转发
 
 Objective-C允许对一个对象发送消息，不管它是否能够响应之。除了响应或丢弃消息以外，对象也可以将消息转发到可以响应该消息的对象。转发可以用于简化特定的设计模式，例如观测器模式或代理模式。
 
@@ -294,16 +297,7 @@ int main(void)
 @property (nonatomic, assign, nullable) IOSBackgroundTaskFailedCallback backgroundTaskFailedCallback;
 ```
 
-为什么使用
-函数指针不是 Objective-C 对象，不需要内存管理
-不能使用 strong、weak、copy（这些用于对象）
-assign 表示简单赋值，适用于基本类型和指针
-所以最终的属性修饰符组合 (nonatomic, assign, nullable) 是最规范的写法：
-修饰符
-作用
-nonatomic
-不加锁，性能更好（回调通常在主线程设置，无需原子性）
-assign
-简单赋值（适用于函数指针）
-nullable
-明确表示可以为空
+为什么使用`assign`:
+- 函数指针不是 Objective-C 对象，不需要内存管理
+- 不能使用 strong、weak、copy（这些用于对象）
+- assign 表示简单赋值，适用于基本类型和指针
