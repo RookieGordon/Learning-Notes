@@ -257,3 +257,53 @@ int main(void)
     return 0;
 }
 ```
+
+# 四、实践
+
+## 1. Objective-C中的一些常用操作
+
+## 属性的规范声明
+
+```objective-c
+// ✅ 对象类型 - 通常组合
+@property (nonatomic, strong) UIView *mainView;  // 强引用，拥有对象
+@property (nonatomic, weak) id<DelegateProtocol> delegate;  // 弱引用，防循环引用
+@property (nonatomic, copy) NSString *name;  // 拷贝，防外部修改
+
+// ✅ 基本类型 - assign是必须的
+@property (nonatomic, assign) int age;
+@property (nonatomic, assign) BOOL isLoading;
+@property (nonatomic, assign) NSUInteger count;
+
+// ✅ 结构体 - assign是必须的
+@property (nonatomic, assign) CGRect frame;
+@property (nonatomic, assign) UIEdgeInsets insets;
+```
+
+### **黄金法则**：
+
+1. **总是使用 `nonatomic`**，除非有特殊线程安全需求
+2. **对象类型**：根据所有权选择 `strong`、`weak` 或 `copy`
+3. **非对象类型**：使用 `assign`
+4. **结构体**：使用 `assign`
+5. **永远不要对对象使用 `assign`**（用 `weak` 替代）
+
+### 函数指针属性
+
+```objective-c
+@property (nonatomic, assign, nullable) IOSBackgroundTaskFailedCallback backgroundTaskFailedCallback;
+```
+
+为什么使用
+函数指针不是 Objective-C 对象，不需要内存管理
+不能使用 strong、weak、copy（这些用于对象）
+assign 表示简单赋值，适用于基本类型和指针
+所以最终的属性修饰符组合 (nonatomic, assign, nullable) 是最规范的写法：
+修饰符
+作用
+nonatomic
+不加锁，性能更好（回调通常在主线程设置，无需原子性）
+assign
+简单赋值（适用于函数指针）
+nullable
+明确表示可以为空

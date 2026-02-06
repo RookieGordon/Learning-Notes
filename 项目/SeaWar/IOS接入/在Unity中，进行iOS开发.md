@@ -13,9 +13,6 @@ image: https://unity3d.com/files/images/ogimg.jpg
 ```
 
 
-# Objective-C中的一些常用操作
-
-
 
 # Unity与iOS原生层的交互
 
