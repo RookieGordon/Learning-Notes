@@ -261,11 +261,9 @@ int main(void)
 }
 ```
 
-# 四、实践
+# 四、Objective-C中的一些常用操作
 
-## 1. Objective-C中的一些常用操作
-
-## 属性的规范声明
+## 1. 属性的规范声明
 
 ```objective-c
 // ✅ 对象类型 - 通常组合
@@ -301,3 +299,26 @@ int main(void)
 - 函数指针不是 Objective-C 对象，不需要内存管理
 - 不能使用 strong、weak、copy（这些用于对象）
 - assign 表示简单赋值，适用于基本类型和指针
+
+## 2. 类的扩展声明
+
+在.h文件中声明的类及其字段，属性和方法都是公开的。当我们需要声明私有的时，可以在.mm文件中，通过声明扩展类来实现
+
+**xxx.h**文件中定义公共接口
+```objective-c
+@interface DownloadBackgroundManager : NSObject  
+// 这里声明的是 公开的 属性和方法  
+// 其他文件 import 这个 .h 后可以访问这些成员  
++ (instancetype)sharedManager;  
+- (BOOL)isBackgroundModeActive;  
+@end
+```
+
+**xxx.mm**文件中定义私有扩展
+```objective-c
+@interface DownloadBackgroundManager ()  // 注意这里有一对空括号 ()  
+// 这里声明的是 私有的 属性和方法  
+// 只有当前 .mm 文件内部可以访问  
+@property (nonatomic, assign) BOOL isBackgroundModeActive;  
+@end
+```
