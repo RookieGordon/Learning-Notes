@@ -38,5 +38,50 @@ public static extern void _IOS_StopBackgroundDownloadSupport();
 public delegate void BackgroundTaskFailedCallback();
 ```
 
+`DllImport`和`UnmanagedFunctionPointer`用于两个不同的场景，C#调用iOS/C的代码，就需要使用`DllImport`特性。反之，原生代码需要回调C#代码，就需要使用`UnmanagedFunctionPointer`特性。
+
+`CallingConvention.Cdecl`定义了函数调用时的底层规则：
+1. 参数如何传递
+```
+┌─────────────────────────────────────────────────────────────────┐  
+│  函数调用：Add(1, 2, 3)                                         │  
+├─────────────────────────────────────────────────────────────────┤  
+│                                                                 │  
+│  Cdecl (C 语言默认)          StdCall (Windows API 默认)         │  
+│  ─────────────────────       ─────────────────────              │  
+│  参数从右到左入栈              参数从右到左入栈                   │  
+│  调用者清理栈                  被调用者清理栈                     │  
+│                                                                 │  
+│  栈 (Cdecl):                 栈 (StdCall):                      │  
+│  ┌─────────┐                 ┌─────────┐                        │  
+│  │    3    │ ← 先入           │    3    │                        │  
+│  ├─────────┤                 ├─────────┤                        │  
+│  │    2    │                 │    2    │                        │  
+│  ├─────────┤                 ├─────────┤                        │  
+│  │    1    │ ← 后入           │    1    │                        │  
+│  └─────────┘                 └─────────┘                        │  
+│  调用者负责清理 ←             被调用函数负责清理                   │  
+│                                                                 │  
+└─────────────────────────────────────────────────────────────────┘
+```
+
+2. 常见的调用约定
+
+| 调用约定     | 使用场景               | 特点              |
+| -------- | ------------------ | --------------- |
+| Cdecl    | C/C++ 默认、iOS/macOS | 调用者清理栈，支持可变参数   |
+| StdCall  | Windows API        | 被调用者清理栈，不支持可变参数 |
+| ThisCall | C++ 成员函数           | this 指针通过寄存器传递  |
+| FastCall | 优化调用               | 前几个参数通过寄存器传递    |
+
+3. 为什么 iOS 用 Cdecl？
+```CSharp
+[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+public delegate void BackgroundTaskFailedCallback();
+```
+	原因：
+	- iOS/macOS 使用 C 语言 ABI，默认就是 Cdecl
+	- Objective-C 底层基于 C，继承了 C 的调用约定
+	- 跨语言调用必须约定一致，否则会栈不平衡导致崩溃
 
 ## Unity业务层开发
