@@ -324,3 +324,29 @@ int main(void)
 @property (nonatomic, assign) BOOL isBackgroundModeActive;  
 @end
 ```
+
+### 3. 单例的经典实现
+
+```objective-c
++ (instancetype)sharedManager  
+{  
+    // 1. 静态变量：存储单例实例，整个应用生命周期只有一份  
+    static DownloadBackgroundManager *instance = nil;  
+    // 2. 静态变量：GCD 的一次性令牌，用于保证初始化代码只执行一次  
+    static dispatch_once_t onceToken;  
+    // 3. GCD 的 dispatch_once 函数：线程安全地执行一次性初始化  
+    dispatch_once(&onceToken, ^{  
+        instance = [[DownloadBackgroundManager alloc] init];  
+    });  
+    // 4. 返回单例实例  
+    return instance;  
+}
+```
+
+**dispatch_once 是 iOS/macOS 开发中实现单例的黄金标准：**
+
+| 特性   | 说明                   |
+| ---- | -------------------- |
+| 线程安全 | 多线程并发调用时，只有一个线程执行初始化 |
+| 高性能  | 初始化后，后续调用几乎零开销       |
+| 一次性  | 整个应用生命周期只执行一次        |
