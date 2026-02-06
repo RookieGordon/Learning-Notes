@@ -72,12 +72,24 @@ Objective-C，类别与消息的关系比较松散，调用方法视为对对象
 2. 方法前面的 +/- 号代表函数的类型：加号（+）代表类方法（class method），不需要实例就可以调用，与C++ 的静态函数（static member function）相似。减号（-）即是一般的实例方法（instance method）。
 3. 方法名称内的冒号（:）代表参数传递，参数可以夹杂于名称中间，不必全部附缀于方法名称的尾端，可以提高程序可读性
 ```objective-c
-
+// 这个方法的签名是setColorToRed:Green:Blue:。每个冒号后面都带着一个float类别的参数，分别代表红，绿，蓝三色。
 - (void) setColorToRed: (float)red Green: (float)green Blue:(float)blue; /* 宣告方法*/
 
 [myColor setColorToRed: 1.0 Green: 0.8 Blue: 0.2]; /* 呼叫方法*/
 
 ```
+4. 实现区块以关键字@implementation作为区块起头，@end结尾
+
+## 2. 方法
+
+下图展示 insertObject:atIndex: 实例方法的声明。声明由一个减号(-)开始，这表明这是一个实例方法。方法实际的名字(insertObject:atIndex:)是所有方法标识关键的级联，包含了冒号。冒号表明了参数的出现。如果方法没有参数，你可以省略第一个(也是唯一的)方法标识关键字后面的冒号。本例中，这个方法有两个参数。
+![[（图解1）OC声明方法.png|540]]
+当你想调用一个方法，你传递消息到对应的对象。这里消息就是方法标识符，以及传递给方法的参数信息。发送给对象的所有消息都会动态分发，这样有利于实现Objective-C类的多态行为。
+
+消息被中括号( [ 和 ] )包括。中括号中间，接收消息的对象在左边，消息（包括消息需要的任何参数）在右边。例如，给myArray变量传递消息insertObject:atIndex:消息，你需要使用如下的语法：
+
+
+
 ## 2. **属性特性（Property Attributes）**
 
 ```objective-c
