@@ -4,17 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "755c2c07e4ba5968",
+        "id": "3e232c5cead9c1cb",
         "type": "tabs",
         "children": [
           {
-            "id": "0bc0c65c63f0c642",
+            "id": "a612ee24cb00027b",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "项目/SeaWar/IOS接入/Objective-C基础.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "新标签页"
+              "title": "Objective-C基础"
             }
           }
         ]
@@ -74,7 +78,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 402.5
+    "width": 402.5,
+    "collapsed": true
   },
   "right": {
     "id": "be1e91dfcb57ce3b",
@@ -180,8 +185,11 @@
       "vscode-editor:新建代码文件": false
     }
   },
-  "active": "0bc0c65c63f0c642",
+  "active": "a612ee24cb00027b",
   "lastOpenFiles": [
+    "未命名.md",
+    "项目/SeaWar/IOS接入/Objective-C基础.md",
+    "项目/SeaWar/IOS接入",
     "课程和练习/Custom SRP/Directional Lights.md",
     "课程和练习/Custom SRP/Custom SRP.md",
     "课程和练习/Custom SRP/Custom Render Pipeline.md",
@@ -215,7 +223,6 @@
     "项目/SeaWar/技术分享/attachments/（图解72）优化后数据21.png",
     "项目/SeaWar/技术分享/attachments/（图解72）优化后数据21.png.crdownload",
     "项目/SeaWar/技术分享/attachments/（图解71）优化后数据20.png",
-    "项目/SeaWar/技术分享/attachments/（图解71）优化后数据20.png.crdownload",
     "项目/SeaWar/技术分享/动态生成字体消耗过大的问题.md",
     "项目/SeaWar/打包策略和资源规范调整/打包策略调整.md",
     "项目/SeaWar/技术分享/内存问题排查.md",
@@ -226,8 +233,6 @@
     "项目/SeaWar/技术分享/沙盘同屏优化.md",
     "项目/SeaWar/UI适配/UGUI适配.md",
     "项目/SeaWar/APK差分更新/05_原理与排错.md",
-    "项目/SeaWar/APK差分更新/04_服务端Patch生成.md",
-    "项目/SeaWar/APK差分更新/03_Unity集成指南.md",
     "课程和练习/C++/C++.canvas",
     "未命名.canvas"
   ]
