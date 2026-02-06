@@ -12,8 +12,22 @@ favicon: ../StaticFiles/images/favicons/favicon.png
 image: https://unity3d.com/files/images/ogimg.jpg
 ```
 
+
+# Objective-C中的一些常用操作
+
+
+
 # Unity与iOS原生层的交互
 
 ## iOS原生层开发（Objective-C开发）
 
-通过编写.h和.mm文件来开发原生层的功能。在定义.h文件时，通常会用`NS_ASSUME_NONNULL_BEGIN`和`NS_ASSUME_NONNULL_END`宏来包裹相关的定义
+通过编写.h和.mm文件来开发原生层的功能。在定义.h文件时，通常会用`NS_ASSUME_NONNULL_BEGIN`和`NS_ASSUME_NONNULL_END`宏来包裹相关的定义：
+```objective-c
+NS_ASSUME_NONNULL_BEGIN  
+// ... 代码 ...  
+NS_ASSUME_NONNULL_END
+```
+这是 Objective-C 的空安全标记：
+- 在这个范围内声明的所有指针默认都是非空的
+- 如果某个参数可以为空，需要显式标记 `nullable`
+- 主要用于和 Swift 互操作时提供更好的类型安全
