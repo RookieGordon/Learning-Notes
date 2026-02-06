@@ -80,6 +80,12 @@ Objective-C，类别与消息的关系比较松散，调用方法视为对对象
 ```
 4. 实现区块以关键字@implementation作为区块起头，@end结尾
 
+### 创建对象
+
+Objective-C创建对象需通过alloc以及init两个消息。alloc的作用是分配内存，init则是初始化对象。 init与alloc都是定义在NSObject里的方法，父对象收到这两个信息并做出正确回应后，新对象才创建完毕。以下为范例：`MyObject * my = [[MyObject alloc] init];`。在Objective-C 2.0里，若创建对象不需要参数，则可直接使用new：`MyObject * my = [MyObject new];`,仅仅是语法上的精简，效果完全相同。
+
+若要自己定义初始化的过程，可以重写init方法，来添加额外的工作。（用途类似C++ 的构造函数constructor）
+
 ## 2. 方法
 
 下图展示 insertObject:atIndex: 实例方法的声明。声明由一个减号(-)开始，这表明这是一个实例方法。方法实际的名字(insertObject:atIndex:)是所有方法标识关键的级联，包含了冒号。冒号表明了参数的出现。如果方法没有参数，你可以省略第一个(也是唯一的)方法标识关键字后面的冒号。本例中，这个方法有两个参数。
@@ -110,7 +116,6 @@ Objective-C，类别与消息的关系比较松散，调用方法视为对对象
 协议是一组没有实现的方法列表，任何的类均可采纳协议并具体实现这组方法。协议类似于Java与C#语言中的"接口"。
 
 ```objective-c
-
 @protocol MyProtocol <NSObject>
 @required
 - (void)requiredMethod;
@@ -126,7 +131,6 @@ Objective-C，类别与消息的关系比较松散，调用方法视为对对象
 ## 2. **分类（Categories）**
 
 ```objective-c
-
 // 为已有类添加方法
 @interface NSString (MyCategory)
 - (NSString *)reversedString;
@@ -136,7 +140,6 @@ Objective-C，类别与消息的关系比较松散，调用方法视为对对象
 ## 3. **扩展（Extensions）**
 
 ```objective-c
-
 // 私有接口（通常在.m文件中）
 @interface MyClass ()
 @property (nonatomic, strong) NSString *privateProperty;
@@ -147,7 +150,6 @@ Objective-C，类别与消息的关系比较松散，调用方法视为对对象
 ## 4. **块（Blocks）**
 
 ```objective-c
-
 // 类似匿名函数/闭包
 // 定义
 void (^simpleBlock)(void) = ^{
