@@ -9,7 +9,7 @@ tags:
 - Objective-C = C语言 + 面向对象特性    
 - 完全兼容C语言语法和库
 
-### Objective-C代码的文件扩展名
+## 2. **Objective-C代码的文件扩展名**
 
 |   |   |
 |---|---|
@@ -20,7 +20,9 @@ tags:
 
 当你需要在源代码中包含头文件的时候，你可以使用标准的 #include 编译选项，但是 Objective-C 提供了更好的方法。#import 选项和 #include 选项完全相同，只是它可以确保相同的文件只会被包含一次。Objective-C 的例子和文档都倾向于使用 #import，你的代码也应该是这样的。
 
-## 2. **消息传递机制**
+## 3. **消息传递机制**
+
+Objective-C，类别与消息的关系比较松散，调用方法视为对对象发送消息，所有方法都被视为对消息的回应。所有消息处理直到运行时（runtime）才会动态决定，并交由类别自行决定如何处理收到的消息。也就是说，一个类别不保证一定会回应收到的消息，如果类别收到了一个无法处理的消息，程序只会抛出异常，不会出错或崩溃。
 
 ```c
 // 不是方法调用，而是消息发送
@@ -66,6 +68,16 @@ tags:
 @end
 ```
 
+1. 类声明总是由 @interface 编译选项开始，由 @end 编译选项结束
+2. 方法前面的 +/- 号代表函数的类型：加号（+）代表类方法（class method），不需要实例就可以调用，与C++ 的静态函数（static member function）相似。减号（-）即是一般的实例方法（instance method）。
+3. 方法名称内的冒号（:）代表参数传递，参数可以夹杂于名称中间，不必全部附缀于方法名称的尾端，可以提高程序可读性
+```objective-c
+
+- (void) setColorToRed: (float)red Green: (float)green Blue:(float)blue; /* 宣告方法*/
+
+[myColor setColorToRed: 1.0 Green: 0.8 Blue: 0.2]; /* 呼叫方法*/
+
+```
 ## 2. **属性特性（Property Attributes）**
 
 ```objective-c
