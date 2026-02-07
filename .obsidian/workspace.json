@@ -35,8 +35,7 @@
               "title": "在Unity中，进行iOS开发"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -110,13 +109,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "项目/SeaWar/IOS接入/在Unity中，进行iOS开发.md",
+                "file": "项目/SeaWar/IOS接入/Objective-C基础.md",
                 "followCursor": false,
                 "showSearch": true,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "在Unity中，进行iOS开发 的大纲"
+              "title": "Objective-C基础 的大纲"
             }
           },
           {
@@ -201,10 +200,10 @@
       "vscode-editor:新建代码文件": false
     }
   },
-  "active": "02620c8d869db00e",
+  "active": "a612ee24cb00027b",
   "lastOpenFiles": [
-    "项目/SeaWar/IOS接入/Objective-C基础.md",
     "项目/SeaWar/IOS接入/在Unity中，进行iOS开发.md",
+    "项目/SeaWar/IOS接入/Objective-C基础.md",
     "Clippings/iOS Unity 交互（系列四）Unity调用iOS SDK.md",
     "Clippings/iOS Unity 交互（系列二）iOS调用Unity函数 iOS给Unity传值.md",
     "Clippings/iOS Unity 交互（系列三）iOS Unity互传参数与完整示例代码.md",
