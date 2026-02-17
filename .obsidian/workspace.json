@@ -11,12 +11,14 @@
             "id": "238f79b9ed19ff89",
             "type": "leaf",
             "state": {
-              "type": "image",
+              "type": "markdown",
               "state": {
-                "file": "游戏开发技术探索/ET8.1/网络框架/attachments/服务器消息流转.svg"
+                "file": "游戏开发技术探索/ET8.1/框架介绍/ET框架结构.md",
+                "mode": "preview",
+                "source": false
               },
-              "icon": "lucide-image",
-              "title": "服务器消息流转"
+              "icon": "lucide-file",
+              "title": "ET框架结构"
             }
           }
         ]
@@ -185,6 +187,13 @@
   },
   "active": "238f79b9ed19ff89",
   "lastOpenFiles": [
+    "游戏开发技术探索/ET8.1/框架介绍/attachments/客户端组件树状图.md",
+    "游戏开发技术探索/ET8.1/框架介绍/attachments/服务端组件树状图.md",
+    "游戏开发技术探索/ET8.1/框架介绍/attachments/（图解4）ET8.0登陆流程图.png",
+    "游戏开发技术探索/ET8.1/框架介绍/attachments/（图解3）ET8.0进程示例.png",
+    "游戏开发技术探索/ET8.1/框架介绍/attachments/（图解2）ET8.0中，Fiber和Scene的层级关系.png",
+    "游戏开发技术探索/ET8.1/框架介绍/attachments/（图解1）ET8.0框架初始化流程.png",
+    "游戏开发技术探索/ET8.1/网络框架/网络层.md",
     "游戏开发技术探索/ET8.1/网络框架/attachments/客户端消息流转.drawio.svg",
     "游戏开发技术探索/ET8.1/网络框架/attachments/服务器消息流转.svg",
     "游戏开发技术探索/ET8.1/网络框架/attachments/服务器消息流转.svg.crswap",
@@ -194,17 +203,10 @@
     "游戏开发技术探索/ET8.1/网络框架/attachments/服务器消息流转.drawio",
     "游戏开发技术探索/ET8.1/网络框架/网络协议收发.md",
     "游戏开发技术探索/ET8.1/网络框架/网络协议.md",
-    "游戏开发技术探索/ET8.1/网络框架/网络层.md",
-    "游戏开发技术探索/ET8.1/框架介绍/attachments/（图解1）ET8.0框架初始化流程.png",
     "游戏开发技术探索/ET8.1/网络框架/邮箱组件.md",
     "游戏开发技术探索/ET8.1/网络框架/网络框架设计思路.md",
     "游戏开发技术探索/ET8.1/网络框架/attachments/客户端消息流转.drawio.svg.crswap",
     "游戏开发技术探索/ET8.1/框架介绍/attachments/ET框架启动流程.drawio.crswap",
-    "游戏开发技术探索/ET8.1/框架介绍/attachments/客户端组件树状图.md",
-    "游戏开发技术探索/ET8.1/框架介绍/attachments/服务端组件树状图.md",
-    "游戏开发技术探索/ET8.1/框架介绍/attachments/（图解2）ET8.0中，Fiber和Scene的层级关系.png",
-    "游戏开发技术探索/ET8.1/框架介绍/attachments/（图解3）ET8.0进程示例.png",
-    "游戏开发技术探索/ET8.1/框架介绍/attachments/（图解4）ET8.0登陆流程图.png",
     "游戏开发技术探索/ET8.1/框架介绍/ET框架结构.md",
     "游戏开发技术探索/ET8.1/框架介绍/attachments/启动流程图.mmd",
     "未命名.md",
