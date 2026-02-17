@@ -1012,7 +1012,16 @@ var SettingsApp = class extends import_obsidian4.PluginSettingTab {
       });
     });
     if (this.plugin.settings.currentWallpaper.Reposition) {
-      new import_obsidian4.Setting(containerEl).setName("Horizontal position").setDesc("Adjust the horizontal position of the wallpaper.").addSlider((slider) => {
+      new import_obsidian4.Setting(containerEl).setName("Horizontal position").setDesc("Adjust the horizontal position of the wallpaper.").addExtraButton((button) => {
+        button.setIcon("rotate-ccw").setTooltip("Reset").onClick(async () => {
+          this.plugin.settings.currentWallpaper.positionX = DEFAULT_SETTINGS.currentWallpaper.positionX;
+          await this.plugin.saveSettings();
+          for (const win of this.plugin.windows) {
+            await WallpaperApplier.applyWallpaper(this.plugin, false, win.document);
+          }
+          this.display();
+        });
+      }).addSlider((slider) => {
         slider.setLimits(0, 100, 1).setValue(this.plugin.settings.currentWallpaper.positionX).setDynamicTooltip().setInstant(true).onChange(async (value) => {
           this.plugin.settings.currentWallpaper.positionX = value;
           this.plugin.debouncedSave();
@@ -1026,7 +1035,16 @@ var SettingsApp = class extends import_obsidian4.PluginSettingTab {
           );
         });
       });
-      new import_obsidian4.Setting(containerEl).setName("Vertical position").setDesc("Adjust the vertical position of the wallpaper.").addSlider((slider) => {
+      new import_obsidian4.Setting(containerEl).setName("Vertical position").setDesc("Adjust the vertical position of the wallpaper.").addExtraButton((button) => {
+        button.setIcon("rotate-ccw").setTooltip("Reset").onClick(async () => {
+          this.plugin.settings.currentWallpaper.positionY = DEFAULT_SETTINGS.currentWallpaper.positionY;
+          await this.plugin.saveSettings();
+          for (const win of this.plugin.windows) {
+            await WallpaperApplier.applyWallpaper(this.plugin, false, win.document);
+          }
+          this.display();
+        });
+      }).addSlider((slider) => {
         slider.setLimits(0, 100, 1).setValue(this.plugin.settings.currentWallpaper.positionY).setDynamicTooltip().setInstant(true).onChange(async (value) => {
           this.plugin.settings.currentWallpaper.positionY = value;
           this.plugin.debouncedSave();
@@ -1040,7 +1058,16 @@ var SettingsApp = class extends import_obsidian4.PluginSettingTab {
           );
         });
       });
-      new import_obsidian4.Setting(containerEl).setName("Image scale").setDesc("Adjust the size of the wallpaper.").addSlider((slider) => {
+      new import_obsidian4.Setting(containerEl).setName("Image scale").setDesc("Adjust the size of the wallpaper.").addExtraButton((button) => {
+        button.setIcon("rotate-ccw").setTooltip("Reset").onClick(async () => {
+          this.plugin.settings.currentWallpaper.Scale = DEFAULT_SETTINGS.currentWallpaper.Scale;
+          await this.plugin.saveSettings();
+          for (const win of this.plugin.windows) {
+            await WallpaperApplier.applyWallpaper(this.plugin, false, win.document);
+          }
+          this.display();
+        });
+      }).addSlider((slider) => {
         slider.setLimits(0.5, 2, 0.1).setValue(this.plugin.settings.currentWallpaper.Scale ?? 1).setDynamicTooltip().setInstant(true).onChange(async (value) => {
           this.plugin.settings.currentWallpaper.Scale = value;
           this.plugin.debouncedSave();
@@ -1096,7 +1123,17 @@ var SettingsApp = class extends import_obsidian4.PluginSettingTab {
     }
     new import_obsidian4.Setting(containerEl).setName("Wallpaper opacity").setDesc(
       "Controls the transparency level of the wallpaper (0% = fully transparent, 100% = fully visible)"
-    ).addSlider((slider) => {
+    ).addExtraButton((button) => {
+      button.setIcon("rotate-ccw").setTooltip("Reset").onClick(async () => {
+        if (this.plugin.settings.AdnvOpend) return;
+        this.plugin.settings.currentWallpaper.opacity = DEFAULT_SETTINGS.currentWallpaper.opacity;
+        await this.plugin.saveSettings();
+        for (const win of this.plugin.windows) {
+          await WallpaperApplier.applyWallpaper(this.plugin, false, win.document);
+        }
+        this.display();
+      });
+    }).addSlider((slider) => {
       const valueEl = containerEl.createEl("span", {
         text: ` ${this.plugin.settings.currentWallpaper.opacity}%`,
         cls: "setting-item-description"
@@ -1115,7 +1152,16 @@ var SettingsApp = class extends import_obsidian4.PluginSettingTab {
         }
       });
     });
-    new import_obsidian4.Setting(containerEl).setName("Blur radius").setDesc("Applies a blur effect to the wallpaper in pixels").addSlider((slider) => {
+    new import_obsidian4.Setting(containerEl).setName("Blur radius").setDesc("Applies a blur effect to the wallpaper in pixels").addExtraButton((button) => {
+      button.setIcon("rotate-ccw").setTooltip("Reset").onClick(async () => {
+        this.plugin.settings.currentWallpaper.blurRadius = DEFAULT_SETTINGS.currentWallpaper.blurRadius;
+        await this.plugin.saveSettings();
+        for (const win of this.plugin.windows) {
+          await WallpaperApplier.applyWallpaper(this.plugin, false, win.document);
+        }
+        this.display();
+      });
+    }).addSlider((slider) => {
       const valueEl = containerEl.createEl("span", {
         text: ` ${this.plugin.settings.currentWallpaper.blurRadius}px`,
         cls: "setting-item-description"
@@ -1127,7 +1173,16 @@ var SettingsApp = class extends import_obsidian4.PluginSettingTab {
         this.plugin.debouncedSave();
       });
     });
-    new import_obsidian4.Setting(containerEl).setName("Brightness").setDesc("Adjusts the wallpaper brightness (100% = normal)").addSlider((slider) => {
+    new import_obsidian4.Setting(containerEl).setName("Brightness").setDesc("Adjusts the wallpaper brightness (100% = normal)").addExtraButton((button) => {
+      button.setIcon("rotate-ccw").setTooltip("Reset").onClick(async () => {
+        this.plugin.settings.currentWallpaper.brightness = DEFAULT_SETTINGS.currentWallpaper.brightness;
+        await this.plugin.saveSettings();
+        for (const win of this.plugin.windows) {
+          await WallpaperApplier.applyWallpaper(this.plugin, false, win.document);
+        }
+        this.display();
+      });
+    }).addSlider((slider) => {
       const valueEl = containerEl.createEl("span", {
         text: ` ${this.plugin.settings.currentWallpaper.brightness}%`,
         cls: "setting-item-description"
@@ -1139,7 +1194,16 @@ var SettingsApp = class extends import_obsidian4.PluginSettingTab {
         this.plugin.debouncedSave();
       });
     });
-    new import_obsidian4.Setting(containerEl).setName("Contrast").setDesc("Controls the wallpaper contrast intensity 100% represents the original image").addSlider((slider) => {
+    new import_obsidian4.Setting(containerEl).setName("Contrast").setDesc("Controls the wallpaper contrast intensity 100% represents the original image").addExtraButton((button) => {
+      button.setIcon("rotate-ccw").setTooltip("Reset").onClick(async () => {
+        this.plugin.settings.currentWallpaper.contrast = DEFAULT_SETTINGS.currentWallpaper.contrast;
+        await this.plugin.saveSettings();
+        for (const win of this.plugin.windows) {
+          await WallpaperApplier.applyWallpaper(this.plugin, false, win.document);
+        }
+        this.display();
+      });
+    }).addSlider((slider) => {
       const valueEl = containerEl.createEl("span", {
         text: ` ${this.plugin.settings.currentWallpaper.contrast}%`,
         cls: "setting-item-description"
@@ -1153,7 +1217,18 @@ var SettingsApp = class extends import_obsidian4.PluginSettingTab {
     });
     new import_obsidian4.Setting(containerEl).setName("Layer position (z\u2011index)").setDesc(
       "Determines the stacking order: higher values bring the wallpaper closer to the front"
-    ).addSlider((slider) => {
+    ).addExtraButton((button) => {
+      button.setIcon("rotate-ccw").setTooltip("Reset").onClick(async () => {
+        if (!this.plugin.settings.AdnvOpend) {
+          this.plugin.settings.currentWallpaper.zIndex = DEFAULT_SETTINGS.currentWallpaper.zIndex;
+          await this.plugin.saveSettings();
+          for (const win of this.plugin.windows) {
+            await WallpaperApplier.applyWallpaper(this.plugin, false, win.document);
+          }
+          this.display();
+        }
+      });
+    }).addSlider((slider) => {
       const valueEl = containerEl.createEl("span", {
         text: ` ${this.plugin.settings.currentWallpaper.zIndex}`,
         cls: "setting-item-description"
@@ -1169,7 +1244,16 @@ var SettingsApp = class extends import_obsidian4.PluginSettingTab {
     });
     new import_obsidian4.Setting(containerEl).setName("Change playback speed").setDesc(
       "Adjust the playback speed for videos (0.25x \u2013 2x). This does not affect GIFs."
-    ).addSlider((slider) => {
+    ).addExtraButton((button) => {
+      button.setIcon("rotate-ccw").setTooltip("Reset").onClick(async () => {
+        this.plugin.settings.currentWallpaper.playbackSpeed = DEFAULT_SETTINGS.currentWallpaper.playbackSpeed;
+        await this.plugin.saveSettings();
+        for (const win of this.plugin.windows) {
+          await WallpaperApplier.applyWallpaper(this.plugin, false, win.document);
+        }
+        this.display();
+      });
+    }).addSlider((slider) => {
       const valueEl = containerEl.createSpan({
         text: `${this.plugin.settings.currentWallpaper.playbackSpeed.toFixed(2)}x`,
         cls: "setting-item-description"
@@ -1187,7 +1271,16 @@ var SettingsApp = class extends import_obsidian4.PluginSettingTab {
       containerEl.appendChild(desc);
       new import_obsidian4.Setting(containerEl).setName("Background width").setDesc(
         "Set a custom width for the background on mobile (e.g., 100vw or 500px)."
-      ).addText(
+      ).addExtraButton((button) => {
+        button.setIcon("rotate-ccw").setTooltip("Reset").onClick(async () => {
+          this.plugin.settings.mobileBackgroundWidth = DEFAULT_SETTINGS.mobileBackgroundWidth;
+          await this.plugin.saveSettings();
+          for (const win of this.plugin.windows) {
+            ChangeWallpaperContainer(win.document, { width: this.plugin.settings.mobileBackgroundWidth, height: this.plugin.settings.mobileBackgroundHeight });
+          }
+          this.display();
+        });
+      }).addText(
         (text) => text.setPlaceholder("e.g., 100vw").setValue(this.plugin.settings.mobileBackgroundWidth || "").onChange(async (value) => {
           this.plugin.settings.mobileBackgroundWidth = value;
           await this.plugin.saveSettings();
@@ -1198,7 +1291,16 @@ var SettingsApp = class extends import_obsidian4.PluginSettingTab {
       );
       new import_obsidian4.Setting(containerEl).setName("Background height").setDesc(
         "Set a custom height for the background on mobile (e.g., 100vh or 800px)."
-      ).addText(
+      ).addExtraButton((button) => {
+        button.setIcon("rotate-ccw").setTooltip("Reset").onClick(async () => {
+          this.plugin.settings.mobileBackgroundHeight = DEFAULT_SETTINGS.mobileBackgroundHeight;
+          await this.plugin.saveSettings();
+          for (const win of this.plugin.windows) {
+            ChangeWallpaperContainer(win.document, { width: this.plugin.settings.mobileBackgroundWidth, height: this.plugin.settings.mobileBackgroundHeight });
+          }
+          this.display();
+        });
+      }).addText(
         (text) => text.setPlaceholder("e.g., 100vh").setValue(this.plugin.settings.mobileBackgroundHeight || "").onChange(async (value) => {
           this.plugin.settings.mobileBackgroundHeight = value;
           await this.plugin.saveSettings();
@@ -1221,27 +1323,6 @@ var SettingsApp = class extends import_obsidian4.PluginSettingTab {
         })
       );
     }
-    new import_obsidian4.Setting(containerEl).setName("Reset options").setDesc("Resets all settings").addButton(
-      (Button) => Button.setButtonText("Reset").onClick(async () => {
-        const defaults = DEFAULT_SETTINGS;
-        this.plugin.settings.currentWallpaper.path = defaults.currentWallpaper.path;
-        this.plugin.settings.currentWallpaper.type = defaults.currentWallpaper.type;
-        this.plugin.settings.HistoryPaths = defaults.HistoryPaths;
-        this.plugin.settings.currentWallpaper.playbackSpeed = defaults.currentWallpaper.playbackSpeed;
-        this.plugin.settings.currentWallpaper.opacity = defaults.currentWallpaper.opacity;
-        this.plugin.settings.currentWallpaper.zIndex = defaults.currentWallpaper.zIndex;
-        this.plugin.settings.currentWallpaper.blurRadius = defaults.currentWallpaper.blurRadius;
-        this.plugin.settings.currentWallpaper.brightness = defaults.currentWallpaper.brightness;
-        this.plugin.settings.currentWallpaper.contrast = defaults.currentWallpaper.contrast;
-        this.plugin.settings.mobileBackgroundHeight = defaults.mobileBackgroundHeight;
-        this.plugin.settings.mobileBackgroundWidth = defaults.mobileBackgroundWidth;
-        await this.plugin.saveSettings();
-        for (const win of this.plugin.windows) {
-          WallpaperApplier.applyWallpaper(this.plugin, false, win.document);
-        }
-        this.display();
-      })
-    );
   }
 };
 
@@ -1962,7 +2043,7 @@ var defaultWallpaper = {
   Index: 0
 };
 var DEFAULT_SETTINGS = {
-  LatestVersion: "1.5.9",
+  LatestVersion: "1.6.0",
   currentWallpaper: defaultWallpaper,
   globalConfig: {
     config: defaultWallpaper,
@@ -2014,7 +2095,7 @@ var LiveWallpaperPlugin2 = class extends import_obsidian8.Plugin {
     await this.ensureWallpaperFolderExists();
     if (this.isVersionLess(this.settings.LatestVersion, "1.5.1")) {
       await Migrate.migrateOldSettings(this);
-      this.settings.LatestVersion = "1.5.9";
+      this.settings.LatestVersion = "1.6.0";
       await this.saveSettings();
     }
     const anyOptionEnabled = Scheduler.Check(this.settings.ScheduledOptions);

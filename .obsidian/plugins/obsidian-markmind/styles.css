@@ -3352,7 +3352,7 @@ th {
     z-index: 1000;
     cursor: pointer;
     color: #666;
-    
+
 }
 
 .mm-embed-link div {
@@ -3400,6 +3400,10 @@ th {
 
 .theme-light .mm-link-menu svg {
     fill: #333;
+}
+
+.mm-node:hover .mm-node-cover {
+    display: none;
 }
 
 /* 遮挡文字节点 */
