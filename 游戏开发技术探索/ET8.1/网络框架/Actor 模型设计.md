@@ -19,6 +19,35 @@ ET 的 Actor 模型围绕一个核心问题展开：**在多纤程（Fiber）、
 
 ---
 
+# 二、Actor
+
+## Actor的三级寻址
+
+每个 Actor 通过 `ActorId` 唯一标识，结构为三级寻址：
+
+- 
+- 
+- 
+- 
+
+|层级|含义|作用|
+|---|---|---|
+|**Process**|目标所在的操作系统进程|决定走本地投递还是网络传输|
+|**Fiber**|进程内的逻辑纤程|决定投递到哪个消息队列|
+|**InstanceId**|纤程内挂有 `MailBoxComponent` 的 Entity|最终定位到具体的 Actor 实体|
+
+获取一个 Entity 的 ActorId 非常简单（见 [Fiber.cs](vscode-file://vscode-app/c:/Program%20Files/Microsoft%20VS%20Code/c3a26841a8/resources/app/out/vs/code/electron-browser/workbench/workbench.html)）：
+
+- 
+- 
+- 
+- 
+
+---
+
+### 二、
+
+
 # 二、六个关键设计点
 
 **1. 三级寻址 ActorId = Process + Fiber + InstanceId**
