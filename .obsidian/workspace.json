@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "项目/Unity/杂项/Git使用.md",
+                "file": "游戏开发技术探索/ET8.1/网络框架/网络协议收发.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Git使用"
+              "title": "网络协议收发"
             }
           }
         ]
@@ -185,11 +185,16 @@
       "vscode-editor:新建代码文件": false
     }
   },
-  "active": "89a66892aa3b87ae",
+  "active": "606c964a28cacf71",
   "lastOpenFiles": [
+    "游戏开发技术探索/ET8.1/网络框架/网络协议.md",
+    "游戏开发技术探索/ET8.1/网络框架/网络层.md",
+    "游戏开发技术探索/ET8.1/框架介绍/ET框架结构.md",
+    "游戏开发技术探索/ET8.1/网络框架/网络协议收发.md",
+    "游戏开发技术探索/ET8.1/网络框架/邮箱组件.md",
+    "项目/Unity/杂项/简单的下载功能.md",
     "项目/Unity/杂项/DownloadHelper.cs",
     "项目/Unity/杂项/Git使用.md",
-    "项目/Unity/杂项/简单的下载功能.md",
     "项目/Unity/踩坑记录/杂项.md",
     "项目/SeaWar/APK差分更新/05_原理与排错.md",
     "项目/SeaWar/APK差分更新/02_NDK构建指南.md",
@@ -210,10 +215,6 @@
     "项目/SeaWar/杂项知识点/AssetBundle压缩选项.md",
     "项目/SeaWar/杂项知识点/编辑器内存泄露.md",
     "项目/SeaWar/杂项知识点/资源导入.md",
-    "项目/SeaWar/设置系统/帧率设置功能.md",
-    "项目/SeaWar/设置系统/设置系统框架.md",
-    "项目/SeaWar/设置系统/Unity设备分级策略.md",
-    "项目/SeaWar/设置系统/unity 性能优化之画质分级_unity 低端机模型要求-CSDN博客.md",
     "项目/SeaWar/IOS接入/attachments/（图解1）OC声明方法.png",
     "项目/SeaWar/IOS接入/attachments",
     "项目/SeaWar/IOS接入",
