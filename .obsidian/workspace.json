@@ -4,21 +4,19 @@
     "type": "split",
     "children": [
       {
-        "id": "4504f1789a17fd0d",
+        "id": "138f731457911adc",
         "type": "tabs",
         "children": [
           {
-            "id": "606c964a28cacf71",
+            "id": "76c861427ccb92cc",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "excalidraw",
               "state": {
-                "file": "游戏开发技术探索/ET8.1/网络框架/网络协议收发.md",
-                "mode": "preview",
-                "source": false
+                "file": "游戏开发技术探索/ET8.1/框架介绍/attachments/客户端组件树状图.md"
               },
-              "icon": "lucide-file",
-              "title": "网络协议收发"
+              "icon": "excalidraw-icon",
+              "title": "客户端组件树状图"
             }
           }
         ]
@@ -185,12 +183,16 @@
       "vscode-editor:新建代码文件": false
     }
   },
-  "active": "606c964a28cacf71",
+  "active": "76c861427ccb92cc",
   "lastOpenFiles": [
+    "游戏开发技术探索/ET8.1/框架介绍/attachments/服务端组件树状图.md",
+    "游戏开发技术探索/ET8.1/框架介绍/attachments/客户端组件树状图.md",
+    "游戏开发技术探索/ET8.1/框架介绍/ET框架结构.md",
+    "游戏开发技术探索/ET8.1/框架介绍/attachments/启动流程图.mmd",
+    "游戏开发技术探索/ET8.1/网络框架/网络协议收发.md",
+    "未命名.md",
     "游戏开发技术探索/ET8.1/网络框架/网络协议.md",
     "游戏开发技术探索/ET8.1/网络框架/网络层.md",
-    "游戏开发技术探索/ET8.1/框架介绍/ET框架结构.md",
-    "游戏开发技术探索/ET8.1/网络框架/网络协议收发.md",
     "游戏开发技术探索/ET8.1/网络框架/邮箱组件.md",
     "项目/Unity/杂项/简单的下载功能.md",
     "项目/Unity/杂项/DownloadHelper.cs",
@@ -212,9 +214,6 @@
     "项目/SeaWar/工具/动画重采样.md",
     "项目/SeaWar/资源规范/资源规范整理.md",
     "项目/SeaWar/杂项知识点/CSharp继承的小坑.md",
-    "项目/SeaWar/杂项知识点/AssetBundle压缩选项.md",
-    "项目/SeaWar/杂项知识点/编辑器内存泄露.md",
-    "项目/SeaWar/杂项知识点/资源导入.md",
     "项目/SeaWar/IOS接入/attachments/（图解1）OC声明方法.png",
     "项目/SeaWar/IOS接入/attachments",
     "项目/SeaWar/IOS接入",
@@ -229,7 +228,6 @@
     "项目/SeaWar/技术分享/attachments/（图解76）优化后数据25.png",
     "项目/SeaWar/技术分享/attachments/（图解76）优化后数据25.png.crdownload",
     "项目/SeaWar/技术分享/attachments/（图解75）优化后数据24.png",
-    "项目/SeaWar/技术分享/attachments/（图解75）优化后数据24.png.crdownload",
     "项目/SeaWar/技术分享/attachments/（图解74）优化后数据23.png",
     "项目/SeaWar/技术分享/attachments/（图解73）优化后数据22.png",
     "项目/SeaWar/技术分享/attachments/（图解72）优化后数据21.png",
