@@ -1,6 +1,6 @@
 ---
 tags:
-  - SeaWar/热更功能合并/CSharp继承的小坑
+  - SeaWar/CSharp杂项知识点/CSharp继承的小坑
 ---
 ```CSharp
 public abstract class A  
