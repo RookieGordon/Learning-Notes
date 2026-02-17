@@ -4,19 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "138f731457911adc",
+        "id": "8819752d721d1bb6",
         "type": "tabs",
         "children": [
           {
-            "id": "76c861427ccb92cc",
+            "id": "238f79b9ed19ff89",
             "type": "leaf",
             "state": {
-              "type": "image",
+              "type": "markdown",
               "state": {
-                "file": "游戏开发技术探索/ET8.1/网络框架/attachments/客户端消息流转.drawio.svg"
+                "file": "游戏开发技术探索/ET8.1/网络框架/网络框架设计思路.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-image",
-              "title": "客户端消息流转.drawio"
+              "icon": "lucide-file",
+              "title": "网络框架设计思路"
             }
           }
         ]
@@ -183,15 +185,17 @@
       "vscode-editor:新建代码文件": false
     }
   },
-  "active": "89a66892aa3b87ae",
+  "active": "238f79b9ed19ff89",
   "lastOpenFiles": [
+    "游戏开发技术探索/ET8.1/网络框架/邮箱组件.md",
+    "游戏开发技术探索/ET8.1/网络框架/网络协议.md",
+    "游戏开发技术探索/ET8.1/网络框架/网络框架设计思路.md",
+    "游戏开发技术探索/ET8.1/网络框架/attachments/客户端消息流转.drawio.svg",
     "游戏开发技术探索/ET8.1/网络框架/attachments/客户端消息流转.drawio.svg.crswap",
     "游戏开发技术探索/ET8.1/框架介绍/attachments/ET框架启动流程.drawio.crswap",
     "游戏开发技术探索/ET8.1/网络框架/attachments/服务器消息流转.drawio.svg",
     "游戏开发技术探索/ET8.1/网络框架/attachments/（图解1）客户端消息流转.drawio.png",
     "游戏开发技术探索/ET8.1/网络框架/网络协议收发.md",
-    "游戏开发技术探索/ET8.1/网络框架/邮箱组件.md",
-    "游戏开发技术探索/ET8.1/网络框架/网络协议.md",
     "游戏开发技术探索/ET8.1/网络框架/网络层.md",
     "游戏开发技术探索/ET8.1/框架介绍/attachments/客户端组件树状图.md",
     "游戏开发技术探索/ET8.1/框架介绍/attachments/服务端组件树状图.md",
@@ -220,7 +224,6 @@
     "项目/SeaWar/工具/曲线简化算法.md",
     "项目/SeaWar/工具/多线程并行处理框架.md",
     "项目/SeaWar/工具/动画重采样.md",
-    "项目/SeaWar/资源规范/资源规范整理.md",
     "项目/SeaWar/IOS接入/attachments/（图解1）OC声明方法.png",
     "项目/SeaWar/IOS接入/attachments",
     "项目/SeaWar/IOS接入",
@@ -228,9 +231,7 @@
     "项目/SeaWar/技术分享/attachments/（图解80）优化后数据29.png.crdownload",
     "项目/SeaWar/技术分享/attachments/（图解79）优化后数据28.png",
     "项目/SeaWar/技术分享/attachments/（图解79）优化后数据28.png.crdownload",
-    "项目/SeaWar/技术分享/attachments/（图解78）优化后数据27.jpg",
     "项目/SeaWar/技术分享/attachments/（图解78）优化后数据27.jpg.crdownload",
-    "项目/SeaWar/技术分享/attachments/（图解77）优化后数据26.png.crdownload",
     "课程和练习/C++/C++.canvas",
     "未命名.canvas"
   ]
