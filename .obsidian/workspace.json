@@ -35,8 +35,7 @@
               "title": "网络协议"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -110,13 +109,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "游戏开发技术探索/ET8.1/网络框架/网络协议.md",
+                "file": "游戏开发技术探索/ET8.1/网络框架/网络协议收发.md",
                 "followCursor": false,
                 "showSearch": true,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "网络协议 的大纲"
+              "title": "网络协议收发 的大纲"
             }
           },
           {
@@ -201,8 +200,9 @@
       "vscode-editor:新建代码文件": false
     }
   },
-  "active": "48a4d337b91c2545",
+  "active": "15becb975aba646b",
   "lastOpenFiles": [
+    "游戏开发技术探索/ET8.1/网络框架/网络协议.md",
     "游戏开发技术探索/ET8.1/网络框架/网络协议收发.md",
     "游戏开发技术探索/ET8.1/网络框架/attachments/（图解1）网络通信框架.drawio.png",
     "游戏开发技术探索/ET8.1/网络框架/attachments/（图解2）客户端消息流转.drawio.png",
@@ -221,7 +221,6 @@
     "250520_1322144566@qq.com_components_license.md",
     "未命名.md",
     "未命名 1.md",
-    "游戏开发技术探索/ET8.1/网络框架/网络协议.md",
     "游戏开发技术探索/ET8.1/网络框架/邮箱组件.md",
     "游戏开发技术探索/ET8.1/网络框架/Actor 模型设计.md",
     "游戏开发技术探索/ET8.1/网络框架/未命名 1.md",
