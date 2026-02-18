@@ -2,7 +2,6 @@
 tags:
   - ET8/Entity
 ---
-
 # 什么是 ECS？
 
 ECS（Entity-Component-System）是一种架构模式，将 **数据** 和 **行为** 完全分离：
