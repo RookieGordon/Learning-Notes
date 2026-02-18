@@ -86,7 +86,21 @@ ET 中的 Entity 有两个重要 ID：
 
 `IsRegister`属性，表示当前Entity是否被纳入了生命周期管理。
 
-`Parent`属性，用于设置/获取Entity的父节点。当设置父节点的时候，会同步在父节点上设置当前Entity为子节点（`this.parent.AddToChildren(this)`）。另外，如果Entity是一个`IScene`，会同步设置`Fiber`对象，确保所有的Scene的Fiber是根节点Fiber。
+`Parent`属性，用于设置/获取Entity的父节点。当设置父节点的时候，会同步在父节点上设置当前Entity为子节点（`this.parent.AddToChildren(this)`）。另外还会设置`IScene`属性，确保所有Entity都持有根Scene。
+
+```CSharp
+if (this is IScene scene)  
+{  
+    scene.Fiber = this.parent.iScene.Fiber;  
+    this.IScene = scene;  
+}  
+else  
+{  
+    this.IScene = this.parent.iScene;  
+}
+```
+
+`IScene`属性，用于获取Entity所在Scene树的根（Scene）。当设置`IScene`属性时，会同步设置其子组件，子节点
 
 **Entity 既是实体也是组件** — ET 的 Component 本身也继承 Entity，这意味着组件也可以有自己的子组件。这种递归设计让数据结构非常灵活：
 
