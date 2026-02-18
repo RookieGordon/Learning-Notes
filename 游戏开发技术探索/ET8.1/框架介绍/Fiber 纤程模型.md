@@ -1,8 +1,10 @@
 ---
 tags:
   - ET8/Fiber
-  - ET8/MainThreadScheduler
-  - ET8/ThreadScheduler
+  - ET8/Fiber/MainThreadScheduler
+  - ET8/Fiber/ThreadScheduler
+  - ET8/Fiber/ThreadPoolScheduler
+  - ET8/Fiber/SchedulerType
 ---
 # 什么是 Fiber？
 
