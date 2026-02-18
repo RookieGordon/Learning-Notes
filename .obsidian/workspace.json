@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "游戏开发技术探索/ET8.1/网络框架/网络协议收发.md",
-                "mode": "source",
+                "file": "游戏开发技术探索/ET8.1/网络框架/Actor 模型设计.md",
+                "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "网络协议收发"
+              "title": "Actor 模型设计"
             }
           },
           {
@@ -92,8 +92,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 402.5,
-    "collapsed": true
+    "width": 402.5
   },
   "right": {
     "id": "be1e91dfcb57ce3b",
@@ -109,13 +108,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "游戏开发技术探索/ET8.1/网络框架/网络协议收发.md",
+                "file": "游戏开发技术探索/ET8.1/网络框架/Actor 模型设计.md",
                 "followCursor": false,
                 "showSearch": true,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "网络协议收发 的大纲"
+              "title": "Actor 模型设计 的大纲"
             }
           },
           {
@@ -203,8 +202,9 @@
   "active": "7054736cb0ae5e81",
   "lastOpenFiles": [
     "游戏开发技术探索/ET8.1/网络框架/协议对象.md",
-    "游戏开发技术探索/ET8.1/网络框架/网络协议收发.md",
+    "游戏开发技术探索/ET8.1/网络框架/Actor 模型设计.md",
     "游戏开发技术探索/ET8.1/网络框架/网络层.md",
+    "游戏开发技术探索/ET8.1/网络框架/网络协议收发.md",
     "游戏开发技术探索/ET8.1/网络框架/attachments/（图解3）服务器消息流转.drawio.png",
     "游戏开发技术探索/ET8.1/网络框架/attachments/（图解1）网络通信框架.drawio.png",
     "游戏开发技术探索/ET8.1/网络框架/attachments/（图解2）客户端消息流转.drawio.png",
@@ -223,7 +223,6 @@
     "未命名.md",
     "未命名 1.md",
     "游戏开发技术探索/ET8.1/网络框架/邮箱组件.md",
-    "游戏开发技术探索/ET8.1/网络框架/Actor 模型设计.md",
     "游戏开发技术探索/ET8.1/网络框架/未命名 1.md",
     "游戏开发技术探索/ET8.1/网络框架/未命名.md",
     "游戏开发技术探索/ET8.1/框架介绍/attachments/客户端组件树状图.md",
