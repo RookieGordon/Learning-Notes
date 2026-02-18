@@ -104,21 +104,7 @@ else
 
 ## Entity 中会序列化的数据
 
-Entiy中，标记了`BsonElement`特性的字段，会被序列化——
-
-**Entity 既是实体也是组件** — ET 的 Component 本身也继承 Entity，这意味着组件也可以有自己的子组件。这种递归设计让数据结构非常灵活：
-
-```
-Scene (根实体)
-├── PlayerComponent (组件)
-│   └── Player (子实体)
-│       ├── UnitComponent (组件)
-│       ├── BagComponent (组件)
-│       └── ...
-├── TimerComponent (组件)
-├── CoroutineLockComponent (组件)
-└── ...
-```
+Entiy中，标记了`BsonElement`特性的字段，会被序列化——Id，childrenDB和componentsDB。这三个数据会被写入数据库，或者进行协议传输。
 
 # System 的双重标记模式
 
@@ -183,5 +169,3 @@ public abstract class MessageObject : ProtoObject, IMessage, IDisposable, IPool
 ```
 
 `Entity.Create<T>(scene, isFromPool)` 从池中获取，`Dispose()` 时自动回收。这大幅减少了 GC 压力，对于高频创建销毁的场景（如网络消息）尤为重要。
-
----
