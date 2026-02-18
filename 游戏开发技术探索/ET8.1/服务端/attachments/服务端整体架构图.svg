@@ -1,0 +1,72 @@
+graph TB
+    subgraph Process["服务器进程 (Process)"]
+        direction TB
+        World["World (全局单例容器)<br/>FiberManager / OpcodeType / NetServices / CodeTypes"]
+        
+        subgraph MainFiber["Main Fiber (主纤程)"]
+            MRoot["Root Scene"]
+            MTimer["TimerComponent"]
+            MCoroutine["CoroutineLockComponent"]
+            MMailBox["MailBoxComponent"]
+            MInner["ProcessInnerSender"]
+        end
+        
+        subgraph NetInnerFiber["NetInner Fiber (内网通信纤程)"]
+            NIRoot["Root Scene"]
+            NISender["ProcessOuterSender<br/>(KCP/TCP 网络连接池)"]
+            NIInner["ProcessInnerSender"]
+        end
+        
+        subgraph RealmFiber["Realm Fiber (登录验证)"]
+            RRoot["Root Scene"]
+            RNet["NetComponent<br/>(监听客户端)"]
+            RSender["MessageSender"]
+        end
+        
+        subgraph GateFiber["Gate Fiber (网关)"]
+            GRoot["Root Scene"]
+            GNet["NetComponent"]
+            GPlayer["PlayerComponent"]
+            GLocation["LocationProxyComponent"]
+            GLocSender["MessageLocationSender"]
+        end
+        
+        subgraph LocationFiber["Location Fiber (位置服务)"]
+            LRoot["Root Scene"]
+            LMgr["LocationManagerComponent<br/>(Actor位置注册表)"]
+        end
+        
+        subgraph MapFiber["Map Fiber (地图/场景)"]
+            MapRoot["Root Scene"]
+            MapUnit["UnitComponent"]
+            MapAOI["AOIManagerComponent"]
+            MapLocProxy["LocationProxyComponent"]
+        end
+        
+        MQ["MessageQueue<br/>(Fiber间无锁消息队列)"]
+    end
+    
+    World --> MainFiber
+    World --> NetInnerFiber
+    World --> RealmFiber
+    World --> GateFiber
+    World --> LocationFiber
+    World --> MapFiber
+    
+    MainFiber -.->|"MessageQueue"| MQ
+    NetInnerFiber -.->|"MessageQueue"| MQ
+    RealmFiber -.->|"MessageQueue"| MQ
+    GateFiber -.->|"MessageQueue"| MQ
+    LocationFiber -.->|"MessageQueue"| MQ
+    MapFiber -.->|"MessageQueue"| MQ
+    
+    Client["客户端"] -->|"KCP/UDP"| GNet
+    Client -->|"KCP/UDP"| RNet
+    
+    OtherProcess["其他进程"] <-->|"KCP/TCP"| NISender
+
+    style Process fill:#1a1a2e,stroke:#16213e,color:#fff
+    style World fill:#0f3460,stroke:#533483,color:#fff
+    style MQ fill:#e94560,stroke:#533483,color:#fff
+    style Client fill:#16c79a,stroke:#11698e,color:#fff
+    style OtherProcess fill:#16c79a,stroke:#11698e,color:#fff
