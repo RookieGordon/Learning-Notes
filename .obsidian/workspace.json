@@ -11,14 +11,12 @@
             "id": "7054736cb0ae5e81",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "image",
               "state": {
-                "file": "游戏开发技术探索/ET8.1/网络框架/网络层.md",
-                "mode": "source",
-                "source": false
+                "file": "游戏开发技术探索/ET8.1/服务端/attachments/服务端整体架构图.svg"
               },
-              "icon": "lucide-file",
-              "title": "网络层"
+              "icon": "lucide-image",
+              "title": "服务端整体架构图"
             }
           },
           {
@@ -108,13 +106,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "游戏开发技术探索/ET8.1/网络框架/网络层.md",
+                "file": "游戏开发技术探索/ET8.1/服务端/attachments/服务端整体架构图.svg",
                 "followCursor": false,
                 "showSearch": true,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "网络层 的大纲"
+              "title": "服务端整体架构图 的大纲"
             }
           },
           {
@@ -199,13 +197,20 @@
       "vscode-editor:新建代码文件": false
     }
   },
-  "active": "89a66892aa3b87ae",
+  "active": "7054736cb0ae5e81",
   "lastOpenFiles": [
+    "游戏开发技术探索/ET8.1/服务端/attachments/跨进程RPC通信流程.svg.crswap",
+    "游戏开发技术探索/ET8.1/服务端/attachments/跨进程RPC通信流程.svg",
+    "游戏开发技术探索/ET8.1/服务端/attachments/同进程Fiber与RPC通信流程.svg.crswap",
+    "游戏开发技术探索/ET8.1/服务端/attachments/同进程Fiber与RPC通信流程.svg",
+    "游戏开发技术探索/ET8.1/服务端/attachments/Actor Location 消息寻址与迁移流程.svg.crswap",
+    "游戏开发技术探索/ET8.1/服务端/attachments/Actor Location 消息寻址与迁移流程.svg",
+    "游戏开发技术探索/ET8.1/服务端/attachments/服务端整体架构图.svg.crswap",
+    "游戏开发技术探索/ET8.1/网络框架/网络层.md",
+    "游戏开发技术探索/ET8.1/服务端/attachments/服务端整体架构图.svg",
     "游戏开发技术探索/ET8.1/网络框架/attachments/服务端整体架构图.drawio.crswap",
     "游戏开发技术探索/ET8.1/网络框架/attachments/服务端整体架构图.drawio",
-    "游戏开发技术探索/ET8.1/服务端/attachments/服务端整体架构图.svg",
     "游戏开发技术探索/ET8.1/服务端/attachments/服务端整体架构图.mmd",
-    "游戏开发技术探索/ET8.1/网络框架/网络层.md",
     "游戏开发技术探索/ET8.1/服务端/attachments/新建 文本文档.txt",
     "游戏开发技术探索/ET8.1/服务端/attachments",
     "游戏开发技术探索/ET8.1/网络框架/Actor 模型设计.md",
@@ -220,11 +225,6 @@
     "游戏开发技术探索/ET8.1/网络框架/attachments/服务器消息流转.svg",
     "游戏开发技术探索/ET8.1/网络框架/attachments/客户端消息流转.svg",
     "游戏开发技术探索/ET8.1/网络框架/attachments/客户端消息流转.drawio.svg",
-    "游戏开发技术探索/ET8.1/网络框架/attachments/服务器消息流转.svg.crswap",
-    "游戏开发技术探索/ET8.1/网络框架/attachments/服务器消息流转.drawio",
-    "游戏开发技术探索/ET8.1/网络框架/attachments/服务器消息流转.drawio (1).png",
-    "游戏开发技术探索/ET8.1/网络框架/attachments/（图解3）服务器消息流转.png",
-    "游戏开发技术探索/ET8.1/框架介绍/attachments/（图解1）ET8.0框架初始化流程.png",
     "250520_1322144566@qq.com_components_license.md",
     "未命名.md",
     "未命名 1.md",
@@ -234,8 +234,6 @@
     "游戏开发技术探索/ET8.1/框架介绍/attachments/客户端组件树状图.md",
     "游戏开发技术探索/ET8.1/框架介绍/attachments/服务端组件树状图.md",
     "游戏开发技术探索/ET8.1/网络框架/网络框架设计思路.md",
-    "游戏开发技术探索/ET8.1/网络框架/attachments/客户端消息流转.drawio.svg.crswap",
-    "游戏开发技术探索/ET8.1/框架介绍/attachments/ET框架启动流程.drawio.crswap",
     "项目/Unity/杂项/简单的下载功能.md",
     "项目/Unity/杂项/Git使用.md",
     "项目/Unity/踩坑记录/杂项.md",
