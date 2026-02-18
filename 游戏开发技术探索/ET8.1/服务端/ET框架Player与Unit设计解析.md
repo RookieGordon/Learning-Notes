@@ -1,10 +1,15 @@
-# ET 框架 Player 与 Unit 设计解析
+---
+tags:
+  - ET8/Unit
+  - ET8/Player
+---
+
 
 > 本文深入分析 ET 框架中两个最核心的游戏业务实体 —— Player 和 Unit 的设计。它们分别代表了"账号/连接层面的玩家"和"游戏世界中的角色"，分布在不同的 Fiber 中，通过消息通信协作。
 
 ---
 
-## 目录
+# 目录
 
 - [一、Player 与 Unit 的关系概述](#一player-与-unit-的关系概述)
 - [二、Player — 网关层的玩家代表](#二player--网关层的玩家代表)
@@ -20,9 +25,9 @@
 
 ---
 
-## 一、Player 与 Unit 的关系概述
+# 一、Player 与 Unit 的关系概述
 
-### 1.1 为什么要分成两个对象？
+## 1.1 为什么要分成两个对象？
 
 在游戏服务器中，"玩家" 其实有两层含义：
 
@@ -33,7 +38,7 @@
 
 > **对前端的类比**：Player 相当于 "登录管理器"，Unit 相当于 "游戏角色的 GameObject"。你在游戏大厅时只有 Player，进入地图后才有 Unit。
 
-### 1.2 核心设计：Player.Id == Unit.Id
+## 1.2 核心设计：Player.Id == Unit.Id
 
 ET 中一个关键设计：**Player 和 Unit 使用相同的 Id**。
 
@@ -49,7 +54,7 @@ Unit unit = unitComponent.AddChildWithId<Unit, int>(player.Id, 1001);
 
 这使得通过一个 Id 就能同时找到 Gate 上的 Player 和 Map 上的 Unit，大大简化了消息路由。
 
-### 1.3 组件结构全景图
+## 1.3 组件结构全景图
 
 ```
 Gate Scene
@@ -76,9 +81,9 @@ Map Scene
 
 ---
 
-## 二、Player — 网关层的玩家代表
+# 二、Player — 网关层的玩家代表
 
-### 2.1 Player 实体
+## 2.1 Player 实体
 
 ```csharp
 [ChildOf(typeof(PlayerComponent))]
@@ -90,7 +95,7 @@ public sealed class Player : Entity, IAwake<string>
 
 Player 极其简洁 —— 只有一个 `Account` 字段。它的主要价值在于**作为组件容器**，承载了多个重要组件。
 
-### 2.2 PlayerComponent — 在线玩家管理器
+## 2.2 PlayerComponent — 在线玩家管理器
 
 ```csharp
 [ComponentOf(typeof(Scene))]
@@ -123,7 +128,7 @@ public static void Remove(this PlayerComponent self, Player player)
 
 > **注意 `EntityRef<Player>`**：不直接持有 Player 引用，而是用 `EntityRef` 包装。这是一种安全引用模式 — 如果 Player 已被 Dispose，`EntityRef` 会自动返回 null，避免访问已销毁对象。
 
-### 2.3 PlayerSessionComponent — 双向关联 Player ↔ Session
+## 2.3 PlayerSessionComponent — 双向关联 Player ↔ Session
 
 ```csharp
 [ComponentOf(typeof(Player))]
@@ -167,7 +172,7 @@ public class MailBoxType_GateSessionHandler : AInvokeHandler<MailBoxInvoker>
 
 这实现了 **Map → Gate → 客户端** 的消息路由链。
 
-### 2.4 SessionPlayerComponent — 反向引用
+## 2.4 SessionPlayerComponent — 反向引用
 
 ```csharp
 [ComponentOf(typeof(Session))]
@@ -191,7 +196,7 @@ private static void Destroy(this SessionPlayerComponent self)
 }
 ```
 
-### 2.5 GateSessionKeyComponent — 登录 Key 管理
+## 2.5 GateSessionKeyComponent — 登录 Key 管理
 
 ```csharp
 [ComponentOf(typeof(Scene))]
@@ -211,7 +216,7 @@ public static void Add(this GateSessionKeyComponent self, long key, string accou
 }
 ```
 
-### 2.6 GateMapComponent — 临时地图场景
+## 2.6 GateMapComponent — 临时地图场景
 
 ```csharp
 [ComponentOf(typeof(Player))]
@@ -225,9 +230,9 @@ public class GateMapComponent : Entity, IAwake
 
 ---
 
-## 三、Unit — 地图中的游戏实体
+# 三、Unit — 地图中的游戏实体
 
-### 3.1 Unit 实体定义
+## 3.1 Unit 实体定义
 
 ```csharp
 [ChildOf(typeof(UnitComponent))]
@@ -281,7 +286,7 @@ public partial class Unit : Entity, IAwake<int>
 2. **Bson 标注分离**：私有字段 `[BsonElement]` 参与存储，公开属性 `[BsonIgnore]` 不重复存储但有逻辑
 3. **配置驱动**：`ConfigId` 关联配置表，通过 `unit.Config()` 获取 `UnitConfig`（类型、名称、模型等）
 
-### 3.2 UnitType — 实体类型枚举
+## 3.2 UnitType — 实体类型枚举
 
 ```csharp
 public enum UnitType : byte
@@ -298,7 +303,7 @@ Unit 是**通用的游戏实体**，不仅代表玩家角色，也代表怪物�
 public static UnitType Type(this Unit self) => (UnitType)self.Config().Type;
 ```
 
-### 3.3 UnitComponent — 地图上的实体管理器
+## 3.3 UnitComponent — 地图上的实体管理器
 
 ```csharp
 [ComponentOf(typeof(Scene))]
@@ -320,9 +325,9 @@ public static void Remove(this UnitComponent self, long id)
 }
 ```
 
-### 3.4 Unit 的核心组件
+## 3.4 Unit 的核心组件
 
-#### MoveComponent — 移动系统
+### MoveComponent — 移动系统
 
 ```csharp
 [ComponentOf(typeof(Unit))]
@@ -354,7 +359,7 @@ void MoveForward(bool ret);
 
 **设计要点**：移动不是靠 `UpdateSystem` 每帧计算的，而是通过 `TimerComponent` 的重复定时器驱动。这避免了在没有移动的 Unit 上浪费每帧 CPU。
 
-#### NumericComponent — 数值属性系统
+### NumericComponent — 数值属性系统
 
 ```csharp
 [ComponentOf(typeof(Unit))]
@@ -393,7 +398,7 @@ long finalSpeed = numericComponent.Get(NumericType.Speed);  // 7200
 
 设置子属性时会自动重新计算最终值，并发布 `NumbericChange` 事件通知相关系统。
 
-#### AOIEntity — 视野管理组件（服务端专属）
+### AOIEntity — 视野管理组件（服务端专属）
 
 ```csharp
 [ComponentOf(typeof(Unit))]
@@ -411,7 +416,7 @@ public class AOIEntity : Entity, IAwake<int, float3>, IDestroy
 
 > **`SeePlayers` vs `BeSeePlayers`**：`SeePlayers` 是"我能看到哪些玩家"，`BeSeePlayers` 是"哪些玩家能看到我"。广播消息时（如怪物移动），需要通知 `BeSeePlayers` 中的所有玩家。
 
-#### PathfindingComponent — 寻路组件
+### PathfindingComponent — 寻路组件
 
 ```csharp
 [ComponentOf(typeof(Unit))]
@@ -425,7 +430,7 @@ public class PathfindingComponent : Entity, IAwake<string>, IDestroy
 
 基于 Recast/Detour 的服务端寻路。
 
-#### MailBoxComponent — 使 Unit 成为 Actor
+### MailBoxComponent — 使 Unit 成为 Actor
 
 ```csharp
 unit.AddComponent<MailBoxComponent, MailBoxType>(MailBoxType.OrderedMessage);
@@ -435,9 +440,9 @@ unit.AddComponent<MailBoxComponent, MailBoxType>(MailBoxType.OrderedMessage);
 
 ---
 
-## 四、登录 → 进入地图完整流程
+# 四、登录 → 进入地图完整流程
 
-### 阶段一：客户端 → Realm（登录验证）
+## 阶段一：客户端 → Realm（登录验证）
 
 ```csharp
 // C2R_LoginHandler (Realm Fiber)
@@ -463,7 +468,7 @@ protected override async ETTask Run(Session session, C2R_Login request, R2C_Logi
 
 **要点**：Realm 只负责验证，不维护长连接。验证通过后客户端切换到 Gate。
 
-### 阶段二：客户端 → Gate（登录网关）
+## 阶段二：客户端 → Gate（登录网关）
 
 ```csharp
 // C2G_LoginGateHandler (Gate Fiber)
@@ -503,7 +508,7 @@ protected override async ETTask Run(Session session, C2G_LoginGate request, G2C_
 | `LocationType.GateSession` | PlayerSessionComponent | Map → Gate → 客户端 的消息路由 |
 | `LocationType.Unit`（后续） | Unit | 向地图中的 Unit 发消息 |
 
-### 阶段三：客户端 → Gate（进入地图）
+## 阶段三：客户端 → Gate（进入地图）
 
 ```csharp
 // C2G_EnterMapHandler (Gate Fiber)
@@ -523,7 +528,7 @@ protected override async ETTask Run(Session session, C2G_EnterMap request, G2C_E
 }
 ```
 
-### 阶段四：UnitFactory — 创建 Unit
+## 阶段四：UnitFactory — 创建 Unit
 
 ```csharp
 // UnitFactory.Create (服务端)
@@ -556,7 +561,7 @@ public static Unit Create(Scene scene, long id, UnitType unitType)
 }
 ```
 
-### 为什么先在 Gate 创建 Unit 再传送？
+## 为什么先在 Gate 创建 Unit 再传送？
 
 这是 ET 一个非常精巧的设计：
 
@@ -578,7 +583,7 @@ public static Unit Create(Scene scene, long id, UnitType unitType)
 
 ## 五、Unit 的跨场景传送
 
-### 5.1 TransferHelper 核心逻辑
+## 5.1 TransferHelper 核心逻辑
 
 ```csharp
 public static async ETTask Transfer(Unit unit, ActorId sceneInstanceId, string sceneName)
@@ -603,7 +608,7 @@ public static async ETTask Transfer(Unit unit, ActorId sceneInstanceId, string s
 }
 ```
 
-### 5.2 目标 Map 接收 Unit
+## 5.2 目标 Map 接收 Unit
 
 ```csharp
 // M2M_UnitTransferRequestHandler
@@ -639,7 +644,7 @@ protected override async ETTask Run(Scene scene, M2M_UnitTransferRequest request
 }
 ```
 
-### 5.3 哪些组件参与传送？
+## 5.3 哪些组件参与传送？
 
 | 组件 | 是否传送 | 原因 |
 |---|---|---|
@@ -652,9 +657,9 @@ protected override async ETTask Run(Scene scene, M2M_UnitTransferRequest request
 
 ---
 
-## 六、消息路由
+# 六、消息路由
 
-### 6.1 客户端 → Map（通过 Gate 中转）
+## 6.1 客户端 → Map（通过 Gate 中转）
 
 ```
 客户端发送 ILocationMessage / ILocationRequest
@@ -686,7 +691,7 @@ case ILocationMessage actorLocationMessage:
 }
 ```
 
-### 6.2 Map → 客户端（通过 Gate 中转）
+## 6.2 Map → 客户端（通过 Gate 中转）
 
 ```
 Map 上的逻辑需要通知客户端（如怪物移动）
@@ -703,7 +708,7 @@ MailBoxType_GateSessionHandler 处理:
     playerSessionComponent.Session.Send(message)  // 通过网络发给客户端
 ```
 
-### 6.3 消息路由总结
+## 6.3 消息路由总结
 
 ```
 客户端 → Gate → [Location查询Unit] → Map Unit
@@ -721,9 +726,9 @@ MailBoxType_GateSessionHandler 处理:
 
 ---
 
-## 七、AOI 与视野管理
+# 七、AOI 与视野管理
 
-### 7.1 基本原理
+## 7.1 基本原理
 
 AOI（Area of Interest）通过**网格划分**实现高效的视野管理：
 
@@ -739,7 +744,7 @@ AOI（Area of Interest）通过**网格划分**实现高效的视野管理：
 └────┴────┴────┴────┘
 ```
 
-### 7.2 AOIEntity 的四组字典
+## 7.2 AOIEntity 的四组字典
 
 ```csharp
 SeeUnits       // 我能看见的所有 Unit（包含怪物、NPC）
@@ -752,7 +757,7 @@ BeSeePlayers   // 能看见我的玩家 Unit
 - **广播优化**：怪物移动只需通知 `BeSeePlayers`（能看见它的玩家），不需要通知其他怪物
 - **下发优化**：只有 Player 类型的 Unit 需要接收视野数据
 
-### 7.3 事件触发链
+## 7.3 事件触发链
 
 ```
 Unit.Position 变化
@@ -768,7 +773,7 @@ Unit.Position 变化
               → MapMessageHelper.NoticeUnitRemove(玩家, 旧Unit)
 ```
 
-### 7.4 广播消息
+## 7.4 广播消息
 
 ```csharp
 public static void Broadcast(Unit unit, IMessage message)
@@ -785,9 +790,9 @@ public static void Broadcast(Unit unit, IMessage message)
 
 ---
 
-## 八、数值组件设计
+# 八、数值组件设计
 
-### 8.1 为什么用 Dictionary<int, long>？
+## 8.1 为什么用 Dictionary<int, long>？
 
 ```csharp
 public Dictionary<int, long> NumericDic = new();
