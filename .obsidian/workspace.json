@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "游戏开发技术探索/ET8.1/框架介绍/ET框架结构.md",
+                "file": "游戏开发技术探索/ET8.1/框架介绍/ECS 实体组件系统.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "ET框架结构"
+              "title": "ECS 实体组件系统"
             }
           }
         ]
@@ -78,8 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 402.5,
-    "collapsed": true
+    "width": 402.5
   },
   "right": {
     "id": "be1e91dfcb57ce3b",
@@ -95,13 +94,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "游戏开发技术探索/ET8.1/框架介绍/ET框架结构.md",
+                "file": "游戏开发技术探索/ET8.1/框架介绍/ECS 实体组件系统.md",
                 "followCursor": false,
                 "showSearch": true,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "ET框架结构 的大纲"
+              "title": "ECS 实体组件系统 的大纲"
             }
           },
           {
@@ -166,7 +165,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 515.5
+    "width": 515.5,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -187,8 +187,8 @@
   },
   "active": "7054736cb0ae5e81",
   "lastOpenFiles": [
-    "游戏开发技术探索/ET8.1/框架介绍/ECS 实体组件系统.md",
     "游戏开发技术探索/ET8.1/框架介绍/ET框架结构.md",
+    "游戏开发技术探索/ET8.1/框架介绍/ECS 实体组件系统.md",
     "游戏开发技术探索/ET8.1/框架介绍/Fiber 纤程模型.md",
     "游戏开发技术探索/ET8.1/服务端/attachments/Unit跨场景传送详细流程.svg",
     "游戏开发技术探索/ET8.1/服务端/attachments/Entity序列化与反序列化流程.svg",

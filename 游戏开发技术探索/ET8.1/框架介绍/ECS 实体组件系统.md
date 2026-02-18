@@ -68,6 +68,11 @@ classDiagram
     SystemObject <|-- DestroySystem~T~
 ```
 
+
+# Enity
+
+在ET框架中，Enity就是一切的基础，它既是数据基础，也是逻辑基础。Enity实现了
+
 # Entity 的关键特征
 
 ET 中的 Entity 有两个重要 ID：
