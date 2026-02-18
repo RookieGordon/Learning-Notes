@@ -1,6 +1,8 @@
 ---
 tags:
   - ET8/Fiber
+  - ET8/MainThreadScheduler
+  - ET8/ThreadScheduler
 ---
 # 什么是 Fiber？
 
@@ -61,11 +63,11 @@ graph LR
     end
 ```
 
-| 调度器 | 机制 | 适用场景 |
-|---|---|---|
-| `MainThreadScheduler` | 所有 Fiber 在主线程轮询 | Unity Editor 调试（需要主线程访问 Unity API） |
-| `ThreadScheduler` | 每个 Fiber 一个独立线程 | 开发调试（方便断点） |
-| `ThreadPoolScheduler` | N 个线程共享调度所有 Fiber | **生产环境**（N = CPU 核心数，最高效） |
+| 调度器                   | 机制                | 适用场景                               |
+| --------------------- | ----------------- | ---------------------------------- |
+| `MainThreadScheduler` | 所有 Fiber 在主线程轮询   | Unity Editor 调试（需要主线程访问 Unity API） |
+| `ThreadScheduler`     | 每个 Fiber 一个独立线程   | 开发调试（方便断点）                         |
+| `ThreadPoolScheduler` | N 个线程共享调度所有 Fiber | **生产环境**（N = CPU 核心数，最高效）          |
 
 # SceneType — Fiber 的角色定义
 
