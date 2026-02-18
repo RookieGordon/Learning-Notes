@@ -20,6 +20,7 @@ tags:
 ```CSharp
 private readonly Dictionary<Type, ASingleton> singletons = new();
 ```
+
 # CodeLoader热更代码加载器
 
 `CodeLoader`通过`YooAsset`和`HybridCLR`加载到热更新代码后，向`World`添加`CodeTypes`单例对象，该对象主要是用来做代码热重载的，只有被`CodeAttribute`特性修饰的类才能被热重载
