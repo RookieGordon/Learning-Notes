@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "游戏开发技术探索/ET8.1/重要组件/协程锁与定时器.md",
+                "file": "游戏开发技术探索/ET8.1/服务端/ET数据库与缓存设计解析.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "协程锁与定时器"
+              "title": "ET数据库与缓存设计解析"
             }
           }
         ]
@@ -94,13 +94,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "游戏开发技术探索/ET8.1/重要组件/协程锁与定时器.md",
+                "file": "游戏开发技术探索/ET8.1/服务端/ET数据库与缓存设计解析.md",
                 "followCursor": false,
                 "showSearch": true,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "协程锁与定时器 的大纲"
+              "title": "ET数据库与缓存设计解析 的大纲"
             }
           },
           {
@@ -187,16 +187,20 @@
   },
   "active": "7054736cb0ae5e81",
   "lastOpenFiles": [
+    "游戏开发技术探索/ET8.1/服务端/attachments/数据库与缓存架构.svg.crswap",
+    "游戏开发技术探索/ET8.1/服务端/attachments/数据库与缓存架构.svg",
+    "游戏开发技术探索/ET8.1/服务端/ET框架Player与Unit设计解析.md",
+    "游戏开发技术探索/ET8.1/服务端/Actor 模型与RPC  通信.md",
+    "游戏开发技术探索/ET8.1/服务端/ET数据库与缓存设计解析.md",
+    "游戏开发技术探索/ET8.1/重要组件/协程锁与定时器.md",
     "游戏开发技术探索/ET8.1/重要组件/CoroutineLockComponent协程锁.md",
     "游戏开发技术探索/ET8.1/重要组件/ObjectWait.md",
     "游戏开发技术探索/ET8.1/重要组件/TimerComponent组件.md",
-    "游戏开发技术探索/ET8.1/服务端/Actor 模型与RPC  通信.md",
     "游戏开发技术探索/ET8.1/服务端/服务端框架.md",
     "游戏开发技术探索/ET8.1/框架介绍/attachments/ET框架ECS核心类图.svg",
     "游戏开发技术探索/ET8.1/框架介绍/ECS 实体组件系统.md",
     "游戏开发技术探索/ET8.1/服务端/02_服务端整体架构总览.md",
     "游戏开发技术探索/ET8.1/服务端/04_服务端启动流程详解.md",
-    "游戏开发技术探索/ET8.1/重要组件/协程锁与定时器.md",
     "游戏开发技术探索/ET8.1/网络框架/网络传输层.md",
     "游戏开发技术探索/ET8.1/框架介绍/Fiber 纤程模型.md",
     "游戏开发技术探索/ET8.1/网络框架/协议对象.md",
@@ -221,7 +225,6 @@
     "游戏开发技术探索/ET8.1/网络框架/Actor 模型设计.md",
     "游戏开发技术探索/ET8.1/网络框架/网络协议收发.md",
     "游戏开发技术探索/ET8.1/网络框架/attachments/（图解3）服务器消息流转.drawio.png",
-    "游戏开发技术探索/ET8.1/网络框架/attachments/（图解1）网络通信框架.drawio.png",
     "游戏开发技术探索/ET8.1/框架介绍/ET框架结构.md",
     "250520_1322144566@qq.com_components_license.md",
     "未命名.md",
@@ -230,9 +233,6 @@
     "游戏开发技术探索/ET8.1/网络框架/未命名 1.md",
     "游戏开发技术探索/ET8.1/框架介绍/attachments/客户端组件树状图.md",
     "游戏开发技术探索/ET8.1/框架介绍/attachments/服务端组件树状图.md",
-    "游戏开发技术探索/ET8.1/网络框架/网络框架设计思路.md",
-    "项目/Unity/杂项/简单的下载功能.md",
-    "项目/Unity/杂项/Git使用.md",
     "课程和练习/C++/C++.canvas",
     "未命名.canvas"
   ]
