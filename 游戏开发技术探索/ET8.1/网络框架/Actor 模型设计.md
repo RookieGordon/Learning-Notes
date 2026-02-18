@@ -19,7 +19,7 @@ ET 的 Actor 模型围绕一个核心问题展开：**在多纤程（Fiber）、
 
 ---
 
-# 二、六个关键设计点
+# 二、关键设计点
 
 **1. 三级寻址 ActorId = Process + Fiber + InstanceId**
 
@@ -61,17 +61,45 @@ ET 的 Actor 模型围绕一个核心问题展开：**在多纤程（Fiber）、
 - 跨进程 → 包装为 `A2NetInner_*` → `MessageQueue` → NetInner Fiber → `ProcessOuterSender` → TCP/KCP
 - **业务代码只需要一个 ActorId，框架自动选择最优路径**
 
+## MailBoxComponent组件
+
+**MailBoxComponent 就是 Actor 的"信箱"——它是将普通 Entity 变成 Actor 的关键标记。** 挂上这个组件的 Entity，就拥有了接收和处理 Actor 消息的能力。
+
+**1. 注册为 Actor**
+
+`MailBoxComponent` 挂载在目标 Entity 上（作为子组件）。Awake 时将自身注册到所在 Fiber 的 `Mailboxes` 字典中（key = 父 Entity 的 InstanceId），Destroy 时移除：
+
+```csharp
+// 注册后，ProcessInnerSender 收到消息时就能通过 InstanceId 找到这个信箱
+MailBoxComponent mailBoxComponent = fiber.Mailboxes.Get(actorId.InstanceId);
+```
+
+这意味着：**没有 MailBoxComponent 的 Entity 无法被 Actor 消息寻址到**。`ProcessInnerSender.HandleMessage()` 找不到对应 MailBoxComponent 时会直接返回 `ERR_NotFoundActor`。
+
+**2. 消息入口：接收投递**
+
+当 `ProcessInnerSender` 从 MessageQueue 拉取到消息并通过 InstanceId 定位到 MailBoxComponent 后，调用其 `Add()` 方法投递消息。
+
+**3. 策略分发：按 MailBoxType 决定处理方式**
+
+`Add()` 内部通过 `EventSystem.Invoke()` 按 `MailBoxType` 分派到不同的 Handler：
+
+| MailBoxType | 行为 | 适用场景 |
+|---|---|---|
+| **OrderedMessage** | 使用**协程锁**（`CoroutineLock`，锁 key = ParentInstanceId）保证消息**严格有序**处理，然后调用 `MessageDispatcher.Handle()` | 状态敏感的游戏逻辑（如玩家实体），防止并发修改状态 |
+| **UnOrderedMessage** | **不加锁**，直接调用 `MessageDispatcher.Handle()` | 无状态或对顺序不敏感的服务，追求吞吐量 |
+| **GateSession** | 不走 MessageDispatcher，直接将消息通过 Session **转发给客户端** | Gate 服务器上的玩家 Session，实现服务器主推消息到客户端 |
 
 ## 各组件职责
 
-|组件|职责|
-|---|---|
-|**MessageQueue**|全局单例，用 `ConcurrentDictionary<int, ConcurrentQueue<MessageInfo>>` 维护每个 Fiber 的消息队列，是**跨纤程投递的中枢**|
-|**ProcessInnerSender**|每个 Fiber 各一个。发送时往 MessageQueue 塞消息；每帧 `Update` 时从队列 Fetch 消息处理|
-|**MailBoxComponent**|挂在目标 Entity 上，标记该 Entity 为一个 Actor。按 `MailBoxType` 分发（有序 / 无序 / Gate转发）|
-|**ProcessOuterSender**|运行在 NetInner Fiber 上，负责**跨进程**的网络收发，收到远程消息后转交 ProcessInnerSender 投递到本地 Fiber|
-|**MessageSender**|服务器业务层的统一发送抽象，自动判断同进程/跨进程路由|
-|**ClientSenderComponent**|客户端发送抽象，将请求包装后从 Main Fiber 投递到 NetClient Fiber|
+| 组件                        | 职责                                                                                              |
+| ------------------------- | ----------------------------------------------------------------------------------------------- |
+| **MessageQueue**          | 全局单例，用 `ConcurrentDictionary<int, ConcurrentQueue<MessageInfo>>` 维护每个 Fiber 的消息队列，是**跨纤程投递的中枢** |
+| **ProcessInnerSender**    | 每个 Fiber 各一个。发送时往 MessageQueue 塞消息；每帧 `Update` 时从队列 Fetch 消息处理                                  |
+| **MailBoxComponent**      | 挂在目标 Entity 上，标记该 Entity 为一个 Actor。按 `MailBoxType` 分发（有序 / 无序 / Gate转发）                         |
+| **ProcessOuterSender**    | 运行在 NetInner Fiber 上，负责**跨进程**的网络收发，收到远程消息后转交 ProcessInnerSender 投递到本地 Fiber                    |
+| **MessageSender**         | 服务器业务层的统一发送抽象，自动判断同进程/跨进程路由                                                                     |
+| **ClientSenderComponent** | 客户端发送抽象，将请求包装后从 Main Fiber 投递到 NetClient Fiber                                                  |
 
 
 ---
@@ -171,6 +199,7 @@ NetInner Fiber (Process 2):
 # 四、一句话概括
 
 > ET 的 Actor 模型 = **ActorId 三级寻址** + **MessageQueue 无锁队列** + **MailBoxComponent 信箱标记** + **二次封装位置透明** + **async/await RPC**，让开发者用同步思维写分布式代码。
+
 
 ```cardlink
 url: https://github.com/egametang/ET/blob/release8.1/Book/5.4Actor%E6%A8%A1%E5%9E%8B.md

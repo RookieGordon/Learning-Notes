@@ -13,50 +13,15 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "游戏开发技术探索/ET8.1/网络框架/Actor 模型设计.md",
+                "file": "游戏开发技术探索/ET8.1/网络框架/邮箱组件.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Actor 模型设计"
+              "title": "邮箱组件"
             }
           }
         ]
-      },
-      {
-        "id": "f6be6d692e9611dc",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "7b4706368a8266dc",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "游戏开发技术探索/ET8.1/网络框架/未命名.md",
-                "mode": "preview",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "未命名"
-            }
-          },
-          {
-            "id": "ab2504917d5ae9d9",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "游戏开发技术探索/ET8.1/网络框架/未命名 1.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "未命名 1"
-            }
-          }
-        ],
-        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -211,20 +176,13 @@
       "graph:查看关系图谱": false,
       "canvas:新建白板": false,
       "command-palette:打开命令面板": true,
-      "obsidian-git:Open Git source control": true,
-      "obsidian-excalidraw-plugin:新建绘图文件": false,
-      "moredraw:MoreDraw": false,
-      "obsidian-memos:Thino": false,
-      "pdf-plus:PDF++: Toggle auto-copy": false,
-      "pdf-plus:PDF++: Toggle auto-focus": false,
-      "pdf-plus:PDF++: Toggle auto-paste": false,
-      "vscode-editor:新建代码文件": false
+      "obsidian-git:Open Git source control": true
     }
   },
   "active": "2ab18e5c38703c0f",
   "lastOpenFiles": [
-    "游戏开发技术探索/ET8.1/网络框架/未命名 1.md",
     "游戏开发技术探索/ET8.1/网络框架/Actor 模型设计.md",
+    "游戏开发技术探索/ET8.1/网络框架/未命名 1.md",
     "游戏开发技术探索/ET8.1/网络框架/未命名.md",
     "游戏开发技术探索/ET8.1/网络框架/邮箱组件.md",
     "游戏开发技术探索/ET8.1/网络框架/网络协议收发.md",
