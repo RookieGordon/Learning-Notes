@@ -28,14 +28,15 @@
               "type": "markdown",
               "state": {
                 "file": "游戏开发技术探索/ET8.1/网络框架/网络协议.md",
-                "mode": "preview",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
               "title": "网络协议"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -109,13 +110,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "游戏开发技术探索/ET8.1/网络框架/网络协议收发.md",
+                "file": "游戏开发技术探索/ET8.1/网络框架/网络协议.md",
                 "followCursor": false,
                 "showSearch": true,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "网络协议收发 的大纲"
+              "title": "网络协议 的大纲"
             }
           },
           {
@@ -200,10 +201,10 @@
       "vscode-editor:新建代码文件": false
     }
   },
-  "active": "15becb975aba646b",
+  "active": "48a4d337b91c2545",
   "lastOpenFiles": [
-    "游戏开发技术探索/ET8.1/网络框架/网络协议.md",
     "游戏开发技术探索/ET8.1/网络框架/网络协议收发.md",
+    "游戏开发技术探索/ET8.1/网络框架/网络协议.md",
     "游戏开发技术探索/ET8.1/网络框架/attachments/（图解1）网络通信框架.drawio.png",
     "游戏开发技术探索/ET8.1/网络框架/attachments/（图解2）客户端消息流转.drawio.png",
     "游戏开发技术探索/ET8.1/框架介绍/ET框架结构.md",
