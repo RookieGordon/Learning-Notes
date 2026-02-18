@@ -11,12 +11,14 @@
             "id": "7054736cb0ae5e81",
             "type": "leaf",
             "state": {
-              "type": "image",
+              "type": "markdown",
               "state": {
-                "file": "游戏开发技术探索/ET8.1/服务端/attachments/服务端整体架构图.svg"
+                "file": "游戏开发技术探索/ET8.1/服务端/ET服务端框架深度解析.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-image",
-              "title": "服务端整体架构图"
+              "icon": "lucide-file",
+              "title": "ET服务端框架深度解析"
             }
           },
           {
@@ -106,13 +108,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "游戏开发技术探索/ET8.1/服务端/attachments/服务端整体架构图.svg",
+                "file": "游戏开发技术探索/ET8.1/服务端/ET服务端框架深度解析.md",
                 "followCursor": false,
                 "showSearch": true,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "服务端整体架构图 的大纲"
+              "title": "ET服务端框架深度解析 的大纲"
             }
           },
           {
@@ -199,6 +201,15 @@
   },
   "active": "7054736cb0ae5e81",
   "lastOpenFiles": [
+    "游戏开发技术探索/ET8.1/服务端/attachments/服务端整体架构图.svg",
+    "游戏开发技术探索/ET8.1/服务端/ET服务端框架深度解析.md",
+    "游戏开发技术探索/ET8.1/框架介绍/attachments/ET框架ECS核心类图.svg",
+    "游戏开发技术探索/ET8.1/服务端/attachments/服务器启动流程.svg.crswap",
+    "游戏开发技术探索/ET8.1/服务端/attachments/服务器启动流程.svg",
+    "游戏开发技术探索/ET8.1/服务端/attachments/Actor消息通信类图.svg.crswap",
+    "游戏开发技术探索/ET8.1/服务端/attachments/Actor消息通信类图.svg",
+    "游戏开发技术探索/ET8.1/服务端/attachments/ET框架ECS核心类图.svg.crswap",
+    "游戏开发技术探索/ET8.1/服务端/attachments/ET框架ECS核心类图.svg",
     "游戏开发技术探索/ET8.1/服务端/attachments/跨进程RPC通信流程.svg.crswap",
     "游戏开发技术探索/ET8.1/服务端/attachments/跨进程RPC通信流程.svg",
     "游戏开发技术探索/ET8.1/服务端/attachments/同进程Fiber与RPC通信流程.svg.crswap",
@@ -207,24 +218,15 @@
     "游戏开发技术探索/ET8.1/服务端/attachments/Actor Location 消息寻址与迁移流程.svg",
     "游戏开发技术探索/ET8.1/服务端/attachments/服务端整体架构图.svg.crswap",
     "游戏开发技术探索/ET8.1/网络框架/网络层.md",
-    "游戏开发技术探索/ET8.1/服务端/attachments/服务端整体架构图.svg",
     "游戏开发技术探索/ET8.1/网络框架/attachments/服务端整体架构图.drawio.crswap",
     "游戏开发技术探索/ET8.1/网络框架/attachments/服务端整体架构图.drawio",
     "游戏开发技术探索/ET8.1/服务端/attachments/服务端整体架构图.mmd",
-    "游戏开发技术探索/ET8.1/服务端/attachments/新建 文本文档.txt",
-    "游戏开发技术探索/ET8.1/服务端/attachments",
     "游戏开发技术探索/ET8.1/网络框架/Actor 模型设计.md",
-    "游戏开发技术探索/ET8.1/服务端",
     "游戏开发技术探索/ET8.1/网络框架/协议对象.md",
     "游戏开发技术探索/ET8.1/网络框架/网络协议收发.md",
     "游戏开发技术探索/ET8.1/网络框架/attachments/（图解3）服务器消息流转.drawio.png",
     "游戏开发技术探索/ET8.1/网络框架/attachments/（图解1）网络通信框架.drawio.png",
-    "游戏开发技术探索/ET8.1/网络框架/attachments/（图解2）客户端消息流转.drawio.png",
     "游戏开发技术探索/ET8.1/框架介绍/ET框架结构.md",
-    "游戏开发技术探索/ET8.1/网络框架/attachments/（图解2）客户端消息流转.drawio.png.~tmp",
-    "游戏开发技术探索/ET8.1/网络框架/attachments/服务器消息流转.svg",
-    "游戏开发技术探索/ET8.1/网络框架/attachments/客户端消息流转.svg",
-    "游戏开发技术探索/ET8.1/网络框架/attachments/客户端消息流转.drawio.svg",
     "250520_1322144566@qq.com_components_license.md",
     "未命名.md",
     "未命名 1.md",
@@ -244,7 +246,6 @@
     "项目/SeaWar/打包步骤调整/资源目录划分规则整理.md",
     "项目/SeaWar/打包步骤调整/寻址规则和Inspector显示.md",
     "项目/SeaWar/打包策略和资源规范调整/打包策略调整.md",
-    "项目/SeaWar/工具/Prefab的引用替换工具.md",
     "课程和练习/C++/C++.canvas",
     "未命名.canvas"
   ]
