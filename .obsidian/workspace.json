@@ -199,8 +199,10 @@
       "vscode-editor:新建代码文件": false
     }
   },
-  "active": "7054736cb0ae5e81",
+  "active": "89a66892aa3b87ae",
   "lastOpenFiles": [
+    "游戏开发技术探索/ET8.1/网络框架/attachments/服务端整体架构图.drawio.crswap",
+    "游戏开发技术探索/ET8.1/网络框架/attachments/服务端整体架构图.drawio",
     "游戏开发技术探索/ET8.1/服务端/attachments/服务端整体架构图.svg",
     "游戏开发技术探索/ET8.1/服务端/attachments/服务端整体架构图.mmd",
     "游戏开发技术探索/ET8.1/网络框架/网络层.md",
@@ -234,7 +236,6 @@
     "游戏开发技术探索/ET8.1/网络框架/网络框架设计思路.md",
     "游戏开发技术探索/ET8.1/网络框架/attachments/客户端消息流转.drawio.svg.crswap",
     "游戏开发技术探索/ET8.1/框架介绍/attachments/ET框架启动流程.drawio.crswap",
-    "游戏开发技术探索/ET8.1/框架介绍/attachments/启动流程图.mmd",
     "项目/Unity/杂项/简单的下载功能.md",
     "项目/Unity/杂项/Git使用.md",
     "项目/Unity/踩坑记录/杂项.md",
