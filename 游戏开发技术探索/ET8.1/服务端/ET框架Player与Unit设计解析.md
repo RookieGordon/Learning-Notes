@@ -801,7 +801,7 @@ public Dictionary<int, long> NumericDic = new();
 - **int key**：数值类型编号（如 Speed=1000, Hp=1001）
 - **long value**：用整数存储，避免浮点精度问题（1000 = 1.0）
 
-### 8.2 五维计算公式
+## 8.2 五维计算公式
 
 每个属性有 5 个子值（Base/Add/Pct/FinalAdd/FinalPct），修改任一子值都会自动重新计算最终值：
 
@@ -823,7 +823,7 @@ public static void Update(this NumericComponent self, int numericType)
 }
 ```
 
-### 8.3 适用场景
+## 8.3 适用场景
 
 这个设计非常适合 **RPG / MMORPG 类游戏** 的属性系统：
 
@@ -842,7 +842,7 @@ public static void Update(this NumericComponent self, int numericType)
 
 ---
 
-## 九、断线处理
+# 九、断线处理
 
 ```
 客户端断开连接
@@ -862,7 +862,7 @@ Map: G2M_SessionDisconnectHandler 处理
 
 ---
 
-## 十、客户端的 Unit 创建
+# 十、客户端的 Unit 创建
 
 当服务器通知客户端创建 Unit 时（如进入视野、切换场景）：
 
@@ -930,9 +930,9 @@ public static Unit GetMyUnitFromClientScene(Scene root)
 
 ---
 
-## 十一、设计总结与知识点
+# 十一、设计总结与知识点
 
-### 11.1 核心设计原则
+## 11.1 核心设计原则
 
 | 原则 | 体现 |
 |---|---|
@@ -943,7 +943,7 @@ public static Unit GetMyUnitFromClientScene(Scene root)
 | **传送即序列化** | ITransfer 标记决定哪些组件跟着传送 |
 | **登录即传送** | Gate 创建临时 Unit 再传送到 Map，复用传送逻辑 |
 
-### 11.2 Player 和 Unit 的生命周期对比
+## 11.2 Player 和 Unit 的生命周期对比
 
 ```
 Player          Unit
@@ -966,7 +966,7 @@ Player          Unit
   |←─销毁─→       |
 ```
 
-### 11.3 关键 Location 注册时机
+## 11.3 关键 Location 注册时机
 
 | 事件 | Location 操作 |
 |---|---|
@@ -975,7 +975,7 @@ Player          Unit
 | 跨 Map 传送 | 同上 |
 | 下线 | `RemoveLocation(Player)`, `RemoveLocation(GateSession)`, `RemoveLocation(Unit)` |
 
-### 11.4 前端程序员需要了解的关键差异
+## 11.4 前端程序员需要了解的关键差异
 
 | 前端概念 | 服务端对应 |
 |---|---|

@@ -11,14 +11,12 @@
             "id": "7054736cb0ae5e81",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "image",
               "state": {
-                "file": "游戏开发技术探索/ET8.1/服务端/ET框架Player与Unit设计解析.md",
-                "mode": "source",
-                "source": false
+                "file": "游戏开发技术探索/ET8.1/服务端/attachments/Unit跨场景传送详细流程.svg"
               },
-              "icon": "lucide-file",
-              "title": "ET框架Player与Unit设计解析"
+              "icon": "lucide-image",
+              "title": "Unit跨场景传送详细流程"
             }
           }
         ]
@@ -94,13 +92,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "游戏开发技术探索/ET8.1/服务端/ET框架Player与Unit设计解析.md",
+                "file": "游戏开发技术探索/ET8.1/服务端/attachments/Unit跨场景传送详细流程.svg",
                 "followCursor": false,
                 "showSearch": true,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "ET框架Player与Unit设计解析 的大纲"
+              "title": "Unit跨场景传送详细流程 的大纲"
             }
           },
           {
@@ -187,22 +185,28 @@
   },
   "active": "7054736cb0ae5e81",
   "lastOpenFiles": [
+    "游戏开发技术探索/ET8.1/服务端/attachments/Entity序列化与反序列化流程.svg",
+    "游戏开发技术探索/ET8.1/服务端/attachments/Actor消息通信类图.svg",
+    "游戏开发技术探索/ET8.1/服务端/attachments/Actor Location 消息寻址与迁移流程.svg",
+    "游戏开发技术探索/ET8.1/服务端/attachments/完整登录进地图流程.svg",
+    "游戏开发技术探索/ET8.1/服务端/attachments/同进程Fiber与RPC通信流程.svg",
+    "游戏开发技术探索/ET8.1/服务端/attachments/数据库与缓存架构.svg",
+    "游戏开发技术探索/ET8.1/服务端/attachments/跨进程RPC通信流程.svg",
+    "游戏开发技术探索/ET8.1/服务端/attachments/服务器启动流程.svg",
+    "游戏开发技术探索/ET8.1/服务端/attachments/服务端整体架构图.svg",
+    "游戏开发技术探索/ET8.1/服务端/服务端框架.md",
+    "游戏开发技术探索/ET8.1/服务端/Actor 模型与RPC  通信.md",
+    "游戏开发技术探索/ET8.1/服务端/ET框架Player与Unit设计解析.md",
     "游戏开发技术探索/ET8.1/服务端/ET数据库与缓存设计解析.md",
     "游戏开发技术探索/ET8.1/服务端/attachments/Unit跨场景传送详细流程.svg.crswap",
     "游戏开发技术探索/ET8.1/服务端/attachments/Unit跨场景传送详细流程.svg",
     "游戏开发技术探索/ET8.1/服务端/attachments/完整登录进地图流程.svg.crswap",
-    "游戏开发技术探索/ET8.1/服务端/attachments/完整登录进地图流程.svg",
     "游戏开发技术探索/ET8.1/服务端/attachments/Entity序列化与反序列化流程.svg.crswap",
-    "游戏开发技术探索/ET8.1/服务端/attachments/Entity序列化与反序列化流程.svg",
     "游戏开发技术探索/ET8.1/服务端/attachments/数据库与缓存架构.svg.crswap",
-    "游戏开发技术探索/ET8.1/服务端/attachments/数据库与缓存架构.svg",
-    "游戏开发技术探索/ET8.1/服务端/ET框架Player与Unit设计解析.md",
-    "游戏开发技术探索/ET8.1/服务端/Actor 模型与RPC  通信.md",
     "游戏开发技术探索/ET8.1/重要组件/协程锁与定时器.md",
     "游戏开发技术探索/ET8.1/重要组件/CoroutineLockComponent协程锁.md",
     "游戏开发技术探索/ET8.1/重要组件/ObjectWait.md",
     "游戏开发技术探索/ET8.1/重要组件/TimerComponent组件.md",
-    "游戏开发技术探索/ET8.1/服务端/服务端框架.md",
     "游戏开发技术探索/ET8.1/框架介绍/attachments/ET框架ECS核心类图.svg",
     "游戏开发技术探索/ET8.1/框架介绍/ECS 实体组件系统.md",
     "游戏开发技术探索/ET8.1/服务端/02_服务端整体架构总览.md",
@@ -211,15 +215,10 @@
     "游戏开发技术探索/ET8.1/框架介绍/Fiber 纤程模型.md",
     "游戏开发技术探索/ET8.1/网络框架/协议对象.md",
     "游戏开发技术探索/ET8.1/网络框架/网络层.md",
-    "游戏开发技术探索/ET8.1/服务端/attachments/服务端整体架构图.svg",
     "游戏开发技术探索/ET8.1/服务端/attachments/服务器启动流程.svg.crswap",
-    "游戏开发技术探索/ET8.1/服务端/attachments/服务器启动流程.svg",
     "游戏开发技术探索/ET8.1/服务端/attachments/Actor消息通信类图.svg.crswap",
-    "游戏开发技术探索/ET8.1/服务端/attachments/Actor消息通信类图.svg",
     "游戏开发技术探索/ET8.1/服务端/attachments/ET框架ECS核心类图.svg.crswap",
-    "游戏开发技术探索/ET8.1/服务端/attachments/ET框架ECS核心类图.svg",
     "游戏开发技术探索/ET8.1/服务端/attachments/跨进程RPC通信流程.svg.crswap",
-    "游戏开发技术探索/ET8.1/服务端/attachments/跨进程RPC通信流程.svg",
     "游戏开发技术探索/ET8.1/服务端/attachments/同进程Fiber与RPC通信流程.svg.crswap",
     "游戏开发技术探索/ET8.1/服务端/attachments/Actor Location 消息寻址与迁移流程.svg.crswap",
     "游戏开发技术探索/ET8.1/网络框架/Actor 模型设计.md",

@@ -1,10 +1,15 @@
-# ET 数据库与缓存设计解析
+---
+tags:
+  - ET8/MongoDB
+  - ET8/数据库
+---
+
 
 > 本文深入分析 ET 框架中"直接存储 Entity 对象"这一核心设计，以及围绕它构建的数据库访问层、序列化机制和缓存策略。
 
 ---
 
-## 目录
+# 目录
 
 - [一、设计总览 — Entity 就是数据库文档](#一设计总览)
 - [二、为什么选择 MongoDB](#二为什么选择-mongodb)
@@ -19,7 +24,7 @@
 
 ---
 
-## 一、设计总览
+# 一、设计总览
 
 ET 框架中最具特色的数据设计是：**Entity 对象可以直接存到 MongoDB，也可以直接从 MongoDB 读回来**。不需要 ORM 映射，不需要 DAO 层，Entity 本身就是数据库文档。
 
@@ -39,7 +44,7 @@ ET 框架中最具特色的数据设计是：**Entity 对象可以直接存到 M
 
 ---
 
-## 二、为什么选择 MongoDB
+# 二、为什么选择 MongoDB
 
 | 特性 | 对游戏开发的意义 |
 |---|---|
@@ -53,9 +58,9 @@ ET 框架中最具特色的数据设计是：**Entity 对象可以直接存到 M
 
 ---
 
-## 三、数据库访问层
+# 三、数据库访问层
 
-### 3.1 层次结构
+## 3.1 层次结构
 
 ```
 Scene (Root)
@@ -69,7 +74,7 @@ Scene (Root)
     └── ...
 ```
 
-### 3.2 DBManagerComponent — 按区服管理连接
+## 3.2 DBManagerComponent — 按区服管理连接
 
 ```csharp
 [ComponentOf(typeof(Scene))]
@@ -94,7 +99,7 @@ public static DBComponent GetZoneDB(this DBManagerComponent self, int zone)
 
 **巧妙之处**：`DBComponent` 的 `Id` = `zone` 编号，直接利用 Entity 父子关系的 `GetChild<T>(id)` 来按 zone 索引，不需要额外的字典。
 
-### 3.3 DBComponent — 完整的 CRUD API
+## 3.3 DBComponent — 完整的 CRUD API
 
 ```csharp
 [ChildOf(typeof(DBManagerComponent))]
@@ -131,7 +136,7 @@ Player loaded = await dbComponent.Query<Player>(playerId);
 // loaded 就是一个完整的 Player 实体，可以直接 AddChild 到场景中使用
 ```
 
-### 3.4 Collection 命名策略
+## 3.4 Collection 命名策略
 
 ```csharp
 private static IMongoCollection<T> GetCollection<T>(this DBComponent self, string collection = null)
@@ -146,7 +151,7 @@ private static IMongoCollection<T> GetCollection<T>(this DBComponent self, strin
 
 也支持传入自定义名称。
 
-### 3.5 Save 的核心实现 — Upsert 模式
+## 3.5 Save 的核心实现 — Upsert 模式
 
 ```csharp
 public static async ETTask Save<T>(this DBComponent self, T entity, string collection = null) 
@@ -172,11 +177,11 @@ public static async ETTask Save<T>(this DBComponent self, T entity, string colle
 
 ---
 
-## 四、Entity 序列化机制
+# 四、Entity 序列化机制
 
 这是 ET 最精妙的设计之一。Entity 基类通过**双容器策略**，在运行时高效数据结构和可序列化格式之间自动转换。
 
-### 4.1 双容器设计
+## 4.1 双容器设计
 
 Entity 中有两对容器：
 
@@ -206,7 +211,7 @@ protected List<Entity> childrenDB;     // 子实体列表
 | **序列化** | MongoDB.Bson 不好序列化 Dict 的 key | List 天然可序列化 |
 | **选择性** | 包含所有组件/子实体 | 只包含标记了 `ISerializeToEntity` 的 |
 
-### 4.2 BeginInit() — 序列化的入口
+## 4.2 BeginInit() — 序列化的入口
 
 当 MongoDB.Bson 序列化器准备序列化一个 Entity 时，它会先调用 `ISupportInitialize.BeginInit()`：
 
@@ -264,7 +269,7 @@ DB.Save(entity)
     → 写入 MongoDB
 ```
 
-### 4.3 反序列化恢复 — IScene setter
+## 4.3 反序列化恢复 — IScene setter
 
 从 MongoDB 读回 Entity 后，需要恢复运行时的数据结构。这在设置 `IScene` 时自动完成：
 
@@ -336,7 +341,7 @@ DB.Query<Player>(id)
   → Player 完全可用
 ```
 
-### 4.4 Bson 标注策略详解
+## 4.4 Bson 标注策略详解
 
 Entity 基类中各字段的标注：
 
@@ -376,9 +381,9 @@ public float3 Position
 
 ---
 
-## 五、ISerializeToEntity
+# 五、ISerializeToEntity
 
-### 5.1 设计思想
+## 5.1 设计思想
 
 `ISerializeToEntity` 是一个**空标记接口**：
 
@@ -388,7 +393,7 @@ public interface ISerializeToEntity { }
 
 只有实现了此接口的 Entity/Component 才会在 `BeginInit()` 时被收集到 `componentsDB`/`childrenDB`，从而参与数据库持久化。
 
-### 5.2 为什么需要选择性持久化？
+## 5.2 为什么需要选择性持久化？
 
 一个 Unit 实体可能有很多组件：
 
@@ -409,7 +414,7 @@ Unit (Entity)
 
 通过 `ISerializeToEntity` 标记，开发者可以**精确控制**哪些组件需要存储。
 
-### 5.3 使用示例
+## 5.3 使用示例
 
 ```csharp
 // 需要持久化的组件：实现 ISerializeToEntity
@@ -430,9 +435,9 @@ public class MoveComponent : Entity, IAwake, IDestroy
 
 ---
 
-## 六、ITransfer
+# 六、ITransfer
 
-### 6.1 与 ISerializeToEntity 的区别
+## 6.1 与 ISerializeToEntity 的区别
 
 ET 中有两种序列化标记接口：
 
@@ -441,7 +446,7 @@ ET 中有两种序列化标记接口：
 | `ISerializeToEntity` | **数据库持久化** | BeginInit() 收集到 componentsDB/childrenDB，通过 Bson 存 MongoDB |
 | `ITransfer` | **跨场景传送** | TransferHelper 中手动遍历 `unit.Components`，通过 `ToBson()` 序列化 |
 
-### 6.2 传送序列化流程
+## 6.2 传送序列化流程
 
 当 Unit 跨 Map 传送时（如切换地图）：
 
@@ -483,7 +488,7 @@ unit.AddComponent<PathfindingComponent, string>(scene.Name);
 unit.AddComponent<MailBoxComponent, MailBoxType>(MailBoxType.OrderedMessage);
 ```
 
-### 6.3 当前标记了 ITransfer 的组件
+## 6.3 当前标记了 ITransfer 的组件
 
 ```csharp
 // NumericComponent — 数值属性需要跟着玩家走
@@ -500,7 +505,7 @@ public class NumericComponent : Entity, IAwake, ITransfer
 
 ## 七、Serialize / Deserialize System
 
-### 7.1 SerializeSystem — 存储前的自定义钩子
+## 7.1 SerializeSystem — 存储前的自定义钩子
 
 ```csharp
 // Entity 标记接口
@@ -519,7 +524,7 @@ public abstract class SerializeSystem<T> : SystemObject, ISerializeSystem
 
 **用途**：在持久化前做数据准备。例如将运行时计算的缓存值写入可序列化字段。
 
-### 7.2 DeserializeSystem — 加载后的自定义钩子
+## 7.2 DeserializeSystem — 加载后的自定义钩子
 
 ```csharp
 // Entity 标记接口
@@ -538,7 +543,7 @@ public abstract class DeserializeSystem<T> : SystemObject, IDeserializeSystem
 
 **用途**：在反序列化后重建运行时状态。例如从序列化的原始数据重建高效的查找索引。
 
-### 7.3 使用示例
+## 7.3 使用示例
 
 ```csharp
 // 标记 Entity 需要 Serialize/Deserialize 钩子
@@ -573,9 +578,9 @@ public class SkillComponentDeserializeSystem : DeserializeSystem<SkillComponent>
 
 ---
 
-## 八、"Entity 树即缓存" 的设计哲学
+# 八、"Entity 树即缓存" 的设计哲学
 
-### 8.1 传统游戏服务器的数据架构
+## 8.1 传统游戏服务器的数据架构
 
 ```
 客户端 ← → 游戏逻辑 ← → Cache层(Redis等) ← → 数据库(MySQL)
@@ -588,7 +593,7 @@ public class SkillComponentDeserializeSystem : DeserializeSystem<SkillComponent>
 
 这意味着同一份数据存在三个副本，需要处理**缓存一致性**、**脏数据刷回**等复杂问题。
 
-### 8.2 ET 的"无缓存层"设计
+## 8.2 ET 的"无缓存层"设计
 
 ```
 客户端 ← → Entity 树(内存,即运行时对象) ← → MongoDB
@@ -603,7 +608,7 @@ ET 的理念：**Entity 树本身就是缓存。**
 
 **没有 Redis，没有 DAO，没有 ORM** — Entity 就是数据的唯一载体。
 
-### 8.3 这样做的优劣
+## 8.3 这样做的优劣
 
 **优势**：
 - **架构极其简洁**：无需维护缓存一致性，不存在脏读/缓存穿透问题
@@ -616,7 +621,7 @@ ET 的理念：**Entity 树本身就是缓存。**
 - **持久化策略需自行实现**：框架不提供自动定时保存，需要业务层决定何时 `DB.Save`
 - **不适合海量离线数据查询**：如果需要查询不在线的玩家数据，仍需直接查 MongoDB
 
-### 8.4 推荐的持久化策略
+## 8.4 推荐的持久化策略
 
 虽然 ET 框架没有内置自动保存，但常见的做法是：
 
@@ -637,9 +642,9 @@ protected override async ETTask Run(Unit unit, G2M_SessionDisconnect message)
 
 ---
 
-## 九、协程锁保证数据一致性
+# 九、协程锁保证数据一致性
 
-### 9.1 问题场景
+## 9.1 问题场景
 
 ET 是"单线程异步"模型，`await` 会让出执行权：
 
@@ -652,7 +657,7 @@ async ETTask Handler1(Player player) {
 }
 ```
 
-### 9.2 CoroutineLock 解决方案
+## 9.2 CoroutineLock 解决方案
 
 所有 DB 操作都在协程锁保护下执行：
 
@@ -675,7 +680,7 @@ public static async ETTask Save<T>(this DBComponent self, T entity, ...) where T
 
 ---
 
-## 十、与传统游戏服务器数据架构的对比
+# 十、与传统游戏服务器数据架构的对比
 
 | 维度 | 传统架构 (MySQL + Redis) | ET 架构 (MongoDB + Entity 树) |
 |---|---|---|
@@ -690,7 +695,7 @@ public static async ETTask Save<T>(this DBComponent self, T entity, ...) where T
 | **内存管理** | Redis TTL 自动过期 | 玩家下线 Entity Dispose |
 | **适用场景** | 通用 | 游戏（实体状态管理为主） |
 
-### MongoHelper 工具类
+## MongoHelper 工具类
 
 ET 提供了统一的序列化入口：
 
