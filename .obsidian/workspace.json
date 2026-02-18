@@ -11,12 +11,14 @@
             "id": "7054736cb0ae5e81",
             "type": "leaf",
             "state": {
-              "type": "image",
+              "type": "markdown",
               "state": {
-                "file": "游戏开发技术探索/ET8.1/服务端/attachments/服务端整体架构图.svg"
+                "file": "游戏开发技术探索/ET8.1/网络框架/网络层.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-image",
-              "title": "服务端整体架构图"
+              "icon": "lucide-file",
+              "title": "网络层"
             }
           },
           {
@@ -106,13 +108,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "游戏开发技术探索/ET8.1/服务端/attachments/服务端整体架构图.svg",
+                "file": "游戏开发技术探索/ET8.1/网络框架/网络层.md",
                 "followCursor": false,
                 "showSearch": true,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "服务端整体架构图 的大纲"
+              "title": "网络层 的大纲"
             }
           },
           {
@@ -199,8 +201,9 @@
   },
   "active": "7054736cb0ae5e81",
   "lastOpenFiles": [
-    "游戏开发技术探索/ET8.1/网络框架/网络层.md",
     "游戏开发技术探索/ET8.1/服务端/attachments/服务端整体架构图.svg",
+    "游戏开发技术探索/ET8.1/服务端/attachments/服务端整体架构图.mmd",
+    "游戏开发技术探索/ET8.1/网络框架/网络层.md",
     "游戏开发技术探索/ET8.1/服务端/attachments/新建 文本文档.txt",
     "游戏开发技术探索/ET8.1/服务端/attachments",
     "游戏开发技术探索/ET8.1/网络框架/Actor 模型设计.md",
@@ -233,7 +236,6 @@
     "游戏开发技术探索/ET8.1/框架介绍/attachments/ET框架启动流程.drawio.crswap",
     "游戏开发技术探索/ET8.1/框架介绍/attachments/启动流程图.mmd",
     "项目/Unity/杂项/简单的下载功能.md",
-    "项目/Unity/杂项/DownloadHelper.cs",
     "项目/Unity/杂项/Git使用.md",
     "项目/Unity/踩坑记录/杂项.md",
     "项目/SeaWar/APK差分更新/05_原理与排错.md",
