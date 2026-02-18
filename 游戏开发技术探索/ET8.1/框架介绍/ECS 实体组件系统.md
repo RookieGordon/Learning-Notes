@@ -100,7 +100,11 @@ else
 }
 ```
 
-`IScene`属性，用于获取Entity所在Scene树的根（Scene）。当设置`IScene`属性时，会同步设置其子组件，子节点
+`IScene`属性，用于获取Entity所在Scene树的根（Scene）。当设置`IScene`属性时，会同步设置其子组件，子节点。
+
+## Entity 中会序列化的数据
+
+Entiy中，标记了`BsonElement`特性的字段，会被序列化——
 
 **Entity 既是实体也是组件** — ET 的 Component 本身也继承 Entity，这意味着组件也可以有自己的子组件。这种递归设计让数据结构非常灵活：
 
