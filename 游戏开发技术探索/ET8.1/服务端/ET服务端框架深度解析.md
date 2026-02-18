@@ -4,7 +4,7 @@ tags:
   - ET8
 ---
 
-## 目录
+# 目录
 
 - [一、游戏服务器概述 — 为什么需要这些设计](#一游戏服务器概述)
 - [二、ET 服务端整体架构总览](#二et-服务端整体架构总览)
@@ -21,9 +21,9 @@ tags:
 
 ---
 
-## 一、游戏服务器概述
+# 一、游戏服务器概述
 
-### 1.1 对前端程序员的类比
+## 1.1 对前端程序员的类比
 
 如果你熟悉 Unity 前端开发，可以用以下类比来理解游戏服务器：
 
@@ -36,7 +36,7 @@ tags:
 | Unity 的单线程模型 | ET 的 Fiber 模型（多个"单线程"并行） |
 | Prefab 实例化 | 服务器创建玩家实体、NPC 实体 |
 
-### 1.2 游戏服务器面临的核心挑战
+## 1.2 游戏服务器面临的核心挑战
 
 1. **高并发**：成千上万玩家同时在线，每秒数万条消息
 2. **低延迟**：玩家操作需要快速响应（<100ms）
@@ -49,9 +49,9 @@ ET 框架的每一个核心设计点，都是为了解决上述一个或多个�
 
 ---
 
-## 二、ET 服务端整体架构总览
+# 二、ET 服务端整体架构总览
 
-### 2.1 架构全景图
+## 2.1 架构全景图
 
 ```
 ┌──────────────────────────────────────────────────────────────┐
@@ -77,7 +77,7 @@ ET 框架的每一个核心设计点，都是为了解决上述一个或多个�
       ↑↓ 客户端连接              ↑↓ 进程间连接
 ```
 
-### 2.2 分层说明
+## 2.2 分层说明
 
 | 层次 | 职责 | 关键类 |
 |------|------|--------|
@@ -88,15 +88,15 @@ ET 框架的每一个核心设计点，都是为了解决上述一个或多个�
 | **通信层** | 进程内/跨进程消息路由 | `ProcessInnerSender`, `MessageSender`, `ProcessOuterSender` |
 | **网络层** | 底层传输协议 | `KService`, `TService`, `WService`, `AChannel` |
 
-### 2.3 关键设计哲学
+## 2.3 关键设计哲学
 
 > **"单线程多进程"** — 每个 Fiber 内部是单线程的（避免锁），多个 Fiber 并行执行（提升吞吐）。这是 ET 最核心的设计思想，贯穿所有子系统。
 
 ---
 
-## 三、ECS 实体组件系统
+# 三、ECS 实体组件系统
 
-### 3.1 什么是 ECS？
+## 3.1 什么是 ECS？
 
 ECS（Entity-Component-System）是一种架构模式，将 **数据** 和 **行为** 完全分离：
 
@@ -106,7 +106,7 @@ ECS（Entity-Component-System）是一种架构模式，将 **数据** 和 **行
 
 > **对比 Unity 的 MonoBehaviour**：Unity 的 `MonoBehaviour` 既有数据（字段）又有逻辑（`Update`、`OnCollision` 等），是"面向对象"的设计。ET 的 ECS 将它们拆开，组件只存数据，System 只写逻辑。
 
-### 3.2 ET 的 ECS 核心类图
+## 3.2 ET 的 ECS 核心类图
 
 ```mermaid
 classDiagram
@@ -162,7 +162,7 @@ classDiagram
     SystemObject <|-- DestroySystem~T~
 ```
 
-### 3.3 Entity 的关键特征
+## 3.3 Entity 的关键特征
 
 ET 中的 Entity 有两个重要 ID：
 
@@ -185,7 +185,7 @@ Scene (根实体)
 └── ...
 ```
 
-### 3.4 System 的双重标记模式
+## 3.4 System 的双重标记模式
 
 ET 使用**双重标记**来关联 Entity 和 System：
 
@@ -235,7 +235,7 @@ public class PlayerComponentDestroySystem : DestroySystem<PlayerComponent>
 
 > **为什么这样设计？** 数据和逻辑分离后，Hotfix.dll（包含 System）可以热重载，而 Model.dll（包含 Entity/Component 数据定义）保持不变。这就实现了**不停服热更新游戏逻辑**。
 
-### 3.5 对象池机制
+## 3.5 对象池机制
 
 ET 的所有 Entity 和 MessageObject 都支持对象池：
 
@@ -251,9 +251,9 @@ public abstract class MessageObject : ProtoObject, IMessage, IDisposable, IPool
 
 ---
 
-## 四、Fiber 纤程模型
+# 四、Fiber 纤程模型
 
-### 4.1 什么是 Fiber？
+## 4.1 什么是 Fiber？
 
 **Fiber（纤程）** 是 ET 框架中最核心的并发模型。你可以把它理解为一个**轻量级的虚拟进程**：
 
@@ -266,7 +266,7 @@ public abstract class MessageObject : ProtoObject, IMessage, IDisposable, IPool
 
 > **对前端的类比**：想象 Unity 的每个 Scene 可以独立运行 Update，互相之间只能通过消息通信 — 这就是 Fiber。
 
-### 4.2 Fiber 的核心结构
+## 4.2 Fiber 的核心结构
 
 ```csharp
 public class Fiber : IDisposable
@@ -284,7 +284,7 @@ public class Fiber : IDisposable
 
 **`[ThreadStatic]` 的作用**：`Fiber.Instance` 是线程静态变量，保证在任意时刻，一个线程只会执行一个 Fiber 的逻辑。这从根本上避免了多线程并发问题 — 因为 Fiber 内部代码永远是单线程环境。
 
-### 4.3 三种调度模式
+## 4.3 三种调度模式
 
 ```mermaid
 graph LR
@@ -318,7 +318,7 @@ graph LR
 | `ThreadScheduler` | 每个 Fiber 一个独立线程 | 开发调试（方便断点） |
 | `ThreadPoolScheduler` | N 个线程共享调度所有 Fiber | **生产环境**（N = CPU 核心数，最高效） |
 
-### 4.4 SceneType — Fiber 的角色定义
+## 4.4 SceneType — Fiber 的角色定义
 
 每个 Fiber 创建时指定 `SceneType`，决定它的功能角色：
 
@@ -335,7 +335,7 @@ graph LR
 
 > **游戏服务知识**：传统游戏服务器按"服务类型"部署多个进程（Login Server、Gate Server、Game Server...）。ET 用 Fiber 替代进程，一个物理进程可以包含多种类型的 Fiber，也可以拆分到不同机器 — 实现了**灵活的分布式部署**。
 
-### 4.5 单进程 vs 分布式
+## 4.5 单进程 vs 分布式
 
 ET 的一大优势是**开发时单进程，部署时分布式**：
 
@@ -361,9 +361,9 @@ ET 的一大优势是**开发时单进程，部署时分布式**：
 
 ---
 
-## 五、Actor 模型
+# 五、Actor 模型
 
-### 5.1 什么是 Actor 模型？
+## 5.1 什么是 Actor 模型？
 
 Actor 模型是一种并发计算模型，核心思想：
 
@@ -374,7 +374,7 @@ Actor 模型是一种并发计算模型，核心思想：
 
 > **对前端的类比**：想象每个 GameObject 有一个"邮箱"，你不能直接调用它的方法，只能往邮箱里投信。GameObject 按照收信顺序逐个处理。这就是 Actor 模型。
 
-### 5.2 ET 中的 Actor
+## 5.2 ET 中的 Actor
 
 **任何挂载了 `MailBoxComponent` 的 Entity 就是一个 Actor。**
 
@@ -385,7 +385,7 @@ unit.AddComponent<MailBoxComponent, MailBoxType>(MailBoxType.OrderedMessage);
 // 现在 unit 就是一个 Actor，可以接收消息了
 ```
 
-### 5.3 ActorId — 三级寻址
+## 5.3 ActorId — 三级寻址
 
 ```csharp
 public struct Address 
@@ -409,7 +409,7 @@ ActorId(Process=1, Fiber=5, InstanceId=123456)
 在进程1中 → 找到Fiber 5 → 在Fiber 5的Mailboxes中找到InstanceId=123456的Entity
 ```
 
-### 5.4 MailBox 处理类型
+## 5.4 MailBox 处理类型
 
 | MailBoxType | 行为 | 适用场景 |
 |---|---|---|
@@ -417,7 +417,7 @@ ActorId(Process=1, Fiber=5, InstanceId=123456)
 | `UnOrderedMessage` | 消息并发处理，不加锁 | 无状态服务（如纯转发） |
 | `GateSession` | 直接转发给客户端 Session | Gate 网关的玩家 Session |
 
-### 5.5 消息处理流水线
+## 5.5 消息处理流水线
 
 ```
 消息到达 Fiber
@@ -437,7 +437,7 @@ MessageDispatcher — 按消息 Type + SceneType 查找 Handler
 IMHandler.Handle() — 具体业务处理器执行
 ```
 
-### 5.6 Handler 编写示例
+## 5.6 Handler 编写示例
 
 **普通 Actor 消息处理器**（Send 型，无需回复）：
 
@@ -476,9 +476,9 @@ public class C2G_LoginGateHandler : MessageHandler<Scene, C2G_LoginGateRequest, 
 
 ---
 
-## 六、RPC 通信机制
+# 六、RPC 通信机制
 
-### 6.1 什么是 RPC？
+## 6.1 什么是 RPC？
 
 RPC（Remote Procedure Call，远程过程调用）让你像调用本地方法一样调用远程服务的方法：
 
@@ -488,7 +488,7 @@ G2M_CreateUnitResponse response = await MessageSender.Call(mapActorId, new G2M_C
 // 但实际上消息可能发到了另一台机器的另一个进程
 ```
 
-### 6.2 消息类型体系
+## 6.2 消息类型体系
 
 ```
 IMessage (消息基类)
@@ -502,14 +502,14 @@ IMessage (消息基类)
 └── ISessionMessage                       // Session 单向消息
 ```
 
-### 6.3 两种发送模式
+## 6.3 两种发送模式
 
 | 模式 | 方法 | 特点 |
 |---|---|---|
 | **Send** | `Send(actorId, message)` | 单向发送，不等待回复（Fire-and-forget） |
 | **Call** | `Call(actorId, request)` → `IResponse` | RPC 调用，异步等待回复，40 秒超时 |
 
-### 6.4 同进程通信 — ProcessInnerSender
+## 6.4 同进程通信 — ProcessInnerSender
 
 同一个进程内的不同 Fiber 之间通信，使用**内存消息队列**（`MessageQueue`），零网络开销：
 
@@ -531,7 +531,7 @@ sequenceDiagram
 - 每个 Fiber 有一个队列，发送方直接入队，接收方每帧拉取
 - 线程安全且无锁（`ConcurrentQueue`）
 
-### 6.5 跨进程通信 — MessageSender + NetInner
+## 6.5 跨进程通信 — MessageSender + NetInner
 
 当目标 Actor 在其他进程时，消息需要经过**网络传输**：
 
@@ -555,7 +555,7 @@ NetInner Fiber (网络中转站)
 
 **关键设计**：`MessageSender` 作为路由层，自动判断走内存队列还是网络传输，对业务层完全透明。
 
-### 6.6 Opcode 系统
+## 6.6 Opcode 系统
 
 每个消息类型有唯一的 **Opcode（操作码）**，用于序列化/反序列化时的类型识别：
 
@@ -572,9 +572,9 @@ public partial class C2M_CreateUnitsRequest : MessageObject, ILocationRequest { 
 
 ---
 
-## 七、Actor Location
+# 七、Actor Location
 
-### 7.1 解决什么问题？
+## 7.1 解决什么问题？
 
 前面说过，Actor 的寻址需要 `ActorId`（Process + Fiber + InstanceId）。但在游戏中，**玩家会跨场景迁移**：
 
@@ -586,7 +586,7 @@ public partial class C2M_CreateUnitsRequest : MessageObject, ILocationRequest { 
 
 问题：其他服务（如 Gate）缓存了旧的 ActorId，消息发到旧地址会找不到人。
 
-### 7.2 Location Server 的设计
+## 7.2 Location Server 的设计
 
 **Location Server** 就像一个"电话簿"，维护 `Entity.Id → ActorId` 的映射：
 
@@ -604,7 +604,7 @@ Location Server 注册表:
 
 > **对现实的类比**：`Entity.Id` 相当于你的**身份证号**（永远不变），`ActorId` 相当于你的**住址**（搬家后会变）。Location Server 相当于**户籍系统**，记录每个人当前住在哪里。
 
-### 7.3 Location 消息发送流程
+## 7.3 Location 消息发送流程
 
 使用 Location 发送消息时，发送方只需知道 `Entity.Id`，不需要知道 `ActorId`：
 
@@ -620,7 +620,7 @@ await MessageLocationSender.Call(locationOneType, entityId, new C2M_MoveRequest(
 4. 如果返回 `ERR_NotFoundActor`（对方已迁移） → 等 500ms → 清缓存 → 重新查询 → 重试
 5. 最多重试 **20 次**
 
-### 7.4 迁移时的 Lock 机制
+## 7.4 迁移时的 Lock 机制
 
 迁移过程中如何保证消息不丢失？ET 设计了一套**锁机制**：
 
@@ -645,7 +645,7 @@ await MessageLocationSender.Call(locationOneType, entityId, new C2M_MoveRequest(
 - **不会收到重复消息**（协程锁保证串行）
 - **迁移对发送方透明**（自动重试，业务层无感知）
 
-### 7.5 Location Handler 的特殊设计
+## 7.5 Location Handler 的特殊设计
 
 **ILocationMessage（Send 型）**的 Handler 收到消息后**立即回复空 MessageResponse**，然后才处理逻辑：
 
@@ -664,9 +664,9 @@ public async ETTask Handle(Entity entity, Address fromAddress, MessageObject mes
 
 ---
 
-## 八、网络传输层
+# 八、网络传输层
 
-### 8.1 三种传输协议
+## 8.1 三种传输协议
 
 | 协议 | 类 | 特点 | 用途 |
 |---|---|---|---|
@@ -674,7 +674,7 @@ public async ETTask Handle(Entity entity, Address fromAddress, MessageObject mes
 | **TCP** | `TService` + `TChannel` | 稳定可靠，有序 | 服务器 ↔ 服务器（内网通信） |
 | **WebSocket** | `WService` + `WChannel` | 浏览器兼容 | WebGL 客户端 |
 
-### 8.2 KCP 协议简介
+## 8.2 KCP 协议简介
 
 KCP 是一个基于 UDP 的可靠传输协议。为什么不直接用 TCP？
 
@@ -687,7 +687,7 @@ KCP 是一个基于 UDP 的可靠传输协议。为什么不直接用 TCP？
 
 对于游戏来说，**低延迟**比带宽效率更重要，因此 KCP 是更好的选择。
 
-### 8.3 消息包格式
+## 8.3 消息包格式
 
 **Outer 消息**（客户端 ↔ 服务器）：
 ```
@@ -701,7 +701,7 @@ KCP 是一个基于 UDP 的可靠传输协议。为什么不直接用 TCP？
 
 Inner 消息额外包含 `ActorId`（8字节 Address + 8字节 InstanceId），用于在目标进程中精确路由到目标 Entity。
 
-### 8.4 KService 的连接管理
+## 8.4 KService 的连接管理
 
 KService 实现了自定义的**四阶段握手**协议：
 
@@ -714,7 +714,7 @@ KService 实现了自定义的**四阶段握手**协议：
   |--- FIN ------------->|       // 4. 断开连接
 ```
 
-### 8.5 大消息分片
+## 8.5 大消息分片
 
 KCP 消息有大小限制（`MaxKcpMessageSize = 10000` 字节）。超过此大小的消息会自动**分片/重组**：
 
@@ -729,9 +729,9 @@ KCP 消息有大小限制（`MaxKcpMessageSize = 10000` 字节）。超过此大
 
 ---
 
-## 九、协程锁与定时器
+# 九、协程锁与定时器
 
-### 9.1 协程锁（CoroutineLock）
+## 9.1 协程锁（CoroutineLock）
 
 > **对前端的类比**：Unity 的协程（Coroutine）是无法"加锁"的。如果两个协程同时修改同一数据，会产生竞争条件。ET 的协程锁就是为单线程异步环境设计的"锁"。
 
@@ -792,7 +792,7 @@ async ETTask Handler2(Player player) {
 | `Location` | Location Server 的增删改查串行执行 |
 | `DB` | 同一 Entity 的数据库操作串行执行 |
 
-### 9.2 定时器（TimerComponent）
+## 9.2 定时器（TimerComponent）
 
 **三种定时器**：
 
@@ -817,9 +817,9 @@ long timerId = TimerComponent.NewRepeatedTimer(1000, TimerInvokeType.HeartBeat, 
 
 ---
 
-## 十、服务端启动流程详解
+# 十、服务端启动流程详解
 
-### 10.1 启动链路
+## 10.1 启动链路
 
 ```
 Program.Main()
@@ -857,7 +857,7 @@ Program.Main()
         }
 ```
 
-### 10.2 配置驱动
+## 10.2 配置驱动
 
 服务器的部署拓扑完全由配置决定：
 
@@ -878,11 +878,11 @@ Program.Main()
 
 ---
 
-## 十一、游戏服务器通用知识科普
+# 十一、游戏服务器通用知识科普
 
-### 11.1 游戏服务器的常见架构模式
+## 11.1 游戏服务器的常见架构模式
 
-#### 模式一：单体架构（Monolithic）
+### 模式一：单体架构（Monolithic）
 
 ```
 ┌─── 单个服务器进程 ───┐
@@ -894,7 +894,7 @@ Program.Main()
 **优点**：简单、延迟低（无网络开销）
 **缺点**：无法水平扩展、单点故障
 
-#### 模式二：微服务架构（Microservices）
+### 模式二：微服务架构（Microservices）
 
 ```
 ┌─────┐ ┌─────┐ ┌─────┐ ┌─────┐
@@ -907,13 +907,13 @@ Program.Main()
 **优点**：可独立扩展、隔离故障
 **缺点**：复杂度高、网络延迟
 
-#### ET 的模式：融合架构
+### ET 的模式：融合架构
 
 ET 通过 Fiber 实现了两种模式的融合：
 - **开发时**像单体架构（所有 Fiber 在一个进程，调试方便）
 - **部署时**像微服务架构（Fiber 可分布到不同进程/机器）
 
-### 11.2 网关（Gate）的作用
+## 11.2 网关（Gate）的作用
 
 ```
 客户端1 ─┐                 ┌─ Map1 (地图服)
@@ -932,7 +932,7 @@ Gate 网关的核心职责：
 3. **安全屏障**：客户端只能连接 Gate，不能直接访问内部服务
 4. **GateSession MailBox**：收到发给玩家的消息后，直接通过 Session 转发给客户端
 
-### 11.3 登录流程示例
+## 11.3 登录流程示例
 
 ```
 客户端                  Realm              Gate               Map
@@ -961,7 +961,7 @@ Gate 网关的核心职责：
 3. 客户端用密钥连接 Gate
 4. Gate 创建 Player 并通知 Map 创建游戏实体
 
-### 11.4 AOI（Area of Interest）
+## 11.4 AOI（Area of Interest）
 
 AOI 是游戏服务器中非常重要的优化技术：
 
@@ -987,7 +987,7 @@ AOI 解决方案：
 
 ET 中通过 `AOIManagerComponent` 实现此功能。
 
-### 11.5 帧同步 vs 状态同步
+## 11.5 帧同步 vs 状态同步
 
 | | 状态同步 | 帧同步 |
 |---|---|---|
@@ -1000,7 +1000,7 @@ ET 中通过 `AOIManagerComponent` 实现此功能。
 
 ET 同时支持两种模式，分别通过 `Map` 和 `Room/RoomRoot` 场景类型实现。
 
-### 11.6 数据库设计
+## 11.6 数据库设计
 
 ET 使用 **MongoDB** 作为数据库，这在游戏服务器中非常常见：
 
@@ -1015,9 +1015,9 @@ ET 通过 `DBComponent` 封装了数据库操作，每个操作都使用 `Corout
 
 ---
 
-## 附录：关键源码文件索引
+# 附录：关键源码文件索引
 
-### 核心框架（Core）
+## 核心框架（Core）
 
 | 文件 | 说明 |
 |---|---|
@@ -1033,7 +1033,7 @@ ET 通过 `DBComponent` 封装了数据库操作，每个操作都使用 `Corout
 | `Unity/Assets/Scripts/Core/World/Module/Actor/MessageDispatcher.cs` | 消息分发器 |
 | `Unity/Assets/Scripts/Core/World/ActorId.cs` | Actor 地址定义 |
 
-### 网络层（Network）
+## 网络层（Network）
 
 | 文件 | 说明 |
 |---|---|
@@ -1045,7 +1045,7 @@ ET 通过 `DBComponent` 封装了数据库操作，每个操作都使用 `Corout
 | `Unity/Assets/Scripts/Core/Network/MessageSerializeHelper.cs` | 消息序列化 |
 | `Unity/Assets/Scripts/Core/Network/OpcodeType.cs` | Opcode 管理 |
 
-### 服务端业务（Server）
+## 服务端业务（Server）
 
 | 文件 | 说明 |
 |---|---|
@@ -1056,7 +1056,7 @@ ET 通过 `DBComponent` 封装了数据库操作，每个操作都使用 `Corout
 | `Unity/Assets/Scripts/Hotfix/Server/Module/DB/DBComponentSystem.cs` | 数据库 CRUD |
 | `Unity/Assets/Scripts/Hotfix/Server/Demo/EntryEvent2_InitServer.cs` | 服务端启动入口 |
 
-### Fiber 初始化
+## Fiber 初始化
 
 | 文件 | 对应 SceneType |
 |---|---|
@@ -1067,7 +1067,7 @@ ET 通过 `DBComponent` 封装了数据库操作，每个操作都使用 `Corout
 | `Unity/Assets/Scripts/Hotfix/Server/Module/ActorLocation/FiberInit_Location.cs` | Location |
 | `Unity/Assets/Scripts/Hotfix/Server/LockStep/Map/FiberInit_Map.cs` | Map |
 
-### 参考书籍
+## 参考书籍
 
 | 文件 | 主题 |
 |---|---|
