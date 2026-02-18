@@ -22,18 +22,6 @@
             }
           },
           {
-            "id": "e028f300b8767d5e",
-            "type": "leaf",
-            "state": {
-              "type": "image",
-              "state": {
-                "file": "游戏开发技术探索/ET8.1/框架介绍/attachments/（图解1）ET8.0框架初始化流程.png"
-              },
-              "icon": "lucide-image",
-              "title": "（图解1）ET8.0框架初始化流程"
-            }
-          },
-          {
             "id": "8df7d1862d55265b",
             "type": "leaf",
             "state": {
@@ -53,14 +41,14 @@
             "state": {
               "type": "image",
               "state": {
-                "file": "游戏开发技术探索/ET8.1/网络框架/attachments/（图解3）服务器消息流转.png"
+                "file": "游戏开发技术探索/ET8.1/网络框架/attachments/（图解2）客户端消息流转.drawio.png"
               },
               "icon": "lucide-image",
-              "title": "（图解3）服务器消息流转"
+              "title": "（图解2）客户端消息流转.drawio"
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -117,8 +105,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 402.5,
-    "collapsed": true
+    "width": 402.5
   },
   "right": {
     "id": "be1e91dfcb57ce3b",
@@ -134,13 +121,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "游戏开发技术探索/ET8.1/网络框架/attachments/（图解3）服务器消息流转.png",
+                "file": "游戏开发技术探索/ET8.1/网络框架/attachments/（图解2）客户端消息流转.drawio.png",
                 "followCursor": false,
                 "showSearch": true,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "（图解3）服务器消息流转 的大纲"
+              "title": "（图解2）客户端消息流转.drawio 的大纲"
             }
           },
           {
@@ -227,14 +214,15 @@
   },
   "active": "36ba4cf70f7a4767",
   "lastOpenFiles": [
-    "游戏开发技术探索/ET8.1/网络框架/attachments/服务器消息流转.svg",
-    "游戏开发技术探索/ET8.1/网络框架/attachments/（图解3）服务器消息流转.png",
-    "游戏开发技术探索/ET8.1/网络框架/attachments/服务器消息流转.png",
+    "游戏开发技术探索/ET8.1/框架介绍/ET框架结构.md",
     "游戏开发技术探索/ET8.1/网络框架/attachments/（图解2）客户端消息流转.drawio.png",
+    "游戏开发技术探索/ET8.1/网络框架/attachments/（图解2）客户端消息流转.drawio.png.~tmp",
+    "游戏开发技术探索/ET8.1/网络框架/attachments/（图解3）服务器消息流转.png",
+    "游戏开发技术探索/ET8.1/框架介绍/attachments/（图解1）ET8.0框架初始化流程.png",
+    "游戏开发技术探索/ET8.1/网络框架/attachments/服务器消息流转.svg",
+    "游戏开发技术探索/ET8.1/网络框架/attachments/服务器消息流转.png",
     "游戏开发技术探索/ET8.1/网络框架/attachments/（图解1）网络通信框架.drawio.png",
     "游戏开发技术探索/ET8.1/网络框架/网络协议收发.md",
-    "游戏开发技术探索/ET8.1/框架介绍/ET框架结构.md",
-    "游戏开发技术探索/ET8.1/框架介绍/attachments/（图解1）ET8.0框架初始化流程.png",
     "250520_1322144566@qq.com_components_license.md",
     "未命名.md",
     "未命名 1.md",
@@ -251,7 +239,6 @@
     "游戏开发技术探索/ET8.1/框架介绍/attachments/（图解2）ET8.0中，Fiber和Scene的层级关系.png",
     "游戏开发技术探索/ET8.1/网络框架/attachments/客户端消息流转.drawio.svg",
     "游戏开发技术探索/ET8.1/网络框架/attachments/服务器消息流转.svg.crswap",
-    "游戏开发技术探索/ET8.1/网络框架/attachments/服务器消息流转.drawio.svg",
     "游戏开发技术探索/ET8.1/网络框架/attachments/服务器消息流转.drawio",
     "游戏开发技术探索/ET8.1/网络框架/网络框架设计思路.md",
     "游戏开发技术探索/ET8.1/网络框架/attachments/客户端消息流转.drawio.svg.crswap",
@@ -272,7 +259,6 @@
     "项目/SeaWar/工具/Prefab的引用替换工具.md",
     "项目/SeaWar/IOS接入/attachments",
     "项目/SeaWar/IOS接入",
-    "项目/SeaWar/技术分享/attachments/（图解80）优化后数据29.png.crdownload",
     "课程和练习/C++/C++.canvas",
     "未命名.canvas"
   ]
