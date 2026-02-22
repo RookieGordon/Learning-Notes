@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "游戏开发技术探索/ET8.1/框架介绍/Fiber 纤程模型.md",
+                "file": "游戏开发技术探索/Unity开发技术/动画性能优化/GPU动画优化技术原理详解.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Fiber 纤程模型"
+              "title": "GPU动画优化技术原理详解"
             }
           }
         ],
@@ -182,7 +182,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 515.5
+    "width": 515.5,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -191,13 +192,22 @@
       "graph:查看关系图谱": false,
       "canvas:新建白板": false,
       "command-palette:打开命令面板": true,
-      "obsidian-git:Open Git source control": true
+      "obsidian-git:Open Git source control": true,
+      "obsidian-excalidraw-plugin:新建绘图文件": false,
+      "moredraw:MoreDraw": false,
+      "obsidian-memos:Thino": false,
+      "pdf-plus:PDF++: Toggle auto-copy": false,
+      "pdf-plus:PDF++: Toggle auto-focus": false,
+      "pdf-plus:PDF++: Toggle auto-paste": false,
+      "vscode-editor:新建代码文件": false
     }
   },
-  "active": "ecb137817ae8abd6",
+  "active": "73ed451b8f2cde5c",
   "lastOpenFiles": [
-    "游戏开发技术探索/ET8.1/框架介绍/ET框架结构.md",
+    "游戏开发技术探索/Unity开发技术/动画性能优化/动画烘焙，GPU动画.md",
+    "游戏开发技术探索/Unity开发技术/动画性能优化/GPU动画优化技术原理详解.md",
     "游戏开发技术探索/ET8.1/框架介绍/Fiber 纤程模型.md",
+    "游戏开发技术探索/ET8.1/框架介绍/ET框架结构.md",
     "游戏开发技术探索/ET8.1/框架介绍/ECS 实体组件系统.md",
     "游戏开发技术探索/ET8.1/服务端/attachments/Unit跨场景传送详细流程.svg",
     "游戏开发技术探索/ET8.1/服务端/attachments/Entity序列化与反序列化流程.svg",
@@ -240,7 +250,6 @@
     "游戏开发技术探索/ET8.1/网络框架/邮箱组件.md",
     "游戏开发技术探索/ET8.1/网络框架/未命名 1.md",
     "游戏开发技术探索/ET8.1/框架介绍/attachments/客户端组件树状图.md",
-    "游戏开发技术探索/ET8.1/框架介绍/attachments/服务端组件树状图.md",
     "课程和练习/C++/C++.canvas",
     "未命名.canvas"
   ]
