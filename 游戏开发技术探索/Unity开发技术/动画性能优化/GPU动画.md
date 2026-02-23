@@ -100,21 +100,22 @@ Unity 的 `Animator` 组件每帧需要进行：
 
 #### 2.3.1 骨骼动画模式（Bone Mode）
 
-**写入纹理的内容**：每帧每根骨骼的 **蒙皮矩阵**（`bone.localToWorldMatrix × bindPose`）。
+**写入纹理的内容**：每帧每根骨骼的 **蒙皮矩阵**（`bone.localToWorldMatrix × bindPose`），经压缩后以 **四元数 + 平移** 形式存储。
 
-- 每根骨骼的 4×4 矩阵，齐次行固定为 `(0,0,0,1)`，只需存 3 行 → **每根骨骼占 3 个像素**。
-- 纹理布局：X 轴 = `boneIndex × 3 + row`，Y 轴 = `frameIndex`。
-- 运行时 Shader 通过 UV1（骨骼索引）和 UV2（骨骼权重）对最多 4 根骨骼进行矩阵采样、加权混合，然后变换顶点。
+- 蒙皮矩阵分解为旋转（四元数 XYZW）和平移（XYZ），每根骨骼仅需 **2 个像素**，相比原始矩阵行存储（3 像素）**宽度减少 33%**。
+- 四元数统一归一化到 **正 w 半球**（`w < 0` 时取反），确保帧间 Lerp 插值的一致性。
+- 纹理布局：X 轴 = `boneIndex × 2 + channel`（0=四元数, 1=平移），Y 轴 = `frameIndex`。
+- 运行时 Shader 通过 `QuatTransToMatrix()` 将四元数+平移重建为 4×4 矩阵，再结合 UV1（骨骼索引）和 UV2（骨骼权重）对最多 4 根骨骼进行加权混合，变换顶点。
 
 ```
 纹理 X 轴 (宽度方向)
-┌─────────┬─────────┬─────────┬─────────┬─────────┬─────────┬───
-│ Bone0   │ Bone0   │ Bone0   │ Bone1   │ Bone1   │ Bone1   │...
-│ Row0    │ Row1    │ Row2    │ Row0    │ Row1    │ Row2    │
-├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤    Y 轴
-│  RGBA   │  RGBA   │  RGBA   │  RGBA   │  RGBA   │  RGBA   │  (帧方向)
-│ (Half)  │ (Half)  │ (Half)  │ (Half)  │ (Half)  │ (Half)  │    ↓
-└─────────┴─────────┴─────────┴─────────┴─────────┴─────────┘
+┌───────────┬───────────┬───────────┬───────────┬───
+│  Bone0    │  Bone0    │  Bone1    │  Bone1    │...
+│ Quat XYZW│Trans XYZ_ │ Quat XYZW│Trans XYZ_ │
+├───────────┼───────────┼───────────┼───────────┤    Y 轴
+│   RGBA    │   RGBA    │   RGBA    │   RGBA    │  (帧方向)
+│  (Half)   │  (Half)   │  (Half)   │  (Half)   │    ↓
+└───────────┴───────────┴───────────┴───────────┘
 ```
 
 #### 2.3.2 顶点动画模式（Vertex Mode）
@@ -122,19 +123,32 @@ Unity 的 `Animator` 组件每帧需要进行：
 **写入纹理的内容**：每帧每个顶点的 **世界空间位置** 和 **法线**。
 
 - 每个顶点需 2 个像素：Position（RGB） + Normal（RGB）。
-- 纹理布局：X 轴 = `vertexIndex × 2 [+ 1]`，Y 轴 = `frameIndex`。
-- 运行时 Shader 通过 `SV_VertexID` 直接从纹理读取位置和法线——不需要任何骨骼信息。
+- **行折叠（Row Folding）**：每帧的线性像素序列（`vertexCount × 2`）折叠到 `foldedWidth = min(vertexCount × 2, maxAtlasSize)` 宽度，每帧占据 `rowsPerFrame = ceil(vertexCount × 2 / foldedWidth)` 行。避免纹理宽度极端（如 10000×60），改善 GPU cache 命中率。
+- 运行时 Shader 通过 `SV_VertexID` 和折叠坐标公式直接从纹理读取位置和法线——不需要任何骨骼信息。
 
 ```
-纹理 X 轴 (宽度方向)
-┌──────────┬──────────┬──────────┬──────────┬───
-│ Vertex0  │ Vertex0  │ Vertex1  │ Vertex1  │...
-│ Position │ Normal   │ Position │ Normal   │
-├──────────┼──────────┼──────────┼──────────┤    Y 轴
-│  RGBA    │  RGBA    │  RGBA    │  RGBA    │  (帧方向)
-│ (Half)   │ (Half)   │ (Half)   │ (Half)   │    ↓
-└──────────┴──────────┴──────────┴──────────┘
+行折叠示例 (vertexCount=5, 每帧 10 像素, foldedWidth=4, rowsPerFrame=3)
+
+逻辑线性序列：V0.Pos V0.Nrm V1.Pos V1.Nrm V2.Pos V2.Nrm V3.Pos V3.Nrm V4.Pos V4.Nrm
+               [0]    [1]    [2]    [3]    [4]    [5]    [6]    [7]    [8]    [9]
+
+折叠后纹理布局 (foldedWidth=4):
+         col 0    col 1    col 2    col 3
+       ┌────────┬────────┬────────┬────────┐
+row 0  │ V0.Pos │ V0.Nrm │ V1.Pos │ V1.Nrm │  ← linearIndex 0-3
+row 1  │ V2.Pos │ V2.Nrm │ V3.Pos │ V3.Nrm │  ← linearIndex 4-7
+row 2  │ V4.Pos │ V4.Nrm │ (空)   │ (空)   │  ← linearIndex 8-9
+       ├────────┼────────┼────────┼────────┤
+row 3  │  ... Frame 1, row 0 ...           │
+row 4  │  ... Frame 1, row 1 ...           │
+row 5  │  ... Frame 1, row 2 ...           │
+       └────────┴────────┴────────┴────────┘
 ```
+
+坐标映射公式：
+- `linearIndex = vertexID × 2 + channel`（0=Position, 1=Normal）
+- `pixelX = linearIndex % foldedWidth`
+- `pixelY = frame × rowsPerFrame + linearIndex / foldedWidth`
 
 ### 2.4 为什么 Animation Texture 能解决合批问题
 
@@ -218,26 +232,28 @@ $$
             │
             ▼
 输出：GPUAnimationData (ScriptableObject)
-       ├── BakeTexture  (Texture2D, RGBAHalf)
-       ├── BakedMesh    (Mesh，已处理)
-       ├── AnimationClips[] (动画片段元数据)
+       ├── BakeTextures[]  (Texture2D[], RGBAHalf, 自动拆分多张 Atlas)
+       ├── BakedMesh       (Mesh，已处理)
+       ├── AnimationClips[] (动画片段元数据，含 TextureIndex)
+       ├── RowsPerFrame    (顶点模式行折叠参数，骨骼模式=1)
        └── ExposeTransforms[] (暴露骨骼信息)
 ```
 
 **关键设计决策**：
 
 - **纹理格式** 使用 `RGBAHalf`（16-bit 半精度浮点），在精度与显存之间取得平衡。
-- **纹理尺寸** 扩展到 2 的幂次（`NextPowerOfTwo`），满足 GPU 硬件对齐要求。
+- **纹理尺寸** 使用 NPOT（Non-Power-Of-Two）原始数据尺寸，避免 `NextPowerOfTwo` 导致的空间浪费（详见 5.1.5 节）。
 - **Filter Mode** 设为 `Point`（逐像素采样），避免双线性过滤混淆相邻骨骼/顶点的数据。
-- **WrapMode** X 轴 `Clamp`（超出范围无意义），Y 轴 `Repeat`（循环动画可自然重复）。
+- **WrapMode** U/V 轴统一使用 `Clamp`。循环动画的帧回绕由 CPU 端 `AnimationTicker` 处理，不依赖 GPU 的 Repeat 采样。这确保了 NPOT 纹理在旧 GPU（OpenGL ES 2.0）上的兼容性（详见 5.1.5 节）。
 
 #### 3.2.2 运行时控制（Runtime）
 
 **`GPUAnimationController`** — 挂载在 GameObject 上，代替 `Animator`：
 
-- 持有 `GPUAnimationData` 引用和 `AnimationTicker` 实例。
-- 初始化时将烘焙好的 Mesh 赋给 `MeshFilter`，将 Animation Texture 和 Shader 关键字设置到材质上。
-- 每帧调用 `Tick(deltaTime)`，驱动时间轴前进。
+- 持有单个 `GPUAnimationData` 和 `AnimationTicker` 实例。
+- **多 Atlas 纹理**：`GPUAnimationData` 内部包含 `BakeTextures[]` 数组，烘焙器根据 Atlas 尺寸上限自动将动画拆分到多张纹理。每个 `AnimationTickerClip` 通过 `TextureIndex` 字段记录所属的 Atlas 下标，运行时根据当前播放的动画自动切换对应纹理。
+- 初始化时将烘焙好的 Mesh 赋给 `MeshFilter`，Shader 关键字和行折叠参数（`_AnimRowsPerFrame`）设置到共享材质上。
+- 每帧调用 `Tick(deltaTime)` 驱动时间轴前进，并通过 `MaterialPropertyBlock` 逐实例设置帧参数和当前活跃纹理。
 
 **`AnimationTicker`** — 纯逻辑的时间轴驱动器，不依赖 MonoBehaviour：
 
@@ -248,7 +264,7 @@ $$
 
 **Shader（`GPUAnimationInclude.hlsl`）** — 在顶点着色器阶段完成动画采样：
 
-- 通过 `multi_compile_local` 关键字切换 `_ANIM_BONE` / `_ANIM_VERTEX` 模式。
+- 通过 `multi_compile_local` 关键字切换 `ANIM_BONE` / `ANIM_VERTEX` 模式。
 - 从 `UNITY_INSTANCING_BUFFER` 读取逐实例的帧参数。
 - 采样纹理 → `lerp` 插值 → 变换顶点位置和法线。
 - 支持 GPU Instancing，可大规模合批渲染。
@@ -262,7 +278,7 @@ $$
 
 | 维度            | Bone Mode（骨骼模式）                | Vertex Mode（顶点模式）               |
 | --------------- | ------------------------------------ | ------------------------------------- |
-| 纹理宽度        | `boneCount × 3`                      | `vertexCount × 2`                     |
+| 纹理宽度        | `boneCount × 2`（四元数+平移压缩）      | `min(vertexCount × 2, maxAtlasSize)`（行折叠） |
 | 纹理存储效率    | 高（骨骼数通常 20-60）                | 低（顶点数通常 500-5000+）             |
 | Shader 复杂度   | 较高（采样 + 矩阵混合 + 变换）        | 较低（直接读取位置/法线）              |
 | Mesh 预处理     | 需写入 UV1/UV2（骨骼索引/权重）        | 清除骨骼数据即可                       |
@@ -437,7 +453,7 @@ private static int GetClipParams(AnimationClip[] clips, out AnimationTickerClip[
 
 #### 5.1.2 骨骼动画烘焙（Bone Mode）
 
-骨骼模式的核心是：将每帧每根骨骼的 **蒙皮矩阵** 写入纹理。
+骨骼模式的核心是：将每帧每根骨骼的 **蒙皮矩阵** 分解为 **四元数（旋转）+ 平移** 写入纹理。
 
 **蒙皮矩阵的计算**（`AnimationBakerWindow_BoneBaker.cs`）：
 
@@ -459,32 +475,58 @@ $$
 
 这个矩阵的含义：将顶点从 T-Pose（绑定姿势）下的模型空间位置，直接变换到当前动画帧的世界空间位置。
 
+**骨骼数据压缩 — 四元数 + 平移编码**：
+
+原始方案中每根骨骼存储矩阵的 3 行（3 像素 × 4 通道 = 12 float），但蒙皮矩阵是刚体变换（旋转 + 平移），可以分解为四元数（4 float）+ 平移（3 float），仅需 2 像素（8 通道，1 通道浪费），纹理宽度减少 **33%**。
+
+```
+原始矩阵存储 (3 像素/骨骼):
+┌──────────┬──────────┬──────────┐
+│ Row0 (4f)│ Row1 (4f)│ Row2 (4f)│  → 12 floats
+└──────────┴──────────┴──────────┘
+
+压缩存储 (2 像素/骨骼):
+┌─────────────────┬──────────────────┐
+│ Quaternion(xyzw) │ Translation(xyz_) │  → 7 floats + 1 unused
+└─────────────────┴──────────────────┘
+```
+
 **写入纹理的过程**：
 
 ```csharp
 // AnimationBakerWindow_BoneBaker.cs - WriteTransformData()
 for (int j = 0; j < frameCount; j++)
 {
-    // 1. 采样到第 j 帧的姿态
     clip.SampleAnimation(fbxObj, length * j / frameCount);
 
     for (int k = 0; k < bindPoses.Length; k++)
     {
         var frame = startFrame + j;
-        var bindPoseToBoneAnimated = GetBoneMatrices(bindPoses[k], bones[k]);
+        var skinMatrix = GetBoneMatrices(bindPoses[k], bones[k]);
 
-        // 2. 4x4 矩阵的最后一行固定为 (0,0,0,1)，只需存 3 行
-        //    每行是一个 Vector4，转为 Color (RGBA) 写入一个像素
-        //    像素坐标: X = boneIndex * 3 + row,  Y = frame
+        // 将蒙皮矩阵分解为四元数（旋转）+ 平移
+        Quaternion rotation = skinMatrix.rotation;
+        Vector3 translation = new Vector3(skinMatrix.m03, skinMatrix.m13, skinMatrix.m23);
+
+        // 统一四元数到正 w 半球，确保帧间插值一致性
+        // 同一骨骼相邻帧的四元数应在同一半球，避免 nlerp 走长弧
+        if (rotation.w < 0)
+        {
+            rotation.x = -rotation.x; rotation.y = -rotation.y;
+            rotation.z = -rotation.z; rotation.w = -rotation.w;
+        }
+
+        // 像素 0: 四元数 (x, y, z, w)
         var pixel = GPUAnimUtil.GetTransformPixel(k, 0, frame);
-        texture.SetPixel(pixel.x, pixel.y, bindPoseToBoneAnimated.GetRow(0).ToColor());
+        texture.SetPixel(pixel.x, pixel.y, new Color(rotation.x, rotation.y, rotation.z, rotation.w));
+        // 像素 1: 平移 (x, y, z, 0)
         pixel = GPUAnimUtil.GetTransformPixel(k, 1, frame);
-        texture.SetPixel(pixel.x, pixel.y, bindPoseToBoneAnimated.GetRow(1).ToColor());
-        pixel = GPUAnimUtil.GetTransformPixel(k, 2, frame);
-        texture.SetPixel(pixel.x, pixel.y, bindPoseToBoneAnimated.GetRow(2).ToColor());
+        texture.SetPixel(pixel.x, pixel.y, new Color(translation.x, translation.y, translation.z, 0));
     }
 }
 ```
+
+> **为什么使用四元数压缩？** 骨骼动画中的蒙皮矩阵本质是刚体变换（旋转 + 平移），不包含缩放和剪切。四元数 + 平移完整表达了这一信息，且四元数的帧间插值（nlerp）比矩阵分量 lerp 更准确——后者可能引入意外的缩放/剪切伪影。
 
 **Mesh 的 UV 编码 — 将骨骼权重写入 UV1/UV2**：
 
@@ -514,7 +556,7 @@ instanceMesh.bindposes = null;    // 清除绑定姿势
 
 #### 5.1.3 顶点动画烘焙（Vertex Mode）
 
-顶点模式更加直接——利用 Unity 的 `SkinnedMeshRenderer.BakeMesh()` 将蒙皮后的顶点数据直接烘焙出来：
+顶点模式更加直接——利用 Unity 的 `SkinnedMeshRenderer.BakeMesh()` 将蒙皮后的顶点数据直接烘焙出来。像素坐标采用 **行折叠** 映射，将每帧 `vertexCount×2` 像素的线性序列折叠到 `foldedWidth` 宽度：
 
 ```csharp
 // AnimatonBakerWindow_VertexBaker.cs - WriteVertexData()
@@ -527,15 +569,15 @@ for (int j = 0; j < frameCount; j++)
     meshRenderer.BakeMesh(vertexBakedMesh);
     var vertices = vertexBakedMesh.vertices;
     var normals = vertexBakedMesh.normals;
-
+    var frame = startFrame + j;
     for (int k = 0; k < meshRenderer.sharedMesh.vertexCount; k++)
     {
-        var frame = startFrame + j;
-        // 3. 每个顶点写入 2 个像素: Position + Normal
-        var pixel = GPUAnimUtil.GetVertexPositionPixel(k, frame);
-        bakedTexture.SetPixel(pixel.x, pixel.y, ColorUtil.ToColor(vertices[k]));
-        pixel = GPUAnimUtil.GetVertexNormalPixel(k, frame);
-        bakedTexture.SetPixel(pixel.x, pixel.y, ColorUtil.ToColor(normals[k]));
+        // 3. 每个顶点写入 2 个像素: Position (linearIndex=k*2) + Normal (k*2+1)
+        //    行折叠坐标映射：x = linearIndex % foldedWidth, y = frame * rowsPerFrame + linearIndex / foldedWidth
+        var pixel = GPUAnimUtil.GetVertexPixel(k * 2, frame, foldedWidth, rowsPerFrame);
+        texture.SetPixel(pixel.x, pixel.y, ColorUtil.ToColor(vertices[k]));
+        pixel = GPUAnimUtil.GetVertexPixel(k * 2 + 1, frame, foldedWidth, rowsPerFrame);
+        texture.SetPixel(pixel.x, pixel.y, ColorUtil.ToColor(normals[k]));
 
         // 4. 同时累积包围盒
         BoundsIncrement.Iterate(vertices[k]);
@@ -560,35 +602,158 @@ instanceMesh.bindposes = null;
 ```csharp
 // GPUAnimUtility.cs
 
-// Bone Mode: 每根骨骼占 3 列（矩阵的 3 行），帧为行
+// Bone Mode: 每根骨骼占 2 列（四元数 + 平移），帧为行
 public static int2 GetTransformPixel(int transformIndex, int row, int frame)
-    => new int2(transformIndex * 3 + row, frame);
+    => new int2(transformIndex * 2 + row, frame);
 
-// Vertex Mode: 每个顶点占 2 列（Position + Normal），帧为行
-public static int2 GetVertexPositionPixel(int vertexIndex, int frame)
-    => new int2(vertexIndex * 2, frame);
-
-public static int2 GetVertexNormalPixel(int vertexIndex, int frame)
-    => new int2(vertexIndex * 2 + 1, frame);
+// Vertex Mode: 行折叠像素坐标映射
+// linearIndex = vertexIndex * 2 + channel (0=Position, 1=Normal)
+// x = linearIndex % foldedWidth
+// y = frame * rowsPerFrame + linearIndex / foldedWidth
+public static int2 GetVertexPixel(int linearIndex, int frame, int foldedWidth, int rowsPerFrame)
+    => new int2(linearIndex % foldedWidth, frame * rowsPerFrame + linearIndex / foldedWidth);
 ```
 
-纹理创建时宽高取 2 的幂次对齐：
+纹理创建时直接使用原始数据尺寸（NPOT），不做 2 的幂次对齐：
 
 ```csharp
-// BoneMode:   width = NextPowerOfTwo(boneCount * 3),   height = NextPowerOfTwo(totalFrames)
-// VertexMode: width = NextPowerOfTwo(vertexCount * 2),  height = NextPowerOfTwo(totalFrames)
+// BoneMode:   width = boneCount * 2,                         height = totalFrames
+// VertexMode: width = min(vertexCount * 2, maxAtlasSize),    height = totalLogicalFrames * rowsPerFrame
 private static Texture2D CreateTexture(int width, int height)
 {
     return new Texture2D(width, height, TextureFormat.RGBAHalf, false)
     {
         filterMode = FilterMode.Point,        // 逐像素采样，防止相邻数据混合
         wrapModeU = TextureWrapMode.Clamp,    // X轴: 超出无意义
-        wrapModeV = TextureWrapMode.Repeat    // Y轴: 循环动画可重复
+        wrapModeV = TextureWrapMode.Clamp     // Y轴: 帧回绕由 CPU 端 AnimationTicker 处理，兼容旧 GPU NPOT 限制
     };
 }
 ```
 
+> **为什么使用 NPOT 而非 POT？** `NextPowerOfTwo` 会导致纹理尺寸在边界处发生成倍膨胀（如 2049→4096），严重时可超出 GPU 最大纹理尺寸限制。NPOT 在现代 GPU 上无性能影响，但需保证 WrapMode 为 Clamp 以兼容旧设备。详见 [5.1.5 NPOT 纹理与 Clamp WrapMode](#515-npot-纹理与-clamp-wrapmode)。
+
 > **为什么使用 `RGBAHalf`？** 动画数据包含负值和超过 `[0,1]` 范围的浮点数（如位置坐标）。`RGBA32` 只能存储 `[0,1]` 范围的 8-bit 值，精度和范围都不够。`RGBAHalf` 提供 16-bit 半精度浮点，范围 ±65504，精度约 3 位有效数字，足以满足大多数动画场景。
+
+#### 5.1.5 NPOT 纹理与 Clamp WrapMode
+
+这是一个影响跨平台兼容性的关键技术决策。
+
+##### 问题背景：POT 对齐的空间浪费
+
+早期实现中，纹理尺寸使用 `Mathf.NextPowerOfTwo()` 对齐到 2 的幂次。由于 `NextPowerOfTwo` 的跳跃特性，当原始数据恰好超过幂次边界时，纹理尺寸会发生**成倍膨胀**：
+
+| 原始数据尺寸 | POT 对齐后 | 膨胀率 |
+|-------------|-----------|--------|
+| 130 × 500 | 256 × 512 | 2.6× |
+| 2049 × 900 | 4096 × 1024 | 2.3× |
+| 4097 × 3000 | 8192 × 4096 | 2.7× |
+
+对于动画片段多、骨骼/顶点数多的资源，POT 膨胀后的纹理可能**超出 GPU 最大纹理尺寸限制**（移动端通常为 4096 或 8192），导致 `new Texture2D()` 直接抛出异常。
+
+##### 解决方案：NPOT + Clamp
+
+移除 `NextPowerOfTwo`，纹理尺寸直接使用原始数据量：
+
+- **Bone Mode**: `width = boneCount × 3`, `height = totalFrames`
+- **Vertex Mode**: `width = vertexCount × 2`, `height = totalFrames`
+
+这要求解决 NPOT 在旧设备上的兼容性问题。
+
+##### 旧 GPU 的 NPOT 限制
+
+OpenGL ES 2.0 及更早的 GPU 对 NPOT 纹理有 **"limited NPOT"** 约束：
+
+| 功能 | POT 纹理 | NPOT 纹理（ES 2.0） |
+|------|---------|---------------------|
+| WrapMode: Clamp | ✅ 支持 | ✅ 支持 |
+| WrapMode: Repeat | ✅ 支持 | ❌ **未定义行为** |
+| Mipmap 生成 | ✅ 支持 | ❌ 纹理不完整 |
+| 双线性过滤 | ✅ 支持 | ⚠ 部分受限 |
+
+**NPOT + Repeat** 在旧 GPU 上的典型异常表现：
+- 纹理变为全黑（GPU 将其视为 incomplete texture）
+- 采样结果为随机噪点或读到错误行的数据
+- 极端情况下回退到软件路径导致严重掉帧
+
+##### 为什么 Clamp 可以替代 Repeat
+
+关键洞察：**V 轴的 Repeat 模式从未被真正使用过**。
+
+循环动画的帧回绕由 CPU 端 `AnimationTicker` 完成——它在计算帧索引时已对 `FrameCount` 取模：
+
+```csharp
+// AnimationTicker.cs - 循环模式
+framePassed = (TimeElapsed % param.Length) * param.FrameRate;
+curFrame = Mathf.FloorToInt(framePassed) % param.FrameCount;   // CPU 端取模
+nextFrame = (curFrame + 1) % param.FrameCount;                 // 首尾相接
+curFrame += param.FrameBegin;   // 加上纹理中的起始帧偏移
+nextFrame += param.FrameBegin;
+```
+
+传入 Shader 的 `_AnimFrameBegin` / `_AnimFrameEnd` 始终在 `[0, totalFrames)` 范围内。Shader 中的 UV 计算：
+
+```hlsl
+float2 uv = float2((index + .5) * _AnimTex_TexelSize.x,
+                    (frame + .5) * _AnimTex_TexelSize.y);
+```
+
+其中 `frame` ∈ [0, totalFrames)，`_AnimTex_TexelSize.y = 1/textureHeight`。因此 `uv.y` ∈ [0.5/H, (H-0.5)/H)，永远不会超出 `[0, 1)` 区间——GPU 的 Repeat 模式从未被触发。
+
+将 `wrapModeV` 改为 `Clamp` 后，行为完全等价，同时满足了旧 GPU 的 NPOT 兼容要求。
+
+##### 方案总结
+
+```
+传统 POT 方案:    NextPowerOfTwo(width) × NextPowerOfTwo(height) + wrapV=Repeat
+  → 空间浪费大，可能超限，但兼容所有 GPU
+
+NPOT + Clamp 方案: width × height + wrapV=Clamp
+  → 零空间浪费，不超限，兼容所有 GPU（包括 ES 2.0）
+  → 前提: 帧回绕由 CPU 端处理（本系统已满足）
+```
+
+---
+
+#### 5.1.6 顶点模式行折叠（Row Folding）
+
+##### 问题背景：极端纹理横纵比
+
+顶点模式下，每帧需要 `vertexCount × 2` 个像素（Position + Normal）。如果直接将所有像素排在一行，纹理宽度可能达到数千甚至上万像素（例如 5000 顶点 → 宽度 10000），而高度仅为帧数（如 60），导致：
+
+- **GPU 纹理尺寸限制**：移动端 GPU 通常限制单维最大 4096 或 8192 像素，宽度直接超限。
+- **Cache 不友好**：极宽的纹理行会跨越多个 cache line，空间局部性差。
+- **横纵比极端**：10000×60 的纹理在调试时难以预览和分析。
+
+##### 解决方案：行折叠
+
+将每帧的线性像素序列 **折叠成多行**，使纹理宽度不超过 `maxAtlasSize`：
+
+```
+foldedWidth   = min(vertexCount × 2, maxAtlasSize)
+rowsPerFrame  = ceil(vertexCount × 2 / foldedWidth)
+```
+
+坐标映射公式：
+
+$$
+\text{linearIndex} = \text{vertexID} \times 2 + \text{channel} \quad (0=\text{Position},\ 1=\text{Normal})
+$$
+
+$$
+\text{pixelX} = \text{linearIndex} \bmod \text{foldedWidth}
+$$
+
+$$
+\text{pixelY} = \text{frame} \times \text{rowsPerFrame} + \lfloor \text{linearIndex} / \text{foldedWidth} \rfloor
+$$
+
+##### 退化兼容
+
+当 `vertexCount × 2 ≤ maxAtlasSize` 时，`foldedWidth = vertexCount × 2`，`rowsPerFrame = 1`，公式完全退化为传统单行布局——无额外开销。骨骼模式始终 `rowsPerFrame = 1`。
+
+##### 运行时参数传递
+
+`RowsPerFrame` 烘焙时计算并存入 `GPUAnimationData`，运行时通过 `Material.SetInt("_AnimRowsPerFrame", rowsPerFrame)` 设置到共享材质（非 `MaterialPropertyBlock`），因为同一角色的所有实例共享相同的折叠参数。Shader 中通过 `int _AnimRowsPerFrame` 全局 uniform 读取。
 
 ---
 
@@ -751,44 +916,49 @@ public static void ApplyPropertyBlock(this AnimationTickOutput output, MaterialP
 
 #### 5.3.3 暴露骨骼的运行时还原
 
-运行时 `GPUAnimationController` 需要从 Animation Texture 中 **在 CPU 端** 采样骨骼矩阵，还原出暴露骨骼的 `Transform`，用于挂载武器等子物体：
+运行时 `GPUAnimationController` 需要从 Animation Texture 中 **在 CPU 端** 采样骨骼数据，还原出暴露骨骼的 `Transform`，用于挂载武器等子物体。
+
+骨骼数据使用 **四元数 + 平移** 的压缩格式，CPU 端采用 `Quaternion.Lerp`（归一化线性插值）+ `Vector3.Lerp` 进行帧间插值，比矩阵分量 lerp 更准确——不会引入缩放/剪切伪影：
 
 ```csharp
 // GPUAnimationController.cs - TickExposeBones()
-for (int i = 0; i < GPUAnimData.ExposeTransforms.Length; i++)
+for (int i = 0; i < _exposeTransformInfo.Length; i++)
 {
-    int boneIndex = GPUAnimData.ExposeTransforms[i].Index;
+    int boneIndex = _exposeTransformInfo[i].Index;
 
-    // 和 Shader 中一样：采样两个关键帧的矩阵，做线性插值
-    Matrix4x4 recordMatrix = new Matrix4x4();
-    recordMatrix.SetRow(0, Vector4.Lerp(
-        ReadAnimationTexture(boneIndex, 0, output.Cur),
-        ReadAnimationTexture(boneIndex, 0, output.Next),
-        output.Interpolate));
-    recordMatrix.SetRow(1, Vector4.Lerp(
-        ReadAnimationTexture(boneIndex, 1, output.Cur),
-        ReadAnimationTexture(boneIndex, 1, output.Next),
-        output.Interpolate));
-    recordMatrix.SetRow(2, Vector4.Lerp(
-        ReadAnimationTexture(boneIndex, 2, output.Cur),
-        ReadAnimationTexture(boneIndex, 2, output.Next),
-        output.Interpolate));
-    recordMatrix.SetRow(3, new Vector4(0, 0, 0, 1));
+    // 采样当前帧与下一帧的四元数
+    Vector4 qCurPx  = ReadAnimationTexture(boneIndex, 0, output.Cur);
+    Vector4 qNextPx = ReadAnimationTexture(boneIndex, 0, output.Next);
+    var qCur  = new Quaternion(qCurPx.x, qCurPx.y, qCurPx.z, qCurPx.w);
+    var qNext = new Quaternion(qNextPx.x, qNextPx.y, qNextPx.z, qNextPx.w);
+    Quaternion q = Quaternion.Lerp(qCur, qNext, output.Interpolate);
 
-    // 使用矩阵变换烘焙时记录的骨骼局部位置和方向
+    // 采样当前帧与下一帧的平移
+    Vector4 tCurPx  = ReadAnimationTexture(boneIndex, 1, output.Cur);
+    Vector4 tNextPx = ReadAnimationTexture(boneIndex, 1, output.Next);
+    Vector3 t = Vector3.Lerp(
+        new Vector3(tCurPx.x, tCurPx.y, tCurPx.z),
+        new Vector3(tNextPx.x, tNextPx.y, tNextPx.z),
+        output.Interpolate);
+
+    // 从四元数 + 平移重建变换矩阵
+    Matrix4x4 recordMatrix = Matrix4x4.TRS(t, q, Vector3.one);
+
     _exposeBones[i].transform.localPosition =
-        recordMatrix.MultiplyPoint(GPUAnimData.ExposeTransforms[i].Position);
+        recordMatrix.MultiplyPoint(_exposeTransformInfo[i].Position);
     _exposeBones[i].transform.localRotation =
-        Quaternion.LookRotation(recordMatrix.MultiplyVector(GPUAnimData.ExposeTransforms[i].Direction));
+        Quaternion.LookRotation(recordMatrix.MultiplyVector(_exposeTransformInfo[i].Direction));
 }
 
-// 纹理像素的读取使用和烘焙时相同的坐标映射
+// 从当前播放动画所在的 Atlas 纹理中读取像素
 private Vector4 ReadAnimationTexture(int boneIndex, int row, int frame)
 {
     var pixel = GPUAnimUtil.GetTransformPixel(boneIndex, row, frame);
-    return GPUAnimData.BakeTexture.GetPixel(pixel.x, pixel.y);
+    return GetActiveTexture().GetPixel(pixel.x, pixel.y);
 }
 ```
+
+> **多 Atlas 支持**：暴露骨骼的定义（名称、骨骼索引、局部偏移）在 `InitExposeBones` 时从 `GPUAnimData.ExposeTransforms` 获取；运行时 `ReadAnimationTexture` 通过 `GetActiveTexture()` 从当前动画所在的 Atlas 纹理采样，当切换到不同 Atlas 中的动画时自动随之切换。
 
 ---
 
@@ -815,28 +985,48 @@ UNITY_INSTANCING_BUFFER_END(PropsGPUAnim)
 
 #### 5.4.2 骨骼模式（_ANIM_BONE）的 Shader 采样
 
+**Step 0 — 四元数 + 平移 → 4×4 矩阵重建**：
+
+烘焙阶段将蒙皮矩阵压缩为 *四元数 XYZW + 平移 XYZ*（2 像素/骨骼），Shader 中通过 `QuatTransToMatrix` 重建完整 4×4 矩阵：
+
+```hlsl
+float4x4 QuatTransToMatrix(float4 q, float3 t)
+{
+    float x2 = q.x * 2, y2 = q.y * 2, z2 = q.z * 2;
+    float xx = q.x * x2, xy = q.x * y2, xz = q.x * z2;
+    float yy = q.y * y2, yz = q.y * z2, zz = q.z * z2;
+    float wx = q.w * x2, wy = q.w * y2, wz = q.w * z2;
+
+    return float4x4(
+        1 - yy - zz,  xy - wz,      xz + wy,      t.x,
+        xy + wz,      1 - xx - zz,  yz - wx,       t.y,
+        xz - wy,      yz + wx,      1 - xx - yy,   t.z,
+        0,            0,            0,              1
+    );
+}
+```
+
 **Step 1 — 采样单根骨骼的变换矩阵**：
 
 ```hlsl
 float4x4 SampleTransformMatrix(uint sampleFrame, uint transformIndex)
 {
-    // 像素坐标 = (transformIndex * 3 + 0.5, sampleFrame + 0.5)
-    // +0.5 是为了在 Point Filter 模式下精确命中像素中心
-    float2 index = float2(.5h + transformIndex * 3, .5h + sampleFrame);
-
-    return float4x4(
-        SAMPLE_TEXTURE2D_LOD(_AnimTex, sampler_AnimTex,
-            index * _AnimTex_TexelSize.xy, 0),                           // Row 0
-        SAMPLE_TEXTURE2D_LOD(_AnimTex, sampler_AnimTex,
-            (index + float2(1, 0)) * _AnimTex_TexelSize.xy, 0),          // Row 1
-        SAMPLE_TEXTURE2D_LOD(_AnimTex, sampler_AnimTex,
-            (index + float2(2, 0)) * _AnimTex_TexelSize.xy, 0),          // Row 2
-        float4(0, 0, 0, 1)                                               // Row 3 (固定)
-    );
+    // +0.5: 像素中心偏移，避免 Point Filter 在边界采样错误
+    // 每根骨骼占 2 列像素: 像素0=四元数, 像素1=平移
+    float2 index = float2(transformIndex * 2 + .5h, sampleFrame + .5h);
+    // 像素 0: 四元数 (x, y, z, w)
+    float4 q = SAMPLE_TEXTURE2D_LOD(_AnimTex, sampler_AnimTex,
+        index * _AnimTex_TexelSize.xy, 0);
+    // 像素 1: 平移 (x, y, z, _)
+    float3 t = SAMPLE_TEXTURE2D_LOD(_AnimTex, sampler_AnimTex,
+        (index + float2(1, 0)) * _AnimTex_TexelSize.xy, 0).xyz;
+    return QuatTransToMatrix(q, t);
 }
 ```
 
 > **为什么乘以 `_AnimTex_TexelSize.xy`？** `SAMPLE_TEXTURE2D_LOD` 接受的 UV 是 `[0, 1]` 范围的归一化坐标。`_AnimTex_TexelSize.xy = (1/width, 1/height)`，将像素坐标转换为 UV。
+>
+> **为什么采用四元数压缩？** 相比直接存储矩阵 3 行（3 像素/骨骼），四元数+平移仅需 2 像素/骨骼，宽度减少 33%。烘焙时将四元数统一到正 w 半球，帧间插值使用 `normalize(lerp(q0, q1, t))`（nlerp），比矩阵分量 lerp 更不容易产生缩放/剪切伪影。
 
 **Step 2 — 多骨骼加权混合**：
 
@@ -895,38 +1085,44 @@ Varyings vert(Attributes v)
 
 #### 5.4.3 顶点模式（_ANIM_VERTEX）的 Shader 采样
 
-顶点模式更简洁——直接用 `SV_VertexID` 从纹理中读取位置和法线：
+顶点模式使用 **行折叠坐标** 从纹理中读取位置和法线。每帧的线性像素序列折叠成多行后，Shader 中通过 `_AnimRowsPerFrame`（由 CPU 端设置到共享 Material）和纹理宽度 `_AnimTex_TexelSize.z` 计算折叠后的 UV 坐标：
 
 ```hlsl
+// 全局 uniform（通过 Material 设置，所有实例共享）
+int _AnimRowsPerFrame;  // = ceil(vertexCount * 2 / texWidth)，骨骼模式为 1
+
 float3 SamplePosition(uint vertexID, uint frame)
 {
-    return SAMPLE_TEXTURE2D_LOD(_AnimTex, sampler_AnimTex,
-        float2((vertexID * 2 + .5) * _AnimTex_TexelSize.x,
-               frame * _AnimTex_TexelSize.y), 0).xyz;
+    uint texWidth = (uint)_AnimTex_TexelSize.z;
+    uint linearIdx = vertexID * 2;
+    float2 uv = float2(
+        (linearIdx % texWidth + .5) * _AnimTex_TexelSize.x,
+        (frame * _AnimRowsPerFrame + linearIdx / texWidth + .5) * _AnimTex_TexelSize.y);
+    return SAMPLE_TEXTURE2D_LOD(_AnimTex, sampler_AnimTex, uv, 0).xyz;
 }
 
 float3 SampleNormal(uint vertexID, uint frame)
 {
-    return SAMPLE_TEXTURE2D_LOD(_AnimTex, sampler_AnimTex,
-        float2((vertexID * 2 + 1 + .5) * _AnimTex_TexelSize.x,
-               frame * _AnimTex_TexelSize.y), 0).xyz;
+    uint texWidth = (uint)_AnimTex_TexelSize.z;
+    uint linearIdx = vertexID * 2 + 1;
+    float2 uv = float2(
+        (linearIdx % texWidth + .5) * _AnimTex_TexelSize.x,
+        (frame * _AnimRowsPerFrame + linearIdx / texWidth + .5) * _AnimTex_TexelSize.y);
+    return SAMPLE_TEXTURE2D_LOD(_AnimTex, sampler_AnimTex, uv, 0).xyz;
 }
 
 void SampleVertex(uint vertexID, inout float3 positionOS, inout float3 normalOS)
 {
-    // 两帧插值
-    positionOS = lerp(
-        SamplePosition(vertexID, _FrameBegin),
-        SamplePosition(vertexID, _FrameEnd),
-        _FrameInterpolate);
-    normalOS = lerp(
-        SampleNormal(vertexID, _FrameBegin),
-        SampleNormal(vertexID, _FrameEnd),
-        _FrameInterpolate);
+    positionOS = lerp(SamplePosition(vertexID, _FrameBegin),
+                      SamplePosition(vertexID, _FrameEnd),
+                      _FrameInterpolate);
+    normalOS = normalize(lerp(SampleNormal(vertexID, _FrameBegin),
+                              SampleNormal(vertexID, _FrameEnd),
+                              _FrameInterpolate));
 }
 ```
 
-> **顶点模式的像素寻址**：`vertexID * 2` 对应 Position 像素，`vertexID * 2 + 1` 对应 Normal 像素，与烘焙时 `GetVertexPositionPixel` / `GetVertexNormalPixel` 的编码完全一致。
+> **行折叠坐标映射**：`linearIdx = vertexID * 2 [+ 1]` 得到线性索引后，`% texWidth` 得到列号，`/ texWidth` 得到行偏移，加上 `frame * _AnimRowsPerFrame` 得到纹理 Y 坐标。与烘焙时 `GetVertexPixel(linearIndex, frame, foldedWidth, rowsPerFrame)` 的编码完全一致。骨骼模式下 `_AnimRowsPerFrame = 1`，退化为传统单行布局，无额外开销。
 
 #### 5.4.4 Shader 关键字切换
 
@@ -934,19 +1130,20 @@ void SampleVertex(uint vertexID, inout float3 positionOS, inout float3 normalOS)
 
 ```hlsl
 // Shader 声明
-#pragma shader_feature_local _ANIM_BONE _ANIM_VERTEX
+#pragma shader_feature_local ANIM_BONE ANIM_VERTEX
 ```
 
 ```csharp
 // C# 端启用关键字（GPUAnimUtility.cs）
 public static void ApplyMaterial(this GPUAnimationData data, Material sharedMaterial)
 {
-    sharedMaterial.SetTexture(IDAnimationTex, data.BakeTexture);
-    sharedMaterial.EnableKeywords(data.BakedMode);  // 启用 _ANIM_BONE 或 _ANIM_VERTEX
+    if (data.BakeTextures != null && data.BakeTextures.Length > 0)
+        sharedMaterial.SetTexture(IDAnimationTex, data.BakeTextures[0]);
+    sharedMaterial.EnableKeywords(data.BakedMode);  // 启用 ANIM_BONE 或 ANIM_VERTEX
 }
 ```
 
-`EGPUAnimationMode` 枚举的命名直接对应 Shader 关键字名称（`_ANIM_VERTEX` / `_ANIM_BONE`），通过 `EnableKeywords` 扩展方法将枚举值转为 Shader 关键字字符串。
+`EGPUAnimationMode` 枚举的命名直接对应 Shader 关键字名称（`ANIM_VERTEX` / `ANIM_BONE`），通过 `EnableKeywords` 扩展方法将枚举值转为 Shader 关键字字符串。
 
 ---
 
@@ -1011,3 +1208,83 @@ private void DispatchSkinning()
 ```
 
 > **注意**：当前实现使用 `ComputeBuffer.GetData()` 同步回读结果到 CPU，这会产生 GPU Stall。后续可优化为 `AsyncGPUReadback` 异步回读，或使用 `GraphicsBuffer` 直接将 ComputeShader 输出绑定到渲染管线，避免回读。
+
+---
+
+### 5.6 多 Atlas 纹理架构（Multi-Atlas）
+
+当角色动画数量较多（例如 RPG 角色拥有 50+ 动画片段）时，所有动画烘焙到单张纹理可能超出移动端 GPU 纹理尺寸上限（通常 4096×4096）。
+**多 Atlas** 架构将同一角色的动画自动拆分到多张纹理中，打包在单个 `GPUAnimationData` 资产内，运行时根据当前播放的动画片段自动切换对应的纹理。
+
+#### 5.6.1 数据结构
+
+```
+┌─── GPUAnimationData (ScriptableObject) ─────────────────────────────┐
+│                                                                       │
+│  BakeTextures[0]: Atlas_0        BakeTextures[1]: Atlas_1            │
+│  ┌────────────────────────┐      ┌────────────────────────┐         │
+│  │ Idle     (FrameBegin=0)│      │ Attack_01 (FrameBegin=0)│        │
+│  │ Walk     (FrameBegin=30)│     │ Attack_02 (FrameBegin=25)│       │
+│  │ Run      (FrameBegin=60)│     │ Skill_01  (FrameBegin=50)│       │
+│  └────────────────────────┘      └────────────────────────┘         │
+│                                                                       │
+│  AnimationClips[] (统一索引):                                         │
+│  ┌─────┬─────────────┬────────────┬──────────────┐                   │
+│  │ Idx │ Name        │ FrameBegin │ TextureIndex │                   │
+│  ├─────┼─────────────┼────────────┼──────────────┤                   │
+│  │  0  │ Idle        │     0      │      0       │                   │
+│  │  1  │ Walk        │    30      │      0       │                   │
+│  │  2  │ Run         │    60      │      0       │                   │
+│  │  3  │ Attack_01   │     0      │      1       │                   │
+│  │  4  │ Attack_02   │    25      │      1       │                   │
+│  │  5  │ Skill_01    │    50      │      1       │                   │
+│  └─────┴─────────────┴────────────┴──────────────┘                   │
+│                                                                       │
+│  BakedMesh, RowsPerFrame, ExposeTransforms                           │
+└───────────────────────────────────────────────────────────────────────┘
+```
+
+#### 5.6.2 核心机制
+
+**自动拆分**：烘焙器根据用户设定的 `_maxAtlasSize`（1024/2048/4096/8192），采用贪心策略将动画片段按序填入 Atlas，当累计帧数超出高度上限时自动开始新的 Atlas。每个 `AnimationTickerClip` 的 `FrameBegin` 是相对于其所在 Atlas 的局部帧偏移（非全局偏移），`TextureIndex` 记录所属 Atlas 下标。
+
+**运行时纹理切换**：`GPUAnimationController.Tick()` 通过 `AnimTicker.Anim.TextureIndex` 获取当前动画所在的 Atlas 索引，从 `GPUAnimData.BakeTextures[TextureIndex]` 取得纹理，通过 `MaterialPropertyBlock.SetTexture()` 逐实例设置，不修改共享材质：
+
+```csharp
+// GPUAnimationController.cs
+private Texture2D GetActiveTexture()
+{
+    int texIdx = AnimTicker.Anim.TextureIndex;
+    return GPUAnimData.BakeTextures[texIdx];
+}
+
+public void Tick(float deltaTime)
+{
+    // ...
+    var texture = GetActiveTexture();
+    if (texture != null)
+        GPUAnimUtil.SetAnimTexture(_propertyBlock, texture);
+    MeshRenderer.SetPropertyBlock(_propertyBlock);
+}
+```
+
+**直接索引**：外部通过 `SetAnimation(int index)` 或 `SetAnimation(string name)` 切换动画，直接操作 `AnimationClips[]` 数组下标，无需额外的间接索引表，因为所有片段已扁平化存储在单个数据集中。
+
+#### 5.6.3 设计约束
+
+| 约束 | 说明 |
+|------|------|
+| **单一数据集** | 一个 Controller 持有一个 `GPUAnimationData`，所有动画在烘焙时统一拆分，不支持运行时拼接多个独立数据集 |
+| **单片段不跨纹理** | 一个动画片段的所有帧必须在同一张 Atlas 中，不支持跨纹理拼接 |
+| **纹理不合批** | 播放不同 Atlas 纹理的实例无法在同一 Draw Call 中合批；仅当多个实例播放同一 Atlas 内的动画时才可 GPU Instancing 合批 |
+| **暴露骨骼** | 暴露骨骼定义存储在 `GPUAnimData.ExposeTransforms` 中，运行时从当前活跃 Atlas 纹理采样 |
+
+#### 5.6.4 行折叠与多 Atlas 的协同
+
+顶点模式下，行折叠和多 Atlas 拆分协同工作：
+
+1. **foldedWidth** = `min(vertexCount × 2, maxAtlasSize)` — 决定纹理宽度
+2. **rowsPerFrame** = `ceil(vertexCount × 2 / foldedWidth)` — 每个逻辑帧占据的物理行数
+3. **maxLogicalFrames** = `maxAtlasSize / rowsPerFrame` — 单张 Atlas 可容纳的逻辑帧数上限
+4. 烘焙器据此将动画片段贪心分配到多张 Atlas，每张 Atlas 的物理高度 = `logicalFrames × rowsPerFrame`
+5. `RowsPerFrame` 存入 `GPUAnimationData`，初始化时通过 `Material.SetInt("_AnimRowsPerFrame", ...)` 设置到共享材质
