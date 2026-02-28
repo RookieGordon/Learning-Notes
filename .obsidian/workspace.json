@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "游戏开发技术探索/Unity开发技术/动画性能优化/GPU动画.md",
-                "mode": "preview",
+                "file": "游戏开发技术探索/Unity开发技术/热更新场景下的系统性排错模型.md",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "GPU动画"
+              "title": "热更新场景下的系统性排错模型"
             }
           }
         ]
@@ -78,8 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 402.5,
-    "collapsed": true
+    "width": 402.5
   },
   "right": {
     "id": "be1e91dfcb57ce3b",
@@ -95,13 +94,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "游戏开发技术探索/ET8.1/框架介绍/Fiber 纤程模型.md",
+                "file": "游戏开发技术探索/Unity开发技术/热更新场景下的系统性排错模型.md",
                 "followCursor": false,
                 "showSearch": true,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Fiber 纤程模型 的大纲"
+              "title": "热更新场景下的系统性排错模型 的大纲"
             }
           },
           {
@@ -162,13 +161,11 @@
               "title": "Source Control"
             }
           }
-        ],
-        "currentTab": 4
+        ]
       }
     ],
     "direction": "horizontal",
-    "width": 515.5,
-    "collapsed": true
+    "width": 515.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -189,8 +186,10 @@
   },
   "active": "73ed451b8f2cde5c",
   "lastOpenFiles": [
-    "游戏开发技术探索/ET8.1/框架介绍/ET框架结构.md",
+    "游戏开发技术探索/工程排错中的常见思维坑（含图解）.md",
+    "游戏开发技术探索/Unity开发技术/热更新场景下的系统性排错模型.md",
     "游戏开发技术探索/Unity开发技术/动画性能优化/GPU动画.md",
+    "游戏开发技术探索/ET8.1/框架介绍/ET框架结构.md",
     "游戏开发技术探索/Unity开发技术/动画性能优化/GPU动画优化技术原理详解.md",
     "游戏开发技术探索/Unity开发技术/动画性能优化/GPUAnimation_Design.md",
     "游戏开发技术探索/Unity开发技术/动画性能优化/动画烘焙，GPU动画.md",
@@ -233,8 +232,6 @@
     "游戏开发技术探索/ET8.1/网络框架/网络协议收发.md",
     "250520_1322144566@qq.com_components_license.md",
     "未命名.md",
-    "未命名 1.md",
-    "游戏开发技术探索/ET8.1/网络框架/邮箱组件.md",
     "课程和练习/C++/C++.canvas",
     "未命名.canvas"
   ]
