@@ -20,8 +20,19 @@
               "icon": "lucide-file",
               "title": "工程排错中的常见思维坑（含图解）"
             }
+          },
+          {
+            "id": "475f39652ff6ebee",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "新标签页"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -95,13 +106,12 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "游戏开发技术探索/工程排错中的常见思维坑（含图解）.md",
                 "followCursor": false,
                 "showSearch": true,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "工程排错中的常见思维坑（含图解） 的大纲"
+              "title": "大纲"
             }
           },
           {
@@ -186,10 +196,10 @@
       "vscode-editor:新建代码文件": false
     }
   },
-  "active": "73ed451b8f2cde5c",
+  "active": "475f39652ff6ebee",
   "lastOpenFiles": [
-    "游戏开发技术探索/热更新场景下的系统性排错模型.md",
     "游戏开发技术探索/工程排错中的常见思维坑（含图解）.md",
+    "游戏开发技术探索/热更新场景下的系统性排错模型.md",
     "游戏开发技术探索/Unity开发技术/动画性能优化/GPU动画.md",
     "游戏开发技术探索/ET8.1/框架介绍/ET框架结构.md",
     "游戏开发技术探索/Unity开发技术/动画性能优化/GPU动画优化技术原理详解.md",
