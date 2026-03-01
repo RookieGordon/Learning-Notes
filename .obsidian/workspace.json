@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "e9b32dbf00a5f034",
+        "id": "730ff004035e572a",
         "type": "tabs",
         "children": [
           {
-            "id": "9a0c16c105217cc3",
+            "id": "c9ce4b61c4143d47",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -74,7 +74,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 264.49999618530273
+    "width": 264.49999618530273,
+    "collapsed": true
   },
   "right": {
     "id": "be1e91dfcb57ce3b",
@@ -180,8 +181,15 @@
       "vscode-editor:新建代码文件": false
     }
   },
-  "active": "9a0c16c105217cc3",
+  "active": "c9ce4b61c4143d47",
   "lastOpenFiles": [
+    "项目/SeaWar/微信小游戏移植/Unity移植微信小游戏_完整流程与待办清单.md",
+    "项目/SeaWar/微信小游戏移植/~$ity移植微信小游戏_完整流程与待办清单.docx",
+    "项目/SeaWar/微信小游戏移植/Unity移植微信小游戏_完整流程与待办清单.docx",
+    "项目/SeaWar/微信小游戏移植/微信小游戏平台限制_技术原理解析.docx",
+    "项目/SeaWar/微信小游戏移植/Unity移植微信小游戏_完整流程与待办清单（含Socket）.docx",
+    "项目/SeaWar/微信小游戏移植/微信小游戏平台限制_技术原理解析（含Socket）.docx",
+    "项目/SeaWar/微信小游戏移植",
     "游戏开发技术探索/工程排错中的常见思维坑（含图解）.md",
     "游戏开发技术探索/热更新场景下的系统性排错模型.md",
     "游戏开发技术探索/Unity开发技术/动画性能优化/GPU动画.md",
@@ -218,16 +226,8 @@
     "游戏开发技术探索/ET8.1/网络框架/网络传输层.md",
     "游戏开发技术探索/ET8.1/网络框架/协议对象.md",
     "游戏开发技术探索/ET8.1/网络框架/网络层.md",
-    "游戏开发技术探索/ET8.1/服务端/attachments/服务器启动流程.svg.crswap",
-    "游戏开发技术探索/ET8.1/服务端/attachments/Actor消息通信类图.svg.crswap",
-    "游戏开发技术探索/ET8.1/服务端/attachments/ET框架ECS核心类图.svg.crswap",
-    "游戏开发技术探索/ET8.1/服务端/attachments/跨进程RPC通信流程.svg.crswap",
-    "游戏开发技术探索/ET8.1/服务端/attachments/同进程Fiber与RPC通信流程.svg.crswap",
-    "游戏开发技术探索/ET8.1/服务端/attachments/Actor Location 消息寻址与迁移流程.svg.crswap",
     "游戏开发技术探索/ET8.1/网络框架/Actor 模型设计.md",
     "游戏开发技术探索/ET8.1/网络框架/网络协议收发.md",
-    "250520_1322144566@qq.com_components_license.md",
-    "未命名.md",
     "课程和练习/C++/C++.canvas",
     "未命名.canvas"
   ]
