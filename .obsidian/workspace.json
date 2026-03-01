@@ -11,10 +11,14 @@
             "id": "c9ce4b61c4143d47",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "项目/SeaWar/微信小游戏移植/Unity移植微信小游戏_完整流程与待办清单.md",
+                "mode": "preview",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "新标签页"
+              "title": "Unity移植微信小游戏_完整流程与待办清单"
             }
           }
         ]
@@ -183,6 +187,7 @@
   },
   "active": "c9ce4b61c4143d47",
   "lastOpenFiles": [
+    "项目/SeaWar/微信小游戏移植/微信小游戏平台限制_技术原理解析.md",
     "项目/SeaWar/微信小游戏移植/Unity移植微信小游戏_完整流程与待办清单.md",
     "项目/SeaWar/微信小游戏移植/~$ity移植微信小游戏_完整流程与待办清单.docx",
     "项目/SeaWar/微信小游戏移植/Unity移植微信小游戏_完整流程与待办清单.docx",
